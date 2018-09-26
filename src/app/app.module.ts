@@ -9,21 +9,31 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { HomeComponent } from './pages/home/home.component';
 import { routes } from './app.routing';
+import { DataService } from './providers/data-service/data.service';
+import { RestApiService } from './providers/rest-api-service/rest-api.service';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { BankAccountComponent } from './pages/bank-account/bank-account.component';
+import { LogisticComponent } from './pages/logistic/logistic.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SidenavComponent,
     ToolbarComponent,
-    HomeComponent
+    HomeComponent,
+    BankAccountComponent,
+    LogisticComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
+    FormsModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(routes),
     AppMaterialModule
   ],
-  providers: [],
+  providers: [DataService, RestApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
