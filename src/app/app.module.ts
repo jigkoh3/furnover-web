@@ -13,13 +13,17 @@ import { DataService } from './providers/data-service/data.service';
 import { RestApiService } from './providers/rest-api-service/rest-api.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { BankAccountComponent } from './pages/bank-account/bank-account.component';
+import { LogisticComponent } from './pages/logistic/logistic.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SidenavComponent,
     ToolbarComponent,
-    HomeComponent
+    HomeComponent,
+    BankAccountComponent,
+    LogisticComponent
   ],
   imports: [
     BrowserModule,
