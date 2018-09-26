@@ -19,6 +19,7 @@ import { LogisticComponent } from './pages/logistic/logistic.component';
 import { DeliveryTimeComponent } from './pages/modals/delivery-time/delivery-time.component';
 =======
 import { RegisterComponent } from './pages/register/register.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 import { LoginComponent } from './pages/login/login.component';
 import { MessageComponent } from './components/message/message';
 >>>>>>> 3f329aa48b45da0bb9e2612666dab97a1f372e84
@@ -36,6 +37,7 @@ import { MessageComponent } from './components/message/message';
     DeliveryTimeComponent
 =======
     RegisterComponent,
+    ProfileComponent,
     LoginComponent
 >>>>>>> 3f329aa48b45da0bb9e2612666dab97a1f372e84
   ],

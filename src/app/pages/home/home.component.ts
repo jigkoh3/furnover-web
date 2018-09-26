@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RestApiService } from '../../providers/rest-api-service/rest-api.service';
 import { Constants } from '../../app.constants';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -9,11 +10,18 @@ import { Constants } from '../../app.constants';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(public api: RestApiService) { }
+  constructor(
+    public api: RestApiService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
     // this.testService();
 
+  }
+
+  setting() {
+    this.router.navigate(['/profile']);
   }
 
   async testService() {
