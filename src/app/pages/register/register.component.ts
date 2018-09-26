@@ -4,6 +4,7 @@ import { RestApiService } from '../../providers/rest-api-service/rest-api.servic
 import { DataService } from '../../providers/data-service/data.service';
 import { Constants } from '../../app.constants';
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 
 @Component({
@@ -21,7 +22,8 @@ export class RegisterComponent implements OnInit {
     private _formBuilder: FormBuilder,
     private restApi: RestApiService,
     private dataService: DataService,
-    private router: Router
+    private router: Router,
+    private spinner: NgxSpinnerService
   ) { }
 
   ngOnInit() {
@@ -38,13 +40,16 @@ export class RegisterComponent implements OnInit {
   }
 
   async onRegisterShop() {
+    this.spinner.show();
     try {
       this.dataService.success('');
       let response: any = await this.restApi.post(Constants.URL() + '/api/auth/signup-shop', this.credentials);
       window.localStorage.setItem(Constants.URL() + '@token', JSON.stringify(response.token));
       window.localStorage.setItem(Constants.URL() + '@usershop', JSON.stringify(response.data));
       this.router.navigate(['/home']);
+      this.spinner.hide();
     } catch (error) {
+      this.spinner.hide();
       if (error) {
         if (error['error']['message'] === 'Email already exists') {
           return this.dataService.error('อีเมล์นี้มีผู้ใช้งานแล้ว');
