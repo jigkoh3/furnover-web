@@ -20,6 +20,7 @@ import { RegisterComponent } from './pages/register/register.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { LoginComponent } from './pages/login/login.component';
 import { MessageComponent } from './components/message/message';
+import { SideMenuSettingShopComponent } from './components/side-menu-setting-shop/side-menu-setting-shop.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { MessageComponent } from './components/message/message';
     DeliveryTimeComponent,
     RegisterComponent,
     ProfileComponent,
-    LoginComponent
+    LoginComponent,
+    SideMenuSettingShopComponent
   ],
   imports: [
     BrowserModule,
