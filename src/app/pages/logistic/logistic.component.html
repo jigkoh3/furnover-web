@@ -30,7 +30,7 @@
           <div *ngFor="let item of blindData">
             <mat-card>
               <div class="row padding">
-                <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                   <b>{{item.title}}</b><br>
                   <label class="font-color-grey font-size">
                     ข้อจำกัด
@@ -40,10 +40,10 @@
                   <!-- <br> -->
                   <!-- <label class="font-size font-color-grey">Max weight: {{item.limit}}กิโลกรัม</label> -->
                 </div>
-                <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                <div class="col-12 col-sm-3 col-md-3 col-lg-3 col-xl-3">
                   <label>เปิดใช้งานการจัดส่งนี้</label>
                 </div>
-                <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">
+                <div class="col-12 col-sm-1 col-md-1 col-lg-1 col-xl-1">
                   <mat-slide-toggle [(ngModel)]="item.device"></mat-slide-toggle>
                 </div>
               </div>
