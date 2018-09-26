@@ -2,8 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { AppMaterialModule } from './app-material/app-material.module';
+import { NgxSpinnerModule } from 'ngx-spinner';
+
 import { AppComponent } from './app.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
@@ -44,7 +45,8 @@ import { SideMenuSettingShopComponent } from './components/side-menu-setting-sho
     ReactiveFormsModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(routes),
-    AppMaterialModule
+    AppMaterialModule,
+    NgxSpinnerModule
   ],
   providers: [DataService, RestApiService],
   bootstrap: [AppComponent]
