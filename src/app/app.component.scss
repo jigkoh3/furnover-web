@@ -1,0 +1,30 @@
+.mat-sidenav {
+  width: 250px;
+}
+
+.mat-sidenav-container {
+  background-color: white !important;
+  height: 100vh;
+}
+
+@media screen and (max-width: 360px) {
+  .mat-sidenav {
+    width: 250px !important;
+  }
+}
+
+@media (max-width: 599px) {
+  .container {
+    margin-top: 56px;
+  }
+}
+
+@media (min-width: 576px) {
+  .container {
+    margin-top: 64px;
+  }
+}
+
+.container {
+  max-width: 100% !important;
+}
