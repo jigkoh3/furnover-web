@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { RestApiService } from '../../providers/rest-api-service/rest-api.service';
+import { DataService } from '../../providers/data-service/data.service';
+import { Constants } from '../../app.constants';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -8,39 +12,49 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
+  credentials: any = {};
   isLinear = true; // set true for required field
-  firstFormGroup: FormGroup;
-  secondFormGroup: FormGroup;
-  thirdFormGroup: FormGroup;
-  fourthFormGroup: FormGroup;
-  fifthFormGroup: FormGroup;
+  accountFormGroup: FormGroup;
+  shopFormGroup: FormGroup;
 
-  constructor(private _formBuilder: FormBuilder) { }
+  constructor(
+    private _formBuilder: FormBuilder,
+    private restApi: RestApiService,
+    private dataService: DataService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
-    this.firstFormGroup = this._formBuilder.group({
-      firstnameCtrl: ['', Validators.required],
-      lastnameCtrl: ['', Validators.required]
+    this.accountFormGroup = this._formBuilder.group({
+      accountFormGroupUsername: ['', Validators.required],
+      accountFormGroupPassword: ['', Validators.required],
+      accountFormGroupFirstname: ['', Validators.required],
+      accountFormGroupLastname: ['', Validators.required],
+      accountFormGroupEmail: ['', [Validators.required, Validators.email]]
     });
-    this.secondFormGroup = this._formBuilder.group({
-      emailCtrl: ['', [
-        Validators.required,
-        Validators.email,
-      ]]
-    });
-    this.thirdFormGroup = this._formBuilder.group({
-      usernameCtrl: ['', Validators.required]
-    });
-    this.fourthFormGroup = this._formBuilder.group({
-      passwordCtrl: ['', Validators.required],
-      passwordconfirmCtrl: ['', Validators.required]
-    });
-    this.fifthFormGroup = this._formBuilder.group({
-      shopnameCtrl: ['', Validators.required],
+    this.shopFormGroup = this._formBuilder.group({
+      shopFormGroupShopname: ['', [Validators.required]]
     });
   }
-  done() {
-    
+
+  async onRegisterShop() {
+    try {
+      let response: any = await this.restApi.post(Constants.URL() + '/api/auth/signup-shop', this.credentials);
+      window.localStorage.setItem(Constants.URL() + '@token', JSON.stringify(response.token));
+      window.localStorage.setItem(Constants.URL() + '@usershop', JSON.stringify(response.data));
+      this.router.navigate(['/home']);
+    } catch (error) {
+      if (error) {
+        if (error['error']['message'] === 'Email already exists') {
+          return this.dataService.error('อีเมล์นี้มีผู้ใช้งานแล้ว');
+        } else if (error['error']['message'] === 'Please fill a valid email address') {
+          return this.dataService.error('อีเมล์ไม่ถูกต้อง');
+        } else if (error['error']['message'] === ' Username already exists') {
+          return this.dataService.error('ชื่อผู้ใช้นี้มีผู้ใช้งานแล้ว');
+        }
+      }
+      return this.dataService.error('เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง');
+    }
   }
 
 }
