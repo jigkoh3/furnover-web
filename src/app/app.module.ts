@@ -16,16 +16,20 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BankAccountComponent } from './pages/bank-account/bank-account.component';
 import { LogisticComponent } from './pages/logistic/logistic.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { LoginComponent } from './pages/login/login.component';
+import { MessageComponent } from './components/message/message';
 
 @NgModule({
   declarations: [
     AppComponent,
+    MessageComponent,
     SidenavComponent,
     ToolbarComponent,
     HomeComponent,
     BankAccountComponent,
     LogisticComponent,
-    RegisterComponent
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

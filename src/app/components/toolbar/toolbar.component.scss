@@ -1,58 +1,94 @@
 .mat-elevation-z6 {
-    position: fixed;
-    z-index: 999;
+  position: fixed;
+  z-index: 999;
+}
+
+.mat-toolbar.mat-primary {
+  background: #ff9558;
+  color: #fff;
 }
 
 .example-spacer {
-    flex: 1 1 auto;
+  flex: 1 1 auto;
 }
 
 .profile {
-    font-size: 1rem;
-    margin-right: 2rem;
-    margin-left: 1rem;
-    cursor: pointer;
+  font-size: 1rem;
+  margin-right: 2rem;
+  margin-left: 1rem;
+  cursor: pointer;
 }
 
 .img {
-    width: 24px;
-    height: 24px;
-    border-radius: 100%;
+  width: 24px;
+  height: 24px;
+  border-radius: 100%;
 }
 
-.noti-contranner {
-    color: #000000;
-    position: absolute;
-    right: 2rem;
-    top: 4rem;
-    width: 14rem;
-    background-color: #ffffff;
-    height: 14rem;
+.row {
+  margin: 0px !important;
 }
 
-ul {
-    list-style: none;
-    padding-inline-start: 6px !important;
+//   icon
+.container .buttons {
+  margin: 32px auto 0;
+  text-align: center;
 }
 
-.arrow-up {
-    width: 0;
-    height: 0;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-bottom: 10px solid white;
-    position: absolute;
-    top: -0.6rem;
-    margin-left: 1.4rem;
+.container .buttons .menu-icon {
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  margin: 56px 24px;
 }
 
-.arrow-up-2 {
-    width: 0;
-    height: 0;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-bottom: 10px solid white;
-    position: absolute;
-    top: -0.6rem;
-    margin-left: 4rem;
+.menu-icon {
+  position: relative;
+  cursor: pointer;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
+
+.menu-icon-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 100%;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, .05);
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  transition: box-shadow .3s ease;
+  position: relative;
+  // 
+  background-color: #727cec;
+  background-size: cover
+}
+
+.menu-icon-svg {
+  display: block;
+  fill: #fff;
+  width: 48px;
+  height: 48px;
+}
+
+.menu-icon-title {
+  font-size: 12px;
+  color: #666;
+  margin-top: 20px;
+  text-align: center;
+}
+
+//   icon

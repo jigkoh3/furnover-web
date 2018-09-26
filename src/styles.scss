@@ -10,7 +10,7 @@ body {
 }
 
 .container {
-  background-color: rgba(241, 241, 241, 0.59);
+  // background-color: rgba(241, 241, 241, 0.59);
 }
 
 [padding] {
@@ -116,4 +116,12 @@ label {
 .col-xl,
 .col-xl-auto {
   padding: 8px !important;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+.no-padding {
+  padding: 0px !important;
 }
