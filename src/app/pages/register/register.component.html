@@ -1,91 +1,70 @@
-<button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
-  {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
-</button>
-<button (click)="xxx()">xxx</button>
-<mat-vertical-stepper [linear]="isLinear" #stepper>
-  <mat-step [stepControl]="firstFormGroup">
-    <form [formGroup]="firstFormGroup">
-      <ng-template matStepLabel>First name & Last name</ng-template>
-      <div>
-        <mat-form-field>
-          <input matInput placeholder="First name" formControlName="firstnameCtrl" required>
-        </mat-form-field>
+<div class="login">
+  <mat-card>
+    <div class="row">
+      <div class="col col-12 col-md-5 text-center">
+        <mat-vertical-stepper [linear]="isLinear" #stepper>
+          <mat-step [stepControl]="accountFormGroup">
+            <form [formGroup]="accountFormGroup">
+              <ng-template matStepLabel>ข้อมูลผู้ใช้งาน</ng-template>
+              <div>
+                <mat-form-field class="input-block">
+                  <input matInput placeholder="ชื่อผู้ใช้" type="text" [(ngModel)]="credentials.username"
+                    formControlName="accountFormGroupUsername" required>
+                </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field class="input-block">
+                  <input matInput placeholder="รหัสผ่าน" type="password" [(ngModel)]="credentials.password"
+                    formControlName="accountFormGroupPassword" required>
+                </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field class="input-block">
+                  <input matInput placeholder="ชื่อ" type="text" [(ngModel)]="credentials.firstname" formControlName="accountFormGroupFirstname"
+                    required>
+                </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field class="input-block">
+                  <input matInput placeholder="นามสกุล" type="text" [(ngModel)]="credentials.lastname" formControlName="accountFormGroupLastname"
+                    required>
+                </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field class="input-block">
+                  <input matInput placeholder="อีเมล์" type="email" [(ngModel)]="credentials.email" formControlName="accountFormGroupEmail"
+                    required email>
+                </mat-form-field>
+              </div>
+              <div>
+                <button mat-flat-button color="primary" class="btn-login" matStepperNext>ถัดไป</button>
+              </div>
+            </form>
+          </mat-step>
+          <mat-step [stepControl]="shopFormGroup">
+            <form [formGroup]="shopFormGroup">
+              <ng-template matStepLabel>ร้านของฉัน</ng-template>
+              <div>
+                <mat-form-field class="input-block">
+                  <input matInput placeholder="ชื่อร้านของฉัน" type="text" [(ngModel)]="credentials.shopname"
+                    formControlName="shopFormGroupShopname" required>
+                </mat-form-field>
+              </div>
+              <div>
+                <button mat-stroked-button class="btn-login" matStepperPrevious>ย้อนกลับ</button>
+              </div>
+              <br>
+              <div>
+                <message class="text-center" [type]="dataService.messageType" [message]="dataService.message"></message>
+                <button mat-flat-button color="primary" class="btn-login" matStepperNext (click)="onRegisterShop()">สร้างบัญชีผู้ใช้งาน</button>
+              </div>
+            </form>
+          </mat-step>
+        </mat-vertical-stepper>
       </div>
-      <div>
-        <mat-form-field>
-          <input matInput placeholder="Last name" formControlName="lastnameCtrl" required>
-        </mat-form-field>
+      <div class="col col-12 col-md-7 register-bg">
+        <!-- <div class="register-bg"></div> -->
       </div>
-      <div>
-        <button mat-button matStepperNext>Next</button>
-      </div>
-    </form>
-  </mat-step>
-  <mat-step [stepControl]="secondFormGroup">
-    <form [formGroup]="secondFormGroup">
-      <ng-template matStepLabel>Email</ng-template>
-      <mat-form-field>
-        <input matInput placeholder="Email" formControlName="emailCtrl" required email>
-        <!-- <mat-error *ngIf="secondFormGroup.controls.emailCtrl.errors.email">
-          Please enter a valid email address
-        </mat-error> -->
-      </mat-form-field>
-      <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
-      </div>
-    </form>
-  </mat-step>
-  <mat-step [stepControl]="thirdFormGroup">
-    <form [formGroup]="thirdFormGroup">
-      <ng-template matStepLabel>Username</ng-template>
-      <mat-form-field>
-        <input matInput placeholder="Username" formControlName="usernameCtrl" required>
-      </mat-form-field>
-      <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
-      </div>
-    </form>
-  </mat-step>
-  <mat-step [stepControl]="fourthFormGroup">
-    <form [formGroup]="fourthFormGroup">
-      <ng-template matStepLabel>Password</ng-template>
-      <div>
-        <mat-form-field>
-          <input matInput placeholder="Password" formControlName="passwordCtrl" required>
-        </mat-form-field>
-      </div>
-      <div>
-        <mat-form-field>
-          <input matInput placeholder="Password Confirm" formControlName="passwordconfirmCtrl" required>
-        </mat-form-field>
-      </div>
-      <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
-      </div>
-    </form>
-  </mat-step>
-  <mat-step [stepControl]="fifthFormGroup">
-    <form [formGroup]="fifthFormGroup">
-      <ng-template matStepLabel>Shop name</ng-template>
-      <mat-form-field>
-        <input matInput placeholder="Shop name" formControlName="shopnameCtrl" required>
-      </mat-form-field>
-      <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
-      </div>
-    </form>
-  </mat-step>
-  <mat-step>
-    <ng-template matStepLabel>Done</ng-template>
-    You are now done.
-    <div>
-      <button mat-button matStepperPrevious>Back</button>
-      <!-- <button mat-button (click)="stepper.reset()">Reset</button> -->
-      <button mat-button (click)="done()">Done</button>
     </div>
-  </mat-step>
-</mat-vertical-stepper>
+  </mat-card>
+</div>

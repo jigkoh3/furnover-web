@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RestApiService } from '../../providers/rest-api-service/rest-api.service';
 import { Constants } from '../../app.constants';
 import { DataService } from '../../providers/data-service/data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private _formBuilder: FormBuilder,
     private restApi: RestApiService,
-    private dataService: DataService
+    private dataService: DataService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -26,12 +28,12 @@ export class LoginComponent implements OnInit {
   }
 
   async onLogin() {
-    console.log(this.formGroup);
     try {
       this.dataService.success('');
       let response: any = await this.restApi.post(Constants.URL() + '/api/auth/signin', this.credentials)
       window.localStorage.setItem(Constants.URL() + '@token', JSON.stringify(response.token));
       window.localStorage.setItem(Constants.URL() + '@usershop', JSON.stringify(response.data));
+      this.router.navigate(['/home']);
     } catch (error) {
       if (error && error.message === 'User not found.') {
         return this.dataService.error('ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง กรุณาลองใหม่อีกครั้ง');
