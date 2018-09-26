@@ -1,16 +1,15 @@
 .login {
   .login-form {
-    .input-block {
-      width: 100% !important;
-    }
+    margin-top: -30px !important;
   }
 
   .login-background {
-    max-width: 300px !important;
-    max-height: 300px !important;
-    width: 100% !important;
-    height: 100% !important;
+    max-width: 260px !important;
+    max-height: 260px !important;
+    width: 80% !important;
+    height: 80% !important;
     object-fit: cover;
+    margin-top: 0px;
   }
 }
 
@@ -22,4 +21,13 @@
 .btn-login {
   max-width: 300px !important;
   width: 100vw !important;
+}
+
+.register {
+  font-size: 14px;
+
+  .btn {
+    cursor: pointer;
+    text-decoration: underline;
+  }
 }

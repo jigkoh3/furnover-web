@@ -22,10 +22,11 @@
               </div>
             </div>
             <div class="col col-12 text-center">
+              <message class="text-center" [type]="dataService.messageType" [message]="dataService.message"></message>
               <button mat-flat-button color="primary" class="btn-login" [disabled]="formGroup.invalid" (click)="onLogin()">เข้าสู่ระบบ</button>
               <br>
               <br>
-              <message class="text-center btn-login" [type]="dataService.messageType" [message]="dataService.message"></message>
+              <p class="register">ฉันยังไม่มีบัญชี? <span class="btn primary" routerLink="/auth/register">สมัครสมาชิกที่นี่</span></p>
             </div>
           </div>
         </form>

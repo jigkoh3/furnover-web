@@ -15,9 +15,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BankAccountComponent } from './pages/bank-account/bank-account.component';
 import { LogisticComponent } from './pages/logistic/logistic.component';
+import { DeliveryTimeComponent } from './pages/modals/delivery-time/delivery-time.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 import { LoginComponent } from './pages/login/login.component';
 import { MessageComponent } from './components/message/message';
+import { SideMenuSettingShopComponent } from './components/side-menu-setting-shop/side-menu-setting-shop.component';
 
 @NgModule({
   declarations: [
@@ -28,8 +31,11 @@ import { MessageComponent } from './components/message/message';
     HomeComponent,
     BankAccountComponent,
     LogisticComponent,
+    DeliveryTimeComponent,
     RegisterComponent,
-    LoginComponent
+    ProfileComponent,
+    LoginComponent,
+    SideMenuSettingShopComponent
   ],
   imports: [
     BrowserModule,
