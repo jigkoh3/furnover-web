@@ -5,9 +5,9 @@ const path = require('path');
 const app = express();
 
 app.use(express.static(path.join(__dirname, 'dist')));
-app.use(express.static(path.join(__dirname, 'dist/school-hub-web')));
+app.use(express.static(path.join(__dirname, 'dist/angular6-material')));
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'dist/school-hub-web/index.html'));
+    res.sendFile(path.join(__dirname, 'dist/angular6-material/index.html'));
 });
 
 const port = process.env.PORT || '3001';
