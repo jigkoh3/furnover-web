@@ -2,12 +2,13 @@
   .alert {
     position: inline-block;
     margin: auto;
-    padding: 8px;
+    padding: 4px;
     margin-bottom: 10px !important;
     border: 1px solid transparent;
     border-radius: .25rem;
     max-width: 300px !important;
     width: 100vw !important;
+    font-size: 14px;
   }
 
   .alert-danger {

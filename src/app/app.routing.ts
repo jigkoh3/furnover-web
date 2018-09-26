@@ -14,16 +14,16 @@ export const routes: Routes = [
         pathMatch: 'full'
     },
     {
+        path: '',
+        component: HomeComponent
+    },
+    {
         path: 'auth/login',
         component: LoginComponent
     },
     {
         path: 'auth/register',
         component: RegisterComponent
-    },
-    {
-        path: '',
-        component: HomeComponent
     },
     {
         path: 'bank-account',
@@ -34,14 +34,9 @@ export const routes: Routes = [
         component: LogisticComponent
     },
     {
-        path: 'register',
-        component: RegisterComponent
-    },
-    {
-        path:'profile',
+        path: 'profile',
         component: ProfileComponent
-    }
-    ,
+    },
     {
         path: 'delivery-time',
         component: DeliveryTimeComponent
