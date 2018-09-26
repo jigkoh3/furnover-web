@@ -15,7 +15,7 @@
     border-bottom:1px solid lightgray;
 }
 
-.padding-top{
+.padding-bottom-list{
     padding-bottom: 20px !important;
 }
 
@@ -27,6 +27,9 @@
 
 .border-list1{
     border-right:1px solid lightgray;
+    border-left: 1px solid lightgray;
+    border-top: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
     
 }
 .border-list2{
@@ -51,5 +54,5 @@
 }
 
 ::ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
-    background-color:  rgb(0, 255, 128);  /*replace with your color*/
+    background-color: #00C853;  /*replace with your color*/
 }
