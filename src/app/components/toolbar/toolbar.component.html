@@ -102,9 +102,15 @@
     </mat-menu>
 
 
-    <span class="profile" *ngIf="isLogin()">
+    <span class="profile" *ngIf="isLogin()" [matMenuTriggerFor]="profile">
       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRViibnOyHWzEX4eT4zp1aVVxTeZXXr0ELNnFPkgTkp7oBjVltC"
         class="img" alt="img"> <span class="hidden-name">&nbsp; {{shopname ? shopname : ''}}</span>
     </span>
+    <mat-menu #profile="matMenu">
+      <button mat-menu-item (click)="logout()">
+        <mat-icon>power_settings_new</mat-icon>
+        <span>ออกจากระบบ</span>
+      </button>
+    </mat-menu>
   </mat-toolbar-row>
 </mat-toolbar>
