@@ -1,0 +1,72 @@
+.card-panel {
+    background-color: #fff;
+    box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, .09);
+}
+
+.card-panel-section {
+    border-top: 1px solid #e8e8e8;
+}
+
+.card-panel-title {
+    font-size: 12px;
+    padding: 10px 20px;
+    color: #8c8c8c;
+}
+
+.shop-setting-link-link {
+    line-height: 24px;
+    font-size: 16px;
+    color: #666;
+    border-right: 3px solid transparent;
+    padding: 6px 0;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.shop-setting-link-icon {
+    width: 24px;
+    height: 24px;
+    padding: 6px;
+    margin: 0 0 0 20px;
+    border-radius: 50%;
+    text-align: center;
+}
+
+.shop-setting-link-icon-svg {
+    display: block;
+    fill: #fff;
+}
+
+.shop-setting-link-caption {
+    min-width: 0;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    margin-left: 8px;
+}
+
+.active {
+    font-weight: 600;
+    color: #000000;
+    background: #fafafa;
+}
+.shop-setting-link-active-bar {
+    width: 3px;
+}
+.active .shop-setting-link-active-bar {
+    // position: absolute;
+    width: 3px;
+    height: 25px;
+    // right: 0;
+    // top: 0;
+    // display: block;
+    // opacity: 1;
+}
