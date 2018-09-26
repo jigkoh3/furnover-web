@@ -3,6 +3,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { BankAccountComponent } from './pages/bank-account/bank-account.component';
 import { LogisticComponent } from './pages/logistic/logistic.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 export const routes: Routes = [
     {
@@ -25,5 +26,9 @@ export const routes: Routes = [
     {
         path: 'register',
         component: RegisterComponent
+    },
+    {
+        path:'profile',
+        component: ProfileComponent
     }
 ];
