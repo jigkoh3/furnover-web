@@ -10,7 +10,18 @@
       <mat-icon>notifications</mat-icon>
     </button>
     <mat-menu #notifications="matMenu">
-      <!--  -->
+      <div class="padding content-2">
+        <div class="row padding" *ngFor="let item of [1,2,3,4,5]">
+          <div class="col col-3">
+            <img src="https://cf.shopee.co.th/file/dfe640d88e65ea246da67eb7fc98ade7" alt="img" width="34px" height="34px">
+          </div>
+          <div class="col col-9">
+            <p class="title">สินค้าสำหรับผู้ชายและผู้หญิง</p>
+            <p class="title-2">Fashion & Grooming Essential อัพเดทแฟชั่นสำหรับผู้หญิง</p>
+            <p class="title-3">อัพเดทจาก Marketting | 26-09-2560</p>
+          </div>
+        </div>
+      </div>
     </mat-menu>
 
     <button mat-icon-button [matMenuTriggerFor]="menus">
@@ -38,7 +49,7 @@
 
     <span class="profile">
       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRViibnOyHWzEX4eT4zp1aVVxTeZXXr0ELNnFPkgTkp7oBjVltC"
-        class="img" alt="img"> username
+        class="img" alt="img"> <span class="hidden-name">username</span>
     </span>
   </mat-toolbar-row>
 </mat-toolbar>
