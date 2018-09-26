@@ -18,7 +18,16 @@ export class LoginComponent implements OnInit {
     private restApi: RestApiService,
     private dataService: DataService,
     private router: Router
-  ) { }
+  ) {
+
+    let user = window.localStorage.getItem(Constants.URL() + '@usershop');
+    let token = window.localStorage.getItem(Constants.URL() + '@usershop');
+
+    if (user && token) {
+      this.router.navigate(['/home']);
+    }
+
+  }
 
   ngOnInit() {
     this.formGroup = this._formBuilder.group({
