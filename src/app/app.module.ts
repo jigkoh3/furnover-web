@@ -17,17 +17,21 @@ import { BankAccountComponent } from './pages/bank-account/bank-account.componen
 import { LogisticComponent } from './pages/logistic/logistic.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { LoginComponent } from './pages/login/login.component';
+import { MessageComponent } from './components/message/message';
 
 @NgModule({
   declarations: [
     AppComponent,
+    MessageComponent,
     SidenavComponent,
     ToolbarComponent,
     HomeComponent,
     BankAccountComponent,
     LogisticComponent,
     RegisterComponent,
-    ProfileComponent
+    ProfileComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
