@@ -5,10 +5,10 @@
     </button> -->
     <span padding>Furnover Seller Centre</span>
     <span class="example-spacer"></span>
-    <button padding-right mat-icon-button>
+    <button padding-right mat-icon-button (click)="toggleNoti()">
       <mat-icon>notifications</mat-icon>
     </button>
-    <button padding-right mat-icon-button>
+    <button padding-right mat-icon-button (click)="toggleApps()">
       <mat-icon>apps</mat-icon>
     </button>
     <span class="profile">
@@ -16,4 +16,12 @@
         class="img" alt="img"> username
     </span>
   </mat-toolbar-row>
+  <div class="noti-contranner" *ngIf="noti">
+    <div class="arrow-up"></div>
+
+  </div>
+  <div class="noti-contranner" *ngIf="apps">
+    <div class="arrow-up-2"></div>
+
+  </div>
 </mat-toolbar>

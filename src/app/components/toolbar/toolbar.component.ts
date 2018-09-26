@@ -7,7 +7,9 @@ import { SidenavService } from '../sidenav/sidenav.service';
   styleUrls: ['./toolbar.component.scss']
 })
 export class ToolbarComponent implements OnInit {
-  isMenuIcon: boolean = true;
+  isMenuIcon = true;
+  noti = false;
+  apps = false;
   @HostListener('window:resize') onResize() {
     this.onResizeDisplay();
   }
@@ -19,6 +21,24 @@ export class ToolbarComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  toggleNoti() {
+    this.apps = false;
+    if (this.noti) {
+      this.noti = false;
+    } else {
+      this.noti = true;
+    }
+  }
+
+  toggleApps() {
+    this.noti = false;
+    if (this.apps) {
+      this.apps = false;
+    } else {
+      this.apps = true;
+    }
   }
 
   onResizeDisplay() {
