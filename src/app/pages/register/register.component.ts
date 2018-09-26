@@ -17,6 +17,7 @@ export class RegisterComponent implements OnInit {
   isLinear = true; // set true for required field
   accountFormGroup: FormGroup;
   shopFormGroup: FormGroup;
+  profileFormGroup: FormGroup;
 
   constructor(
     private _formBuilder: FormBuilder,
@@ -29,10 +30,12 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
     this.accountFormGroup = this._formBuilder.group({
       accountFormGroupUsername: ['', Validators.required],
-      accountFormGroupPassword: ['', Validators.required],
-      accountFormGroupFirstname: ['', Validators.required],
-      accountFormGroupLastname: ['', Validators.required],
-      accountFormGroupEmail: ['', [Validators.required, Validators.email]]
+      accountFormGroupPassword: ['', Validators.required]
+    });
+    this.profileFormGroup = this._formBuilder.group({
+      profileFormGroupFirstname: ['', Validators.required],
+      profileFormGroupLastname: ['', Validators.required],
+      profileFormGroupEmail: ['', [Validators.required, Validators.email]]
     });
     this.shopFormGroup = this._formBuilder.group({
       shopFormGroupShopname: ['', [Validators.required]]
