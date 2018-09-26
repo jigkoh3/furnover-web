@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { BankAccountComponent } from './pages/bank-account/bank-account.component';
 import { LogisticComponent } from './pages/logistic/logistic.component';
+import { RegisterComponent } from './pages/register/register.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { LogisticComponent } from './pages/logistic/logistic.component';
     ToolbarComponent,
     HomeComponent,
     BankAccountComponent,
-    LogisticComponent
+    LogisticComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
