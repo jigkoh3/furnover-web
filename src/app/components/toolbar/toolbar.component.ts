@@ -1,5 +1,6 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { SidenavService } from '../sidenav/sidenav.service';
+import { Constants } from '../../app.constants';
 
 @Component({
   selector: 'app-toolbar',
@@ -19,6 +20,16 @@ export class ToolbarComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  isLogin() {
+    const token = window.localStorage.getItem(Constants.URL() + '@token');
+    const usershop = window.localStorage.getItem(Constants.URL() + '@usershop');
+    if (token && usershop) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   onResizeDisplay() {

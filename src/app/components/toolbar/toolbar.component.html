@@ -1,4 +1,4 @@
-<mat-toolbar color="primary" class="mat-elevation-z6">
+<mat-toolbar color="primary" class="mat-elevation-z2">
   <mat-toolbar-row layout-padding>
     <!-- <button *ngIf="isMenuIcon" padding-right mat-icon-button id="menu" (click)="sidenavService.openNav()">
       <mat-icon>menu</mat-icon>
@@ -6,7 +6,7 @@
     <span padding>Furnover Seller Centre</span>
     <span class="example-spacer"></span>
 
-    <button mat-icon-button [matMenuTriggerFor]="notifications">
+    <button mat-icon-button [matMenuTriggerFor]="notifications" *ngIf="isLogin()">
       <mat-icon>notifications</mat-icon>
     </button>
     <mat-menu #notifications="matMenu">
@@ -24,7 +24,7 @@
       </div>
     </mat-menu>
 
-    <button mat-icon-button [matMenuTriggerFor]="menus">
+    <button mat-icon-button [matMenuTriggerFor]="menus" *ngIf="isLogin()">
       <mat-icon>apps</mat-icon>
     </button>
     <mat-menu #menus="matMenu" class="menus">
@@ -108,7 +108,7 @@
     </mat-menu>
 
 
-    <span class="profile">
+    <span class="profile" *ngIf="isLogin()">
       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRViibnOyHWzEX4eT4zp1aVVxTeZXXr0ELNnFPkgTkp7oBjVltC"
         class="img" alt="img"> <span class="hidden-name">username</span>
     </span>
