@@ -10,6 +10,7 @@ import { Constants } from '../../app.constants';
 export class ToolbarComponent implements OnInit {
   isMenuIcon = true;
   userShop: any = {};
+  shopname = '';
   @HostListener('window:resize') onResize() {
     this.onResizeDisplay();
   }
@@ -28,7 +29,7 @@ export class ToolbarComponent implements OnInit {
     const usershop = window.localStorage.getItem(Constants.URL() + '@usershop') ?
       JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop')) : {};
     if (token && usershop) {
-      this.userShop = usershop;
+      this.shopname = usershop.shop ? usershop.shop.name : '';
       return true;
     } else {
       return false;

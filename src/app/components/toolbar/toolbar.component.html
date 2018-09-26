@@ -3,7 +3,7 @@
     <!-- <button *ngIf="isMenuIcon" padding-right mat-icon-button id="menu" (click)="sidenavService.openNav()">
       <mat-icon>menu</mat-icon>
     </button> -->
-    <span padding>Furnover Seller Centre</span>
+    <span padding>Furnover Seller Center</span>
     <span class="example-spacer"></span>
 
     <button mat-icon-button [matMenuTriggerFor]="notifications" *ngIf="isLogin()">
@@ -104,7 +104,7 @@
 
     <span class="profile" *ngIf="isLogin()">
       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRViibnOyHWzEX4eT4zp1aVVxTeZXXr0ELNnFPkgTkp7oBjVltC"
-        class="img" alt="img"> <span class="hidden-name">&nbsp; {{userShop ? userShop.shop.name : ''}}</span>
+        class="img" alt="img"> <span class="hidden-name">&nbsp; {{shopname ? shopname : ''}}</span>
     </span>
   </mat-toolbar-row>
 </mat-toolbar>
