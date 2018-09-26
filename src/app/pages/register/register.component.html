@@ -1,4 +1,4 @@
-<div class="login">
+<div class="register-div">
   <mat-card>
     <div class="row">
       <div class="col col-12 col-md-5 text-center">
@@ -19,22 +19,33 @@
                 </mat-form-field>
               </div>
               <div>
+                <button mat-flat-button color="primary" class="btn-login" matStepperNext>ถัดไป</button>
+              </div>
+            </form>
+          </mat-step>
+          <mat-step [stepControl]="profileFormGroup">
+            <form [formGroup]="profileFormGroup">
+              <ng-template matStepLabel>ข้อมูลของฉัน</ng-template>
+              <div>
                 <mat-form-field class="input-block">
-                  <input matInput placeholder="ชื่อ" type="text" [(ngModel)]="credentials.firstname" formControlName="accountFormGroupFirstname"
+                  <input matInput placeholder="ชื่อ" type="text" [(ngModel)]="credentials.firstname" formControlName="profileFormGroupFirstname"
                     required>
                 </mat-form-field>
               </div>
               <div>
                 <mat-form-field class="input-block">
-                  <input matInput placeholder="นามสกุล" type="text" [(ngModel)]="credentials.lastname" formControlName="accountFormGroupLastname"
+                  <input matInput placeholder="นามสกุล" type="text" [(ngModel)]="credentials.lastname" formControlName="profileFormGroupLastname"
                     required>
                 </mat-form-field>
               </div>
               <div>
                 <mat-form-field class="input-block">
-                  <input matInput placeholder="อีเมล์" type="email" [(ngModel)]="credentials.email" formControlName="accountFormGroupEmail"
+                  <input matInput placeholder="อีเมล์" type="email" [(ngModel)]="credentials.email" formControlName="profileFormGroupEmail"
                     required email>
                 </mat-form-field>
+              </div>
+              <div>
+                <button mat-stroked-button class="btn-login" matStepperPrevious>ย้อนกลับ</button>
               </div>
               <br>
               <div>
@@ -51,7 +62,6 @@
                     formControlName="shopFormGroupShopname" required>
                 </mat-form-field>
               </div>
-              <br>
               <div>
                 <button mat-stroked-button class="btn-login" matStepperPrevious>ย้อนกลับ</button>
               </div>
