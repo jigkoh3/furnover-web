@@ -14,7 +14,7 @@
     border-style: dashed;
     border-color: rgb(211, 211, 211);
     height: 50% !important;
-    width: 35%;
+    width: 50% !important;
 }
 
 .image {
@@ -54,6 +54,8 @@
 
 .button1 {
     border-radius: 50%;
+    height: 50% !important;
+    width: 50% !important;
 }
 
 .button-color {
@@ -103,7 +105,7 @@
 }
 
 .bgcolor2 {
-    background-color: rgba(97, 97, 97, 0.658);
+    background-color:#E0E0E0;
 }
 
 .padding-left3 {
@@ -113,12 +115,38 @@
 .borderimg {
     border-style: 5px solid;
     border-color: rgb(255, 255, 255);
-}.padding-top2{
+}
+
+.padding-top2 {
     padding-top: 0% !important;
-}.padding-top3{
+}
+
+.padding-top3 {
     padding-top: 10% !important;
-}.padding-button2{
+}
+
+.padding-button2 {
     padding-bottom: 0% !important;
-}.boxshardow{
+}
+
+.boxshardow {
     box-shadow: 0ch !important;
+}
+
+.imgs {
+    position: absolute;
+    height: 20px;
+    width: 20px;
+}.done{
+    position: absolute;
+    height: 15px;
+    width: 15px;
+    color: rgb(255, 255, 255);
+}.bgcolor3{
+    background-color: #62ff6f;
+    
+}.nopaddingleft{
+    padding-left: 3% !important;
+}.padding-left4{
+    padding-left: 15% !important;
 }
