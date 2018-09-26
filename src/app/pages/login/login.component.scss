@@ -1,0 +1,33 @@
+.login {
+  .login-form {
+    margin-top: -30px !important;
+  }
+
+  .login-background {
+    max-width: 260px !important;
+    max-height: 260px !important;
+    width: 80% !important;
+    height: 80% !important;
+    object-fit: cover;
+    margin-top: 0px;
+  }
+}
+
+.input-block {
+  max-width: 300px !important;
+  width: 100vw !important;
+}
+
+.btn-login {
+  max-width: 300px !important;
+  width: 100vw !important;
+}
+
+.register {
+  font-size: 14px;
+
+  .btn {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}

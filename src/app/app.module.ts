@@ -12,23 +12,36 @@ import { routes } from './app.routing';
 import { DataService } from './providers/data-service/data.service';
 import { RestApiService } from './providers/rest-api-service/rest-api.service';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BankAccountComponent } from './pages/bank-account/bank-account.component';
 import { LogisticComponent } from './pages/logistic/logistic.component';
+import { DeliveryTimeComponent } from './pages/modals/delivery-time/delivery-time.component';
+import { RegisterComponent } from './pages/register/register.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { LoginComponent } from './pages/login/login.component';
+import { MessageComponent } from './components/message/message';
+import { SideMenuSettingShopComponent } from './components/side-menu-setting-shop/side-menu-setting-shop.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    MessageComponent,
     SidenavComponent,
     ToolbarComponent,
     HomeComponent,
     BankAccountComponent,
-    LogisticComponent
+    LogisticComponent,
+    DeliveryTimeComponent,
+    RegisterComponent,
+    ProfileComponent,
+    LoginComponent,
+    SideMenuSettingShopComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(routes),
     AppMaterialModule

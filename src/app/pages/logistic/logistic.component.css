@@ -1,0 +1,58 @@
+.border {
+    border : 1px;
+}
+
+.img{
+    width: 50px;
+}
+
+.padding-left{
+    padding-left: 30px !important;
+}
+
+.padding-bottom{
+    padding-bottom: 20px !important;
+    border-bottom:1px solid lightgray;
+}
+
+.padding-bottom-list{
+    padding-bottom: 20px !important;
+}
+
+.border {
+    border-left: 0px !important;
+    border-right: 0px !important;
+    border-bottom: 0px !important;
+}
+
+.border-list1{
+    border-right:1px solid lightgray;
+    border-left: 1px solid lightgray;
+    border-top: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+    
+}
+.border-list2{
+    border-top:1px solid lightgray !important;
+}
+.font-size{
+    font-size: 13px !important;
+
+}
+.font-size1{
+    font-size: 15px !important;
+
+}
+.font-color-grey{
+    color:gray !important;
+}
+
+/* CSS to change 'Primary' color */
+
+::ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
+    background-color: rgb(255, 255, 255); /*replace with your color*/
+}
+
+::ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+    background-color: #00C853;  /*replace with your color*/
+}

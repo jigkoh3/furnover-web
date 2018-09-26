@@ -2,16 +2,28 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { BankAccountComponent } from './pages/bank-account/bank-account.component';
 import { LogisticComponent } from './pages/logistic/logistic.component';
+import { DeliveryTimeComponent } from './pages/modals/delivery-time/delivery-time.component';
+import { RegisterComponent } from './pages/register/register.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { LoginComponent } from './pages/login/login.component';
 
 export const routes: Routes = [
     {
         path: '',
-        redirectTo: '/',
+        redirectTo: 'auth/login',
         pathMatch: 'full'
     },
     {
-        path: '',
+        path: 'home',
         component: HomeComponent
+    },
+    {
+        path: 'auth/login',
+        component: LoginComponent
+    },
+    {
+        path: 'auth/register',
+        component: RegisterComponent
     },
     {
         path: 'bank-account',
@@ -20,5 +32,13 @@ export const routes: Routes = [
     {
         path: 'logistic',
         component: LogisticComponent
+    },
+    {
+        path: 'profile',
+        component: ProfileComponent
+    },
+    {
+        path: 'delivery-time',
+        component: DeliveryTimeComponent
     }
 ];
