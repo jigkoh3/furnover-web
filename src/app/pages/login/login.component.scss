@@ -1,0 +1,25 @@
+.login {
+  .login-form {
+    .input-block {
+      width: 100% !important;
+    }
+  }
+
+  .login-background {
+    max-width: 300px !important;
+    max-height: 300px !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+  }
+}
+
+.input-block {
+  max-width: 300px !important;
+  width: 100vw !important;
+}
+
+.btn-login {
+  max-width: 300px !important;
+  width: 100vw !important;
+}

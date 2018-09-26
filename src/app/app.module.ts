@@ -12,25 +12,38 @@ import { routes } from './app.routing';
 import { DataService } from './providers/data-service/data.service';
 import { RestApiService } from './providers/rest-api-service/rest-api.service';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BankAccountComponent } from './pages/bank-account/bank-account.component';
 import { LogisticComponent } from './pages/logistic/logistic.component';
+<<<<<<< HEAD
 import { DeliveryTimeComponent } from './pages/modals/delivery-time/delivery-time.component';
+=======
+import { RegisterComponent } from './pages/register/register.component';
+import { LoginComponent } from './pages/login/login.component';
+import { MessageComponent } from './components/message/message';
+>>>>>>> 3f329aa48b45da0bb9e2612666dab97a1f372e84
 
 @NgModule({
   declarations: [
     AppComponent,
+    MessageComponent,
     SidenavComponent,
     ToolbarComponent,
     HomeComponent,
     BankAccountComponent,
     LogisticComponent,
+<<<<<<< HEAD
     DeliveryTimeComponent
+=======
+    RegisterComponent,
+    LoginComponent
+>>>>>>> 3f329aa48b45da0bb9e2612666dab97a1f372e84
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(routes),
     AppMaterialModule

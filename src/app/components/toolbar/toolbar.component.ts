@@ -7,7 +7,7 @@ import { SidenavService } from '../sidenav/sidenav.service';
   styleUrls: ['./toolbar.component.scss']
 })
 export class ToolbarComponent implements OnInit {
-  isMenuIcon: boolean = true;
+  isMenuIcon = true;
   @HostListener('window:resize') onResize() {
     this.onResizeDisplay();
   }
