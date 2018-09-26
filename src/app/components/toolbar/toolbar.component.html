@@ -3,12 +3,25 @@
     <!-- <button *ngIf="isMenuIcon" padding-right mat-icon-button id="menu" (click)="sidenavService.openNav()">
       <mat-icon>menu</mat-icon>
     </button> -->
-    <span padding>Seller Centre</span>
+    <span padding>Furnover Seller Centre</span>
     <span class="example-spacer"></span>
-    <mat-icon class="example-icon">notifications</mat-icon>
-    <mat-icon class="example-icon">apps</mat-icon>
+    <button padding-right mat-icon-button (click)="toggleNoti()">
+      <mat-icon>notifications</mat-icon>
+    </button>
+    <button padding-right mat-icon-button (click)="toggleApps()">
+      <mat-icon>apps</mat-icon>
+    </button>
     <span class="profile">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRViibnOyHWzEX4eT4zp1aVVxTeZXXr0ELNnFPkgTkp7oBjVltC" class="img" alt="img"> username
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRViibnOyHWzEX4eT4zp1aVVxTeZXXr0ELNnFPkgTkp7oBjVltC"
+        class="img" alt="img"> username
     </span>
   </mat-toolbar-row>
+  <div class="noti-contranner" *ngIf="noti">
+    <div class="arrow-up"></div>
+
+  </div>
+  <div class="noti-contranner" *ngIf="apps">
+    <div class="arrow-up-2"></div>
+
+  </div>
 </mat-toolbar>
