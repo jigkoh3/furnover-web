@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
-import { MatIconRegistry } from '@angular/material';
+import { MatIconRegistry, MatDialog } from '@angular/material';
+import { DeliveryTimeComponent } from '../modals/delivery-time/delivery-time.component';
 
 @Component({
   selector: 'app-logistic',
@@ -17,14 +18,27 @@ export class LogisticComponent implements OnInit {
 
   constructor(
     iconRegistry: MatIconRegistry,
-    sanitizer: DomSanitizer
-  ) {
+    sanitizer: DomSanitizer,
+    public dialog: MatDialog
+  ) 
+  {
     iconRegistry.addSvgIcon(
       'calendar',
       sanitizer.bypassSecurityTrustResourceUrl('assets/baseline-calendar_today-24px.svg'));
       iconRegistry.addSvgIcon(
         'shipping',
         sanitizer.bypassSecurityTrustResourceUrl('assets/baseline-local_shipping-24px.svg'));
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DeliveryTimeComponent, {
+      width: '700px',
+
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
   }
 
   ngOnInit() {
