@@ -22,6 +22,8 @@ import { LoginComponent } from './pages/login/login.component';
 import { MessageComponent } from './components/message/message';
 import { SideMenuSettingShopComponent } from './components/side-menu-setting-shop/side-menu-setting-shop.component';
 import { MyProductComponent } from './pages/my-product/my-product.component';
+import { AddressComponent } from './pages/address/address.component';
+import { InfoAddressComponent } from './pages/modals/info-address/info-address.component';
 import { ModalPrepareShippingComponent } from './pages/modals/modal-prepare-shipping/modal-prepare-shipping.component';
 import { ModalCeateBankAccountComponent } from './pages/modals/modal-ceate-bank-account/modal-ceate-bank-account.component';
 import { ProfileSettingComponent } from './components/profile/profile.component';
@@ -41,6 +43,8 @@ import { ProfileSettingComponent } from './components/profile/profile.component'
     LoginComponent,
     SideMenuSettingShopComponent,
     MyProductComponent,
+    AddressComponent,
+    InfoAddressComponent,
     ModalPrepareShippingComponent,
     ModalCeateBankAccountComponent
   ],

@@ -72,3 +72,11 @@
 .mat-form-field {
     display: flow-root !important;
 }
+
+.mat-checkbox-frame {
+    border-color: rgba(239, 239, 239, 0.54) !important;
+}
+
+.mat-tab-body.mat-tab-body-active {
+    overflow-y: inherit !important;
+}
