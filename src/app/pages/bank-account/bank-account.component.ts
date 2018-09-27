@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { MatIconRegistry } from '@angular/material';
+import { MatIconRegistry, MatDialog } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
+import { BankComponent } from 'src/app/pages/modals/bank/bank.component';
 
 @Component({
   selector: 'app-bank-account',
@@ -10,8 +11,9 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class BankAccountComponent implements OnInit {
 
   constructor(
-    iconRegistry: MatIconRegistry,
-    sanitizer: DomSanitizer
+    public iconRegistry: MatIconRegistry,
+    public sanitizer: DomSanitizer,
+    public dialog: MatDialog
   ) {
     iconRegistry.addSvgIcon(
       'baseline-add',
@@ -19,12 +21,25 @@ export class BankAccountComponent implements OnInit {
       iconRegistry.addSvgIcon(
         'baseline-payment',
         sanitizer.bypassSecurityTrustResourceUrl('assets/baseline-payment-24px.svg')),
-        iconRegistry.addSvgIcon(
-          'baseline-done',
-          sanitizer.bypassSecurityTrustResourceUrl('assets/baseline-done-24px.svg'));
+      iconRegistry.addSvgIcon(
+        'baseline-done',
+        sanitizer.bypassSecurityTrustResourceUrl('assets/baseline-done-24px.svg')),
+      iconRegistry.addSvgIcon(
+        'baseline-check',
+        sanitizer.bypassSecurityTrustResourceUrl('assets/baseline-check_circle-24px.svg'));
+    iconRegistry.addSvgIcon(
+      'shipping',
+      sanitizer.bypassSecurityTrustResourceUrl('assets/baseline-local_shipping-24px.svg'));
   }
 
   ngOnInit() {
   }
-
+  openDialog(): void {
+    const dialogRef = this.dialog.open(BankComponent, {
+      width: '700px',
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
 }

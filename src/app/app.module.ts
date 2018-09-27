@@ -24,6 +24,8 @@ import { MessageComponent } from './components/message/message';
 import { SideMenuSettingShopComponent } from './components/side-menu-setting-shop/side-menu-setting-shop.component';
 import { MyProductComponent } from './pages/my-product/my-product.component';
 
+import { BankComponent } from './pages/modals/bank/bank.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,6 +40,7 @@ import { MyProductComponent } from './pages/my-product/my-product.component';
     ProfileComponent,
     LoginComponent,
     SideMenuSettingShopComponent,
+    BankComponent,
     MyProductComponent
   ],
   imports: [
