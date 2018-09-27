@@ -27,6 +27,7 @@ import { AddressComponent } from './pages/address/address.component';
 import { InfoAddressComponent } from './pages/modals/info-address/info-address.component';
 import { ModalPrepareShippingComponent } from './pages/modals/modal-prepare-shipping/modal-prepare-shipping.component';
 import { ProfileSettingComponent } from './components/profile/profile.component';
+import { CreateProductComponent } from './pages/create-product/create-product.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { ProfileSettingComponent } from './components/profile/profile.component'
     ModalCreateBankAccountComponent,
     AddressComponent,
     InfoAddressComponent,
-    ModalPrepareShippingComponent
+    ModalPrepareShippingComponent,
+    CreateProductComponent
     
     
   ],
