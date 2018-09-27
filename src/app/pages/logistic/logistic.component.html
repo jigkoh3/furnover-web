@@ -1,12 +1,12 @@
 <mat-card>
   <div class="row padding-bottom">
-    <div class="col-3 col-sm-2 col-md-2 col-lg-1 col-xl-1 padding-left">
+    <div class="col-xs-12 col-sm-12 col-md-2 col-lg-1 col-xl-1 padding-left">
       <!-- <img src="https://www.freeiconspng.com/uploads/truck-icon-23.png" class="img"> -->
       <button mat-fab color="primary">
         <mat-icon svgIcon="shipping"></mat-icon>
       </button>
     </div>
-    <div class="col-9 col-sm-10 col-md-10 col-lg-11 col-xl-11 ">
+    <div class="col-xs-12 col-sm-12 col-md-10 col-lg-11 col-xl-11 ">
       <h3>
         การจัดส่งของฉัน
         <br>
@@ -30,7 +30,7 @@
           <div *ngFor="let item of blindData">
             <mat-card>
               <div class="row padding">
-                <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                <div class="co-xs-l-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                   <b>{{item.title}}</b><br>
                   <label class="font-color-grey font-size">
                     ข้อจำกัด
@@ -40,10 +40,10 @@
                   <!-- <br> -->
                   <!-- <label class="font-size font-color-grey">Max weight: {{item.limit}}กิโลกรัม</label> -->
                 </div>
-                <div class="col-12 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 col-xl-3">
                   <label>เปิดใช้งานการจัดส่งนี้</label>
                 </div>
-                <div class="col-12 col-sm-1 col-md-1 col-lg-1 col-xl-1">
+                <div class="col-xs-12 col-sm-1 col-md-1 col-lg-1 col-xl-1">
                   <mat-slide-toggle [(ngModel)]="item.device"></mat-slide-toggle>
                 </div>
               </div>
@@ -58,16 +58,16 @@
 <br>
 <mat-card>
   <div class="row">
-    <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-1 padding-left">
+    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-1 padding-left">
       <mat-icon svgIcon="calendar" class="font-color-grey"></mat-icon>
     </div>
-    <div class="col-8 col-sm-8 col-md-8 col-lg-8 col-xl-8">
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 col-xl-8">
       <b>เวลาเตรียมพัสดุ</b>
       <br>
       <label class="font-color-grey font-size">เปลี่ยนแปลงค่า"ระยะเวลาเตรียมพัสดุ"
         ให้กับสินค้าทุกรายการในร้านของคุณเรียบร้อยแล้ว</label>
     </div>
-    <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
       <button mat-stroked-button color="primary" (click)="openDialog()">แก้ไข</button>
     </div>
   </div>
