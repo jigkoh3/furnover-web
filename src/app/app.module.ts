@@ -23,6 +23,8 @@ import { LoginComponent } from './pages/login/login.component';
 import { MessageComponent } from './components/message/message';
 import { SideMenuSettingShopComponent } from './components/side-menu-setting-shop/side-menu-setting-shop.component';
 
+import { BankComponent } from './pages/modals/bank/bank.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +38,8 @@ import { SideMenuSettingShopComponent } from './components/side-menu-setting-sho
     RegisterComponent,
     ProfileComponent,
     LoginComponent,
-    SideMenuSettingShopComponent
+    SideMenuSettingShopComponent,
+    BankComponent
   ],
   imports: [
     BrowserModule,
