@@ -32,6 +32,10 @@
     font-size: 13px;
 }
 
+.magin-botton {
+    margin-bottom: 3% !important;
+}
+
 .no-padding {
     padding: 0px !important;
 }
