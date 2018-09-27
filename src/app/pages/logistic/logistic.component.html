@@ -1,74 +1,81 @@
 <mat-card>
   <div class="row padding-bottom">
-    <div class="col-xs-12 col-sm-12 col-md-2 col-lg-1 col-xl-1 padding-left">
-      <!-- <img src="https://www.freeiconspng.com/uploads/truck-icon-23.png" class="img"> -->
+    <div class="col-12">
       <button mat-fab color="primary">
         <mat-icon svgIcon="shipping"></mat-icon>
       </button>
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-10 col-lg-11 col-xl-11 ">
-      <h3>
-        การจัดส่งของฉัน
-        <br>
-        <label class="font-color-grey font-size1">
+      <div class="header position-text-header">
+        <h4>
+          การจัดส่งของฉัน
+        </h4>
+        <span class="font-color-grey font-size1 ">
           ตั้งค่าช่องทางการขนส่งและค่าขนส่ง
-        </label>
-      </h3>
+        </span>
+      </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col-2"></div>
-    <div class="col-8">
+  <div class="row padding">
+    <div class="col-12 col-md-2"></div>
+    <div class="col-12 col-md-8">
       <div class="row">
         <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-          <b>การจัดส่งที่รองรับโดย Furnover</b>
+          <b class="primary">การจัดส่งที่รองรับโดย Furnover</b>
           <br>
           <label class="font-color-grey font-size">ผู้ซื้อสามารถตรวจสอบสถานะของพัสดุผ่านแอพพลิเคชั่นได้โดยตรงเมื่อเลือกการจัดส่งที่รองรับโดย
             Furnover</label>
           <br>
           <br>
-          <div *ngFor="let item of blindData" class="padding-left1">
+          <message class="text-center" [type]="dataService.messageType" [message]="dataService.message"></message>
+          <div *ngFor="let item of blindData">
             <mat-card>
               <div class="row padding">
-                <div class="co-xs-l-12 col-sm-8 col-md-8 col-lg-8 col-xl-8">
-                  <b>{{item.title}}</b><br>
-                  <label class="font-color-grey font-size">
+                <div class="col-12">
+                  <b>{{item.name}}</b>
+                </div>
+                <div class="col-12 col-md-7">
+                  <p class="font-color-grey no-margin font-size">
                     ข้อจำกัด
-                    <br>
-                    Max weight: {{item.limit}}กิโลกรัม
-                  </label>
-                  <!-- <br> -->
-                  <!-- <label class="font-size font-color-grey">Max weight: {{item.limit}}กิโลกรัม</label> -->
+                  </p>
+                  <p class="font-size1 no-margin">
+                    Max weight: {{item.detail}}กิโลกรัม
+                  </p>
                 </div>
-                <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 col-xl-3">
-                  <label>เปิดใช้งานการจัดส่งนี้</label>
-                </div>
-                <div class="col-xs-12 col-sm-1 col-md-1 col-lg-1 col-xl-1">
-                  <mat-slide-toggle [(ngModel)]="item.device"></mat-slide-toggle>
+                <div class="col-12 col-md-5">
+                  <label class="font-size1">เปิดใช้งานการจัดส่งนี้</label>
+                  <mat-slide-toggle class="position-toggle" [(ngModel)]="item.status" (ngModelChange)="onToggleChange(item)"></mat-slide-toggle>
                 </div>
               </div>
             </mat-card>
+            <br>
           </div>
         </div>
       </div>
     </div>
-    <div class="col-2"></div>
+    <div class="col-12 col-md-2"></div>
   </div>
 </mat-card>
 <br>
 <mat-card>
   <div class="row">
-    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-1 padding-left">
-      <mat-icon svgIcon="calendar" class="font-color-grey"></mat-icon>
-    </div>
-    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 col-xl-8">
-      <b>เวลาเตรียมพัสดุ</b>
-      <br>
-      <label class="font-color-grey font-size">เปลี่ยนแปลงค่า"ระยะเวลาเตรียมพัสดุ"
-        ให้กับสินค้าทุกรายการในร้านของคุณเรียบร้อยแล้ว</label>
-    </div>
-    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-      <button mat-stroked-button color="primary" (click)="openDialog()">แก้ไข</button>
+    <div class="col-12">
+      <div class="row">
+        <div class="col-8 padding-left">
+          <p>&nbsp;
+            <mat-icon svgIcon="calendar" class="font-color-grey"></mat-icon>
+            <b> &nbsp;เวลาเตรียมพัสดุ</b>
+          </p>
+        </div>
+        <div class="col-4 text-right padding-right">
+          <button mat-stroked-button color="primary" (click)="openDialog()">แก้ไข</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <p class="font-color-grey font-size padding-left">
+            เปลี่ยนแปลงค่า"ระยะเวลาเตรียมพัสดุ" ให้กับสินค้าทุกรายการในร้านของคุณเรียบร้อยแล้ว
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </mat-card>

@@ -1,3 +1,12 @@
+.grid {
+    max-width: fit-content;
+    float: right;
+}
+.row {
+    margin-right: -10px !important;
+    margin-left: -10px !important;
+}
+
 .card-panel {
     background-color: #fff;
     box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, .09);
@@ -16,7 +25,7 @@
 .shop-setting-link-link {
     line-height: 24px;
     font-size: 16px;
-    color: #666;
+    color: rgba(0, 0, 0, .87);
     border-right: 3px solid transparent;
     padding: 6px 0;
     display: -webkit-flex;
@@ -58,15 +67,68 @@
     color: #000000;
     background: #fafafa;
 }
+
 .shop-setting-link-active-bar {
     width: 3px;
 }
+
 .active .shop-setting-link-active-bar {
     // position: absolute;
     width: 3px;
-    height: 25px;
-    // right: 0;
+    height: 25px; // right: 0;
     // top: 0;
     // display: block;
     // opacity: 1;
+}
+
+.md-shop-setting-link-caption {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.active .md-shop-setting-link-caption {
+    // font-family: Roboto,"Helvetica Neue",sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.md-shop-setting-link-icon {
+    width: 24px;
+    height: 24px;
+    padding: 6px;
+    margin: 0 5px 0 10px;
+    border-radius: 50%;
+    text-align: center;
+}
+
+.mat-menu-item {
+    height: unset;
+}
+
+.md-button {
+    width: 100%;
+}
+
+.md-shop-setting-link-link {
+    line-height: 24px;
+    font-size: 16px;
+    color: rgba(0, 0, 0, .87);
+    border-right: 3px solid transparent;
+    padding: 6px 0;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    // -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    // justify-content: space-between;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+@media screen and (min-width: 450px) {
+    .md-button {
+        width: 50% !important;
+    }
 }

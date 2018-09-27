@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Constants } from '../../app.constants';
 
 @Injectable()
 export class RestApiService {
@@ -9,7 +10,7 @@ export class RestApiService {
   }
 
   private authorizationHeader() {
-    const token = window.localStorage.getItem('token@furnover') ? window.localStorage.getItem('token@furnover') : '';
+    const token = window.localStorage.getItem(Constants.URL() + '@token') ? window.localStorage.getItem(Constants.URL() + '@token') : '';
     const headers = new HttpHeaders().set('Authorization', 'Bearer ' + token);
     return headers;
   }

@@ -47,7 +47,7 @@ export class RegisterComponent implements OnInit {
     try {
       this.dataService.success('');
       let response: any = await this.restApi.post(Constants.URL() + '/api/auth/signup-shop', this.credentials);
-      window.localStorage.setItem(Constants.URL() + '@token', JSON.stringify(response.token));
+      window.localStorage.setItem(Constants.URL() + '@token', response.token);
       window.localStorage.setItem(Constants.URL() + '@usershop', JSON.stringify(response.data));
       this.router.navigate(['/home']);
       this.spinner.hide();

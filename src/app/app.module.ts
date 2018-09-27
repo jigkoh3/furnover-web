@@ -16,15 +16,20 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BankAccountComponent } from './pages/bank-account/bank-account.component';
 import { LogisticComponent } from './pages/logistic/logistic.component';
-import { DeliveryTimeComponent } from './pages/modals/delivery-time/delivery-time.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { LoginComponent } from './pages/login/login.component';
 import { MessageComponent } from './components/message/message';
 import { SideMenuSettingShopComponent } from './components/side-menu-setting-shop/side-menu-setting-shop.component';
 import { MyProductComponent } from './pages/my-product/my-product.component';
+<<<<<<< HEAD
 import { AddressComponent } from './pages/address/address.component';
 import { InfoAddressComponent } from './pages/modals/info-address/info-address.component';
+=======
+import { ModalPrepareShippingComponent } from './pages/modals/modal-prepare-shipping/modal-prepare-shipping.component';
+import { ModalCeateBankAccountComponent } from './pages/modals/modal-ceate-bank-account/modal-ceate-bank-account.component';
+import { ProfileSettingComponent } from './components/profile/profile.component';
+>>>>>>> 325cb9f18fef947b46afb3248faf4710563cca3a
 
 @NgModule({
   declarations: [
@@ -35,14 +40,23 @@ import { InfoAddressComponent } from './pages/modals/info-address/info-address.c
     HomeComponent,
     BankAccountComponent,
     LogisticComponent,
-    DeliveryTimeComponent,
     RegisterComponent,
     ProfileComponent,
+    ProfileSettingComponent,
     LoginComponent,
     SideMenuSettingShopComponent,
     MyProductComponent,
+<<<<<<< HEAD
     AddressComponent,
     InfoAddressComponent
+=======
+    ModalPrepareShippingComponent,
+    ModalCeateBankAccountComponent
+  ],
+  entryComponents: [
+    ModalCeateBankAccountComponent,
+    ModalPrepareShippingComponent
+>>>>>>> 325cb9f18fef947b46afb3248faf4710563cca3a
   ],
   imports: [
     BrowserModule,
