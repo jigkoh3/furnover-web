@@ -24,9 +24,9 @@
           <div class="seller-meta">
             <div style="background-image: url('https://cf.shopee.co.th/file/4f6573903a0e1181f36d64982ad21e17');" class="cover-photo">
             </div>
-            <div class="cover-uploader shopee-dropzone">
+            <div class="cover-uploader dropzone">
               <label for="file-input">
-                <div class="shopee-validation-toast"></div> <svg class="shopee-validation-toast-svg" viewBox="0 0 32 32">
+                <div class="validation-toast"></div> <svg class="validation-toast-svg" viewBox="0 0 32 32">
                   <path d="M16 12c-3.3 0-6 2.7-6 6s2.7 6 6 6 6-2.7 6-6-2.7-6-6-6z"></path>
                   <path d="M30 6h-5l-1-2s-.9-2-2-2H10C8.9 2 8 4 8 4L7 6H2C.9 6 0 6.9 0 8v20c0 1.1.9 2 2 2h28c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zM16 26c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8z"></path>
                 </svg> <span style="font-size: 14px; padding-left: 5px;cursor: pointer;">เปลี่ยนรูปปก</span>
@@ -42,8 +42,8 @@
               <label for="file-avatar-input">
                 <div class="avatar">
                   <img src="https://cf.shopee.co.th/file/84807c7470e19f00e8a81cf224a475eb">
-                  <div class="avatar-uploader shopee-dropzone">
-                    <div class="shopee-validation-toast "></div>
+                  <div class="avatar-uploader dropzone">
+                    <div class="validation-toast "></div>
                     <div class="edit">
                       แก้ไข
                     </div>
@@ -160,46 +160,51 @@
                 <div class="col-4 edit-state">0 / 5 รูปภาพ</div>
               </div>
               <div class="shop-desc-media">
-                <div id="ember1218" class="banner-manager edit-input image-manager is-min ember-view">
-                  <ul id="ember1225" class="sortable-items ember-view">
-                  </ul>
-                  <ul class="sortable-items sortable-items-shadow">
-                    <!---->
-                    <li class="image-manager__dropzone">
-                      <div class="image-manager__item">
-                        <label for="file-uploader-input">
-                          <div class="uploader-btn">
-                            <div id="ember1226" class="shop-desc-img-uploader shopee-dropzone ember-view">
-                              <div class="shopee-validation-toast "></div>
-                              <div><svg class="image-s" viewBox="0 0 32 32">
-                                  <path d="M29.38 14.55l-3.89-4.2a1.24 1.24 0 0 0-.87-.23 1 1 0 0 0-.78.24l-7.32 6 1.25 1.41 8.49 9.55h-3L11.93 14.21a.94.94 0 0 0-.8-.29 1 1 0 0 0-.22 0h-.09a1.05 1.05 0 0 0-.51.2l-7.68 6.32V5.32a1 1 0 0 1 1-1h24.79a1 1 0 0 1 1 1v9.23zm0-12.09H2.63a1.91 1.91 0 0 0-1.91 1.9v18a.94.94 0 0 0 0 .16v4.75a1.91 1.91 0 0 0 1.91 1.93h26.75a1.91 1.91 0 0 0 1.91-1.91V4.36a1.91 1.91 0 0 0-1.91-1.91z"></path>
-                                  <circle cx="9.26" cy="10.24" r="2.25"></circle>
-                                </svg>
-                                <div>อัพโหลดรูปภาพ</div>
-                              </div>
-                              <input id="file-uploader-input" type="file" multiple>
-                              <div style="display:none" class="cropper-masker cropper-masker-block">
-                                <div class="cropper-loading"><img src="/images/spinner-balls-g.gif" alt=""></div>
-                                <div class="cropper-saving">กำลังบันทึก</div>
-                              </div>
+                <div class="banner-manager image-manager is-min">
+                  <!-- <ul class="sortable-items">
+                  </ul> -->
+                  <!-- <ul class="sortable-items sortable-items-shadow">
+                    <li class="image-manager__dropzone"> -->
+                  <!-- <div class="image-manager__item "> -->
+                  <div class="row">
+                    <div class="col-6 no-padding image-manager__item">
+                      <div class="uploader-btn">
+                        <div class="shop-desc-img-uploader dropzone">
+                          <label for="file-uploader-input">
+                            <!-- <div class="validation-toast "></div> -->
+                            <div class="image-s" style="cursor: pointer;"><svg  viewBox="0 0 32 32">
+                                <path d="M29.38 14.55l-3.89-4.2a1.24 1.24 0 0 0-.87-.23 1 1 0 0 0-.78.24l-7.32 6 1.25 1.41 8.49 9.55h-3L11.93 14.21a.94.94 0 0 0-.8-.29 1 1 0 0 0-.22 0h-.09a1.05 1.05 0 0 0-.51.2l-7.68 6.32V5.32a1 1 0 0 1 1-1h24.79a1 1 0 0 1 1 1v9.23zm0-12.09H2.63a1.91 1.91 0 0 0-1.91 1.9v18a.94.94 0 0 0 0 .16v4.75a1.91 1.91 0 0 0 1.91 1.93h26.75a1.91 1.91 0 0 0 1.91-1.91V4.36a1.91 1.91 0 0 0-1.91-1.91z"></path>
+                                <circle cx="9.26" cy="10.24" r="2.25"></circle>
+                              </svg>
+                              <div>อัพโหลดรูปภาพ</div>
                             </div>
-                            <div class="shop-desc-vid-uploader" data-ember-action="" data-ember-action-1227="1227">
-                              <!---->
-                              <div><svg class="youtube" viewBox="0 0 32 32">
-                                  <path d="M16.21 4.75C12.47 4.75 6.95 5 5.3 5s-2.46.25-3.44 1.1c-1.5 1.33-1.85 4-1.85 8v3.8c0 4.57.61 6.89 1.61 7.74a4.46 4.46 0 0 0 2.68 1.19c.3 0 2.41.42 11.78.42 5.84 0 10.87-.28 11.38-.34a4.38 4.38 0 0 0 2.94-1.26c1.33-1.53 1.6-4.06 1.6-7.72v-4.44c0-2.37-.13-5.72-1.61-7.13-1.11-.94-1.52-1.21-3.84-1.36-.65 0-6.35-.25-10.34-.25zm-3.46 6.78L21.38 16l-8.63 4.49v-8.96z"></path>
-                                </svg>
-                                <div>เพิ่มลิงค์ของ วิดีโอ YouTube</div>
-                              </div>
-                            </div>
-                          </div>
-                        </label>
+                            <input id="file-uploader-input" type="file" multiple>
+                            <!-- <div style="display:none" class="cropper-masker cropper-masker-block">
+                                      <div class="cropper-loading"><img src="/images/spinner-balls-g.gif" alt=""></div>
+                                      <div class="cropper-saving">กำลังบันทึก</div>
+                                    </div> -->
+                          </label>
 
-                        <!---->
+                        </div>
+                        <div class="shop-desc-vid-uploader" style="height: 75%; border-left: solid 1px #e8e8e8;"
+                          data-ember-action="" data-ember-action-1227="1227">
+                          <!---->
+                          <div class="youtube" style="cursor: pointer;" (click)="openDialog()"><svg viewBox="0 0 32 32">
+                              <path d="M16.21 4.75C12.47 4.75 6.95 5 5.3 5s-2.46.25-3.44 1.1c-1.5 1.33-1.85 4-1.85 8v3.8c0 4.57.61 6.89 1.61 7.74a4.46 4.46 0 0 0 2.68 1.19c.3 0 2.41.42 11.78.42 5.84 0 10.87-.28 11.38-.34a4.38 4.38 0 0 0 2.94-1.26c1.33-1.53 1.6-4.06 1.6-7.72v-4.44c0-2.37-.13-5.72-1.61-7.13-1.11-.94-1.52-1.21-3.84-1.36-.65 0-6.35-.25-10.34-.25zm-3.46 6.78L21.38 16l-8.63 4.49v-8.96z"></path>
+                            </svg>
+                            <div>เพิ่มลิงค์ของ วิดีโอ YouTube</div>
+                          </div>
+                        </div>
                       </div>
-                    </li>
-                    <!---->
-                    <!---->
-                  </ul>
+                    </div>
+                    <div class="col-6 no-padding">
+
+                    </div>
+                  </div>
+
+                  <!-- </div> -->
+                  <!-- </li>
+                  </ul> -->
                 </div>
               </div>
             </div>
@@ -208,18 +213,15 @@
                   <path d="M14 32v-2h18v2H14zm6.1-19.2l-9.8 17.1L2.2 32 0 23.9 9.8 6.8l1-1.7 3-5.1L24 5.9l-3.3 5.7-.6 1.2zM2.2 24.1l1.4 5.4L9 28l-6.8-3.9zm1-1.8l6.8 3.9 8.4-14.5-6.8-3.9-8.4 14.5zM14.5 2.7l-2 3.4 6.8 3.9 2-3.4-6.8-3.9z"></path>
                 </svg>รายละเอียดร้านค้า</div>
               <div class="edit-input">
-                <div id="ember1234" class="ember-form-validate__validator shopee-textbox shopee-textarea ember-view">
-                  <!---->
+                <div class="textbox shopee-textarea">
                   <div class="input">
-                    <textarea spellcheck="false" maxlength="500" id="ember1241" class="ember-text-area ember-view"></textarea>
+                    <textarea spellcheck="false" maxlength="500"  class="ember-text-area"></textarea>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="edit-row btn-group">
-              <div id="ember1247" class="shopee-button shopee-button--inactive shopee-button--primary ember-view">
-                บันทึก
-              </div>
+            <div class="edit-row btn-group text-center">
+              <button mat-flat-button color="primary" class="btn-summit">บันทึก</button>
             </div>
           </div>
         </div>
