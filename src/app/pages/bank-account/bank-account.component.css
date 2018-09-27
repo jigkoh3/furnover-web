@@ -13,8 +13,7 @@
 .border {
     border-style: dashed;
     border-color: rgb(211, 211, 211);
-    height: 50% !important;
-    width: 50% !important;
+    height: 175.5px;
 }
 
 .image {
@@ -54,8 +53,7 @@
 
 .button1 {
     border-radius: 50%;
-    height: 50% !important;
-    width: 50% !important;
+    height: 175.5px;
 }
 
 .button-color {
@@ -105,7 +103,7 @@
 }
 
 .bgcolor2 {
-    background-color:#E0E0E0;
+    background-color: #E0E0E0;
 }
 
 .padding-left3 {
@@ -137,16 +135,33 @@
     position: absolute;
     height: 20px;
     width: 20px;
-}.done{
+}
+
+.done {
     position: absolute;
     height: 15px;
     width: 15px;
     color: rgb(255, 255, 255);
-}.bgcolor3{
-    background-color:  #00C853;
-    
-}.nopaddingleft{
+}
+
+.bgcolor3 {
+    background-color: #00C853;
+}
+
+.nopaddingleft {
     padding-left: 3% !important;
-}.padding-left4{
+}
+
+.padding-left4 {
     padding-left: 15% !important;
+}
+
+.no-padding-left {
+    padding-left: 0% !important;
+}
+
+.no-padding-right {
+    padding-right: 0% !important;
+}.padding-right{
+    padding-left: 30% !important;
 }
