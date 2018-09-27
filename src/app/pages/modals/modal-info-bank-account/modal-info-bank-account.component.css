@@ -20,4 +20,9 @@
 }
 .text-aline{
     text-align: right;
+}.magin-botton{
+    margin-bottom: 3% !important;
+}
+.pidding-left2{
+    padding-left: 3% !important;
 }
