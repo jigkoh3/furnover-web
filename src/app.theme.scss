@@ -2,6 +2,16 @@
     background-color: #ff9558 !important;
 }
 
+[color="gay"] {
+    background-color: #dbdbdb !important;
+    color: #8a8a8a !important;
+}
+
+[color="gay"]:disabled {
+    background-color: rgba(163, 163, 163, 0.46) !important;
+    color: #8a8a8a !important;
+}
+
 [color="primary"]:disabled {
     background-color: rgba(255, 149, 88, 0.46) !important;
     color: #ffffff !important;
@@ -57,4 +67,8 @@
 .mat-tab-labels {
     display: flow-root !important;
     text-align: center !important;
+}
+
+.mat-form-field {
+    display: flow-root !important;
 }
