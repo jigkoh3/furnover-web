@@ -1,9 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , Inject } from '@angular/core';
 import { RestApiService } from '../../../providers/rest-api-service/rest-api.service';
 import { Constants } from '../../../app.constants';
 import { DataService } from '../../../providers/data-service/data.service';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { ModalCompleteComponent } from '../modal-complete/modal-complete.component';
+export interface DialogData {
+  message: string;
+}
 
 @Component({
   selector: 'app-modal-prepare-shipping',
@@ -17,7 +21,7 @@ export class ModalPrepareShippingComponent implements OnInit {
     private restApi: RestApiService,
     private spinner: NgxSpinnerService,
     private dataService: DataService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
   ) { }
 
   ngOnInit() {
@@ -48,6 +52,10 @@ export class ModalPrepareShippingComponent implements OnInit {
       let response = await this.restApi.post(Constants.URL() + '/api/save-shop-prepare-shipping', request);
       this.spinner.hide();
       this.dialog.closeAll();
+      this.dialog.open(ModalCompleteComponent, {
+        width: '700px',
+        data: {message: 'บันทึกข้อมูลณระยะเวลาเตรียมการจัดส่งสินค้าสำเร็จ'}
+      });
     } catch (error) {
       this.spinner.hide();
       setTimeout(() => {

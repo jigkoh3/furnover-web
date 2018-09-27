@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { RestApiService } from '../../../providers/rest-api-service/rest-api.service';
+import { Constants } from '../../../app.constants';
 
 @Component({
   selector: 'app-info-address',
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InfoAddressComponent implements OnInit {
 
-  constructor() { }
+  data: any = {};
+  constructor(
+    
+    private restApi: RestApiService
+  ) { }
 
   ngOnInit() {
+  }
+
+  async clickSave(data) {
+    try {
+      let response: any = await this.restApi.post(Constants.URL() + '/api/address', data);
+    
+    } catch (error) {
+
+    }
   }
 
 }
