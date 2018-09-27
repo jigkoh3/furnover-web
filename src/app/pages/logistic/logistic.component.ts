@@ -10,7 +10,7 @@ import { ModalPrepareShippingComponent } from '../modals/modal-prepare-shipping/
 @Component({
   selector: 'app-logistic',
   templateUrl: './logistic.component.html',
-  styleUrls: ['./logistic.component.css']
+  styleUrls: ['./logistic.component.scss']
 })
 export class LogisticComponent implements OnInit {
   rule: any = {
