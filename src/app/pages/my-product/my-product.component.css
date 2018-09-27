@@ -8,8 +8,60 @@
 
 .select {
     font-weight: bold;
+    cursor: pointer;
 }
 
 .un-select {
     color: #c0c0c0;
+    cursor: pointer;
+}
+
+.fix-col {
+    border: dotted;
+    border-color: #a9a9a9;
+    height: 20rem;
+    position: relative;
+}
+
+.fix-col p {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.add-txt {
+    margin-top: 3rem !important;
+    color: #ff9558;
+    cursor: pointer;
+}
+
+.mat-card_cus {
+    transition: box-shadow 280ms cubic-bezier(.4, 0, .2, 1);
+    display: block;
+    position: relative;
+    padding: 0px;
+    border-radius: 4px;
+    height: 20rem;
+}
+
+.p-name {
+    font-size: 0.8rem;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.txt-price {
+    color: #ff9558;
+}
+
+.fix-col-2 {
+    height: 20rem;
+}
+
+.fn-size {
+    font-size: 0.6rem;
 }
