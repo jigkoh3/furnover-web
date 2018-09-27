@@ -14,10 +14,14 @@ import { ModalPrepareShippingComponent } from '../modals/modal-prepare-shipping/
 })
 export class LogisticComponent implements OnInit {
   rule: any = {
-    mode:''
+    mode: ''
   };
-  device:boolean = true;
-  blindData : any ;
+  mode: boolean = false;
+  blindData: any;
+  status: boolean = false;
+  toggles: any = {
+    statusToggles: ''
+  };
 
 
   constructor(
@@ -27,19 +31,18 @@ export class LogisticComponent implements OnInit {
     private spinner: NgxSpinnerService,
     private dataService: DataService,
     private restApi: RestApiService
-  ) 
-  {
+  ) {
     iconRegistry.addSvgIcon(
       'calendar',
       sanitizer.bypassSecurityTrustResourceUrl('assets/baseline-calendar_today-24px.svg'));
-      iconRegistry.addSvgIcon(
-        'shipping',
-        sanitizer.bypassSecurityTrustResourceUrl('assets/baseline-local_shipping-24px.svg'));
+    iconRegistry.addSvgIcon(
+      'shipping',
+      sanitizer.bypassSecurityTrustResourceUrl('assets/baseline-local_shipping-24px.svg'));
   }
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(ModalPrepareShippingComponent,{
-      width:'700px'
+    const dialogRef = this.dialog.open(ModalPrepareShippingComponent, {
+      width: '700px'
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -64,35 +67,53 @@ export class LogisticComponent implements OnInit {
       this.spinner.hide();
       this.dataService.error('เรียกข้อมูลไม่สำเร็จ');
     }
-    
+
   }
 
-  testclick(){
+  testclick() {
     console.log(this.rule.mode);
+  }
 
+  async onToggleChange(e) {
+    this.spinner.show();
+    try {
+      let user: any = JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop'));
+      let request = {
+        shop_id: user.shop_id,
+        logistic_id: e._id,
+        status: e.status
+      };
+      let response = await this.restApi.post(Constants.URL() + '/api/save-shop-logistic', request);
+      this.spinner.hide();
+    } catch (error) {
+      this.spinner.hide();
+      setTimeout(() => {
+        this.dataService.error('บันทึกข้อมูลล้มเหลว');
+      }, 3000);
+    }
   }
 
   testjson() {
-  //  let response : any = {
-  //   data : [{
-  //     title : "Kerry นัดรับสินค้าจากร้านผู้ขาย",
-  //     limit : "30",
-  //     device: false
-  //   },{
-  //     title : "ThaiPost-EMS",
-  //     limit : "20",
-  //     device: true
-  //   },{
-  //     title : "ThaiPost - Registered Mail",
-  //     limit : "2",
-  //     device: false
-  //   },{
-  //     title : "Kerry รับส่งสินค้าที่สาขา",
-  //     limit : "20",
-  //     device: true
-  //   }]
-  // }
-  // this.blindData = response.data;
-}
+    //  let response : any = {
+    //   data : [{
+    //     title : "Kerry นัดรับสินค้าจากร้านผู้ขาย",
+    //     limit : "30",
+    //     device: false
+    //   },{
+    //     title : "ThaiPost-EMS",
+    //     limit : "20",
+    //     device: true
+    //   },{
+    //     title : "ThaiPost - Registered Mail",
+    //     limit : "2",
+    //     device: false
+    //   },{
+    //     title : "Kerry รับส่งสินค้าที่สาขา",
+    //     limit : "20",
+    //     device: true
+    //   }]
+    // }
+    // this.blindData = response.data;
+  }
 
 }
