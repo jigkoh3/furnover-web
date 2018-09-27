@@ -11,7 +11,7 @@ import { BankComponent } from 'src/app/pages/modals/bank/bank.component';
 export class BankAccountComponent implements OnInit {
 
   constructor(
-    public  iconRegistry: MatIconRegistry,
+    public iconRegistry: MatIconRegistry,
     public sanitizer: DomSanitizer,
     public dialog: MatDialog
   ) {
@@ -27,7 +27,9 @@ export class BankAccountComponent implements OnInit {
       iconRegistry.addSvgIcon(
         'baseline-check',
         sanitizer.bypassSecurityTrustResourceUrl('assets/baseline-check_circle-24px.svg'));
-
+    iconRegistry.addSvgIcon(
+      'shipping',
+      sanitizer.bypassSecurityTrustResourceUrl('assets/baseline-local_shipping-24px.svg'));
   }
 
   ngOnInit() {
@@ -39,4 +41,5 @@ export class BankAccountComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
     });
-}}
+  }
+}

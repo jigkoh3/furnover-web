@@ -35,3 +35,26 @@
 .btn-add {
     margin-top: -40px;
 }
+
+.padding-bottom {
+    padding-bottom: 20px !important;
+    border-bottom: 1px solid lightgray;
+}
+
+.header {
+    display: inline-block !important;
+}
+
+.position-text-header {
+    position: relative;
+    top: 15px;
+    left: 15px;
+}
+
+.font-color-grey {
+    color: gray !important;
+}
+
+.font-size1 {
+    font-size: 14px !important;
+}
