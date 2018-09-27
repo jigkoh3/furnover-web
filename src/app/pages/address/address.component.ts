@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { RestApiService } from '../../providers/rest-api-service/rest-api.service';
 import { Constants } from '../../app.constants';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { MatDialog } from '@angular/material';
+import { InfoAddressComponent } from '../modals/info-address/info-address.component';
 
 @Component({
   selector: 'app-address',
@@ -15,6 +17,7 @@ export class AddressComponent implements OnInit {
     private router: Router,
     private restApi: RestApiService,
     private spinner: NgxSpinnerService,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit() {
@@ -29,15 +32,25 @@ export class AddressComponent implements OnInit {
       console.log(usershop._id);
       let res: any = await this.restApi.post(Constants.URL() + '/api/address-me', { user_id: usershop._id });
       if (res['status'] === 200) {
+        this.spinner.hide();
         console.log(res);
       }
     } catch (error) {
+      this.spinner.hide();
       console.log(error);
     }
   }
 
-  addClick() {
-    this.router.navigate(['/info-address']);
+ 
+
+  addClick(): void {
+    const dialogRef = this.dialog.open(InfoAddressComponent, {
+      width: "700px"
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
   }
 }
 

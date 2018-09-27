@@ -1,21 +1,35 @@
-<mat-card class="example-card">
-  <div class="row">
-    <div class="col-	col-sm-	col-md-11	col-lg-	col-xl-">
-      ที่อยู่ของฉัน
-    </div>
-    <div class="col-	col-sm-	col-md-1	col-lg-	col-xl-">
-      <button mat-raised-button color="primary" (click)="addClick()">เพิ่มที่อยู่ใหม่</button>
-    </div>
+<div class="row">
+  <div class="col-lg-3 col-xl-3 col-xs-12 col-sm-12 col-md-12">
+    <side-menu-setting-shop></side-menu-setting-shop>
   </div>
-  <mat-divider></mat-divider>
-  <div class="row">
-    <div class="col-	col-sm-	col-md-11	col-lg-	col-xl-">
-      <mat-list role="list">
-        <mat-list-item role="listitem">Item 1</mat-list-item>
-      </mat-list>
-    </div>
-    <div class="col-	col-sm-	col-md-1	col-lg-	col-xl-">
-      <mat-icon>create</mat-icon>
-    </div>
+
+  <div class="col-lg-8">
+    <mat-card class="example-card">
+      <div class="row">
+        <div class="col-6 col-sm-6 col-md-6">
+          ที่อยู่ของฉัน
+        </div>
+        <div class="col-6 col-sm-6 col-md-6 txt-right">
+          <button mat-raised-button color="primary" (click)="addClick()">เพิ่มที่อยู่ใหม่</button>
+        </div>
+      </div>
+      <mat-divider></mat-divider>
+      <div class="row">
+        <div class="col-1 col-sm-1 col-md-1 txt-right">
+          <mat-icon>pin_drop</mat-icon>
+        </div>
+        <div class="col-9 col-sm-9 col-md-9">
+          <p>nid</p>
+          <p>098765432</p>
+          <p>55/7 หมู่11 ต.คูคต</p>
+          <p>อ.ลำลูกกา</p>
+          <p>จ.ปทุมธานี</p>
+          <p>12130</p>
+        </div>
+        <div class="col-2 col-sm-2 col-md-2 txt-right">
+          <mat-icon>create</mat-icon>
+        </div>
+      </div>
+    </mat-card>
   </div>
-</mat-card>
+</div>

@@ -36,12 +36,12 @@ export class ModalCreateBankAccountComponent implements OnInit {
       bankNumber: ['', Validators.required],
       nameBank: ['', Validators.required]
     });
-    this.getBank();
+    // this.getBank();
   }
-  async getBank() {
-    let user: any = JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop'));
-    console.log(user);
-    let getbank: any = await this.restApi.get(Constants.URL() + '/api/masterbankaccount'+user._id );
-    console.log(getbank);
-  }
+  // async getBank() {
+  //   let user: any = JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop'));
+  //   console.log(user);
+  //   let getbank: any = await this.restApi.get(Constants.URL() + '/api/masterbankaccount'+user._id );
+  //   console.log(getbank);
+  // }
 }
