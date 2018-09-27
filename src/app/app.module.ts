@@ -64,7 +64,7 @@ import { ModalUploadYoutubeComponent } from './pages/modals/modal-upload-youtube
     InfoAddressComponent,
     ModalPrepareShippingComponent,
     ModalInfoBankAccountComponent,
-    
+    ModalUploadYoutubeComponent,
     ModalCompleteComponent
   ],
   imports: [

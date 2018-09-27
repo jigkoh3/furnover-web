@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
-import { ModalPrepareShippingComponent } from '../../pages/modals/modal-prepare-shipping/modal-prepare-shipping.component';
+import { ModalUploadYoutubeComponent } from '../../pages/modals/modal-upload-youtube/modal-upload-youtube.component';
 
 @Component({
   selector: 'profile',
@@ -15,7 +15,7 @@ export class ProfileSettingComponent implements OnInit {
   }
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(ModalPrepareShippingComponent, {
+    const dialogRef = this.dialog.open(ModalUploadYoutubeComponent, {
       width: '700px'
     });
 
