@@ -1,19 +1,35 @@
+.container {
+  padding: 0px !important;
+}
+
+.register-div {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
 .input-block {
   max-width: 300px !important;
   width: 100% !important;
 }
 
-.btn-login {
+.btn-register {
   max-width: 300px !important;
   width: 100% !important;
+  margin: 4px !important;
 }
 
 .register-bg {
-  background-image: url("../../../assets/imgs/register.png") !important;
-  background-repeat: no-repeat;
-  background-size: 80%;
-  background-position: center;
-  min-height: 500px;
+
+  // background-image: url("../../../assets/imgs/register.png") !important;
+  // background-repeat: no-repeat;
+  // background-size: 80%;
+  // background-position: center;
+  // min-height: 100%;
+  img {
+    max-width: 500px;
+    width: 100%;
+    object-fit: cover;
+  }
 }
 
 .register {
@@ -23,4 +39,8 @@
     cursor: pointer;
     text-decoration: underline;
   }
+}
+
+.bg-gray {
+  background-color: #f5f5f5;
 }
