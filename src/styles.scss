@@ -9,10 +9,6 @@ body {
   margin: 0px;
 }
 
-.container {
-  // background-color: rgba(241, 241, 241, 0.59);
-}
-
 [padding] {
   padding: 16px;
 }
@@ -122,14 +118,43 @@ label {
   text-align: center !important;
 }
 
+.padding {
+  padding: 16px !important;
+}
+
 .no-padding {
   padding: 0px !important;
 }
 
-.primary {
-  color: #ff9558;
+// scroll style
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
 }
 
-.primary-bg {
-  background-color: #ff9558;
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #cccccc;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #cccccc;
+}
+
+// scroll style
+
+
+.la-ball-atom[_ngcontent-c3]>div[_ngcontent-c3]:nth-child(1) {
+  background: #ff9558 !important;
+}
+
+.mat-drawer-content {
+  background-color: #f5f5f5 !important;
 }

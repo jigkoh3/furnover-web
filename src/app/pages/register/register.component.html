@@ -1,84 +1,87 @@
 <div class="register-div">
-  <mat-card>
+  <mat-card class="no-padding">
     <div class="row">
-      <div class="col col-12 col-md-5 text-center">
-        <mat-vertical-stepper [linear]="isLinear" #stepper>
-          <mat-step [stepControl]="accountFormGroup">
-            <form [formGroup]="accountFormGroup">
-              <ng-template matStepLabel>ข้อมูลผู้ใช้งาน</ng-template>
-              <div>
-                <mat-form-field class="input-block">
-                  <input matInput placeholder="ชื่อผู้ใช้" type="text" [(ngModel)]="credentials.username"
-                    formControlName="accountFormGroupUsername" required>
-                </mat-form-field>
-              </div>
-              <div>
-                <mat-form-field class="input-block">
-                  <input matInput placeholder="รหัสผ่าน" type="password" [(ngModel)]="credentials.password"
-                    formControlName="accountFormGroupPassword" required>
-                </mat-form-field>
-              </div>
-              <div>
-                <button mat-flat-button color="primary" class="btn-login" matStepperNext>ถัดไป</button>
-              </div>
-            </form>
-          </mat-step>
-          <mat-step [stepControl]="profileFormGroup">
-            <form [formGroup]="profileFormGroup">
-              <ng-template matStepLabel>ข้อมูลของฉัน</ng-template>
-              <div>
-                <mat-form-field class="input-block">
-                  <input matInput placeholder="ชื่อ" type="text" [(ngModel)]="credentials.firstname" formControlName="profileFormGroupFirstname"
-                    required>
-                </mat-form-field>
-              </div>
-              <div>
-                <mat-form-field class="input-block">
-                  <input matInput placeholder="นามสกุล" type="text" [(ngModel)]="credentials.lastname" formControlName="profileFormGroupLastname"
-                    required>
-                </mat-form-field>
-              </div>
-              <div>
-                <mat-form-field class="input-block">
-                  <input matInput placeholder="อีเมล์" type="email" [(ngModel)]="credentials.email" formControlName="profileFormGroupEmail"
-                    required email>
-                </mat-form-field>
-              </div>
-              <div>
-                <button mat-stroked-button class="btn-login" matStepperPrevious>ย้อนกลับ</button>
-              </div>
-              <br>
-              <div>
-                <button mat-flat-button color="primary" class="btn-login" matStepperNext>ถัดไป</button>
-              </div>
-            </form>
-          </mat-step>
-          <mat-step [stepControl]="shopFormGroup">
-            <form [formGroup]="shopFormGroup">
-              <ng-template matStepLabel>ร้านของฉัน</ng-template>
-              <div>
-                <mat-form-field class="input-block">
-                  <input matInput placeholder="ชื่อร้านของฉัน" type="text" [(ngModel)]="credentials.shopname"
-                    formControlName="shopFormGroupShopname" required>
-                </mat-form-field>
-              </div>
-              <div>
-                <button mat-stroked-button class="btn-login" matStepperPrevious>ย้อนกลับ</button>
-              </div>
-              <br>
-              <div>
-                <message class="text-center" [type]="dataService.messageType" [message]="dataService.message"></message>
-                <button mat-flat-button color="primary" class="btn-login" matStepperNext (click)="onRegisterShop()">สร้างบัญชีผู้ใช้งาน</button>
-              </div>
-            </form>
-          </mat-step>
-        </mat-vertical-stepper>
-        <br>
-        <br>
-        <p class="register">มีบัญชีอยู่แล้ว? <span class="btn primary" routerLink="/auth/login">เข้าสู่ระบบ</span></p>
+      <div class="col col-12 col-md-5 text-center padding">
+        <div class="padding">
+          <h3>เข้าร่วมกับ <span class="primary">Furnover Seller Center</span></h3>
+          <mat-vertical-stepper [linear]="isLinear" #stepper>
+            <mat-step [stepControl]="accountFormGroup">
+              <form [formGroup]="accountFormGroup">
+                <ng-template matStepLabel>ข้อมูลผู้ใช้งาน</ng-template>
+                <div>
+                  <mat-form-field class="input-block">
+                    <input matInput placeholder="ชื่อผู้ใช้" type="text" [(ngModel)]="credentials.username"
+                      formControlName="accountFormGroupUsername" required>
+                  </mat-form-field>
+                </div>
+                <div>
+                  <mat-form-field class="input-block">
+                    <input matInput placeholder="รหัสผ่าน" type="password" [(ngModel)]="credentials.password"
+                      formControlName="accountFormGroupPassword" required>
+                  </mat-form-field>
+                </div>
+                <div>
+                  <button mat-flat-button color="primary" class="btn-register" matStepperNext>ถัดไป</button>
+                </div>
+              </form>
+            </mat-step>
+            <mat-step [stepControl]="profileFormGroup">
+              <form [formGroup]="profileFormGroup">
+                <ng-template matStepLabel>ข้อมูลของฉัน</ng-template>
+                <div>
+                  <mat-form-field class="input-block">
+                    <input matInput placeholder="ชื่อ" type="text" [(ngModel)]="credentials.firstname" formControlName="profileFormGroupFirstname"
+                      required>
+                  </mat-form-field>
+                </div>
+                <div>
+                  <mat-form-field class="input-block">
+                    <input matInput placeholder="นามสกุล" type="text" [(ngModel)]="credentials.lastname"
+                      formControlName="profileFormGroupLastname" required>
+                  </mat-form-field>
+                </div>
+                <div>
+                  <mat-form-field class="input-block">
+                    <input matInput placeholder="อีเมล์" type="email" [(ngModel)]="credentials.email" formControlName="profileFormGroupEmail"
+                      required email>
+                  </mat-form-field>
+                </div>
+                <div>
+                  <button mat-stroked-button class="btn-register" matStepperPrevious>ย้อนกลับ</button>
+                </div>
+                <div>
+                  <button mat-flat-button color="primary" class="btn-register" matStepperNext>ถัดไป</button>
+                </div>
+              </form>
+            </mat-step>
+            <mat-step [stepControl]="shopFormGroup">
+              <form [formGroup]="shopFormGroup">
+                <ng-template matStepLabel>ร้านของฉัน</ng-template>
+                <div>
+                  <mat-form-field class="input-block">
+                    <input matInput placeholder="ชื่อร้านของฉัน" type="text" [(ngModel)]="credentials.shopname"
+                      formControlName="shopFormGroupShopname" required>
+                  </mat-form-field>
+                </div>
+                <div>
+                  <button mat-stroked-button class="btn-register" matStepperPrevious>ย้อนกลับ</button>
+                </div>
+                <div>
+                  <message class="text-center" [type]="dataService.messageType" [message]="dataService.message"></message>
+                  <button mat-flat-button color="primary" class="btn-register" matStepperNext (click)="onRegisterShop()">สร้างบัญชีผู้ใช้งาน</button>
+                </div>
+              </form>
+            </mat-step>
+          </mat-vertical-stepper>
+          <br>
+          <br>
+          <p class="register">มีบัญชีอยู่แล้ว? <span class="btn primary" routerLink="/auth/login">เข้าสู่ระบบ</span></p>
+        </div>
       </div>
-      <div class="col col-12 col-md-7 register-bg">
-        <!-- <div class="register-bg"></div> -->
+      <div class="col col-12 col-md-7 text-center bg-gray">
+        <div class="register-bg">
+          <img src="/assets/imgs/register.png" alt="register-logo">
+        </div>
       </div>
     </div>
   </mat-card>

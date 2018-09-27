@@ -49,8 +49,11 @@ export class LoginComponent implements OnInit {
       this.spinner.hide();
     } catch (error) {
       this.spinner.hide();
-      if (error && error.message === 'User not found.') {
-        return this.dataService.error('ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง กรุณาลองใหม่อีกครั้ง');
+      if (
+        error && error.error && error.error.message === 'User not found.' ||
+        error && error.error && error.error.message === 'Username or Password is invalid.'
+        ) {
+        return this.dataService.error('ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง');
       }
       return this.dataService.error('เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง');
     }
