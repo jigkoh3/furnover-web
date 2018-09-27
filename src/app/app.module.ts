@@ -22,6 +22,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { LoginComponent } from './pages/login/login.component';
 import { MessageComponent } from './components/message/message';
 import { SideMenuSettingShopComponent } from './components/side-menu-setting-shop/side-menu-setting-shop.component';
+import { MyProductComponent } from './pages/my-product/my-product.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { SideMenuSettingShopComponent } from './components/side-menu-setting-sho
     RegisterComponent,
     ProfileComponent,
     LoginComponent,
-    SideMenuSettingShopComponent
+    SideMenuSettingShopComponent,
+    MyProductComponent
   ],
   imports: [
     BrowserModule,
