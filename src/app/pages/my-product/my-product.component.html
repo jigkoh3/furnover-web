@@ -29,6 +29,49 @@
         <span class="select">ล่าสุด</span> &nbsp;<span class="un-select">สินค้าขายดี</span> &nbsp;<span class="un-select">ราคา</span>
       </div>
     </div>
+
+    <div class="row padding">
+      <div class="col-12 col-md-2 col-sm-4">
+        <div class="fix-col">
+          <p>
+            <button mat-fab color="primary">
+              <mat-icon>add</mat-icon>
+            </button>
+          </p>
+          <p class="add-txt">เพิ่มสินค้า</p>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-2 col-sm-4 fix-col-2" *ngFor="let item of [1,2,3,4,5]">
+        <mat-card class="mat-card_cus">
+          <div style="background: url('http://my-test-11.slatic.net/original/536fa036d0bc1e7a54e9496d75aa494f.jpg_720x720q80.jpg') no-repeat center center;background-size: cover;min-height: 12rem;"></div>
+          <div class="padding">
+            <p class="p-name">
+              สำหรับ VIVO V9 เยาวชนเคส GKK 3 ใน 1 เคลือบด้านหลังปกแข็งสำหรับ VIVO V9 เยาวชน
+            </p>
+            <div class="row">
+              <div class="col-6 txt-price">
+                ฿300
+              </div>
+              <div class="col-6 txt-right">
+                คลัง 2
+              </div>
+            </div>
+            <div class="row fn-size">
+              <div class="col-4">
+                ดู 0
+              </div>
+              <div class="col-4">
+                ถูกใจ 0
+              </div>
+              <div class="col-4 txt-right">
+                ยอดขาย 0
+              </div>
+            </div>
+          </div>
+        </mat-card>
+      </div>
+    </div>
   </mat-tab>
   <mat-tab label="ขายอยู่"> ขายอยู่ </mat-tab>
   <mat-tab label="หมด"> หมด </mat-tab>
