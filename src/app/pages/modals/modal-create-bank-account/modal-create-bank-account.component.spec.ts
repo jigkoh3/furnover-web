@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ModalCeateBankAccountComponent } from './modal-ceate-bank-account.component';
+import { ModalCreateBankAccountComponent } from './modal-create-bank-account.component';
 
 describe('ModalCeateBankAccountComponent', () => {
-  let component: ModalCeateBankAccountComponent;
-  let fixture: ComponentFixture<ModalCeateBankAccountComponent>;
+  let component: ModalCreateBankAccountComponent;
+  let fixture: ComponentFixture<ModalCreateBankAccountComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ModalCeateBankAccountComponent ]
+      declarations: [ ModalCreateBankAccountComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ModalCeateBankAccountComponent);
+    fixture = TestBed.createComponent(ModalCreateBankAccountComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
