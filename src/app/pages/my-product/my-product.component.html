@@ -2,7 +2,7 @@
   <mat-tab label="ทั้งหมด">
     <div class="row padding">
       <div class="col-2 col-md-8 col-sm-6">
-        สินค้า 1 รายการ
+        สินค้า 5 รายการ
       </div>
       <div class="col-6 col-md-2 col-sm-3">
         <button mat-flat-button color="gay" class="mgt-right">
@@ -44,7 +44,18 @@
 
       <div class="col-12 col-md-2 col-sm-4 fix-col-2" *ngFor="let item of [1,2,3,4,5]">
         <mat-card class="mat-card_cus">
-          <div style="background: url('http://my-test-11.slatic.net/original/536fa036d0bc1e7a54e9496d75aa494f.jpg_720x720q80.jpg') no-repeat center center;background-size: cover;min-height: 12rem;"></div>
+          <div style="background: url('http://my-test-11.slatic.net/original/536fa036d0bc1e7a54e9496d75aa494f.jpg_720x720q80.jpg') no-repeat center center;background-size: cover;min-height: 12rem;">
+            <mat-checkbox class="ch_box"></mat-checkbox>
+            <div class="product-item__badges">
+              <div class="product-label new">
+                <div class="badge-content">
+                  <div class="text">ใหม่</div>
+                </div><svg viewBox="-107 102 48 54">
+                  <path d="M-107 102v54l24-6.8 24 6.8v-54z"></path>
+                </svg>
+              </div>
+            </div>
+          </div>
           <div class="padding">
             <p class="p-name">
               สำหรับ VIVO V9 เยาวชนเคส GKK 3 ใน 1 เคลือบด้านหลังปกแข็งสำหรับ VIVO V9 เยาวชน
@@ -73,7 +84,205 @@
       </div>
     </div>
   </mat-tab>
-  <mat-tab label="ขายอยู่"> ขายอยู่ </mat-tab>
-  <mat-tab label="หมด"> หมด </mat-tab>
-  <mat-tab label="ถูกระงับ"> ถูกระงับ </mat-tab>
+  <mat-tab label="ขายอยู่">
+    <div class="row padding">
+      <div class="col-2 col-md-8 col-sm-6">
+        สินค้า 5 รายการ
+      </div>
+      <div class="col-6 col-md-2 col-sm-3">
+        <button mat-flat-button color="gay" class="mgt-right">
+          <mat-icon>dashboard</mat-icon>
+        </button>
+        <button mat-flat-button color="gay">
+          <mat-icon>sort</mat-icon>
+        </button>
+      </div>
+      <div class="col-4 col-md-2 col-sm-3 txt-right">
+        <button mat-flat-button color="primary">
+          <mat-icon>library_books</mat-icon> ทำเป็นชุด
+        </button>
+      </div>
+    </div>
+
+    <div class="row padding">
+      <div class="col-4 col-md-4 col-sm-4">
+        <mat-form-field>
+          <input matInput placeholder="ค้นหา">
+        </mat-form-field>
+      </div>
+      <div class="col-8 col-md-8 col-sm-8 txt-right">
+        <span class="select">ล่าสุด</span> &nbsp;<span class="un-select">สินค้าขายดี</span> &nbsp;<span class="un-select">ราคา</span>
+      </div>
+    </div>
+    <div class="row padding">
+      <div class="col-12 col-md-2 col-sm-4 fix-col-2" *ngFor="let item of [1,2,3,4,5]">
+        <mat-card class="mat-card_cus">
+          <div style="background: url('http://my-test-11.slatic.net/original/536fa036d0bc1e7a54e9496d75aa494f.jpg_720x720q80.jpg') no-repeat center center;background-size: cover;min-height: 12rem;">
+            <mat-checkbox class="ch_box"></mat-checkbox>
+            <div class="product-item__badges">
+              <div class="product-label new">
+                <div class="badge-content">
+                  <div class="text">ใหม่</div>
+                </div><svg viewBox="-107 102 48 54">
+                  <path d="M-107 102v54l24-6.8 24 6.8v-54z"></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="padding">
+            <p class="p-name">
+              สำหรับ VIVO V9 เยาวชนเคส GKK 3 ใน 1 เคลือบด้านหลังปกแข็งสำหรับ VIVO V9 เยาวชน
+            </p>
+            <div class="row">
+              <div class="col-6 txt-price">
+                ฿300
+              </div>
+              <div class="col-6 txt-right">
+                คลัง 2
+              </div>
+            </div>
+            <div class="row fn-size">
+              <div class="col-4">
+                ดู 0
+              </div>
+              <div class="col-4">
+                ถูกใจ 0
+              </div>
+              <div class="col-4 txt-right">
+                ยอดขาย 0
+              </div>
+            </div>
+          </div>
+        </mat-card>
+      </div>
+    </div>
+  </mat-tab>
+  <mat-tab label="หมด">
+    <div class="row padding">
+      <div class="col-2 col-md-8 col-sm-6">
+        สินค้า 5 รายการ
+      </div>
+      <div class="col-6 col-md-2 col-sm-3">
+        <button mat-flat-button color="gay" class="mgt-right">
+          <mat-icon>dashboard</mat-icon>
+        </button>
+        <button mat-flat-button color="gay">
+          <mat-icon>sort</mat-icon>
+        </button>
+      </div>
+      <div class="col-4 col-md-2 col-sm-3 txt-right">
+        <button mat-flat-button color="primary">
+          <mat-icon>library_books</mat-icon> ทำเป็นชุด
+        </button>
+      </div>
+    </div>
+
+    <div class="row padding">
+      <div class="col-4 col-md-4 col-sm-4">
+        <mat-form-field>
+          <input matInput placeholder="ค้นหา">
+        </mat-form-field>
+      </div>
+      <div class="col-8 col-md-8 col-sm-8 txt-right">
+        <span class="select">ล่าสุด</span> &nbsp;<span class="un-select">สินค้าขายดี</span> &nbsp;<span class="un-select">ราคา</span>
+      </div>
+    </div>
+    <div class="row padding">
+      <div class="col-12 col-md-2 col-sm-4 fix-col-2" *ngFor="let item of [1,2,3,4,5]">
+        <mat-card class="mat-card_cus">
+          <div style="background: url('http://my-test-11.slatic.net/original/536fa036d0bc1e7a54e9496d75aa494f.jpg_720x720q80.jpg') no-repeat center center;background-size: cover;min-height: 12rem;">
+            <mat-checkbox class="ch_box"></mat-checkbox>
+          </div>
+          <div class="padding">
+            <p class="p-name">
+              สำหรับ VIVO V9 เยาวชนเคส GKK 3 ใน 1 เคลือบด้านหลังปกแข็งสำหรับ VIVO V9 เยาวชน
+            </p>
+            <div class="row">
+              <div class="col-6 txt-price">
+                ฿300
+              </div>
+              <div class="col-6 txt-right">
+                คลัง 2
+              </div>
+            </div>
+            <div class="row fn-size">
+              <div class="col-4">
+                ดู 0
+              </div>
+              <div class="col-4">
+                ถูกใจ 0
+              </div>
+              <div class="col-4 txt-right">
+                ยอดขาย 0
+              </div>
+            </div>
+          </div>
+        </mat-card>
+      </div>
+    </div>
+  </mat-tab>
+  <mat-tab label="ถูกระงับ">
+    <div class="row padding">
+      <div class="col-2 col-md-8 col-sm-6">
+        สินค้า 5 รายการ
+      </div>
+      <div class="col-6 col-md-2 col-sm-3">
+        <button mat-flat-button color="gay" class="mgt-right">
+          <mat-icon>dashboard</mat-icon>
+        </button>
+        <button mat-flat-button color="gay">
+          <mat-icon>sort</mat-icon>
+        </button>
+      </div>
+      <div class="col-4 col-md-2 col-sm-3 txt-right">
+        <button mat-flat-button color="primary">
+          <mat-icon>library_books</mat-icon> ทำเป็นชุด
+        </button>
+      </div>
+    </div>
+
+    <div class="row padding">
+      <div class="col-4 col-md-4 col-sm-4">
+        <mat-form-field>
+          <input matInput placeholder="ค้นหา">
+        </mat-form-field>
+      </div>
+      <div class="col-8 col-md-8 col-sm-8 txt-right">
+        <span class="select">ล่าสุด</span> &nbsp;<span class="un-select">สินค้าขายดี</span> &nbsp;<span class="un-select">ราคา</span>
+      </div>
+    </div>
+    <div class="row padding">
+      <div class="col-12 col-md-2 col-sm-4 fix-col-2" *ngFor="let item of [1,2,3,4,5]">
+        <mat-card class="mat-card_cus">
+          <div style="background: url('http://my-test-11.slatic.net/original/536fa036d0bc1e7a54e9496d75aa494f.jpg_720x720q80.jpg') no-repeat center center;background-size: cover;min-height: 12rem;">
+            <mat-checkbox class="ch_box"></mat-checkbox>
+          </div>
+          <div class="padding">
+            <p class="p-name">
+              สำหรับ VIVO V9 เยาวชนเคส GKK 3 ใน 1 เคลือบด้านหลังปกแข็งสำหรับ VIVO V9 เยาวชน
+            </p>
+            <div class="row">
+              <div class="col-6 txt-price">
+                ฿300
+              </div>
+              <div class="col-6 txt-right">
+                คลัง 2
+              </div>
+            </div>
+            <div class="row fn-size">
+              <div class="col-4">
+                ดู 0
+              </div>
+              <div class="col-4">
+                ถูกใจ 0
+              </div>
+              <div class="col-4 txt-right">
+                ยอดขาย 0
+              </div>
+            </div>
+          </div>
+        </mat-card>
+      </div>
+    </div>
+  </mat-tab>
 </mat-tab-group>

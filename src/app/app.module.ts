@@ -16,7 +16,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BankAccountComponent } from './pages/bank-account/bank-account.component';
 import { LogisticComponent } from './pages/logistic/logistic.component';
-import { DeliveryTimeComponent } from './pages/modals/delivery-time/delivery-time.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -24,6 +23,9 @@ import { MessageComponent } from './components/message/message';
 import { SideMenuSettingShopComponent } from './components/side-menu-setting-shop/side-menu-setting-shop.component';
 import { MyProductComponent } from './pages/my-product/my-product.component';
 import { ModalCreateBankAccountComponent } from './pages/modals/modal-create-bank-account/modal-create-bank-account.component';
+import { AddressComponent } from './pages/address/address.component';
+import { InfoAddressComponent } from './pages/modals/info-address/info-address.component';
+import { ModalPrepareShippingComponent } from './pages/modals/modal-prepare-shipping/modal-prepare-shipping.component';
 import { ProfileSettingComponent } from './components/profile/profile.component';
 
 @NgModule({
@@ -35,17 +37,24 @@ import { ProfileSettingComponent } from './components/profile/profile.component'
     HomeComponent,
     BankAccountComponent,
     LogisticComponent,
-    DeliveryTimeComponent,
     RegisterComponent,
     ProfileComponent,
     ProfileSettingComponent,
     LoginComponent,
     SideMenuSettingShopComponent,
     MyProductComponent,
-    ModalCreateBankAccountComponent
+    ModalCreateBankAccountComponent,
+    AddressComponent,
+    InfoAddressComponent,
+    ModalPrepareShippingComponent
+    
+    
   ],
   entryComponents: [
-    ModalCreateBankAccountComponent
+    ModalCreateBankAccountComponent,
+    AddressComponent,
+    InfoAddressComponent,
+    ModalPrepareShippingComponent,
   ],
   imports: [
     BrowserModule,
