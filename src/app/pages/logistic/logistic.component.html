@@ -1,81 +1,90 @@
-<mat-card>
-  <div class="row padding-bottom">
-    <div class="col-12">
-      <button mat-fab color="primary">
-        <mat-icon svgIcon="shipping"></mat-icon>
-      </button>
-      <div class="header position-text-header">
-        <h4>
-          การจัดส่งของฉัน
-        </h4>
-        <span class="font-color-grey font-size1 ">
-          ตั้งค่าช่องทางการขนส่งและค่าขนส่ง
-        </span>
-      </div>
-    </div>
+<div class="row">
+  <div class="col-lg-3 col-xl-3 col-xs-12 col-sm-12 col-md-12">
+    <side-menu-setting-shop></side-menu-setting-shop>
   </div>
-  <div class="row padding">
-    <div class="col-12 col-md-2"></div>
-    <div class="col-12 col-md-8">
-      <div class="row">
-        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-          <b class="primary">การจัดส่งที่รองรับโดย Furnover</b>
-          <br>
-          <label class="font-color-grey font-size">ผู้ซื้อสามารถตรวจสอบสถานะของพัสดุผ่านแอพพลิเคชั่นได้โดยตรงเมื่อเลือกการจัดส่งที่รองรับโดย
-            Furnover</label>
-          <br>
-          <br>
-          <message class="text-center" [type]="dataService.messageType" [message]="dataService.message"></message>
-          <div *ngFor="let item of blindData">
-            <mat-card>
-              <div class="row padding">
-                <div class="col-12">
-                  <b>{{item.name}}</b>
-                </div>
-                <div class="col-12 col-md-7">
-                  <p class="font-color-grey no-margin font-size">
-                    ข้อจำกัด
-                  </p>
-                  <p class="font-size1 no-margin">
-                    {{item.detail}}
-                  </p>
-                </div>
-                <div class="col-12 col-md-5">
-                  <label class="font-size1">เปิดใช้งานการจัดส่งนี้</label>
-                  <mat-slide-toggle class="position-toggle" [(ngModel)]="item.status" (ngModelChange)="onToggleChange(item)"></mat-slide-toggle>
-                </div>
-              </div>
-            </mat-card>
-            <br>
+  <div class="col-lg-8">
+    <div>
+      <mat-card>
+        <div class="row padding-bottom">
+          <div class="col-12">
+            <button mat-fab color="primary">
+              <mat-icon svgIcon="shipping"></mat-icon>
+            </button>
+            <div class="header position-text-header">
+              <h4>
+                การจัดส่งของฉัน
+              </h4>
+              <span class="font-color-grey font-size1 ">
+                ตั้งค่าช่องทางการขนส่งและค่าขนส่ง
+              </span>
+            </div>
           </div>
         </div>
-      </div>
+        <div class="row padding">
+          <div class="col-12 col-md-2"></div>
+          <div class="col-12 col-md-8">
+            <div class="row">
+              <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                <b class="primary">การจัดส่งที่รองรับโดย Furnover</b>
+                <br>
+                <label class="font-color-grey font-size">ผู้ซื้อสามารถตรวจสอบสถานะของพัสดุผ่านแอพพลิเคชั่นได้โดยตรงเมื่อเลือกการจัดส่งที่รองรับโดย
+                  Furnover</label>
+                <br>
+                <br>
+                <message class="text-center" [type]="dataService.messageType" [message]="dataService.message"></message>
+                <div *ngFor="let item of blindData">
+                  <mat-card>
+                    <div class="row padding">
+                      <div class="col-12">
+                        <b>{{item.name}}</b>
+                      </div>
+                      <div class="col-12 col-md-7">
+                        <p class="font-color-grey no-margin font-size">
+                          ข้อจำกัด
+                        </p>
+                        <p class="font-size1 no-margin">
+                          {{item.detail}}
+                        </p>
+                      </div>
+                      <div class="col-12 col-md-5">
+                        <label class="font-size1">เปิดใช้งานการจัดส่งนี้</label>
+                        <mat-slide-toggle class="position-toggle" [(ngModel)]="item.status" (ngModelChange)="onToggleChange(item)"></mat-slide-toggle>
+                      </div>
+                    </div>
+                  </mat-card>
+                  <br>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-2"></div>
+        </div>
+      </mat-card>
+      <br>
+      <mat-card>
+        <div class="row">
+          <div class="col-12">
+            <div class="row">
+              <div class="col-8 padding-left">
+                <p>&nbsp;
+                  <mat-icon svgIcon="calendar" class="font-color-grey"></mat-icon>
+                  <b> &nbsp;เวลาเตรียมพัสดุ</b>
+                </p>
+              </div>
+              <div class="col-4 text-right padding-right">
+                <button mat-stroked-button color="primary" (click)="openDialog()">แก้ไข</button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <p class="font-color-grey font-size padding-left">
+                  เปลี่ยนแปลงค่า"ระยะเวลาเตรียมพัสดุ" ให้กับสินค้าทุกรายการในร้านของคุณเรียบร้อยแล้ว
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-card>
     </div>
-    <div class="col-12 col-md-2"></div>
   </div>
-</mat-card>
-<br>
-<mat-card>
-  <div class="row">
-    <div class="col-12">
-      <div class="row">
-        <div class="col-8 padding-left">
-          <p>&nbsp;
-            <mat-icon svgIcon="calendar" class="font-color-grey"></mat-icon>
-            <b> &nbsp;เวลาเตรียมพัสดุ</b>
-          </p>
-        </div>
-        <div class="col-4 text-right padding-right">
-          <button mat-stroked-button color="primary" (click)="openDialog()">แก้ไข</button>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-12">
-          <p class="font-color-grey font-size padding-left">
-            เปลี่ยนแปลงค่า"ระยะเวลาเตรียมพัสดุ" ให้กับสินค้าทุกรายการในร้านของคุณเรียบร้อยแล้ว
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</mat-card>
+</div>
