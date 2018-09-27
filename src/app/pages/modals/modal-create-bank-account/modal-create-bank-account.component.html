@@ -1,8 +1,8 @@
 <h2>รายละเอียดผู้ใช้</h2>
 <mat-horizontal-stepper [linear]="isLinear" #stepper>
-    
+
   <mat-step [stepControl]="firstFormGroup">
-      <ng-template matStepLabel>ข้อมูลผู้ใช้งาน</ng-template>
+    <ng-template matStepLabel>ข้อมูลผู้ใช้งาน</ng-template>
     <form [formGroup]="firstFormGroup">
 
       <div class="col-12">
@@ -12,7 +12,8 @@
           </div>
           <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 col-xl-9">
             <mat-form-field class="example-full-width">
-              <input type="tel" matInput placeholder="ชื่อ - นามสกุล" required>
+              <input type="tel" matInput placeholder="ชื่อ - นามสกุล" formControlName="name" required>
+
             </mat-form-field>
           </div>
           <div class="col-xs-3 col-sm-3  col-md-3 col-lg-3 col-xl-3">
@@ -20,29 +21,23 @@
           </div>
           <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 col-xl-9">
             <mat-form-field class="example-full-width">
-              <input type="tel" matInput placeholder="หมายเลขบัตรประชาชน" required>
+              <input type="tel" matInput placeholder="หมายเลขบัตรประชาชน" formControlName="citizinid" required>
             </mat-form-field>
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
               <p class="text-req">* กรุณาตรวจสอบว่าคุณได้ใส่ชื่อและหมายเลขบัตรประชาชนถูกต้อง</p>
             </div>
           </div>
           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-            <div class="row">
-              <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">
-                <button mat-button matStepperNext color="primary">ต่อไป</button>
-              </div>
-              <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 padding-btn">
-                <button mat-stroked-button [mat-dialog-close]>ยกเลิก</button>
-              </div>
+            <button mat-button matStepperNext color="primary">ต่อไป</button>
+            <button class="magin-feft" mat-stroked-button [mat-dialog-close]>ยกเลิก</button>
 
-            </div>
           </div>
         </div>
       </div>
     </form>
   </mat-step>
   <mat-step [stepControl]="secondFormGroup">
-      <ng-template matStepLabel>ข้อมูลธนาคาร</ng-template>    
+    <ng-template matStepLabel>ข้อมูลธนาคาร</ng-template>
     <form [formGroup]="secondFormGroup">
       <div class="col-12">
         <div class="row">
@@ -51,7 +46,7 @@
           </div>
           <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
             <mat-form-field class="example-full-width">
-              <input type="tel" matInput placeholder="ชื่อนามสกุลตามที่ปรากฎในบัญชีธนาคาร" required>
+              <input type="tel" matInput placeholder="ชื่อนามสกุลตามที่ปรากฎในบัญชีธนาคาร" formControlName="name" required>
             </mat-form-field>
           </div>
           <div class="col-xs-6 col-sm-6  col-md-6 col-lg-6 col-xl-6">
@@ -59,14 +54,14 @@
           </div>
           <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
             <mat-form-field class="example-full-width">
-              <input type="tel" matInput placeholder="เลขที่บัญชี" required>
+              <input type="tel" matInput placeholder="เลขที่บัญชี" formControlName="bankNumber" required>
             </mat-form-field>
           </div>
           <div class="col-xs-6 col-sm-6  col-md-6 col-lg-6 col-xl-6">
             <label>ชื่อธนาคาร (ได้รับเงินเร็วกว่าหากใช้ SCB KBANK BBL KTB)</label>
           </div>
           <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-            <mat-select placeholder="เลือกธนาคาร">
+            <mat-select placeholder="เลือกธนาคาร" formControlName="nameBank" required>
               <mat-option *ngFor="let item of bank" [value]="item.viewValue">
                 {{item.viewValue}}
               </mat-option>
@@ -78,15 +73,10 @@
           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
             <div class="row">
               <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
-                <div class="row">
-                  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                     <button mat-button matStepperNext color="primary">ต่อไป</button>
-                  </div>
-                  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-
-                    <button mat-stroked-button [mat-dialog-close]>ยกเลิก</button>
-                  </div>
-                </div>
+                  
+                    <button class="magin-feft" mat-stroked-button [mat-dialog-close]>ยกเลิก</button>
+                 
               </div>
               <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
                 <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 padding-btn">
@@ -133,15 +123,10 @@
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
           <div class="row">
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
-              <div class="row">
-                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                   <button mat-button matStepperNext color="primary">บันทึก</button>
-                </div>
-                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-
-                  <button mat-stroked-button [mat-dialog-close]>ยกเลิก</button>
-                </div>
-              </div>
+                
+                  <button class="magin-feft" mat-stroked-button [mat-dialog-close]>ยกเลิก</button>
+               
             </div>
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
               <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 padding-btn">

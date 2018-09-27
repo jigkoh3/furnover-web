@@ -9,27 +9,30 @@ import { Validators } from '@angular/forms';
   styleUrls: ['./modal-create-bank-account.component.css']
 })
 export class ModalCreateBankAccountComponent implements OnInit {
-  isLinear = false;
+  isLinear = true;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
   bank = [
-    {viewValue: 'ธนาคารออมสิน (GSB)'},
-    {viewValue: 'ธนาคารเพื่อการเกษตร (BAAC)'},
-    {viewValue: 'ไทยพาณิชย์ (SCB)'}
+    { viewValue: 'ธนาคารออมสิน (GSB)' },
+    { viewValue: 'ธนาคารเพื่อการเกษตร (BAAC)' },
+    { viewValue: 'ไทยพาณิชย์ (SCB)' }
   ];
 
-  
+
   constructor(
     private _formBuilder: FormBuilder
   ) { }
 
   ngOnInit() {
     this.firstFormGroup = this._formBuilder.group({
-      firstCtrl: ['', Validators.required]
+      name: ['', Validators.required],
+      citizinid: ['', Validators.required]
     });
     this.secondFormGroup = this._formBuilder.group({
-      secondCtrl: ['', Validators.required]
+      name: ['', Validators.required],
+      bankNumber: ['', Validators.required],
+      nameBank: ['', Validators.required]
     });
   }
-  
+
 }
