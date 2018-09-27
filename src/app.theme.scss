@@ -1,82 +1,92 @@
 [color="primary"] {
-    background-color: #ff9558 !important;
+  background-color: #ff9558 !important;
 }
 
 [color="gay"] {
-    background-color: #dbdbdb !important;
-    color: #8a8a8a !important;
+  background-color: #dbdbdb !important;
+  color: #8a8a8a !important;
 }
 
 [color="gay"]:disabled {
-    background-color: rgba(163, 163, 163, 0.46) !important;
-    color: #8a8a8a !important;
+  background-color: rgba(163, 163, 163, 0.46) !important;
+  color: #8a8a8a !important;
 }
 
 [color="primary"]:disabled {
-    background-color: rgba(255, 149, 88, 0.46) !important;
-    color: #ffffff !important;
+  background-color: rgba(255, 149, 88, 0.46) !important;
+  color: #ffffff !important;
+}
+
+.mat-button.mat-primary .mat-button-focus-overlay,
+.mat-icon-button.mat-primary .mat-button-focus-overlay,
+.mat-stroked-button.mat-primary .mat-button-focus-overlay {
+  background-color: #ff9558 !important;
+}
+
+.mat-button.mat-primary {
+  color: #ffffff !important;
 }
 
 .mat-stroked-button.mat-primary {
-    background-color: #ffffff !important;
-    color: #ff9558 !important;
-    border-color: #ff9558 !important;
+  background-color: #ffffff !important;
+  color: #ff9558 !important;
+  border-color: #ff9558 !important;
 }
 
 .mat-step-header .mat-step-icon-selected {
-    background-color: #ff9558 !important;
+  background-color: #ff9558 !important;
 }
 
 .mat-step-header .mat-step-icon-state-edit {
-    background-color: #ff9558 !important;
+  background-color: #ff9558 !important;
 }
 
 .mat-form-field.mat-focused .mat-form-field-ripple {
-    background-color: #ff9558 !important;
+  background-color: #ff9558 !important;
 }
 
 .mat-form-field.mat-focused .mat-form-field-label {
-    color: #ff9558 !important;
+  color: #ff9558 !important;
 }
 
 .primary {
-    color: #ff9558;
+  color: #ff9558;
 }
 
 .primary-bg {
-    background-color: #ff9558;
+  background-color: #ff9558;
 }
 
 .mat-form-field {
-    font-size: 14px !important;
+  font-size: 14px !important;
 }
 
 .mat-tab-group.mat-primary .mat-ink-bar,
 .mat-tab-nav-bar.mat-primary .mat-ink-bar {
-    background-color: #ff9558 !important;
+  background-color: #ff9558 !important;
 }
 
 .mat-tab-body-content {
-    overflow: unset !important;
+  overflow: unset !important;
 }
 
 .mat-tab-header {
-    background-color: #ffffff !important;
+  background-color: #ffffff !important;
 }
 
 .mat-tab-labels {
-    display: flow-root !important;
-    text-align: center !important;
+  display: flow-root !important;
+  text-align: center !important;
 }
 
 .mat-form-field {
-    display: flow-root !important;
+  display: flow-root !important;
 }
 
 .mat-checkbox-frame {
-    border-color: rgba(239, 239, 239, 0.54) !important;
+  border-color: rgba(239, 239, 239, 0.54) !important;
 }
 
 .mat-tab-body.mat-tab-body-active {
-    overflow-y: inherit !important;
+  overflow-y: inherit !important;
 }
