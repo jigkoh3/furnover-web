@@ -25,6 +25,7 @@ import { SideMenuSettingShopComponent } from './components/side-menu-setting-sho
 import { MyProductComponent } from './pages/my-product/my-product.component';
 
 import { BankComponent } from './pages/modals/bank/bank.component';
+import { ModalPrepareShippingComponent } from './pages/modals/modal-prepare-shipping/modal-prepare-shipping.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { BankComponent } from './pages/modals/bank/bank.component';
     LoginComponent,
     SideMenuSettingShopComponent,
     BankComponent,
-    MyProductComponent
+    MyProductComponent,
+    ModalPrepareShippingComponent
   ],
   imports: [
     BrowserModule,

@@ -6,6 +6,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { DataService } from '../../providers/data-service/data.service';
 import { RestApiService } from '../../providers/rest-api-service/rest-api.service';
 import { Constants } from '../../app.constants';
+import { ModalPrepareShippingComponent } from '../modals/modal-prepare-shipping/modal-prepare-shipping.component';
 
 @Component({
   selector: 'app-logistic',
@@ -38,10 +39,7 @@ export class LogisticComponent implements OnInit {
   }
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(DeliveryTimeComponent, {
-      width: '700px',
-
-    });
+    const dialogRef = this.dialog.open(ModalPrepareShippingComponent);
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
