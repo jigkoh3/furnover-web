@@ -84,3 +84,68 @@
 .position-icon-header {
     padding-top: 20px!important;
 }
+
+/* /////////Header css////////// */
+
+.shop-setting-header-seperator {
+    border: 0;
+    height: 1px;
+    background: #e8e8e8;
+}
+
+.shop-setting-header {
+    background-color: #fff; 
+    position: relative;
+    /* // position: absolute; */
+    width: 100%;
+}
+
+.shop-setting-header-content {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+.shop-setting-header-icon {
+    /* // width: 48px;
+    // height: 48px;
+    // line-height: 48px;
+    // border-radius: 50%;
+    // text-align: center;
+    // margin: 27px 0 24px 32px;
+    // transition: background-color 0.3s ease; */
+    width: 48px;
+    height: 48px;
+    padding: 12px;
+    margin: 27px 24px 24px 32px;
+    border-radius: 50%;
+    text-align: center;
+}
+
+.shop-setting-header-caption {
+    display: grid;
+    margin: 27px 0 0 24px;
+}
+
+
+.shop-setting-header-icon-svg {
+    /* // width: 24px;
+    // height: 24px;
+    // position: relative;
+    // top: 6px;
+    // fill: #fff; */
+    display: block;
+    fill: #fff;
+}
+
+.shop-setting-header-title {
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.shop-setting-header-subtitle {
+    font-size: 14px;
+    color: #8c8c8c;
+    display: block;
+    margin: 0;
+}
