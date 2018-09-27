@@ -27,6 +27,7 @@ import { InfoAddressComponent } from './pages/modals/info-address/info-address.c
 import { ModalPrepareShippingComponent } from './pages/modals/modal-prepare-shipping/modal-prepare-shipping.component';
 import { ModalCeateBankAccountComponent } from './pages/modals/modal-ceate-bank-account/modal-ceate-bank-account.component';
 import { ProfileSettingComponent } from './components/profile/profile.component';
+import { ModalCompleteComponent } from './pages/modals/modal-complete/modal-complete.component';
 
 @NgModule({
   declarations: [
@@ -46,11 +47,13 @@ import { ProfileSettingComponent } from './components/profile/profile.component'
     AddressComponent,
     InfoAddressComponent,
     ModalPrepareShippingComponent,
-    ModalCeateBankAccountComponent
+    ModalCeateBankAccountComponent,
+    ModalCompleteComponent
   ],
   entryComponents: [
     ModalCeateBankAccountComponent,
-    ModalPrepareShippingComponent
+    ModalPrepareShippingComponent,
+    ModalCompleteComponent
   ],
   imports: [
     BrowserModule,
