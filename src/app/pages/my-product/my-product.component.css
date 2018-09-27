@@ -1,0 +1,15 @@
+.mgt-right {
+    margin-right: 0.4rem;
+}
+
+.txt-right {
+    text-align: right;
+}
+
+.select {
+    font-weight: bold;
+}
+
+.un-select {
+    color: #c0c0c0;
+}
