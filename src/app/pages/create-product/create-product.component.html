@@ -1,3 +1,39 @@
-<p>
-  create-product works!
-</p>
+<div class="wrapper content" *ngIf="productImgs.length <= 0">
+  <h2>เพิ่มสินค้าใหม่</h2>
+  <p class="header-description">เริ่มจากการอัพโหลดรูปภาพของคุณ<a>ทิปการถ่ายรูปให้สินค้าน่าสนใจ</a>
+    กรุณาถ่ายรูปสินค้าให้ชัดเจนด้วยพื้นหลังสีขาว
+    และอัพหลายๆรูปเพื่อสามารถดูได้หลายๆมุม</p>
+
+  <div class="row">
+    <div class="col-12 bd-ul-img">
+      <div class="txt-center">
+        <p>
+          <mat-icon>cloud_upload</mat-icon>
+        </p>
+        <p>
+          <button mat-flat-button color="primary" (click)="uploadImg()">
+            ดูรูปภาพ
+          </button> กดดูรูปเพื่ออัพโหลด
+        </p>
+        <p>
+          ได้สูงสุด 9 รูป แต่ละรูปขนาดสูงสุด
+          ไฟล์รูปที่รองรับ: JPG, JPEG, PNG
+          ขนาดของรูปภาพที่แนะนำ: 1024 x 1024 px
+        </p>
+      </div>
+    </div>
+  </div>
+  <input type="file" #productImg accept="image/*" [(ngModel)]="files" (change)="onImgChange($event)" style="visibility: hidden;">
+</div>
+
+<div class="wrapper content" *ngIf="productImgs.length > 0">
+  <h2>แก้ไขรูปภาพสินค้า</h2>
+  <p class="header-description">ลากรูปเพื่อเรียงลำดับใหม่ สินค้าแต่ละชิ้นสามารถมีรูปได้สูงสุด 9
+    รูปทิปการถ่ายรูปให้สินค้าน่าสนใจ</p>
+
+  <div class="row">
+    <div class="col-3" *ngFor="let item of productImgs">
+      <img src="{{item}}" alt="img">
+    </div>
+  </div>
+</div>
