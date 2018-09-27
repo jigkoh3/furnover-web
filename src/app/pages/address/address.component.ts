@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { RestApiService } from '../../providers/rest-api-service/rest-api.service';
 import { Constants } from '../../app.constants';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-address',
@@ -12,7 +13,8 @@ export class AddressComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private restApi: RestApiService
+    private restApi: RestApiService,
+    private spinner: NgxSpinnerService,
   ) { }
 
   ngOnInit() {
@@ -20,6 +22,7 @@ export class AddressComponent implements OnInit {
   }
 
   async getList() {
+    this.spinner.show();
     try {
       const usershop = window.localStorage.getItem(Constants.URL() + '@usershop') ?
         JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop')) : {};
