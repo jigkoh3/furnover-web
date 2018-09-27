@@ -23,6 +23,8 @@ import { LoginComponent } from './pages/login/login.component';
 import { MessageComponent } from './components/message/message';
 import { SideMenuSettingShopComponent } from './components/side-menu-setting-shop/side-menu-setting-shop.component';
 import { MyProductComponent } from './pages/my-product/my-product.component';
+import { AddressComponent } from './pages/address/address.component';
+import { InfoAddressComponent } from './pages/modals/info-address/info-address.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { MyProductComponent } from './pages/my-product/my-product.component';
     ProfileComponent,
     LoginComponent,
     SideMenuSettingShopComponent,
-    MyProductComponent
+    MyProductComponent,
+    AddressComponent,
+    InfoAddressComponent
   ],
   imports: [
     BrowserModule,
