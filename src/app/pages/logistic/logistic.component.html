@@ -30,19 +30,19 @@
             <mat-card>
               <div class="row padding">
                 <div class="col-12">
-                  <b>{{item.title}}</b>
+                  <b>{{item.name}}</b>
                 </div>
                 <div class="col-12 col-md-7">
                   <p class="font-color-grey no-margin font-size">
                     ข้อจำกัด
                   </p>
                   <p class="font-size1 no-margin">
-                    Max weight: {{item.limit}}กิโลกรัม
+                    {{item.detail}}
                   </p>
                 </div>
                 <div class="col-12 col-md-5">
                   <label class="font-size1">เปิดใช้งานการจัดส่งนี้</label>
-                  <mat-slide-toggle class="position-toggle" [(ngModel)]="item.device"></mat-slide-toggle>
+                  <mat-slide-toggle class="position-toggle" [(ngModel)]="item.status" (ngModelChange)="onToggleChange(item)"></mat-slide-toggle>
                 </div>
               </div>
             </mat-card>

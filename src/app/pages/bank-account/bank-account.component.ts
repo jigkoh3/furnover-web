@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatIconRegistry, MatDialog } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
-import { BankComponent } from 'src/app/pages/modals/bank/bank.component';
+import { ModalCreateBankAccountComponent } from 'src/app/pages/modals/modal-create-bank-account/modal-create-bank-account.component';
+import { ModalInfoBankAccountComponent } from 'src/app/pages/modals/modal-info-bank-account/modal-info-bank-account.component';
+
 
 @Component({
   selector: 'app-bank-account',
@@ -35,9 +37,19 @@ export class BankAccountComponent implements OnInit {
   ngOnInit() {
   }
   openDialog(): void {
-    const dialogRef = this.dialog.open(BankComponent, {
-      width: '700px',
+    const dialogRef = this.dialog.open(ModalCreateBankAccountComponent, {
+      width: "700px"
     });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
+  openmodal(): void {
+    const dialogRef = this.dialog.open(ModalInfoBankAccountComponent, {
+      width: "700px"
+    });
+
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
     });
