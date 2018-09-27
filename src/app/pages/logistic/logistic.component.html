@@ -25,6 +25,7 @@
             Furnover</label>
           <br>
           <br>
+          <message class="text-center" [type]="dataService.messageType" [message]="dataService.message"></message>
           <div *ngFor="let item of blindData">
             <mat-card>
               <div class="row padding">

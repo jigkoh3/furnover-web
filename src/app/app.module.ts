@@ -24,6 +24,7 @@ import { MessageComponent } from './components/message/message';
 import { SideMenuSettingShopComponent } from './components/side-menu-setting-shop/side-menu-setting-shop.component';
 import { MyProductComponent } from './pages/my-product/my-product.component';
 import { ModalCeateBankAccountComponent } from './pages/modals/modal-ceate-bank-account/modal-ceate-bank-account.component';
+import { ProfileSettingComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { ModalCeateBankAccountComponent } from './pages/modals/modal-ceate-bank-
     DeliveryTimeComponent,
     RegisterComponent,
     ProfileComponent,
+    ProfileSettingComponent,
     LoginComponent,
     SideMenuSettingShopComponent,
     MyProductComponent,
