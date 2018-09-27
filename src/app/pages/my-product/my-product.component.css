@@ -120,11 +120,15 @@
 }
 
 .product-label.new svg {
-    fill: rgba(0,191,165,.85);
+    fill: rgba(0, 191, 165, .85);
 }
 
 .text {
     margin-left: -0.8rem;
     color: #ffffff;
     font-size: 0.8rem;
+}
+
+.mgt-1 {
+    margin-bottom: 1rem;
 }
