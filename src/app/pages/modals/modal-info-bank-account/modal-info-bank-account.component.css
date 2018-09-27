@@ -1,0 +1,17 @@
+.font-size1 {
+    font-size: 18px;
+}
+
+.font-size2 {
+    font-size: 15px;
+}
+
+.font-size3 {
+    font-size: 13px;
+}.magin-feft{
+    margin-left: 100px !important;
+}.pidding-left{
+    padding-left: 8% !important;
+}.scroll {
+    overflow: scroll;
+}

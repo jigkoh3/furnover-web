@@ -59,6 +59,8 @@ import { ModalInfoBankAccountComponent } from './pages/modals/modal-info-bank-ac
     AddressComponent,
     InfoAddressComponent,
     ModalPrepareShippingComponent,
+    ModalInfoBankAccountComponent,
+    
     ModalCompleteComponent
   ],
   imports: [
