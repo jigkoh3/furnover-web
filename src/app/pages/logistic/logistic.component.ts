@@ -46,7 +46,6 @@ export class LogisticComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
     });
   }
 
@@ -60,7 +59,6 @@ export class LogisticComponent implements OnInit {
     this.spinner.show();
     try {
       let dataMaster: any = await this.restApi.get(Constants.URL() + '/api/masterlogistic');
-      console.log(dataMaster);
       this.blindData = dataMaster.datas;
       this.spinner.hide();
     } catch (error) {
@@ -71,7 +69,7 @@ export class LogisticComponent implements OnInit {
   }
 
   testclick() {
-    console.log(this.rule.mode);
+    
   }
 
   async onToggleChange(e) {
