@@ -1,0 +1,145 @@
+<h2>รายละเอียดผู้ใช้</h2>
+<mat-horizontal-stepper [linear]="isLinear" #stepper>
+
+  <mat-step [stepControl]="firstFormGroup">
+    <ng-template matStepLabel>ข้อมูลผู้ใช้งาน</ng-template>
+    <form [formGroup]="firstFormGroup">
+
+      <div class="col-12">
+        <div class="row">
+          <div class="col-xs-3 col-sm-3  col-md-3 col-lg-3 col-xl-3">
+            <label>ชื่อ - นามสกุล</label>
+          </div>
+          <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 col-xl-9">
+            <mat-form-field class="example-full-width">
+              <input type="tel" matInput placeholder="ชื่อ - นามสกุล" formControlName="name" required>
+
+            </mat-form-field>
+          </div>
+          <div class="col-xs-3 col-sm-3  col-md-3 col-lg-3 col-xl-3">
+            <label>หมายเลขบัตรประชาชน</label>
+          </div>
+          <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 col-xl-9">
+            <mat-form-field class="example-full-width">
+              <input type="tel" matInput placeholder="หมายเลขบัตรประชาชน" formControlName="citizinid" required>
+            </mat-form-field>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+              <p class="text-req">* กรุณาตรวจสอบว่าคุณได้ใส่ชื่อและหมายเลขบัตรประชาชนถูกต้อง</p>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <button mat-button matStepperNext color="primary">ต่อไป</button>
+            <button class="magin-feft" mat-stroked-button [mat-dialog-close]>ยกเลิก</button>
+
+          </div>
+        </div>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup">
+    <ng-template matStepLabel>ข้อมูลธนาคาร</ng-template>
+    <form [formGroup]="secondFormGroup">
+      <div class="col-12">
+        <div class="row">
+          <div class="col-xs-6 col-sm-6  col-md-6 col-lg-6 col-xl-6">
+            <label>ชื่อนามสกุลตามที่ปรากฎในบัญชีธนาคาร</label>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+            <mat-form-field class="example-full-width">
+              <input type="tel" matInput placeholder="ชื่อนามสกุลตามที่ปรากฎในบัญชีธนาคาร" formControlName="name" required>
+            </mat-form-field>
+          </div>
+          <div class="col-xs-6 col-sm-6  col-md-6 col-lg-6 col-xl-6">
+            <label>เลขที่บัญชี</label>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+            <mat-form-field class="example-full-width">
+              <input type="tel" matInput placeholder="เลขที่บัญชี" formControlName="bankNumber" required>
+            </mat-form-field>
+          </div>
+          <div class="col-xs-6 col-sm-6  col-md-6 col-lg-6 col-xl-6">
+            <label>ชื่อธนาคาร (ได้รับเงินเร็วกว่าหากใช้ SCB KBANK BBL KTB)</label>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+            <mat-select placeholder="เลือกธนาคาร" formControlName="nameBank" required>
+              <mat-option *ngFor="let item of bank" [value]="item.viewValue">
+                {{item.viewValue}}
+              </mat-option>
+            </mat-select>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+              <p class="text-req">* กรุณาตรวจสอบข้อมูลที่กรอกให้ถูกต้อง หากต้องการแก้ไขกรุณาติดต่อฝ่ายบริการลูกค้า</p>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <div class="row">
+              <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                    <button mat-button matStepperNext color="primary">ต่อไป</button>
+                  
+                    <button class="magin-feft" mat-stroked-button [mat-dialog-close]>ยกเลิก</button>
+                 
+              </div>
+              <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 padding-btn">
+                </div>
+              </div>
+              <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 col-xl-10 ">
+                  <button mat-stroked-button matStepperPrevious>ย้อนกลับก่อนหน้านี้</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>ยืนยัน</ng-template>
+    <div class="col-12">
+      <div class="row">
+        <div class="col-xs-6 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+              <p>กรุณาใส่ชื่อ</p>
+              <p>ชื่อนามสกุล</p>
+              <p>ณัฐพล</p>
+              <p>หมายเลขบัตรประชาชน</p>
+              <p>1711200007516</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-6 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+              <p>เพิ่มบัญชีธนาคาร</p>
+              <p>ชื่อนามสกุลตามที่ปรากฎในบัญชีธนาคาร</p>
+              <p>ณัฐพล</p>
+              <p>เลขที่บัตร</p>
+              <p>1812640767</p>
+              <p>ชื่อธนาคาร (ได้รับเงินเร็วกว่าหากใช้ SCB KBANK BBL KTB)</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+          <div class="row">
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                  <button mat-button matStepperNext color="primary">บันทึก</button>
+                
+                  <button class="magin-feft" mat-stroked-button [mat-dialog-close]>ยกเลิก</button>
+               
+            </div>
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+              <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 padding-btn">
+              </div>
+            </div>
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+              <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 col-xl-10 ">
+                <button mat-stroked-button matStepperPrevious>ย้อนกลับก่อนหน้านี้</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>
