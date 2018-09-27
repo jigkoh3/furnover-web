@@ -8,6 +8,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { MyProductComponent } from './pages/my-product/my-product.component';
 import { AddressComponent } from './pages/address/address.component';
 import { InfoAddressComponent } from './pages/modals/info-address/info-address.component';
+import { CreateProductComponent } from './pages/create-product/create-product.component';
 
 export const routes: Routes = [
     {
@@ -50,5 +51,10 @@ export const routes: Routes = [
     {
         path: 'info-address',
         component: InfoAddressComponent
+    }
+    ,
+    {
+        path: 'create-product',
+        component: CreateProductComponent
     }
 ];

@@ -22,11 +22,13 @@ import { LoginComponent } from './pages/login/login.component';
 import { MessageComponent } from './components/message/message';
 import { SideMenuSettingShopComponent } from './components/side-menu-setting-shop/side-menu-setting-shop.component';
 import { MyProductComponent } from './pages/my-product/my-product.component';
+import { ModalCreateBankAccountComponent } from './pages/modals/modal-create-bank-account/modal-create-bank-account.component';
 import { AddressComponent } from './pages/address/address.component';
 import { InfoAddressComponent } from './pages/modals/info-address/info-address.component';
 import { ModalPrepareShippingComponent } from './pages/modals/modal-prepare-shipping/modal-prepare-shipping.component';
-import { ModalCeateBankAccountComponent } from './pages/modals/modal-ceate-bank-account/modal-ceate-bank-account.component';
 import { ProfileSettingComponent } from './components/profile/profile.component';
+import { CreateProductComponent } from './pages/create-product/create-product.component';
+import { ModalInfoBankAccountComponent } from './pages/modals/modal-info-bank-account/modal-info-bank-account.component';
 
 @NgModule({
   declarations: [
@@ -43,14 +45,18 @@ import { ProfileSettingComponent } from './components/profile/profile.component'
     LoginComponent,
     SideMenuSettingShopComponent,
     MyProductComponent,
+    ModalCreateBankAccountComponent,
     AddressComponent,
     InfoAddressComponent,
     ModalPrepareShippingComponent,
-    ModalCeateBankAccountComponent
+    CreateProductComponent,
+    ModalInfoBankAccountComponent
   ],
   entryComponents: [
-    ModalCeateBankAccountComponent,
-    ModalPrepareShippingComponent
+    ModalCreateBankAccountComponent,
+    AddressComponent,
+    InfoAddressComponent,
+    ModalPrepareShippingComponent,
   ],
   imports: [
     BrowserModule,
