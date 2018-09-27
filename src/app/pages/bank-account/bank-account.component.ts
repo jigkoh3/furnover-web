@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MatIconRegistry, MatDialog } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
 import { BankComponent } from 'src/app/pages/modals/bank/bank.component';
+import { ModalCeateBankAccountComponent } from 'src/app/pages/modals/modal-ceate-bank-account/modal-ceate-bank-account.component';
+
 
 @Component({
   selector: 'app-bank-account',
@@ -35,9 +37,8 @@ export class BankAccountComponent implements OnInit {
   ngOnInit() {
   }
   openDialog(): void {
-    const dialogRef = this.dialog.open(BankComponent, {
-      width: '700px',
-    });
+    const dialogRef = this.dialog.open(ModalCeateBankAccountComponent);
+
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
     });

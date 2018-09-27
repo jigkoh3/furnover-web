@@ -23,8 +23,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { MessageComponent } from './components/message/message';
 import { SideMenuSettingShopComponent } from './components/side-menu-setting-shop/side-menu-setting-shop.component';
 import { MyProductComponent } from './pages/my-product/my-product.component';
-
-import { BankComponent } from './pages/modals/bank/bank.component';
+import { ModalCeateBankAccountComponent } from './pages/modals/modal-ceate-bank-account/modal-ceate-bank-account.component';
 
 @NgModule({
   declarations: [
@@ -40,8 +39,11 @@ import { BankComponent } from './pages/modals/bank/bank.component';
     ProfileComponent,
     LoginComponent,
     SideMenuSettingShopComponent,
-    BankComponent,
-    MyProductComponent
+    MyProductComponent,
+    ModalCeateBankAccountComponent
+  ],
+  entryComponents: [
+    ModalCeateBankAccountComponent
   ],
   imports: [
     BrowserModule,
