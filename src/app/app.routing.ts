@@ -2,7 +2,6 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { BankAccountComponent } from './pages/bank-account/bank-account.component';
 import { LogisticComponent } from './pages/logistic/logistic.component';
-import { DeliveryTimeComponent } from './pages/modals/delivery-time/delivery-time.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -37,10 +36,6 @@ export const routes: Routes = [
     {
         path: 'profile',
         component: ProfileComponent
-    },
-    {
-        path: 'delivery-time',
-        component: DeliveryTimeComponent
     },
     {
         path: 'my-product',

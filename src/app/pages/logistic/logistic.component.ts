@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MatIconRegistry, MatDialog } from '@angular/material';
-import { DeliveryTimeComponent } from '../modals/delivery-time/delivery-time.component';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { DataService } from '../../providers/data-service/data.service';
 import { RestApiService } from '../../providers/rest-api-service/rest-api.service';
@@ -39,7 +38,9 @@ export class LogisticComponent implements OnInit {
   }
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(ModalPrepareShippingComponent);
+    const dialogRef = this.dialog.open(ModalPrepareShippingComponent,{
+      width:'700px'
+    });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
