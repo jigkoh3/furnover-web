@@ -29,7 +29,7 @@
         <p class="pointer text-add">เพิ่มบัญชีธนาคาร</p>
       </div>
     </div>
-    <div class="col-12 col-md-6 col-lg-4 pointer" *ngFor="let item of [1,2,3,4,5]">
+    <div class="col-12 col-md-6 col-lg-4 pointer" *ngFor="let item of [1,2,3,4,5]" (click)="openmodal()">
       <mat-card class="card-height text-center">
         <img class="image" src="https://pbs.twimg.com/profile_images/924662185929752576/9cRHWYxV_400x400.jpg" alt="bank-icon">
         <br>
