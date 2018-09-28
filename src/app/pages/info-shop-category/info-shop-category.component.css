@@ -1,3 +1,29 @@
+
+
+/* // ของหน้า info-shop-category // */
+
+.setting-font-header {
+    font-size: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* // ของหน้า shop-category // */
+
 .bg-card-icon {
     background-color: #4CAF50;
     width: 45px;
@@ -92,6 +118,13 @@
     top: -12px;
 }
 
+.setting-text-set-amount{
+    color: grey !important;
+    font-size: 15px !important;
+    position: relative;
+    top: -25px;
+}
+
 ::ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
     background-color: rgb(255, 255, 255); /*replace with your color*/
 }
@@ -137,20 +170,6 @@
     padding-bottom: 0px !important;
 }
 
-.card-padding-div {
-    padding-top: 2px !important;
-    padding-bottom: 2px !important;
-}
-
 .size-div-header {
     height: 90px !important;
-}
-
-.padding-left-div {
-    padding-left: 30px !important;
-}
-
-.padding-left-card {
-    padding-left: 60px !important;
-    padding-right: 60px !important;
 }
