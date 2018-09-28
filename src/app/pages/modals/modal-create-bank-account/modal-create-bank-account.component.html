@@ -14,7 +14,7 @@
           </div>
           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
             <mat-form-field class="example-full-width">
-              <input type="tel" matInput placeholder="หมายเลขบัตรประชาชน" [(ngModel)]="createBankData.citizinid" formControlName="citizinid" required>
+              <input type="tel" matInput placeholder="หมายเลขบัตรประชาชน" [(ngModel)]="createBankData.citizenid" formControlName="citizinid" required>
             </mat-form-field>
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
               <p class="text-req">* กรุณาตรวจสอบว่าคุณได้ใส่ชื่อและหมายเลขบัตรประชาชนถูกต้อง</p>
@@ -51,15 +51,16 @@
             </mat-form-field>
           </div>
           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-            <mat-select placeholder="เลือกธนาคาร" formControlName="nameBank" required>
-              <mat-option *ngFor="let item of Getbank" [value]="item.name">
-                {{item.name}}
+            <mat-select placeholder="เลือกธนาคาร" formControlName="nameBank" [(ngModel)]="createBankData.bank" required>
+              <mat-option *ngFor="let item of Getbank" [value]="item"  >
+                {{item.name}} ({{item.code}})
               </mat-option>
             </mat-select>
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 ">
               <p class="text-req paddding-top ">* กรุณาตรวจสอบข้อมูลที่กรอกให้ถูกต้อง หากต้องการแก้ไขกรุณาติดต่อฝ่ายบริการลูกค้า</p>
             </div>
           </div>
+          <message class="text-center" [type]="dataService.messageType" [message]="dataService.message"></message>
           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
             <div class="row">
               <div class="col-xs-2 col-sm-12 col-md-2 col-lg-2 col-xl-2">
@@ -91,7 +92,7 @@
                 <p class="font-size2">ชื่อ-นามสกุล</p>
                 <p class="font-size3 magin-botton">{{createBankData.name}}</p>
                 <p class="font-size2">หมายเลขบัตรประชาชน</p>
-                <p class="font-size3 magin-botton">{{createBankData.citizinid}}</p>
+                <p class="font-size3 magin-botton">{{createBankData.citizenid}}</p>
               </div>
             </div>
           </div>
@@ -100,18 +101,18 @@
               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                 <p class="font-size1">ข้อมูลบัญชีธนาคาร</p>
                 <p class="font-size2">ชื่อนามสกุลตามที่ปรากฎในบัญชีธนาคาร</p>
-                <p class="font-size3 magin-botton">{{createBankData.name}}</p>
+                <p class="font-size3 magin-botton">{{createBankData.accountname}}</p>
                 <p class="font-size2">เลขที่บัญชี</p>
-                <p class="font-size3 magin-botton">****0767</p>
-                <p class="font-size2">ชื่อธนาคาร (ได้รับเงินเร็วกว่าหากใช้ SCB KBANK BBL KTB)</p>
-                <p class="font-size3">{{createBankData.accountname}}</p>
+                <p class="font-size3 magin-botton">{{createBankData.accountnumber}}</p>
+                <p class="font-size2">ชื่อธนาคาร</p>
+                <p class="font-size3">{{createBankData.bank.name}} ({{ createBankData.bank.code }})</p>
               </div>
             </div>
           </div>
           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
               <div class="row">
                   <div class="col-xs-2 col-sm-12 col-md-2 col-lg-2 col-xl-2">
-                    <button style="width:100%" mat-button matStepperNext color="primary">ต่อไป</button>
+                    <button style="width:100%" (click)="createBank()" mat-button matStepperNext color="primary">บันทึก</button>
                   </div>
                   <div class="col-xs-2 col-sm-12 col-md-2 col-lg-2 col-xl-2">
                       <button style="width:100%"  mat-stroked-button [mat-dialog-close]>ยกเลิก</button>
