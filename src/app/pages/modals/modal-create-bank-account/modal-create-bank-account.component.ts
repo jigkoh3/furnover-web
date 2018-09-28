@@ -11,10 +11,11 @@ import { Constants } from 'src/app/app.constants';
   styleUrls: ['./modal-create-bank-account.component.css']
 })
 export class ModalCreateBankAccountComponent implements OnInit {
-  Getbank: Array<any>=[]
+  Getbank: Array<any> = []
   isLinear = true;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
+  createBankData: any = {};
 
 
   constructor(
@@ -33,14 +34,32 @@ export class ModalCreateBankAccountComponent implements OnInit {
       nameBank: ['', Validators.required]
     });
     this.getBank();
+    this.createBank();
   }
   async getBank() {
     try {
-      let user: any = JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop'));
-      console.log(user);
       let respone: any = await this.restApi.get(Constants.URL() + '/api/masterbankaccount');
       this.Getbank = respone.data;
       console.log(this.Getbank);
+    } catch (error) {
+
+    }
+
+  }
+  async createBank() {
+    try {
+      let user: any = JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop'));
+      let data = {
+        name: this.createBankData.name,
+        bank_id: this.createBankData.bank_id,
+        accountnumber: this.createBankData.accountnumber,
+        accountname: this.createBankData.accountname,
+        citizenid: this.createBankData.citizenid,
+        shop_id: this.createBankData.shop_id
+      }
+      let respone: any = await this.restApi.post(Constants.URL() + '/api/bankaccount', data);
+      this.createBankData = respone;
+      console.log(respone);
     } catch (error) {
 
     }
