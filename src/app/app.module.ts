@@ -34,6 +34,7 @@ import { SettingHeaderComponent } from './components/setting-header/setting-head
 import { ModalUploadYoutubeComponent } from './pages/modals/modal-upload-youtube/modal-upload-youtube.component';
 import { ModalDeleteBankAccountComponent } from './pages/modals/modal-delete-bank-account/modal-delete-bank-account.component';
 import { InfoProductComponent } from './pages/info-product/info-product.component';
+import { SettingPasswordComponent } from './pages/setting-password/setting-password.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { InfoProductComponent } from './pages/info-product/info-product.componen
     SettingHeaderComponent,
     ModalUploadYoutubeComponent,
     ModalDeleteBankAccountComponent,
-    InfoProductComponent
+    InfoProductComponent,
+    SettingPasswordComponent
   ],
   entryComponents: [
     ModalCreateBankAccountComponent,

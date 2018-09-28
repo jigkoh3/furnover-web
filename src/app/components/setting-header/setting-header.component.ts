@@ -93,7 +93,7 @@ export class SettingHeaderComponent implements OnInit {
     icon: 'M16 20.8h10.9v-.9H16v.9zm0-2.1h10.9v-.9H16v.9zm0-2h10.9v-.9H16v.9zm0-2h6.6v-.9H16v.9zM29 23c0 .5-.4.9-.9.9H4c-.5.1-1-.4-1-.9V8.2c0-.5.4-.9.9-.9h5.3v2.1h1.9V7.3h4.3v2.1h1.9V7.3h4.5v2.1h1.9V7.3H28c.5 0 .9.4.9.9V23zm0-17.6H3c-1 0-1.9.8-1.9 1.9V24c0 1 .8 1.9 1.9 1.9h26c1 0 1.9-.8 1.9-1.9V7.3c-.1-1-.9-1.9-1.9-1.9z'
   }, {
     // 13
-    path: '/xxx',
+    path: '/setting-password',
     title: 'เปลี่ยนรหัสผ่าน',
     detail: 'เปลี่ยนแปลงรหัสผ่าน',
     color: '#8f67ff',
