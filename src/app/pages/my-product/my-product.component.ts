@@ -16,7 +16,7 @@ export class MyProductComponent implements OnInit {
   }
 
   gotoCreateProduct() {
-    this.route.navigate(['/create-product']);
+    this.route.navigate(['/info-product']);
   }
 
 }
