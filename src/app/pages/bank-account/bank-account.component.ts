@@ -3,6 +3,8 @@ import { MatIconRegistry, MatDialog } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ModalCreateBankAccountComponent } from 'src/app/pages/modals/modal-create-bank-account/modal-create-bank-account.component';
 import { ModalInfoBankAccountComponent } from 'src/app/pages/modals/modal-info-bank-account/modal-info-bank-account.component';
+import { RestApiService } from 'src/app/providers/rest-api-service/rest-api.service';
+import { Constants } from 'src/app/app.constants';
 
 
 @Component({
@@ -11,11 +13,11 @@ import { ModalInfoBankAccountComponent } from 'src/app/pages/modals/modal-info-b
   styleUrls: ['./bank-account.component.css']
 })
 export class BankAccountComponent implements OnInit {
-
   constructor(
     public iconRegistry: MatIconRegistry,
     public sanitizer: DomSanitizer,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private restApi: RestApiService
   ) {
     iconRegistry.addSvgIcon(
       'baseline-add',
@@ -54,4 +56,5 @@ export class BankAccountComponent implements OnInit {
       console.log('The dialog was closed');
     });
   }
+  
 }
