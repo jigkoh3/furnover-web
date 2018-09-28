@@ -1,9 +1,9 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { RestApiService } from '../../providers/rest-api-service/rest-api.service';
 import { Constants } from '../../app.constants';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialog} from '@angular/material';
 import { InfoAddressComponent } from '../modals/info-address/info-address.component';
 import { DataService } from '../../providers/data-service/data.service';
 import { DialogData } from '../modals/modal-prepare-shipping/modal-prepare-shipping.component';
@@ -21,9 +21,7 @@ export class AddressComponent implements OnInit {
     private restApi: RestApiService,
     private spinner: NgxSpinnerService,
     public dialog: MatDialog,
-    private dataService: DataService,
-    public dialogRef: MatDialogRef<InfoAddressComponent>,
-    @Inject(MAT_DIALOG_DATA) public editdata: DialogData
+    private dataService: DataService
   ) { }
 
   ngOnInit() {
@@ -70,7 +68,7 @@ export class AddressComponent implements OnInit {
       console.log('The dialog was closed');
     });
   }
-  clickdelete(item){
+  clickdelete(){
       
   }
 }
