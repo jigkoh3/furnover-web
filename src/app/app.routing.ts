@@ -12,6 +12,7 @@ import { CreateProductComponent } from './pages/create-product/create-product.co
 import { InfoProductComponent } from './pages/info-product/info-product.component';
 import { SettingPasswordComponent } from 'src/app/pages/setting-password/setting-password.component';
 import { ShopCategoryComponent } from './pages/shop-category/shop-category.component';
+import { AccountComponent } from './pages/account/account.component';
 
 export const routes: Routes = [
     {
@@ -72,5 +73,9 @@ export const routes: Routes = [
     {
         path: 'shop-category',
         component: ShopCategoryComponent
+    },
+    {
+        path: 'account',
+        component: AccountComponent
     }
 ];
