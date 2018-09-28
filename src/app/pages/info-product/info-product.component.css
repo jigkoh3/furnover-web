@@ -30,7 +30,7 @@ h3 {
 
 .image-move {
     background: center no-repeat;
-    background-size: contain;
+    background-size: cover;
     width: auto;
     height: 300px;
     cursor: move;
