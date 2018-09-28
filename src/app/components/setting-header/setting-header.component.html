@@ -1,0 +1,13 @@
+<div class="shop-setting-header">
+  <div class="shop-setting-header-content">
+    <div [ngStyle]="{'background-color': getHeader('color') }" class="shop-setting-header-icon">
+      <svg class="shop-setting-link-icon-svg" viewBox="0 0 32 32">
+        <path [attr.d]="getHeader('icon')"></path>
+      </svg></div>
+    <div class="shop-setting-header-caption ">
+      <div class="shop-setting-header-title text-position1">{{ getHeader('title') }}</div>
+      <div class="shop-setting-header-subtitle text-position1">{{ getHeader('detail') }}</div>
+    </div>
+  </div>
+  <hr class="shop-setting-header-seperator">
+</div>

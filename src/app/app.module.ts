@@ -30,6 +30,8 @@ import { ProfileSettingComponent } from './components/profile/profile.component'
 import { ModalCompleteComponent } from './pages/modals/modal-complete/modal-complete.component';
 import { CreateProductComponent } from './pages/create-product/create-product.component';
 import { ModalInfoBankAccountComponent } from './pages/modals/modal-info-bank-account/modal-info-bank-account.component';
+import { SettingHeaderComponent } from './components/setting-header/setting-header.component';
+import { ModalUploadYoutubeComponent } from './pages/modals/modal-upload-youtube/modal-upload-youtube.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +54,9 @@ import { ModalInfoBankAccountComponent } from './pages/modals/modal-info-bank-ac
     ModalPrepareShippingComponent,
     ModalCompleteComponent,
     CreateProductComponent,
-    ModalInfoBankAccountComponent
+    ModalInfoBankAccountComponent,
+    SettingHeaderComponent,
+    ModalUploadYoutubeComponent
   ],
   entryComponents: [
     ModalCreateBankAccountComponent,
@@ -60,7 +64,7 @@ import { ModalInfoBankAccountComponent } from './pages/modals/modal-info-bank-ac
     InfoAddressComponent,
     ModalPrepareShippingComponent,
     ModalInfoBankAccountComponent,
-    
+    ModalUploadYoutubeComponent,
     ModalCompleteComponent
   ],
   imports: [
