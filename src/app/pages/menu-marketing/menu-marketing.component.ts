@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatIconRegistry } from '@angular/material';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-menu-marketing',
@@ -7,7 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuMarketingComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public iconRegistry: MatIconRegistry,
+    public sanitizer: DomSanitizer
+  ) {
+    iconRegistry.addSvgIcon(
+      'local_offer',
+      sanitizer.bypassSecurityTrustResourceUrl('assets/baseline-local_offer-24px.svg'));
+   }
 
   ngOnInit() {
   }

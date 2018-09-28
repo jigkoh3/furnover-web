@@ -36,7 +36,11 @@ import { ModalDeleteBankAccountComponent } from './pages/modals/modal-delete-ban
 import { InfoProductComponent } from './pages/info-product/info-product.component';
 import { SettingPasswordComponent } from './pages/setting-password/setting-password.component';
 import { ShopCategoryComponent } from './pages/shop-category/shop-category.component';
+<<<<<<< HEAD
 import { AccountComponent } from './pages/account/account.component';
+=======
+import { InfoShopCategoryComponent } from './pages/info-shop-category/info-shop-category.component';
+>>>>>>> 2f0124d05873a6a13412b5c2f38c5058b64aafef
 import { MenuMarketingComponent } from './pages/menu-marketing/menu-marketing.component';
 
 @NgModule({
@@ -68,7 +72,11 @@ import { MenuMarketingComponent } from './pages/menu-marketing/menu-marketing.co
     ModalDeleteBankAccountComponent,
     InfoProductComponent,
     SettingPasswordComponent,
+<<<<<<< HEAD
     AccountComponent,
+=======
+    InfoShopCategoryComponent,
+>>>>>>> 2f0124d05873a6a13412b5c2f38c5058b64aafef
     MenuMarketingComponent
   ],
   entryComponents: [
