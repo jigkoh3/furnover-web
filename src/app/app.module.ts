@@ -36,11 +36,8 @@ import { ModalDeleteBankAccountComponent } from './pages/modals/modal-delete-ban
 import { InfoProductComponent } from './pages/info-product/info-product.component';
 import { SettingPasswordComponent } from './pages/setting-password/setting-password.component';
 import { ShopCategoryComponent } from './pages/shop-category/shop-category.component';
-<<<<<<< HEAD
 import { AccountComponent } from './pages/account/account.component';
-=======
 import { MenuMarketingComponent } from './pages/menu-marketing/menu-marketing.component';
->>>>>>> b982b95117ddaaf47222fc85715131bba6b2267e
 
 @NgModule({
   declarations: [
@@ -71,11 +68,8 @@ import { MenuMarketingComponent } from './pages/menu-marketing/menu-marketing.co
     ModalDeleteBankAccountComponent,
     InfoProductComponent,
     SettingPasswordComponent,
-<<<<<<< HEAD
-    AccountComponent
-=======
+    AccountComponent,
     MenuMarketingComponent
->>>>>>> b982b95117ddaaf47222fc85715131bba6b2267e
   ],
   entryComponents: [
     ModalCreateBankAccountComponent,
