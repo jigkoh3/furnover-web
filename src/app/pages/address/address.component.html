@@ -4,7 +4,7 @@
   </div>
 
   <div class="col-lg-8">
-    <mat-card class="example-card">
+    <mat-card>
       <app-setting-header></app-setting-header>
       <div class="row">
         <div class="col-6 col-sm-6 col-md-6">
@@ -15,21 +15,25 @@
         </div>
       </div>
       <!-- <mat-divider></mat-divider> -->
-      <div class="row">
-        <div class="col-1 col-sm-1 col-md-1 txt-right">
-          <mat-icon>pin_drop</mat-icon>
-        </div>
-        <div class="col-9 col-sm-9 col-md-9">
-          <p>nid</p>
-          <p>098765432</p>
-          <p>55/7 หมู่11 ต.คูคต</p>
-          <p>อ.ลำลูกกา</p>
-          <p>จ.ปทุมธานี</p>
-          <p>12130</p>
-        </div>
-        <div class="col-2 col-sm-2 col-md-2 txt-right">
-          <mat-icon (click)="clickEdit()">create</mat-icon>
-        </div>
+
+      <div class="row b-shadow" *ngFor="let item of data">
+          <div class="col-2 col-sm-2 col-md-2 txt-right">
+            <mat-icon>pin_drop</mat-icon>
+          </div>
+          <div class="col-8 col-sm-8 col-md-8">
+            <p class="font-size1">{{item.name}}</p>
+            <p class="font-size1">{{item.tel}}</p>
+            <p class="font-size1">{{item.address}}</p>
+            <p class="font-size1">{{item.province}}</p>
+            <p class="font-size1">{{item.district}}</p>
+            <p class="font-size1">{{item.subdistrict}}</p>
+            <p class="font-size1">{{item.postcode}}</p>
+          </div>
+
+          <div class="col-2 col-sm-2 col-md-2 txt-right">
+            <mat-icon (click)="clickEdit(item)">create</mat-icon>
+            <mat-icon (click)="clickdelete(item)">delete</mat-icon>
+          </div>
       </div>
     </mat-card>
   </div>
