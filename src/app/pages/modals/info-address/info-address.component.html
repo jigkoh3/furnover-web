@@ -26,7 +26,7 @@
     </div>
     <div class="col-	col-sm-	col-md-9	col-lg-	col-xl-">
       <mat-form-field class="example-full-width">
-        <input matInput [(ngModel)]="data.tel" placeholder="หมายเลขโทรศัพท์" value="">
+        <input matInput type="number" [(ngModel)]="data.tel" placeholder="หมายเลขโทรศัพท์" value="">
       </mat-form-field>
     </div>
 
@@ -81,14 +81,14 @@
   </div>
 
   <div class="row">
-    <div class="col-	col-sm-	col-md-3	col-lg-	col-xl-">
-      <div class="text">
-        <button mat-button color="primary" (click)="clickSave()">บันทึก</button>
+    <div class="col-	col-sm-	col-md-6	col-lg-	col-xl- txt-left">
+      <div>
+        <button  mat-raised-button disabled (click)="clickSave()">บันทึก</button>
       </div>
     </div>
-    <div class="col-	col-sm-	col-md-9	col-lg-	col-xl-">
+    <div class="col-	col-sm-	col-md-6	col-lg-	col-xl- txt-right">
       <div>
-        <button mat-button [mat-dialog-close]>ยกเลิก</button>
+        <button mat-stroked-button disabled [mat-dialog-close]>ยกเลิก</button>
     </div>
 
   </div>
