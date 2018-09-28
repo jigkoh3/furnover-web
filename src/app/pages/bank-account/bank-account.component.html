@@ -24,15 +24,16 @@
           <div class="col-12 col-md-6 col-lg-4 pointer" *ngFor="let item of showDataBank" (click)="openmodal(item)">
             <mat-card class="card-height text-center">
               <img *ngIf="item.bank && item.bank.image" class="image" [src]="item.bank.image" alt="bank-icon">
-              <br>
-              <br>
-              <p class="no-margin font-size2">
-                {{item.name}}
-                <br>
-                <span>{{item.accountnumber}}</span>
-                <br>
-                <span>{{item.accountname}}</span>
-              </p>
+              <div class="padding-top">
+                <p class="no-margin font-size2">
+                  {{item.name}}
+                  <br>
+                  <span>{{item.accountnumber}}</span>
+                  <br>
+                  <span>{{item.accountname}}</span>
+                </p>
+              </div>
+
             </mat-card>
           </div>
         </div>
