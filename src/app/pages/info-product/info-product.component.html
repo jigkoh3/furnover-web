@@ -1,3 +1,119 @@
-<p>
-  info-product works!
-</p>
+<div class="wrapper content">
+  <div class="row">
+    <div class="col-12">
+      <h2>รูปภาพสินค้า</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-10 col-sm-10 col-md-10">
+      <p class="header-description">เริ่มจากการอัพโหลดรูปภาพของคุณ ทิปการถ่ายรูปให้สินค้าน่าสนใจ
+        กรุณาถ่ายรูปสินค้าให้ชัดเจนด้วยพื้นหลังสีขาว
+        และอัพหลายๆรูปเพื่อสามารถดูได้หลายๆมุม</p>
+    </div>
+    <div class="col-2 col-sm-2 col-md-2 txt-right">
+      <p class="header-description">5/9 รูปภาพ</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-sm-4 col-md-3" *ngFor="let item of [1,2,3,4,5];let i = index">
+      <div class="contrain">
+        <div class="tools">
+          <div class="crop">
+            <mat-icon>crop</mat-icon>
+          </div>
+          <div class="remove">
+            <mat-icon>delete</mat-icon>
+          </div>
+        </div>
+        <div class="image-move" style="background-image:url('https://fk.lnwfile.com/i5zcqw.jpg')"></div>
+        <div *ngIf="i === 0" class="title">
+          รูปภาพปก
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-sm-4 col-md-3">
+      <div class="fix-col">
+        <p>
+          <button mat-fab color="primary">
+            <mat-icon>add</mat-icon>
+          </button>
+        </p>
+        <p class="add-txt">เพิ่มรูปภาพใหม่</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-sm-12 col-md-12">
+      ข้อมูลทั่วไป
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-0 col-sm-2 col-md-3"></div>
+    <div class="col-12 col-sm-8 col-md-6">
+      <div class="row">
+        <div class="col col-12 text-center">
+          <div>
+            <mat-form-field>
+              <input matInput placeholder="ชื่อสินค้า" type="text" required>
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field>
+              <textarea matInput rows="4" placeholder="รายละเอียดสินค้า"></textarea>
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field>
+              <mat-select value="">
+                <mat-option value="">
+                  เลือกหมวดหมู่
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-0 col-sm-2 col-md-3"></div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-sm-12 col-md-12">
+      ราคาและคลัง
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-0 col-sm-2 col-md-3"></div>
+    <div class="col-12 col-sm-8 col-md-6">
+      <div class="row">
+        <div class="col col-12 text-center">
+          <div>
+            <mat-form-field>
+              <input matInput placeholder="ราคา" type="number" required>
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field>
+              <input matInput placeholder="คลัง" type="number" required>
+            </mat-form-field>
+          </div>
+          <div class="btn-option">
+            <mat-icon class="add-cus">add</mat-icon> เพิ่มตัวเลือกสินค้า
+          </div>
+
+          <div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-0 col-sm-2 col-md-3"></div>
+  </div>
+
+
+</div>
