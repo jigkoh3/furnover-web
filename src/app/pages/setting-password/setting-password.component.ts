@@ -44,13 +44,15 @@ export class SettingPasswordComponent implements OnInit {
       await this.restApi.post(Constants.URL() + '/api/auth/change-password', this.dataPassword);
       this.spinner.hide();
       this.dialog.closeAll();
-
+      this.dataPassword.oldPassword = '';
+      this.dataPassword.newPassword ='';
+      this.dataPassword.verifyPassword ='';
       this.dialog.open(ModalCompleteComponent, {
         width: '700px',
         data: { message: 'แก้ไขรหัสผ่านสำเร็จ' }
       });
     } catch (error) {
-      this.spinner.hide();      
+      this.spinner.hide();
       if (error) {
         if (error['error']['message'] === 'Username or Password is invalid.') {
           this.dataService.error('รหัสผ่านปัจจุบันไม่ถูกต้อง');
