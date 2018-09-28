@@ -21,6 +21,7 @@
     border-color: #a9a9a9;
     height: 20rem;
     position: relative;
+    cursor: pointer;
 }
 
 .fix-col p {
@@ -60,6 +61,7 @@
 
 .fix-col-2 {
     height: 20rem;
+    cursor: pointer;
 }
 
 .fn-size {
@@ -135,4 +137,11 @@
 
 .footer-card-txt {
     font-size: 0.8rem;
+}
+
+.search-ic {
+    position: absolute;
+    right: 0;
+    bottom: 2px;
+    color: #9f9f9f;
 }
