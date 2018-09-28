@@ -38,4 +38,6 @@
 
 .no-padding {
     padding: 0px !important;
+}.paddding-top{
+    padding-top: 2% !important;
 }

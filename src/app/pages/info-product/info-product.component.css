@@ -1,0 +1,159 @@
+.wrapper.content {
+    background-color: #fff;
+    box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, .09);
+    padding: 20px 48px;
+}
+
+.wrapper {
+    width: auto;
+    margin: 0 auto;
+}
+
+h2,
+h3 {
+    color: #666;
+    font-weight: 400;
+}
+
+.header-description {
+    position: relative;
+    bottom: 12px;
+    margin-top: 0;
+    margin-bottom: 16px;
+    font-size: 12px;
+    color: #8c8c8c;
+}
+
+.txt-right {
+    text-align: right;
+}
+
+.image-move {
+    background: center no-repeat;
+    background-size: cover;
+    width: auto;
+    height: 300px;
+    cursor: move;
+}
+
+.tools {
+    position: absolute;
+    right: 0;
+}
+
+.crop {
+    width: 40px;
+    height: 40px;
+    background: rgba(101, 106, 210, .54);
+    ;
+    text-align: center;
+    border-radius: 50%;
+    padding-top: 6px;
+    color: #ffffff;
+    cursor: pointer;
+    position: absolute;
+    right: 70px;
+    margin-top: 10px;
+}
+
+.remove {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 87, 34, .54);
+    text-align: center;
+    border-radius: 50%;
+    padding-top: 6px;
+    color: #ffffff;
+    cursor: pointer;
+    position: absolute;
+    right: 16px;
+    margin-top: 10px;
+}
+
+.title {
+    height: 60px;
+    background: rgba(0, 0, 0, .5);
+    text-align: center;
+    color: #ffffff;
+    position: absolute;
+    width: 94.5%;
+    margin-top: -3.7rem;
+    padding: 1.2rem;
+}
+
+.contrain {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+}
+
+.fix-col {
+    border: dotted;
+    border-color: #a9a9a9;
+    height: 300px;
+    position: relative;
+    cursor: pointer;
+}
+
+.fix-col p {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.add-txt {
+    margin-top: 3rem !important;
+    color: #ff9558;
+    cursor: pointer;
+}
+
+.btn-option {
+    padding: 6px;
+    border-style: dashed;
+    border-color: #00bfa5;
+    color: #00bfa5;
+    cursor: pointer;
+}
+
+.add-cus {
+    position: absolute;
+    margin-left: -24px;
+}
+
+.txt-left {
+    text-align: left;
+}
+
+.mgt {
+    margin-top: 1rem;
+    padding: 1rem;
+}
+
+.options-ctn {
+    background-color: #f7f7f7;
+    border-radius: 6px;
+    padding: 3rem !important;
+}
+
+.del-btn {
+    position: absolute;
+    right: 4px;
+    cursor: pointer;
+    color: #ffffff;
+    background-color: #c0c0c0;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    padding-top: 4px;
+    z-index: 999;
+    margin-top: -44px;
+}
+
+.sub-del-btn {
+    position: absolute;
+    right: 10px;
+    margin-top: 10px;
+    color: #c0c0c0;
+    cursor: pointer;
+}
