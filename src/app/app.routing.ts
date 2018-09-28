@@ -12,7 +12,11 @@ import { CreateProductComponent } from './pages/create-product/create-product.co
 import { InfoProductComponent } from './pages/info-product/info-product.component';
 import { SettingPasswordComponent } from 'src/app/pages/setting-password/setting-password.component';
 import { ShopCategoryComponent } from './pages/shop-category/shop-category.component';
+<<<<<<< HEAD
 import { AccountComponent } from './pages/account/account.component';
+=======
+import { MenuMarketingComponent } from 'src/app/pages/menu-marketing/menu-marketing.component';
+>>>>>>> b982b95117ddaaf47222fc85715131bba6b2267e
 
 export const routes: Routes = [
     {
@@ -73,9 +77,16 @@ export const routes: Routes = [
     {
         path: 'shop-category',
         component: ShopCategoryComponent
+<<<<<<< HEAD
     },
     {
         path: 'account',
         component: AccountComponent
+=======
+    } ,
+    {
+        path: 'menu-marketing',
+        component: MenuMarketingComponent
+>>>>>>> b982b95117ddaaf47222fc85715131bba6b2267e
     }
 ];
