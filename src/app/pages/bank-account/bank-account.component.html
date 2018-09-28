@@ -21,14 +21,17 @@
               <p class="pointer text-add">เพิ่มบัญชีธนาคาร</p>
             </div>
           </div>
-          <div class="col-12 col-md-6 col-lg-4 pointer" *ngFor="let item of [1,2,3,4,5]" (click)="openmodal()">
+          <div class="col-12 col-md-6 col-lg-4 pointer" *ngFor="let item of showDataBank" (click)="openmodal(item)">
             <mat-card class="card-height text-center">
-              <img class="image" src="https://pbs.twimg.com/profile_images/924662185929752576/9cRHWYxV_400x400.jpg" alt="bank-icon">
+              <img *ngIf="item.bank && item.bank.image" class="image" [src]="item.bank.image" alt="bank-icon">
               <br>
               <br>
-              <p class="no-margin">1111 1587 **** 0767
+              <p class="no-margin font-size2">
+                {{item.name}}
                 <br>
-                <span>ณัฐพล</span>
+                <span>{{item.accountnumber}}</span>
+                <br>
+                <span>{{item.accountname}}</span>
               </p>
             </mat-card>
           </div>

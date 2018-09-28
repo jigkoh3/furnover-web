@@ -5,6 +5,8 @@ import { ModalCreateBankAccountComponent } from 'src/app/pages/modals/modal-crea
 import { ModalInfoBankAccountComponent } from 'src/app/pages/modals/modal-info-bank-account/modal-info-bank-account.component';
 import { RestApiService } from 'src/app/providers/rest-api-service/rest-api.service';
 import { Constants } from 'src/app/app.constants';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { DataService } from 'src/app/providers/data-service/data.service';
 
 
 @Component({
@@ -13,10 +15,14 @@ import { Constants } from 'src/app/app.constants';
   styleUrls: ['./bank-account.component.css']
 })
 export class BankAccountComponent implements OnInit {
+  showDataBank: Array<any> = []
+
   constructor(
     public iconRegistry: MatIconRegistry,
     public sanitizer: DomSanitizer,
     public dialog: MatDialog,
+    private spinner: NgxSpinnerService,
+    private dataService: DataService,
     private restApi: RestApiService
   ) {
     iconRegistry.addSvgIcon(
@@ -37,6 +43,7 @@ export class BankAccountComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getDatabank();
   }
   openDialog(): void {
     const dialogRef = this.dialog.open(ModalCreateBankAccountComponent, {
@@ -44,17 +51,44 @@ export class BankAccountComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      console.log(result);
+      if (result) {
+        this.getDatabank();
+      }
     });
   }
-  openmodal(): void {
+  openmodal(item): void {
     const dialogRef = this.dialog.open(ModalInfoBankAccountComponent, {
-      width: "700px"
+      width: "700px",
+      data: { _id: item._id }
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      if (result) {
+        this.getDatabank();
+      }
     });
   }
-  
+  async getDatabank() {
+    this.spinner.show();
+
+    try {
+      let user: any = JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop'));
+      let data = {
+        shop_id: user.shop_id
+      }
+      let respone: any = await this.restApi.post(Constants.URL() + '/api/bank-account-shop', data);
+      this.showDataBank = respone.datas;
+      this.spinner.hide();
+
+      console.log(respone);
+
+    } catch (error) {
+      this.spinner.hide();
+      this.dataService.error('เรียกข้อมูลไม่สำเร็จ');
+
+    }
+
+
+  }
 }
