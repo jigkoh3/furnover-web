@@ -9,6 +9,7 @@ import { MyProductComponent } from './pages/my-product/my-product.component';
 import { AddressComponent } from './pages/address/address.component';
 import { InfoAddressComponent } from './pages/modals/info-address/info-address.component';
 import { CreateProductComponent } from './pages/create-product/create-product.component';
+import { InfoProductComponent } from './pages/info-product/info-product.component';
 
 export const routes: Routes = [
     {
@@ -56,5 +57,9 @@ export const routes: Routes = [
     {
         path: 'create-product',
         component: CreateProductComponent
+    },
+    {
+        path: 'info-product',
+        component: InfoProductComponent
     }
 ];

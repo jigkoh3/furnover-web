@@ -25,20 +25,20 @@ export class InfoAddressComponent implements OnInit {
   ngOnInit() {
   }
 
-  async clickSave(data) {
+  async clickSave() {
     this.spinner.show();
     try {
-      let response: any = await this.restApi.post(Constants.URL() + '/api/address', data);
+      let response: any = await this.restApi.post(Constants.URL() + '/api/address', this.data);
       this.spinner.hide();
       this.dialog.closeAll();
       this.dialog.open(ModalCompleteComponent, {
         width: '700px',
-        data: {message: 'บันทึกข้อมูลณระยะเวลาเตรียมการจัดส่งสินค้าสำเร็จ'}
+        data: {message: 'บันทึกสินค้าสำเร็จ'}
       });
     } catch (error) {
       this.spinner.hide();
       setTimeout(() => {
-        this.dataService.error('บันทึกข้อมูลล้มเหลว');
+        this.dataService.error('บันทึกที่อยู่ล้มเหลว');
       }, 3000);
     }
   }

@@ -33,6 +33,7 @@ import { ModalInfoBankAccountComponent } from './pages/modals/modal-info-bank-ac
 import { SettingHeaderComponent } from './components/setting-header/setting-header.component';
 import { ModalUploadYoutubeComponent } from './pages/modals/modal-upload-youtube/modal-upload-youtube.component';
 import { ModalDeleteBankAccountComponent } from './pages/modals/modal-delete-bank-account/modal-delete-bank-account.component';
+import { InfoProductComponent } from './pages/info-product/info-product.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { ModalDeleteBankAccountComponent } from './pages/modals/modal-delete-ban
     ModalInfoBankAccountComponent,
     SettingHeaderComponent,
     ModalUploadYoutubeComponent,
-    ModalDeleteBankAccountComponent
+    ModalDeleteBankAccountComponent,
+    InfoProductComponent
   ],
   entryComponents: [
     ModalCreateBankAccountComponent,
