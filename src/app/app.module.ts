@@ -34,6 +34,8 @@ import { SettingHeaderComponent } from './components/setting-header/setting-head
 import { ModalUploadYoutubeComponent } from './pages/modals/modal-upload-youtube/modal-upload-youtube.component';
 import { ModalDeleteBankAccountComponent } from './pages/modals/modal-delete-bank-account/modal-delete-bank-account.component';
 import { InfoProductComponent } from './pages/info-product/info-product.component';
+import { SettingPasswordComponent } from './pages/setting-password/setting-password.component';
+import { ShopCategoryComponent } from './pages/shop-category/shop-category.component';
 
 @NgModule({
   declarations: [
@@ -59,12 +61,14 @@ import { InfoProductComponent } from './pages/info-product/info-product.componen
     ModalInfoBankAccountComponent,
     SettingHeaderComponent,
     ModalUploadYoutubeComponent,
+    InfoProductComponent,
+    ShopCategoryComponent,
     ModalDeleteBankAccountComponent,
-    InfoProductComponent
+    InfoProductComponent,
+    SettingPasswordComponent
   ],
   entryComponents: [
     ModalCreateBankAccountComponent,
-    AddressComponent,
     InfoAddressComponent,
     ModalPrepareShippingComponent,
     ModalInfoBankAccountComponent,

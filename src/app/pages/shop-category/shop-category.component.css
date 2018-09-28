@@ -1,0 +1,142 @@
+.bg-card-icon {
+    background-color: #4CAF50;
+    width: 45px;
+    height: 45px;
+}
+
+.bg-card-icon1 {
+    background-color: orangered;
+    width: 45px;
+    height: 45px;
+}
+
+.setting-icon-look {
+    width: 35px;
+    height: 35px;
+    position: relative;
+    top: -10px;
+    left: -11px;
+}
+
+.setting-icon-hide {
+    width: 35px;
+    height: 35px;
+    position: relative;
+    top: -10px;
+    left: -11px;
+}
+
+.setting-text-header1 {
+    position: relative;
+    top: -45px;
+    left: 60px;
+    font-size: 20px
+    
+}
+
+.setting-text-header2 {
+    position: relative;
+    top: -65px;
+    left: 60px;
+    color: lightgrey;
+    font-size: 15px;
+}
+
+.setting-div-header {
+    position: relative;
+    left: 50px;
+}
+
+.setting-mat-card {
+    height: 500px;
+}
+
+.setting-icon-responsive {
+    width: 150px;
+    height: 150px;
+}
+
+.setting-text-body1{
+    color: grey;
+    font-size: 15px;
+}
+
+.setting-btn-add-cat{
+    height: 50px !important;
+    width:90% !important;
+}
+
+.setting-btn-text-add-cat {
+    font-size: 15px;
+}
+
+.setting-bnt-rename {
+    width: 1px;
+    height: 20px;
+    position: relative;
+    top: 9px;
+}
+
+.setting-bnt-text-rename{
+    font-size: 10px;
+    position: relative;
+    top: -8px;
+    left: -5px;
+    color: grey
+}
+
+.setting-text-set-cat{
+    color: grey !important;
+    font-size: 15px !important;
+    position: relative;
+    top: -12px;
+}
+
+::ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
+    background-color: rgb(255, 255, 255); /*replace with your color*/
+}
+
+::ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+    background-color: #00C853;  /*replace with your color*/
+}
+
+::ng-deep .mat-fab.mat-accent, .mat-flat-button.mat-accent, .mat-mini-fab.mat-accent, .mat-raised-button.mat-accent {
+    background-color: #ffffff;
+}
+
+.setting-icon-del {
+    color: grey;
+    position: relative;
+    top: -3px;
+}
+
+.setting-toggle {
+    position: relative;
+    top: 10px;
+}
+
+.setting-div-header {
+    height: 100px !;
+}
+
+.border-list-cat {
+    /* border-bottom: solid lightgrey 1px ;
+    border-top:  solid lightgrey 1px ; */
+}
+
+.setting-div-header {
+    padding-bottom: 0px !important;
+}
+
+.setting-card {
+    /* height: 100%; */
+}
+
+.no-padding-div {
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+}
+
+.size-div-header {
+    height: 90px !important;
+}
