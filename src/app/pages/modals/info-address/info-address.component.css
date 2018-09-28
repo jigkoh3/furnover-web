@@ -9,6 +9,11 @@
 .txt-right {
     text-align: right;
 }
+
 .txt-left {
     text-align: left;
+}
+
+.btn-color {
+    background-color: #b0b0b0 !important;
 }

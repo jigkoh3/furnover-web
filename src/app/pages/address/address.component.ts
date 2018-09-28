@@ -52,5 +52,8 @@ export class AddressComponent implements OnInit {
       console.log('The dialog was closed');
     });
   }
+  clickEdit(){
+    // this.router.navigate(['/create-student'], { queryParams: { data: JSON.stringify() } });
+  }
 }
 
