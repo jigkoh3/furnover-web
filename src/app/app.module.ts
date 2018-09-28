@@ -32,6 +32,7 @@ import { CreateProductComponent } from './pages/create-product/create-product.co
 import { ModalInfoBankAccountComponent } from './pages/modals/modal-info-bank-account/modal-info-bank-account.component';
 import { SettingHeaderComponent } from './components/setting-header/setting-header.component';
 import { ModalUploadYoutubeComponent } from './pages/modals/modal-upload-youtube/modal-upload-youtube.component';
+import { InfoProductComponent } from './pages/info-product/info-product.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { ModalUploadYoutubeComponent } from './pages/modals/modal-upload-youtube
     CreateProductComponent,
     ModalInfoBankAccountComponent,
     SettingHeaderComponent,
-    ModalUploadYoutubeComponent
+    ModalUploadYoutubeComponent,
+    InfoProductComponent
   ],
   entryComponents: [
     ModalCreateBankAccountComponent,
