@@ -44,7 +44,8 @@ h3 {
 .crop {
     width: 40px;
     height: 40px;
-    background: rgba(101,106,210,.54);;
+    background: rgba(101, 106, 210, .54);
+    ;
     text-align: center;
     border-radius: 50%;
     padding-top: 6px;
@@ -58,7 +59,7 @@ h3 {
 .remove {
     width: 40px;
     height: 40px;
-    background: rgba(255,87,34,.54);
+    background: rgba(255, 87, 34, .54);
     text-align: center;
     border-radius: 50%;
     padding-top: 6px;
@@ -71,7 +72,7 @@ h3 {
 
 .title {
     height: 60px;
-    background: rgba(0,0,0,.5);
+    background: rgba(0, 0, 0, .5);
     text-align: center;
     color: #ffffff;
     position: absolute;
@@ -105,4 +106,17 @@ h3 {
     margin-top: 3rem !important;
     color: #ff9558;
     cursor: pointer;
+}
+
+.btn-option {
+    padding: 6px;
+    border-style: dashed;
+    border-color: #00bfa5;
+    color: #00bfa5;
+    cursor: pointer;
+}
+
+.add-cus {
+    position: absolute;
+    margin-left: -24px;
 }
