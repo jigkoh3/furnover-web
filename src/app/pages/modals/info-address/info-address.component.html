@@ -27,30 +27,22 @@
     </div>
 
     <div class="col-	col-sm-	col-md-12	col-lg-	col-xl-">
-      <mat-form-field class="example-full-width">
-        <mat-select placeholder="จังหวัด" [(ngModel)]="data.province" required>
-          <mat-option>กรุณาเลือก</mat-option>
-          <mat-option value="กรุงเทพ">กรุงเทพ</mat-option>
-          <mat-option value="ปทุมธานี">ปทุมธานี</mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
+        <mat-form-field class="example-full-width">
+          <input matInput [(ngModel)]="data.subdistrict" placeholder="แขวง/ตำบล" required>
+        </mat-form-field>
+      </div>
 
+      <div class="col-	col-sm-	col-md-12	col-lg-	col-xl-">
+          <mat-form-field class="example-full-width">
+            <input matInput [(ngModel)]="data.district" placeholder="เขต/อำเภอ" required>
+          </mat-form-field>
+        </div>
+   
     <div class="col-	col-sm-	col-md-12	col-lg-	col-xl-">
-      <mat-form-field class="example-full-width">
-        <mat-select placeholder="เขต/อำเภอ" [(ngModel)]="data.district" required>
-          <mat-option>กรุณาเลือก</mat-option>
-          <mat-option value="ดอนเมือง">ดอนเมือง</mat-option>
-          <mat-option value="ลำลูกกา">ลำลูกกา</mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
-
-    <div class="col-	col-sm-	col-md-12	col-lg-	col-xl-">
-      <mat-form-field class="example-full-width">
-        <input matInput [(ngModel)]="data.subdistrict" placeholder="แขวง/ตำบล" required>
-      </mat-form-field>
-    </div>
+        <mat-form-field class="example-full-width">
+          <input matInput [(ngModel)]="data.province" placeholder="จังหวัด" required>
+        </mat-form-field>
+      </div>
 
     <div class="col-	col-sm-	col-md-12	col-lg-	col-xl-">
       <mat-form-field class="example-full-width">
