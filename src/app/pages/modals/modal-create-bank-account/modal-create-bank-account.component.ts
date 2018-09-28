@@ -11,14 +11,10 @@ import { Constants } from 'src/app/app.constants';
   styleUrls: ['./modal-create-bank-account.component.css']
 })
 export class ModalCreateBankAccountComponent implements OnInit {
+  Getbank: Array<any>=[]
   isLinear = true;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
-  bank = [
-    { viewValue: 'ธนาคารออมสิน (GSB)' },
-    { viewValue: 'ธนาคารเพื่อการเกษตร (BAAC)' },
-    { viewValue: 'ไทยพาณิชย์ (SCB)' }
-  ];
 
 
   constructor(
@@ -36,12 +32,18 @@ export class ModalCreateBankAccountComponent implements OnInit {
       bankNumber: ['', Validators.required],
       nameBank: ['', Validators.required]
     });
-    // this.getBank();
+    this.getBank();
   }
-  // async getBank() {
-  //   let user: any = JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop'));
-  //   console.log(user);
-  //   let getbank: any = await this.restApi.get(Constants.URL() + '/api/masterbankaccount'+user._id );
-  //   console.log(getbank);
-  // }
+  async getBank() {
+    try {
+      let user: any = JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop'));
+      console.log(user);
+      let respone: any = await this.restApi.get(Constants.URL() + '/api/masterbankaccount');
+      this.Getbank = respone.data;
+      console.log(this.Getbank);
+    } catch (error) {
+
+    }
+
+  }
 }

@@ -52,8 +52,8 @@
           </div>
           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
             <mat-select placeholder="เลือกธนาคาร" formControlName="nameBank" required>
-              <mat-option *ngFor="let item of bank" [value]="item.viewValue">
-                {{item.viewValue}}
+              <mat-option *ngFor="let item of Getbank" [value]="item.name">
+                {{item.name}}
               </mat-option>
             </mat-select>
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 ">
