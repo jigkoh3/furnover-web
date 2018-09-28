@@ -1,0 +1,169 @@
+<!-- <mat-card class="setting-mat-card">
+  <div class="row setting-div">
+    <div class="col-10 col-md-10 padding-left">
+      <mat-card class="bg-card-icon">
+        <img src="/assets/imgs/look.png" class="setting-icon-look">
+      </mat-card>
+      <p class="setting-text-header1"><b>หมวดหมู่ที่เปิดการใช้งาน</b></p>
+      <p class="setting-text-header2">ผู้ซื้อสามารถมองเห็นหมวดหมู่เหล่านี้ได้จากร้านของคุณ</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 " style="text-align: center">
+      <img src="/assets/imgs/responsive.png" class="setting-icon-responsive">
+      <p class="setting-text-body1">คุณยังไม่มีหมวดหมู่สินค้าที่ใช้งานขณะนี้</p>
+    </div>
+  </div>
+</mat-card> -->
+
+<!-- <br> -->
+<!-- <mat-card class="setting-mat-card">
+  <div class="row">
+    <div class="col-10 col-md-10 padding-left">
+      <mat-card class="bg-card-icon1">
+        <img src="/assets/imgs/private.png" class="setting-icon-look">
+      </mat-card>
+      <p class="setting-text-header1"><b>หมวดหมู่ที่ปิดการใช้งาน</b></p>
+      <p class="setting-text-header2">เพื่อให้ผู้ซื้อมองเห็นกรุณาเปิดใช้งานหมวดหมู่นี้</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 padding-left" style="text-align: center">
+      <button mat-stroked-button color="primary" class="setting-btn-add-cat setting-btn-text-add-cat">+
+        สร้างหมวดหมู่ใหม่เอง</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="col-10 ">
+      <div>
+        <div class="row border-list-cat">
+          <div class="col-12 col-md-4">
+            <p>
+              <b>เครื่องเขียน</b> &nbsp;
+              <button mat-stroked-button class="setting-bnt-rename"><span class="setting-bnt-text-rename">เปลี่ยนชื่อ</span></button>
+            </p>
+            <p class="setting-text-set-cat">กำหนดหมวดหมู่สินค้าเอง</p>
+          </div>
+          <div class="col-12 col-md-4" style="text-align: center">
+            <div class="row">
+              <div class="col-4 col-md-4"></div>
+              <div class="col-12 col-md-4">
+                <button mat-stroked-button style="width:100%">ข้อมูล</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-md-2" style="text-align: center">
+            <mat-slide-toggle class="setting-toggle"></mat-slide-toggle>
+          </div>
+          <div class="col-6 col-md-2" style="text-align: center">
+            <button mat-icon-button>
+              <mat-icon svgIcon="del" class="setting-icon-del"></mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-1"></div>
+  </div>
+</mat-card> -->
+
+<mat-card>
+    <div class="row setting-div">
+      <div class="col-10 col-md-10 padding-left">
+        <mat-card class="bg-card-icon">
+          <img src="/assets/imgs/look.png" class="setting-icon-look">
+        </mat-card>
+        <p class="setting-text-header1"><b>หมวดหมู่ที่ปิดการใช้งาน</b></p>
+        <p class="setting-text-header2">เพื่อให้ผู้ซื้อมองเห็นกรุณาเปิดใช้งานหมวดหมู่นี้</p>
+      </div>
+    </div>
+    <div *ngFor="let item of modelDataOpen">
+      <mat-card>
+        <div class="row">
+          <div class="col-1"></div>
+          <div class="col-10 ">
+            <div>
+              <div class="row border-list-cat">
+                <div class="col-12 col-md-4">
+                  <p>
+                    <b>{{item.name}}</b> &nbsp;
+                    <button mat-stroked-button class="setting-bnt-rename"><span class="setting-bnt-text-rename">เปลี่ยนชื่อ</span></button>
+                  </p>
+                  <p class="setting-text-set-cat">กำหนดหมวดหมู่สินค้าเอง</p>
+                </div>
+                <div class="col-12 col-md-4" style="text-align: center">
+                  <div class="row">
+                    <div class="col-4 col-md-4"></div>
+                    <div class="col-12 col-md-4">
+                      <button mat-stroked-button style="width:100%">ข้อมูล</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6 col-md-2" style="text-align: center">
+                  <mat-slide-toggle class="setting-toggle"></mat-slide-toggle>
+                </div>
+                <div class="col-6 col-md-2" style="text-align: center">
+                  <button mat-icon-button>
+                    <mat-icon svgIcon="del" class="setting-icon-del"></mat-icon>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-1"></div>
+        </div>
+      </mat-card>
+      <br>
+    </div>
+  </mat-card>
+<br>
+<mat-card>
+  <div class="row setting-div">
+    <div class="col-10 col-md-10 padding-left">
+      <mat-card class="bg-card-icon1">
+        <img src="/assets/imgs/private.png" class="setting-icon-look">
+      </mat-card>
+      <p class="setting-text-header1"><b>หมวดหมู่ที่ปิดการใช้งาน</b></p>
+      <p class="setting-text-header2">เพื่อให้ผู้ซื้อมองเห็นกรุณาเปิดใช้งานหมวดหมู่นี้</p>
+    </div>
+  </div>
+  <div *ngFor="let item of modelDataClose">
+    <mat-card>
+      <div class="row">
+        <div class="col-1"></div>
+        <div class="col-10 ">
+          <div>
+            <div class="row border-list-cat">
+              <div class="col-12 col-md-4">
+                <p>
+                  <b>{{item.name}}</b> &nbsp;
+                  <button mat-stroked-button class="setting-bnt-rename"><span class="setting-bnt-text-rename">เปลี่ยนชื่อ</span></button>
+                </p>
+                <p class="setting-text-set-cat">กำหนดหมวดหมู่สินค้าเอง</p>
+              </div>
+              <div class="col-12 col-md-4" style="text-align: center">
+                <div class="row">
+                  <div class="col-4 col-md-4"></div>
+                  <div class="col-12 col-md-4">
+                    <button mat-stroked-button style="width:100%">ข้อมูล</button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6 col-md-2" style="text-align: center">
+                <mat-slide-toggle class="setting-toggle"></mat-slide-toggle>
+              </div>
+              <div class="col-6 col-md-2" style="text-align: center">
+                <button mat-icon-button>
+                  <mat-icon svgIcon="del" class="setting-icon-del"></mat-icon>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-1"></div>
+      </div>
+    </mat-card>
+    <br>
+  </div>
+</mat-card>

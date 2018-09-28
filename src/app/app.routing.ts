@@ -11,6 +11,7 @@ import { InfoAddressComponent } from './pages/modals/info-address/info-address.c
 import { CreateProductComponent } from './pages/create-product/create-product.component';
 import { InfoProductComponent } from './pages/info-product/info-product.component';
 import { SettingPasswordComponent } from 'src/app/pages/setting-password/setting-password.component';
+import { ShopCategoryComponent } from './pages/shop-category/shop-category.component';
 
 export const routes: Routes = [
     {
@@ -66,5 +67,10 @@ export const routes: Routes = [
     {
         path: 'setting-password',
         component: SettingPasswordComponent
+    }
+    ,
+    {
+        path: 'shop-category',
+        component: ShopCategoryComponent
     }
 ];
