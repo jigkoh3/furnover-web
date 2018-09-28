@@ -349,14 +349,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_info_product_info_product_component__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./pages/info-product/info-product.component */ "./src/app/pages/info-product/info-product.component.ts");
 /* harmony import */ var _pages_setting_password_setting_password_component__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./pages/setting-password/setting-password.component */ "./src/app/pages/setting-password/setting-password.component.ts");
 /* harmony import */ var _pages_shop_category_shop_category_component__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./pages/shop-category/shop-category.component */ "./src/app/pages/shop-category/shop-category.component.ts");
-/* harmony import */ var _pages_info_shop_category_info_shop_category_component__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./pages/info-shop-category/info-shop-category.component */ "./src/app/pages/info-shop-category/info-shop-category.component.ts");
-/* harmony import */ var _pages_menu_marketing_menu_marketing_component__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./pages/menu-marketing/menu-marketing.component */ "./src/app/pages/menu-marketing/menu-marketing.component.ts");
+/* harmony import */ var _pages_account_account_component__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./pages/account/account.component */ "./src/app/pages/account/account.component.ts");
+/* harmony import */ var _pages_info_shop_category_info_shop_category_component__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./pages/info-shop-category/info-shop-category.component */ "./src/app/pages/info-shop-category/info-shop-category.component.ts");
+/* harmony import */ var _pages_menu_marketing_menu_marketing_component__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./pages/menu-marketing/menu-marketing.component */ "./src/app/pages/menu-marketing/menu-marketing.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -429,8 +431,9 @@ var AppModule = /** @class */ (function () {
                 _pages_modals_modal_delete_bank_account_modal_delete_bank_account_component__WEBPACK_IMPORTED_MODULE_33__["ModalDeleteBankAccountComponent"],
                 _pages_info_product_info_product_component__WEBPACK_IMPORTED_MODULE_34__["InfoProductComponent"],
                 _pages_setting_password_setting_password_component__WEBPACK_IMPORTED_MODULE_35__["SettingPasswordComponent"],
-                _pages_info_shop_category_info_shop_category_component__WEBPACK_IMPORTED_MODULE_37__["InfoShopCategoryComponent"],
-                _pages_menu_marketing_menu_marketing_component__WEBPACK_IMPORTED_MODULE_38__["MenuMarketingComponent"]
+                _pages_account_account_component__WEBPACK_IMPORTED_MODULE_37__["AccountComponent"],
+                _pages_info_shop_category_info_shop_category_component__WEBPACK_IMPORTED_MODULE_38__["InfoShopCategoryComponent"],
+                _pages_menu_marketing_menu_marketing_component__WEBPACK_IMPORTED_MODULE_39__["MenuMarketingComponent"]
             ],
             entryComponents: [
                 _pages_modals_modal_create_bank_account_modal_create_bank_account_component__WEBPACK_IMPORTED_MODULE_23__["ModalCreateBankAccountComponent"],
@@ -485,8 +488,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_info_product_info_product_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./pages/info-product/info-product.component */ "./src/app/pages/info-product/info-product.component.ts");
 /* harmony import */ var src_app_pages_setting_password_setting_password_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! src/app/pages/setting-password/setting-password.component */ "./src/app/pages/setting-password/setting-password.component.ts");
 /* harmony import */ var _pages_shop_category_shop_category_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./pages/shop-category/shop-category.component */ "./src/app/pages/shop-category/shop-category.component.ts");
-/* harmony import */ var _pages_info_shop_category_info_shop_category_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./pages/info-shop-category/info-shop-category.component */ "./src/app/pages/info-shop-category/info-shop-category.component.ts");
-/* harmony import */ var src_app_pages_menu_marketing_menu_marketing_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! src/app/pages/menu-marketing/menu-marketing.component */ "./src/app/pages/menu-marketing/menu-marketing.component.ts");
+/* harmony import */ var _pages_account_account_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./pages/account/account.component */ "./src/app/pages/account/account.component.ts");
+/* harmony import */ var _pages_menu_marketing_menu_marketing_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./pages/menu-marketing/menu-marketing.component */ "./src/app/pages/menu-marketing/menu-marketing.component.ts");
+/* harmony import */ var _pages_info_shop_category_info_shop_category_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./pages/info-shop-category/info-shop-category.component */ "./src/app/pages/info-shop-category/info-shop-category.component.ts");
+
 
 
 
@@ -561,12 +566,16 @@ var routes = [
         component: _pages_shop_category_shop_category_component__WEBPACK_IMPORTED_MODULE_12__["ShopCategoryComponent"]
     },
     {
+        path: 'account',
+        component: _pages_account_account_component__WEBPACK_IMPORTED_MODULE_13__["AccountComponent"]
+    },
+    {
         path: 'info-shop-category',
-        component: _pages_info_shop_category_info_shop_category_component__WEBPACK_IMPORTED_MODULE_13__["InfoShopCategoryComponent"]
+        component: _pages_info_shop_category_info_shop_category_component__WEBPACK_IMPORTED_MODULE_15__["InfoShopCategoryComponent"]
     },
     {
         path: 'menu-marketing',
-        component: src_app_pages_menu_marketing_menu_marketing_component__WEBPACK_IMPORTED_MODULE_14__["MenuMarketingComponent"]
+        component: _pages_menu_marketing_menu_marketing_component__WEBPACK_IMPORTED_MODULE_14__["MenuMarketingComponent"]
     }
 ];
 
@@ -1181,6 +1190,69 @@ var ToolbarComponent = /** @class */ (function () {
             _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])
     ], ToolbarComponent);
     return ToolbarComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/pages/account/account.component.css":
+/*!*****************************************************!*\
+  !*** ./src/app/pages/account/account.component.css ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/pages/account/account.component.html":
+/*!******************************************************!*\
+  !*** ./src/app/pages/account/account.component.html ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"col-lg-3 col-xl-3 col-xs-12 col-sm-12 col-md-12\">\r\n    <side-menu-setting-shop></side-menu-setting-shop>\r\n  </div>"
+
+/***/ }),
+
+/***/ "./src/app/pages/account/account.component.ts":
+/*!****************************************************!*\
+  !*** ./src/app/pages/account/account.component.ts ***!
+  \****************************************************/
+/*! exports provided: AccountComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AccountComponent", function() { return AccountComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var AccountComponent = /** @class */ (function () {
+    function AccountComponent() {
+    }
+    AccountComponent.prototype.ngOnInit = function () {
+    };
+    AccountComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-account',
+            template: __webpack_require__(/*! ./account.component.html */ "./src/app/pages/account/account.component.html"),
+            styles: [__webpack_require__(/*! ./account.component.css */ "./src/app/pages/account/account.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], AccountComponent);
+    return AccountComponent;
 }());
 
 

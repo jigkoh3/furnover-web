@@ -12,13 +12,9 @@ import { CreateProductComponent } from './pages/create-product/create-product.co
 import { InfoProductComponent } from './pages/info-product/info-product.component';
 import { SettingPasswordComponent } from 'src/app/pages/setting-password/setting-password.component';
 import { ShopCategoryComponent } from './pages/shop-category/shop-category.component';
-<<<<<<< HEAD
 import { AccountComponent } from './pages/account/account.component';
 import { MenuMarketingComponent } from './pages/menu-marketing/menu-marketing.component';
-=======
 import { InfoShopCategoryComponent } from './pages/info-shop-category/info-shop-category.component';
-import { MenuMarketingComponent } from 'src/app/pages/menu-marketing/menu-marketing.component';
->>>>>>> 2f0124d05873a6a13412b5c2f38c5058b64aafef
 
 export const routes: Routes = [
     {
@@ -80,14 +76,13 @@ export const routes: Routes = [
         component: ShopCategoryComponent
     },
     {
-<<<<<<< HEAD
         path: 'account',
         component: AccountComponent
-=======
+    },
+    {
         path: 'info-shop-category',
         component: InfoShopCategoryComponent
->>>>>>> 2f0124d05873a6a13412b5c2f38c5058b64aafef
-    } ,
+    },
     {
         path: 'menu-marketing',
         component: MenuMarketingComponent
