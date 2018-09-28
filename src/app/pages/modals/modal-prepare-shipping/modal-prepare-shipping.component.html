@@ -23,9 +23,17 @@
     <message class="text-center" [type]="dataService.messageType" [message]="dataService.message"></message>
     <div class="row padding-left">
       <!-- <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"></div> -->
-      <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
-          <button mat-flat-button color="primary" (click)="savePrepareShipping()" [disabled]="!shopData.prepareshipping">อัพเดท</button>
-          <button mat-stroked-button [mat-dialog-close]  class="magin-left">ยกเลิก</button>
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+          <div class="row">
+              <div class="col-xs-2 col-sm-12 col-md-2 col-lg-2 col-xl-2">
+                  <button style="width:100%" mat-button color="primary" (click)="savePrepareShipping()" [disabled]="!shopData.prepareshipping || shopData.prepareshipping < 0 ">อัพเดท</button>
+                </div>
+                <div class="col-xs-2 col-sm-12 col-md-2 col-lg-2 col-xl-2">
+                    <button style="width:100%"  mat-stroked-button [mat-dialog-close]>ยกเลิก</button>
+                  </div>
+            </div>
+          <!-- <button mat-flat-button color="primary" (click)="savePrepareShipping()" [disabled]="!shopData.prepareshipping">อัพเดท</button>
+          <button mat-stroked-button [mat-dialog-close]  class="magin-left">ยกเลิก</button> -->
     </div>
     </div>
   
