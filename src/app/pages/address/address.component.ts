@@ -1,9 +1,9 @@
+import { Constants } from './../../app.constants';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { RestApiService } from '../../providers/rest-api-service/rest-api.service';
-import { Constants } from '../../app.constants';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { MatDialog} from '@angular/material';
+import { MatDialog } from '@angular/material';
 import { InfoAddressComponent } from '../modals/info-address/info-address.component';
 import { DataService } from '../../providers/data-service/data.service';
 import { DialogData } from '../modals/modal-prepare-shipping/modal-prepare-shipping.component';
@@ -57,7 +57,7 @@ export class AddressComponent implements OnInit {
       console.log('The dialog was closed');
     });
   }
-  clickEdit(item){
+  clickEdit(item) {
     const dialogRef = this.dialog.open(InfoAddressComponent, {
       width: "700px",
       data: item
@@ -68,7 +68,19 @@ export class AddressComponent implements OnInit {
       console.log('The dialog was closed');
     });
   }
-  clickdelete(){
-      
+  async clickdelete(id) {
+    let conf = confirm("ยืนยันการลบที่อยู่");
+    window.event.stopPropagation();
+    if (conf) {
+    }
+    try {
+      let res: any = await this.restApi.delete(Constants.URL() + '/api/address/' + id)
+      this.getList();
+      console.log(res);
+    } catch (errer) {
+      this.dataService.error('บันทึกที่อยู่ล้มเหลว');
+    }
   }
+
 }
+

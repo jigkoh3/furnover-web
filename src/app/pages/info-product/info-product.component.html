@@ -106,12 +106,12 @@
           <div *ngIf="isOptions">
 
 
-            <div class="row mgt" *ngFor="let itm of mainOptions">
+            <div class="row mgt" *ngFor="let itm of mainOptions;let i = index;">
               <div class="col-2 col-sm-2 col-md-2 txt-left">
-                ตัวเลือกที่ {{itm + 1}}
+                ตัวเลือกที่ {{i + 1}}
               </div>
               <div class="col-10 col-sm-10 col-md-10 options-ctn">
-                <div class="del-btn" (click)="delMainOption(itm)">
+                <div class="del-btn" (click)="delMainOption(i)">
                   <mat-icon>close</mat-icon>
                 </div>
                 <div>
@@ -124,24 +124,16 @@
                     <input matInput placeholder="ใส่ข้อมูลตัวเลือก เช่นสีแดง สีขาว..." type="text" required>
                   </mat-form-field>
                 </div>
-                <div>
-                  <div class="sub-del-btn">
+                <div *ngFor="let sub of itm.sub;let j = index;">
+                  <div class="sub-del-btn" (click)="delSubOption(i,j)">
                     <mat-icon>close</mat-icon>
                   </div>
                   <mat-form-field>
                     <input matInput placeholder="ใส่ข้อมูลตัวเลือก เช่นสีแดง สีขาว..." type="text" required>
                   </mat-form-field>
                 </div>
-                <div>
-                  <div class="sub-del-btn">
-                    <mat-icon>close</mat-icon>
-                  </div>
-                  <mat-form-field>
-                    <input matInput placeholder="ใส่ข้อมูลตัวเลือก เช่นสีแดง สีขาว..." type="text" required>
-                  </mat-form-field>
-                </div>
-                <div class="btn-option">
-                  <mat-icon class="add-cus">add</mat-icon> เพิ่มตัวเลือก 4/20
+                <div class="btn-option" (click)="createSubOption(i)">
+                  <mat-icon class="add-cus">add</mat-icon> เพิ่มตัวเลือก {{itm.sub.length}}/20
                 </div>
               </div>
             </div>

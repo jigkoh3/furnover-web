@@ -37,6 +37,7 @@ import { InfoProductComponent } from './pages/info-product/info-product.componen
 import { SettingPasswordComponent } from './pages/setting-password/setting-password.component';
 import { ShopCategoryComponent } from './pages/shop-category/shop-category.component';
 import { InfoShopCategoryComponent } from './pages/info-shop-category/info-shop-category.component';
+import { MenuMarketingComponent } from './pages/menu-marketing/menu-marketing.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,8 @@ import { InfoShopCategoryComponent } from './pages/info-shop-category/info-shop-
     ModalDeleteBankAccountComponent,
     InfoProductComponent,
     SettingPasswordComponent,
-    InfoShopCategoryComponent
+    InfoShopCategoryComponent,
+    MenuMarketingComponent
   ],
   entryComponents: [
     ModalCreateBankAccountComponent,
