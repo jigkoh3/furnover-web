@@ -52,12 +52,12 @@
           </div>
           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
             <mat-select placeholder="เลือกธนาคาร" formControlName="nameBank" required>
-              <mat-option *ngFor="let item of bank" [value]="item.viewValue">
-                {{item.viewValue}}
+              <mat-option *ngFor="let item of Getbank" [value]="item.name">
+                {{item.name}}
               </mat-option>
             </mat-select>
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-              <p class="text-req">* กรุณาตรวจสอบข้อมูลที่กรอกให้ถูกต้อง หากต้องการแก้ไขกรุณาติดต่อฝ่ายบริการลูกค้า</p>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 ">
+              <p class="text-req paddding-top ">* กรุณาตรวจสอบข้อมูลที่กรอกให้ถูกต้อง หากต้องการแก้ไขกรุณาติดต่อฝ่ายบริการลูกค้า</p>
             </div>
           </div>
           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
