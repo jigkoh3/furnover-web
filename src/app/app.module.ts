@@ -36,6 +36,7 @@ import { ModalDeleteBankAccountComponent } from './pages/modals/modal-delete-ban
 import { InfoProductComponent } from './pages/info-product/info-product.component';
 import { SettingPasswordComponent } from './pages/setting-password/setting-password.component';
 import { ShopCategoryComponent } from './pages/shop-category/shop-category.component';
+import { AccountComponent } from './pages/account/account.component';
 import { InfoShopCategoryComponent } from './pages/info-shop-category/info-shop-category.component';
 import { MenuMarketingComponent } from './pages/menu-marketing/menu-marketing.component';
 
@@ -68,6 +69,7 @@ import { MenuMarketingComponent } from './pages/menu-marketing/menu-marketing.co
     ModalDeleteBankAccountComponent,
     InfoProductComponent,
     SettingPasswordComponent,
+    AccountComponent,
     InfoShopCategoryComponent,
     MenuMarketingComponent
   ],
