@@ -11,29 +11,29 @@
     <div class="col-	col-sm-	col-md-3	col-lg-	col-xl-"></div>
     <div class="col-	col-sm-	col-md-9	col-lg-	col-xl-">
       <mat-form-field class="example-full-width">
-        <input matInput [(ngModel)]="data.name" placeholder="ชื่อ-นามสกุล" value="">
+        <input matInput [(ngModel)]="data.name" placeholder="ชื่อ-นามสกุล" required>
       </mat-form-field>
     </div>
 
     <div class="col-	col-sm-	col-md-3	col-lg-	col-xl-"></div>
     <div class="col-	col-sm-	col-md-9	col-lg-	col-xl-">
       <mat-form-field class="example-full-width">
-        <input matInput type="number" [(ngModel)]="data.tel" placeholder="หมายเลขโทรศัพท์" value="">
+        <input matInput type="tel" [(ngModel)]="data.tel" placeholder="หมายเลขโทรศัพท์" required>
       </mat-form-field>
     </div>
 
     <div class="col-	col-sm-	col-md-3	col-lg-	col-xl-"></div>
     <div class="col-	col-sm-	col-md-9	col-lg-	col-xl-">
       <mat-form-field class="example-full-width">
-        <input matInput [(ngModel)]="data.address" placeholder="บ้านเลขที่ อาคาร หมู่บ้าน ถนน" value="">
+        <input matInput [(ngModel)]="data.address" placeholder="บ้านเลขที่ อาคาร หมู่บ้าน ถนน" required>
       </mat-form-field>
     </div>
 
     <div class="col-	col-sm-	col-md-3	col-lg-	col-xl-"></div>
     <div class="col-	col-sm-	col-md-9	col-lg-	col-xl-">
       <mat-form-field class="example-full-width">
-        <mat-select placeholder="จังหวัด" [(ngModel)]="data.country">
-          <mat-option>None</mat-option>
+        <mat-select placeholder="จังหวัด" [(ngModel)]="data.country" required>
+          <mat-option>กรุณาเลือก</mat-option>
           <mat-option value="กรุงเทพ">กรุงเทพ</mat-option>
           <mat-option value="ปทุมธานี">ปทุมธานี</mat-option>
         </mat-select>
@@ -43,8 +43,8 @@
     <div class="col-	col-sm-	col-md-3	col-lg-	col-xl-"></div>
     <div class="col-	col-sm-	col-md-9	col-lg-	col-xl-">
       <mat-form-field class="example-full-width">
-        <mat-select placeholder="เขต/อำเภอ" [(ngModel)]="data.district">
-          <mat-option>None</mat-option>
+        <mat-select placeholder="เขต/อำเภอ" [(ngModel)]="data.district" required>
+          <mat-option>กรุณาเลือก</mat-option>
           <mat-option value="ดอนเมือง">ดอนเมือง</mat-option>
           <mat-option value="ลำลูกกา">ลำลูกกา</mat-option>
         </mat-select>
@@ -54,13 +54,13 @@
     <div class="col-	col-sm-	col-md-3	col-lg-	col-xl-"></div>
     <div class="col-	col-sm-	col-md-9	col-lg-	col-xl-">
       <mat-form-field class="example-full-width">
-        <input matInput [(ngModel)]="data.subdistrict" placeholder="แขวง/ตำบล" value="">
+        <input matInput [(ngModel)]="data.subdistrict" placeholder="แขวง/ตำบล" required>
       </mat-form-field>
     </div>
     <div class="col-	col-sm-	col-md-3	col-lg-	col-xl-"></div>
     <div class="col-	col-sm-	col-md-9	col-lg-	col-xl-">
       <mat-form-field class="example-full-width">
-        <input matInput [(ngModel)]="data.postcode" placeholder="รหัสไปรษรีย์" value="">
+        <input matInput [(ngModel)]="data.postcode" placeholder="รหัสไปรษรีย์" required>
       </mat-form-field>
     </div>
 
