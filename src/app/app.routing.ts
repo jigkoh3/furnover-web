@@ -12,6 +12,7 @@ import { CreateProductComponent } from './pages/create-product/create-product.co
 import { InfoProductComponent } from './pages/info-product/info-product.component';
 import { SettingPasswordComponent } from 'src/app/pages/setting-password/setting-password.component';
 import { ShopCategoryComponent } from './pages/shop-category/shop-category.component';
+import { InfoShopCategoryComponent } from './pages/info-shop-category/info-shop-category.component';
 import { MenuMarketingComponent } from 'src/app/pages/menu-marketing/menu-marketing.component';
 
 export const routes: Routes = [
@@ -68,11 +69,14 @@ export const routes: Routes = [
     {
         path: 'setting-password',
         component: SettingPasswordComponent
-    }
-    ,
+    },
     {
         path: 'shop-category',
         component: ShopCategoryComponent
+    },
+    {
+        path: 'info-shop-category',
+        component: InfoShopCategoryComponent
     } ,
     {
         path: 'menu-marketing',
