@@ -29,10 +29,6 @@ export class ShopCategoryComponent implements OnInit {
         name : "เครื่องใช้ไฟฟ้า"
       },{
         name : "ของตกแต่ง"
-      },{
-        name : "เครื่องครัว"
-      },{
-        name : "ตู้เสื้อผ้า"
       }
     ]
     }
@@ -45,10 +41,6 @@ export class ShopCategoryComponent implements OnInit {
         name : "เก้าอี้"
       },{
         name : "ชั้นวางของ"
-      },{
-        name : "โต๊ะ"
-      },{
-        name : "เตียง"
       }
     ]
     }

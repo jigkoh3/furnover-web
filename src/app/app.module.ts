@@ -69,7 +69,6 @@ import { ShopCategoryComponent } from './pages/shop-category/shop-category.compo
   ],
   entryComponents: [
     ModalCreateBankAccountComponent,
-    AddressComponent,
     InfoAddressComponent,
     ModalPrepareShippingComponent,
     ModalInfoBankAccountComponent,
