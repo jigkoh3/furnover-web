@@ -13,19 +13,19 @@
         <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 pidding-left2">
           <p class="font-size1 ">กรุณาใส่ข้อมูล</p>
           <p class="font-size2 magin-botton">ชื่อ-นามสกุล</p>
-          <p class="font-size3 ">ณัฐพล</p>
+          <p class="font-size3 ">{{showDetail.name}}</p>
           <p class="font-size2 magin-botton">หมายเลขบัตรประชาชน</p>
-          <p class="font-size3 ">1711200007516</p>
+          <p class="font-size3 ">{{showDetail.citizenid}}</p>
 
         </div>
-        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 pidding-left2">
           <p class="font-size1">ข้อมูลบัญชีธนาคาร</p>
           <p class="font-size2 magin-botton">ชื่อนามสกุลตามที่ปรากฎในบัญชีธนาคาร</p>
-          <p class="font-size3 ">ณัฐพล</p>
+          <p class="font-size3 ">{{showDetail.accountname}}</p>
           <p class="font-size2 magin-botton">เลขที่บัญชี</p>
-          <p class="font-size3 ">****0767</p>
-          <p class="font-size2 magin-botton">ชื่อธนาคาร (ได้รับเงินเร็วกว่าหากใช้ SCB KBANK BBL KTB)</p>
-          <p class="font-size3 ">ไทยพาณิชย์ (SCB)</p>
+          <p class="font-size3 ">{{showDetail.accountnumber}}</p>
+          <p class="font-size2 magin-botton">ชื่อธนาคาร</p>
+          <p *ngIf="showDetail.bank && showDetail.bank.name" class="font-size3 ">{{showDetail.bank.name}}</p>
 
         </div>
 
