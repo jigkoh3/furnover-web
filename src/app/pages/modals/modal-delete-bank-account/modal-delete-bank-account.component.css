@@ -21,7 +21,7 @@
 }
 
 .scroll {
-    overflow: scroll;
+    overflow: hidden;
 }
 
 .text-aline {
