@@ -120,3 +120,40 @@ h3 {
     position: absolute;
     margin-left: -24px;
 }
+
+.txt-left {
+    text-align: left;
+}
+
+.mgt {
+    margin-top: 1rem;
+    padding: 1rem;
+}
+
+.options-ctn {
+    background-color: #f7f7f7;
+    border-radius: 6px;
+    padding: 3rem !important;
+}
+
+.del-btn {
+    position: absolute;
+    right: 4px;
+    cursor: pointer;
+    color: #ffffff;
+    background-color: #c0c0c0;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    padding-top: 4px;
+    z-index: 999;
+    margin-top: -44px;
+}
+
+.sub-del-btn {
+    position: absolute;
+    right: 10px;
+    margin-top: 10px;
+    color: #c0c0c0;
+    cursor: pointer;
+}
