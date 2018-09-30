@@ -11,16 +11,16 @@
           ที่อยู่
         </div>
         <div class="col-6 col-sm-6 col-md-6 txt-right">
-          <button mat-raised-button color="primary" (click)="addClick()">เพิ่มที่อยู่ใหม่</button>
+          <button mat-flat-button color="primary" (click)="addClick()">เพิ่มที่อยู่ใหม่</button>
         </div>
       </div>
       <!-- <mat-divider></mat-divider> -->
 
       <div class="row b-shadow" *ngFor="let item of data">
-        <div class="col-2 col-sm-2 col-md-2 txt-right">
+        <div class="col-1 col-sm-1 col-md-1 txt-right">
           <mat-icon>pin_drop</mat-icon>
         </div>
-        <div class="col-8 col-sm-8 col-md-8">
+        <div class="col-9 col-sm-9 col-md-9">
           <h4>{{item.name}}</h4>
           <p class="font-size1">{{item.tel}}</p>
           <p class="font-size1">{{item.address}}</p>
