@@ -55,6 +55,7 @@ export class AddressComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+      this.getList();
     });
   }
   clickEdit(item) {
@@ -66,19 +67,23 @@ export class AddressComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+      this.getList();
     });
   }
   async clickdelete(id) {
     let conf = confirm("ยืนยันการลบที่อยู่");
     window.event.stopPropagation();
     if (conf) {
-    }
-    try {
+       try {
       let res: any = await this.restApi.delete(Constants.URL() + '/api/address/' + id)
       this.getList();
       console.log(res);
     } catch (errer) {
+      this.getList();
       this.dataService.error('บันทึกที่อยู่ล้มเหลว');
+    }
+    }else{
+
     }
   }
 
