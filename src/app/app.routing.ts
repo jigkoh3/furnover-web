@@ -78,7 +78,14 @@ export const routes: Routes = [
     {
         path: 'account',
         component: AccountComponent
+<<<<<<< HEAD
 
+=======
+    },
+    {
+        path: 'info-shop-category',
+        component: InfoShopCategoryComponent
+>>>>>>> 035d52bb6b6d019ae0d6aee492c7907ca9f05fb3
     },
     {
         path: 'menu-marketing',
