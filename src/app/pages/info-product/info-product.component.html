@@ -72,11 +72,8 @@
                 <mat-option value="">
                   เลือกหมวดหมู่
                 </mat-option>
-                <mat-option value="1234">
-                  โต๊ะ
-                </mat-option>
-                <mat-option value="12345">
-                  เก้าอี้
+                <mat-option value="{{item._id}}" *ngFor="let item of resData.categories">
+                  {{item.name}}
                 </mat-option>
               </mat-select>
             </mat-form-field>
@@ -100,12 +97,12 @@
         <div class="col col-12 text-center">
           <div *ngIf="!isOptions">
             <mat-form-field>
-              <input matInput placeholder="ราคา" type="number" required>
+              <input matInput placeholder="ราคา" [(ngModel)]="price" type="number" required>
             </mat-form-field>
           </div>
           <div *ngIf="!isOptions">
             <mat-form-field>
-              <input matInput placeholder="คลัง" type="number" required>
+              <input matInput placeholder="คลัง" type="number" [(ngModel)]="stock" required>
             </mat-form-field>
           </div>
 
@@ -253,7 +250,7 @@
         <div class="col col-3 text-center">
           <div>
             <mat-form-field>
-              <input matInput placeholder="น้ำหนัก kg" type="number">
+              <input matInput placeholder="น้ำหนัก kg" [(ngModel)]="data.weight" type="number">
             </mat-form-field>
           </div>
         </div>
@@ -296,18 +293,35 @@
           </div>
           <div class="row">
             <div class="col-12 logis-box">
-              <div class="row" *ngFor="let item of [1]">
+              <div class="row" *ngFor="let item of shippings;let i = index">
                 <div class="col-6 logis-name">
-                  aCommerce
+                  {{item.name}}
                 </div>
-                <div class="col-4 logis-price">
-                  ฿0 <span class="logis-ic">
-                    <mat-icon class="add-cus">create</mat-icon>
-                  </span>
+                <div class="col-6 logis-price">
+                  <div *ngIf="item.isEdit" class="row">
+                    <div class="col-8">
+                      <mat-form-field>
+                        <input matInput placeholder="ระบุค่าจัดส่ง" type="number" [(ngModel)]="item.shippingfee">
+                      </mat-form-field>
+                    </div>
+
+                    <div class="col-2 ic-1">
+                      <mat-icon (click)="submitShipping(i)">check</mat-icon>
+                    </div>
+                    <div class="col-2 ic-1">
+                      <mat-icon (click)="cancelShiping(i)">clear</mat-icon>
+                    </div>
+
+                  </div>
+                  <div *ngIf="!item.isEdit">
+                    ฿{{item.shippingfee ? item.shippingfee : 0 }} <span class="logis-ic">
+                      <mat-icon class="add-cus" (click)="toggleEditShippingPrice(i)">create</mat-icon>
+                    </span>
+                  </div>
                 </div>
-                <div class="col-2">
-                  <mat-slide-toggle></mat-slide-toggle>
-                </div>
+                <!-- <div class="col-2">
+                  <mat-slide-toggle [(ngModel)]="item.isChecked"></mat-slide-toggle>
+                </div> -->
               </div>
             </div>
           </div>
@@ -318,23 +332,25 @@
         </div>
         <div class="col-9">
           <div class="logis-label-2">
-            ปิดการใช้งาน
+            การจัดส่งของฉัน
           </div>
           <div class="row">
             <div class="col-12 logis-box">
-              <div class="row" *ngFor="let item of [1,2,3,4,5]">
-                <div class="col-6 logis-name">
-                  aCommerce
+              <form>
+                <div class="row" *ngFor="let item of resData.logistics;let i = index">
+                  <div class="col-6 logis-name">
+                    {{item.name}}
+                  </div>
+                  <div class="col-4 logis-price">
+                    <!-- ระบุค่าจัดส่ง -->
+                  </div>
+                  <div class="col-2">
+
+                    <mat-slide-toggle name="{{item._id}}" (change)="shippingChange($event,item)"></mat-slide-toggle>
+
+                  </div>
                 </div>
-                <div class="col-4 logis-price">
-                  ฿0 <span class="logis-ic">
-                    <mat-icon class="add-cus">create</mat-icon>
-                  </span>
-                </div>
-                <div class="col-2">
-                  <mat-slide-toggle></mat-slide-toggle>
-                </div>
-              </div>
+              </form>
             </div>
           </div>
         </div>
@@ -359,10 +375,17 @@
           เตรียมส่งนานกว่าปกติ
         </div>
         <div class="col col-2">
-          <mat-slide-toggle></mat-slide-toggle>
+          <mat-slide-toggle [(ngModel)]="prepare"></mat-slide-toggle>
         </div>
-        <div class="col col-6 text-remark">
+        <div class="col col-6 text-remark" *ngIf="!prepare">
           ฉันจะจัดส่งสินค้าภายใน 2 วัน (ไม่รวมวันหยุดนักขัตฤกษ์และวันหยุดทำการของบริษัทขนส่ง)
+        </div>
+        <div class="col col-6 text-remark" *ngIf="prepare">
+          <div>
+            <mat-form-field>
+              <input matInput placeholder="เวลาจัดเตรียมพัสดุ (วัน)" type="number" [(ngModel)]="data.prepareshipping">
+            </mat-form-field>
+          </div>
         </div>
       </div>
 

@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { MatIconRegistry } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
+import { Router } from '@angular/router';
+import { RestApiService } from '../../providers/rest-api-service/rest-api.service';
+import { Constants } from '../../app.constants';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { DataService } from '../../providers/data-service/data.service';
 
 @Component({
   selector: 'app-shop-category',
@@ -9,43 +14,92 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class ShopCategoryComponent implements OnInit {
 
- modelDataOpen : any = {};
- modelDataClose : any = {};
+  modelData: any;
 
-  constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
+  constructor(
+    iconRegistry: MatIconRegistry,
+    sanitizer: DomSanitizer,
+    private router: Router,
+    private restApi: RestApiService,
+    private spinner: NgxSpinnerService,
+    private dataService: DataService
+  ) {
     iconRegistry.addSvgIcon(
       'del',
       sanitizer.bypassSecurityTrustResourceUrl('assets/imgs/icons/del.svg'));
+    iconRegistry.addSvgIcon(
+      'drag',
+      sanitizer.bypassSecurityTrustResourceUrl('assets/imgs/icons/drag.svg'));
   }
 
   ngOnInit() {
-    this.getCatClose();
-    this.getcatOpen();
+    this.getCat();
   }
 
-  getcatOpen() {
-    let response : any = {
-      data : [{
-        name : "เครื่องใช้ไฟฟ้า"
-      },{
-        name : "ของตกแต่ง"
-      }
-    ]
+  async getCat() {
+    this.spinner.show();
+    try {
+      const userShop: any = JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop'));
+      let res: any = await this.restApi.post(Constants.URL() + '/api/my-category', { shop_id: userShop.shop._id });
+      this.modelData = res.data;
+      // console.log(this.modelData)
+      this.spinner.hide();
+    } catch (error) {
+      this.spinner.hide();
+      this.dataService.error('เรียกข้อมูลไม่สำเร็จ');
     }
-    this.modelDataOpen = response.data ;
+
   }
 
-  getCatClose(){
-    let response : any = {
-      data : [{
-        name : "เก้าอี้"
-      },{
-        name : "ชั้นวางของ"
+  getCattest() {
+    let response: any = {
+      data: [{
+        name: "เก้าอี้",
+        status: true,
+        priority: "1"
+      }, {
+        name: "ชั้นวางของ",
+        status: false,
+        priority: "2"
+      }, {
+        name: "โต๊ะ",
+        status: true,
+        priority: "3"
       }
-    ]
+      ]
     }
-    this.modelDataClose = response.data ;
+    this.modelData = response.data;
   }
+
+  infoCategory() {
+    this.router.navigate(['/info-shop-category']);
+  }
+
+  editCategory(item) {
+    this.router.navigate(['/info-shop-category'], { queryParams: { data: JSON.stringify(item) } });
+  }
+
+  onChangeStatus(item) {
+    this.updateCate(item);
+  }
+
+  async updateCate(item: any) {
+    this.spinner.show();
+    try {
+      await this.restApi.put(Constants.URL() + '/api/categoryShop/' + item._id, item);
+      this.spinner.hide();
+    } catch (error) {
+      this.spinner.hide();
+      this.dataService.error('เรียกข้อมูลไม่สำเร็จ');
+    }
+  }
+
+
+
+
+
+
+
 }
 
 
