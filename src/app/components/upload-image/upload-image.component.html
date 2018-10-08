@@ -1,0 +1,14 @@
+<div class="card-body">
+  <h5 class="card-title">เพิ่มรูปภาพ</h5>
+  <input type="file" (change)="detectFiles($event)" accept=".png,.jpg,.gif,.svg" /> {{uploadProgress ? 'Upload is ' + (uploadProgress) + '% done' : ''}}
+  <!-- <br> -->
+  <!-- <div class="progress">
+    <div class="progress-bar progress-bar-striped bg-success" role="progressbar" [style.width]="(uploadProgress) + '%'" [attr.aria-valuenow]="(uploadProgress)"
+      aria-valuemin="0" aria-valuemax="100">{{uploadProgress ? 'Upload is ' + (uploadProgress) + '% done' : ''}}</div>
+  </div> -->
+  <!-- <div class="btn-group" role="group" *ngIf="uploadTask && uploadTask.snapshot.state">
+    <button type="button" class="btn btn-primary" (click)="uploadTask.pause()" [disabled]="uploadTask.snapshot.state === 'paused'">Pause</button>
+    <button type="button" class="btn btn-primary" (click)="uploadTask.cancel()" [disabled]="!(uploadTask.snapshot.state === 'paused' || uploadTask.snapshot.state === 'running')">Cancel</button>
+    <button type="button" class="btn btn-primary" (click)="uploadTask.resume()" [disabled]="uploadTask.snapshot.state === 'running'">Resume</button>
+  </div> -->
+</div>

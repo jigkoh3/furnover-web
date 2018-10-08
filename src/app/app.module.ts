@@ -20,6 +20,8 @@ import { RegisterComponent } from './pages/register/register.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { LoginComponent } from './pages/login/login.component';
 import { MessageComponent } from './components/message/message';
+import { UploadImageComponent } from './components/upload-image/upload-image.component';
+import { UploadImageMultiComponent } from './components/upload-image/upload-image-multi.component';
 import { SideMenuSettingShopComponent } from './components/side-menu-setting-shop/side-menu-setting-shop.component';
 import { MyProductComponent } from './pages/my-product/my-product.component';
 import { ModalCreateBankAccountComponent } from './pages/modals/modal-create-bank-account/modal-create-bank-account.component';
@@ -43,6 +45,8 @@ import { MenuMarketingComponent } from './pages/menu-marketing/menu-marketing.co
   declarations: [
     AppComponent,
     MessageComponent,
+    UploadImageComponent,
+    UploadImageMultiComponent,
     SidenavComponent,
     ToolbarComponent,
     HomeComponent,

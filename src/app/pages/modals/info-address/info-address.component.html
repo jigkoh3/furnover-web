@@ -1,68 +1,74 @@
-<!-- <mat-card class="example-card"> -->
-<mat-dialog-content>
-  <div class="row">
-    <div class="col-	col-sm-	col-md-11	col-lg-	col-xl-">
-      <p>เพิ่มที่อยู่ใหม่</p>
-    </div>
-    <div class="col-	col-sm-	col-md-1	col-lg-	col-xl-"></div>
+<div class="row">
+  <div class="col-md-12">
+    <p>เพิ่มที่อยู่ใหม่</p>
   </div>
-  <br>
-  <div class="row">
-    <div class="col-	col-sm-	col-md-12	col-lg-	col-xl-">
-      <mat-form-field class="example-full-width">
-        <input matInput [(ngModel)]="data.name" placeholder="ชื่อ-นามสกุล" required>
-      </mat-form-field>
-    </div>
+  <div class="col-md-12"></div>
+</div>
 
-    <div class="col-	col-sm-	col-md-12	col-lg-	col-xl-">
-      <mat-form-field class="example-full-width">
-        <input matInput type="number" [(ngModel)]="data.tel" placeholder="หมายเลขโทรศัพท์" required>
-      </mat-form-field>
-    </div>
+<mat-dialog-content class="padding">
+  <form>
+    <div class="row">
+      <div class="col-md-12">
+        <mat-form-field class="example-full-width">
+          <input matInput [(ngModel)]="data.name" placeholder="ชื่อ-นามสกุล" required>
+        </mat-form-field>
+      </div>
 
-    <div class="col-	col-sm-	col-md-12	col-lg-	col-xl-">
-      <mat-form-field class="example-full-width">
-        <input matInput [(ngModel)]="data.address" placeholder="บ้านเลขที่ อาคาร หมู่บ้าน ถนน" required>
-      </mat-form-field>
-    </div>
+      <div class="col-md-12">
+        <mat-form-field class="example-full-width">
+          <input matInput type="tel" [(ngModel)]="data.tel" placeholder="หมายเลขโทรศัพท์" (ngModelChange)="validateNumber()"
+            required>
+        </mat-form-field>
+      </div>
 
-    <div class="col-	col-sm-	col-md-12	col-lg-	col-xl-">
+      <div class="col-md-12">
+        <mat-form-field class="example-full-width">
+          <input matInput [(ngModel)]="data.address" placeholder="บ้านเลขที่ อาคาร หมู่บ้าน ถนน" required>
+        </mat-form-field>
+      </div>
+
+      <div class="col-md-12">
         <mat-form-field class="example-full-width">
           <input matInput [(ngModel)]="data.subdistrict" placeholder="แขวง/ตำบล" required>
         </mat-form-field>
       </div>
 
-      <div class="col-	col-sm-	col-md-12	col-lg-	col-xl-">
-          <mat-form-field class="example-full-width">
-            <input matInput [(ngModel)]="data.district" placeholder="เขต/อำเภอ" required>
-          </mat-form-field>
-        </div>
-   
-    <div class="col-	col-sm-	col-md-12	col-lg-	col-xl-">
+      <div class="col-md-12">
+        <mat-form-field class="example-full-width">
+          <input matInput [(ngModel)]="data.district" placeholder="เขต/อำเภอ" required>
+        </mat-form-field>
+      </div>
+
+      <div class="col-md-12">
         <mat-form-field class="example-full-width">
           <input matInput [(ngModel)]="data.province" placeholder="จังหวัด" required>
         </mat-form-field>
       </div>
 
-    <div class="col-	col-sm-	col-md-12	col-lg-	col-xl-">
-      <mat-form-field class="example-full-width">
-        <input matInput [(ngModel)]="data.postcode" placeholder="รหัสไปรษรีย์" required>
-      </mat-form-field>
+      <div class="col-md-12">
+        <mat-form-field class="example-full-width">
+          <input matInput [(ngModel)]="data.postcode" placeholder="รหัสไปรษรีณ์" required>
+        </mat-form-field>
+      </div>
+
     </div>
 
-  </div>
-
-  <div class="row">
-    <div class="col-	col-sm-	col-md-2	col-lg-	col-xl- txt-left">
-      <div>
-        <button mat-flat-button color="primary" (click)="clickSave()" [disabled]="!(data.name && data.tel && data.name && data.address && data.province && data.district && data.subdistrict && data.postcode)">บันทึก</button>
+    <div class="row">
+      <div class="col-md-2 txt-left">
+        <div>
+          <button mat-flat-button color="primary" (click)="clickSave()" [disabled]="!(data.name && data.tel && data.name && data.address && data.province && data.district && data.subdistrict && data.postcode)">บันทึก</button>
+        </div>
+      </div>
+      <div class="col-	col-sm-	col-md-8	col-lg-	col-xl- txt-left">
+        <div>
+          <button mat-stroked-button [mat-dialog-close]>ยกเลิก</button>
+        </div>
+      </div>
+      <div class="col-	col-sm-	col-md-2	col-lg-	col-xl- txt-left">
+        <div>
+          <button mat-stroked-button (click)="clickdelete(data._id)">ลบที่อยู่</button>
+        </div>
       </div>
     </div>
-    <div class="col-	col-sm-	col-md-10	col-lg-	col-xl- txt-left">
-      <div>
-        <button mat-stroked-button [mat-dialog-close]>ยกเลิก</button>
-      </div>
-    </div>
-  </div>
-  <!-- </mat-card> -->
+  </form>
 </mat-dialog-content>

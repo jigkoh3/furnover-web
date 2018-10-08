@@ -174,8 +174,20 @@
                     <li class="image-manager__dropzone"> -->
                     <!-- <div class="image-manager__item "> -->
                     <div class="row">
+                      <div class="col-6 no-padding" *ngFor="let item of shop.images">
+
+                        <div style="
+                        margin: 2px;
+                          text-align: center;
+                          background-color: #fafafa;
+                          border: 1px solid #e8e8e8;">
+                          <img style="height: 100px;max-width: 99%;" class="img-responsive" [src]="item.url">
+                        </div>
+                      </div>
+
+
                       <div class="col-6 no-padding image-manager__item">
-                        <div class="uploader-btn">
+                        <div class="uploader-btn" style="margin: 2px; border: 1px solid #e8e8e8;">
                           <div class="shop-desc-img-uploader dropzone">
                             <label for="file-uploader-input">
                               <!-- <div class="validation-toast "></div> -->
@@ -185,7 +197,8 @@
                                 </svg>
                                 <div>อัพโหลดรูปภาพ</div>
                               </div>
-                              <input id="file-uploader-input" type="file" multiple>
+                              <input id="file-uploader-input" type="file" (change)="detectFiles($event)" multiple
+                                accept=".png,.jpg" />
                               <!-- <div style="display:none" class="cropper-masker cropper-masker-block">
                                       <div class="cropper-loading"><img src="/images/spinner-balls-g.gif" alt=""></div>
                                       <div class="cropper-saving">กำลังบันทึก</div>
@@ -203,9 +216,7 @@
                         </div> -->
                         </div>
                       </div>
-                      <div class="col-6 no-padding">
 
-                      </div>
                     </div>
 
                     <!-- </div> -->
