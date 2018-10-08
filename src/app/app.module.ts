@@ -20,6 +20,8 @@ import { RegisterComponent } from './pages/register/register.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { LoginComponent } from './pages/login/login.component';
 import { MessageComponent } from './components/message/message';
+import { UploadImageComponent } from './components/upload-image/upload-image.component';
+import { UploadImageMultiComponent } from './components/upload-image/upload-image-multi.component';
 import { SideMenuSettingShopComponent } from './components/side-menu-setting-shop/side-menu-setting-shop.component';
 import { MyProductComponent } from './pages/my-product/my-product.component';
 import { ModalCreateBankAccountComponent } from './pages/modals/modal-create-bank-account/modal-create-bank-account.component';
@@ -31,7 +33,6 @@ import { ModalCompleteComponent } from './pages/modals/modal-complete/modal-comp
 import { CreateProductComponent } from './pages/create-product/create-product.component';
 import { ModalInfoBankAccountComponent } from './pages/modals/modal-info-bank-account/modal-info-bank-account.component';
 import { SettingHeaderComponent } from './components/setting-header/setting-header.component';
-import { ModalUploadYoutubeComponent } from './pages/modals/modal-upload-youtube/modal-upload-youtube.component';
 import { ModalDeleteBankAccountComponent } from './pages/modals/modal-delete-bank-account/modal-delete-bank-account.component';
 import { InfoProductComponent } from './pages/info-product/info-product.component';
 import { SettingPasswordComponent } from './pages/setting-password/setting-password.component';
@@ -44,6 +45,8 @@ import { MenuMarketingComponent } from './pages/menu-marketing/menu-marketing.co
   declarations: [
     AppComponent,
     MessageComponent,
+    UploadImageComponent,
+    UploadImageMultiComponent,
     SidenavComponent,
     ToolbarComponent,
     HomeComponent,
@@ -63,7 +66,6 @@ import { MenuMarketingComponent } from './pages/menu-marketing/menu-marketing.co
     CreateProductComponent,
     ModalInfoBankAccountComponent,
     SettingHeaderComponent,
-    ModalUploadYoutubeComponent,
     InfoProductComponent,
     ShopCategoryComponent,
     ModalDeleteBankAccountComponent,
@@ -78,7 +80,6 @@ import { MenuMarketingComponent } from './pages/menu-marketing/menu-marketing.co
     InfoAddressComponent,
     ModalPrepareShippingComponent,
     ModalInfoBankAccountComponent,
-    ModalUploadYoutubeComponent,
     ModalCompleteComponent,
     ModalDeleteBankAccountComponent
   ],
