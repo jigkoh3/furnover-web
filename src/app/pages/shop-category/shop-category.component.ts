@@ -94,6 +94,10 @@ export class ShopCategoryComponent implements OnInit {
     }
   }
 
+  deleteCate(){
+    
+  }
+
 
 
 
