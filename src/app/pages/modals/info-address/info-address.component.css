@@ -21,3 +21,8 @@
 .padding {
     padding: 50px !important;
 }
+
+.mat-btn {
+    background: #fff;
+    color: rgba(171, 166, 166, 0.87);
+}

@@ -120,6 +120,12 @@ h3 {
 .add-cus {
     position: absolute;
     margin-left: -24px;
+    cursor: pointer;
+}
+
+.ic-1 {
+    z-index: 999;
+    cursor: pointer;
 }
 
 .txt-left {
@@ -212,4 +218,26 @@ table {
 
 .center {
     text-align: center;
+}
+
+.box-select {
+    border: 1px solid #dddddd;
+    text-align: left;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.8rem;
+    border-radius: 4px;
+}
+
+.ar-down {
+    position: absolute;
+    right: 0;
+    color: #c2c1c1;
+}
+
+.expan {
+    height: 300px;
+    position: absolute;
+    z-index: 999;
+    background-color: #ffffff;
 }

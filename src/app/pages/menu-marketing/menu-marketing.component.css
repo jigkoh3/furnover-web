@@ -1,1 +1,32 @@
+.title {
+    margin-top: 60px !important;
+    font-size: 40px;
+}
 
+.subtitle {
+    font-size: 15px;
+    line-height: 32px;
+    font-weight: 300;
+    color: rgb(184, 184, 184);
+    margin: 0% !important;
+}
+
+.card-height {
+    border-radius: 3px;
+    height: 200px;
+}
+
+.circle {
+    height: 90px;
+    width: 90px;
+    background-color: rgb(133, 135, 233);
+    border-radius: 50%;
+    display: inline-block;
+}.magin{
+    margin-top: 30px !important;
+}.smallFont{
+    font-size: 15px;
+    color: rgb(194, 194, 194);
+}.bigFont{
+    font-size: 22px;
+}
