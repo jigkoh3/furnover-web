@@ -1,19 +1,93 @@
-<mat-card>
-  <div class="row">
-    <div class="col-12 col-md-6 padding-left">
-      <p>
-        <!-- <b>{{item.name}}</b> &nbsp; -->
-        <b class="setting-font-header">ปากกา</b> &nbsp;
-        <button mat-stroked-button class="setting-bnt-rename"><span class="setting-bnt-text-rename">เปลี่ยนชื่อ</span></button>
-      </p>
-      <p class="setting-text-set-cat">กำหนดหมวดหมู่สินค้าเอง</p> 
-      <p class="setting-text-set-amount">รายการสินค้า 0 รายการ</p> 
-    </div>
-    <div class="col-12 col-md-4">
-      <p>เปิดการใช้งานเพื่อให้ผู้ใช้มองเห็นหมวดหมู่นี้</p>
-    </div>
-    <div class="col-2">
-      <p>asd</p>
+<div class="row no-padding">
+  <div class="col-sm-12 col-md-1 col-lg-1 col-xl-1 no-padding">
+
+  </div>
+  <div class="col-sm-12 col-md-10 col-lg-10 col-xl-10">
+    <div class="row">
+      <div class="col-12">
+        <mat-card>
+          <div class="row">
+            <div class="col-12 col-md-7 padding-left">
+              <p>
+                <!-- <b>{{item.name}}</b> &nbsp; -->
+                <b class="setting-font-header">ตั้งชื่อหมวดหมู่เอง</b> &nbsp;
+                <button mat-stroked-button class="setting-bnt-rename"><span class="setting-bnt-text-rename">เปลี่ยนชื่อ</span></button>
+              </p>
+              <p class="setting-text-set-cat">กำหนดหมวดหมู่สินค้าเอง <span class="padding-left"> รายการสินค้า 0 รายการ</span></p>
+
+            </div>
+            <div class="col-12 col-md-4 text-center font-cate">
+              เปิดการใช้งานเพื่อให้ผู้ใช้มองเห็นหมวดหมู่นี้
+            </div>
+            <div class="col-2 col-md-1">
+              <mat-slide-toggle class="setting-toggle"></mat-slide-toggle>
+            </div>
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center">
+              <div class="padding-bottom padding-top">
+                <img class="img" src="https://cdn.pixabay.com/photo/2013/07/13/12/34/handbag-159884_960_720.png">
+              </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center">
+              <div class="padding-bottom padding-top">
+                <button mat-stroked-button color="primary">เพิ่มสินค้า</button>
+              </div>
+            </div>
+          </div>
+        </mat-card>
+      </div>
+
+      <div class="col-12">
+        <mat-card>
+          <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg12">
+              <input type="text" class="border-seach" placeholder="Search" [(ngModel)]="query" id="listSearch">
+            </div>
+            <div class="col-12 col-md-12 col-lg12">
+              <div class="row">
+                <div class="col-sm-12 col-md-9 col-lg-9">
+                </div>
+                <div class="col-sm-12 col-md-1 col-lg-1 no-padding text-center ">
+                  <button style="width: 100%" mat-stroked-button color="primary">ล่าสุด</button>
+                </div>
+                <div class="col-sm-12 col-md-1 col-lg-1 no-padding text-center">
+                  <button style="width: 100%" mat-stroked-button color="primary">สินค้าขายดี</button>
+                </div>
+                <div class="col-sm-12 col-md-1 col-lg-1 no-padding text-center padding-right">
+                  <button style="width: 100%" mat-stroked-button color="primary">ราคา</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col-12 col-md-12 col-lg-12">
+            <div class="row">
+              <div class="col-12 col-md-6 col-lg-6">
+                <div class="col-12">
+                  <div class="row">
+                    <div class="col-12 col-md-2 col-lg-2">
+                      <img class="img-product" src=" http://c.lnwfile.com/f0etda.jpg">
+                    </div>
+                    <div class="col-12 col-md-2 col-lg-2">
+                      เสื้อยืด
+                       เสื้อยืด
+                    </div>
+        
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </mat-card>
+      </div>
     </div>
   </div>
-</mat-card>
+
+
+
+  <div class="
+                    col-sm-12 col-md-1 col-lg-1 col-xl-1 no-padding">
+
+  </div>
+
+</div>
