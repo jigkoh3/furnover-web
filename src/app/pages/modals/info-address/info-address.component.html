@@ -6,7 +6,7 @@
 </div>
 
 <mat-dialog-content class="padding">
-  <form>
+  <!-- <form> -->
     <div class="row">
       <div class="col-md-12">
         <mat-form-field class="example-full-width">
@@ -59,16 +59,16 @@
           <button mat-flat-button color="primary" (click)="clickSave()" [disabled]="!(data.name && data.tel && data.name && data.address && data.province && data.district && data.subdistrict && data.postcode)">บันทึก</button>
         </div>
       </div>
-      <div class="col-	col-sm-	col-md-8	col-lg-	col-xl- txt-left">
+      <div class="col-md-8 txt-left">
         <div>
           <button mat-stroked-button [mat-dialog-close]>ยกเลิก</button>
         </div>
       </div>
-      <div class="col-	col-sm-	col-md-2	col-lg-	col-xl- txt-left">
+      <div class="col-md-2 txt-left">
         <div>
           <button mat-stroked-button (click)="clickdelete(data._id)">ลบที่อยู่</button>
         </div>
       </div>
     </div>
-  </form>
+  <!-- </form> -->
 </mat-dialog-content>

@@ -54,8 +54,9 @@ export class AddressComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      this.getList();
+       if (result) {
+        this.getList();
+      }
     });
   }
   clickEdit(item) :void{
