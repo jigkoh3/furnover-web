@@ -66,6 +66,20 @@ export class InfoProductComponent implements OnInit {
     }
   }
 
+  toggleEditShippingPrice(num) {
+    this.shippings[num].isEdit = true;
+    this.shippings[num].oldPrice = this.shippings[num].shippingfee;
+  }
+
+  submitShipping(num) {
+    this.shippings[num].isEdit = false;
+  }
+
+  cancelShiping(num) {
+    this.shippings[num].isEdit = false;
+    this.shippings[num].shippingfee = this.shippings[num].oldPrice;
+  }
+
   shippingChange(e, item) {
     if (e.checked) {
       const logistics = this.shippings.filter(el => {
