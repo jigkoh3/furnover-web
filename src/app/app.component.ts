@@ -1,5 +1,6 @@
 import { Component, ViewChild, ElementRef, ChangeDetectorRef, HostListener } from '@angular/core';
 import { SidenavService } from './components/sidenav/sidenav.service';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-root',
@@ -19,6 +20,7 @@ export class AppComponent {
     public sidenavService: SidenavService,
     private changeDetectorRef: ChangeDetectorRef
   ) {
+    this.configFirebase();
   }
 
   ngAfterViewInit() {
@@ -35,6 +37,18 @@ export class AppComponent {
       this.mode = 'over';
       this.opened = false;
     }
+  }
+
+  configFirebase() {
+    let config = {
+      apiKey: "AIzaSyCanMutez3Coe6Yg4oEhEgzMK3iHEXauz0",
+      authDomain: "school-hub-37d55.firebaseapp.com",
+      databaseURL: "https://school-hub-37d55.firebaseio.com",
+      projectId: "school-hub-37d55",
+      storageBucket: "school-hub-37d55.appspot.com",
+      messagingSenderId: "116012923728"
+    };
+    firebase.initializeApp(config);
   }
 
 }

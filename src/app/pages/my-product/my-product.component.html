@@ -14,7 +14,10 @@
         </mat-form-field>
       </div>
       <div class="col-12 col-md-8 col-sm-8 txt-right">
-        <span class="select">ล่าสุด</span> &nbsp;<span class="un-select">สินค้าขายดี</span> &nbsp;<span class="un-select">ราคา</span>
+        <ng-container *ngFor="let item of sortModel;let i = index" >
+          <span ngClass="{{this.sortIndex === item.sortId ? 'select' : 'un-select'}}" (click)="selectSortIndex(item,i)">{{item.sortName}}</span>&nbsp;
+        </ng-container>
+        <!-- <span class="select">ล่าสุด</span> &nbsp;<span class="un-select">สินค้าขายดี</span> &nbsp;<span class="un-select">ราคา</span> -->
       </div>
     </div>
 
