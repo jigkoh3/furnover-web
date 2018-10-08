@@ -39,7 +39,7 @@ export class InfoAddressComponent implements OnInit {
       try {
         let response: any = await this.restApi.put(Constants.URL() + '/api/address/' + this.data._id, this.data);
         this.spinner.hide();
-        this.dialog.closeAll();
+        this.dialogRef.close(true);
         this.dialog.open(ModalCompleteComponent, {
           width: '700px',
           data: { message: 'บันทึกสินค้าสำเร็จ' }
@@ -55,7 +55,7 @@ export class InfoAddressComponent implements OnInit {
       try {
         let response: any = await this.restApi.post(Constants.URL() + '/api/address', this.data);
         this.spinner.hide();
-        this.dialog.closeAll();
+        this.dialogRef.close(true);
         this.dialog.open(ModalCompleteComponent, {
           width: '700px',
           data: { message: 'แก้ไขที่อยู่สำเร็จ' }
@@ -68,6 +68,31 @@ export class InfoAddressComponent implements OnInit {
       }
     }
 
+  }
+
+  async clickdelete(id) {
+    let conf = confirm("ยืนยันการลบที่อยู่");
+    if (conf) {
+      try {
+        await this.restApi.delete(Constants.URL() + '/api/address/' + id)
+        this.dialogRef.close(true);
+        this.dialog.open(ModalCompleteComponent, {
+          width: '700px',
+          data: { message: 'ลบข้อมูลที่อยู่ของคุณสำเร็จ' }
+        });
+      } catch (errer) {
+        this.dataService.error('บันทึกที่อยู่ล้มเหลว');
+      }
+    }
+  }
+
+  validateNumber() {
+    let last = this.data.tel[this.data.tel.length - 1];
+    if (isNaN(last)) {
+      setTimeout(() => {
+        this.data.tel = this.data.tel.slice(0, this.data.tel[this.data.tel.length - 1]);
+      }, 0);
+    }
   }
 
 }

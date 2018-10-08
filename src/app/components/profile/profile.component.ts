@@ -1,25 +1,136 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
-import { ModalUploadYoutubeComponent } from '../../pages/modals/modal-upload-youtube/modal-upload-youtube.component';
+import { Constants } from '../../app.constants';
+import { RestApiService } from '../../providers/rest-api-service/rest-api.service';
+import { DataService } from '../../providers/data-service/data.service';
 
+//Image
+import * as firebase from 'firebase';
+import { ClassUpload } from '../upload-image/class-upload';
+import * as _ from "lodash";
+//Image
 @Component({
   selector: 'profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileSettingComponent implements OnInit {
+  //Image
+  uploadTask: any;
+  uploadProgress: number;
+  selectedFiles: FileList;
+  currentUpload: ClassUpload;
+  imageArray: any = [];
+  private basePath: string = '/uploads';
+  //Image
 
-  constructor(public dialog: MatDialog) { }
+  shop: any = {
+    images: [
+      // { url: '', }
+    ],
+    logistics: []
+  };
+  shopUser: any = {
+    roles: [],
+    shop: {
+      images: [],
+      logistics: []
+    }
+  };
+  constructor(
+    public dialog: MatDialog,
+    public restApi: RestApiService,
+    public dataService: DataService
+  ) { }
 
   ngOnInit() {
+    this.getProfile();
   }
 
-  openDialog(): void {
-    const dialogRef = this.dialog.open(ModalUploadYoutubeComponent, {
-      width: '700px'
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-    });
+  async getProfile() {
+    this.shopUser = window.localStorage.getItem(Constants.URL() + '@usershop') ? JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop')) : null;
+    try {
+      let data: any = await this.restApi.get(Constants.URL() + '/api/shop/' + this.shopUser.shop_id);
+      this.shop = data.data;
+      console.log(this.shop);
+    } catch (error) {
+      this.dataService.error("โหลดข้อมูลล้มเหลว กรุณาลองใหม่อีกครั้ง")
+    }
   }
+
+  async submit() {
+    this.shopUser = window.localStorage.getItem(Constants.URL() + '@usershop') ? JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop')) : null;
+    try {
+      let data: any = await this.restApi.put(Constants.URL() + '/api/shop/' + this.shopUser.shop_id, this.shop);
+      console.log(data);
+      // this.shop = data.data;
+      // console.log(this.shop);
+      if (data['status'] === 200) {
+        this.dataService.success('บันทึกข้อมูลสำเร็จ');
+        setTimeout(() => {
+          this.dataService.success('');
+        }, 2000);
+      }
+    } catch (error) {
+      this.dataService.error("บันทึกข้อมูลล้มเหลว กรุณาลองใหม่อีกครั้ง")
+    }
+  }
+
+  //Image
+  detectFiles(event) {
+    this.selectedFiles = event.target.files;
+    let files = this.selectedFiles
+    let filesIndex = _.range(files.length)
+    _.each(filesIndex, (idx) => {
+      this.currentUpload = new ClassUpload(files[idx]);
+      this.pushUpload(this.currentUpload);
+      // this.upSvc.pushUpload(this.currentUpload)
+    })
+  }
+
+  pushUpload(upload: ClassUpload) {
+    this.imageArray = [];
+    let storageRef = firebase.storage().ref();
+    const fileRandom = Math.floor((Date.now() / 1000) + new Date().getUTCMilliseconds());
+    let uploadTask: any = storageRef.child(`images/${this.basePath}/${fileRandom + upload.file.name}`).put(upload.file);
+
+    uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED,
+      (snapshot) => {
+        // upload in progress
+        upload.progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        this.uploadProgress = upload.progress;
+        // console.log('Upload is ' + this.uploadProgress + '% done');
+        switch (snapshot.state) {
+          case firebase.storage.TaskState.PAUSED: // or 'paused'
+            // console.log('Upload is paused');
+            break;
+          case firebase.storage.TaskState.RUNNING: // or 'running'
+            // console.log('Upload is running');
+            break;
+        }
+      },
+      (error) => {
+        // upload failed
+        console.log(error);
+      }, (success) => {
+        // upload success
+        // upload.url = uploadTask.snapshot.downloadURL
+        // upload.name = upload.file.name
+        // this.saveFileData(upload)
+        uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
+          this.imageArray.push({ url: downloadURL });
+          if (this.imageArray) {
+            if (this.imageArray.length === this.selectedFiles.length) {
+              this.shop.images = this.imageArray;
+              console.log(this.shop.images);
+              // this.image.emit(this.imageArray);
+            }
+          }
+        })
+      }
+    );
+  }
+  //Image
+
+
 }
