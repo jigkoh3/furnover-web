@@ -32,7 +32,7 @@ h3 {
     background: center no-repeat;
     background-size: cover;
     width: auto;
-    height: 300px;
+    height: 180px;
     cursor: move;
 }
 
@@ -88,7 +88,7 @@ h3 {
 .fix-col {
     border: dotted;
     border-color: #a9a9a9;
-    height: 300px;
+    height: 180px;
     position: relative;
     cursor: pointer;
 }
@@ -100,6 +100,7 @@ h3 {
     left: 50%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
+    font-size: 0.8rem;
 }
 
 .add-txt {
@@ -156,4 +157,59 @@ h3 {
     margin-top: 10px;
     color: #c0c0c0;
     cursor: pointer;
+}
+
+table {
+    width: 100%;
+}
+
+.sub-row {
+    padding-top: 1.4rem !important;
+}
+
+.logis-box {
+    border: 1px solid #dddddd;
+}
+
+.logis-label {
+    width: 100px;
+    background-color: #ffffff;
+    position: absolute;
+    margin-top: -14px;
+    z-index: 99;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #00bfa5;
+}
+
+.logis-label-2 {
+    width: 100px;
+    background-color: #ffffff;
+    position: absolute;
+    margin-top: -14px;
+    z-index: 99;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #b8b7b7;
+}
+
+.logis-name {
+    padding-left: 20px !important;
+}
+
+.logis-price {
+    text-align: right;
+}
+
+.logis-ic {
+    margin-left: 60px;
+}
+
+.text-remark {
+    color: #b8b7b7;
+    font-size: 0.8rem;
+}
+
+.center {
+    text-align: center;
 }
