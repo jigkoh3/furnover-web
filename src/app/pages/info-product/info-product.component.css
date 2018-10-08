@@ -120,6 +120,11 @@ h3 {
 .add-cus {
     position: absolute;
     margin-left: -24px;
+    cursor: pointer;
+}
+
+.ic-1 {
+    cursor: pointer;
 }
 
 .txt-left {
