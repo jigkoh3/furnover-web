@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
-import { ModalUploadYoutubeComponent } from '../../pages/modals/modal-upload-youtube/modal-upload-youtube.component';
 
 @Component({
   selector: 'profile',
@@ -14,12 +13,4 @@ export class ProfileSettingComponent implements OnInit {
   ngOnInit() {
   }
 
-  openDialog(): void {
-    const dialogRef = this.dialog.open(ModalUploadYoutubeComponent, {
-      width: '700px'
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-    });
-  }
 }
