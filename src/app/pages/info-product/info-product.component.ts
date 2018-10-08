@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RestApiService } from '../../providers/rest-api-service/rest-api.service';
 import { Constants } from '../../app.constants';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 export interface PeriodicElement {
   name1: string;
@@ -18,8 +19,15 @@ const ELEMENT_DATA: PeriodicElement[] = [];
 })
 export class InfoProductComponent implements OnInit {
   data: any = {
-    category_id: ''
+    category_id: '',
+    images: [],
+    wholesale: [],
+    prepareshipping: 2,
+    condition: 'ของใหม่'
   };
+  price = null;
+  stock = null;
+  resData: any = {};
   isOptions = false;
   displayedColumns: string[] = [];
   dataSource = ELEMENT_DATA;
@@ -35,7 +43,9 @@ export class InfoProductComponent implements OnInit {
   mainOptions_2: Array<any> = [];
   subOptions_1: Array<any> = [];
   subOptions_2: Array<any> = [];
-  constructor(private restApi: RestApiService) { }
+
+  shippings: Array<any> = [];
+  constructor(private restApi: RestApiService, private spinner: NgxSpinnerService) { }
 
   ngOnInit() {
     this.getInitData();
@@ -49,9 +59,30 @@ export class InfoProductComponent implements OnInit {
         shop_id: userShop.shop._id
       };
       const res: any = await this.restApi.post(Constants.URL() + '/api/product-item', data);
+      this.resData = res.data;
       console.log(res);
     } catch (error) {
       console.log(error);
+    }
+  }
+
+  shippingChange(e, item) {
+    if (e.checked) {
+      const logistics = this.shippings.filter(el => {
+        return el._id === item._id;
+      });
+      if (logistics.length <= 0) {
+        item.isChecked = true;
+        item.shippingfee = 0;
+        this.shippings.push(item);
+      }
+    } else {
+      for (let i = 0; i < this.shippings.length; i++) {
+        if (this.shippings[i]._id === item._id) {
+          this.shippings.splice(i, 1);
+          break;
+        }
+      }
     }
   }
 
@@ -103,16 +134,33 @@ export class InfoProductComponent implements OnInit {
   }
 
   async save() {
+    this.spinner.show();
     if (this.data._id) {
       // edit
     } else {
       try {
         const userShop: any = JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop'));
         this.data.shop_id = userShop.shop._id;
-        const res: any = await this.restApi.post(Constants.URL() + '/api/product-item', this.data);
+        const tranformShipping: Array<any> = [];
+        this.shippings.forEach(el => {
+          tranformShipping.push({
+            logistic_id: el._id,
+            shippingfee: el.shippingfee
+          });
+        });
+        this.data.shipping = tranformShipping;
+        this.data.prices = [{
+          name: 'normal',
+          price: this.price,
+          stock: this.stock
+        }];
+        console.log(this.data);
+        const res: any = await this.restApi.post(Constants.URL() + '/api/product', this.data);
         console.log(res);
+        this.spinner.hide();
       } catch (error) {
         console.log(error);
+        this.spinner.hide();
       }
     }
   }
