@@ -31,7 +31,6 @@ import { ModalCompleteComponent } from './pages/modals/modal-complete/modal-comp
 import { CreateProductComponent } from './pages/create-product/create-product.component';
 import { ModalInfoBankAccountComponent } from './pages/modals/modal-info-bank-account/modal-info-bank-account.component';
 import { SettingHeaderComponent } from './components/setting-header/setting-header.component';
-import { ModalUploadYoutubeComponent } from './pages/modals/modal-upload-youtube/modal-upload-youtube.component';
 import { ModalDeleteBankAccountComponent } from './pages/modals/modal-delete-bank-account/modal-delete-bank-account.component';
 import { InfoProductComponent } from './pages/info-product/info-product.component';
 import { SettingPasswordComponent } from './pages/setting-password/setting-password.component';
@@ -63,7 +62,6 @@ import { MenuMarketingComponent } from './pages/menu-marketing/menu-marketing.co
     CreateProductComponent,
     ModalInfoBankAccountComponent,
     SettingHeaderComponent,
-    ModalUploadYoutubeComponent,
     InfoProductComponent,
     ShopCategoryComponent,
     ModalDeleteBankAccountComponent,
@@ -78,7 +76,6 @@ import { MenuMarketingComponent } from './pages/menu-marketing/menu-marketing.co
     InfoAddressComponent,
     ModalPrepareShippingComponent,
     ModalInfoBankAccountComponent,
-    ModalUploadYoutubeComponent,
     ModalCompleteComponent,
     ModalDeleteBankAccountComponent
   ],
