@@ -8,31 +8,35 @@ import { Constants } from '../../app.constants';
   styleUrls: ['./info-shop-category.component.css']
 })
 export class InfoShopCategoryComponent implements OnInit {
-  getProduct: Array<any> = [];
+  getProduct : Array<any>=[];
   isEdit: boolean = false;
-  page : any ={
-    page: 1,
-    limit: 30
-  }
-  constructor(
-    
-    private restApi: RestApiService
-  ) { }
-
-  ngOnInit() {
-// this.getDataProduct();
-  }
- async getDataProduct() {
-  let user: any = JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop'));
-  let data = {
-    shop_id: user.shop_id,
+  page: any = {
+    shop_id: "",
     status: "all",
     name: "",
     page: 1,
     limit: 30
   }
-  console.log(user)
-let respone = await this.restApi.post(Constants.URL() +  '/api/product-shop-lis',data)
-console.log(respone);    
+  constructor(
+
+    private restApi: RestApiService
+  ) { }
+
+  ngOnInit() {
+    this.getDataProduct();
+  }
+  async getDataProduct() {
+    let user: any = JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop'));
+    this.page.shop_id = user.shop_id;
+    console.log(user)
+    let respone: any = await this.restApi.post(Constants.URL() + '/api/product-shop-list', this.page)
+    console.log(respone);
+    this.getProduct = respone.data.products;
+    console.log(this.getProduct)
+  }
+  onSearch(event){
+    if (event.key === "Enter") {
+      this.getDataProduct();
+    }
   }
 }

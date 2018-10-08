@@ -17,6 +17,9 @@
     width: 80px;
     height: 80px;
     object-fit: cover;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .padding-top {
@@ -197,13 +200,13 @@
 }
 
 .img-product {
-    width: 40px;
-    height: 40px;
+    width: 60px;
+    height: 60px;
     object-fit: cover;
 }
 
 .font-price {
-    font-size: 10px !important;
+    font-size: 12px !important;
 }
 
 .text-right {
@@ -220,12 +223,42 @@
 
 .pointer {
     cursor: pointer;
-}.search-ic {
+}
+
+.search-ic {
     position: absolute;
     right: 0;
     bottom: 2px;
     color: #9f9f9f;
-}.un-select {
+}
+
+.un-select {
     color: #c0c0c0;
     cursor: pointer;
+}
+
+.font-name {
+    font-size: 13px !important;
+    color: #202020;
+    font-weight: bold;
+}
+
+.card-height {
+    border-radius: 11px;
+    height: 150px;
+}
+
+.buttonAdd {
+    /* position: absolute;
+    bottom: 10px; */
+}
+
+.text-nowrap {
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+.card-product{
+    padding: 8px 12px 8px 12px !important;
 }
