@@ -32,10 +32,10 @@ export class MyProductComponent implements OnInit {
     }
   ];
 
-  productData: any={
-    products:[]
+  productData: any = {
+    products: []
   };
-  tabs: Array<any> = [];
+  tabs: any = [];
   pageData: any = {
     shop_id: "",
     status: "",
@@ -44,7 +44,8 @@ export class MyProductComponent implements OnInit {
     limit: 30
   };
 
-  sortIndex: Number = 0;
+  // sortIndex: number = 0;
+  
   constructor(
     public route: Router,
     public restApi: RestApiService,
@@ -52,25 +53,38 @@ export class MyProductComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getProduct();
+    this.getProduct('all');
   }
 
-  async getProduct() {
+  onLinkClick(event) {
+    this.pageData.name = '';
+    if (event.index === 0) {
+      this.getProduct('all');
+    } else if (event.index === 1) {
+      this.getProduct('sell');
+    } else if (event.index === 2) {
+      this.getProduct('outofstock');
+    } else if (event.index === 3) {
+      this.getProduct('suspended');
+    }
+  }
+
+  async getProduct(status) {
     this.shopUser = window.localStorage.getItem(Constants.URL() + '@usershop') ? JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop')) : null;
+    
     this.pageData = {
       shop_id: this.shopUser.shop_id,
-      status: "all",
+      status: status,
       name: this.pageData.name,
-      page: 1,
-      limit: 30
+      page: this.pageData.page,
+      limit: this.pageData.limit
     };
     try {
       let data: any = await this.restApi.post(Constants.URL() + '/api/product-shop-list', this.pageData);
       if (data['status'] === 200) {
         this.productData = data.data;
-        console.log(this.productData)
-
-        this.tabs = data.tabs;
+        console.log(this.productData);
+        this.tabs = data.data.tabs;
         if (this.productData && this.productData.length === 0) {
           this.dataService.warning('ไม่พบข้อมูลบุคลากร');
         }
@@ -80,19 +94,37 @@ export class MyProductComponent implements OnInit {
     }
   }
 
-  selectSortIndex(item, i) {
-    this.sortIndex = i;
-  }
+  // selectSortIndex(item, i) {
+  //   this.sortIndex = i;
+  // }
 
   gotoCreateProduct() {
     this.route.navigate(['/info-product']);
   }
 
-  search(event) {
+  search(event,status) {
     if (event.keyCode == 13) {
       this.pageData.page = 1;
-      this.getProduct();
+      console.log(status)
+      this.getProduct(status);
     }
+  }
+
+  previos(status) {
+    this.pageData.page--;
+    this.getProduct(status);
+  }
+
+  page(item,status) {
+    if (this.pageData.page !== item) {
+      this.pageData.page = item;
+      this.getProduct(status);
+    }
+  }
+
+  next(status) {
+    this.pageData.page++;
+    this.getProduct(status);
   }
 
 }
