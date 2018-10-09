@@ -1,26 +1,39 @@
-
-
 /* // ของหน้า info-shop-category // */
 
 .setting-font-header {
     font-size: 20px;
 }
 
+.padding-left {
+    padding-left: 15px !important;
+}
 
+.font-cate {
+    font-size: 15px;
+    color: rgb(199, 199, 199);
+}
 
+.img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 
+.padding-top {
+    padding-top: 50px !important;
+}
 
+.padding-bottom {
+    padding-bottom: 50px !important;
+}
 
-
-
-
-
-
-
-
-
-
-
+.setting-toggle {
+    position: relative;
+    top: 10px;
+}
 
 /* // ของหน้า shop-category // */
 
@@ -57,7 +70,6 @@
     top: -45px;
     left: 60px;
     font-size: 20px
-    
 }
 
 .setting-text-header2 {
@@ -82,14 +94,14 @@
     height: 150px;
 }
 
-.setting-text-body1{
+.setting-text-body1 {
     color: grey;
     font-size: 15px;
 }
 
-.setting-btn-add-cat{
+.setting-btn-add-cat {
     height: 50px !important;
-    width:90% !important;
+    width: 90% !important;
 }
 
 .setting-btn-text-add-cat {
@@ -103,7 +115,7 @@
     top: 9px;
 }
 
-.setting-bnt-text-rename{
+.setting-bnt-text-rename {
     font-size: 10px;
     position: relative;
     top: -8px;
@@ -111,14 +123,14 @@
     color: grey
 }
 
-.setting-text-set-cat{
+.setting-text-set-cat {
     color: grey !important;
     font-size: 15px !important;
     position: relative;
     top: -12px;
 }
 
-.setting-text-set-amount{
+.setting-text-set-amount {
     color: grey !important;
     font-size: 15px !important;
     position: relative;
@@ -126,14 +138,19 @@
 }
 
 ::ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
-    background-color: rgb(255, 255, 255); /*replace with your color*/
+    background-color: rgb(255, 255, 255);
+    /*replace with your color*/
 }
 
 ::ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
-    background-color: #00C853;  /*replace with your color*/
+    background-color: #00C853;
+    /*replace with your color*/
 }
 
-::ng-deep .mat-fab.mat-accent, .mat-flat-button.mat-accent, .mat-mini-fab.mat-accent, .mat-raised-button.mat-accent {
+::ng-deep .mat-fab.mat-accent,
+.mat-flat-button.mat-accent,
+.mat-mini-fab.mat-accent,
+.mat-raised-button.mat-accent {
     background-color: #ffffff;
 }
 
@@ -172,4 +189,90 @@
 
 .size-div-header {
     height: 90px !important;
+}
+
+.border-seach {
+    border-radius: 10px !important;
+}
+
+.padding-right {
+    padding-right: 5px !important;
+}
+
+.img-product {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+}
+
+.font-price {
+    font-size: 12px !important;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.padding-left1 {
+    padding-left: 50px !important;
+}
+
+.padding-right1 {
+    padding-right: 50px !important;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.search-ic {
+    position: absolute;
+    right: 0;
+    bottom: 2px;
+    color: #9f9f9f;
+}
+
+.un-select {
+    color: #c0c0c0;
+    cursor: pointer;
+}
+
+.font-name {
+    font-size: 13px !important;
+    color: #202020;
+    font-weight: bold;
+}
+
+.card-height {
+    border-radius: 11px;
+    height: 150px;
+}
+
+.buttonAdd {
+    /* position: absolute;
+    bottom: 10px; */
+}
+
+.text-nowrap {
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+.card-product {
+    padding: 8px 12px 8px 12px !important;
+}
+
+.margin-left {
+    margin-left: 5px !important;
+}
+
+.font-text {
+    font-size: 12px !important;
+    color: rgb(114, 114, 114) !important;
+}
+
+.done-size {
+    width: 10px !important;
+    height: 10px !important;
 }

@@ -76,7 +76,7 @@ export class ShopCategoryComponent implements OnInit {
   }
 
   editCategory(item) {
-    this.router.navigate(['/info-shop-category'], { queryParams: { data: JSON.stringify(item) } });
+    this.router.navigate(['/info-shop-category'], { queryParams: { cateID: item._id } });
   }
 
   onChangeStatus(item) {
@@ -92,6 +92,10 @@ export class ShopCategoryComponent implements OnInit {
       this.spinner.hide();
       this.dataService.error('เรียกข้อมูลไม่สำเร็จ');
     }
+  }
+
+  deleteCate(){
+    
   }
 
 

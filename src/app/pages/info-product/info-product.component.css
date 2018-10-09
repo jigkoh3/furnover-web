@@ -219,3 +219,39 @@ table {
 .center {
     text-align: center;
 }
+
+.box-select {
+    border: 1px solid #dddddd;
+    text-align: left;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.8rem;
+    border-radius: 4px;
+}
+
+.ar-down {
+    position: absolute;
+    right: 0;
+    color: #c2c1c1;
+}
+
+.expan {
+    height: auto;
+    min-height: 200px;
+    position: absolute;
+    z-index: 999;
+    background-color: #ffffff;
+}
+
+.box-submenu {
+    padding: 1.2rem;
+    color: #8d8d8d;
+}
+
+.sub-menu {
+    font-size: 1rem;
+}
+
+.sub-menu:hover {
+    background-color: #f0f0f0;
+}
