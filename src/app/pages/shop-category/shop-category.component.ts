@@ -6,6 +6,7 @@ import { RestApiService } from '../../providers/rest-api-service/rest-api.servic
 import { Constants } from '../../app.constants';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { DataService } from '../../providers/data-service/data.service';
+import { isNgTemplate } from '@angular/compiler';
 
 @Component({
   selector: 'app-shop-category',
@@ -87,6 +88,7 @@ export class ShopCategoryComponent implements OnInit {
     this.spinner.show();
     try {
       await this.restApi.put(Constants.URL() + '/api/categoryShop/' + item._id, item);
+      this.getCat();
       this.spinner.hide();
     } catch (error) {
       this.spinner.hide();
@@ -94,8 +96,19 @@ export class ShopCategoryComponent implements OnInit {
     }
   }
 
-  deleteCate(){
-    
+  async deleteCate(item) {
+    //  console.log(item._id);
+    this.spinner.show();
+    try {
+      await this.restApi.delete(Constants.URL() + '/api/categoryShop/' + item._id);
+      this.getCat();
+      this.spinner.hide();
+      console.log(this.modelData)
+    } catch (error) {
+      this.spinner.hide();
+      this.dataService.error('ลบข้อมูลไม่สำเร็จ');
+
+    }
   }
 
 
