@@ -42,7 +42,7 @@ export class InfoProductComponent implements OnInit {
   nameOption1 = '';
   subOption1 = '';
   subOption2 = '';
-
+  prepare = false;
   mainOptions_1: Array<any> = [];
   mainOptions_2: Array<any> = [];
   subOptions_1: Array<any> = [];
@@ -96,19 +96,24 @@ export class InfoProductComponent implements OnInit {
   bindBack() {
     this.data = this.resData.product;
     this.images = this.data.images;
+    //
     if (this.data.prices.length > 0 && this.data.prices[0].name === 'normal') {
       this.price = this.data.prices[0].price;
       this.stock = this.data.prices[0].stock;
     }
     this.wholesaleList = this.data.wholesale;
     this.findNamebyLogistic();
+    if (this.data.prepareshipping > 2) {
+      this.prepare = true;
+    }
   }
 
   findNamebyLogistic() {
     this.shippings = this.data.shipping;
     this.resData.logistics.forEach(el1 => {
       this.data.shipping.forEach(el2 => {
-        if (el1._id === el2.logistic_id) {
+        if (el1._id === el2.logistic_id || el1._id === el2._id) {
+          el2._id = el1._id;
           el2.name = el1.name;
           el1.isChecked = true;
         }
@@ -212,6 +217,7 @@ export class InfoProductComponent implements OnInit {
   }
 
   shippingChange(e, item) {
+    console.log(e.checked);
     if (e.checked) {
       const logistics = this.shippings.filter(el => {
         return el._id === item._id;
@@ -223,7 +229,7 @@ export class InfoProductComponent implements OnInit {
       }
     } else {
       for (let i = 0; i < this.shippings.length; i++) {
-        if (this.shippings[i]._id === item._id) {
+        if (this.shippings[i]._id === item._id || this.shippings[i].logistic_id === item._id) {
           this.shippings.splice(i, 1);
           break;
         }
@@ -280,32 +286,40 @@ export class InfoProductComponent implements OnInit {
 
   async save() {
     this.spinner.show();
+    const userShop: any = JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop'));
+    this.data.shop_id = userShop.shop._id;
+    const tranformShipping: Array<any> = [];
+    this.shippings.forEach(el => {
+      tranformShipping.push({
+        logistic_id: el._id,
+        shippingfee: el.shippingfee
+      });
+    });
+    this.data.shipping = tranformShipping;
+    this.data.prices = [{
+      name: 'normal',
+      price: this.price,
+      stock: this.stock
+    }];
+    this.data.category_id = this.stateSubmenu[this.stateSubmenu.length - 1] ? this.stateSubmenu[this.stateSubmenu.length - 1]._id : '';
+    this.data.wholesale = this.wholesaleList;
+    this.data.images = this.images;
+    if (!this.prepare) {
+      this.data.prepareshipping = 2;
+    }
+
     if (this.data._id) {
-      // edit
+      try {
+        const res: any = await this.restApi.put(Constants.URL() + '/api/product/' + this.data._id, this.data);
+        this.spinner.hide();
+        this.route.navigate(['my-product']);
+      } catch (error) {
+        console.log(error);
+      }
     } else {
       try {
-        const userShop: any = JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop'));
-        this.data.shop_id = userShop.shop._id;
-        const tranformShipping: Array<any> = [];
-        this.shippings.forEach(el => {
-          tranformShipping.push({
-            logistic_id: el._id,
-            shippingfee: el.shippingfee
-          });
-        });
-        this.data.shipping = tranformShipping;
-        this.data.prices = [{
-          name: 'normal',
-          price: this.price,
-          stock: this.stock
-        }];
-        this.data.category_id = this.stateSubmenu[this.stateSubmenu.length - 1] ? this.stateSubmenu[this.stateSubmenu.length - 1]._id : '';
-        this.data.wholesale = this.wholesaleList;
-        this.data.images = this.images;
-        console.log(this.data);
         // console.log(this.findParent(this.resData.categories, this.stateSubmenu[this.stateSubmenu.length - 1]));
         const res: any = await this.restApi.post(Constants.URL() + '/api/product', this.data);
-        console.log(res);
         this.spinner.hide();
         this.route.navigate(['my-product']);
       } catch (error) {
