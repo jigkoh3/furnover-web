@@ -6,7 +6,7 @@ import { Constants } from '../../app.constants';
 import { MatIconRegistry } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
 // import { FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
     selector: 'app-info-shop-category',
@@ -14,13 +14,14 @@ import { ActivatedRoute } from '@angular/router';
     styleUrls: ['./info-shop-category.component.css']
 })
 export class InfoShopCategoryComponent implements OnInit {
+
     categoryData: any = {
         name: 'กำหนดชื่อหมวดหมู่เอง',
         items: [],
         status: false
     };
-    // saveName: FormGroup;
-
+    categoryCompele: boolean = false;
+    isCheckbtnSaveProduct: boolean = false;
     itemSeleted: Array<any> = [];
     getProduct: Array<any> = [];
     isEdit: boolean = false;
@@ -37,7 +38,8 @@ export class InfoShopCategoryComponent implements OnInit {
         public sanitizer: DomSanitizer,
         private restApi: RestApiService,
         private actRoute: ActivatedRoute,
-        private spinner: NgxSpinnerService
+        private spinner: NgxSpinnerService,
+        private router: Router
     ) {
         iconRegistry.addSvgIcon(
             'done',
@@ -87,20 +89,20 @@ export class InfoShopCategoryComponent implements OnInit {
 
     }
     selectedItem(item) {
+        // this.spinner.show();
         try {
             item.product_id = item._id;
-            console.log(item);
             this.categoryData.items.push(item);
-            // this.itemSeleted.push(item);
+            // this.spinner.hide();
         } catch (error) {
+            // this.spinner.hide();
 
         }
 
     }
-    deleteItem(i) {
+    deleteItem(i, item) {
         try {
             this.categoryData.items.splice(i, 1);
-            // this.itemSeleted.splice(i, 1);
         } catch (error) {
 
         }
@@ -129,14 +131,19 @@ export class InfoShopCategoryComponent implements OnInit {
                 this.categoryData.shop_id = this.page.shop_id;
                 let respone: any = await this.restApi.put(Constants.URL() + '/api/categoryShop/' + this.categoryData._id, this.categoryData);
                 this.categoryData = respone.data;
-
                 this.getcategoryData();
+
+                if (this.categoryData.name && this.categoryData.items && this.categoryData.items.length > 0) {
+                    this.categoryCompele = true;
+                }
             } else {
                 this.categoryData.shop_id = this.page.shop_id;
                 let respone: any = await this.restApi.post(Constants.URL() + '/api/categoryShop/', this.categoryData);
                 this.categoryData = respone.data;
-
                 this.getcategoryData();
+                if (this.categoryData.name && this.categoryData.items && this.categoryData.items.length > 0) {
+                    this.categoryCompele = true;
+                }
             }
             this.isEdit = false;
         } catch (error) {
@@ -148,12 +155,48 @@ export class InfoShopCategoryComponent implements OnInit {
         try {
             var resp: any = await this.restApi.get(Constants.URL() + '/api/categoryShop/' + this.categoryData._id);
             this.categoryData = resp.data;
+            this.selectedItem = JSON.parse(JSON.stringify(this.categoryData.items));
         } catch (error) {
 
         }
 
     }
-    async onSaveItem() {
+    onBack() {
+        this.router.navigate(['/shop-category']);
 
+    }
+    async  onSaveDataProduct() {
+        await this.onSaveData();
+
+    }
+    checkLogProductChange() {
+        let isRetrun = false;
+        this.itemSeleted.forEach((item) => {
+            let index = this.categoryData.items.findIndex((cateItem) => {
+                return item.product_id === cateItem.product_id;
+            })
+
+            if (index === -1) {
+                isRetrun = true;
+            }
+        });
+
+        this.categoryData.items.forEach((item) => {
+            let index = this.itemSeleted.findIndex((cateItem) => {
+                return item.product_id === cateItem.product_id;
+            })
+
+            if (index === -1) {
+                isRetrun = true;
+            }
+        });
+
+        if(){
+
+        }else{
+            
+        }
+
+        return isRetrun;
     }
 }
