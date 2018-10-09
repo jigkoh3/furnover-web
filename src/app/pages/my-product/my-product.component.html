@@ -60,6 +60,11 @@
             font-size: 14px;
             border-radius: 3px;">ขายส่ง</span>
 
+
+            <div *ngIf="item.stock <= 0" class="product-item-soldout-overlay">
+              <div class="soldout">ขายแล้ว</div>
+            </div>
+
             <!-- <div class="product-item__badges">
               <div class="product-label new">
                 <div class="badge-content">
@@ -151,6 +156,9 @@
                 padding-right: 2px;
                 font-size: 14px;
                 border-radius: 3px;">ขายส่ง</span>
+            <div *ngIf="item.stock <= 0" class="product-item-soldout-overlay">
+              <div class="soldout">ขายแล้ว</div>
+            </div>
           </div>
           <div class="padding">
             <p class="p-name">
@@ -220,6 +228,9 @@
                 padding-right: 2px;
                 font-size: 14px;
                 border-radius: 3px;">ขายส่ง</span>
+            <div *ngIf="item.stock <= 0" class="product-item-soldout-overlay">
+              <div class="soldout">ขายแล้ว</div>
+            </div>
           </div>
           <div class="padding">
             <p class="p-name">
@@ -289,6 +300,9 @@
                 padding-right: 2px;
                 font-size: 14px;
                 border-radius: 3px;">ขายส่ง</span>
+            <div *ngIf="item.stock <= 0" class="product-item-soldout-overlay">
+              <div class="soldout">ขายแล้ว</div>
+            </div>
           </div>
           <div class="padding">
             <p class="p-name">
