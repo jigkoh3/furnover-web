@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { RestApiService } from '../../providers/rest-api-service/rest-api.service';
 import { Constants } from '../../app.constants';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import * as firebase from 'firebase';
 
 export interface PeriodicElement {
@@ -51,20 +51,33 @@ export class InfoProductComponent implements OnInit {
   shippings: Array<any> = [];
   stateSubmenu: Array<any> = [];
   wholesaleList: Array<any> = [];
+  priceList: Array<any> = [];
   images: Array<any> = [];
 
-  constructor(private restApi: RestApiService, private spinner: NgxSpinnerService, public route: Router) { }
+  constructor(private activatedRoute: ActivatedRoute,
+    private restApi: RestApiService,
+    private spinner: NgxSpinnerService,
+    public route: Router) { }
 
   ngOnInit() {
-    this.getInitData();
+    this.activatedRoute
+      .queryParams
+      .subscribe(params => {
+        if (params['productid']) {
+          const productid = params['productid'];
+          this.getInitData(productid);
+        } else {
+          this.getInitData(null);
+        }
+      });
   }
 
-  async getInitData() {
+  async getInitData(productid) {
     this.spinner.show();
     try {
       const userShop: any = JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop'));
       const data: any = {
-        product_id: null,
+        product_id: productid,
         shop_id: userShop.shop._id
       };
       const res: any = await this.restApi.post(Constants.URL() + '/api/product-item', data);

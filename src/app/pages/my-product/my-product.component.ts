@@ -110,6 +110,10 @@ export class MyProductComponent implements OnInit {
     this.route.navigate(['/info-product']);
   }
 
+  gotoEditProduct(productid) {
+    this.route.navigate(['/info-product'], { queryParams: { productid: productid } });
+  }
+
   search(event, status) {
     if (event.keyCode == 13) {
       this.pageData.page = 1;
