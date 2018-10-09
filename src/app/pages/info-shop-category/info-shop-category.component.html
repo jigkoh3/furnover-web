@@ -20,11 +20,13 @@
                 <div class="row padding">
                   <div class="col-12 col-md-4 col-lg-4">
                     <mat-form-field class="example-full-width">
-                      <input [(ngModel)]="categoryData.name" type="text" matInput placeholder="ตั้งชื่อหมวดหมู่เอง" required>
+                      <input [(ngModel)]="categoryData.name" type="text" matInput placeholder="ตั้งชื่อหมวดหมู่เอง"
+                        required>
                     </mat-form-field>
                   </div>
                   <div class="col-12 col-md-2 col-lg-2">
-                    <button style="width: 100%" (click)="onSaveData()" mat-stroked-button class="setting-bnt-rename"><span class="setting-bnt-text-rename">บันทึก</span></button>
+                    <button style="width: 100%" (click)="onSaveData()" mat-stroked-button class="setting-bnt-rename"><span
+                        class="setting-bnt-text-rename">บันทึก</span></button>
                   </div>
                   <div class="col-12 col-md-2 col-lg-2">
                     <button style="width: 100%" mat-stroked-button (click)='isEdit = !isEdit' class="setting-bnt-rename"><span
@@ -51,16 +53,13 @@
                   <div class="col-12 col-md-6 col-lg-6  " *ngFor="let item of this.categoryData.items; let i = index;">
                     <div class="col-12">
                       <mat-card class="card-product">
-
                         <div class="row">
 
                           <div class="col-12 col-md-3 col-lg-3 text-center padding-right ">
-                            <!-- <img class="img-product" [src]="item.image.url"> -->
-                            <img class="img-product" >
+                            <img class="img-product" [src]="item.image.url">
                           </div>
                           <div class="col-12 col-md-9 col-lg-9">
                             <p class="no-margin font-name text-nowrap"> {{item.name}} </p>
-                            <!-- <p class="no-margin font-price">฿ {{item.pricetext}}</p> -->
                             <p class="no-margin font-price">฿ {{item.pricetext || 0}}
                           </div>
 
