@@ -6,6 +6,10 @@
     text-align: right;
 }
 
+.txt-left {
+    text-align: left;
+}
+
 .select {
     font-weight: bold;
     cursor: pointer;
@@ -148,3 +152,15 @@
     color: #9f9f9f;
 }
 
+.portal-panel {
+    width: 100%;
+    // min-width: 1200px;
+    // height: 80px;
+    background: #fff;
+    box-shadow: 0 0.1rem 0.4rem rgba(0,0,0,.1);
+    // position: fixed;
+    top: 56px;
+    left: 0;
+    z-index: 90000;
+    padding: 20px;
+}

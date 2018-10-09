@@ -1,5 +1,17 @@
 <mat-tab-group (selectedTabChange)="onLinkClick($event)">
   <mat-tab label="ทั้งหมด">
+
+    <div *ngIf="showDelete" class="portal-panel">
+      <div class="row">
+        <div class="col-6 txt-left">
+          <mat-checkbox class="ch_box" [(ngModel)]="checked" (change)="onselectAll($event)">เลือกทั้งหมด</mat-checkbox>
+        </div>
+        <div class="col-6 txt-right">
+          <button mat-stroked-button color="primary">ลบ</button>
+        </div>
+      </div>
+    </div>
+
     <div class="row padding">
       <div class="col-12 col-md-12 col-sm-12">
         สินค้า {{productData.products.length}} รายการ
@@ -38,7 +50,7 @@
           <div style="background-size: cover;min-height: 12rem;">
             <img [src]="item.image.url" style="position: absolute;
                 width: 100%;min-height: 12rem;object-fit: contain;">
-            <mat-checkbox class="ch_box"></mat-checkbox>
+            <mat-checkbox class="ch_box" [(ngModel)]="item.checked" (change)="checkboxOptions($event,item)"></mat-checkbox>
             <span *ngIf="item.iswholesale" style="right: 0;
             background-color: #00d0ff;
             position: absolute;
@@ -85,7 +97,7 @@
         </mat-card>
       </div>
     </div>
-    <div class="text-center">
+    <div class="text-center" *ngIf="productData.products.length > 0">
       <button mat-flat-button color="primary" class="btn-summit select" style="margin: 5px;" *ngIf="pageData.page > 1"
         (click)="previos('all')">ก่อนหน้า</button>
       <button mat-flat-button color="primary" ngClass="{{pageData.page === (i + 1) ? 'select' : 'un-select'}} btn-summit"
@@ -95,6 +107,18 @@
     </div>
   </mat-tab>
   <mat-tab label="ขายอยู่">
+
+    <div *ngIf="showDelete" class="portal-panel">
+      <div class="row">
+        <div class="col-6 txt-left">
+          <mat-checkbox class="ch_box" [(ngModel)]="checked" (change)="onselectAll($event)">เลือกทั้งหมด</mat-checkbox>
+        </div>
+        <div class="col-6 txt-right">
+          <button mat-stroked-button color="primary">ลบ</button>
+        </div>
+      </div>
+    </div>
+
     <div class="row padding">
       <div class="col-12 col-md-12 col-sm-12">
         สินค้า {{productData.products.length}} รายการ
@@ -118,7 +142,7 @@
           <div style="background-size: cover;min-height: 12rem;">
             <img [src]="item.image.url" style="position: absolute;
                     width: 100%;min-height: 12rem;object-fit: contain;">
-            <mat-checkbox class="ch_box"></mat-checkbox>
+            <mat-checkbox class="ch_box" [(ngModel)]="item.checked" (change)="checkboxOptions($event,item)"></mat-checkbox>
             <span *ngIf="item.iswholesale" style="right: 0;
                 background-color: #00d0ff;
                 position: absolute;
@@ -144,7 +168,7 @@
         </mat-card>
       </div>
     </div>
-    <div class="text-center">
+    <div class="text-center" *ngIf="productData.products.length > 0">
       <button mat-flat-button color="primary" class="btn-summit select" style="margin: 5px;" *ngIf="pageData.page > 1"
         (click)="previos('sell')">ก่อนหน้า</button>
       <button mat-flat-button color="primary" ngClass="{{pageData.page === (i + 1) ? 'select' : 'un-select'}} btn-summit"
@@ -154,6 +178,16 @@
     </div>
   </mat-tab>
   <mat-tab label="หมด">
+    <div *ngIf="showDelete" class="portal-panel">
+      <div class="row">
+        <div class="col-6 txt-left">
+          <mat-checkbox class="ch_box" [(ngModel)]="checked" (change)="onselectAll($event)">เลือกทั้งหมด</mat-checkbox>
+        </div>
+        <div class="col-6 txt-right">
+          <button mat-stroked-button color="primary">ลบ</button>
+        </div>
+      </div>
+    </div>
     <div class="row padding">
       <div class="col-12 col-md-12 col-sm-12">
         สินค้า {{productData.products.length}} รายการ
@@ -177,7 +211,7 @@
           <div style="background-size: cover;min-height: 12rem;">
             <img [src]="item.image.url" style="position: absolute;
                     width: 100%;min-height: 12rem;object-fit: contain;">
-            <mat-checkbox class="ch_box"></mat-checkbox>
+            <mat-checkbox class="ch_box" [(ngModel)]="item.checked" (change)="checkboxOptions($event,item)"></mat-checkbox>
             <span *ngIf="item.iswholesale" style="right: 0;
                 background-color: #00d0ff;
                 position: absolute;
@@ -203,7 +237,7 @@
         </mat-card>
       </div>
     </div>
-    <div class="text-center">
+    <div class="text-center" *ngIf="productData.products.length > 0">
       <button mat-flat-button color="primary" class="btn-summit select" style="margin: 5px;" *ngIf="pageData.page > 1"
         (click)="previos('outofstock')">ก่อนหน้า</button>
       <button mat-flat-button color="primary" ngClass="{{pageData.page === (i + 1) ? 'select' : 'un-select'}} btn-summit"
@@ -213,6 +247,16 @@
     </div>
   </mat-tab>
   <mat-tab label="ถูกระงับ">
+    <div *ngIf="showDelete" class="portal-panel">
+      <div class="row">
+        <div class="col-6 txt-left">
+          <mat-checkbox class="ch_box" [(ngModel)]="checked" (change)="onselectAll($event)">เลือกทั้งหมด</mat-checkbox>
+        </div>
+        <div class="col-6 txt-right">
+          <button mat-stroked-button color="primary">ลบ</button>
+        </div>
+      </div>
+    </div>
     <div class="row padding">
       <div class="col-12 col-md-12 col-sm-12">
         สินค้า {{productData.products.length}} รายการ
@@ -236,7 +280,7 @@
           <div style="background-size: cover;min-height: 12rem;">
             <img [src]="item.image.url" style="position: absolute;
                     width: 100%;min-height: 12rem;object-fit: contain;">
-            <mat-checkbox class="ch_box"></mat-checkbox>
+            <mat-checkbox class="ch_box" [(ngModel)]="item.checked" (change)="checkboxOptions($event,item)"></mat-checkbox>
             <span *ngIf="item.iswholesale" style="right: 0;
                 background-color: #00d0ff;
                 position: absolute;
@@ -262,7 +306,7 @@
         </mat-card>
       </div>
     </div>
-    <div class="text-center">
+    <div class="text-center" *ngIf="productData.products.length > 0">
       <button mat-flat-button color="primary" class="btn-summit select" style="margin: 5px;" *ngIf="pageData.page > 1"
         (click)="previos('suspended')">ก่อนหน้า</button>
       <button mat-flat-button color="primary" ngClass="{{pageData.page === (i + 1) ? 'select' : 'un-select'}} btn-summit"

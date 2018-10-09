@@ -44,8 +44,11 @@ export class MyProductComponent implements OnInit {
     limit: 30
   };
 
+  showDelete: boolean = false;
+  arrayId: any = [];
+  checked: boolean = false;
   // sortIndex: number = 0;
-  
+
   constructor(
     public route: Router,
     public restApi: RestApiService,
@@ -57,6 +60,8 @@ export class MyProductComponent implements OnInit {
   }
 
   onLinkClick(event) {
+    this.showDelete = false;
+    this.arrayId = [];
     this.pageData.name = '';
     if (event.index === 0) {
       this.getProduct('all');
@@ -71,7 +76,7 @@ export class MyProductComponent implements OnInit {
 
   async getProduct(status) {
     this.shopUser = window.localStorage.getItem(Constants.URL() + '@usershop') ? JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop')) : null;
-    
+
     this.pageData = {
       shop_id: this.shopUser.shop_id,
       status: status,
@@ -102,7 +107,7 @@ export class MyProductComponent implements OnInit {
     this.route.navigate(['/info-product']);
   }
 
-  search(event,status) {
+  search(event, status) {
     if (event.keyCode == 13) {
       this.pageData.page = 1;
       console.log(status)
@@ -115,7 +120,7 @@ export class MyProductComponent implements OnInit {
     this.getProduct(status);
   }
 
-  page(item,status) {
+  page(item, status) {
     if (this.pageData.page !== item) {
       this.pageData.page = item;
       this.getProduct(status);
@@ -125,6 +130,47 @@ export class MyProductComponent implements OnInit {
   next(status) {
     this.pageData.page++;
     this.getProduct(status);
+  }
+
+  checkboxOptions(event, item) {
+    if (event.checked) {
+      this.showDelete = true;
+      this.arrayId.push(item._id);
+      if (this.productData.products.length === this.arrayId.length) {
+        this.checked = true;
+      }
+    } else {
+      if (this.arrayId.length >= 1) {
+        for (let index = 0; index < this.arrayId.length; index++) {
+          const data = this.arrayId[index];
+          if (data === item._id) {
+            this.arrayId.splice(index, 1);
+            this.checked = false;
+          }
+        }
+        if (this.arrayId <= 0) {
+          this.showDelete = false;
+        }
+      } else {
+        this.showDelete = false;
+      }
+    }
+    console.log(this.arrayId);
+  }
+
+  onselectAll(event) {
+    this.arrayId = [];
+    this.productData.products.forEach(selectItem => {
+      if (event.checked) {
+        selectItem.checked = true;
+        this.arrayId.push(selectItem._id);
+      } else {
+        selectItem.checked = false;
+        this.showDelete = false;
+        this.arrayId = [];
+      }
+    });
+    console.log(this.arrayId);
   }
 
 }

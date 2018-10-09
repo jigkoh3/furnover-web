@@ -14,8 +14,8 @@
 }
 
 .img {
-    width: 80px;
-    height: 80px;
+    width: 150px;
+    height: 150px;
     object-fit: cover;
     display: block;
     margin-left: auto;
@@ -259,6 +259,20 @@
     text-overflow: ellipsis !important;
 }
 
-.card-product{
+.card-product {
     padding: 8px 12px 8px 12px !important;
+}
+
+.margin-left {
+    margin-left: 5px !important;
+}
+
+.font-text {
+    font-size: 12px !important;
+    color: rgb(114, 114, 114) !important;
+}
+
+.done-size {
+    width: 10px !important;
+    height: 10px !important;
 }
