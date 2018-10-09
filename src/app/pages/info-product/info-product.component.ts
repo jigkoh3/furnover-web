@@ -43,8 +43,9 @@ export class InfoProductComponent implements OnInit {
   mainOptions_2: Array<any> = [];
   subOptions_1: Array<any> = [];
   subOptions_2: Array<any> = [];
-
+  toggleSubMenu = false;
   shippings: Array<any> = [];
+  stateSubmenu: Array<any> = [];
   constructor(private restApi: RestApiService, private spinner: NgxSpinnerService) { }
 
   ngOnInit() {
@@ -52,6 +53,7 @@ export class InfoProductComponent implements OnInit {
   }
 
   async getInitData() {
+    this.spinner.show();
     try {
       const userShop: any = JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop'));
       const data: any = {
@@ -60,9 +62,27 @@ export class InfoProductComponent implements OnInit {
       };
       const res: any = await this.restApi.post(Constants.URL() + '/api/product-item', data);
       this.resData = res.data;
+      this.spinner.hide();
       console.log(res);
     } catch (error) {
       console.log(error);
+      this.spinner.hide();
+    }
+  }
+
+  expanChildren(item) {
+    this.stateSubmenu.push({
+      name: item.name,
+      items: item.children
+    });
+    console.log(this.stateSubmenu);
+  }
+
+  expansubMenu() {
+    if (this.toggleSubMenu) {
+      this.toggleSubMenu = false;
+    } else {
+      this.toggleSubMenu = true;
     }
   }
 
