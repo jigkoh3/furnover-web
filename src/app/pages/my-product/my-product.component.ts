@@ -5,6 +5,7 @@ import { RestApiService } from '../../providers/rest-api-service/rest-api.servic
 import { DataService } from '../../providers/data-service/data.service';
 import { MatDialog } from '@angular/material';
 import { ModalDeleteProductComponent } from '../modals/modal-delete-product/modal-delete-product.component';
+import { NgxSpinnerService } from 'ngx-spinner';
 @Component({
   selector: 'app-my-product',
   templateUrl: './my-product.component.html',
@@ -19,20 +20,20 @@ export class MyProductComponent implements OnInit {
     }
   };
 
-  sortModel: any = [
-    {
-      sortId: 0,
-      sortName: 'ล่าสุด'
-    },
-    {
-      sortId: 1,
-      sortName: 'สินค้าขายดี'
-    },
-    {
-      sortId: 2,
-      sortName: 'ราคา'
-    }
-  ];
+  // sortModel: any = [
+  //   {
+  //     sortId: 0,
+  //     sortName: 'ล่าสุด'
+  //   },
+  //   {
+  //     sortId: 1,
+  //     sortName: 'สินค้าขายดี'
+  //   },
+  //   {
+  //     sortId: 2,
+  //     sortName: 'ราคา'
+  //   }
+  // ];
 
   productData: any = {
     products: []
@@ -50,16 +51,17 @@ export class MyProductComponent implements OnInit {
   selectedProduct: any = [];
   checked: boolean = false;
   // sortIndex: number = 0;
-
+  tabStatus: any = 'all';
   constructor(
     public route: Router,
     public restApi: RestApiService,
     public dataService: DataService,
     public dialog: MatDialog,
+    private spinner: NgxSpinnerService,
   ) { }
 
   ngOnInit() {
-    this.getProduct('all');
+    this.getProduct(this.tabStatus);
   }
 
   onLinkClick(event) {
@@ -67,17 +69,23 @@ export class MyProductComponent implements OnInit {
     this.selectedProduct = [];
     this.pageData.name = '';
     if (event.index === 0) {
-      this.getProduct('all');
+      this.tabStatus = 'all';
+      this.getProduct(this.tabStatus);
     } else if (event.index === 1) {
-      this.getProduct('sell');
+      this.tabStatus = 'sell';
+      this.getProduct(this.tabStatus);
     } else if (event.index === 2) {
-      this.getProduct('outofstock');
+      this.tabStatus = 'outofstock';
+      this.getProduct(this.tabStatus);
     } else if (event.index === 3) {
-      this.getProduct('suspended');
+      this.tabStatus = 'suspended';
+      this.getProduct(this.tabStatus);
     }
   }
 
   async getProduct(status) {
+    console.log(status)
+    this.spinner.show();
     this.shopUser = window.localStorage.getItem(Constants.URL() + '@usershop') ? JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop')) : null;
 
     this.pageData = {
@@ -87,10 +95,12 @@ export class MyProductComponent implements OnInit {
       page: this.pageData.page,
       limit: this.pageData.limit
     };
+    console.log(this.pageData)
     try {
       let data: any = await this.restApi.post(Constants.URL() + '/api/product-shop-list', this.pageData);
       if (data['status'] === 200) {
         this.productData = data.data;
+        this.spinner.hide();
         console.log(this.productData);
         this.tabs = data.data.tabs;
         if (this.productData && this.productData.length === 0) {
@@ -98,6 +108,7 @@ export class MyProductComponent implements OnInit {
         }
       }
     } catch (error) {
+      this.spinner.show();
       this.dataService.error("โหลดข้อมูลล้มเหลว กรุณาลองใหม่อีกครั้ง")
     }
   }
@@ -114,29 +125,29 @@ export class MyProductComponent implements OnInit {
     this.route.navigate(['/info-product'], { queryParams: { productid: productid } });
   }
 
-  search(event, status) {
+  search(event) {
+    console.log(this.tabStatus)
     if (event.keyCode == 13) {
       this.pageData.page = 1;
-      console.log(status)
-      this.getProduct(status);
+      this.getProduct(this.tabStatus);
     }
   }
 
-  previos(status) {
+  previos() {
     this.pageData.page--;
-    this.getProduct(status);
+    this.getProduct(this.tabStatus);
   }
 
-  page(item, status) {
+  page(item) {
     if (this.pageData.page !== item) {
       this.pageData.page = item;
-      this.getProduct(status);
+      this.getProduct(this.tabStatus);
     }
   }
 
-  next(status) {
+  next() {
     this.pageData.page++;
-    this.getProduct(status);
+    this.getProduct(this.tabStatus);
   }
 
   checkboxOptions(event, item) {
@@ -162,7 +173,7 @@ export class MyProductComponent implements OnInit {
         this.showDelete = false;
       }
     }
-    console.log(this.selectedProduct);
+    // console.log(this.selectedProduct);
   }
 
   onselectAll(event) {
@@ -177,15 +188,25 @@ export class MyProductComponent implements OnInit {
         this.selectedProduct = [];
       }
     });
-    console.log(this.selectedProduct);
+    // console.log(this.selectedProduct);
   }
 
   openDialog(): void {
     const dialogRef = this.dialog.open(ModalDeleteProductComponent, {
-      width: '700px'
+      width: '700px',
+      hasBackdrop: true,
+      data: JSON.parse(JSON.stringify(this.selectedProduct))
     });
 
     dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.showDelete = false;
+        this.getProduct(this.tabStatus);
+      }
+      else {
+        // this.showDelete = false;
+        // this.selectedProduct = [];
+      }
     });
   }
 

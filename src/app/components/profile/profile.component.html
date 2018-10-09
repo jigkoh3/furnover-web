@@ -251,7 +251,7 @@
           </div>
         </div>
       </div>
-      <div padding-bottom *ngIf="this.dataService.message && this.dataService.message">
+      <div padding-bottom *ngIf="dataService.message">
         <message class="text-center" [type]="dataService.messageType" [message]="dataService.message"></message>
       </div>
     </div>
