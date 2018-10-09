@@ -46,6 +46,7 @@ export class InfoProductComponent implements OnInit {
   toggleSubMenu = false;
   shippings: Array<any> = [];
   stateSubmenu: Array<any> = [];
+  stateSubName: Array<any> = [];
   constructor(private restApi: RestApiService, private spinner: NgxSpinnerService) { }
 
   ngOnInit() {
@@ -70,13 +71,28 @@ export class InfoProductComponent implements OnInit {
     }
   }
 
-  expanChildren(item) {
-    this.stateSubmenu.push({
-      name: item.name,
-      items: item.children
+  expanChildren(index, item) {
+    const stateNames = this.stateSubmenu.filter(el => {
+      return el.name === item.name;
     });
-    console.log(this.stateSubmenu);
+    if (stateNames.length <= 0) {
+      this.stateSubmenu.push({
+        name: item.name,
+        items: item.children
+      });
+      this.stateSubName.push(item.name);
+    } else {
+      const idx = this.stateSubName.indexOf(item.name);
+      if (idx === -1) {
+        if (index !== this.stateSubName.length + 1) {
+          this.stateSubName.push(item.name);
+        }
+      } else {
+        this.stateSubName[idx] = item.name;
+      }
+    }
   }
+
 
   expansubMenu() {
     if (this.toggleSubMenu) {
