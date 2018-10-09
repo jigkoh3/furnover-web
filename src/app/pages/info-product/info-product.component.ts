@@ -46,6 +46,8 @@ export class InfoProductComponent implements OnInit {
   toggleSubMenu = false;
   shippings: Array<any> = [];
   stateSubmenu: Array<any> = [];
+  wholesaleList: Array<any> = [];
+
   constructor(private restApi: RestApiService, private spinner: NgxSpinnerService) { }
 
   ngOnInit() {
@@ -68,6 +70,18 @@ export class InfoProductComponent implements OnInit {
       console.log(error);
       this.spinner.hide();
     }
+  }
+
+  addWholesale() {
+    this.wholesaleList.push({
+      min: 0,
+      max: 0,
+      price: 0
+    });
+  }
+
+  delWholesale(index) {
+    this.wholesaleList.splice(index, 1);
   }
 
   expanChildren(index, item) {
@@ -204,8 +218,10 @@ export class InfoProductComponent implements OnInit {
           price: this.price,
           stock: this.stock
         }];
-        this.data.category_id = this.stateSubmenu[this.stateSubmenu.length - 1]._id;
-        console.log(this.findParent(this.resData.categories, this.stateSubmenu[this.stateSubmenu.length - 1]));
+        this.data.category_id = this.stateSubmenu[this.stateSubmenu.length - 1] ? this.stateSubmenu[this.stateSubmenu.length - 1]._id : '';
+        this.data.wholesale = this.wholesaleList;
+        console.log(this.data);
+        // console.log(this.findParent(this.resData.categories, this.stateSubmenu[this.stateSubmenu.length - 1]));
         const res: any = await this.restApi.post(Constants.URL() + '/api/product', this.data);
         console.log(res);
         this.spinner.hide();
@@ -216,23 +232,23 @@ export class InfoProductComponent implements OnInit {
     }
   }
 
-  findParent(items, item) {
-    var member, i, array;
-    for (member in items) {
-      if (
-        items.hasOwnProperty(member) &&
-        typeof items[member] === "object" &&
-        items[member] instanceof Array
-      ) {
-        array = items[member].children;
-        for (i = 0; i < array.length; i += 1) {
-          if (array[i]._id === item.parent) {
-            return array;
-          }
-        }
-      }
-    }
-  }
+  // findParent(items, item) {
+  //   var member, i, array;
+  //   for (member in items) {
+  //     if (
+  //       items.hasOwnProperty(member) &&
+  //       typeof items[member] === "object" &&
+  //       items[member] instanceof Array
+  //     ) {
+  //       array = items[member].children;
+  //       for (i = 0; i < array.length; i += 1) {
+  //         if (array[i]._id === item.parent) {
+  //           return array;
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
 
 
 }
