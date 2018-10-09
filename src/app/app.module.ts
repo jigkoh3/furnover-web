@@ -40,6 +40,7 @@ import { ShopCategoryComponent } from './pages/shop-category/shop-category.compo
 import { AccountComponent } from './pages/account/account.component';
 import { InfoShopCategoryComponent } from './pages/info-shop-category/info-shop-category.component';
 import { MenuMarketingComponent } from './pages/menu-marketing/menu-marketing.component';
+import { ModalDeleteProductComponent } from './pages/modals/modal-delete-product/modal-delete-product.component';
 
 @NgModule({
   declarations: [
@@ -73,7 +74,8 @@ import { MenuMarketingComponent } from './pages/menu-marketing/menu-marketing.co
     SettingPasswordComponent,
     AccountComponent,
     InfoShopCategoryComponent,
-    MenuMarketingComponent
+    MenuMarketingComponent,
+    ModalDeleteProductComponent
   ],
   entryComponents: [
     ModalCreateBankAccountComponent,
@@ -81,7 +83,8 @@ import { MenuMarketingComponent } from './pages/menu-marketing/menu-marketing.co
     ModalPrepareShippingComponent,
     ModalInfoBankAccountComponent,
     ModalCompleteComponent,
-    ModalDeleteBankAccountComponent
+    ModalDeleteBankAccountComponent,
+    ModalDeleteProductComponent
   ],
   imports: [
     BrowserModule,

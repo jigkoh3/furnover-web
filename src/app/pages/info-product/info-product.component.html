@@ -71,8 +71,8 @@
               <div class="ar-down">
                 <mat-icon>keyboard_arrow_down</mat-icon>
               </div>
-              <span *ngFor="let stateName of stateSubName;let i = index">{{stateName}} <span *ngIf="stateSubName.length !== i + 1"> > </span> </span>
-              <span *ngIf="stateSubName.length <= 0">เลือกหมวดหมู่</span>
+              <span *ngFor="let state of stateSubmenu;let i = index">{{state.name}} <span *ngIf="stateSubmenu.length !== i + 1"> > </span> </span>
+              <span *ngIf="stateSubmenu.length <= 0">เลือกหมวดหมู่</span>
               <div class="row" *ngIf="toggleSubMenu">
                 <div class="col-4">
                   <div class="row box-submenu">
