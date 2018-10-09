@@ -156,9 +156,9 @@ export class InfoShopCategoryComponent implements OnInit {
           setTimeout(() => {
             this.categoryCompele = true;
           }, 500);
-
-          this.spinner.hide();
         }
+
+        this.spinner.hide();
       } else {
         this.categoryData.shop_id = this.page.shop_id;
         let respone: any = await this.restApi.post(
@@ -176,8 +176,8 @@ export class InfoShopCategoryComponent implements OnInit {
           setTimeout(() => {
             this.categoryCompele = true;
           }, 500);
-          this.spinner.hide();
         }
+        this.spinner.hide();
       }
       this.isEdit = false;
     } catch (error) {
