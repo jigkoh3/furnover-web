@@ -82,6 +82,7 @@ export class ProfileSettingComponent implements OnInit {
       let data: any = await this.restApi.put(Constants.URL() + '/api/user/' + user._id, user);
       if (data['status'] === 200) {
         this.shopUser.profileImageURL = user.profileImageURL;
+        window.localStorage.setItem(Constants.URL() + '@usershop', JSON.stringify(data.data));
         this.dataService.success('บันทึกข้อมูลสำเร็จ');
         setTimeout(() => {
           this.dataService.success('');
