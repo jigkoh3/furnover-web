@@ -46,7 +46,6 @@ export class InfoProductComponent implements OnInit {
   toggleSubMenu = false;
   shippings: Array<any> = [];
   stateSubmenu: Array<any> = [];
-  stateSubName: Array<any> = [];
   constructor(private restApi: RestApiService, private spinner: NgxSpinnerService) { }
 
   ngOnInit() {
@@ -72,34 +71,35 @@ export class InfoProductComponent implements OnInit {
   }
 
   expanChildren(index, item) {
-    const stateNames = this.stateSubmenu.filter(el => {
-      return el.name === item.name;
+    const stateIndex = this.stateSubmenu.findIndex(el => {
+      return el._id === item._id || el.index === index;
     });
-    if (stateNames.length <= 0) {
+    if (stateIndex === -1) {
       this.stateSubmenu.push({
+        _id: item._id,
         name: item.name,
-        items: item.children
+        items: item.children,
+        index: index
       });
-      this.stateSubName.push(item.name);
     } else {
-      const idx = this.stateSubName.indexOf(item.name);
-      if (idx === -1) {
-        if (index !== this.stateSubName.length + 1) {
-          this.stateSubName.push(item.name);
-        }
-      } else {
-        this.stateSubName[idx] = item.name;
-      }
+      this.stateSubmenu.splice(stateIndex, this.stateSubmenu.length - stateIndex);
+      this.stateSubmenu.push({
+        _id: item._id,
+        name: item.name,
+        items: item.children,
+        index: index
+      });
+    }
+    if (item.children.length === 0) {
+      setTimeout(() => {
+        this.toggleSubMenu = false;
+      }, 100);
     }
   }
 
 
   expansubMenu() {
-    if (this.toggleSubMenu) {
-      this.toggleSubMenu = false;
-    } else {
-      this.toggleSubMenu = true;
-    }
+    this.toggleSubMenu = true;
   }
 
   toggleEditShippingPrice(num) {
@@ -204,13 +204,32 @@ export class InfoProductComponent implements OnInit {
           price: this.price,
           stock: this.stock
         }];
-        console.log(this.data);
+        this.data.category_id = this.stateSubmenu[this.stateSubmenu.length - 1]._id;
+        console.log(this.findParent(this.resData.categories, this.stateSubmenu[this.stateSubmenu.length - 1]));
         const res: any = await this.restApi.post(Constants.URL() + '/api/product', this.data);
         console.log(res);
         this.spinner.hide();
       } catch (error) {
         console.log(error);
         this.spinner.hide();
+      }
+    }
+  }
+
+  findParent(items, item) {
+    var member, i, array;
+    for (member in items) {
+      if (
+        items.hasOwnProperty(member) &&
+        typeof items[member] === "object" &&
+        items[member] instanceof Array
+      ) {
+        array = items[member].children;
+        for (i = 0; i < array.length; i += 1) {
+          if (array[i]._id === item.parent) {
+            return array;
+          }
+        }
       }
     }
   }
