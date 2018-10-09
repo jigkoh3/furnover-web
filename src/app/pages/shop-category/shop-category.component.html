@@ -283,7 +283,7 @@
                   <mat-slide-toggle class="setting-toggle" [(ngModel)]="item.status" (change)="onChangeStatus(item)"></mat-slide-toggle>
                 </div>
                 <div class="col-6 col-md-2 no-padding-div" style="text-align: center">
-                  <button mat-icon-button>
+                  <button mat-icon-button (click)="deleteCate(item)">
                     <mat-icon svgIcon="del" class="setting-icon-del"></mat-icon>
                   </button>
                 </div>
