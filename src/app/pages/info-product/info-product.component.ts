@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RestApiService } from '../../providers/rest-api-service/rest-api.service';
 import { Constants } from '../../app.constants';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { Router } from '@angular/router';
 
 export interface PeriodicElement {
   name1: string;
@@ -48,7 +49,7 @@ export class InfoProductComponent implements OnInit {
   stateSubmenu: Array<any> = [];
   wholesaleList: Array<any> = [];
 
-  constructor(private restApi: RestApiService, private spinner: NgxSpinnerService) { }
+  constructor(private restApi: RestApiService, private spinner: NgxSpinnerService, public route: Router) { }
 
   ngOnInit() {
     this.getInitData();
@@ -225,6 +226,7 @@ export class InfoProductComponent implements OnInit {
         const res: any = await this.restApi.post(Constants.URL() + '/api/product', this.data);
         console.log(res);
         this.spinner.hide();
+        this.route.navigate(['my-product']);
       } catch (error) {
         console.log(error);
         this.spinner.hide();
