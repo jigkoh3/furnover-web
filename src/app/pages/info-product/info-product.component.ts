@@ -262,6 +262,7 @@ export class InfoProductComponent implements OnInit {
         }];
         this.data.category_id = this.stateSubmenu[this.stateSubmenu.length - 1] ? this.stateSubmenu[this.stateSubmenu.length - 1]._id : '';
         this.data.wholesale = this.wholesaleList;
+        this.data.images = this.images;
         console.log(this.data);
         // console.log(this.findParent(this.resData.categories, this.stateSubmenu[this.stateSubmenu.length - 1]));
         const res: any = await this.restApi.post(Constants.URL() + '/api/product', this.data);
