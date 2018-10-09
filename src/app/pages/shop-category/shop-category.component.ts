@@ -43,7 +43,7 @@ export class ShopCategoryComponent implements OnInit {
       const userShop: any = JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop'));
       let res: any = await this.restApi.post(Constants.URL() + '/api/my-category', { shop_id: userShop.shop._id });
       this.modelData = res.data;
-      // console.log(this.modelData)
+      console.log(this.modelData)
       this.spinner.hide();
     } catch (error) {
       this.spinner.hide();
@@ -103,7 +103,7 @@ export class ShopCategoryComponent implements OnInit {
       await this.restApi.delete(Constants.URL() + '/api/categoryShop/' + item._id);
       this.getCat();
       this.spinner.hide();
-      console.log(this.modelData)
+      // console.log(this.modelData)
     } catch (error) {
       this.spinner.hide();
       this.dataService.error('ลบข้อมูลไม่สำเร็จ');
