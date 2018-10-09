@@ -236,8 +236,22 @@ table {
 }
 
 .expan {
-    height: 300px;
+    height: auto;
+    min-height: 200px;
     position: absolute;
     z-index: 999;
     background-color: #ffffff;
+}
+
+.box-submenu {
+    padding: 1.2rem;
+    color: #8d8d8d;
+}
+
+.sub-menu {
+    font-size: 1rem;
+}
+
+.sub-menu:hover {
+    background-color: #f0f0f0;
 }

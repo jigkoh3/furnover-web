@@ -43,8 +43,10 @@ export class InfoProductComponent implements OnInit {
   mainOptions_2: Array<any> = [];
   subOptions_1: Array<any> = [];
   subOptions_2: Array<any> = [];
-
+  toggleSubMenu = false;
   shippings: Array<any> = [];
+  stateSubmenu: Array<any> = [];
+  stateSubName: Array<any> = [];
   constructor(private restApi: RestApiService, private spinner: NgxSpinnerService) { }
 
   ngOnInit() {
@@ -52,6 +54,7 @@ export class InfoProductComponent implements OnInit {
   }
 
   async getInitData() {
+    this.spinner.show();
     try {
       const userShop: any = JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop'));
       const data: any = {
@@ -60,9 +63,42 @@ export class InfoProductComponent implements OnInit {
       };
       const res: any = await this.restApi.post(Constants.URL() + '/api/product-item', data);
       this.resData = res.data;
+      this.spinner.hide();
       console.log(res);
     } catch (error) {
       console.log(error);
+      this.spinner.hide();
+    }
+  }
+
+  expanChildren(index, item) {
+    const stateNames = this.stateSubmenu.filter(el => {
+      return el.name === item.name;
+    });
+    if (stateNames.length <= 0) {
+      this.stateSubmenu.push({
+        name: item.name,
+        items: item.children
+      });
+      this.stateSubName.push(item.name);
+    } else {
+      const idx = this.stateSubName.indexOf(item.name);
+      if (idx === -1) {
+        if (index !== this.stateSubName.length + 1) {
+          this.stateSubName.push(item.name);
+        }
+      } else {
+        this.stateSubName[idx] = item.name;
+      }
+    }
+  }
+
+
+  expansubMenu() {
+    if (this.toggleSubMenu) {
+      this.toggleSubMenu = false;
+    } else {
+      this.toggleSubMenu = true;
     }
   }
 
