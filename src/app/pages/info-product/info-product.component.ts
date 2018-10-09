@@ -96,7 +96,14 @@ export class InfoProductComponent implements OnInit {
   bindBack() {
     this.data = this.resData.product;
     this.images = this.data.images;
-    //
+    this.data.categories_tree.forEach((el, i) => {
+      this.stateSubmenu.push({
+        _id: el._id,
+        name: el.name,
+        items: el.children,
+        index: i
+      });
+    });
     if (this.data.prices.length > 0 && this.data.prices[0].name === 'normal') {
       this.price = this.data.prices[0].price;
       this.stock = this.data.prices[0].stock;
