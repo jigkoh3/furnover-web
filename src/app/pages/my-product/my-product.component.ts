@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { Constants } from '../../app.constants';
 import { RestApiService } from '../../providers/rest-api-service/rest-api.service';
 import { DataService } from '../../providers/data-service/data.service';
+import { MatDialog } from '@angular/material';
+import { ModalDeleteProductComponent } from '../modals/modal-delete-product/modal-delete-product.component';
 @Component({
   selector: 'app-my-product',
   templateUrl: './my-product.component.html',
@@ -44,12 +46,16 @@ export class MyProductComponent implements OnInit {
     limit: 30
   };
 
+  showDelete: boolean = false;
+  selectedProduct: any = [];
+  checked: boolean = false;
   // sortIndex: number = 0;
-  
+
   constructor(
     public route: Router,
     public restApi: RestApiService,
-    public dataService: DataService
+    public dataService: DataService,
+    public dialog: MatDialog,
   ) { }
 
   ngOnInit() {
@@ -57,6 +63,8 @@ export class MyProductComponent implements OnInit {
   }
 
   onLinkClick(event) {
+    this.showDelete = false;
+    this.selectedProduct = [];
     this.pageData.name = '';
     if (event.index === 0) {
       this.getProduct('all');
@@ -71,7 +79,7 @@ export class MyProductComponent implements OnInit {
 
   async getProduct(status) {
     this.shopUser = window.localStorage.getItem(Constants.URL() + '@usershop') ? JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop')) : null;
-    
+
     this.pageData = {
       shop_id: this.shopUser.shop_id,
       status: status,
@@ -102,7 +110,7 @@ export class MyProductComponent implements OnInit {
     this.route.navigate(['/info-product']);
   }
 
-  search(event,status) {
+  search(event, status) {
     if (event.keyCode == 13) {
       this.pageData.page = 1;
       console.log(status)
@@ -115,7 +123,7 @@ export class MyProductComponent implements OnInit {
     this.getProduct(status);
   }
 
-  page(item,status) {
+  page(item, status) {
     if (this.pageData.page !== item) {
       this.pageData.page = item;
       this.getProduct(status);
@@ -125,6 +133,56 @@ export class MyProductComponent implements OnInit {
   next(status) {
     this.pageData.page++;
     this.getProduct(status);
+  }
+
+  checkboxOptions(event, item) {
+    if (event.checked) {
+      this.showDelete = true;
+      this.selectedProduct.push(item);
+      if (this.productData.products.length === this.selectedProduct.length) {
+        this.checked = true;
+      }
+    } else {
+      if (this.selectedProduct.length >= 1) {
+        for (let index = 0; index < this.selectedProduct.length; index++) {
+          const data = this.selectedProduct[index];
+          if (data === item) {
+            this.selectedProduct.splice(index, 1);
+            this.checked = false;
+          }
+        }
+        if (this.selectedProduct <= 0) {
+          this.showDelete = false;
+        }
+      } else {
+        this.showDelete = false;
+      }
+    }
+    console.log(this.selectedProduct);
+  }
+
+  onselectAll(event) {
+    this.selectedProduct = [];
+    this.productData.products.forEach(selectItem => {
+      if (event.checked) {
+        selectItem.checked = true;
+        this.selectedProduct.push(selectItem);
+      } else {
+        selectItem.checked = false;
+        this.showDelete = false;
+        this.selectedProduct = [];
+      }
+    });
+    console.log(this.selectedProduct);
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(ModalDeleteProductComponent, {
+      width: '700px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+    });
   }
 
 }
