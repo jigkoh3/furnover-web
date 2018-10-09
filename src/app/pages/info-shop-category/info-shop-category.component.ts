@@ -41,9 +41,11 @@ export class InfoShopCategoryComponent implements OnInit {
         this.actRoute.queryParams.subscribe(params => {
             console.log(params);
             if (params['cateID']) {
-                this.isEdit = true;
-            } else {
                 this.isEdit = false;
+                this.categoryData._id = params['cateID'];
+                this.getcategoryData();
+            } else {
+                this.isEdit = true;
             }
         })
         this.getDataProduct();
@@ -83,10 +85,24 @@ export class InfoShopCategoryComponent implements OnInit {
             return false;
         }
     }
-   async onSaveData() {
+    async onSaveData() {
         // console.log('Save ได้นะจะ')
-        console.log(this.categoryData.name);
-        let respone = await this.restApi.post(Constants.URL() + '/api/categoryShop/',this.categoryData);
+        console.log(this.isEdit);
+        if (this.categoryData._id) {
+            this.categoryData.shop_id = this.page.shop_id;
+            let respone: any = await this.restApi.put(Constants.URL() + '/api/categoryShop/' + this.categoryData._id, this.categoryData);
+            this.categoryData = respone.data;
+        } else {
+            this.categoryData.shop_id = this.page.shop_id;
+            let respone: any = await this.restApi.post(Constants.URL() + '/api/categoryShop/', this.categoryData);
+            this.categoryData = respone.data;
+        }
+        this.isEdit = false;
     }
+    async  getcategoryData() {
+        var resp: any = await this.restApi.get(Constants.URL() + '/api/categoryShop/' + this.page.cateID);
 
+        this.categoryData = resp.data;
+
+    }
 }
