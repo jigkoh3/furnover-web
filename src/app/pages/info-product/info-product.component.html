@@ -66,8 +66,14 @@
               <textarea matInput rows="4" placeholder="รายละเอียดสินค้า" [(ngModel)]="data.detail"></textarea>
             </mat-form-field>
           </div>
-          <div>
-            <mat-form-field>
+          <div class="row">
+            <div class="col-12 box-select">
+              <div class="ar-down">
+                <mat-icon>keyboard_arrow_down</mat-icon>
+              </div>
+              เสื้อผ้าแฟชั่นผู้ชาย > เสื้อยืด > เสื้อยืดลายทาง
+            </div>
+            <!-- <mat-form-field>
               <mat-select value="" [(ngModel)]="data.category_id">
                 <mat-option value="">
                   เลือกหมวดหมู่
@@ -76,7 +82,7 @@
                   {{item.name}}
                 </mat-option>
               </mat-select>
-            </mat-form-field>
+            </mat-form-field> -->
           </div>
         </div>
       </div>
