@@ -11,30 +11,30 @@
         และอัพหลายๆรูปเพื่อสามารถดูได้หลายๆมุม</p>
     </div>
     <div class="col-2 col-sm-2 col-md-2 txt-right">
-      <p class="header-description">5/9 รูปภาพ</p>
+      <p class="header-description">{{images.length}}/9 รูปภาพ</p>
     </div>
   </div>
 
   <div class="row">
-    <div class="col-12 col-sm-4 col-md-2" *ngFor="let item of [1,2,3,4,5];let i = index">
+    <div class="col-12 col-sm-4 col-md-2" *ngFor="let item of images;let i = index">
       <div class="contrain">
         <div class="tools">
-          <div class="crop">
+          <!-- <div class="crop">
             <mat-icon>crop</mat-icon>
-          </div>
-          <div class="remove">
+          </div> -->
+          <div class="remove" (click)="deleteImg(i)">
             <mat-icon>delete</mat-icon>
           </div>
         </div>
-        <div class="image-move" style="background-image:url('https://fk.lnwfile.com/i5zcqw.jpg')"></div>
+        <img [src]="item.url" alt="image" class="product-img">
         <div *ngIf="i === 0" class="title">
           รูปภาพปก
         </div>
       </div>
     </div>
 
-    <div class="col-12 col-sm-4 col-md-2">
-      <div class="fix-col">
+    <div class="col-12 col-sm-4 col-md-2" *ngIf="images.length < 9">
+      <div class="fix-col" (click)="uploadImg()">
         <p>
           <button mat-fab color="primary">
             <mat-icon>add</mat-icon>
@@ -43,6 +43,9 @@
         <p class="add-txt">เพิ่มรูปภาพใหม่</p>
       </div>
     </div>
+
+    <input type="file" #productImg accept="image/*" [(ngModel)]="productImgModel" (change)="onProductImgChange($event)"
+      style="visibility: hidden;">
   </div>
 
   <div class="row">
@@ -71,7 +74,8 @@
               <div class="ar-down">
                 <mat-icon>keyboard_arrow_down</mat-icon>
               </div>
-              <span *ngFor="let state of stateSubmenu;let i = index">{{state.name}} <span *ngIf="stateSubmenu.length !== i + 1"> > </span> </span>
+              <span *ngFor="let state of stateSubmenu;let i = index">{{state.name}} <span *ngIf="stateSubmenu.length !== i + 1">
+                  > </span> </span>
               <span *ngIf="stateSubmenu.length <= 0">เลือกหมวดหมู่</span>
               <div class="row" *ngIf="toggleSubMenu">
                 <div class="col-4">
@@ -269,6 +273,72 @@
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>
+    </div>
+  </div>
+
+  <!-- wholesale -->
+
+  <div class="row" *ngIf="isShowMainOption1">
+    <div class="col-2 col-sm-2 col-md-2"></div>
+    <div class="col-10 col-sm-10 col-md-10">
+      <div class="row">
+        <div class="col-2">
+          ขายส่ง
+        </div>
+        <div class="col-10 contanner-wholsale">
+          <div class="row">
+            <div class="col-4">
+
+            </div>
+            <div class="col-2">
+              ต่ำสุด
+            </div>
+            <div class="col-2">
+              สูงสุด
+            </div>
+            <div class="col-2">
+              หน่วยราคา
+            </div>
+            <div class="col-2">
+
+            </div>
+          </div>
+          <!-- ///// dynamic input -->
+          <div class="row" *ngFor="let item of wholesaleList;let i = index">
+            <div class="col-4 sale-txt">
+              {{i + 1}}. ช่วงราคา {{i + 1}}
+            </div>
+            <div class="col-2">
+              <mat-form-field>
+                <input matInput placeholder="ต่ำสุด" [(ngModel)]="item.min" type="number">
+              </mat-form-field>
+            </div>
+            <div class="col-2">
+              <mat-form-field>
+                <input matInput placeholder="สูงสุด" [(ngModel)]="item.max" type="number">
+              </mat-form-field>
+            </div>
+            <div class="col-2">
+              <mat-form-field>
+                <input matInput placeholder="฿ หน่วยราคา" [(ngModel)]="item.price" type="number">
+              </mat-form-field>
+            </div>
+            <div class="col-2" (click)="delWholesale(i)">
+              <div class="circle-box">
+                <mat-icon class="ic-position">minimize</mat-icon>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12">
+              <div class="box-btn" (click)="addWholesale()">
+                <mat-icon class="ic-position">add_circle_outline</mat-icon> <span class="txt-icon">เพิ่มช่วงราคา</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
