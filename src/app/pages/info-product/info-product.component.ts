@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { RestApiService } from '../../providers/rest-api-service/rest-api.service';
 import { Constants } from '../../app.constants';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Router } from '@angular/router';
+import * as firebase from 'firebase';
 
 export interface PeriodicElement {
   name1: string;
@@ -19,6 +20,8 @@ const ELEMENT_DATA: PeriodicElement[] = [];
   styleUrls: ['./info-product.component.css']
 })
 export class InfoProductComponent implements OnInit {
+  @ViewChild('productImg') productImg;
+  productImgModel: any;
   data: any = {
     category_id: '',
     images: [],
@@ -48,6 +51,7 @@ export class InfoProductComponent implements OnInit {
   shippings: Array<any> = [];
   stateSubmenu: Array<any> = [];
   wholesaleList: Array<any> = [];
+  images: Array<any> = [];
 
   constructor(private restApi: RestApiService, private spinner: NgxSpinnerService, public route: Router) { }
 
@@ -70,6 +74,43 @@ export class InfoProductComponent implements OnInit {
     } catch (error) {
       console.log(error);
       this.spinner.hide();
+    }
+  }
+
+  uploadImg() {
+    this.productImg.nativeElement.click();
+  }
+
+  uploadTofireBase(base64) {
+    const storageRef = firebase.storage().ref();
+    const fileRandom = Math.floor((Date.now() / 1000) + new Date().getUTCMilliseconds());
+    const uploadTask: any = storageRef.child(`images/uploads/${fileRandom}.jpg`);
+
+    uploadTask.putString(base64, firebase.storage.StringFormat.DATA_URL).then((snapshot) => {
+      uploadTask.getDownloadURL().then(url => {
+        this.images.push({
+          url: url
+        });
+      });
+    });
+  }
+
+  deleteImg(index) {
+    const conf = window.confirm('ยืนยันการลบรูปสินค้า');
+    if (conf) {
+      this.images.splice(index, 1);
+    }
+  }
+
+  onProductImgChange(e) {
+    const fileBrowser = this.productImg.nativeElement;
+    const reader: any = new FileReader();
+    if (fileBrowser.files.length > 0) {
+      reader.readAsDataURL(fileBrowser.files.length > 0 ? fileBrowser.files[0] : null);
+      reader.onload = () => {
+        const base64 = reader.result.replace(/\n/g, '');
+        this.uploadTofireBase(base64);
+      };
     }
   }
 
