@@ -82,6 +82,7 @@ export class InfoProductComponent implements OnInit {
       };
       const res: any = await this.restApi.post(Constants.URL() + '/api/product-item', data);
       this.resData = res.data;
+      this.data = this.resData.product;
       this.spinner.hide();
       console.log(res);
     } catch (error) {
