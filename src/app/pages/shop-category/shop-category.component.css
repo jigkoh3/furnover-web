@@ -1,29 +1,33 @@
 .bg-card-icon {
-    background-color: #4CAF50;
+    transition: none !important;
+    box-shadow: none !important;
+    /* background-color: #4CAF50; */
     width: 45px;
     height: 45px;
 }
 
 .bg-card-icon1 {
-    background-color: orangered;
+    transition: none !important;
+    box-shadow: none !important;
+    /* background-colorgb(3, 3, 3)red; */
     width: 45px;
     height: 45px;
 }
 
 .setting-icon-look {
-    width: 35px;
-    height: 35px;
-    position: relative;
+    width: 45px;
+    /* height: 35px; */
+    /* position: relative;
     top: -15px;
-    left: -17px;
+    left: -17px; */
 }
 
 .setting-icon-hide {
-    width: 35px;
-    height: 35px;
-    position: relative;
+    width: 45px;
+    /* height: 35px; */
+    /* position: relative;
     top: -15px;
-    left: -17px;
+    left: -17px; */
 }
 
 .setting-text-header1 {
@@ -153,4 +157,18 @@
 .padding-left-card {
     padding-left: 60px !important;
     padding-right: 60px !important;
+}
+
+.size-card {
+    height: 110px !important ;
+}
+
+.border-list {
+    /* border-bottom: solid 1px lightgray !important ; */
+    border-top: solid 1px lightgray !important ;
+}
+
+.position-list{
+    position: relative;
+    top: 15px;
 }
