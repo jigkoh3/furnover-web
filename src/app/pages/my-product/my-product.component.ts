@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { Constants } from '../../app.constants';
 import { RestApiService } from '../../providers/rest-api-service/rest-api.service';
 import { DataService } from '../../providers/data-service/data.service';
+import { MatDialog } from '@angular/material';
+import { ModalDeleteProductComponent } from '../modals/modal-delete-product/modal-delete-product.component';
 @Component({
   selector: 'app-my-product',
   templateUrl: './my-product.component.html',
@@ -45,14 +47,15 @@ export class MyProductComponent implements OnInit {
   };
 
   showDelete: boolean = false;
-  arrayId: any = [];
+  selectedProduct: any = [];
   checked: boolean = false;
   // sortIndex: number = 0;
 
   constructor(
     public route: Router,
     public restApi: RestApiService,
-    public dataService: DataService
+    public dataService: DataService,
+    public dialog: MatDialog,
   ) { }
 
   ngOnInit() {
@@ -61,7 +64,7 @@ export class MyProductComponent implements OnInit {
 
   onLinkClick(event) {
     this.showDelete = false;
-    this.arrayId = [];
+    this.selectedProduct = [];
     this.pageData.name = '';
     if (event.index === 0) {
       this.getProduct('all');
@@ -135,42 +138,51 @@ export class MyProductComponent implements OnInit {
   checkboxOptions(event, item) {
     if (event.checked) {
       this.showDelete = true;
-      this.arrayId.push(item._id);
-      if (this.productData.products.length === this.arrayId.length) {
+      this.selectedProduct.push(item);
+      if (this.productData.products.length === this.selectedProduct.length) {
         this.checked = true;
       }
     } else {
-      if (this.arrayId.length >= 1) {
-        for (let index = 0; index < this.arrayId.length; index++) {
-          const data = this.arrayId[index];
-          if (data === item._id) {
-            this.arrayId.splice(index, 1);
+      if (this.selectedProduct.length >= 1) {
+        for (let index = 0; index < this.selectedProduct.length; index++) {
+          const data = this.selectedProduct[index];
+          if (data === item) {
+            this.selectedProduct.splice(index, 1);
             this.checked = false;
           }
         }
-        if (this.arrayId <= 0) {
+        if (this.selectedProduct <= 0) {
           this.showDelete = false;
         }
       } else {
         this.showDelete = false;
       }
     }
-    console.log(this.arrayId);
+    console.log(this.selectedProduct);
   }
 
   onselectAll(event) {
-    this.arrayId = [];
+    this.selectedProduct = [];
     this.productData.products.forEach(selectItem => {
       if (event.checked) {
         selectItem.checked = true;
-        this.arrayId.push(selectItem._id);
+        this.selectedProduct.push(selectItem);
       } else {
         selectItem.checked = false;
         this.showDelete = false;
-        this.arrayId = [];
+        this.selectedProduct = [];
       }
     });
-    console.log(this.arrayId);
+    console.log(this.selectedProduct);
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(ModalDeleteProductComponent, {
+      width: '700px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+    });
   }
 
 }
