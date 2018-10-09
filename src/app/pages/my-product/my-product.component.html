@@ -86,9 +86,12 @@
       </div>
     </div>
     <div class="text-center">
-        <button mat-flat-button color="primary" class="btn-summit" style="margin: 5px;" *ngIf="pageData.page > 1" (click)="previos('all')" >ก่อนหน้า</button>
-        <button mat-flat-button color="primary" class="btn-summit" style="margin: 5px;min-width: unset;" *ngFor="let item of tabs" (click)="page(item,'all')" >{{item}}</button>
-        <button mat-flat-button color="primary" class="btn-summit" style="margin: 5px;"  *ngIf="pageData.page < tabs.length" (click)="next('all')">ต่อไป</button>
+      <button mat-flat-button color="primary" class="btn-summit select" style="margin: 5px;" *ngIf="pageData.page > 1"
+        (click)="previos('all')">ก่อนหน้า</button>
+      <button mat-flat-button color="primary" ngClass="{{pageData.page === (i + 1) ? 'select' : 'un-select'}} btn-summit"
+        style="margin: 5px;min-width: unset;" *ngFor="let item of tabs;let i = index" (click)="page(item,'all')">{{item}}</button>
+      <button mat-flat-button color="primary" class="btn-summit select" style="margin: 5px;" *ngIf="pageData.page < tabs.length"
+        (click)="next('all')">ต่อไป</button>
     </div>
   </mat-tab>
   <mat-tab label="ขายอยู่">
@@ -142,9 +145,12 @@
       </div>
     </div>
     <div class="text-center">
-        <button mat-flat-button color="primary" class="btn-summit" style="margin: 5px;" *ngIf="pageData.page > 1" (click)="previos('sell')" >ก่อนหน้า</button>
-        <button mat-flat-button color="primary" class="btn-summit" style="margin: 5px;min-width: unset;" *ngFor="let item of tabs" (click)="page(item,'sell')" >{{item}}</button>
-        <button mat-flat-button color="primary" class="btn-summit" style="margin: 5px;"  *ngIf="pageData.page < tabs.length" (click)="next('sell')">ต่อไป</button>
+      <button mat-flat-button color="primary" class="btn-summit select" style="margin: 5px;" *ngIf="pageData.page > 1"
+        (click)="previos('sell')">ก่อนหน้า</button>
+      <button mat-flat-button color="primary" ngClass="{{pageData.page === (i + 1) ? 'select' : 'un-select'}} btn-summit"
+        style="margin: 5px;min-width: unset;" *ngFor="let item of tabs;let i = index" (click)="page(item,'sell')">{{item}}</button>
+      <button mat-flat-button color="primary" class="btn-summit select" style="margin: 5px;" *ngIf="pageData.page < tabs.length"
+        (click)="next('sell')">ต่อไป</button>
     </div>
   </mat-tab>
   <mat-tab label="หมด">
@@ -198,9 +204,12 @@
       </div>
     </div>
     <div class="text-center">
-        <button mat-flat-button color="primary" class="btn-summit" style="margin: 5px;" *ngIf="pageData.page > 1" (click)="previos('outofstock')" >ก่อนหน้า</button>
-        <button mat-flat-button color="primary" class="btn-summit" style="margin: 5px;min-width: unset;" *ngFor="let item of tabs" (click)="page(item,'outofstock')" >{{item}}</button>
-        <button mat-flat-button color="primary" class="btn-summit" style="margin: 5px;"  *ngIf="pageData.page < tabs.length" (click)="next('outofstock')">ต่อไป</button>
+      <button mat-flat-button color="primary" class="btn-summit select" style="margin: 5px;" *ngIf="pageData.page > 1"
+        (click)="previos('outofstock')">ก่อนหน้า</button>
+      <button mat-flat-button color="primary" ngClass="{{pageData.page === (i + 1) ? 'select' : 'un-select'}} btn-summit"
+        style="margin: 5px;min-width: unset;" *ngFor="let item of tabs;let i = index" (click)="page(item,'outofstock')">{{item}}</button>
+      <button mat-flat-button color="primary" class="btn-summit select" style="margin: 5px;" *ngIf="pageData.page < tabs.length"
+        (click)="next('outofstock')">ต่อไป</button>
     </div>
   </mat-tab>
   <mat-tab label="ถูกระงับ">
@@ -254,9 +263,12 @@
       </div>
     </div>
     <div class="text-center">
-        <button mat-flat-button color="primary" class="btn-summit" style="margin: 5px;" *ngIf="pageData.page > 1" (click)="previos('suspended')" >ก่อนหน้า</button>
-        <button mat-flat-button color="primary" class="btn-summit" style="margin: 5px;min-width: unset;" *ngFor="let item of tabs" (click)="page(item,'suspended')" >{{item}}</button>
-        <button mat-flat-button color="primary" class="btn-summit" style="margin: 5px;"  *ngIf="pageData.page < tabs.length" (click)="next('suspended')">ต่อไป</button>
+      <button mat-flat-button color="primary" class="btn-summit select" style="margin: 5px;" *ngIf="pageData.page > 1"
+        (click)="previos('suspended')">ก่อนหน้า</button>
+      <button mat-flat-button color="primary" ngClass="{{pageData.page === (i + 1) ? 'select' : 'un-select'}} btn-summit"
+        style="margin: 5px;min-width: unset;" *ngFor="let item of tabs;let i = index" (click)="page(item,'suspended')">{{item}}</button>
+      <button mat-flat-button color="primary" class="btn-summit select" style="margin: 5px;" *ngIf="pageData.page < tabs.length"
+        (click)="next('suspended')">ต่อไป</button>
     </div>
   </mat-tab>
 </mat-tab-group>
