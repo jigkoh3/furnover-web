@@ -290,3 +290,9 @@ table {
     padding-left: 2rem !important;
     border-radius: 4px;
 }
+
+.product-img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}

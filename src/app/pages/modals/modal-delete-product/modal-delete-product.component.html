@@ -1,3 +1,37 @@
-<p>
-  modal-delete-product works!
-</p>
+<div class="row padding-left">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+    <b style="font-size: 1.2rem;">ลบสินค้า</b>
+  </div>
+</div>
+<div class="row padding-left">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+    <span style="font-size: 0.9rem;">คุณแน่ใจหรือไม่ว่าจะลบสินค้า {{products.length}} ชิ้น?</span>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+
+    <div class="row padding" *ngFor="let item of products">
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+        <img [src]="item.image.url" style="width: 100%;">
+      </div>
+      <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 col-xl-9" style="border-bottom: 1px dashed rgb(238, 238, 238);">
+        <span style="vertical-align: -webkit-baseline-middle;"> {{item.name}}</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+<message *ngIf="dataService.message" class="text-center" [type]="dataService.messageType" [message]="dataService.message"></message>
+<div class="row padding-left">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+    <div class="row">
+      <div class="col-xs-2 col-sm-12 col-md-2 col-lg-2 col-xl-2">
+        <button mat-button color="primary" (click)="delete()">ลบ</button>
+      </div>
+      <div class="col-xs-2 col-sm-12 col-md-2 col-lg-2 col-xl-2">
+        <button mat-stroked-button [mat-dialog-close]>ยกเลิก</button>
+      </div>
+    </div>
+  </div>
+</div>
