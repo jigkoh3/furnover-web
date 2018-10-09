@@ -62,7 +62,7 @@
 
 
             <div *ngIf="item.stock <= 0" class="product-item-soldout-overlay">
-              <div class="soldout">ขายแล้ว</div>
+              <div class="soldout">{{item.status === "suspended" ? 'ถูกระงับ':'ขายแล้ว'}}</div>
             </div>
 
             <!-- <div class="product-item__badges">
@@ -157,7 +157,7 @@
                 font-size: 14px;
                 border-radius: 3px;">ขายส่ง</span>
             <div *ngIf="item.stock <= 0" class="product-item-soldout-overlay">
-              <div class="soldout">ขายแล้ว</div>
+              <div class="soldout">{{item.status === "suspended" ? 'ถูกระงับ':'ขายแล้ว'}}</div>
             </div>
           </div>
           <div class="padding">
@@ -229,7 +229,7 @@
                 font-size: 14px;
                 border-radius: 3px;">ขายส่ง</span>
             <div *ngIf="item.stock <= 0" class="product-item-soldout-overlay">
-              <div class="soldout">ขายแล้ว</div>
+              <div class="soldout">{{item.status === "suspended" ? 'ถูกระงับ':'ขายแล้ว'}}</div>
             </div>
           </div>
           <div class="padding">
@@ -301,7 +301,7 @@
                 font-size: 14px;
                 border-radius: 3px;">ขายส่ง</span>
             <div *ngIf="item.stock <= 0" class="product-item-soldout-overlay">
-              <div class="soldout">ขายแล้ว</div>
+              <div class="soldout">{{item.status === "suspended" ? 'ถูกระงับ':'ขายแล้ว'}}</div>
             </div>
           </div>
           <div class="padding">

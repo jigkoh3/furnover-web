@@ -101,6 +101,9 @@ export class InfoShopCategoryComponent implements OnInit {
   deleteItem(i, item) {
     try {
       this.categoryData.items.splice(i, 1);
+      if (this.categoryData.items && this.categoryData.items.length === 0) {
+        this.categoryCompele = false;
+      }
     } catch (error) {}
   }
   checkButtonAdd(item) {
@@ -118,8 +121,14 @@ export class InfoShopCategoryComponent implements OnInit {
   }
   async onSaveData() {
     try {
-      // console.log('Save ได้นะจะ')
-      console.log(this.isEdit);
+      if (
+        this.categoryData.name &&
+        this.categoryData.items &&
+        this.categoryData.items.length === 0
+      ) {
+        this.categoryData.status = false;
+      }
+
       if (this.categoryData._id) {
         this.categoryData.shop_id = this.page.shop_id;
         let respone: any = await this.restApi.put(
@@ -161,23 +170,39 @@ export class InfoShopCategoryComponent implements OnInit {
         Constants.URL() + "/api/categoryShop/" + this.categoryData._id
       );
       this.categoryData = resp.data;
-      this.selectedItem = JSON.parse(JSON.stringify(this.categoryData.items));
+      this.itemSeleted = JSON.parse(JSON.stringify(this.categoryData.items));
     } catch (error) {}
   }
   onBack() {
     this.router.navigate(["/shop-category"]);
   }
-  async onSaveDataProduct() {
+
+  async onUpdateOpenCategory() {
+    this.categoryData.status = true;
     await this.onSaveData();
   }
+
+  async onChangeStatus() {
+    await this.onSaveData();
+  }
+
   checkLogProductChange() {
     let isRetrun = false;
+
+    // console.log(this.categoryData.items);
+
+    // if (this.categoryCompele) {
+    //   isRetrun = false;
+    // } else {
+    //   isRetrun = true;
+    // }
+    // console.log(this.itemSeleted);
     this.itemSeleted.forEach(item => {
       let index = this.categoryData.items.findIndex(cateItem => {
         return item.product_id === cateItem.product_id;
       });
-
-      if (index === -1) {
+      //   console.log(this.categoryData.items)
+      if (index === -1 || this.categoryData.items.length === 0) {
         isRetrun = true;
       }
     });
@@ -187,11 +212,15 @@ export class InfoShopCategoryComponent implements OnInit {
         return item.product_id === cateItem.product_id;
       });
 
-      if (index === -1) {
+      if (index === -1 || this.itemSeleted.length === 0) {
         isRetrun = true;
       }
     });
 
     return isRetrun;
+  }
+
+  onRollbackItems() {
+    this.categoryData.items = JSON.parse(JSON.stringify(this.itemSeleted));
   }
 }
