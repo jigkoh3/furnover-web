@@ -255,3 +255,38 @@ table {
 .sub-menu:hover {
     background-color: #f0f0f0;
 }
+
+.circle-box {
+    background-color: red;
+    border-radius: 100%;
+    width: 32px;
+    height: 32px;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.ic-position {
+    margin-left: 4px;
+    margin-top: -4px;
+}
+
+.sale-txt {
+    padding: 20px 0 0 0 !important;
+}
+
+.txt-icon {
+    position: absolute;
+    margin: -4px 0 0 6px;
+}
+
+.box-btn {
+    width: 120px;
+    color: #05c805;
+    cursor: pointer;
+}
+
+.contanner-wholsale {
+    border: 1px solid #dddddd;
+    padding-left: 2rem !important;
+    border-radius: 4px;
+}
