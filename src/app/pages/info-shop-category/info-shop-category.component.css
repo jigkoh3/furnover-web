@@ -262,3 +262,17 @@
 .card-product {
     padding: 8px 12px 8px 12px !important;
 }
+
+.margin-left {
+    margin-left: 5px !important;
+}
+
+.font-text {
+    font-size: 12px !important;
+    color: rgb(114, 114, 114) !important;
+}
+
+.done-size {
+    width: 10px !important;
+    height: 10px !important;
+}
