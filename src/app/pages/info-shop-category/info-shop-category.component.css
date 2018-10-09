@@ -264,7 +264,7 @@
 }
 
 .margin-left {
-    margin-left: 5px !important;
+    margin-left: 10px !important;
 }
 
 .font-text {
@@ -275,4 +275,7 @@
 .done-size {
     width: 10px !important;
     height: 10px !important;
+}
+.border-radius{
+    border-radius: 30 px !important;
 }

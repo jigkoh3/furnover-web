@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { RestApiService } from '../../providers/rest-api-service/rest-api.service';
 import { Constants } from '../../app.constants';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import * as firebase from 'firebase';
 
 export interface PeriodicElement {
@@ -51,30 +51,69 @@ export class InfoProductComponent implements OnInit {
   shippings: Array<any> = [];
   stateSubmenu: Array<any> = [];
   wholesaleList: Array<any> = [];
+  priceList: Array<any> = [];
   images: Array<any> = [];
 
-  constructor(private restApi: RestApiService, private spinner: NgxSpinnerService, public route: Router) { }
+  constructor(private activatedRoute: ActivatedRoute,
+    private restApi: RestApiService,
+    private spinner: NgxSpinnerService,
+    public route: Router) { }
 
   ngOnInit() {
-    this.getInitData();
+    this.activatedRoute
+      .queryParams
+      .subscribe(params => {
+        if (params['productid']) {
+          const productid = params['productid'];
+          this.getInitData(productid);
+        } else {
+          this.getInitData(null);
+        }
+      });
   }
 
-  async getInitData() {
+  async getInitData(productid) {
     this.spinner.show();
     try {
       const userShop: any = JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop'));
-      const data: any = {
-        product_id: null,
+      const bodyReq: any = {
+        product_id: productid,
         shop_id: userShop.shop._id
       };
-      const res: any = await this.restApi.post(Constants.URL() + '/api/product-item', data);
+      const res: any = await this.restApi.post(Constants.URL() + '/api/product-item', bodyReq);
       this.resData = res.data;
+      if (productid) {
+        this.bindBack();
+      }
       this.spinner.hide();
       console.log(res);
     } catch (error) {
       console.log(error);
       this.spinner.hide();
     }
+  }
+
+  bindBack() {
+    this.data = this.resData.product;
+    this.images = this.data.images;
+    if (this.data.prices.length > 0 && this.data.prices[0].name === 'normal') {
+      this.price = this.data.prices[0].price;
+      this.stock = this.data.prices[0].stock;
+    }
+    this.wholesaleList = this.data.wholesale;
+    this.findNamebyLogistic();
+  }
+
+  findNamebyLogistic() {
+    this.shippings = this.data.shipping;
+    this.resData.logistics.forEach(el1 => {
+      this.data.shipping.forEach(el2 => {
+        if (el1._id === el2.logistic_id) {
+          el2.name = el1.name;
+          el1.isChecked = true;
+        }
+      });
+    });
   }
 
   uploadImg() {

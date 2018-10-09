@@ -121,6 +121,10 @@ export class MyProductComponent implements OnInit {
     this.route.navigate(['/info-product']);
   }
 
+  gotoEditProduct(productid) {
+    this.route.navigate(['/info-product'], { queryParams: { productid: productid } });
+  }
+
   search(event) {
     console.log(this.tabStatus)
     if (event.keyCode == 13) {
