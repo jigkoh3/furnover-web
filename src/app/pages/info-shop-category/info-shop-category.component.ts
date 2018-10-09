@@ -21,12 +21,14 @@ export class InfoShopCategoryComponent implements OnInit {
   };
   categoryCompele: boolean = false;
   isCheckbtnSaveProduct: boolean = false;
-  itemSeleted: Array<any> = [];
+  categoryDataCopy: any = {
+    items: []
+  };
   getProduct: Array<any> = [];
   isEdit: boolean = false;
   page: any = {
     shop_id: "",
-    status: "all",
+    status: "sell",
     name: "",
     page: 1,
     limit: 30
@@ -135,7 +137,6 @@ export class InfoShopCategoryComponent implements OnInit {
         this.categoryData.items.length === 0
       ) {
         this.categoryData.status = false;
-        this.spinner.hide();
       }
 
       if (this.categoryData._id) {
@@ -145,7 +146,6 @@ export class InfoShopCategoryComponent implements OnInit {
           this.categoryData
         );
         this.categoryData = respone.data;
-        this.spinner.hide();
         this.getcategoryData();
 
         if (
@@ -166,7 +166,6 @@ export class InfoShopCategoryComponent implements OnInit {
           this.categoryData
         );
         this.categoryData = respone.data;
-        this.spinner.hide();
 
         this.getcategoryData();
         if (
@@ -181,7 +180,6 @@ export class InfoShopCategoryComponent implements OnInit {
         }
       }
       this.isEdit = false;
-      this.spinner.hide();
     } catch (error) {
       this.spinner.hide();
     }
@@ -193,7 +191,7 @@ export class InfoShopCategoryComponent implements OnInit {
       );
 
       this.categoryData = resp.data;
-      this.itemSeleted = JSON.parse(JSON.stringify(this.categoryData.items));
+      this.categoryDataCopy = JSON.parse(JSON.stringify(this.categoryData));
     } catch (error) {}
   }
   onBack() {
@@ -220,7 +218,7 @@ export class InfoShopCategoryComponent implements OnInit {
     //   isRetrun = true;
     // }
     // console.log(this.itemSeleted);
-    this.itemSeleted.forEach(item => {
+    this.categoryDataCopy.items.forEach(item => {
       let index = this.categoryData.items.findIndex(cateItem => {
         return item.product_id === cateItem.product_id;
       });
@@ -231,11 +229,11 @@ export class InfoShopCategoryComponent implements OnInit {
     });
 
     this.categoryData.items.forEach(item => {
-      let index = this.itemSeleted.findIndex(cateItem => {
+      let index = this.categoryDataCopy.items.findIndex(cateItem => {
         return item.product_id === cateItem.product_id;
       });
 
-      if (index === -1 || this.itemSeleted.length === 0) {
+      if (index === -1 || this.categoryDataCopy.items.length === 0) {
         isRetrun = true;
       }
     });
@@ -244,6 +242,6 @@ export class InfoShopCategoryComponent implements OnInit {
   }
 
   onRollbackItems() {
-    this.categoryData.items = JSON.parse(JSON.stringify(this.itemSeleted));
+    this.categoryData = JSON.parse(JSON.stringify(this.categoryDataCopy));
   }
 }
