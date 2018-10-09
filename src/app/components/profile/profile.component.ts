@@ -74,18 +74,18 @@ export class ProfileSettingComponent implements OnInit {
   }
 
   //Image
-  detectFiles(event) {
+  detectFiles(event, status) {
     this.selectedFiles = event.target.files;
     let files = this.selectedFiles
     let filesIndex = _.range(files.length)
     _.each(filesIndex, (idx) => {
       this.currentUpload = new ClassUpload(files[idx]);
-      this.pushUpload(this.currentUpload);
+      this.pushUpload(this.currentUpload, status);
       // this.upSvc.pushUpload(this.currentUpload)
     })
   }
 
-  pushUpload(upload: ClassUpload) {
+  pushUpload(upload: ClassUpload, status) {
     this.imageArray = [];
     let storageRef = firebase.storage().ref();
     const fileRandom = Math.floor((Date.now() / 1000) + new Date().getUTCMilliseconds());
@@ -118,8 +118,19 @@ export class ProfileSettingComponent implements OnInit {
           this.imageArray.push({ url: downloadURL });
           if (this.imageArray) {
             if (this.imageArray.length === this.selectedFiles.length) {
-              this.shop.images = this.imageArray;
-              console.log(this.shop.images);
+              // this.shop.images = this.imageArray;
+              if (status === 'shopImg') {
+                this.shop.images = this.imageArray;
+              } else if (status === 'coverImg') {
+                console.log(this.imageArray[0])
+                this.shop.coverimage = {
+                  url: this.imageArray[0].url
+                }
+                this.submit();
+              } else if (status === 'profileImg') {
+                console.log(this.imageArray);
+
+              }
               // this.image.emit(this.imageArray);
             }
           }

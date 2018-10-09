@@ -21,6 +21,8 @@
 
       <div class="row grid with-gap setting-card--form">
         <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5 col-xl-5 col-profile">
+            <!-- <img  [src]="shop.coverimage.url"> -->
+
           <div class="seller-meta">
             <div style="background-image: url('https://cf.shopee.co.th/file/4f6573903a0e1181f36d64982ad21e17');" class="cover-photo">
             </div>
@@ -30,7 +32,7 @@
                   <path d="M16 12c-3.3 0-6 2.7-6 6s2.7 6 6 6 6-2.7 6-6-2.7-6-6-6z"></path>
                   <path d="M30 6h-5l-1-2s-.9-2-2-2H10C8.9 2 8 4 8 4L7 6H2C.9 6 0 6.9 0 8v20c0 1.1.9 2 2 2h28c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zM16 26c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8z"></path>
                 </svg> <span style="font-size: 14px; padding-left: 5px;cursor: pointer;">เปลี่ยนรูปปก</span>
-                <input id="file-input" type="file">
+                <input id="file-input" type="file" (change)="detectFiles($event,'coverImg')" accept=".png,.jpg" />
                 <!-- <div style="display:none" class="cropper-masker cropper-masker-block">
                   <div class="cropper-loading"><img src="/images/spinner-balls-g.gif" alt=""></div>
                   <div class="cropper-saving">กำลังบันทึก</div>
@@ -47,7 +49,8 @@
                     <div class="edit">
                       แก้ไข
                     </div>
-                    <input id="file-avatar-input" type="file">
+                    <!-- <input id="file-avatar-input" type="file"> -->
+                    <input id="file-avatar-input" type="file" (change)="detectFiles($event,'profileImg')" accept=".png,.jpg" />
                     <!-- <div style="display:none" class="cropper-masker cropper-masker-block">
                       <div class="cropper-loading"><img src="/images/spinner-balls-g.gif" alt=""></div>
                       <div class="cropper-saving">กำลังบันทึก</div>
@@ -197,7 +200,7 @@
                                 </svg>
                                 <div>อัพโหลดรูปภาพ</div>
                               </div>
-                              <input id="file-uploader-input" type="file" (change)="detectFiles($event)" multiple
+                              <input id="file-uploader-input" type="file" (change)="detectFiles($event,'shopImg')" multiple
                                 accept=".png,.jpg" />
                               <!-- <div style="display:none" class="cropper-masker cropper-masker-block">
                                       <div class="cropper-loading"><img src="/images/spinner-balls-g.gif" alt=""></div>
@@ -237,7 +240,7 @@
                           right: 0;
                           bottom: 2px;
                           color: #9f9f9f;">edit</mat-icon>
-                        <input type="text" matInput placeholder="รายละเอียดร้านค้า">
+                        <input type="text" [(ngModel)]="shop.description" matInput placeholder="รายละเอียดร้านค้า">
                       </mat-form-field>
                       <!-- <textarea spellcheck="false" maxlength="500" class="ember-text-area"></textarea> -->
                     </div>
