@@ -71,12 +71,13 @@ export class MyProductComponent implements OnInit {
 
   async getProduct(status) {
     this.shopUser = window.localStorage.getItem(Constants.URL() + '@usershop') ? JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop')) : null;
+    
     this.pageData = {
       shop_id: this.shopUser.shop_id,
       status: status,
       name: this.pageData.name,
-      page: 1,
-      limit: 30
+      page: this.pageData.page,
+      limit: this.pageData.limit
     };
     try {
       let data: any = await this.restApi.post(Constants.URL() + '/api/product-shop-list', this.pageData);
