@@ -22,7 +22,7 @@
       <div class="col-12 col-md-4 col-sm-4">
         <mat-form-field>
           <mat-icon class="search-ic">search</mat-icon>
-          <input matInput placeholder="ค้นหา" [(ngModel)]="pageData.name" (keydown)="search($event,'all')">
+          <input matInput placeholder="ค้นหา" [(ngModel)]="pageData.name" (keydown)="search($event)">
         </mat-form-field>
       </div>
       <!-- <div class="col-12 col-md-8 col-sm-8 txt-right">
@@ -99,11 +99,11 @@
     </div>
     <div class="text-center" *ngIf="productData.products.length > 0">
       <button mat-flat-button color="primary" class="btn-summit select" style="margin: 5px;" *ngIf="pageData.page > 1"
-        (click)="previos('all')">ก่อนหน้า</button>
+        (click)="previos()">ก่อนหน้า</button>
       <button mat-flat-button color="primary" ngClass="{{pageData.page === (i + 1) ? 'select' : 'un-select'}} btn-summit"
-        style="margin: 5px;min-width: unset;" *ngFor="let item of tabs;let i = index" (click)="page(item,'all')">{{item}}</button>
+        style="margin: 5px;min-width: unset;" *ngFor="let item of tabs;let i = index" (click)="page(item)">{{item}}</button>
       <button mat-flat-button color="primary" class="btn-summit select" style="margin: 5px;" *ngIf="pageData.page < tabs.length"
-        (click)="next('all')">ต่อไป</button>
+        (click)="next()">ต่อไป</button>
     </div>
   </mat-tab>
   <mat-tab label="ขายอยู่">
@@ -129,7 +129,7 @@
       <div class="col-12 col-md-4 col-sm-4">
         <mat-form-field>
           <mat-icon class="search-ic">search</mat-icon>
-          <input matInput placeholder="ค้นหา" [(ngModel)]="pageData.name" (keydown)="search($event,'sell')">
+          <input matInput placeholder="ค้นหา" [(ngModel)]="pageData.name" (keydown)="search($event)">
         </mat-form-field>
       </div>
       <!-- <div class="col-12 col-md-8 col-sm-8 txt-right">
@@ -170,11 +170,11 @@
     </div>
     <div class="text-center" *ngIf="productData.products.length > 0">
       <button mat-flat-button color="primary" class="btn-summit select" style="margin: 5px;" *ngIf="pageData.page > 1"
-        (click)="previos('sell')">ก่อนหน้า</button>
+        (click)="previos()">ก่อนหน้า</button>
       <button mat-flat-button color="primary" ngClass="{{pageData.page === (i + 1) ? 'select' : 'un-select'}} btn-summit"
-        style="margin: 5px;min-width: unset;" *ngFor="let item of tabs;let i = index" (click)="page(item,'sell')">{{item}}</button>
+        style="margin: 5px;min-width: unset;" *ngFor="let item of tabs;let i = index" (click)="page(item)">{{item}}</button>
       <button mat-flat-button color="primary" class="btn-summit select" style="margin: 5px;" *ngIf="pageData.page < tabs.length"
-        (click)="next('sell')">ต่อไป</button>
+        (click)="next()">ต่อไป</button>
     </div>
   </mat-tab>
   <mat-tab label="หมด">
@@ -198,7 +198,7 @@
       <div class="col-12 col-md-4 col-sm-4">
         <mat-form-field>
           <mat-icon class="search-ic">search</mat-icon>
-          <input matInput placeholder="ค้นหา" [(ngModel)]="pageData.name" (keydown)="search($event,'outofstock')">
+          <input matInput placeholder="ค้นหา" [(ngModel)]="pageData.name" (keydown)="search($event)">
         </mat-form-field>
       </div>
       <!-- <div class="col-12 col-md-8 col-sm-8 txt-right">
@@ -239,11 +239,11 @@
     </div>
     <div class="text-center" *ngIf="productData.products.length > 0">
       <button mat-flat-button color="primary" class="btn-summit select" style="margin: 5px;" *ngIf="pageData.page > 1"
-        (click)="previos('outofstock')">ก่อนหน้า</button>
+        (click)="previos()">ก่อนหน้า</button>
       <button mat-flat-button color="primary" ngClass="{{pageData.page === (i + 1) ? 'select' : 'un-select'}} btn-summit"
-        style="margin: 5px;min-width: unset;" *ngFor="let item of tabs;let i = index" (click)="page(item,'outofstock')">{{item}}</button>
+        style="margin: 5px;min-width: unset;" *ngFor="let item of tabs;let i = index" (click)="page(item)">{{item}}</button>
       <button mat-flat-button color="primary" class="btn-summit select" style="margin: 5px;" *ngIf="pageData.page < tabs.length"
-        (click)="next('outofstock')">ต่อไป</button>
+        (click)="next()">ต่อไป</button>
     </div>
   </mat-tab>
   <mat-tab label="ถูกระงับ">
@@ -267,7 +267,7 @@
       <div class="col-12 col-md-4 col-sm-4">
         <mat-form-field>
           <mat-icon class="search-ic">search</mat-icon>
-          <input matInput placeholder="ค้นหา" [(ngModel)]="pageData.name" (keydown)="search($event,'suspended')">
+          <input matInput placeholder="ค้นหา" [(ngModel)]="pageData.name" (keydown)="search($event)">
         </mat-form-field>
       </div>
       <!-- <div class="col-12 col-md-8 col-sm-8 txt-right">
@@ -308,11 +308,11 @@
     </div>
     <div class="text-center" *ngIf="productData.products.length > 0">
       <button mat-flat-button color="primary" class="btn-summit select" style="margin: 5px;" *ngIf="pageData.page > 1"
-        (click)="previos('suspended')">ก่อนหน้า</button>
+        (click)="previos()">ก่อนหน้า</button>
       <button mat-flat-button color="primary" ngClass="{{pageData.page === (i + 1) ? 'select' : 'un-select'}} btn-summit"
-        style="margin: 5px;min-width: unset;" *ngFor="let item of tabs;let i = index" (click)="page(item,'suspended')">{{item}}</button>
+        style="margin: 5px;min-width: unset;" *ngFor="let item of tabs;let i = index" (click)="page(item)">{{item}}</button>
       <button mat-flat-button color="primary" class="btn-summit select" style="margin: 5px;" *ngIf="pageData.page < tabs.length"
-        (click)="next('suspended')">ต่อไป</button>
+        (click)="next()">ต่อไป</button>
     </div>
   </mat-tab>
 </mat-tab-group>

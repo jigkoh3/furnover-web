@@ -62,9 +62,6 @@ export class ProfileSettingComponent implements OnInit {
     this.shopUser = window.localStorage.getItem(Constants.URL() + '@usershop') ? JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop')) : null;
     try {
       let data: any = await this.restApi.put(Constants.URL() + '/api/shop/' + this.shopUser.shop_id, this.shop);
-      console.log(data);
-      // this.shop = data.data;
-      // console.log(this.shop);
       if (data['status'] === 200) {
         this.dataService.success('บันทึกข้อมูลสำเร็จ');
         setTimeout(() => {
