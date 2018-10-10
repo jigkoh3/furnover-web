@@ -45,15 +45,16 @@ export class InfoMyPromotionComponent implements OnInit {
   }
 
   openModalAddProduct() {
+    console.log(this.data);
     const dialogRef = this.dialog.open(ModalSelectProductComponent, {
       width: '1000px',
       height: '90vh',
-      data: { products: [], status: 'sell' }
+      data: { products: this.data.products.length > 0 ? this.data.products : [], status: 'sell' }
     });
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        console.log(result);
+        this.data.products = result;
       }
     });
   }
