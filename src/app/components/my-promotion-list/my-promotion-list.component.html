@@ -23,43 +23,39 @@
               </tr>
             </thead>
             <tbody *ngFor="let item of data">
-              <tr *ngFor="let itm of item.prices">
-                <td> <img class="img-product" [src]="item.img"> {{item.name}}</td>
-
+              <tr *ngFor="let itm of item.prices;let i = index">
+                <td *ngIf="i === 0"><img class="img-product" [src]="item.img"> {{item.name}}</td>
+                <td *ngIf="i !== 0"></td>
                 <td>
                   <mat-slide-toggle></mat-slide-toggle> {{itm.namechoice}}
                 </td>
                 <td> {{itm.oldprice}}</td>
                 <td>
                   <mat-form-field class="text ">
-                    <mat-icon class=" search-ic input-width text-height">
-                    <input  matInput >
-                  </mat-icon>
+                    <mat-icon class="search-ic input-width text-height">
+                      <input matInput>
+                    </mat-icon>
                   </mat-form-field>
                 </td>
                 <td>
-                  <mat-form-field class="text  "> 
-                    <mat-icon class="  search-ic input-width text-height">
-                    <input  matInput >
-                  </mat-icon>
+                  <mat-form-field class="text">
+                    <mat-icon class="search-ic input-width text-height">
+                      <input matInput>
+                    </mat-icon>
                   </mat-form-field>
                 </td>
                 <td>
                   <mat-form-field class="text ">
-                    <mat-icon class="  search-ic input-width text-height">
-                    <input   matInput >
-                  </mat-icon>
+                    <mat-icon class="search-ic input-width text-height">
+                      <input matInput>
+                    </mat-icon>
                   </mat-form-field>
                 </td>
                 <td></td>
-
-
               </tr>
             </tbody>
           </table>
         </div>
-
-
 
         <div>
           <table>
