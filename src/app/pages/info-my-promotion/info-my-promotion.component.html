@@ -1,17 +1,32 @@
-<div class="row">
-  <div class="col-12 del-box">
-    Zone ปุ่มลบ
+<div class="wrapper content">
+  <div class="row">
+    <div class="col-12 del-box">
+      <button mat-stroked-button color="primary" (click)="delete()">
+        <mat-icon>delete_outline</mat-icon> ลบโปรโมชั่น
+      </button>
+    </div>
   </div>
-</div>
 
-<div>
-  <app-my-promotion-header></app-my-promotion-header>
-</div>
+  <div class="row">
+    <div class="col-12">
+      <app-my-promotion-header></app-my-promotion-header>
+    </div>
+  </div>
 
-<div>
-  <button (click)="openModalAddProduct()">เพิ่มสินค้า</button> Zone ปุ่มเสร็จสิ้น
-</div>
+  <div class="row">
+    <div class="col-12 del-box">
+      <button mat-stroked-button color="primary" (click)="openModalAddProduct()">
+        <mat-icon>add</mat-icon> เพิ่มสินค้า
+      </button>
+      <button mat-flat-button class="btn-margin" color="primary" (click)="save()">
+        <mat-icon>done</mat-icon> เสร็จสิ้น
+      </button>
+    </div>
+  </div>
 
-<div>
-  <app-my-promotion-list></app-my-promotion-list>
+  <div class="row">
+    <div class="col-12">
+      <app-my-promotion-list></app-my-promotion-list>
+    </div>
+  </div>
 </div>

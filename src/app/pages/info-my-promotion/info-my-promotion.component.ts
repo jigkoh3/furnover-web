@@ -1,6 +1,10 @@
+import { Constants } from 'src/app/app.constants';
+import { async } from '@angular/core/testing';
 import { Component, OnInit } from '@angular/core';
 import { ModalSelectProductComponent } from '../modals/modal-select-product/modal-select-product.component';
 import { MatDialog } from '@angular/material';
+import { RestApiService } from 'src/app/providers/rest-api-service/rest-api.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-info-my-promotion',
@@ -32,7 +36,10 @@ export class InfoMyPromotionComponent implements OnInit {
     }],
     status: 'soon'
   };
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog,
+    private restApi: RestApiService,
+    private spinner: NgxSpinnerService
+  ) { }
 
   ngOnInit() {
   }
@@ -49,6 +56,33 @@ export class InfoMyPromotionComponent implements OnInit {
         console.log(result);
       }
     });
+  }
+
+  async save() {
+    this.spinner.show();
+    try {
+      const res: any = await this.restApi.post(Constants + '/api/discount', this.data);
+      console.log(res);
+      this.spinner.hide();
+    } catch (error) {
+      console.log(error);
+      this.spinner.hide();
+    }
+  }
+
+  async delete() {
+    const confirm = window.confirm('ยืนยันการลบโปรโมชั่น');
+    if (confirm) {
+      this.spinner.show();
+      try {
+        const res: any = await this.restApi.delete(Constants + '/api/discount/' + this.data._id);
+        console.log(res);
+        this.spinner.hide();
+      } catch (error) {
+        console.log(error);
+        this.spinner.hide();
+      }
+    }
   }
 
 }
