@@ -26,6 +26,14 @@ export const MY_FORMATS = {
 })
 export class MyPromotionHeaderComponent implements OnInit {
   date = new Date();
+  isEdit: boolean = false;
+  data :any = {
+    title: '',
+    start_date:'',
+    end_date:'',
+    start_time:'',
+    end_time: ''
+  };
 
   constructor(
 
@@ -46,12 +54,13 @@ export class MyPromotionHeaderComponent implements OnInit {
       status: "200",
       data: {
         title: "เทสส่วนลด",
-        start_date: "1/5/16",
+        start_date: {year: 2018, month: 9, date: 9},
         end_date: "1/5/16",
         start_time: "9:05 AM",
         end_time: "9:05 PM"
       }
     }
+    this.data = res.data ;
   }
 
 }
