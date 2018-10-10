@@ -17,6 +17,7 @@
         <img [src]="item.image ? item.image.url:''" class="product-image">
         <div class="product-item-soldout-overlay" *ngIf="checkSelected(item)">
           <mat-icon class="selected-icon">check_circle_outline</mat-icon>
+          <p class="product-pricetext">฿{{ item.pricetext }}</p>
         </div>
         <div class="padding-custom">
           <p class="product-name text-nowrap">
