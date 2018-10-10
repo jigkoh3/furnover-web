@@ -56,3 +56,7 @@
 .padding-top-div {
     padding-top: 20px;
 }
+
+.onCursor {
+    cursor: pointer;
+}
