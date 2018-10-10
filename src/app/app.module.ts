@@ -41,6 +41,12 @@ import { AccountComponent } from './pages/account/account.component';
 import { InfoShopCategoryComponent } from './pages/info-shop-category/info-shop-category.component';
 import { MenuMarketingComponent } from './pages/menu-marketing/menu-marketing.component';
 import { ModalDeleteProductComponent } from './pages/modals/modal-delete-product/modal-delete-product.component';
+import { MyPromotionComponent } from './pages/my-promotion/my-promotion.component';
+import { MyPromotionHeaderComponent } from './components/my-promotion-header/my-promotion-header.component';
+import { MyPromotionListComponent } from './components/my-promotion-list/my-promotion-list.component';
+import { ModalSelectProductComponent } from './pages/modals/modal-select-product/modal-select-product.component';
+import { SelectProductComponent } from './components/select-product/select-product.component';
+import { InfoMyPromotionComponent } from './pages/info-my-promotion/info-my-promotion.component';
 
 @NgModule({
   declarations: [
@@ -75,7 +81,13 @@ import { ModalDeleteProductComponent } from './pages/modals/modal-delete-product
     AccountComponent,
     InfoShopCategoryComponent,
     MenuMarketingComponent,
-    ModalDeleteProductComponent
+    ModalDeleteProductComponent,
+    MyPromotionComponent,
+    MyPromotionHeaderComponent,
+    MyPromotionListComponent,
+    ModalSelectProductComponent,
+    SelectProductComponent,
+    InfoMyPromotionComponent
   ],
   entryComponents: [
     ModalCreateBankAccountComponent,
@@ -84,7 +96,8 @@ import { ModalDeleteProductComponent } from './pages/modals/modal-delete-product
     ModalInfoBankAccountComponent,
     ModalCompleteComponent,
     ModalDeleteBankAccountComponent,
-    ModalDeleteProductComponent
+    ModalDeleteProductComponent,
+    ModalSelectProductComponent
   ],
   imports: [
     BrowserModule,

@@ -15,6 +15,8 @@ import { ShopCategoryComponent } from './pages/shop-category/shop-category.compo
 import { AccountComponent } from './pages/account/account.component';
 import { MenuMarketingComponent } from './pages/menu-marketing/menu-marketing.component';
 import { InfoShopCategoryComponent } from './pages/info-shop-category/info-shop-category.component';
+import { MyPromotionComponent } from './pages/my-promotion/my-promotion.component';
+import { InfoMyPromotionComponent } from './pages/info-my-promotion/info-my-promotion.component';
 
 export const routes: Routes = [
     {
@@ -91,5 +93,13 @@ export const routes: Routes = [
     {
         path: 'info-shop-category',
         component: InfoShopCategoryComponent
+    },
+    {
+        path: 'my-promotion',
+        component: MyPromotionComponent
+    },
+    {
+        path: 'info-my-promotion',
+        component: InfoMyPromotionComponent
     }
 ];

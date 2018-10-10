@@ -21,10 +21,8 @@
 
       <div class="row grid with-gap setting-card--form">
         <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5 col-xl-5 col-profile">
-            <!-- <img  [src]="shop.coverimage.url"> -->
-
           <div class="seller-meta">
-            <div style="background-image: url('https://cf.shopee.co.th/file/4f6573903a0e1181f36d64982ad21e17');" class="cover-photo">
+            <div *ngIf="shop && shop.coverimage.url" [ngStyle]="{'background-image': 'url('+ shop.coverimage.url + ')'}" class="cover-photo">
             </div>
             <div class="cover-uploader dropzone">
               <label for="file-input">
@@ -43,7 +41,7 @@
               <!-- <div class="avatar-container"> -->
               <label for="file-avatar-input">
                 <div class="avatar">
-                  <img [src]="shopUser.profileImageURL">
+                  <img *ngIf="shopUser.profileImageURL" [src]="shopUser.profileImageURL">
                   <div class="avatar-uploader dropzone" style="cursor: pointer;">
                     <div class="validation-toast "></div>
                     <div class="edit">
@@ -167,7 +165,7 @@
                 </div>
                 <div class="row edit-row">
                   <div class="col-8 edit-description">รูปภาพร้านค้าจะแสดงอยู่ในโปรไฟล์ร้านค้า</div>
-                  <div class="col-4 edit-state">0 / 5 รูปภาพ</div>
+                  <div class="col-4 edit-state">{{shop.images ? shop.images.length : 0}} / 5 รูปภาพ</div>
                 </div>
                 <div class="shop-desc-media">
                   <div class="banner-manager image-manager is-min">
@@ -200,8 +198,8 @@
                                 </svg>
                                 <div>อัพโหลดรูปภาพ</div>
                               </div>
-                              <input id="file-uploader-input" type="file" (change)="detectFiles($event,'shopImg')" multiple
-                                accept=".png,.jpg" />
+                              <input id="file-uploader-input" type="file" (change)="detectFiles($event,'shopImg')"
+                                multiple accept=".png,.jpg" />
                               <!-- <div style="display:none" class="cropper-masker cropper-masker-block">
                                       <div class="cropper-loading"><img src="/images/spinner-balls-g.gif" alt=""></div>
                                       <div class="cropper-saving">กำลังบันทึก</div>
