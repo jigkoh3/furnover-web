@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material';
+import { ModalSelectProductComponent } from '../modals/modal-select-product/modal-select-product.component';
 
 @Component({
   selector: 'app-my-promotion',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyPromotionComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit() {
+  }
+
+  openModalAddProduct() {
+    const dialogRef = this.dialog.open(ModalSelectProductComponent, {
+      width: '700px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        console.log(result);
+      }
+    });
   }
 
 }

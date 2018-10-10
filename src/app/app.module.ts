@@ -94,7 +94,8 @@ import { SelectProductComponent } from './components/select-product/select-produ
     ModalInfoBankAccountComponent,
     ModalCompleteComponent,
     ModalDeleteBankAccountComponent,
-    ModalDeleteProductComponent
+    ModalDeleteProductComponent,
+    ModalSelectProductComponent
   ],
   imports: [
     BrowserModule,
