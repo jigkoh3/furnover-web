@@ -46,6 +46,7 @@ import { MyPromotionHeaderComponent } from './components/my-promotion-header/my-
 import { MyPromotionListComponent } from './components/my-promotion-list/my-promotion-list.component';
 import { ModalSelectProductComponent } from './pages/modals/modal-select-product/modal-select-product.component';
 import { SelectProductComponent } from './components/select-product/select-product.component';
+import { InfoMyPromotionComponent } from './pages/info-my-promotion/info-my-promotion.component';
 
 @NgModule({
   declarations: [
@@ -85,7 +86,8 @@ import { SelectProductComponent } from './components/select-product/select-produ
     MyPromotionHeaderComponent,
     MyPromotionListComponent,
     ModalSelectProductComponent,
-    SelectProductComponent
+    SelectProductComponent,
+    InfoMyPromotionComponent
   ],
   entryComponents: [
     ModalCreateBankAccountComponent,
