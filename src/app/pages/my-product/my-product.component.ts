@@ -104,7 +104,7 @@ export class MyProductComponent implements OnInit {
         console.log(this.productData);
         this.tabs = data.data.tabs;
         if (this.productData && this.productData.length === 0) {
-          this.dataService.warning('ไม่พบข้อมูลบุคลากร');
+          this.dataService.warning('ไม่พบข้อมูลสินค้า');
         }
       }
     } catch (error) {
