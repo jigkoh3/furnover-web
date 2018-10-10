@@ -19,7 +19,6 @@ export class ModalSelectProductComponent implements OnInit {
 
   onSelectedProductEmit(event) {
     this.datas = event;
-    console.log(this.datas)
   }
 
   onCloseModel() {
