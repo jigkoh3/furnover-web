@@ -20,7 +20,7 @@ export class SettingPasswordComponent implements OnInit {
 
   constructor(
     private restApi: RestApiService,
-    private dataService: DataService,
+    public dataService: DataService,
     private _formBuilder: FormBuilder,
     private spinner: NgxSpinnerService,
 

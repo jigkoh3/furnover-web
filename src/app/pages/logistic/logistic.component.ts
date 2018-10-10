@@ -29,7 +29,7 @@ export class LogisticComponent implements OnInit {
     sanitizer: DomSanitizer,
     public dialog: MatDialog,
     private spinner: NgxSpinnerService,
-    private dataService: DataService,
+    public dataService: DataService,
     private restApi: RestApiService
   ) {
     iconRegistry.addSvgIcon(
