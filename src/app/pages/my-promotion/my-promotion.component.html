@@ -61,8 +61,11 @@
                     </div>
                     <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
                         <div class="padding-left">
-                            <button class="padding-left" mat-flat-button color="primary" (click)="onDetail(item)">
+                            <button mat-flat-button color="primary" (click)="onDetail(item)">
                                 <span>ข้อมูล</span>
+                            </button>
+                            <button class="padding-left" mat-icon-button (click)="onDelete(item)">
+                                <mat-icon>delete</mat-icon>
                             </button>
                         </div>
 
