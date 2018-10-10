@@ -12,12 +12,69 @@
                 <input matInput placeholder="ค้นหา">
             </mat-form-field>
         </div>
-        <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-4">
-            <div class="text-center">
-                <button mat-flat-button color="primary" class="btn-summit select" style="margin: 5px;">ก่อนหน้า</button>
-            </div>
+        <div class="d-none d-sm-block d-md-block d-lg-block d-xl-block col-sm-6 col-md-6 col-lg-8 col-xl-8 text-right">
+            <button mat-flat-button color="primary" (click)="onCreatePromotion()">
+                <mat-icon>add</mat-icon><span style="font-weight: bold;" class="padding-left">โปรโมชั่นส่วนลดใหม่</span>
+            </button>
+        </div>
+        <div class="d-block d-sm-none col-12" (click)="onCreatePromotion()">
+            <button mat-flat-button color="primary">
+                <mat-icon>add</mat-icon><span style="font-weight: bold;" class="padding-left">โปรโมชั่นส่วนลดใหม่</span>
+            </button>
         </div>
 
     </div>
+    <mat-tab-group (selectedTabChange)="onLinkClick($event)" [selectedIndex]="0">
+        <mat-tab label="{{item}}" *ngFor="let item of tabs">
+
+            <mat-list>
+                <div class="row" style="background-color: #f5f5f5;">
+                    <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                        <h3 mat-subheader>ชื่อของรายการ</h3>
+                    </div>
+                    <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                        <h3 mat-subheader>รายการสินค้า</h3>
+                    </div>
+                    <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                        <h3 mat-subheader>จาก</h3>
+                    </div>
+                    <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                        <h3 mat-subheader>ถึง</h3>
+                    </div>
+                    <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                        <h3 mat-subheader>กำลังจัดรายการ</h3>
+                    </div>
+                </div>
+                <!-- <mat-list-item > -->
+                <div class="row" style="border-bottom: 1px solid #e0e0e0;" *ngFor="let item of data">
+                    <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                        <h3 mat-subheader>{{item.title}}</h3>
+                    </div>
+                    <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                        <h3 mat-subheader>{{item.products.length}} รายการ</h3>
+                    </div>
+                    <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                        <h3 mat-subheader>{{item.start_date | date:"dd-MM-yyyy" }} {{item.start_time | date:"HH:MM" }}</h3>
+                    </div>
+                    <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                        <h3 mat-subheader>{{item.start_date | date:"dd-MM-yyyy"}} {{item.start_time | date:"HH:MM"}}</h3>
+                    </div>
+                    <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                        <div class="padding-left">
+                            <button class="padding-left" mat-flat-button color="primary" (click)="onDetail(item)">
+                                <span>ข้อมูล</span>
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- </mat-list-item> -->
+
+            </mat-list>
+
+        </mat-tab>
+
+    </mat-tab-group>
+
 
 </mat-card>
