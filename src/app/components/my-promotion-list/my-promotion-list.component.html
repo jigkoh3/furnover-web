@@ -77,11 +77,14 @@
                           
                           </mat-form-field>
                     </div>
-                    <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">
+                    <div *ngIf="i === 0" class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">
     
                     <mat-icon svgIcon="del" class="setting-icon-del"></mat-icon>
     
     
+                    </div>
+                    <div *ngIf="i !== 0" class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">
+
                     </div>
                   </div>
                 </div>
