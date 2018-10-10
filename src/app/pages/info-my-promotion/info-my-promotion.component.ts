@@ -12,7 +12,25 @@ export class InfoMyPromotionComponent implements OnInit {
     _id: '1234',
     shop_id: '001',
     title: 'ลด 10%',
-
+    start_date: '',
+    start_time: '',
+    end_date: '',
+    end_time: '',
+    products: [{
+      product_id: '001',
+      name: 'โต๊ะ',
+      image: { url: '001.jpg' },
+      prices: [{
+        name: 'ปกติ',
+        price: 100,
+        newprice: 80,
+        percentage: 20,
+        isuse: true,
+        stock: 5
+      }],
+      qty: 5
+    }],
+    status: 'soon'
   };
   constructor(public dialog: MatDialog) { }
 
@@ -21,7 +39,8 @@ export class InfoMyPromotionComponent implements OnInit {
 
   openModalAddProduct() {
     const dialogRef = this.dialog.open(ModalSelectProductComponent, {
-      width: '700px'
+      width: '700px',
+      data: { products: [], status: 'sell' }
     });
 
     dialogRef.afterClosed().subscribe(result => {
