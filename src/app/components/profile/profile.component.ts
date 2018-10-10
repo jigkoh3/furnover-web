@@ -28,7 +28,8 @@ export class ProfileSettingComponent implements OnInit {
     images: [
       // { url: '', }
     ],
-    logistics: []
+    logistics: [],
+    coverimage: {}
   };
   shopUser: any = {
     roles: [],
@@ -73,19 +74,38 @@ export class ProfileSettingComponent implements OnInit {
     }
   }
 
+  async updateImgProfile(image) {
+    let user = window.localStorage.getItem(Constants.URL() + '@usershop') ? JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop')) : null;
+    console.log(user.profileImageURL);
+    user.profileImageURL = image;
+    try {
+      let data: any = await this.restApi.put(Constants.URL() + '/api/user/' + user._id, user);
+      if (data['status'] === 200) {
+        this.shopUser.profileImageURL = user.profileImageURL;
+        window.localStorage.setItem(Constants.URL() + '@usershop', JSON.stringify(data.data));
+        this.dataService.success('บันทึกข้อมูลสำเร็จ');
+        setTimeout(() => {
+          this.dataService.success('');
+        }, 2000);
+      }
+    } catch (error) {
+      this.dataService.error("บันทึกข้อมูลล้มเหลว กรุณาลองใหม่อีกครั้ง")
+    }
+  }
+
   //Image
-  detectFiles(event) {
+  detectFiles(event, status) {
     this.selectedFiles = event.target.files;
     let files = this.selectedFiles
     let filesIndex = _.range(files.length)
     _.each(filesIndex, (idx) => {
       this.currentUpload = new ClassUpload(files[idx]);
-      this.pushUpload(this.currentUpload);
+      this.pushUpload(this.currentUpload, status);
       // this.upSvc.pushUpload(this.currentUpload)
     })
   }
 
-  pushUpload(upload: ClassUpload) {
+  pushUpload(upload: ClassUpload, status) {
     this.imageArray = [];
     let storageRef = firebase.storage().ref();
     const fileRandom = Math.floor((Date.now() / 1000) + new Date().getUTCMilliseconds());
@@ -118,8 +138,19 @@ export class ProfileSettingComponent implements OnInit {
           this.imageArray.push({ url: downloadURL });
           if (this.imageArray) {
             if (this.imageArray.length === this.selectedFiles.length) {
-              this.shop.images = this.imageArray;
-              console.log(this.shop.images);
+              // this.shop.images = this.imageArray;
+              if (status === 'shopImg') {
+                this.shop.images = this.imageArray;
+              } else if (status === 'coverImg') {
+                console.log(this.imageArray[0]);
+                this.shop.coverimage = {
+                  url: this.imageArray[0].url
+                }
+                this.submit();
+              } else if (status === 'profileImg') {
+                console.log(this.imageArray[0]);
+                this.updateImgProfile(this.imageArray[0].url);
+              }
               // this.image.emit(this.imageArray);
             }
           }
