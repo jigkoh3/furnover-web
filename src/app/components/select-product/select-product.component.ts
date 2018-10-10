@@ -40,7 +40,7 @@ export class SelectProductComponent implements OnInit {
     let user = window.localStorage.getItem(Constants.URL() + "@usershop")
       ? JSON.parse(window.localStorage.getItem(Constants.URL() + "@usershop"))
       : null;
-
+    this.productSelected = JSON.parse(JSON.stringify(this.productSelected));
     this.productSelectedCopy = JSON.parse(JSON.stringify(this.productSelected));
     this.pageData.shop_id = user.shop_id;
     this.pageData.status = this.status;
@@ -93,8 +93,8 @@ export class SelectProductComponent implements OnInit {
   onSelectedAll() {
     if (this.checked) {
       this.data.products.forEach(item => {
+        item.product_id = item._id;
         if (this.validateEditProduct(item)) {
-          item.product_id = item._id;
           let index = this.productSelected.findIndex(e => {
             return e.product_id === item._id;
           });
@@ -106,6 +106,7 @@ export class SelectProductComponent implements OnInit {
       });
     } else {
       this.data.products.forEach(item => {
+        item.product_id = item._id;
         if (this.validateEditProduct(item)) {
           let index = this.productSelected.findIndex(e => {
             return e.product_id === item._id;
