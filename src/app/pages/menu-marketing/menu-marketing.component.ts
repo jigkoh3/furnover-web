@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatIconRegistry } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu-marketing',
@@ -11,7 +12,8 @@ export class MenuMarketingComponent implements OnInit {
 
   constructor(
     public iconRegistry: MatIconRegistry,
-    public sanitizer: DomSanitizer
+    public sanitizer: DomSanitizer,
+    public router: Router
   ) {
     iconRegistry.addSvgIcon(
       'local_offer',
@@ -31,6 +33,10 @@ export class MenuMarketingComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  openMyPromotion(){
+    this.router.navigate(['/my-promotion']);
   }
 
 }

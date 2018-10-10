@@ -5,6 +5,7 @@ import { ModalSelectProductComponent } from '../modals/modal-select-product/moda
 import { MatDialog } from '@angular/material';
 import { RestApiService } from 'src/app/providers/rest-api-service/rest-api.service';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-info-my-promotion',
@@ -41,15 +42,26 @@ export class InfoMyPromotionComponent implements OnInit {
   // };
   constructor(public dialog: MatDialog,
     private restApi: RestApiService,
-    private spinner: NgxSpinnerService
+    private spinner: NgxSpinnerService,
+    private activatedRoute: ActivatedRoute
   ) { }
 
   ngOnInit() {
+    this.activatedRoute
+      .queryParams
+      .subscribe(params => {
+        if (params['id']) {
+          const id = params['id'];
+
+        } else {
+
+        }
+      });
   }
 
   openModalAddProduct() {
     const dialogRef = this.dialog.open(ModalSelectProductComponent, {
-      width: '1000px',
+      width: '95vw',
       height: '90vh',
       data: { products: this.data.products.length > 0 ? this.data.products : [], status: 'sell' }
     });
@@ -68,16 +80,21 @@ export class InfoMyPromotionComponent implements OnInit {
     });
   }
 
+  getDataHeader(e) {
+    this.data = e;
+  }
+
   async save() {
-    this.spinner.show();
-    try {
-      const res: any = await this.restApi.post(Constants + '/api/discount', this.data);
-      console.log(res);
-      this.spinner.hide();
-    } catch (error) {
-      console.log(error);
-      this.spinner.hide();
-    }
+    console.log(this.data);
+    // this.spinner.show();
+    // try {
+    //   const res: any = await this.restApi.post(Constants + '/api/discount', this.data);
+    //   console.log(res);
+    //   this.spinner.hide();
+    // } catch (error) {
+    //   console.log(error);
+    //   this.spinner.hide();
+    // }
   }
 
   async delete() {
