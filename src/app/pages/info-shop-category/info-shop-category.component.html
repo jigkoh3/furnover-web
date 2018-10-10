@@ -183,9 +183,9 @@
           <div class="text-center" >
             <button mat-flat-button color="primary" class="btn-summit select" style="margin: 5px;" *ngIf="page.page > 1"
               (click)="previos()">ก่อนหน้า</button>
-            <button mat-flat-button color="primary" ngClass="{{page.page === (i + 1) ? 'select' : 'un-select'}} btn-summit"
-              style="margin: 5px;min-width: unset;" *ngFor="let item of tabs;let i = index" (click)="pageData(item)">{{item}}</button>
-            <button mat-flat-button color="primary" class="btn-summit select" style="margin: 5px;" *ngIf="page.page < tabs.length"
+            <button mat-flat-button color="primary" ngClass="{{page.page === (i + 1) ? 'select' : 'un-select'}}"
+               *ngFor="let item of tabs;let i = index" (click)="pageData(item)">{{item}}</button>
+            <button mat-flat-button color="primary" class="btn-summit select"  *ngIf="page.page < tabs.length"
               (click)="next()">ต่อไป</button>
           </div>
 
