@@ -1,0 +1,42 @@
+.select-product-div {
+    padding: 16px 16px 16px 18px !important;
+}
+
+.product-image {
+    width: 100% !important;
+    height: 200px !important;
+    object-fit: cover !important;
+}
+
+.product-card {
+    padding: 0px !important;
+    cursor: pointer;
+}
+
+.product-name {
+    margin: 0px;
+    font-size: 14px;
+    color: #676767;
+}
+
+.padding-custom {
+    padding: 12px !important;
+}
+
+.select {
+    margin: 5px;
+    min-width: unset;
+}
+
+.un-select {
+    background-color: #e8e8e8 !important;
+    color: #000000 !important;
+    margin: 5px;
+    min-width: unset;
+}
+
+.text-nowrap {
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}

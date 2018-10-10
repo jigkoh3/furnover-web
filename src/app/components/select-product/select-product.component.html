@@ -1,3 +1,33 @@
-<p>
-  select-product works!
-</p>
+<div class="select-product-div">
+  <div class="row">
+    <div class="col-12 text-left">
+      <mat-checkbox [(ngModel)]="checked" (ngModelChange)="onSelectedAll()">เลือกทั้งหมด</mat-checkbox>
+    </div>
+  </div>
+  <div class="row" *ngIf="data && data.products">
+    <div class="col-12 col-xs-6 col-sm-6 col-md-4 col-lg-3" *ngFor="let item of data.products">
+      <mat-card class="product-card" (click)="onSelected(item)">
+        <img [src]="item.image ? item.image.url:''" class="product-image">
+        <!-- <div *ngIf="item.status !== 'suspended' && item.stock === 0" class="product-item-soldout-overlay">
+          
+        </div> -->
+        <div class="padding-custom">
+          <p class="product-name text-nowrap">
+            {{item.name}}
+          </p>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <div class="text-center" *ngIf="data.tabs && data.tabs.length > 0">
+        <button mat-button color="primary" *ngIf="pageData.page > 1" (click)="previos()">ก่อนหน้า</button>
+        <button mat-button color="primary" ngClass="{{pageData.page === (i + 1) ? 'select' : 'un-select'}} btn-summit"
+          *ngFor="let item of data.tabs;let i = index" (click)="page(item)">{{item}}</button>
+        <button mat-flat-button color="primary" *ngIf="pageData.page < data.tabs.length" (click)="next()">ต่อไป</button>
+      </div>
+    </div>
+  </div>
+  <message class="text-center" [type]="dataService.messageType" [message]="dataService.message"></message>
+</div>

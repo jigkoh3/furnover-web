@@ -39,7 +39,8 @@ export class InfoMyPromotionComponent implements OnInit {
 
   openModalAddProduct() {
     const dialogRef = this.dialog.open(ModalSelectProductComponent, {
-      width: '700px',
+      width: '1000px',
+      height: '90vh',
       data: { products: [], status: 'sell' }
     });
 

@@ -4,19 +4,29 @@ import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material";
 @Component({
   selector: "app-modal-select-product",
   templateUrl: "./modal-select-product.component.html",
-  styleUrls: ["./modal-select-product.component.css"]
+  styleUrls: ["./modal-select-product.component.scss"]
 })
 export class ModalSelectProductComponent implements OnInit {
+  datas: Array<any> = [];
   constructor(
-    @Inject(MAT_DIALOG_DATA) public data: any,
+    @Inject(MAT_DIALOG_DATA) public paramiter: any,
     public dialogRef: MatDialogRef<ModalSelectProductComponent>
   ) {
-    console.log(data);
+    console.log(paramiter);
   }
 
   ngOnInit() {}
 
-  closeModel() {
+  onSelectedProductEmit(event) {
+    this.datas = event;
+    console.log(this.datas)
+  }
+
+  onCloseModel() {
     this.dialogRef.close();
+  }
+
+  onConfirmProducts() {
+    this.dialogRef.close(this.datas);
   }
 }
