@@ -80,16 +80,21 @@ export class InfoMyPromotionComponent implements OnInit {
     });
   }
 
+  getDataHeader(e) {
+    this.data = e;
+  }
+
   async save() {
-    this.spinner.show();
-    try {
-      const res: any = await this.restApi.post(Constants + '/api/discount', this.data);
-      console.log(res);
-      this.spinner.hide();
-    } catch (error) {
-      console.log(error);
-      this.spinner.hide();
-    }
+    console.log(this.data);
+    // this.spinner.show();
+    // try {
+    //   const res: any = await this.restApi.post(Constants + '/api/discount', this.data);
+    //   console.log(res);
+    //   this.spinner.hide();
+    // } catch (error) {
+    //   console.log(error);
+    //   this.spinner.hide();
+    // }
   }
 
   async delete() {

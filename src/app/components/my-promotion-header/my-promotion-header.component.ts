@@ -26,7 +26,9 @@ export const MY_FORMATS = {
 })
 export class MyPromotionHeaderComponent implements OnInit {
   date = new Date();
-  isEdit: boolean = false;
+  isEdit = false;
+  _startdate: any;
+  _enddate: any;
   // data :any = {
   //   title: '',
   //   start_date:'',
@@ -44,7 +46,7 @@ export class MyPromotionHeaderComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getDataTest();
+
   }
 
   sendData() {
@@ -52,30 +54,16 @@ export class MyPromotionHeaderComponent implements OnInit {
     this.outputData.emit(this.data);
   }
 
-  getDataTest() {
-    let res = {
-      status: "200",
-      data: {
-        title: "เทสส่วนลด",
-        start_date: "1/5/16",
-        end_date: "1/5/16",
-        start_time: "9:05 AM",
-        end_time: "9:05 PM"
-      }
-    }
-    this.data = res.data;
-  }
-
   startDate(e) {
-    let date = new Date(
+    const date = new Date(
       e._i.year, e._i.month, e._i.date
-    )
+    );
     this.data.start_date = date;
   }
   endDate(e) {
-    let date = new Date(
+    const date = new Date(
       e._i.year, e._i.month, e._i.date
-    )
+    );
     this.data.end_date = date;
   }
 

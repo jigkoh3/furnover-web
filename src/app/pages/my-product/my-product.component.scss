@@ -10,14 +10,25 @@
     text-align: left;
 }
 
+// .select {
+//     font-weight: bold;
+//     cursor: pointer;
+// }
+
+// .un-select {
+//     color: #dadada;
+//     cursor: pointer;
+// }
 .select {
-    font-weight: bold;
-    cursor: pointer;
+    margin: 2px;
+    min-width: unset;
 }
 
 .un-select {
-    color: #dadada;
-    cursor: pointer;
+    background-color: #e8e8e8 !important;
+    color: #000000 !important;
+    margin: 2px;
+    min-width: unset;
 }
 
 .fix-col {

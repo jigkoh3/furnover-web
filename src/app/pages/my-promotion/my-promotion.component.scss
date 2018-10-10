@@ -18,6 +18,10 @@ table {
     overflow: auto;
 }
 
+.mat-list{
+    min-width: 600px;
+}
+
 .mat-list .mat-subheader:first-child,
 .mat-nav-list .mat-subheader:first-child,
 .mat-selection-list .mat-subheader:first-child {
@@ -28,4 +32,45 @@ table {
     
     display: flow-root !important;
     padding: unset !important;
+    
+}
+
+.cdk-overlay-backdrop.cdk-overlay-backdrop-showing {
+    opacity: 1;
+}
+
+.cdk-overlay-dark-backdrop {
+    background: rgba(0,0,0,.288);
+}
+
+.cdk-overlay-backdrop {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    pointer-events: auto;
+    -webkit-tap-highlight-color: transparent;
+    transition: opacity .4s cubic-bezier(.25,.8,.25,1);
+    opacity: 0;
+}
+
+mat-dialog-container{
+    padding-bottom: 0 !important;
+}
+.mat-dialog-container {
+    padding-bottom: 0 !important;
+}
+
+.select {
+    margin: 2px;
+    min-width: unset;
+}
+
+.un-select {
+    background-color: #e8e8e8 !important;
+    color: #000000 !important;
+    margin: 2px;
+    min-width: unset;
 }

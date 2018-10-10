@@ -29,6 +29,10 @@ export class MyPromotionComponent implements OnInit {
     this.getPromotion();
   }
 
+  search(event){
+console.log(event)
+  }
+  
   onLinkClick(event) {
     console.log(event)
   }
@@ -43,9 +47,10 @@ export class MyPromotionComponent implements OnInit {
 
   onDelete(item): void {
     const dialogRef = this.dialog.open(ModalDeleteMyPromotionComponent, {
-      width: '700px',
+      width: '500px',
+      // background-color: 'red',
       hasBackdrop: true,
-      // data: JSON.parse(JSON.stringify(this.selectedProduct))
+      data: JSON.parse(JSON.stringify(item))
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -83,6 +88,18 @@ export class MyPromotionComponent implements OnInit {
       this.spinner.hide();
       this.dataService.error("โหลดข้อมูลล้มเหลว กรุณาลองใหม่อีกครั้ง")
     }
+  }
+
+  previos() {
+    
+  }
+
+  page(item) {
+   
+  }
+
+  next() {
+   
   }
 
 }

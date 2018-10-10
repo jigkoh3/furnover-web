@@ -94,8 +94,9 @@ export class SelectProductComponent implements OnInit {
     if (this.checked) {
       this.data.products.forEach(item => {
         if (this.validateEditProduct(item)) {
+          item.product_id = item._id;
           let index = this.productSelected.findIndex(e => {
-            return e._id === item._id;
+            return e.product_id === item._id;
           });
 
           if (index === -1) {
@@ -107,7 +108,7 @@ export class SelectProductComponent implements OnInit {
       this.data.products.forEach(item => {
         if (this.validateEditProduct(item)) {
           let index = this.productSelected.findIndex(e => {
-            return e._id === item._id;
+            return e.product_id === item._id;
           });
 
           if (index !== -1) {
@@ -127,7 +128,7 @@ export class SelectProductComponent implements OnInit {
     this.checked = true;
     this.data.products.forEach(e => {
       let index = this.productSelected.findIndex(item => {
-        return e._id === item._id;
+        return e._id === item.product_id;
       });
 
       if (index === -1) {
@@ -142,7 +143,7 @@ export class SelectProductComponent implements OnInit {
 
   checkSelected(item) {
     let index = this.productSelected.filter(i => {
-      return i._id === item._id;
+      return i.product_id === item._id;
     });
 
     if (!index[0]) {
@@ -153,9 +154,10 @@ export class SelectProductComponent implements OnInit {
   }
 
   onSelected(item) {
+    item.product_id = item._id;
     if (this.validateEditProduct(item)) {
       let index = this.productSelected.findIndex(i => {
-        return i._id === item._id;
+        return i._id === item.product_id;
       });
 
       if (index === -1 || this.productSelected.length === 0) {
@@ -171,7 +173,7 @@ export class SelectProductComponent implements OnInit {
 
   validateEditProduct(item) {
     let indexCopy = this.productSelectedCopy.findIndex(i => {
-      return i._id === item._id;
+      return i._id === item.product_id;
     });
 
     if (indexCopy === -1) {
