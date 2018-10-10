@@ -1,0 +1,20 @@
+table {
+    width: 100%;
+  }
+  .img-product {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+}thead{
+  background-color: rgb(231, 231, 231) !important;
+}.text{
+  width: 80px !important;
+
+}.border-button{
+  border: 1px solid rgb(150, 142, 142) !important;
+}.text-height{
+  height: 70 px !important;
+}
+.input-width{
+  width: 80px !important ;
+}
