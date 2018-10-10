@@ -140,15 +140,15 @@ export class ProfileSettingComponent implements OnInit {
             if (this.imageArray.length === this.selectedFiles.length) {
               // this.shop.images = this.imageArray;
               if (status === 'shopImg') {
-                this.shop.images = this.imageArray;
+                this.imageArray.forEach(image => {
+                  this.shop.images.push(image);
+                });
               } else if (status === 'coverImg') {
-                console.log(this.imageArray[0]);
                 this.shop.coverimage = {
                   url: this.imageArray[0].url
                 }
                 this.submit();
               } else if (status === 'profileImg') {
-                console.log(this.imageArray[0]);
                 this.updateImgProfile(this.imageArray[0].url);
               }
               // this.image.emit(this.imageArray);
