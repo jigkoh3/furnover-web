@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { MomentDateAdapter } from '@angular/material-moment-adapter';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import * as _moment from 'moment';
@@ -27,13 +27,15 @@ export const MY_FORMATS = {
 export class MyPromotionHeaderComponent implements OnInit {
   date = new Date();
   isEdit: boolean = false;
-  data :any = {
-    title: '',
-    start_date:'',
-    end_date:'',
-    start_time:'',
-    end_time: ''
-  };
+  // data :any = {
+  //   title: '',
+  //   start_date:'',
+  //   end_date:'',
+  //   start_time:'',
+  //   end_time: ''
+  // };
+  @Input() data: any = {};
+  @Output() outputData = new EventEmitter();
 
   constructor(
 
@@ -45,8 +47,9 @@ export class MyPromotionHeaderComponent implements OnInit {
     this.getDataTest();
   }
 
-  getStartDate(e) {
-    console.log(e._i);
+  sendData() {
+    console.log(this.data);
+    this.outputData.emit(this.data);
   }
 
   getDataTest() {
@@ -54,13 +57,26 @@ export class MyPromotionHeaderComponent implements OnInit {
       status: "200",
       data: {
         title: "เทสส่วนลด",
-        start_date: {year: 2018, month: 9, date: 9},
+        start_date: "1/5/16",
         end_date: "1/5/16",
         start_time: "9:05 AM",
         end_time: "9:05 PM"
       }
     }
-    this.data = res.data ;
+    this.data = res.data;
+  }
+
+  startDate(e) {
+    let date = new Date(
+      e._i.year, e._i.month, e._i.date
+    )
+    this.data.start_date = date;
+  }
+  endDate(e) {
+    let date = new Date(
+      e._i.year, e._i.month, e._i.date
+    )
+    this.data.end_date = date;
   }
 
 }
