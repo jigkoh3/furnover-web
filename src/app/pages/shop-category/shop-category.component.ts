@@ -98,16 +98,19 @@ export class ShopCategoryComponent implements OnInit {
 
   async deleteCate(item) {
     //  console.log(item._id);
-    this.spinner.show();
-    try {
-      await this.restApi.delete(Constants.URL() + '/api/categoryShop/' + item._id);
-      this.getCat();
-      this.spinner.hide();
-      // console.log(this.modelData)
-    } catch (error) {
-      this.spinner.hide();
-      this.dataService.error('ลบข้อมูลไม่สำเร็จ');
+    let conf = confirm("ยืนยันการลบที่อยู่");
+    if (conf) {
+      this.spinner.show();
+      try {
+        await this.restApi.delete(Constants.URL() + '/api/categoryShop/' + item._id);
+        this.getCat();
+        this.spinner.hide();
+        // console.log(this.modelData)
+      } catch (error) {
+        this.spinner.hide();
+        this.dataService.error('ลบข้อมูลไม่สำเร็จ');
 
+      }
     }
   }
 
