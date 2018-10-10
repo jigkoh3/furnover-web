@@ -109,7 +109,8 @@ import { InfoMyPromotionComponent } from './pages/info-my-promotion/info-my-prom
     AppMaterialModule,
     NgxSpinnerModule
   ],
-  providers: [DataService, RestApiService],
+  providers: [DataService, RestApiService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
