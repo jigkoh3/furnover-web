@@ -1,3 +1,19 @@
-<p>
-  modal-select-product works!
-</p>
+<div>
+  <div class="row header-style">
+    <div class="col-12 padding-left">
+      <h3>เลือกสินค้า ({{datas.length}})</h3>
+    </div>
+  </div>
+  <div class="over-scroll">
+    <app-select-product [productSelected]="paramiter.products" [status]="paramiter.status" (onSelectedProduct)="onSelectedProductEmit($event)"></app-select-product>
+  </div>
+  <div class="row">
+    <div class="col-12 col-md-6 padding-left text-left">
+      <p class="product-count-text">เลือก {{datas.length}} รายการ</p>
+    </div>
+    <div class="col-12 col-md-6 padding-left text-right">
+      <button mat-stroked-button (click)="onCloseModel()">ยกเลิก</button>
+      <button mat-button color="primary" (click)="onConfirmProducts()">ยืนยัน</button>
+    </div>
+  </div>
+</div>
