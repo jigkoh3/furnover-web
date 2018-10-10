@@ -1,9 +1,9 @@
 <div class="select-product-div">
   <div class="row">
-    <div class="col-4 text-left">
+    <div class="col-12 col-4 text-left">
       <mat-checkbox [(ngModel)]="checked" (ngModelChange)="onSelectedAll()">เลือกทั้งหมด</mat-checkbox>
     </div>
-    <div class="col-4 text-center">
+    <div class="col-12 col-4 text-center">
       <mat-form-field>
         <mat-icon class="search-ic">search</mat-icon>
         <input matInput placeholder="ค้นหา" [(ngModel)]="pageData.name" (keydown)="search($event)">
