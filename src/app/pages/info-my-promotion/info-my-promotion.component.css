@@ -1,3 +1,18 @@
+.wrapper.content {
+    background-color: #fff;
+    box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, .09);
+    padding: 20px 48px;
+}
+
+.wrapper {
+    width: auto;
+    margin: 0 auto;
+}
+
 .del-box {
     text-align: right;
+}
+
+.btn-margin {
+    margin-left: 1.4rem;
 }

@@ -1,14 +1,19 @@
 .txt-right {
     text-align: right;
 }
+
 .txt-left {
     text-align: left;
 }
 
-
 .icon-green {
     color: #00bfa5;
 }
+
 .txt-gray {
     color: #989999;
+}
+
+.row-style {
+    height: 72px;
 }
