@@ -18,6 +18,7 @@ import { InfoShopCategoryComponent } from './pages/info-shop-category/info-shop-
 import { MyPromotionComponent } from './pages/my-promotion/my-promotion.component';
 import { InfoMyPromotionComponent } from './pages/info-my-promotion/info-my-promotion.component';
 import { MyPromotionListComponent } from './components/my-promotion-list/my-promotion-list.component';
+import { MyPromotionHeaderComponent } from './components/my-promotion-header/my-promotion-header.component';
 
 export const routes: Routes = [
     {
@@ -106,5 +107,8 @@ export const routes: Routes = [
     {
         path: 'my-promotion-list',
         component: MyPromotionListComponent
+    }, {
+        path: 'my-promotion-header',
+        component: MyPromotionHeaderComponent
     }
 ];

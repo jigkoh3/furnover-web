@@ -1,3 +1,148 @@
-<p>
-  my-promotion-header works!
-</p>
+<div class="row">
+  <div class="col-1"></div>
+  <div class="col-10 col-md-10">
+    <!-- สร้างโปรโมชั่น -->
+    <div class="row">
+      <div class="col-12 padding-heder">
+        <div class="row padding-heder">
+          <div class="col-12 padding-heder">
+            <p class="font-header">ข้อมูลโปรโมชั่น</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="row">
+          <div class="col-12 col-md-3">
+            <p class="font-form">ชื่อโปรโมชั่น</p>
+          </div>
+          <div class="col-4">
+            <input matInput>
+          </div>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="row">
+          <div class="col-12 col-md-3">
+            <p class="font-form">วันเริ่มต้นของโปรโมชั่น</p>
+          </div>
+          <div class="col-12 col-md-5">
+            <md-input-container>
+              <input mdInput [value]="start_date" [mdDatepicker]="startDate" readonly>
+              <button mdSuffix [mdDatepickerToggle]="startDate"></button>
+            </md-input-container>
+            <md-datepicker #startDate></md-datepicker>
+          </div>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="row">
+          <div class="col-12 col-md-3">
+            <p class="font-form">วันสิ้นสุดของโปรโมชั่น</p>
+          </div>
+          <div class="col-12 col-md-5">
+            <input matInput type="date">
+          </div>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="row">
+          <div class="col-12 col-md-3">
+            <p class="font-form">เวลาเริ่มต้นของโปรโมชั่น</p>
+          </div>
+          <div class="col-12 col-md-5">
+            <input matInput type="time">
+          </div>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="row">
+          <div class="col-12 col-md-3">
+            <p class="font-form">เวลาสิ้นสุดของโปรโมชั่น</p>
+          </div>
+          <div class="col-12 col-md-5">
+            <input matInput type="time">
+          </div>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="row">
+          <div class="col-12 col-md-3">
+          </div>
+          <div class="col-12 col-md-1">
+            <button style="width:100%" mat-button color="primary">บันทึก</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- เเก้ไขโปรโมชั่น -->
+    <!-- <div class="row">
+      <div class="col-12 padding-heder">
+        <div class="row padding-heder">
+          <div class="col-12 padding-heder">
+            <p class="font-header">ข้อมูลโปรโมชั่น</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="row">
+          <div class="col-12 col-md-3">
+            <p class="font-form">ชื่อโปรโมชั่น</p>
+          </div>
+          <div class="col-4">
+            <input matInput>
+          </div>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="row">
+          <div class="col-12 col-md-3">
+            <p class="font-form">วันเริ่มต้นของโปรโมชั่น</p>
+          </div>
+          <div class="col-12 col-md-5">
+            <input matInput type="date">
+          </div>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="row">
+          <div class="col-12 col-md-3">
+            <p class="font-form">วันสิ้นสุดของโปรโมชั่น</p>
+          </div>
+          <div class="col-12 col-md-5">
+            <input type="date">
+          </div>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="row">
+          <div class="col-12 col-md-3">
+            <p class="font-form">เวลาเริ่มต้นของโปรโมชั่น</p>
+          </div>
+          <div class="col-12 col-md-5">
+            <input type="time">
+          </div>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="row">
+          <div class="col-12 col-md-3">
+            <p class="font-form">เวลาสิ้นสุดของโปรโมชั่น</p>
+          </div>
+          <div class="col-12 col-md-5">
+            <input type="time">
+          </div>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="row">
+          <div class="col-12 col-md-3">
+          </div>
+          <div class="col-12 col-md-1">
+            <button style="width:100%" mat-button color="primary">บันทึก</button>
+          </div>
+        </div>
+      </div>
+    </div> -->
+  </div>
+  <div class="col-1"></div>
+</div>
