@@ -1,0 +1,83 @@
+table {
+    width: 100%;
+}
+
+.img-product {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+}
+
+thead {
+    background-color: rgb(231, 231, 231) !important;
+    padding: 5px !important;
+}
+
+.text {
+    width: 100% !important;
+}
+
+.border-button {
+    border: 1px solid rgb(150, 142, 142) !important;
+}
+
+.text-height {
+    height: 70 px !important;
+}
+
+.input-width {
+    width: 80px !important;
+}
+
+.text-color {
+    color: rgb(204, 204, 204) !important;
+}.cancel-color{
+  color: red;
+}.pointer{
+  cursor: pointer;
+}::ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
+  background-color:  #00C853; /*replace with your color*/
+}
+
+::ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+  background-color: rgb(117, 245, 67);  /*replace with your color*/
+}
+.border{
+  border-bottom: 1px solid rgb(214, 214, 214);
+}.padding-left{
+  padding-left: 0px !important;
+}.padding-right{
+    padding-right: 0px !important;
+}
+
+.promotion-setting-header-title {
+    font-size: 23px; 
+}
+
+.container {
+    max-width: 90% !important;
+}
+
+.search-ic {
+    position: absolute;
+    right: 0;
+    bottom: 2px;
+    color: #9f9f9f;
+}
+
+table {
+    width: 100%;
+    overflow: auto;
+}
+
+.mat-list .mat-subheader:first-child,
+.mat-nav-list .mat-subheader:first-child,
+.mat-selection-list .mat-subheader:first-child {
+    margin-bottom: -8px;
+}
+
+.mat-list-item .mat-list-item-content {
+    
+    display: flow-root !important;
+    padding: unset !important;
+}

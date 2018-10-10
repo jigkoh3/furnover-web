@@ -1,0 +1,67 @@
+.select-product-div {
+    padding: 16px 16px 16px 18px !important;
+}
+
+.product-image {
+    width: 100% !important;
+    height: 200px !important;
+    object-fit: cover !important;
+}
+
+.product-card {
+    padding: 0px !important;
+    cursor: pointer;
+}
+
+.product-name {
+    margin: 0px;
+    font-size: 14px;
+    color: #676767;
+}
+
+.padding-custom {
+    padding: 12px !important;
+}
+
+.select {
+    margin: 2px;
+    min-width: unset;
+}
+
+.un-select {
+    background-color: #e8e8e8 !important;
+    color: #000000 !important;
+    margin: 2px;
+    min-width: unset;
+}
+
+.text-nowrap {
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+.product-item-soldout-overlay {
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    background: rgba(0, 0, 0, 0.24);
+    align-items: center;
+    justify-content: center;
+}
+
+.selected-icon {
+    font-size: 60px;
+    margin-left: -34px;
+    margin-top: -34px;
+    color: #ff9558;
+}
+
+.search-ic {
+    position: absolute;
+    right: 0;
+    bottom: 2px;
+    color: #9f9f9f;
+}

@@ -1,0 +1,25 @@
+mat-dialog-container {
+    padding: 16px !important;
+}
+
+.header-style {
+    border-bottom: 0.5px solid #e8e8e8;
+}
+
+.product-count-text {
+    font-size: 14px;
+}
+
+.over-scroll {
+    height: 55vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+@media screen and (min-width: 480px) {
+    .over-scroll {
+        height: 65vh;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+}
