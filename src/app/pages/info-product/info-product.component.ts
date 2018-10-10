@@ -311,6 +311,9 @@ export class InfoProductComponent implements OnInit {
     this.data.category_id = this.stateSubmenu[this.stateSubmenu.length - 1] ? this.stateSubmenu[this.stateSubmenu.length - 1]._id : '';
     this.data.wholesale = this.wholesaleList;
     this.data.images = this.images;
+    if (this.images.length > 0) {
+      this.data.image = this.images[0];
+    }
     if (!this.prepare) {
       this.data.prepareshipping = 2;
     }
