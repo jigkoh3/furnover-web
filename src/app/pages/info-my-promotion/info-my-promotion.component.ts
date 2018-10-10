@@ -80,6 +80,10 @@ export class InfoMyPromotionComponent implements OnInit {
     });
   }
 
+  getDataHeader(e) {
+    console.log(e);
+  }
+
   async save() {
     this.spinner.show();
     try {
