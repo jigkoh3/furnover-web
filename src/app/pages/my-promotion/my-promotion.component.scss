@@ -1,11 +1,9 @@
 .promotion-setting-header-title {
-    font-size: 23px;
-    // font-weight: 600;
+    font-size: 23px; // font-weight: 600;
 }
 
-.container  {
+.container {
     max-width: 90% !important;
-   
 }
 
 .search-ic {
@@ -13,4 +11,21 @@
     right: 0;
     bottom: 2px;
     color: #9f9f9f;
+}
+
+table {
+    width: 100%;
+    overflow: auto;
+}
+
+.mat-list .mat-subheader:first-child,
+.mat-nav-list .mat-subheader:first-child,
+.mat-selection-list .mat-subheader:first-child {
+    margin-bottom: -8px;
+}
+
+.mat-list-item .mat-list-item-content {
+    
+    display: flow-root !important;
+    padding: unset !important;
 }

@@ -12,14 +12,13 @@ export class ModalSelectProductComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public paramiter: any,
     public dialogRef: MatDialogRef<ModalSelectProductComponent>
   ) {
-    console.log(paramiter);
+    this.datas = paramiter.products
   }
 
   ngOnInit() {}
 
   onSelectedProductEmit(event) {
     this.datas = event;
-    console.log(this.datas)
   }
 
   onCloseModel() {

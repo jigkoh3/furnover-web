@@ -17,6 +17,7 @@ export class SelectProductComponent implements OnInit {
   @Output()
   onSelectedProduct: EventEmitter<any> = new EventEmitter<any>();
   checked: boolean = false;
+  productSelectedCopy: any;
 
   data: any = {
     tabs: []
@@ -27,7 +28,7 @@ export class SelectProductComponent implements OnInit {
     status: "",
     name: "",
     page: 1,
-    limit: 10
+    limit: 30
   };
   constructor(
     private spinner: NgxSpinnerService,
@@ -40,8 +41,10 @@ export class SelectProductComponent implements OnInit {
       ? JSON.parse(window.localStorage.getItem(Constants.URL() + "@usershop"))
       : null;
 
+    this.productSelectedCopy = JSON.parse(JSON.stringify(this.productSelected));
     this.pageData.shop_id = user.shop_id;
-    this.pageData.status = "all";
+    this.pageData.status = this.status;
+    // this.pageData.status = "all";
 
     this.getProduct();
   }
@@ -57,7 +60,7 @@ export class SelectProductComponent implements OnInit {
 
       if (data["status"] === 200) {
         this.data = data.data;
-
+        this.onCheckSelectedAll();
         if (this.data.items && this.data.items.length === 0) {
           this.dataService.warning("ไม่พบข้อมูลสินค้า");
         }
@@ -65,6 +68,12 @@ export class SelectProductComponent implements OnInit {
     } catch (error) {
       this.spinner.hide();
       this.dataService.error("โหลดข้อมูลล้มเหลว กรุณาลองใหม่อีกครั้ง");
+    }
+  }
+
+  search(event) {
+    if (event.keyCode == 13) {
+      this.getProduct();
     }
   }
 
@@ -83,30 +92,93 @@ export class SelectProductComponent implements OnInit {
 
   onSelectedAll() {
     if (this.checked) {
-      this.productSelected = this.data.products;
+      this.data.products.forEach(item => {
+        if (this.validateEditProduct(item)) {
+          let index = this.productSelected.findIndex(e => {
+            return e._id === item._id;
+          });
+
+          if (index === -1) {
+            this.productSelected.push(item);
+          }
+        }
+      });
     } else {
-      this.productSelected = [];
+      this.data.products.forEach(item => {
+        if (this.validateEditProduct(item)) {
+          let index = this.productSelected.findIndex(e => {
+            return e._id === item._id;
+          });
+
+          if (index !== -1) {
+            this.productSelected.splice(index, 1);
+          }
+        }
+      });
     }
+
+    setTimeout(() => {
+      this.onCheckSelectedAll();
+    }, 0);
     this.emit();
   }
 
-  onSelected(item) {
+  onCheckSelectedAll() {
+    this.checked = true;
+    this.data.products.forEach(e => {
+      let index = this.productSelected.findIndex(item => {
+        return e._id === item._id;
+      });
+
+      if (index === -1) {
+        this.checked = false;
+      }
+    });
+
+    if (this.data.products.length === 0 && this.productSelected.length === 0) {
+      this.checked = false;
+    }
+  }
+
+  checkSelected(item) {
     let index = this.productSelected.filter(i => {
       return i._id === item._id;
     });
 
     if (!index[0]) {
-      this.productSelected.push(item);
+      return false;
     } else {
-      this.productSelected.splice(index, 1);
+      return true;
     }
+  }
 
-    if (this.productSelected.length === this.data.products.length) {
-      this.checked = true;
-    } else {
-      this.checked = false;
+  onSelected(item) {
+    if (this.validateEditProduct(item)) {
+      let index = this.productSelected.findIndex(i => {
+        return i._id === item._id;
+      });
+
+      if (index === -1 || this.productSelected.length === 0) {
+        this.productSelected.push(item);
+      } else {
+        this.productSelected.splice(index, 1);
+      }
+
+      this.onCheckSelectedAll();
+      this.emit();
     }
-    this.emit();
+  }
+
+  validateEditProduct(item) {
+    let indexCopy = this.productSelectedCopy.findIndex(i => {
+      return i._id === item._id;
+    });
+
+    if (indexCopy === -1) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   emit() {
