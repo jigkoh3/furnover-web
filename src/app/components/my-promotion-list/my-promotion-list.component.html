@@ -3,89 +3,124 @@
     <div class="col-12 col-sm-1 col-md-1 col-lg-1">
     </div>
 
-    <div class="col-12 col-sm-10 col-md-10 col-lg-10">
-      <div>
+    <mat-card class="container">
+        <div class="promotion-setting-header-title row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                <span>โปรโมชั่นส่วนลดของฉัน</span>
+            </div>
+        </div>
+    
+        <div class="row">
+            <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-4">
+                <mat-form-field>
+                    <mat-icon class="search-ic">search</mat-icon>
+                    <input matInput placeholder="ค้นหา">
+                </mat-form-field>
+            </div>
+            <div class="d-none d-sm-block d-md-block d-lg-block d-xl-block col-sm-6 col-md-6 col-lg-8 col-xl-8 text-right">
+                    <button mat-flat-button color="primary" ><mat-icon>add</mat-icon><span style="font-weight: bold;" class="padding-left">โปรโมชั่นส่วนลดใหม่</span></button>
+            </div>
+            <div class="d-block d-sm-none col-12">
+                    <button mat-flat-button color="primary" ><mat-icon>add</mat-icon><span style="font-weight: bold;" class="padding-left">โปรโมชั่นส่วนลดใหม่</span></button>
+            </div>
+    
+        </div>
+    
+    </mat-card>
 
+
+    <!-- <div class="col-12 col-sm-10 col-md-10 col-lg-10">
+      <div class="col-12">
+        <mat-card>
+
+          
+          <div class="table-responsive ">
+
+            <table class="table table-hover">
+              <thead >
+                <tr>
+                  <td style="height:50px" padding width="300">ชื่อสินค้า</td>
+                  <td style="height:50px" width="200">ตัวเลือกสินค้า</td>
+                  <td style="height:50px" width="150">ราคาเดิม</td>
+                  <td style="height:50px" width="150">ราคาที่ลดแล้ว</td>
+                  <td style="height:50px" width="150">ส่วนลด</td>
+                  <td style="height:50px" width="100">จำกัดยอดซื้อ</td>
+                  <td style="height:50px" width="200"></td>
+
+                </tr>
+              </thead>
+              <tbody *ngFor="let item of data">
+                <tr *ngFor="let itm of item.prices;let i = index">
+                  <td *ngIf="i === 0"><img class="img-product" [src]="item.img"> {{item.name}}</td>
+                  <td *ngIf="i !== 0"></td>
+                  <td>
+                    <mat-slide-toggle  [(ngModel)]="itm.choice"></mat-slide-toggle> {{itm.namechoice}}
+                  </td>
+                  <td> {{itm.oldprice}}</td>
+                  <td>
+                    <mat-form-field class="text  ">
+                      <mat-icon class="search-ic input-width text-height">
+                        <input matInput>
+                      </mat-icon>
+                    </mat-form-field>
+                  </td>
+                  <td>
+                    <mat-form-field class="text">
+                      <mat-icon class="search-ic input-width text-height">
+                        <input matInput>
+                      </mat-icon>
+                    </mat-form-field>
+                  </td>
+                  <td *ngIf="i === 0">
+                    <mat-form-field class="text ">
+                      <mat-icon class="search-ic input-width text-height">
+                        <input matInput>
+                      </mat-icon>
+                    </mat-form-field>
+                  </td>
+                  <td *ngIf="i !== 0"></td>
+                  <td class="text-center pointer  cancel-color" *ngIf="i === 0">
+                    <mat-icon class="" svgIcon="cancel"></mat-icon>
+
+                  </td>
+                  <td *ngIf="i !== 0"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div>
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <td style="height:50px" padding width="300">ชื่อสินค้า</td>
+                  <td style="height:50px" width="200">ตัวเลือกสินค้า</td>
+                  <td style="height:50px" width="150">ราคาเดิม</td>
+                  <td style="height:50px" width="150">ราคาที่ลดแล้ว</td>
+                  <td style="height:50px" width="150">ส่วนลด</td>
+                  <td style="height:50px" width="200">จำกัดยอดซื้อ</td>
+                </tr>
+              </thead>
+              <tbody *ngFor="let item of data">
+                <tr *ngFor="let itm of item.prices ;let i = index">
+                  <td *ngIf="i === 0"> <img class="img-product" [src]="item.img"> {{item.name}}</td>
+                  <td *ngIf="i !== 0"></td>
+                  <td>
+                    {{itm.namechoice}}
+                  </td>
+                  <td>{{itm.oldprice}} </td>
+                  <td>{{itm.newprice}} </td>
+                  <td>{{itm.discount}}% ลด </td>
+                  <td>{{itm.limitsell}} </td>
+                  <td> </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </mat-card>
       </div>
-      <mat-card>
-        <div>
-          <table>
-            <thead>
-              <tr>
-                <td width="300">ชื่อสินค้า</td>
-                <td width="200">ตัวเลือกสินค้า</td>
-                <td width="150">ราคาเดิม</td>
-                <td width="150">ราคาที่ลดแล้ว</td>
-                <td width="150">ส่วนลด</td>
-                <td width="100">จำกัดยอดซื้อ</td>
-                <td width="100">กำลังจัดรายการ</td>
 
-              </tr>
-            </thead>
-            <tbody *ngFor="let item of data">
-              <tr *ngFor="let itm of item.prices;let i = index">
-                <td *ngIf="i === 0"><img class="img-product" [src]="item.img"> {{item.name}}</td>
-                <td *ngIf="i !== 0"></td>
-                <td>
-                  <mat-slide-toggle></mat-slide-toggle> {{itm.namechoice}}
-                </td>
-                <td> {{itm.oldprice}}</td>
-                <td>
-                  <mat-form-field class="text ">
-                    <mat-icon class="search-ic input-width text-height">
-                      <input matInput>
-                    </mat-icon>
-                  </mat-form-field>
-                </td>
-                <td>
-                  <mat-form-field class="text">
-                    <mat-icon class="search-ic input-width text-height">
-                      <input matInput>
-                    </mat-icon>
-                  </mat-form-field>
-                </td>
-                <td>
-                  <mat-form-field class="text ">
-                    <mat-icon class="search-ic input-width text-height">
-                      <input matInput>
-                    </mat-icon>
-                  </mat-form-field>
-                </td>
-                <td></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div>
-          <table>
-            <thead>
-              <tr>
-                <td width="300">ชื่อสินค้า</td>
-                <td width="200">ตัวเลือกสินค้า</td>
-                <td width="150">ราคาเดิม</td>
-                <td width="150">ราคาที่ลดแล้ว</td>
-                <td width="150">ส่วนลด</td>
-                <td width="100">จำกัดยอดซื้อ</td>
-              </tr>
-            </thead>
-            <tbody *ngFor="let item of data">
-              <tr *ngFor="let itm of item.prices">
-                <td> <img class="img-product" [src]="item.img"> {{item.name}}</td>
-                <td>
-                  {{itm.namechoice}}
-                </td>
-                <td>{{itm.oldprice}} </td>
-                <td>{{itm.newprice}} </td>
-                <td>{{itm.discount}}% ลด </td>
-                <td>{{itm.limitsell}} </td>
-                <td> </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </mat-card>
-    </div>
+    </div> -->
 
 
     <div class="col-12 col-sm-1 col-md-1 col-lg-1">
