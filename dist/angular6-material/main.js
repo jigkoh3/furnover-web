@@ -1,5 +1,285 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["main"],{
 
+/***/ "./node_modules/moment/locale sync recursive ^\\.\\/.*$":
+/*!**************************************************!*\
+  !*** ./node_modules/moment/locale sync ^\.\/.*$ ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var map = {
+	"./af": "./node_modules/moment/locale/af.js",
+	"./af.js": "./node_modules/moment/locale/af.js",
+	"./ar": "./node_modules/moment/locale/ar.js",
+	"./ar-dz": "./node_modules/moment/locale/ar-dz.js",
+	"./ar-dz.js": "./node_modules/moment/locale/ar-dz.js",
+	"./ar-kw": "./node_modules/moment/locale/ar-kw.js",
+	"./ar-kw.js": "./node_modules/moment/locale/ar-kw.js",
+	"./ar-ly": "./node_modules/moment/locale/ar-ly.js",
+	"./ar-ly.js": "./node_modules/moment/locale/ar-ly.js",
+	"./ar-ma": "./node_modules/moment/locale/ar-ma.js",
+	"./ar-ma.js": "./node_modules/moment/locale/ar-ma.js",
+	"./ar-sa": "./node_modules/moment/locale/ar-sa.js",
+	"./ar-sa.js": "./node_modules/moment/locale/ar-sa.js",
+	"./ar-tn": "./node_modules/moment/locale/ar-tn.js",
+	"./ar-tn.js": "./node_modules/moment/locale/ar-tn.js",
+	"./ar.js": "./node_modules/moment/locale/ar.js",
+	"./az": "./node_modules/moment/locale/az.js",
+	"./az.js": "./node_modules/moment/locale/az.js",
+	"./be": "./node_modules/moment/locale/be.js",
+	"./be.js": "./node_modules/moment/locale/be.js",
+	"./bg": "./node_modules/moment/locale/bg.js",
+	"./bg.js": "./node_modules/moment/locale/bg.js",
+	"./bm": "./node_modules/moment/locale/bm.js",
+	"./bm.js": "./node_modules/moment/locale/bm.js",
+	"./bn": "./node_modules/moment/locale/bn.js",
+	"./bn.js": "./node_modules/moment/locale/bn.js",
+	"./bo": "./node_modules/moment/locale/bo.js",
+	"./bo.js": "./node_modules/moment/locale/bo.js",
+	"./br": "./node_modules/moment/locale/br.js",
+	"./br.js": "./node_modules/moment/locale/br.js",
+	"./bs": "./node_modules/moment/locale/bs.js",
+	"./bs.js": "./node_modules/moment/locale/bs.js",
+	"./ca": "./node_modules/moment/locale/ca.js",
+	"./ca.js": "./node_modules/moment/locale/ca.js",
+	"./cs": "./node_modules/moment/locale/cs.js",
+	"./cs.js": "./node_modules/moment/locale/cs.js",
+	"./cv": "./node_modules/moment/locale/cv.js",
+	"./cv.js": "./node_modules/moment/locale/cv.js",
+	"./cy": "./node_modules/moment/locale/cy.js",
+	"./cy.js": "./node_modules/moment/locale/cy.js",
+	"./da": "./node_modules/moment/locale/da.js",
+	"./da.js": "./node_modules/moment/locale/da.js",
+	"./de": "./node_modules/moment/locale/de.js",
+	"./de-at": "./node_modules/moment/locale/de-at.js",
+	"./de-at.js": "./node_modules/moment/locale/de-at.js",
+	"./de-ch": "./node_modules/moment/locale/de-ch.js",
+	"./de-ch.js": "./node_modules/moment/locale/de-ch.js",
+	"./de.js": "./node_modules/moment/locale/de.js",
+	"./dv": "./node_modules/moment/locale/dv.js",
+	"./dv.js": "./node_modules/moment/locale/dv.js",
+	"./el": "./node_modules/moment/locale/el.js",
+	"./el.js": "./node_modules/moment/locale/el.js",
+	"./en-au": "./node_modules/moment/locale/en-au.js",
+	"./en-au.js": "./node_modules/moment/locale/en-au.js",
+	"./en-ca": "./node_modules/moment/locale/en-ca.js",
+	"./en-ca.js": "./node_modules/moment/locale/en-ca.js",
+	"./en-gb": "./node_modules/moment/locale/en-gb.js",
+	"./en-gb.js": "./node_modules/moment/locale/en-gb.js",
+	"./en-ie": "./node_modules/moment/locale/en-ie.js",
+	"./en-ie.js": "./node_modules/moment/locale/en-ie.js",
+	"./en-il": "./node_modules/moment/locale/en-il.js",
+	"./en-il.js": "./node_modules/moment/locale/en-il.js",
+	"./en-nz": "./node_modules/moment/locale/en-nz.js",
+	"./en-nz.js": "./node_modules/moment/locale/en-nz.js",
+	"./eo": "./node_modules/moment/locale/eo.js",
+	"./eo.js": "./node_modules/moment/locale/eo.js",
+	"./es": "./node_modules/moment/locale/es.js",
+	"./es-do": "./node_modules/moment/locale/es-do.js",
+	"./es-do.js": "./node_modules/moment/locale/es-do.js",
+	"./es-us": "./node_modules/moment/locale/es-us.js",
+	"./es-us.js": "./node_modules/moment/locale/es-us.js",
+	"./es.js": "./node_modules/moment/locale/es.js",
+	"./et": "./node_modules/moment/locale/et.js",
+	"./et.js": "./node_modules/moment/locale/et.js",
+	"./eu": "./node_modules/moment/locale/eu.js",
+	"./eu.js": "./node_modules/moment/locale/eu.js",
+	"./fa": "./node_modules/moment/locale/fa.js",
+	"./fa.js": "./node_modules/moment/locale/fa.js",
+	"./fi": "./node_modules/moment/locale/fi.js",
+	"./fi.js": "./node_modules/moment/locale/fi.js",
+	"./fo": "./node_modules/moment/locale/fo.js",
+	"./fo.js": "./node_modules/moment/locale/fo.js",
+	"./fr": "./node_modules/moment/locale/fr.js",
+	"./fr-ca": "./node_modules/moment/locale/fr-ca.js",
+	"./fr-ca.js": "./node_modules/moment/locale/fr-ca.js",
+	"./fr-ch": "./node_modules/moment/locale/fr-ch.js",
+	"./fr-ch.js": "./node_modules/moment/locale/fr-ch.js",
+	"./fr.js": "./node_modules/moment/locale/fr.js",
+	"./fy": "./node_modules/moment/locale/fy.js",
+	"./fy.js": "./node_modules/moment/locale/fy.js",
+	"./gd": "./node_modules/moment/locale/gd.js",
+	"./gd.js": "./node_modules/moment/locale/gd.js",
+	"./gl": "./node_modules/moment/locale/gl.js",
+	"./gl.js": "./node_modules/moment/locale/gl.js",
+	"./gom-latn": "./node_modules/moment/locale/gom-latn.js",
+	"./gom-latn.js": "./node_modules/moment/locale/gom-latn.js",
+	"./gu": "./node_modules/moment/locale/gu.js",
+	"./gu.js": "./node_modules/moment/locale/gu.js",
+	"./he": "./node_modules/moment/locale/he.js",
+	"./he.js": "./node_modules/moment/locale/he.js",
+	"./hi": "./node_modules/moment/locale/hi.js",
+	"./hi.js": "./node_modules/moment/locale/hi.js",
+	"./hr": "./node_modules/moment/locale/hr.js",
+	"./hr.js": "./node_modules/moment/locale/hr.js",
+	"./hu": "./node_modules/moment/locale/hu.js",
+	"./hu.js": "./node_modules/moment/locale/hu.js",
+	"./hy-am": "./node_modules/moment/locale/hy-am.js",
+	"./hy-am.js": "./node_modules/moment/locale/hy-am.js",
+	"./id": "./node_modules/moment/locale/id.js",
+	"./id.js": "./node_modules/moment/locale/id.js",
+	"./is": "./node_modules/moment/locale/is.js",
+	"./is.js": "./node_modules/moment/locale/is.js",
+	"./it": "./node_modules/moment/locale/it.js",
+	"./it.js": "./node_modules/moment/locale/it.js",
+	"./ja": "./node_modules/moment/locale/ja.js",
+	"./ja.js": "./node_modules/moment/locale/ja.js",
+	"./jv": "./node_modules/moment/locale/jv.js",
+	"./jv.js": "./node_modules/moment/locale/jv.js",
+	"./ka": "./node_modules/moment/locale/ka.js",
+	"./ka.js": "./node_modules/moment/locale/ka.js",
+	"./kk": "./node_modules/moment/locale/kk.js",
+	"./kk.js": "./node_modules/moment/locale/kk.js",
+	"./km": "./node_modules/moment/locale/km.js",
+	"./km.js": "./node_modules/moment/locale/km.js",
+	"./kn": "./node_modules/moment/locale/kn.js",
+	"./kn.js": "./node_modules/moment/locale/kn.js",
+	"./ko": "./node_modules/moment/locale/ko.js",
+	"./ko.js": "./node_modules/moment/locale/ko.js",
+	"./ky": "./node_modules/moment/locale/ky.js",
+	"./ky.js": "./node_modules/moment/locale/ky.js",
+	"./lb": "./node_modules/moment/locale/lb.js",
+	"./lb.js": "./node_modules/moment/locale/lb.js",
+	"./lo": "./node_modules/moment/locale/lo.js",
+	"./lo.js": "./node_modules/moment/locale/lo.js",
+	"./lt": "./node_modules/moment/locale/lt.js",
+	"./lt.js": "./node_modules/moment/locale/lt.js",
+	"./lv": "./node_modules/moment/locale/lv.js",
+	"./lv.js": "./node_modules/moment/locale/lv.js",
+	"./me": "./node_modules/moment/locale/me.js",
+	"./me.js": "./node_modules/moment/locale/me.js",
+	"./mi": "./node_modules/moment/locale/mi.js",
+	"./mi.js": "./node_modules/moment/locale/mi.js",
+	"./mk": "./node_modules/moment/locale/mk.js",
+	"./mk.js": "./node_modules/moment/locale/mk.js",
+	"./ml": "./node_modules/moment/locale/ml.js",
+	"./ml.js": "./node_modules/moment/locale/ml.js",
+	"./mn": "./node_modules/moment/locale/mn.js",
+	"./mn.js": "./node_modules/moment/locale/mn.js",
+	"./mr": "./node_modules/moment/locale/mr.js",
+	"./mr.js": "./node_modules/moment/locale/mr.js",
+	"./ms": "./node_modules/moment/locale/ms.js",
+	"./ms-my": "./node_modules/moment/locale/ms-my.js",
+	"./ms-my.js": "./node_modules/moment/locale/ms-my.js",
+	"./ms.js": "./node_modules/moment/locale/ms.js",
+	"./mt": "./node_modules/moment/locale/mt.js",
+	"./mt.js": "./node_modules/moment/locale/mt.js",
+	"./my": "./node_modules/moment/locale/my.js",
+	"./my.js": "./node_modules/moment/locale/my.js",
+	"./nb": "./node_modules/moment/locale/nb.js",
+	"./nb.js": "./node_modules/moment/locale/nb.js",
+	"./ne": "./node_modules/moment/locale/ne.js",
+	"./ne.js": "./node_modules/moment/locale/ne.js",
+	"./nl": "./node_modules/moment/locale/nl.js",
+	"./nl-be": "./node_modules/moment/locale/nl-be.js",
+	"./nl-be.js": "./node_modules/moment/locale/nl-be.js",
+	"./nl.js": "./node_modules/moment/locale/nl.js",
+	"./nn": "./node_modules/moment/locale/nn.js",
+	"./nn.js": "./node_modules/moment/locale/nn.js",
+	"./pa-in": "./node_modules/moment/locale/pa-in.js",
+	"./pa-in.js": "./node_modules/moment/locale/pa-in.js",
+	"./pl": "./node_modules/moment/locale/pl.js",
+	"./pl.js": "./node_modules/moment/locale/pl.js",
+	"./pt": "./node_modules/moment/locale/pt.js",
+	"./pt-br": "./node_modules/moment/locale/pt-br.js",
+	"./pt-br.js": "./node_modules/moment/locale/pt-br.js",
+	"./pt.js": "./node_modules/moment/locale/pt.js",
+	"./ro": "./node_modules/moment/locale/ro.js",
+	"./ro.js": "./node_modules/moment/locale/ro.js",
+	"./ru": "./node_modules/moment/locale/ru.js",
+	"./ru.js": "./node_modules/moment/locale/ru.js",
+	"./sd": "./node_modules/moment/locale/sd.js",
+	"./sd.js": "./node_modules/moment/locale/sd.js",
+	"./se": "./node_modules/moment/locale/se.js",
+	"./se.js": "./node_modules/moment/locale/se.js",
+	"./si": "./node_modules/moment/locale/si.js",
+	"./si.js": "./node_modules/moment/locale/si.js",
+	"./sk": "./node_modules/moment/locale/sk.js",
+	"./sk.js": "./node_modules/moment/locale/sk.js",
+	"./sl": "./node_modules/moment/locale/sl.js",
+	"./sl.js": "./node_modules/moment/locale/sl.js",
+	"./sq": "./node_modules/moment/locale/sq.js",
+	"./sq.js": "./node_modules/moment/locale/sq.js",
+	"./sr": "./node_modules/moment/locale/sr.js",
+	"./sr-cyrl": "./node_modules/moment/locale/sr-cyrl.js",
+	"./sr-cyrl.js": "./node_modules/moment/locale/sr-cyrl.js",
+	"./sr.js": "./node_modules/moment/locale/sr.js",
+	"./ss": "./node_modules/moment/locale/ss.js",
+	"./ss.js": "./node_modules/moment/locale/ss.js",
+	"./sv": "./node_modules/moment/locale/sv.js",
+	"./sv.js": "./node_modules/moment/locale/sv.js",
+	"./sw": "./node_modules/moment/locale/sw.js",
+	"./sw.js": "./node_modules/moment/locale/sw.js",
+	"./ta": "./node_modules/moment/locale/ta.js",
+	"./ta.js": "./node_modules/moment/locale/ta.js",
+	"./te": "./node_modules/moment/locale/te.js",
+	"./te.js": "./node_modules/moment/locale/te.js",
+	"./tet": "./node_modules/moment/locale/tet.js",
+	"./tet.js": "./node_modules/moment/locale/tet.js",
+	"./tg": "./node_modules/moment/locale/tg.js",
+	"./tg.js": "./node_modules/moment/locale/tg.js",
+	"./th": "./node_modules/moment/locale/th.js",
+	"./th.js": "./node_modules/moment/locale/th.js",
+	"./tl-ph": "./node_modules/moment/locale/tl-ph.js",
+	"./tl-ph.js": "./node_modules/moment/locale/tl-ph.js",
+	"./tlh": "./node_modules/moment/locale/tlh.js",
+	"./tlh.js": "./node_modules/moment/locale/tlh.js",
+	"./tr": "./node_modules/moment/locale/tr.js",
+	"./tr.js": "./node_modules/moment/locale/tr.js",
+	"./tzl": "./node_modules/moment/locale/tzl.js",
+	"./tzl.js": "./node_modules/moment/locale/tzl.js",
+	"./tzm": "./node_modules/moment/locale/tzm.js",
+	"./tzm-latn": "./node_modules/moment/locale/tzm-latn.js",
+	"./tzm-latn.js": "./node_modules/moment/locale/tzm-latn.js",
+	"./tzm.js": "./node_modules/moment/locale/tzm.js",
+	"./ug-cn": "./node_modules/moment/locale/ug-cn.js",
+	"./ug-cn.js": "./node_modules/moment/locale/ug-cn.js",
+	"./uk": "./node_modules/moment/locale/uk.js",
+	"./uk.js": "./node_modules/moment/locale/uk.js",
+	"./ur": "./node_modules/moment/locale/ur.js",
+	"./ur.js": "./node_modules/moment/locale/ur.js",
+	"./uz": "./node_modules/moment/locale/uz.js",
+	"./uz-latn": "./node_modules/moment/locale/uz-latn.js",
+	"./uz-latn.js": "./node_modules/moment/locale/uz-latn.js",
+	"./uz.js": "./node_modules/moment/locale/uz.js",
+	"./vi": "./node_modules/moment/locale/vi.js",
+	"./vi.js": "./node_modules/moment/locale/vi.js",
+	"./x-pseudo": "./node_modules/moment/locale/x-pseudo.js",
+	"./x-pseudo.js": "./node_modules/moment/locale/x-pseudo.js",
+	"./yo": "./node_modules/moment/locale/yo.js",
+	"./yo.js": "./node_modules/moment/locale/yo.js",
+	"./zh-cn": "./node_modules/moment/locale/zh-cn.js",
+	"./zh-cn.js": "./node_modules/moment/locale/zh-cn.js",
+	"./zh-hk": "./node_modules/moment/locale/zh-hk.js",
+	"./zh-hk.js": "./node_modules/moment/locale/zh-hk.js",
+	"./zh-tw": "./node_modules/moment/locale/zh-tw.js",
+	"./zh-tw.js": "./node_modules/moment/locale/zh-tw.js"
+};
+
+
+function webpackContext(req) {
+	var id = webpackContextResolve(req);
+	var module = __webpack_require__(id);
+	return module;
+}
+function webpackContextResolve(req) {
+	var id = map[req];
+	if(!(id + 1)) { // check for number or string
+		var e = new Error('Cannot find module "' + req + '".');
+		e.code = 'MODULE_NOT_FOUND';
+		throw e;
+	}
+	return id;
+}
+webpackContext.keys = function webpackContextKeys() {
+	return Object.keys(map);
+};
+webpackContext.resolve = webpackContextResolve;
+module.exports = webpackContext;
+webpackContext.id = "./node_modules/moment/locale sync recursive ^\\.\\/.*$";
+
+/***/ }),
+
 /***/ "./src/$$_lazy_route_resource lazy recursive":
 /*!**********************************************************!*\
   !*** ./src/$$_lazy_route_resource lazy namespace object ***!
@@ -369,12 +649,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_info_shop_category_info_shop_category_component__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./pages/info-shop-category/info-shop-category.component */ "./src/app/pages/info-shop-category/info-shop-category.component.ts");
 /* harmony import */ var _pages_menu_marketing_menu_marketing_component__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./pages/menu-marketing/menu-marketing.component */ "./src/app/pages/menu-marketing/menu-marketing.component.ts");
 /* harmony import */ var _pages_modals_modal_delete_product_modal_delete_product_component__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./pages/modals/modal-delete-product/modal-delete-product.component */ "./src/app/pages/modals/modal-delete-product/modal-delete-product.component.ts");
+/* harmony import */ var _pages_my_promotion_my_promotion_component__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./pages/my-promotion/my-promotion.component */ "./src/app/pages/my-promotion/my-promotion.component.ts");
+/* harmony import */ var _components_my_promotion_header_my_promotion_header_component__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ./components/my-promotion-header/my-promotion-header.component */ "./src/app/components/my-promotion-header/my-promotion-header.component.ts");
+/* harmony import */ var _components_my_promotion_list_my_promotion_list_component__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! ./components/my-promotion-list/my-promotion-list.component */ "./src/app/components/my-promotion-list/my-promotion-list.component.ts");
+/* harmony import */ var _pages_modals_modal_select_product_modal_select_product_component__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ./pages/modals/modal-select-product/modal-select-product.component */ "./src/app/pages/modals/modal-select-product/modal-select-product.component.ts");
+/* harmony import */ var _components_select_product_select_product_component__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! ./components/select-product/select-product.component */ "./src/app/components/select-product/select-product.component.ts");
+/* harmony import */ var _pages_info_my_promotion_info_my_promotion_component__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! ./pages/info-my-promotion/info-my-promotion.component */ "./src/app/pages/info-my-promotion/info-my-promotion.component.ts");
+/* harmony import */ var _pages_modals_modal_delete_my_promotion_modal_delete_my_promotion_component__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! ./pages/modals/modal-delete-my-promotion/modal-delete-my-promotion.component */ "./src/app/pages/modals/modal-delete-my-promotion/modal-delete-my-promotion.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
+
+
+
+
+
 
 
 
@@ -454,7 +748,14 @@ var AppModule = /** @class */ (function () {
                 _pages_account_account_component__WEBPACK_IMPORTED_MODULE_38__["AccountComponent"],
                 _pages_info_shop_category_info_shop_category_component__WEBPACK_IMPORTED_MODULE_39__["InfoShopCategoryComponent"],
                 _pages_menu_marketing_menu_marketing_component__WEBPACK_IMPORTED_MODULE_40__["MenuMarketingComponent"],
-                _pages_modals_modal_delete_product_modal_delete_product_component__WEBPACK_IMPORTED_MODULE_41__["ModalDeleteProductComponent"]
+                _pages_modals_modal_delete_product_modal_delete_product_component__WEBPACK_IMPORTED_MODULE_41__["ModalDeleteProductComponent"],
+                _pages_my_promotion_my_promotion_component__WEBPACK_IMPORTED_MODULE_42__["MyPromotionComponent"],
+                _components_my_promotion_header_my_promotion_header_component__WEBPACK_IMPORTED_MODULE_43__["MyPromotionHeaderComponent"],
+                _components_my_promotion_list_my_promotion_list_component__WEBPACK_IMPORTED_MODULE_44__["MyPromotionListComponent"],
+                _pages_modals_modal_select_product_modal_select_product_component__WEBPACK_IMPORTED_MODULE_45__["ModalSelectProductComponent"],
+                _components_select_product_select_product_component__WEBPACK_IMPORTED_MODULE_46__["SelectProductComponent"],
+                _pages_info_my_promotion_info_my_promotion_component__WEBPACK_IMPORTED_MODULE_47__["InfoMyPromotionComponent"],
+                _pages_modals_modal_delete_my_promotion_modal_delete_my_promotion_component__WEBPACK_IMPORTED_MODULE_48__["ModalDeleteMyPromotionComponent"]
             ],
             entryComponents: [
                 _pages_modals_modal_create_bank_account_modal_create_bank_account_component__WEBPACK_IMPORTED_MODULE_25__["ModalCreateBankAccountComponent"],
@@ -463,7 +764,9 @@ var AppModule = /** @class */ (function () {
                 _pages_modals_modal_info_bank_account_modal_info_bank_account_component__WEBPACK_IMPORTED_MODULE_32__["ModalInfoBankAccountComponent"],
                 _pages_modals_modal_complete_modal_complete_component__WEBPACK_IMPORTED_MODULE_30__["ModalCompleteComponent"],
                 _pages_modals_modal_delete_bank_account_modal_delete_bank_account_component__WEBPACK_IMPORTED_MODULE_34__["ModalDeleteBankAccountComponent"],
-                _pages_modals_modal_delete_product_modal_delete_product_component__WEBPACK_IMPORTED_MODULE_41__["ModalDeleteProductComponent"]
+                _pages_modals_modal_delete_product_modal_delete_product_component__WEBPACK_IMPORTED_MODULE_41__["ModalDeleteProductComponent"],
+                _pages_modals_modal_select_product_modal_select_product_component__WEBPACK_IMPORTED_MODULE_45__["ModalSelectProductComponent"],
+                _pages_modals_modal_delete_my_promotion_modal_delete_my_promotion_component__WEBPACK_IMPORTED_MODULE_48__["ModalDeleteMyPromotionComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -512,6 +815,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_account_account_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./pages/account/account.component */ "./src/app/pages/account/account.component.ts");
 /* harmony import */ var _pages_menu_marketing_menu_marketing_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./pages/menu-marketing/menu-marketing.component */ "./src/app/pages/menu-marketing/menu-marketing.component.ts");
 /* harmony import */ var _pages_info_shop_category_info_shop_category_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./pages/info-shop-category/info-shop-category.component */ "./src/app/pages/info-shop-category/info-shop-category.component.ts");
+/* harmony import */ var _pages_my_promotion_my_promotion_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./pages/my-promotion/my-promotion.component */ "./src/app/pages/my-promotion/my-promotion.component.ts");
+/* harmony import */ var _pages_info_my_promotion_info_my_promotion_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./pages/info-my-promotion/info-my-promotion.component */ "./src/app/pages/info-my-promotion/info-my-promotion.component.ts");
+/* harmony import */ var _components_my_promotion_list_my_promotion_list_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/my-promotion-list/my-promotion-list.component */ "./src/app/components/my-promotion-list/my-promotion-list.component.ts");
+/* harmony import */ var _components_my_promotion_header_my_promotion_header_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/my-promotion-header/my-promotion-header.component */ "./src/app/components/my-promotion-header/my-promotion-header.component.ts");
+
+
+
+
 
 
 
@@ -601,6 +912,21 @@ var routes = [
     {
         path: 'info-shop-category',
         component: _pages_info_shop_category_info_shop_category_component__WEBPACK_IMPORTED_MODULE_15__["InfoShopCategoryComponent"]
+    },
+    {
+        path: 'my-promotion',
+        component: _pages_my_promotion_my_promotion_component__WEBPACK_IMPORTED_MODULE_16__["MyPromotionComponent"]
+    },
+    {
+        path: 'info-my-promotion',
+        component: _pages_info_my_promotion_info_my_promotion_component__WEBPACK_IMPORTED_MODULE_17__["InfoMyPromotionComponent"]
+    },
+    {
+        path: 'my-promotion-list',
+        component: _components_my_promotion_list_my_promotion_list_component__WEBPACK_IMPORTED_MODULE_18__["MyPromotionListComponent"]
+    }, {
+        path: 'my-promotion-header',
+        component: _components_my_promotion_header_my_promotion_header_component__WEBPACK_IMPORTED_MODULE_19__["MyPromotionHeaderComponent"]
     }
 ];
 
@@ -685,6 +1011,223 @@ var MessageComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/components/my-promotion-header/my-promotion-header.component.css":
+/*!**********************************************************************************!*\
+  !*** ./src/app/components/my-promotion-header/my-promotion-header.component.css ***!
+  \**********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".padding-date-time {\r\n\r\n    padding-right: 20px;\r\n}\r\n\r\n.padding-date-time-input {\r\n    padding-bottom: 5px;\r\n}\r\n\r\n.font-header {\r\n    font-size: 18px;\r\n}\r\n\r\n.font-form {\r\n    color: grey ;\r\n}\r\n\r\n.padding-heder{\r\n    padding-bottom: 0px !important ;\r\n}\r\n\r\n.padding-date-time{\r\n    padding-left: 20px !important ;\r\n}"
+
+/***/ }),
+
+/***/ "./src/app/components/my-promotion-header/my-promotion-header.component.html":
+/*!***********************************************************************************!*\
+  !*** ./src/app/components/my-promotion-header/my-promotion-header.component.html ***!
+  \***********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<!-- สร้างโปรโมชั่น -->\r\n<div class=\"row\" *ngIf=\"!isEdit\">\r\n  <div class=\"col-1\"></div>\r\n  <div class=\"col-10 col-md-10\">\r\n    <div class=\"row\">\r\n      <div class=\"col-12 padding-heder\">\r\n        <div class=\"row padding-heder\">\r\n          <div class=\"col-12 padding-heder\">\r\n            <p class=\"font-header\">ข้อมูลโปรโมชั่น</p>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <div class=\"col-12\">\r\n        <div class=\"row\">\r\n          <div class=\"col-12 col-md-3\">\r\n            <p class=\"font-form\">ชื่อโปรโมชั่น</p>\r\n          </div>\r\n          <div class=\"col-12 col-md-3\">\r\n            <mat-form-field>\r\n              <input matInput [(ngModel)]=\"data.title\">\r\n            </mat-form-field>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <div class=\"col-12 col-md-6\">\r\n        <div class=\"row\">\r\n          <div class=\"col-12 col-md-6\">\r\n            <p class=\"font-form\">วันเริ่มต้นของโปรโมชั่น</p>\r\n          </div>\r\n          <div class=\"col-12 col-md-4\">\r\n            <mat-form-field>\r\n              <input matInput [matDatepicker]=\"dp\" placeholder=\"Verbose datepicker\" (ngModelChange)=\"startDate($event)\" [(ngModel)]=\"_startdate\">\r\n              <mat-datepicker-toggle matSuffix [for]=\"dp\"></mat-datepicker-toggle>\r\n              <mat-datepicker #dp></mat-datepicker>\r\n            </mat-form-field>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <div class=\"col-12 col-md-6\">\r\n        <div class=\"row\">\r\n          <div class=\"col-12 col-md-6\">\r\n            <p class=\"font-form\">เวลาเริ่มต้นของโปรโมชั่น</p>\r\n          </div>\r\n          <div class=\"col-12 col-md-4\">\r\n            <mat-form-field><input matInput type=\"time\" [(ngModel)]=\"data.start_time\"></mat-form-field>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <div class=\"col-12 col-md-6\">\r\n        <div class=\"row\">\r\n          <div class=\"col-12 col-md-6\">\r\n            <p class=\"font-form\">วันสิ้นสุดของโปรโมชั่น</p>\r\n          </div>\r\n          <div class=\"col-12 col-md-4\">\r\n            <mat-form-field>\r\n              <input matInput [matDatepicker]=\"dp2\" placeholder=\"Verbose datepicker\" (ngModelChange)=\"endDate($event)\" [(ngModel)]=\"_enddate\">\r\n              <mat-datepicker-toggle matSuffix [for]=\"dp2\"></mat-datepicker-toggle>\r\n              <mat-datepicker #dp2></mat-datepicker>\r\n            </mat-form-field>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <div class=\"col-12 col-md-6\">\r\n        <div class=\"row\">\r\n          <div class=\"col-12 col-md-6\">\r\n            <p class=\"font-form\">เวลาสิ้นสุดของโปรโมชั่น</p>\r\n          </div>\r\n          <div class=\"col-12 col-md-4\">\r\n            <mat-form-field><input matInput type=\"time\" [(ngModel)]=\"data.end_time\"></mat-form-field>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <div class=\"col-12\">\r\n        <div class=\"row\">\r\n          <div class=\"col-12 col-md-5\">\r\n          </div>\r\n          <div class=\"col-12 col-md-2\">\r\n            <button style=\"width:100%\" mat-button color=\"primary\" (click)=\"sendData()\">บันทึก</button>\r\n          </div>\r\n          <div class=\"col-12 col-md-5\"></div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"col-1\"></div>\r\n</div>\r\n<!-- เเก้ไขโปรโมชั่น -->\r\n<div class=\"row\" *ngIf=\"isEdit\">\r\n  <div class=\"col-1\"></div>\r\n  <div class=\"col-10 col-md-10\">\r\n    <div class=\"row\">\r\n      <div class=\"col-12 padding-heder\">\r\n        <div class=\"row padding-heder\">\r\n          <div class=\"col-12 padding-heder\">\r\n            <p class=\"font-header\">ข้อมูลโปรโมชั่น</p>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <div class=\"col-12\">\r\n        <div class=\"row\">\r\n          <div class=\"col-12 col-md-3\">\r\n            <p class=\"font-form\">ชื่อโปรโมชั่น</p>\r\n          </div>\r\n          <div class=\"col-12 col-md-3\">\r\n            <!-- <mat-form-field> <input matInput></mat-form-field> -->\r\n            <label>asd</label>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <div class=\"col-12 col-md-6\">\r\n        <div class=\"row\">\r\n          <div class=\"col-12 col-md-6\">\r\n            <p class=\"font-form\">วันเริ่มต้นของโปรโมชั่น</p>\r\n          </div>\r\n          <div class=\"col-12 col-md-4\">\r\n            <!-- <mat-form-field>\r\n              <input matInput [matDatepicker]=\"dp\" placeholder=\"Verbose datepicker\" [(ngModel)]=\"date\" (ngModelChange)=\"getStartDate($event)\">\r\n              <mat-datepicker-toggle matSuffix [for]=\"dp\"></mat-datepicker-toggle>\r\n              <mat-datepicker #dp></mat-datepicker>\r\n            </mat-form-field> -->\r\n            <label>asd</label>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <div class=\"col-12 col-md-6\">\r\n        <div class=\"row\">\r\n          <div class=\"col-12 col-md-6\">\r\n            <p class=\"font-form\">เวลาเริ่มต้นของโปรโมชั่น</p>\r\n          </div>\r\n          <div class=\"col-12 col-md-4\">\r\n            <!-- <mat-form-field><input matInput type=\"time\"></mat-form-field> -->\r\n            <label>asd</label>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <div class=\"col-12 col-md-6\">\r\n        <div class=\"row\">\r\n          <div class=\"col-12 col-md-6\">\r\n            <p class=\"font-form\">วันสิ้นสุดของโปรโมชั่น</p>\r\n          </div>\r\n          <div class=\"col-12 col-md-4\">\r\n            <!-- <mat-form-field>\r\n              <input matInput [matDatepicker]=\"dp2\" placeholder=\"Verbose datepicker\" [(ngModel)]=\"date\">\r\n              <mat-datepicker-toggle matSuffix [for]=\"dp2\"></mat-datepicker-toggle>\r\n              <mat-datepicker #dp2></mat-datepicker>\r\n            </mat-form-field> -->\r\n            <label>asd</label>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <div class=\"col-12 col-md-6\">\r\n        <div class=\"row\">\r\n          <div class=\"col-12 col-md-6\">\r\n            <p class=\"font-form\">เวลาสิ้นสุดของโปรโมชั่น</p>\r\n          </div>\r\n          <div class=\"col-12 col-md-4\">\r\n            <!-- <mat-form-field><input matInput type=\"time\"></mat-form-field> -->\r\n            <label>asd</label>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <div class=\"col-12\">\r\n        <div class=\"row\">\r\n          <div class=\"col-12 col-md-5\">\r\n          </div>\r\n          <div class=\"col-12 col-md-2\">\r\n            <button style=\"width:100%\" mat-button color=\"primary\">บันทึก</button>\r\n          </div>\r\n          <div class=\"col-12 col-md-5\"></div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"col-1\"></div>\r\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/components/my-promotion-header/my-promotion-header.component.ts":
+/*!*********************************************************************************!*\
+  !*** ./src/app/components/my-promotion-header/my-promotion-header.component.ts ***!
+  \*********************************************************************************/
+/*! exports provided: MY_FORMATS, MyPromotionHeaderComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MY_FORMATS", function() { return MY_FORMATS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MyPromotionHeaderComponent", function() { return MyPromotionHeaderComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_material_moment_adapter__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/material-moment-adapter */ "./node_modules/@angular/material-moment-adapter/esm5/material-moment-adapter.es5.js");
+/* harmony import */ var _angular_material_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material/core */ "./node_modules/@angular/material/esm5/core.es5.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_3__);
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var moment = moment__WEBPACK_IMPORTED_MODULE_3__;
+var MY_FORMATS = {
+    parse: {
+        dateInput: 'LL',
+    },
+    display: {
+        dateInput: 'LL',
+        monthYearLabel: 'MMM YYYY',
+        dateA11yLabel: 'LL',
+        monthYearA11yLabel: 'MMMM YYYY',
+    },
+};
+var MyPromotionHeaderComponent = /** @class */ (function () {
+    function MyPromotionHeaderComponent() {
+        this.date = new Date();
+        this.isEdit = false;
+        // data :any = {
+        //   title: '',
+        //   start_date:'',
+        //   end_date:'',
+        //   start_time:'',
+        //   end_time: ''
+        // };
+        this.data = {};
+        this.outputData = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        console.log(this.date);
+    }
+    MyPromotionHeaderComponent.prototype.ngOnInit = function () {
+    };
+    MyPromotionHeaderComponent.prototype.sendData = function () {
+        console.log(this.data);
+        this.outputData.emit(this.data);
+    };
+    MyPromotionHeaderComponent.prototype.startDate = function (e) {
+        var date = new Date(e._i.year, e._i.month, e._i.date);
+        this.data.start_date = date;
+    };
+    MyPromotionHeaderComponent.prototype.endDate = function (e) {
+        var date = new Date(e._i.year, e._i.month, e._i.date);
+        this.data.end_date = date;
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], MyPromotionHeaderComponent.prototype, "data", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
+        __metadata("design:type", Object)
+    ], MyPromotionHeaderComponent.prototype, "outputData", void 0);
+    MyPromotionHeaderComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-my-promotion-header',
+            template: __webpack_require__(/*! ./my-promotion-header.component.html */ "./src/app/components/my-promotion-header/my-promotion-header.component.html"),
+            styles: [__webpack_require__(/*! ./my-promotion-header.component.css */ "./src/app/components/my-promotion-header/my-promotion-header.component.css")],
+            providers: [
+                { provide: _angular_material_core__WEBPACK_IMPORTED_MODULE_2__["DateAdapter"], useClass: _angular_material_moment_adapter__WEBPACK_IMPORTED_MODULE_1__["MomentDateAdapter"], deps: [_angular_material_core__WEBPACK_IMPORTED_MODULE_2__["MAT_DATE_LOCALE"]] },
+                { provide: _angular_material_core__WEBPACK_IMPORTED_MODULE_2__["MAT_DATE_FORMATS"], useValue: MY_FORMATS },
+            ],
+        }),
+        __metadata("design:paramtypes", [])
+    ], MyPromotionHeaderComponent);
+    return MyPromotionHeaderComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/my-promotion-list/my-promotion-list.component.css":
+/*!******************************************************************************!*\
+  !*** ./src/app/components/my-promotion-list/my-promotion-list.component.css ***!
+  \******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "table {\r\n    width: 100%;\r\n}\r\n\r\n.img-product {\r\n    width: 60px;\r\n    height: 60px;\r\n    -o-object-fit: cover;\r\n       object-fit: cover;\r\n}\r\n\r\nthead {\r\n    background-color: rgb(231, 231, 231) !important;\r\n    padding: 5px !important;\r\n}\r\n\r\n.text {\r\n    width: 100% !important;\r\n}\r\n\r\n.border-button {\r\n    border: 1px solid rgb(150, 142, 142) !important;\r\n}\r\n\r\n.text-height {\r\n    height: 70 px !important;\r\n}\r\n\r\n.input-width {\r\n    width: 80px !important;\r\n}\r\n\r\n.text-color {\r\n    color: rgb(204, 204, 204) !important;\r\n}\r\n\r\n.cancel-color{\r\n  color: red;\r\n}\r\n\r\n.pointer{\r\n  cursor: pointer;\r\n}\r\n\r\n::ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {\r\n  background-color:  #00C853; /*replace with your color*/\r\n}\r\n\r\n::ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {\r\n  background-color: rgb(117, 245, 67);  /*replace with your color*/\r\n}\r\n\r\n.border{\r\n  border-bottom: 1px solid rgb(214, 214, 214);\r\n}\r\n\r\n.padding-left{\r\n  padding-left: 0px !important;\r\n}\r\n\r\n.padding-right{\r\n    padding-right: 0px !important;\r\n}\r\n\r\n.promotion-setting-header-title {\r\n    font-size: 23px; \r\n}\r\n\r\n.container {\r\n    max-width: 90% !important;\r\n}\r\n\r\n.search-ic {\r\n    position: absolute;\r\n    right: 0;\r\n    bottom: 2px;\r\n    color: #9f9f9f;\r\n}\r\n\r\ntable {\r\n    width: 100%;\r\n    overflow: auto;\r\n}\r\n\r\n.mat-list .mat-subheader:first-child,\r\n.mat-nav-list .mat-subheader:first-child,\r\n.mat-selection-list .mat-subheader:first-child {\r\n    margin-bottom: -8px;\r\n}\r\n\r\n.mat-list-item .mat-list-item-content {\r\n    \r\n    display: flow-root !important;\r\n    padding: unset !important;\r\n}"
+
+/***/ }),
+
+/***/ "./src/app/components/my-promotion-list/my-promotion-list.component.html":
+/*!*******************************************************************************!*\
+  !*** ./src/app/components/my-promotion-list/my-promotion-list.component.html ***!
+  \*******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"col-12\">\r\n  <div class=\"row\">\r\n    <div class=\"col-12 col-sm-1 col-md-1 col-lg-1\">\r\n    </div>\r\n\r\n\r\n    <div class=\"col-12 col-sm-10 col-md-10 col-lg-10\">\r\n      <div class=\"col-12\">\r\n    \r\n        <mat-card>\r\n\r\n            <mat-list>\r\n                <div class=\"row\" style=\"background-color: #f5f5f5;\">\r\n                  <div class=\"col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2\">\r\n                    <h3 mat-subheader>ชื่อสินค้า</h3>\r\n                  </div>\r\n                  <div class=\"col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2\">\r\n                    <h3 mat-subheader>ตัวเลือกสินค้า</h3>\r\n                  </div>\r\n                  <div class=\"col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1\">\r\n                    <h3 mat-subheader>ราคาเดิม</h3>\r\n                  </div>\r\n                  <div class=\"col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2\">\r\n                    <h3 mat-subheader>ราคาที่ลดแล้ว</h3>\r\n                  </div>\r\n                  <div class=\"col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2\">\r\n                    <h3 mat-subheader>ส่วนลด</h3>\r\n                  </div>\r\n                  <div class=\"col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2\">\r\n                    <h3 mat-subheader>จำกัดยอดซื้อ</h3>\r\n                  </div>\r\n                  <div class=\"col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1\">\r\n                    <h3 mat-subheader></h3>\r\n                  </div>\r\n                </div>\r\n                <!-- <mat-list-item > -->\r\n                <div *ngFor=\"let item of data\">\r\n                  <div class=\"row\" style=\"border-bottom: 1px solid #e0e0e0;\" *ngFor=\"let itm of item.prices ;let i = index\">\r\n                    <div *ngIf=\"i === 0\" class=\"col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1\">\r\n                      <img class=\"img-product\" [src]=\"item.img\">\r\n                    </div>\r\n                    <div *ngIf=\"i === 0\" class=\"col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 padding-left padding-right \">\r\n                        <span>\r\n                             <h3 mat-subheader> {{item.name}} </h3>\r\n                          </span>\r\n                    </div>\r\n                    <div class=\"col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1\" *ngIf=\"i !== 0\"></div>\r\n                    <div class=\"col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1\" *ngIf=\"i !== 0\"></div>\r\n                    <div class=\"col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 padding-left padding-right\">\r\n                        <mat-slide-toggle [(ngModel)]=\"itm.choice\"></mat-slide-toggle>\r\n                    </div>\r\n                    <div class=\"col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 \">\r\n                        <h3 mat-subheader class=\"padding-left padding-right\"> {{itm.namechoice}}</h3>\r\n                    </div>\r\n                    <div class=\"col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1\">\r\n                        <h3 mat-subheader > {{itm.oldprice}}</h3>\r\n                        \r\n                    </div>\r\n                    <div class=\"col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2\">\r\n                        <mat-form-field class=\"text\">\r\n                           \r\n                              <input matInput>\r\n                         \r\n                          </mat-form-field>\r\n                    </div>\r\n                    <div class=\"col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2\">\r\n                        <mat-form-field class=\"text\">\r\n                           \r\n                              <input matInput>\r\n                       \r\n                          </mat-form-field>\r\n                    </div>\r\n                    <div class=\"col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2\">\r\n                        <mat-form-field class=\"text\">\r\n                         \r\n                              <input matInput>\r\n                          \r\n                          </mat-form-field>\r\n                    </div>\r\n                    <div class=\"col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1\">\r\n    \r\n                    <mat-icon svgIcon=\"del\" class=\"setting-icon-del\"></mat-icon>\r\n    \r\n    \r\n                    </div>\r\n                  </div>\r\n                </div>\r\n    \r\n                <!-- </mat-list-item> -->\r\n    \r\n              </mat-list>\r\n    \r\n\r\n\r\n          <mat-list>\r\n            <div class=\"row\" style=\"background-color: #f5f5f5;\">\r\n              <div class=\"col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2\">\r\n                <h3 mat-subheader>ชื่อสินค้า</h3>\r\n              </div>\r\n              <div class=\"col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2\">\r\n                <h3 mat-subheader>ตัวเลือกสินค้า</h3>\r\n              </div>\r\n              <div class=\"col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2\">\r\n                <h3 mat-subheader>ราคาเดิม</h3>\r\n              </div>\r\n              <div class=\"col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2\">\r\n                <h3 mat-subheader>ราคาที่ลดแล้ว</h3>\r\n              </div>\r\n              <div class=\"col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2\">\r\n                <h3 mat-subheader>ส่วนลด</h3>\r\n              </div>\r\n              <div class=\"col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2\">\r\n                <h3 mat-subheader>จำกัดยอดซื้อ</h3>\r\n              </div>\r\n              \r\n            </div>\r\n            <!-- <mat-list-item > -->\r\n            <div *ngFor=\"let item of data\">\r\n              <div class=\"row\" style=\"border-bottom: 1px solid #e0e0e0;\" *ngFor=\"let itm of item.prices ;let i = index\">\r\n                <div *ngIf=\"i === 0\" class=\"col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1\">\r\n                  <img class=\"img-product\" [src]=\"item.img\">\r\n                </div>\r\n                <div *ngIf=\"i === 0\" class=\"col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 padding-left padding-right\">\r\n                    <span>\r\n                        <h3 mat-subheader> {{item.name}} </h3>\r\n                      </span>\r\n                </div>\r\n                <div class=\"col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1\" *ngIf=\"i !== 0\"></div>\r\n                <div class=\"col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1\" *ngIf=\"i !== 0\"></div>\r\n                <div class=\"col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2\">\r\n                  <h3 mat-subheader> {{itm.namechoice}}</h3>\r\n                </div>\r\n                <div class=\"col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2\">\r\n                  <h3 mat-subheader> {{itm.oldprice}} </h3>\r\n                </div>\r\n                <div class=\"col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2\">\r\n                  <h3 mat-subheader>{{itm.newprice}}</h3>\r\n                </div>\r\n                <div class=\"col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2\">\r\n                  <h3 mat-subheader>{{itm.discount}}%ลด</h3>\r\n                </div>\r\n                <div class=\"col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2\">\r\n                  <h3 mat-subheader>{{item.limitsell}}</h3>\r\n                </div>\r\n                           </div>\r\n            </div>\r\n\r\n            <!-- </mat-list-item> -->\r\n\r\n          </mat-list>\r\n\r\n        </mat-card>\r\n\r\n\r\n\r\n\r\n\r\n      </div>\r\n\r\n    </div>\r\n\r\n\r\n    <div class=\"col-12 col-sm-1 col-md-1 col-lg-1\">\r\n\r\n    </div>\r\n  </div>\r\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/components/my-promotion-list/my-promotion-list.component.ts":
+/*!*****************************************************************************!*\
+  !*** ./src/app/components/my-promotion-list/my-promotion-list.component.ts ***!
+  \*****************************************************************************/
+/*! exports provided: MyPromotionListComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MyPromotionListComponent", function() { return MyPromotionListComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var MyPromotionListComponent = /** @class */ (function () {
+    function MyPromotionListComponent(iconRegistry, sanitizer) {
+        this.iconRegistry = iconRegistry;
+        this.sanitizer = sanitizer;
+        this.data = [];
+        iconRegistry.addSvgIcon('del', sanitizer.bypassSecurityTrustResourceUrl('assets/imgs/icons/del.svg'));
+    }
+    MyPromotionListComponent.prototype.ngOnInit = function () {
+        this.getData();
+    };
+    MyPromotionListComponent.prototype.getData = function () {
+        var respone = {
+            datas: [
+                {
+                    name: 'เสื้อผ้า',
+                    limitsell: '0',
+                    img: 'https://doublegoose.com/wp-content/uploads/2014/03/doublegoose-crewneck-333n-bl.png',
+                    prices: [{
+                            oldprice: '130',
+                            newprice: '100',
+                            discount: '10',
+                            choice: true,
+                            namechoice: 'เสื้อสีดำ'
+                        }, {
+                            oldprice: '130',
+                            newprice: '100',
+                            discount: '10',
+                            choice: true,
+                            namechoice: 'เสื้อสีดำ'
+                        }]
+                }
+            ]
+        };
+        this.data = respone.datas;
+    };
+    MyPromotionListComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-my-promotion-list',
+            template: __webpack_require__(/*! ./my-promotion-list.component.html */ "./src/app/components/my-promotion-list/my-promotion-list.component.html"),
+            styles: [__webpack_require__(/*! ./my-promotion-list.component.css */ "./src/app/components/my-promotion-list/my-promotion-list.component.css")]
+        }),
+        __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_2__["MatIconRegistry"],
+            _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["DomSanitizer"]])
+    ], MyPromotionListComponent);
+    return MyPromotionListComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/components/profile/profile.component.html":
 /*!***********************************************************!*\
   !*** ./src/app/components/profile/profile.component.html ***!
@@ -692,7 +1235,7 @@ var MessageComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\r\n  <div class=\"no-padding col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12\">\r\n    <div class=\"card-panel\">\r\n      <div class=\"shop-setting-header\">\r\n        <div class=\"shop-setting-header-content\">\r\n\r\n          <div style=\"background: #49cbdd;\" class=\"shop-setting-header-icon\">\r\n            <svg class=\"shop-setting-header-icon-svg\" viewBox=\"0 0 32 32\">\r\n              <path d=\"M23.9 12.9l-1.6-1.6 6.2-6.2 1.6 1.6-6.2 6.2zM32 4.8l-1.6-1.6-1 1L31 5.8l1-1zM19.7 15.6l2.6-1.4-1.3-1.3-1.3 2.7zm8.6-4v16.3c0 .9-.7 1.6-1.6 1.6H1.6c-.9 0-1.6-.7-1.6-1.6V6.2c0-.9.7-1.6 1.6-1.6h24.2l-2 2H2v11.9l5.6-3.8 7.2 6.1 6.7-3 4.7 4.1v-8.4l2.1-1.9zm-2 15.9v-2.9l-5.1-4.4-6.7 3-7-6L2 21v6.5h24.3z\"></path>\r\n            </svg>\r\n          </div>\r\n\r\n          <div class=\"shop-setting-header-caption \">\r\n            <div class=\"shop-setting-header-title\">รายละเอียดร้านค้า</div>\r\n            <div class=\"shop-setting-header-subtitle\">ดูสถานะร้านของคุณและแก้ไขโปไฟล์ร้านของคุณ</div>\r\n          </div>\r\n\r\n        </div>\r\n        <hr class=\"shop-setting-header-seperator\">\r\n      </div>\r\n\r\n      <div class=\"row grid with-gap setting-card--form\">\r\n        <div class=\"col-xs-5 col-sm-5 col-md-5 col-lg-5 col-xl-5 col-profile\">\r\n          <div class=\"seller-meta\">\r\n            <div *ngIf=\"shop && shop.coverimage.url\" [ngStyle]=\"{'background-image': 'url('+ shop.coverimage.url + ')'}\" class=\"cover-photo\">\r\n            </div>\r\n            <div class=\"cover-uploader dropzone\">\r\n              <label for=\"file-input\">\r\n                <div class=\"validation-toast\"></div> <svg class=\"validation-toast-svg\" viewBox=\"0 0 32 32\">\r\n                  <path d=\"M16 12c-3.3 0-6 2.7-6 6s2.7 6 6 6 6-2.7 6-6-2.7-6-6-6z\"></path>\r\n                  <path d=\"M30 6h-5l-1-2s-.9-2-2-2H10C8.9 2 8 4 8 4L7 6H2C.9 6 0 6.9 0 8v20c0 1.1.9 2 2 2h28c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zM16 26c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8z\"></path>\r\n                </svg> <span style=\"font-size: 14px; padding-left: 5px;cursor: pointer;\">เปลี่ยนรูปปก</span>\r\n                <input id=\"file-input\" type=\"file\" (change)=\"detectFiles($event,'coverImg')\" accept=\".png,.jpg\" />\r\n                <!-- <div style=\"display:none\" class=\"cropper-masker cropper-masker-block\">\r\n                  <div class=\"cropper-loading\"><img src=\"/images/spinner-balls-g.gif\" alt=\"\"></div>\r\n                  <div class=\"cropper-saving\">กำลังบันทึก</div>\r\n                </div> -->\r\n              </label>\r\n            </div>\r\n            <div class=\"seller-profile-container\">\r\n              <!-- <div class=\"avatar-container\"> -->\r\n              <label for=\"file-avatar-input\">\r\n                <div class=\"avatar\">\r\n                  <img *ngIf=\"shopUser.profileImageURL\" [src]=\"shopUser.profileImageURL\">\r\n                  <div class=\"avatar-uploader dropzone\" style=\"cursor: pointer;\">\r\n                    <div class=\"validation-toast \"></div>\r\n                    <div class=\"edit\">\r\n                      แก้ไข\r\n                    </div>\r\n                    <!-- <input id=\"file-avatar-input\" type=\"file\"> -->\r\n                    <input id=\"file-avatar-input\" type=\"file\" (change)=\"detectFiles($event,'profileImg')\" accept=\".png,.jpg\" />\r\n                    <!-- <div style=\"display:none\" class=\"cropper-masker cropper-masker-block\">\r\n                      <div class=\"cropper-loading\"><img src=\"/images/spinner-balls-g.gif\" alt=\"\"></div>\r\n                      <div class=\"cropper-saving\">กำลังบันทึก</div>\r\n                    </div> -->\r\n                  </div>\r\n                </div>\r\n              </label>\r\n              <!-- </div> -->\r\n              <div class=\"seller-name\">\r\n                <div class=\"name\">{{shopUser.username}}</div>\r\n                <!-- <div class=\"description\">เข้าร่วมเมื่อ 3 เดือนที่แล้ว</div> -->\r\n                <!-- <div class=\"seller-following\" style=\"color: #8c8c8c;\">\r\n                  <div class=\"seller-following__item\">\r\n                    2&nbsp;\r\n                    <span class=\"seller-following__subtitle\">กำลังติดตาม</span>\r\n                  </div>\r\n                  <div class=\"seller-following-item\">\r\n                    1&nbsp;\r\n                    <span class=\"seller-following__subtitle\">ผู้ติดตาม</span>\r\n                  </div>\r\n                </div> -->\r\n              </div>\r\n            </div>\r\n            <!-- <div class=\"star-rating-fields\">\r\n              <div class=\"row row-large-header\">\r\n                <div class=\"row-view-in\">\r\n                  <div class=\"row-text\">\r\n                    ดูร้านค้า\r\n                  </div>\r\n                  <a class=\"row-action\" style=\"cursor: pointer;\" data-ember-action=\"\" data-ember-action-1175=\"1175\">\r\n                    <svg viewBox=\"0 0 32 32\">\r\n                      <path d=\"M3 21v2c0 .6.5 1 1 1h24c.6 0 1-.5 1-1v-2H3zM29 4c0-.6-.5-1-1-1H4c-.4 0-1 .5-1 1v15h26V4zM12 29h8v-3h-8v3zm10-3v3h2v2H8v-2h2v-3H3c-1 0-2-1-2-2V2.9C1 1.9 1.9 1 2.9 1h26.2c1 0 1.9.9 1.9 1.9v20.7c0 1-1 2.4-2 2.4h-7z\"></path>\r\n                    </svg>\r\n                  </a>\r\n                </div>\r\n              </div>\r\n              <div class=\"row row-large-header\">\r\n                <div class=\"icon\"><svg viewBox=\"0 0 32 32\">\r\n                    <path d=\"M29.5 12.4h-1.8v18H4.3v-18H2.5V7h7.8c-.4-.6-.6-1.2-.6-1.8 0-2 1.6-3.6 3.6-3.6 1.1 0 2.1.5 2.7 1.3.6-.8 1.6-1.3 2.7-1.3 2 0 3.6 1.6 3.6 3.6 0 .6-.2 1.3-.5 1.8h7.8v5.4zM16.9 28.6h9v-7.2h-9v7.2zm0-9h9v-7.2h-9v7.2zm-10.8 9h9v-7.2h-9v7.2zm0-9h9v-7.2h-9v7.2zm7.2-16.2c-1 0-1.8.8-1.8 1.8S12.3 7 13.3 7s1.8-.8 1.8-1.8-.8-1.8-1.8-1.8zm5.4 0c-1 0-1.8.8-1.8 1.8S17.7 7 18.7 7s1.8-.8 1.8-1.8-.8-1.8-1.8-1.8zm9 5.4H4.3v1.8h23.5V8.8z\"></path>\r\n                  </svg></div>\r\n                <div class=\"rating-title\">รายการสินค้า</div>\r\n                <a routerLink=\"/profile\" class=\"data\"><span style=\"font-size: 14px;\">0</span>\r\n                  <svg viewBox=\"0 0 32 32\">\r\n                    <path d=\"M23.5 15.5l-12-11c-.6-.6-1.5-.6-2.1 0-.2.2-.4.6-.4 1s.2.8.4 1l10.9 10-10.9 10c-.6.6-.6 1.5 0 2.1.3.3.7.4 1 .4.4 0 .7-.1 1-.4l11.9-10.9.1-.1c.3-.3.4-.7.4-1.1.1-.4 0-.8-.3-1z\"></path>\r\n                  </svg>\r\n                </a>\r\n              </div>\r\n              <div class=\"row row-large-header\">\r\n                <div class=\"icon\"><svg viewBox=\"0 0 32 32\">\r\n                    <path d=\"M0 19V6c0-3.3 2.7-6 6-6h20c3.3 0 6 2.7 6 6v13c0 3.3-2.7 5-6 5H14l-8 8v-8c-3.3 0-6-1.7-6-5zm26 3c2.2 0 4-.8 4-3V6c0-2.2-1.8-4-4-4H6C3.8 2 2 3.8 2 6v13c0 2.2 1.8 3 4 3h2v5l5-5h13zM8 22\"></path>\r\n                    <circle cx=\"8\" cy=\"12\" r=\"2\"></circle>\r\n                    <circle cx=\"16\" cy=\"12\" r=\"2\"></circle>\r\n                    <circle cx=\"24\" cy=\"12\" r=\"2\"></circle>\r\n                  </svg></div>\r\n                <div class=\"rating-title\">เรทการตอบกลับ</div>\r\n                <div class=\"data\"><span style=\"font-size: 14px;\">57%</span></div>\r\n              </div>\r\n              <div class=\"row row-large-header\">\r\n                <div class=\"icon\"><svg viewBox=\"0 0 32 32\">\r\n                    <path d=\"M16 32C7.2 32 0 24.8 0 16S7.2 0 16 0s16 7.2 16 16-7.2 16-16 16zm0-30C8.3 2 2 8.3 2 16s6.3 14 14 14 14-6.3 14-14S23.7 2 16 2zm4.4 20.7l-5.9-5.9c-.3-.2-.5-.4-.5-.8V7c0-.6.4-1 1-1s1 .4 1 1v8.6l5.7 5.7c.4.4.4 1 0 1.4-.4.4-1 .4-1.3 0z\"></path>\r\n                  </svg></div>\r\n                <div class=\"rating-title\">เวลาในการตอบกลับ</div>\r\n                <div class=\"data\"><span style=\"font-size: 14px;\">ภายในไม่กี่นาที</span></div>\r\n              </div>\r\n              <div class=\"row row-large-header\">\r\n                <div class=\"icon\"><svg viewBox=\"0 0 32 32\">\r\n                    <path d=\"M16 4.83l3.18 7 .48 1.06 1.16.11 6.76.61L22.27 19l-.75.75.2 1 1.38 7.19-6.1-3.72-1-.64-1 .64-6.15 3.7 1.42-7.16.21-1-.76-.76-5.31-5.39 6.77-.61 1.16-.11.48-1.06 3.18-7M16 0l-5 11-11 1 8.3 8.37L6 32l10-6.07L26 32l-2.31-11.63L32 12l-11-1-5-11z\"></path>\r\n                  </svg></div>\r\n                <div class=\"rating-title\">คะแนนร้านค้า</div>\r\n                <a routerLink=\"/profile\" class=\"data ember-view\"> <span style=\"font-size: 14px;\">0</span>\r\n                </a>\r\n              </div>\r\n              <div class=\"row row-large-header\">\r\n                <div class=\"icon\"><svg viewBox=\"0 0 32 32\">\r\n                    <path d=\"M24.2 3.7h-2.1v-.8h-2.5C19.2 1.3 17.7 0 16 0c-1.8 0-3.3 1.3-3.7 2.9H9.8v.8h-2c-3.2 0-5.9 2.6-5.9 5.9v16.5c0 3.3 2.6 5.9 5.9 5.9h16.5c3.2 0 5.9-2.6 5.9-5.9V9.6c-.1-3.2-2.7-5.9-6-5.9zm-12.7 1h2.4v-.9c0-1.1.9-2 2-2s2 .9 2 2v.9h2.4v4.1h-8.9V4.7zm16.4 21.4c0 2-1.6 3.6-3.6 3.6H7.8c-2 0-3.6-1.6-3.6-3.6V9.6c0-2 1.6-3.6 3.6-3.6h2v4.5h12.4V6h2.1c2 0 3.6 1.6 3.6 3.6v16.5zM15.5 25c-.2 0-.4-.1-.5-.2L10.1 21c-.4-.3-.4-.9-.1-1.2.3-.4.9-.4 1.2-.1l4.1 3.3 6.3-9.8c.3-.4.8-.5 1.2-.3.4.3.5.8.3 1.2l-6.8 10.7c-.1.2-.3.4-.6.4-.1-.2-.1-.2-.2-.2z\"></path>\r\n                  </svg></div>\r\n                <div class=\"rating-title\">อัตราคำสั่งซื้อที่ไม่สำเร็จ</div>\r\n                <a routerLink=\"/profile\" target=\"_blank\" class=\"data\">\r\n                  <span class=\"subdata\">\r\n                    ออเดอร์น้อยเกินไป ไม่สามารถคำนวนได้\r\n                  </span>\r\n                  <svg viewBox=\"0 0 32 32\">\r\n                    <path d=\"M23.5 15.5l-12-11c-.6-.6-1.5-.6-2.1 0-.2.2-.4.6-.4 1s.2.8.4 1l10.9 10-10.9 10c-.6.6-.6 1.5 0 2.1.3.3.7.4 1 .4.4 0 .7-.1 1-.4l11.9-10.9.1-.1c.3-.3.4-.7.4-1.1.1-.4 0-.8-.3-1z\"></path>\r\n                  </svg>\r\n                </a>\r\n              </div>\r\n            </div> -->\r\n          </div>\r\n        </div>\r\n        <div class=\"col-xs-7 col-sm-7 col-md-7 col-lg-7 col-xl-7\">\r\n          <div class=\"seller-profile\">\r\n            <div class=\"edit-row\">\r\n              <!-- <div class=\"edit-label\"><svg viewBox=\"0 0 32 32\">\r\n                  <path d=\"M28 16.9v12.8H4V16.6c-1-.9-1.7-2.6-1.7-4.1L5.7 2.2h20.6l3.4 10.3c.1 1.8-.4 3.5-1.7 4.4zM5.7 28h20.6v-3.4H5.7V28zm0-5.1h20.6v-5.2c-.3 0-.5.1-.9.1-1.3 0-2.7-.7-3.4-1.7-.7 1-1.6 1.7-3 1.7-1.2 0-2.3-.9-3-1.7-.7.9-1.8 1.7-3 1.7-1.4 0-2.3-.7-3-1.7-.8 1-2.2 1.7-3.5 1.7-.3 0-.5 0-.8-.1v5.2zM25.2 4H6.8l-2.3 6.9h22.9L25.2 4zM4 12.6C4.2 14 5.3 16 6.5 16s2.7 0 2.7-1.7h1.7s0 1.7 2.1 1.7 2.1-1.7 2.1-1.7h1.8S16.8 16 19 16c2.1 0 2.1-1.7 2.1-1.7H23s0 1.7 2.7 1.7c2.5 0 2.5-3.4 2.5-3.4H4z\"></path>\r\n                </svg>ชื่อร้าน\r\n              </div> -->\r\n              <div class=\"edit-input\">\r\n                <div class=\"input\">\r\n                  <mat-form-field>\r\n                    <mat-icon style=\"position: absolute;\r\n                        right: 0;\r\n                        bottom: 2px;\r\n                        color: #9f9f9f;\">assignment_ind</mat-icon>\r\n                    <input type=\"text\" [(ngModel)]=\"shop.name\" matInput placeholder=\"ชื่อร้าน\">\r\n                  </mat-form-field>\r\n                  <!-- <input type=\"text\" placeholder=\"\" maxlength=\"80\" class=\"ember-text-field\"></div> -->\r\n                </div>\r\n              </div>\r\n              <div class=\"edit-row\">\r\n                <div class=\"edit-label\">\r\n                  <svg viewBox=\"0 0 32 32\">\r\n                    <path d=\"M30 32H2c-1.1 0-2-.9-2-2V2C0 .9.9 0 2 0h28c1.1 0 2 .9 2 2v28c0 1.1-.9 2-2 2zm0-29c0-.6-.4-1-1-1H3c-.6 0-1 .4-1 1v26c0 .6.4 1 1 1h26c.6 0 1-.4 1-1V3zM18.8 24.5c-.2.2-.5.3-.8.3-.3 0-.6-.1-.8-.3l-6-4.6-5.4 7.8c-.4.4-1.1.4-1.5 0-.4-.4-.4-1.1 0-1.6l5.9-8.4c.2-.2.5-.3.8-.3.3 0 .6.1.8.3l6 4.6 8.4-9.9c.4-.4 1.1-.4 1.5 0 .4.4.4 1.1 0 1.6l-8.9 10.5zM9 12c-1.7 0-3-1.3-3-3s1.3-3 3-3 3 1.3 3 3-1.3 3-3 3zm0-4c-.6 0-1 .5-1 1 0 .6.4 1 1 1s1-.4 1-1c0-.5-.4-1-1-1z\"></path>\r\n                  </svg>คำอธิบายรูปภาพ\r\n                </div>\r\n                <div class=\"row edit-row\">\r\n                  <div class=\"col-8 edit-description\">รูปภาพร้านค้าจะแสดงอยู่ในโปรไฟล์ร้านค้า</div>\r\n                  <div class=\"col-4 edit-state\">0 / 5 รูปภาพ</div>\r\n                </div>\r\n                <div class=\"shop-desc-media\">\r\n                  <div class=\"banner-manager image-manager is-min\">\r\n                    <!-- <ul class=\"sortable-items\">\r\n                  </ul> -->\r\n                    <!-- <ul class=\"sortable-items sortable-items-shadow\">\r\n                    <li class=\"image-manager__dropzone\"> -->\r\n                    <!-- <div class=\"image-manager__item \"> -->\r\n                    <div class=\"row\">\r\n                      <div class=\"col-6 no-padding\" *ngFor=\"let item of shop.images\">\r\n\r\n                        <div style=\"\r\n                        margin: 2px;\r\n                          text-align: center;\r\n                          background-color: #fafafa;\r\n                          border: 1px solid #e8e8e8;\">\r\n                          <img style=\"height: 100px;max-width: 99%;\" class=\"img-responsive\" [src]=\"item.url\">\r\n                        </div>\r\n                      </div>\r\n\r\n\r\n                      <div class=\"col-6 no-padding image-manager__item\">\r\n                        <div class=\"uploader-btn\" style=\"margin: 2px; border: 1px solid #e8e8e8;\">\r\n                          <div class=\"shop-desc-img-uploader dropzone\">\r\n                            <label for=\"file-uploader-input\">\r\n                              <!-- <div class=\"validation-toast \"></div> -->\r\n                              <div class=\"image-s\" style=\"cursor: pointer;\"><svg viewBox=\"0 0 32 32\">\r\n                                  <path d=\"M29.38 14.55l-3.89-4.2a1.24 1.24 0 0 0-.87-.23 1 1 0 0 0-.78.24l-7.32 6 1.25 1.41 8.49 9.55h-3L11.93 14.21a.94.94 0 0 0-.8-.29 1 1 0 0 0-.22 0h-.09a1.05 1.05 0 0 0-.51.2l-7.68 6.32V5.32a1 1 0 0 1 1-1h24.79a1 1 0 0 1 1 1v9.23zm0-12.09H2.63a1.91 1.91 0 0 0-1.91 1.9v18a.94.94 0 0 0 0 .16v4.75a1.91 1.91 0 0 0 1.91 1.93h26.75a1.91 1.91 0 0 0 1.91-1.91V4.36a1.91 1.91 0 0 0-1.91-1.91z\"></path>\r\n                                  <circle cx=\"9.26\" cy=\"10.24\" r=\"2.25\"></circle>\r\n                                </svg>\r\n                                <div>อัพโหลดรูปภาพ</div>\r\n                              </div>\r\n                              <input id=\"file-uploader-input\" type=\"file\" (change)=\"detectFiles($event,'shopImg')\"\r\n                                multiple accept=\".png,.jpg\" />\r\n                              <!-- <div style=\"display:none\" class=\"cropper-masker cropper-masker-block\">\r\n                                      <div class=\"cropper-loading\"><img src=\"/images/spinner-balls-g.gif\" alt=\"\"></div>\r\n                                      <div class=\"cropper-saving\">กำลังบันทึก</div>\r\n                                    </div> -->\r\n                            </label>\r\n\r\n                          </div>\r\n                          <!-- <div class=\"shop-desc-vid-uploader\" style=\"height: 75%; border-left: solid 1px #e8e8e8;\"\r\n                          data-ember-action=\"\" data-ember-action-1227=\"1227\">\r\n                          <div class=\"youtube\" style=\"cursor: pointer;\" (click)=\"openDialog()\"><svg viewBox=\"0 0 32 32\">\r\n                              <path d=\"M16.21 4.75C12.47 4.75 6.95 5 5.3 5s-2.46.25-3.44 1.1c-1.5 1.33-1.85 4-1.85 8v3.8c0 4.57.61 6.89 1.61 7.74a4.46 4.46 0 0 0 2.68 1.19c.3 0 2.41.42 11.78.42 5.84 0 10.87-.28 11.38-.34a4.38 4.38 0 0 0 2.94-1.26c1.33-1.53 1.6-4.06 1.6-7.72v-4.44c0-2.37-.13-5.72-1.61-7.13-1.11-.94-1.52-1.21-3.84-1.36-.65 0-6.35-.25-10.34-.25zm-3.46 6.78L21.38 16l-8.63 4.49v-8.96z\"></path>\r\n                            </svg>\r\n                            <div>เพิ่มลิงค์ของ วิดีโอ YouTube</div>\r\n                          </div>\r\n                        </div> -->\r\n                        </div>\r\n                      </div>\r\n\r\n                    </div>\r\n\r\n                    <!-- </div> -->\r\n                    <!-- </li>\r\n                  </ul> -->\r\n                  </div>\r\n                </div>\r\n              </div>\r\n              <div class=\"edit-row\">\r\n                <!-- <div class=\"edit-label\"><svg viewBox=\"0 0 32 32\">\r\n                  <path d=\"M14 32v-2h18v2H14zm6.1-19.2l-9.8 17.1L2.2 32 0 23.9 9.8 6.8l1-1.7 3-5.1L24 5.9l-3.3 5.7-.6 1.2zM2.2 24.1l1.4 5.4L9 28l-6.8-3.9zm1-1.8l6.8 3.9 8.4-14.5-6.8-3.9-8.4 14.5zM14.5 2.7l-2 3.4 6.8 3.9 2-3.4-6.8-3.9z\"></path>\r\n                </svg>รายละเอียดร้านค้า</div> -->\r\n                <div class=\"edit-input\">\r\n                  <div class=\"textbox shopee-textarea\">\r\n                    <div class=\"input\">\r\n                      <mat-form-field>\r\n                        <mat-icon style=\"position: absolute;\r\n                          right: 0;\r\n                          bottom: 2px;\r\n                          color: #9f9f9f;\">edit</mat-icon>\r\n                        <input type=\"text\" [(ngModel)]=\"shop.description\" matInput placeholder=\"รายละเอียดร้านค้า\">\r\n                      </mat-form-field>\r\n                      <!-- <textarea spellcheck=\"false\" maxlength=\"500\" class=\"ember-text-area\"></textarea> -->\r\n                    </div>\r\n                  </div>\r\n                </div>\r\n              </div>\r\n              <div class=\"edit-row btn-group text-center\">\r\n                <button mat-flat-button color=\"primary\" class=\"btn-summit\" (click)=\"submit()\">บันทึก</button>\r\n              </div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <div padding-bottom *ngIf=\"dataService.message\">\r\n        <message class=\"text-center\" [type]=\"dataService.messageType\" [message]=\"dataService.message\"></message>\r\n      </div>\r\n    </div>\r\n\r\n  </div>"
+module.exports = "<div class=\"row\">\r\n  <div class=\"no-padding col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12\">\r\n    <div class=\"card-panel\">\r\n      <div class=\"shop-setting-header\">\r\n        <div class=\"shop-setting-header-content\">\r\n\r\n          <div style=\"background: #49cbdd;\" class=\"shop-setting-header-icon\">\r\n            <svg class=\"shop-setting-header-icon-svg\" viewBox=\"0 0 32 32\">\r\n              <path d=\"M23.9 12.9l-1.6-1.6 6.2-6.2 1.6 1.6-6.2 6.2zM32 4.8l-1.6-1.6-1 1L31 5.8l1-1zM19.7 15.6l2.6-1.4-1.3-1.3-1.3 2.7zm8.6-4v16.3c0 .9-.7 1.6-1.6 1.6H1.6c-.9 0-1.6-.7-1.6-1.6V6.2c0-.9.7-1.6 1.6-1.6h24.2l-2 2H2v11.9l5.6-3.8 7.2 6.1 6.7-3 4.7 4.1v-8.4l2.1-1.9zm-2 15.9v-2.9l-5.1-4.4-6.7 3-7-6L2 21v6.5h24.3z\"></path>\r\n            </svg>\r\n          </div>\r\n\r\n          <div class=\"shop-setting-header-caption \">\r\n            <div class=\"shop-setting-header-title\">รายละเอียดร้านค้า</div>\r\n            <div class=\"shop-setting-header-subtitle\">ดูสถานะร้านของคุณและแก้ไขโปไฟล์ร้านของคุณ</div>\r\n          </div>\r\n\r\n        </div>\r\n        <hr class=\"shop-setting-header-seperator\">\r\n      </div>\r\n\r\n      <div class=\"row grid with-gap setting-card--form\">\r\n        <div class=\"col-xs-5 col-sm-5 col-md-5 col-lg-5 col-xl-5 col-profile\">\r\n          <div class=\"seller-meta\">\r\n            <div *ngIf=\"shop && shop.coverimage.url\" [ngStyle]=\"{'background-image': 'url('+ shop.coverimage.url + ')'}\" class=\"cover-photo\">\r\n            </div>\r\n            <div class=\"cover-uploader dropzone\">\r\n              <label for=\"file-input\">\r\n                <div class=\"validation-toast\"></div> <svg class=\"validation-toast-svg\" viewBox=\"0 0 32 32\">\r\n                  <path d=\"M16 12c-3.3 0-6 2.7-6 6s2.7 6 6 6 6-2.7 6-6-2.7-6-6-6z\"></path>\r\n                  <path d=\"M30 6h-5l-1-2s-.9-2-2-2H10C8.9 2 8 4 8 4L7 6H2C.9 6 0 6.9 0 8v20c0 1.1.9 2 2 2h28c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zM16 26c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8z\"></path>\r\n                </svg> <span style=\"font-size: 14px; padding-left: 5px;cursor: pointer;\">เปลี่ยนรูปปก</span>\r\n                <input id=\"file-input\" type=\"file\" (change)=\"detectFiles($event,'coverImg')\" accept=\".png,.jpg\" />\r\n                <!-- <div style=\"display:none\" class=\"cropper-masker cropper-masker-block\">\r\n                  <div class=\"cropper-loading\"><img src=\"/images/spinner-balls-g.gif\" alt=\"\"></div>\r\n                  <div class=\"cropper-saving\">กำลังบันทึก</div>\r\n                </div> -->\r\n              </label>\r\n            </div>\r\n            <div class=\"seller-profile-container\">\r\n              <!-- <div class=\"avatar-container\"> -->\r\n              <label for=\"file-avatar-input\">\r\n                <div class=\"avatar\">\r\n                  <img *ngIf=\"shopUser.profileImageURL\" [src]=\"shopUser.profileImageURL\">\r\n                  <div class=\"avatar-uploader dropzone\" style=\"cursor: pointer;\">\r\n                    <div class=\"validation-toast \"></div>\r\n                    <div class=\"edit\">\r\n                      แก้ไข\r\n                    </div>\r\n                    <!-- <input id=\"file-avatar-input\" type=\"file\"> -->\r\n                    <input id=\"file-avatar-input\" type=\"file\" (change)=\"detectFiles($event,'profileImg')\" accept=\".png,.jpg\" />\r\n                    <!-- <div style=\"display:none\" class=\"cropper-masker cropper-masker-block\">\r\n                      <div class=\"cropper-loading\"><img src=\"/images/spinner-balls-g.gif\" alt=\"\"></div>\r\n                      <div class=\"cropper-saving\">กำลังบันทึก</div>\r\n                    </div> -->\r\n                  </div>\r\n                </div>\r\n              </label>\r\n              <!-- </div> -->\r\n              <div class=\"seller-name\">\r\n                <div class=\"name\">{{shopUser.username}}</div>\r\n                <!-- <div class=\"description\">เข้าร่วมเมื่อ 3 เดือนที่แล้ว</div> -->\r\n                <!-- <div class=\"seller-following\" style=\"color: #8c8c8c;\">\r\n                  <div class=\"seller-following__item\">\r\n                    2&nbsp;\r\n                    <span class=\"seller-following__subtitle\">กำลังติดตาม</span>\r\n                  </div>\r\n                  <div class=\"seller-following-item\">\r\n                    1&nbsp;\r\n                    <span class=\"seller-following__subtitle\">ผู้ติดตาม</span>\r\n                  </div>\r\n                </div> -->\r\n              </div>\r\n            </div>\r\n            <!-- <div class=\"star-rating-fields\">\r\n              <div class=\"row row-large-header\">\r\n                <div class=\"row-view-in\">\r\n                  <div class=\"row-text\">\r\n                    ดูร้านค้า\r\n                  </div>\r\n                  <a class=\"row-action\" style=\"cursor: pointer;\" data-ember-action=\"\" data-ember-action-1175=\"1175\">\r\n                    <svg viewBox=\"0 0 32 32\">\r\n                      <path d=\"M3 21v2c0 .6.5 1 1 1h24c.6 0 1-.5 1-1v-2H3zM29 4c0-.6-.5-1-1-1H4c-.4 0-1 .5-1 1v15h26V4zM12 29h8v-3h-8v3zm10-3v3h2v2H8v-2h2v-3H3c-1 0-2-1-2-2V2.9C1 1.9 1.9 1 2.9 1h26.2c1 0 1.9.9 1.9 1.9v20.7c0 1-1 2.4-2 2.4h-7z\"></path>\r\n                    </svg>\r\n                  </a>\r\n                </div>\r\n              </div>\r\n              <div class=\"row row-large-header\">\r\n                <div class=\"icon\"><svg viewBox=\"0 0 32 32\">\r\n                    <path d=\"M29.5 12.4h-1.8v18H4.3v-18H2.5V7h7.8c-.4-.6-.6-1.2-.6-1.8 0-2 1.6-3.6 3.6-3.6 1.1 0 2.1.5 2.7 1.3.6-.8 1.6-1.3 2.7-1.3 2 0 3.6 1.6 3.6 3.6 0 .6-.2 1.3-.5 1.8h7.8v5.4zM16.9 28.6h9v-7.2h-9v7.2zm0-9h9v-7.2h-9v7.2zm-10.8 9h9v-7.2h-9v7.2zm0-9h9v-7.2h-9v7.2zm7.2-16.2c-1 0-1.8.8-1.8 1.8S12.3 7 13.3 7s1.8-.8 1.8-1.8-.8-1.8-1.8-1.8zm5.4 0c-1 0-1.8.8-1.8 1.8S17.7 7 18.7 7s1.8-.8 1.8-1.8-.8-1.8-1.8-1.8zm9 5.4H4.3v1.8h23.5V8.8z\"></path>\r\n                  </svg></div>\r\n                <div class=\"rating-title\">รายการสินค้า</div>\r\n                <a routerLink=\"/profile\" class=\"data\"><span style=\"font-size: 14px;\">0</span>\r\n                  <svg viewBox=\"0 0 32 32\">\r\n                    <path d=\"M23.5 15.5l-12-11c-.6-.6-1.5-.6-2.1 0-.2.2-.4.6-.4 1s.2.8.4 1l10.9 10-10.9 10c-.6.6-.6 1.5 0 2.1.3.3.7.4 1 .4.4 0 .7-.1 1-.4l11.9-10.9.1-.1c.3-.3.4-.7.4-1.1.1-.4 0-.8-.3-1z\"></path>\r\n                  </svg>\r\n                </a>\r\n              </div>\r\n              <div class=\"row row-large-header\">\r\n                <div class=\"icon\"><svg viewBox=\"0 0 32 32\">\r\n                    <path d=\"M0 19V6c0-3.3 2.7-6 6-6h20c3.3 0 6 2.7 6 6v13c0 3.3-2.7 5-6 5H14l-8 8v-8c-3.3 0-6-1.7-6-5zm26 3c2.2 0 4-.8 4-3V6c0-2.2-1.8-4-4-4H6C3.8 2 2 3.8 2 6v13c0 2.2 1.8 3 4 3h2v5l5-5h13zM8 22\"></path>\r\n                    <circle cx=\"8\" cy=\"12\" r=\"2\"></circle>\r\n                    <circle cx=\"16\" cy=\"12\" r=\"2\"></circle>\r\n                    <circle cx=\"24\" cy=\"12\" r=\"2\"></circle>\r\n                  </svg></div>\r\n                <div class=\"rating-title\">เรทการตอบกลับ</div>\r\n                <div class=\"data\"><span style=\"font-size: 14px;\">57%</span></div>\r\n              </div>\r\n              <div class=\"row row-large-header\">\r\n                <div class=\"icon\"><svg viewBox=\"0 0 32 32\">\r\n                    <path d=\"M16 32C7.2 32 0 24.8 0 16S7.2 0 16 0s16 7.2 16 16-7.2 16-16 16zm0-30C8.3 2 2 8.3 2 16s6.3 14 14 14 14-6.3 14-14S23.7 2 16 2zm4.4 20.7l-5.9-5.9c-.3-.2-.5-.4-.5-.8V7c0-.6.4-1 1-1s1 .4 1 1v8.6l5.7 5.7c.4.4.4 1 0 1.4-.4.4-1 .4-1.3 0z\"></path>\r\n                  </svg></div>\r\n                <div class=\"rating-title\">เวลาในการตอบกลับ</div>\r\n                <div class=\"data\"><span style=\"font-size: 14px;\">ภายในไม่กี่นาที</span></div>\r\n              </div>\r\n              <div class=\"row row-large-header\">\r\n                <div class=\"icon\"><svg viewBox=\"0 0 32 32\">\r\n                    <path d=\"M16 4.83l3.18 7 .48 1.06 1.16.11 6.76.61L22.27 19l-.75.75.2 1 1.38 7.19-6.1-3.72-1-.64-1 .64-6.15 3.7 1.42-7.16.21-1-.76-.76-5.31-5.39 6.77-.61 1.16-.11.48-1.06 3.18-7M16 0l-5 11-11 1 8.3 8.37L6 32l10-6.07L26 32l-2.31-11.63L32 12l-11-1-5-11z\"></path>\r\n                  </svg></div>\r\n                <div class=\"rating-title\">คะแนนร้านค้า</div>\r\n                <a routerLink=\"/profile\" class=\"data ember-view\"> <span style=\"font-size: 14px;\">0</span>\r\n                </a>\r\n              </div>\r\n              <div class=\"row row-large-header\">\r\n                <div class=\"icon\"><svg viewBox=\"0 0 32 32\">\r\n                    <path d=\"M24.2 3.7h-2.1v-.8h-2.5C19.2 1.3 17.7 0 16 0c-1.8 0-3.3 1.3-3.7 2.9H9.8v.8h-2c-3.2 0-5.9 2.6-5.9 5.9v16.5c0 3.3 2.6 5.9 5.9 5.9h16.5c3.2 0 5.9-2.6 5.9-5.9V9.6c-.1-3.2-2.7-5.9-6-5.9zm-12.7 1h2.4v-.9c0-1.1.9-2 2-2s2 .9 2 2v.9h2.4v4.1h-8.9V4.7zm16.4 21.4c0 2-1.6 3.6-3.6 3.6H7.8c-2 0-3.6-1.6-3.6-3.6V9.6c0-2 1.6-3.6 3.6-3.6h2v4.5h12.4V6h2.1c2 0 3.6 1.6 3.6 3.6v16.5zM15.5 25c-.2 0-.4-.1-.5-.2L10.1 21c-.4-.3-.4-.9-.1-1.2.3-.4.9-.4 1.2-.1l4.1 3.3 6.3-9.8c.3-.4.8-.5 1.2-.3.4.3.5.8.3 1.2l-6.8 10.7c-.1.2-.3.4-.6.4-.1-.2-.1-.2-.2-.2z\"></path>\r\n                  </svg></div>\r\n                <div class=\"rating-title\">อัตราคำสั่งซื้อที่ไม่สำเร็จ</div>\r\n                <a routerLink=\"/profile\" target=\"_blank\" class=\"data\">\r\n                  <span class=\"subdata\">\r\n                    ออเดอร์น้อยเกินไป ไม่สามารถคำนวนได้\r\n                  </span>\r\n                  <svg viewBox=\"0 0 32 32\">\r\n                    <path d=\"M23.5 15.5l-12-11c-.6-.6-1.5-.6-2.1 0-.2.2-.4.6-.4 1s.2.8.4 1l10.9 10-10.9 10c-.6.6-.6 1.5 0 2.1.3.3.7.4 1 .4.4 0 .7-.1 1-.4l11.9-10.9.1-.1c.3-.3.4-.7.4-1.1.1-.4 0-.8-.3-1z\"></path>\r\n                  </svg>\r\n                </a>\r\n              </div>\r\n            </div> -->\r\n          </div>\r\n        </div>\r\n        <div class=\"col-xs-7 col-sm-7 col-md-7 col-lg-7 col-xl-7\">\r\n          <div class=\"seller-profile\">\r\n            <div class=\"edit-row\">\r\n              <!-- <div class=\"edit-label\"><svg viewBox=\"0 0 32 32\">\r\n                  <path d=\"M28 16.9v12.8H4V16.6c-1-.9-1.7-2.6-1.7-4.1L5.7 2.2h20.6l3.4 10.3c.1 1.8-.4 3.5-1.7 4.4zM5.7 28h20.6v-3.4H5.7V28zm0-5.1h20.6v-5.2c-.3 0-.5.1-.9.1-1.3 0-2.7-.7-3.4-1.7-.7 1-1.6 1.7-3 1.7-1.2 0-2.3-.9-3-1.7-.7.9-1.8 1.7-3 1.7-1.4 0-2.3-.7-3-1.7-.8 1-2.2 1.7-3.5 1.7-.3 0-.5 0-.8-.1v5.2zM25.2 4H6.8l-2.3 6.9h22.9L25.2 4zM4 12.6C4.2 14 5.3 16 6.5 16s2.7 0 2.7-1.7h1.7s0 1.7 2.1 1.7 2.1-1.7 2.1-1.7h1.8S16.8 16 19 16c2.1 0 2.1-1.7 2.1-1.7H23s0 1.7 2.7 1.7c2.5 0 2.5-3.4 2.5-3.4H4z\"></path>\r\n                </svg>ชื่อร้าน\r\n              </div> -->\r\n              <div class=\"edit-input\">\r\n                <div class=\"input\">\r\n                  <mat-form-field>\r\n                    <mat-icon style=\"position: absolute;\r\n                        right: 0;\r\n                        bottom: 2px;\r\n                        color: #9f9f9f;\">assignment_ind</mat-icon>\r\n                    <input type=\"text\" [(ngModel)]=\"shop.name\" matInput placeholder=\"ชื่อร้าน\">\r\n                  </mat-form-field>\r\n                  <!-- <input type=\"text\" placeholder=\"\" maxlength=\"80\" class=\"ember-text-field\"></div> -->\r\n                </div>\r\n              </div>\r\n              <div class=\"edit-row\">\r\n                <div class=\"edit-label\">\r\n                  <svg viewBox=\"0 0 32 32\">\r\n                    <path d=\"M30 32H2c-1.1 0-2-.9-2-2V2C0 .9.9 0 2 0h28c1.1 0 2 .9 2 2v28c0 1.1-.9 2-2 2zm0-29c0-.6-.4-1-1-1H3c-.6 0-1 .4-1 1v26c0 .6.4 1 1 1h26c.6 0 1-.4 1-1V3zM18.8 24.5c-.2.2-.5.3-.8.3-.3 0-.6-.1-.8-.3l-6-4.6-5.4 7.8c-.4.4-1.1.4-1.5 0-.4-.4-.4-1.1 0-1.6l5.9-8.4c.2-.2.5-.3.8-.3.3 0 .6.1.8.3l6 4.6 8.4-9.9c.4-.4 1.1-.4 1.5 0 .4.4.4 1.1 0 1.6l-8.9 10.5zM9 12c-1.7 0-3-1.3-3-3s1.3-3 3-3 3 1.3 3 3-1.3 3-3 3zm0-4c-.6 0-1 .5-1 1 0 .6.4 1 1 1s1-.4 1-1c0-.5-.4-1-1-1z\"></path>\r\n                  </svg>คำอธิบายรูปภาพ\r\n                </div>\r\n                <div class=\"row edit-row\">\r\n                  <div class=\"col-8 edit-description\">รูปภาพร้านค้าจะแสดงอยู่ในโปรไฟล์ร้านค้า</div>\r\n                  <div class=\"col-4 edit-state\">{{shop.images ? shop.images.length : 0}} / 5 รูปภาพ</div>\r\n                </div>\r\n                <div class=\"shop-desc-media\">\r\n                  <div class=\"banner-manager image-manager is-min\">\r\n                    <!-- <ul class=\"sortable-items\">\r\n                  </ul> -->\r\n                    <!-- <ul class=\"sortable-items sortable-items-shadow\">\r\n                    <li class=\"image-manager__dropzone\"> -->\r\n                    <!-- <div class=\"image-manager__item \"> -->\r\n                    <div class=\"row\">\r\n                      <div class=\"col-6 no-padding\" *ngFor=\"let item of shop.images\">\r\n\r\n                        <div style=\"\r\n                        margin: 2px;\r\n                          text-align: center;\r\n                          background-color: #fafafa;\r\n                          border: 1px solid #e8e8e8;\">\r\n                          <img style=\"height: 100px;max-width: 99%;\" class=\"img-responsive\" [src]=\"item.url\">\r\n                        </div>\r\n                      </div>\r\n\r\n\r\n                      <div class=\"col-6 no-padding image-manager__item\">\r\n                        <div class=\"uploader-btn\" style=\"margin: 2px; border: 1px solid #e8e8e8;\">\r\n                          <div class=\"shop-desc-img-uploader dropzone\">\r\n                            <label for=\"file-uploader-input\">\r\n                              <!-- <div class=\"validation-toast \"></div> -->\r\n                              <div class=\"image-s\" style=\"cursor: pointer;\"><svg viewBox=\"0 0 32 32\">\r\n                                  <path d=\"M29.38 14.55l-3.89-4.2a1.24 1.24 0 0 0-.87-.23 1 1 0 0 0-.78.24l-7.32 6 1.25 1.41 8.49 9.55h-3L11.93 14.21a.94.94 0 0 0-.8-.29 1 1 0 0 0-.22 0h-.09a1.05 1.05 0 0 0-.51.2l-7.68 6.32V5.32a1 1 0 0 1 1-1h24.79a1 1 0 0 1 1 1v9.23zm0-12.09H2.63a1.91 1.91 0 0 0-1.91 1.9v18a.94.94 0 0 0 0 .16v4.75a1.91 1.91 0 0 0 1.91 1.93h26.75a1.91 1.91 0 0 0 1.91-1.91V4.36a1.91 1.91 0 0 0-1.91-1.91z\"></path>\r\n                                  <circle cx=\"9.26\" cy=\"10.24\" r=\"2.25\"></circle>\r\n                                </svg>\r\n                                <div>อัพโหลดรูปภาพ</div>\r\n                              </div>\r\n                              <input id=\"file-uploader-input\" type=\"file\" (change)=\"detectFiles($event,'shopImg')\"\r\n                                multiple accept=\".png,.jpg\" />\r\n                              <!-- <div style=\"display:none\" class=\"cropper-masker cropper-masker-block\">\r\n                                      <div class=\"cropper-loading\"><img src=\"/images/spinner-balls-g.gif\" alt=\"\"></div>\r\n                                      <div class=\"cropper-saving\">กำลังบันทึก</div>\r\n                                    </div> -->\r\n                            </label>\r\n\r\n                          </div>\r\n                          <!-- <div class=\"shop-desc-vid-uploader\" style=\"height: 75%; border-left: solid 1px #e8e8e8;\"\r\n                          data-ember-action=\"\" data-ember-action-1227=\"1227\">\r\n                          <div class=\"youtube\" style=\"cursor: pointer;\" (click)=\"openDialog()\"><svg viewBox=\"0 0 32 32\">\r\n                              <path d=\"M16.21 4.75C12.47 4.75 6.95 5 5.3 5s-2.46.25-3.44 1.1c-1.5 1.33-1.85 4-1.85 8v3.8c0 4.57.61 6.89 1.61 7.74a4.46 4.46 0 0 0 2.68 1.19c.3 0 2.41.42 11.78.42 5.84 0 10.87-.28 11.38-.34a4.38 4.38 0 0 0 2.94-1.26c1.33-1.53 1.6-4.06 1.6-7.72v-4.44c0-2.37-.13-5.72-1.61-7.13-1.11-.94-1.52-1.21-3.84-1.36-.65 0-6.35-.25-10.34-.25zm-3.46 6.78L21.38 16l-8.63 4.49v-8.96z\"></path>\r\n                            </svg>\r\n                            <div>เพิ่มลิงค์ของ วิดีโอ YouTube</div>\r\n                          </div>\r\n                        </div> -->\r\n                        </div>\r\n                      </div>\r\n\r\n                    </div>\r\n\r\n                    <!-- </div> -->\r\n                    <!-- </li>\r\n                  </ul> -->\r\n                  </div>\r\n                </div>\r\n              </div>\r\n              <div class=\"edit-row\">\r\n                <!-- <div class=\"edit-label\"><svg viewBox=\"0 0 32 32\">\r\n                  <path d=\"M14 32v-2h18v2H14zm6.1-19.2l-9.8 17.1L2.2 32 0 23.9 9.8 6.8l1-1.7 3-5.1L24 5.9l-3.3 5.7-.6 1.2zM2.2 24.1l1.4 5.4L9 28l-6.8-3.9zm1-1.8l6.8 3.9 8.4-14.5-6.8-3.9-8.4 14.5zM14.5 2.7l-2 3.4 6.8 3.9 2-3.4-6.8-3.9z\"></path>\r\n                </svg>รายละเอียดร้านค้า</div> -->\r\n                <div class=\"edit-input\">\r\n                  <div class=\"textbox shopee-textarea\">\r\n                    <div class=\"input\">\r\n                      <mat-form-field>\r\n                        <mat-icon style=\"position: absolute;\r\n                          right: 0;\r\n                          bottom: 2px;\r\n                          color: #9f9f9f;\">edit</mat-icon>\r\n                        <input type=\"text\" [(ngModel)]=\"shop.description\" matInput placeholder=\"รายละเอียดร้านค้า\">\r\n                      </mat-form-field>\r\n                      <!-- <textarea spellcheck=\"false\" maxlength=\"500\" class=\"ember-text-area\"></textarea> -->\r\n                    </div>\r\n                  </div>\r\n                </div>\r\n              </div>\r\n              <div class=\"edit-row btn-group text-center\">\r\n                <button mat-flat-button color=\"primary\" class=\"btn-summit\" (click)=\"submit()\">บันทึก</button>\r\n              </div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <div padding-bottom *ngIf=\"dataService.message\">\r\n        <message class=\"text-center\" [type]=\"dataService.messageType\" [message]=\"dataService.message\"></message>\r\n      </div>\r\n    </div>\r\n\r\n  </div>"
 
 /***/ }),
 
@@ -727,6 +1270,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _upload_image_class_upload__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../upload-image/class-upload */ "./src/app/components/upload-image/class-upload.ts");
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var ngx_spinner__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ngx-spinner */ "./node_modules/ngx-spinner/fesm5/ngx-spinner.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -780,12 +1324,14 @@ var __generator = (undefined && undefined.__generator) || function (thisArg, bod
 
 
 
+
 //Image
 var ProfileSettingComponent = /** @class */ (function () {
-    function ProfileSettingComponent(dialog, restApi, dataService) {
+    function ProfileSettingComponent(dialog, restApi, dataService, spinner) {
         this.dialog = dialog;
         this.restApi = restApi;
         this.dataService = dataService;
+        this.spinner = spinner;
         this.imageArray = [];
         this.basePath = '/uploads';
         //Image
@@ -811,6 +1357,7 @@ var ProfileSettingComponent = /** @class */ (function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
+                        this.spinner.show();
                         this.shopUser = window.localStorage.getItem(_app_constants__WEBPACK_IMPORTED_MODULE_2__["Constants"].URL() + '@usershop') ? JSON.parse(window.localStorage.getItem(_app_constants__WEBPACK_IMPORTED_MODULE_2__["Constants"].URL() + '@usershop')) : null;
                         _a.label = 1;
                     case 1:
@@ -819,10 +1366,12 @@ var ProfileSettingComponent = /** @class */ (function () {
                     case 2:
                         data = _a.sent();
                         this.shop = data.data;
+                        this.spinner.hide();
                         console.log(this.shop);
                         return [3 /*break*/, 4];
                     case 3:
                         error_1 = _a.sent();
+                        this.spinner.hide();
                         this.dataService.error("โหลดข้อมูลล้มเหลว กรุณาลองใหม่อีกครั้ง");
                         return [3 /*break*/, 4];
                     case 4: return [2 /*return*/];
@@ -837,6 +1386,7 @@ var ProfileSettingComponent = /** @class */ (function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
+                        this.spinner.show();
                         this.shopUser = window.localStorage.getItem(_app_constants__WEBPACK_IMPORTED_MODULE_2__["Constants"].URL() + '@usershop') ? JSON.parse(window.localStorage.getItem(_app_constants__WEBPACK_IMPORTED_MODULE_2__["Constants"].URL() + '@usershop')) : null;
                         _a.label = 1;
                     case 1:
@@ -844,6 +1394,7 @@ var ProfileSettingComponent = /** @class */ (function () {
                         return [4 /*yield*/, this.restApi.put(_app_constants__WEBPACK_IMPORTED_MODULE_2__["Constants"].URL() + '/api/shop/' + this.shopUser.shop_id, this.shop)];
                     case 2:
                         data = _a.sent();
+                        this.spinner.hide();
                         if (data['status'] === 200) {
                             this.dataService.success('บันทึกข้อมูลสำเร็จ');
                             setTimeout(function () {
@@ -853,6 +1404,7 @@ var ProfileSettingComponent = /** @class */ (function () {
                         return [3 /*break*/, 4];
                     case 3:
                         error_2 = _a.sent();
+                        this.spinner.hide();
                         this.dataService.error("บันทึกข้อมูลล้มเหลว กรุณาลองใหม่อีกครั้ง");
                         return [3 /*break*/, 4];
                     case 4: return [2 /*return*/];
@@ -939,17 +1491,17 @@ var ProfileSettingComponent = /** @class */ (function () {
                     if (_this.imageArray.length === _this.selectedFiles.length) {
                         // this.shop.images = this.imageArray;
                         if (status === 'shopImg') {
-                            _this.shop.images = _this.imageArray;
+                            _this.imageArray.forEach(function (image) {
+                                _this.shop.images.push(image);
+                            });
                         }
                         else if (status === 'coverImg') {
-                            console.log(_this.imageArray[0]);
                             _this.shop.coverimage = {
                                 url: _this.imageArray[0].url
                             };
                             _this.submit();
                         }
                         else if (status === 'profileImg') {
-                            console.log(_this.imageArray[0]);
                             _this.updateImgProfile(_this.imageArray[0].url);
                         }
                         // this.image.emit(this.imageArray);
@@ -966,9 +1518,288 @@ var ProfileSettingComponent = /** @class */ (function () {
         }),
         __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDialog"],
             _providers_rest_api_service_rest_api_service__WEBPACK_IMPORTED_MODULE_3__["RestApiService"],
-            _providers_data_service_data_service__WEBPACK_IMPORTED_MODULE_4__["DataService"]])
+            _providers_data_service_data_service__WEBPACK_IMPORTED_MODULE_4__["DataService"],
+            ngx_spinner__WEBPACK_IMPORTED_MODULE_8__["NgxSpinnerService"]])
     ], ProfileSettingComponent);
     return ProfileSettingComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/select-product/select-product.component.css":
+/*!************************************************************************!*\
+  !*** ./src/app/components/select-product/select-product.component.css ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".select-product-div {\r\n    padding: 16px 16px 16px 18px !important;\r\n}\r\n\r\n.product-image {\r\n    width: 100% !important;\r\n    height: 200px !important;\r\n    -o-object-fit: cover !important;\r\n       object-fit: cover !important;\r\n}\r\n\r\n.product-card {\r\n    padding: 0px !important;\r\n    cursor: pointer;\r\n}\r\n\r\n.product-name {\r\n    margin: 0px;\r\n    font-size: 14px;\r\n    color: #676767;\r\n}\r\n\r\n.padding-custom {\r\n    padding: 12px !important;\r\n}\r\n\r\n.select {\r\n    margin: 2px;\r\n    min-width: unset;\r\n}\r\n\r\n.un-select {\r\n    background-color: #e8e8e8 !important;\r\n    color: #000000 !important;\r\n    margin: 2px;\r\n    min-width: unset;\r\n}\r\n\r\n.text-nowrap {\r\n    white-space: nowrap !important;\r\n    overflow: hidden !important;\r\n    text-overflow: ellipsis !important;\r\n}\r\n\r\n.product-item-soldout-overlay {\r\n    display: flex;\r\n    position: absolute;\r\n    width: 100%;\r\n    height: 100%;\r\n    top: 0;\r\n    background: rgba(0, 0, 0, 0.34);\r\n    align-items: center;\r\n    justify-content: center;\r\n}\r\n\r\n.selected-icon {\r\n    font-size: 60px;\r\n    margin-left: -34px;\r\n    margin-top: -34px;\r\n    color: #ff9558;\r\n}\r\n\r\n.search-ic {\r\n    position: absolute;\r\n    right: 0;\r\n    bottom: 2px;\r\n    color: #9f9f9f;\r\n}\r\n\r\n.product-pricetext{\r\n    position: absolute;\r\n    color: #ffffff;\r\n    top:62%;\r\n}"
+
+/***/ }),
+
+/***/ "./src/app/components/select-product/select-product.component.html":
+/*!*************************************************************************!*\
+  !*** ./src/app/components/select-product/select-product.component.html ***!
+  \*************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"select-product-div\">\r\n  <div class=\"row\">\r\n    <div class=\"col-12 col-4 text-left\">\r\n      <mat-checkbox [(ngModel)]=\"checked\" (ngModelChange)=\"onSelectedAll()\">เลือกทั้งหมด</mat-checkbox>\r\n    </div>\r\n    <div class=\"col-12 col-4 text-center\">\r\n      <mat-form-field>\r\n        <mat-icon class=\"search-ic\">search</mat-icon>\r\n        <input matInput placeholder=\"ค้นหา\" [(ngModel)]=\"pageData.name\" (keydown)=\"search($event)\">\r\n      </mat-form-field>\r\n    </div>\r\n    <div class=\"col-4 text-left\"></div>\r\n  </div>\r\n  <div class=\"row\" *ngIf=\"data && data.products\">\r\n    <div class=\"col-12 col-xs-6 col-sm-6 col-md-4 col-lg-3\" *ngFor=\"let item of data.products;let i = index\">\r\n      <mat-card class=\"product-card\" (click)=\"onSelected(item)\">\r\n        <img [src]=\"item.image ? item.image.url:''\" class=\"product-image\">\r\n        <div class=\"product-item-soldout-overlay\" *ngIf=\"checkSelected(item)\">\r\n          <mat-icon class=\"selected-icon\">check_circle_outline</mat-icon>\r\n          <p class=\"product-pricetext\">฿{{ item.pricetext }}</p>\r\n        </div>\r\n        <div class=\"padding-custom\">\r\n          <p class=\"product-name text-nowrap\">\r\n            {{item.name}}\r\n          </p>\r\n        </div>\r\n      </mat-card>\r\n    </div>\r\n  </div>\r\n  <div class=\"row\">\r\n    <div class=\"col-12\">\r\n      <div class=\"text-center\" *ngIf=\"data.tabs && data.tabs.length > 0\">\r\n        <button mat-button color=\"primary\" *ngIf=\"pageData.page > 1\" (click)=\"previos()\">ก่อนหน้า</button>\r\n        <button mat-button color=\"primary\" ngClass=\"{{pageData.page === (i + 1) ? 'select' : 'un-select'}} btn-summit\"\r\n          *ngFor=\"let item of data.tabs;let i = index\" (click)=\"page(item)\">{{item}}</button>\r\n        <button mat-flat-button color=\"primary\" *ngIf=\"pageData.page < data.tabs.length\" (click)=\"next()\">ต่อไป</button>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <message class=\"text-center\" [type]=\"dataService.messageType\" [message]=\"dataService.message\"></message>\r\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/components/select-product/select-product.component.ts":
+/*!***********************************************************************!*\
+  !*** ./src/app/components/select-product/select-product.component.ts ***!
+  \***********************************************************************/
+/*! exports provided: SelectProductComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SelectProductComponent", function() { return SelectProductComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var ngx_spinner__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ngx-spinner */ "./node_modules/ngx-spinner/fesm5/ngx-spinner.js");
+/* harmony import */ var _app_constants__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../app.constants */ "./src/app/app.constants.ts");
+/* harmony import */ var _providers_rest_api_service_rest_api_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../providers/rest-api-service/rest-api.service */ "./src/app/providers/rest-api-service/rest-api.service.ts");
+/* harmony import */ var _providers_data_service_data_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../providers/data-service/data.service */ "./src/app/providers/data-service/data.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (undefined && undefined.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = y[op[0] & 2 ? "return" : op[0] ? "throw" : "next"]) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [0, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+
+
+
+
+
+var SelectProductComponent = /** @class */ (function () {
+    function SelectProductComponent(spinner, restApi, dataService) {
+        this.spinner = spinner;
+        this.restApi = restApi;
+        this.dataService = dataService;
+        this.onSelectedProduct = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.checked = false;
+        this.data = {
+            tabs: []
+        };
+        this.pageData = {
+            shop_id: "",
+            status: "",
+            name: "",
+            page: 1,
+            limit: 30
+        };
+    }
+    SelectProductComponent.prototype.ngOnInit = function () {
+        var user = window.localStorage.getItem(_app_constants__WEBPACK_IMPORTED_MODULE_2__["Constants"].URL() + "@usershop")
+            ? JSON.parse(window.localStorage.getItem(_app_constants__WEBPACK_IMPORTED_MODULE_2__["Constants"].URL() + "@usershop"))
+            : null;
+        this.productSelectedCopy = JSON.parse(JSON.stringify(this.productSelected));
+        this.pageData.shop_id = user.shop_id;
+        this.pageData.status = this.status;
+        // this.pageData.status = "all";
+        this.getProduct();
+    };
+    SelectProductComponent.prototype.getProduct = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var data, error_1;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 2, , 3]);
+                        this.spinner.show();
+                        return [4 /*yield*/, this.restApi.post(_app_constants__WEBPACK_IMPORTED_MODULE_2__["Constants"].URL() + "/api/product-shop-list", this.pageData)];
+                    case 1:
+                        data = _a.sent();
+                        this.spinner.hide();
+                        if (data["status"] === 200) {
+                            this.data = data.data;
+                            this.onCheckSelectedAll();
+                            if (this.data.items && this.data.items.length === 0) {
+                                this.dataService.warning("ไม่พบข้อมูลสินค้า");
+                            }
+                        }
+                        return [3 /*break*/, 3];
+                    case 2:
+                        error_1 = _a.sent();
+                        this.spinner.hide();
+                        this.dataService.error("โหลดข้อมูลล้มเหลว กรุณาลองใหม่อีกครั้ง");
+                        return [3 /*break*/, 3];
+                    case 3: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    SelectProductComponent.prototype.search = function (event) {
+        if (event.keyCode == 13) {
+            this.getProduct();
+        }
+    };
+    SelectProductComponent.prototype.previos = function () {
+        this.pageData.page--;
+        this.getProduct();
+    };
+    SelectProductComponent.prototype.page = function (i) {
+        this.pageData.page = i;
+        this.getProduct();
+    };
+    SelectProductComponent.prototype.next = function () {
+        this.pageData.page++;
+        this.getProduct();
+    };
+    SelectProductComponent.prototype.onSelectedAll = function () {
+        var _this = this;
+        if (this.checked) {
+            this.data.products.forEach(function (item) {
+                if (_this.validateEditProduct(item)) {
+                    item.product_id = item._id;
+                    var index = _this.productSelected.findIndex(function (e) {
+                        return e.product_id === item._id;
+                    });
+                    if (index === -1) {
+                        _this.productSelected.push(item);
+                    }
+                }
+            });
+        }
+        else {
+            this.data.products.forEach(function (item) {
+                if (_this.validateEditProduct(item)) {
+                    var index = _this.productSelected.findIndex(function (e) {
+                        return e.product_id === item._id;
+                    });
+                    if (index !== -1) {
+                        _this.productSelected.splice(index, 1);
+                    }
+                }
+            });
+        }
+        setTimeout(function () {
+            _this.onCheckSelectedAll();
+        }, 0);
+        this.emit();
+    };
+    SelectProductComponent.prototype.onCheckSelectedAll = function () {
+        var _this = this;
+        this.checked = true;
+        this.data.products.forEach(function (e) {
+            var index = _this.productSelected.findIndex(function (item) {
+                return e._id === item.product_id;
+            });
+            if (index === -1) {
+                _this.checked = false;
+            }
+        });
+        if (this.data.products.length === 0 && this.productSelected.length === 0) {
+            this.checked = false;
+        }
+    };
+    SelectProductComponent.prototype.checkSelected = function (item) {
+        var index = this.productSelected.filter(function (i) {
+            return i.product_id === item._id;
+        });
+        if (!index[0]) {
+            return false;
+        }
+        else {
+            return true;
+        }
+    };
+    SelectProductComponent.prototype.onSelected = function (item) {
+        item.product_id = item._id;
+        if (this.validateEditProduct(item)) {
+            var index = this.productSelected.findIndex(function (i) {
+                return i._id === item.product_id;
+            });
+            if (index === -1 || this.productSelected.length === 0) {
+                this.productSelected.push(item);
+            }
+            else {
+                this.productSelected.splice(index, 1);
+            }
+            this.onCheckSelectedAll();
+            this.emit();
+        }
+    };
+    SelectProductComponent.prototype.validateEditProduct = function (item) {
+        var indexCopy = this.productSelectedCopy.findIndex(function (i) {
+            return i._id === item.product_id;
+        });
+        if (indexCopy === -1) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    };
+    SelectProductComponent.prototype.emit = function () {
+        this.onSelectedProduct.emit(this.productSelected);
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], SelectProductComponent.prototype, "productSelected", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", String)
+    ], SelectProductComponent.prototype, "status", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
+        __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"])
+    ], SelectProductComponent.prototype, "onSelectedProduct", void 0);
+    SelectProductComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: "app-select-product",
+            template: __webpack_require__(/*! ./select-product.component.html */ "./src/app/components/select-product/select-product.component.html"),
+            styles: [__webpack_require__(/*! ./select-product.component.css */ "./src/app/components/select-product/select-product.component.css")]
+        }),
+        __metadata("design:paramtypes", [ngx_spinner__WEBPACK_IMPORTED_MODULE_1__["NgxSpinnerService"],
+            _providers_rest_api_service_rest_api_service__WEBPACK_IMPORTED_MODULE_3__["RestApiService"],
+            _providers_data_service_data_service__WEBPACK_IMPORTED_MODULE_4__["DataService"]])
+    ], SelectProductComponent);
+    return SelectProductComponent;
 }());
 
 
@@ -1149,7 +1980,7 @@ var SettingHeaderComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\r\n  <div class=\"no-padding d-none d-sm-none d-md-none d-lg-block d-xl-block col-lg-12 col-xl-12\">\r\n    <div class=\"grid\">\r\n      <div class=\"card-panel\">\r\n        <div>\r\n          <div class=\"card-panel-title\">ร้านค้า</div>\r\n          <div routerLinkActive=\"active\">\r\n            <a routerLink=\"/profile\" class=\"shop-setting-link-link\">\r\n              <span style=\"background: #49cbdd;\" class=\"shop-setting-link-active-bar\"></span>\r\n              <div style=\"background-color: #49cbdd;\" class=\"shop-setting-link-icon\">\r\n                <svg class=\"shop-setting-link-icon-svg\" viewBox=\"0 0 32 32\">\r\n                  <path d=\"M23.9 12.9l-1.6-1.6 6.2-6.2 1.6 1.6-6.2 6.2zM32 4.8l-1.6-1.6-1 1L31 5.8l1-1zM19.7 15.6l2.6-1.4-1.3-1.3-1.3 2.7zm8.6-4v16.3c0 .9-.7 1.6-1.6 1.6H1.6c-.9 0-1.6-.7-1.6-1.6V6.2c0-.9.7-1.6 1.6-1.6h24.2l-2 2H2v11.9l5.6-3.8 7.2 6.1 6.7-3 4.7 4.1v-8.4l2.1-1.9zm-2 15.9v-2.9l-5.1-4.4-6.7 3-7-6L2 21v6.5h24.3z\"></path>\r\n                </svg></div>\r\n              <div class=\"shop-setting-link-caption\">รายละเอียดร้านค้า</div>\r\n            </a>\r\n          </div>\r\n          <div routerLinkActive=\"active\">\r\n            <a routerLink=\"/logistic\" class=\"shop-setting-link-link\">\r\n              <span style=\"background: #6897d6;\" class=\"shop-setting-link-active-bar\"></span>\r\n              <div style=\"background-color: #6897d6;\" class=\"shop-setting-link-icon\">\r\n                <svg class=\"shop-setting-link-icon-svg\" viewBox=\"0 0 32 32\">\r\n                  <path d=\"M31 23.5h-3.1c.1.3.1.7.1 1 0 2.8-2.2 5-5 5s-5-2.2-5-5c0-.4 0-.7.1-1h-5.2c.1.3.1.7.1 1 0 2.8-2.2 5-5 5s-5-2.2-5-5c0-.4 0-.7.1-1H3c-1.1 0-2-.9-2-2v-14c0-1.1.9-2 2-2h17c1.1 0 2 .9 2 2v2h7c.6 0 1 .4 1 1l2 12c0 .5-.4 1-1 1zm-8 4c1.7 0 3-1.3 3-3 0-1.6-1.3-3-3-3s-3 1.3-3 3c0 1.6 1.3 3 3 3zm-15 0c1.7 0 3-1.3 3-3 0-1.6-1.3-3-3-3s-3 1.3-3 3c0 1.6 1.3 3 3 3zm12-19c0-.6-.4-1-1-1H4c-.6 0-1 .4-1 1v12c0 .6.4 1 1 1 .9-1.2 2.3-2 4-2 1.6 0 3.1.8 4 2h7c.3-.4.6-.7 1-1v-12zm2 3v4h6.8l-.8-4h-6zm7.2 6H22v2.1c.3-.1.7-.1 1-.1 1.6 0 3.1.8 4 2h3l-.8-4z\"></path>\r\n                </svg></div>\r\n              <div class=\"shop-setting-link-caption\">การจัดส่งของฉัน</div>\r\n            </a>\r\n          </div>\r\n          <div routerLinkActive=\"active\">\r\n            <a routerLink=\"/address\" class=\"shop-setting-link-link\">\r\n              <span style=\"background: #00bfa5;\" class=\"shop-setting-link-active-bar\"></span>\r\n              <div style=\"background-color: #00bfa5;\" class=\"shop-setting-link-icon\">\r\n                <svg class=\"shop-setting-link-icon-svg\" viewBox=\"0 0 32 32\">\r\n                  <path d=\"M17.7 29.2H22c.6 0 1 .4 1 1s-.4 1-1 1H10c-.6 0-1-.4-1-1s.4-1 1-1h4.3C11.3 25.4 5 17.1 5 12.4 5 6.2 9.9 1.2 16 1.2s11 5 11 11.2c0 4.7-6.3 13-9.3 16.8zM16 3.2c-5 0-9 4.2-9 9.4s9 15.6 9 15.6 9-10.4 9-15.6c0-5.2-4-9.4-9-9.4zm-5 9c0-2.8 2.2-5 5-5s5 2.2 5 5-2.2 5-5 5-5-2.3-5-5zm8 0c0-1.7-1.3-3-3-3s-3 1.3-3 3 1.3 3 3 3 3-1.4 3-3z\"></path>\r\n                </svg></div>\r\n              <div class=\"shop-setting-link-caption\">ที่อยู่ของฉัน</div>\r\n            </a>\r\n          </div>\r\n          <div routerLinkActive=\"active\">\r\n            <a routerLink=\"/xxxx\" class=\"shop-setting-link-link\">\r\n              <span style=\"background: #62b450;\" class=\"shop-setting-link-active-bar\"></span>\r\n              <div style=\"background-color: #62b450;\" class=\"shop-setting-link-icon\">\r\n                <svg class=\"shop-setting-link-icon-svg\" viewBox=\"0 0 32 32\">\r\n                  <path d=\"M16 4.83l3.18 7 .48 1.06 1.16.11 6.76.61L22.27 19l-.75.75.2 1 1.38 7.19-6.1-3.72-1-.64-1 .64-6.15 3.7 1.42-7.16.21-1-.76-.76-5.31-5.39 6.77-.61 1.16-.11.48-1.06 3.18-7M16 0l-5 11-11 1 8.3 8.37L6 32l10-6.07L26 32l-2.31-11.63L32 12l-11-1-5-11z\"></path>\r\n                </svg></div>\r\n              <div class=\"shop-setting-link-caption\">คะแนนร้านค้า</div>\r\n            </a>\r\n          </div>\r\n          <!-- <div routerLinkActive=\"active\">\r\n            <a routerLink=\"/xxxx\" class=\"shop-setting-link-link\">\r\n              <span style=\"background: #FF8074;\" class=\"shop-setting-link-active-bar\"></span>\r\n              <div style=\"background-color: #FF8074;\" class=\"shop-setting-link-icon\">\r\n                <svg class=\"shop-setting-link-icon-svg\" viewBox=\"0 0 32 32\">\r\n                  <path d=\"M16 4.83l3.18 7 .48 1.06 1.16.11 6.76.61L22.27 19l-.75.75.2 1 1.38 7.19-6.1-3.72-1-.64-1 .64-6.15 3.7 1.42-7.16.21-1-.76-.76-5.31-5.39 6.77-.61 1.16-.11.48-1.06 3.18-7M16 0l-5 11-11 1 8.3 8.37L6 32l10-6.07L26 32l-2.31-11.63L32 12l-11-1-5-11z\"></path>\r\n                </svg></div>\r\n              <div class=\"shop-setting-link-caption\">สถิติร้านค้าของฉัน</div>\r\n            </a>\r\n          </div> -->\r\n          <!-- <div routerLinkActive=\"active\">\r\n            <a routerLink=\"/xxxx\" class=\"shop-setting-link-link\">\r\n              <span style=\"background: #FF7F57;\" class=\"shop-setting-link-active-bar\"></span>\r\n              <div style=\"background-color: #FF7F57;\" class=\"shop-setting-link-icon\">\r\n                <svg class=\"shop-setting-link-icon-svg\" viewBox=\"0 0 32 32\">\r\n                  <path d=\"M16 4.83l3.18 7 .48 1.06 1.16.11 6.76.61L22.27 19l-.75.75.2 1 1.38 7.19-6.1-3.72-1-.64-1 .64-6.15 3.7 1.42-7.16.21-1-.76-.76-5.31-5.39 6.77-.61 1.16-.11.48-1.06 3.18-7M16 0l-5 11-11 1 8.3 8.37L6 32l10-6.07L26 32l-2.31-11.63L32 12l-11-1-5-11z\"></path>\r\n                </svg></div>\r\n              <div class=\"shop-setting-link-caption\">คะแนนความประพฤติร้านค้า</div>\r\n            </a>\r\n          </div> -->\r\n          <div routerLinkActive=\"active\">\r\n            <a routerLink=\"/bank-account\" class=\"shop-setting-link-link\">\r\n              <span style=\"background: #508bce;\" class=\"shop-setting-link-active-bar\"></span>\r\n              <div style=\"background-color: #508bce;\" class=\"shop-setting-link-icon\">\r\n                <svg class=\"shop-setting-link-icon-svg\" viewBox=\"0 0 32 32\">\r\n                  <path d=\"M28 30.5H4c-2.2 0-4-1.8-4-4v-12h32v12c0 2.2-1.8 4-4 4zm2-14H2v10c0 1.1.9 2 2 2h24c1.1 0 2-.9 2-2v-10zm-26 6h8v2H4v-2zm-4-14v-2c0-2.2 1.8-4 4-4h24c2.2 0 4 1.8 4 4v4H0v-2zm2 0h28v-2c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v2z\"></path>\r\n                </svg></div>\r\n              <div class=\"shop-setting-link-caption\">ข้อมูลบัญชีธนาคาร</div>\r\n            </a>\r\n          </div>\r\n        </div>\r\n        <div class=\"card-panel-section\">\r\n          <div class=\"card-panel-title\">ตั้งค่า</div>\r\n          <div routerLinkActive=\"active\">\r\n            <a routerLink=\"/xxxx\" class=\"shop-setting-link-link\">\r\n              <span style=\"background: #8d9a99;\" class=\"shop-setting-link-active-bar\"></span>\r\n              <div style=\"background-color: #8d9a99;\" class=\"shop-setting-link-icon\">\r\n                <svg class=\"shop-setting-link-icon-svg\" viewBox=\"0 0 32 32\">\r\n                  <path d=\"M31.3 16c0 2-1.5 3.6-3.5 3.8-.2.7-.5 1.2-.8 1.9 1.2 1.5 1.2 3.7-.2 5.2-1.4 1.4-3.6 1.4-5.2.2-.6.3-1.2.6-1.9.8-.2 2-1.8 3.5-3.8 3.5s-3.6-1.5-3.8-3.5c-.7-.2-1.2-.5-1.9-.8-1.5 1.2-3.7 1.2-5.2-.2-1.4-1.4-1.4-3.6-.2-5.2-.3-.6-.6-1.2-.8-1.9C2.3 19.6.7 18 .7 16s1.5-3.6 3.5-3.8c.2-.7.5-1.2.8-1.9-1.2-1.5-1.2-3.7.2-5.1s3.6-1.4 5.2-.2c.6-.3 1.2-.6 1.9-.8.1-2 1.7-3.5 3.7-3.5s3.6 1.5 3.8 3.5c.7.2 1.2.5 1.9.8 1.5-1.2 3.7-1.2 5.2.2 1.4 1.4 1.4 3.6.2 5.2.3.6.6 1.2.8 1.9 1.8.1 3.4 1.7 3.4 3.7zm-5-1.9c-.3-1.4-.9-2.9-1.7-4l.9-.9c.8-.8.8-1.9 0-2.7s-1.9-.8-2.7 0l-.9.9c-1.1-.9-2.6-1.4-4-1.7V4.5c0-1.1-.9-1.9-1.9-1.9s-1.9.9-1.9 1.9v1.1c-1.4.3-2.9.9-4 1.7l-.9-.7c-.8-.8-1.9-.8-2.7 0s-.8 1.9 0 2.7l.9.9c-.9 1.1-1.4 2.6-1.7 4H4.5c-1.1 0-1.9.9-1.9 1.9S3.5 18 4.5 18h1.1c.3 1.4.9 2.9 1.7 4l-.9.9c-.8.8-.8 1.9 0 2.7s1.9.8 2.7 0l.9-.9c1.1.9 2.6 1.4 4 1.7v1.1c0 1.1.9 1.9 1.9 1.9s1.9-.9 1.9-1.9v-1.1c1.4-.3 2.9-.9 4-1.7l.9.9c.8.8 1.9.8 2.7 0s.8-1.9 0-2.7l-.9-.9c.9-1.1 1.4-2.6 1.7-4h1.1c1.1 0 1.9-.9 1.9-1.9s-.9-1.9-1.9-1.9h-1zM16 21.7c-3.2 0-5.7-2.6-5.7-5.7s2.6-5.7 5.7-5.7 5.7 2.6 5.7 5.7-2.5 5.7-5.7 5.7zm0-9.5c-2.1 0-3.8 1.7-3.8 3.8s1.7 3.8 3.8 3.8 3.8-1.7 3.8-3.8-1.7-3.8-3.8-3.8z\"></path>\r\n                </svg></div>\r\n              <div class=\"shop-setting-link-caption\">ตั้งค่าร้านค้า</div>\r\n            </a>\r\n          </div>\r\n          <!-- <div routerLinkActive=\"active\">\r\n            <a routerLink=\"/xxxx\" class=\"shop-setting-link-link\">\r\n              <span style=\"background: #5c6bc0;\" class=\"shop-setting-link-active-bar\"></span>\r\n              <div style=\"background-color: #5c6bc0;\" class=\"shop-setting-link-icon\">\r\n                <svg class=\"shop-setting-link-icon-svg\" viewBox=\"0 0 32 32\">\r\n                  <path d=\"M25 32H7a4 4 0 0 1-4-4V16a4 4 0 0 1 4-4V9a9 9 0 1 1 18 0v3a4 4 0 0 1 4 4v12a4 4 0 0 1-4 4zM23 9A7 7 0 0 0 9 9v3h14V9zm4 7a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h18a2 2 0 0 0 2-2V16zM16 26a1 1 0 0 1-1-1v-6a1 1 0 1 1 2 0v6a1 1 0 0 1-1 1z\"></path>\r\n                </svg></div>\r\n              <div class=\"shop-setting-link-caption\">การตั้งค่าความเป็นส่วนตัว</div>\r\n            </a>\r\n          </div> -->\r\n          <div routerLinkActive=\"active\">\r\n            <a routerLink=\"/xxxx\" class=\"shop-setting-link-link\">\r\n              <span style=\"background: #ff5722;\" class=\"shop-setting-link-active-bar\"></span>\r\n              <div style=\"background-color: #ff5722;\" class=\"shop-setting-link-icon\">\r\n                <svg class=\"shop-setting-link-icon-svg\" viewBox=\"0 0 32 32\">\r\n                  <path d=\"M20.69 16.36a1.73 1.73 0 1 1 1.73-1.73 1.73 1.73 0 0 1-1.73 1.73zm-6.91 0a1.73 1.73 0 1 1 1.73-1.73 1.73 1.73 0 0 1-1.73 1.73zm-6.91 0a1.73 1.73 0 1 1 1.73-1.73 1.73 1.73 0 0 1-1.73 1.73zm20.7-6.48A11.47 11.47 0 0 0 26 9.06a10.55 10.55 0 0 1 1.17 2.63 8.46 8.46 0 0 1 1.28 1.15 6.74 6.74 0 0 1 1.82 4.53 7.32 7.32 0 0 1-3.95 6.2l-.1.06v3.2L22.48 25H21c-.37 0-.74 0-1.1-.06a15.42 15.42 0 0 1-3.29 1 12.33 12.33 0 0 0 2 .55 12.84 12.84 0 0 0 2.42.23c.37 0 .76 0 1.18-.06L28 29.41v-4.83a8.82 8.82 0 0 0 4-7.22 8.94 8.94 0 0 0-4.42-7.48zm-.39 1.8A10.55 10.55 0 0 0 26 9.06 14.3 14.3 0 0 0 13.78 2.8C6.15 2.8 0 8 0 14.48a11.09 11.09 0 0 0 5.18 9.11v5.91l7.07-3.42c.51 0 1 .08 1.56.08a16.31 16.31 0 0 0 2.87-.26 15.42 15.42 0 0 0 3.29-1c4.51-1.9 7.63-5.85 7.63-10.42a10 10 0 0 0-.42-2.8zM16.86 24.15a14.43 14.43 0 0 1-2.9.33h-1.9L6.87 27v-4.36a9.59 9.59 0 0 1-5.18-8.16c0-5.53 5.41-10 12.09-10a13.13 13.13 0 0 1 9.43 3.75 9.88 9.88 0 0 1 1.62 2.2 8.54 8.54 0 0 1 1 4.06c.04 4.63-3.83 8.51-8.97 9.66z\"></path>\r\n                </svg></div>\r\n              <div class=\"shop-setting-link-caption\">ตั้งค่าการแชท</div>\r\n            </a>\r\n          </div>\r\n          <div routerLinkActive=\"active\">\r\n            <a routerLink=\"/xxxx\" class=\"shop-setting-link-link\">\r\n              <span style=\"background: #ffc200;\" class=\"shop-setting-link-active-bar\"></span>\r\n              <div style=\"background-color: #ffc200;\" class=\"shop-setting-link-icon\">\r\n                <svg class=\"shop-setting-link-icon-svg\" viewBox=\"0 0 32 32\">\r\n                  <path d=\"M16 4.83l3.18 7 .48 1.06 1.16.11 6.76.61L22.27 19l-.75.75.2 1 1.38 7.19-6.1-3.72-1-.64-1 .64-6.15 3.7 1.42-7.16.21-1-.76-.76-5.31-5.39 6.77-.61 1.16-.11.48-1.06 3.18-7M16 0l-5 11-11 1 8.3 8.37L6 32l10-6.07L26 32l-2.31-11.63L32 12l-11-1-5-11z\"></path>\r\n                </svg></div>\r\n              <div class=\"shop-setting-link-caption\">ตั้งค่าการแจ้งเตือน</div>\r\n            </a>\r\n          </div>\r\n        </div>\r\n        <div class=\"card-panel-section\">\r\n          <div class=\"card-panel-title\">บัญชี</div>\r\n          <div routerLinkActive=\"active\">\r\n            <a routerLink=\"/account\" class=\"shop-setting-link-link\">\r\n              <span style=\"background: #00bfa5;\" class=\"shop-setting-link-active-bar\"></span>\r\n              <div style=\"background-color: #00bfa5;\" class=\"shop-setting-link-icon\">\r\n                <svg class=\"shop-setting-link-icon-svg\" viewBox=\"0 0 32 32\">\r\n                  <path d=\"M16 20.8h10.9v-.9H16v.9zm0-2.1h10.9v-.9H16v.9zm0-2h10.9v-.9H16v.9zm0-2h6.6v-.9H16v.9zM29 23c0 .5-.4.9-.9.9H4c-.5.1-1-.4-1-.9V8.2c0-.5.4-.9.9-.9h5.3v2.1h1.9V7.3h4.3v2.1h1.9V7.3h4.5v2.1h1.9V7.3H28c.5 0 .9.4.9.9V23zm0-17.6H3c-1 0-1.9.8-1.9 1.9V24c0 1 .8 1.9 1.9 1.9h26c1 0 1.9-.8 1.9-1.9V7.3c-.1-1-.9-1.9-1.9-1.9z\"></path>\r\n                </svg></div>\r\n              <div class=\"shop-setting-link-caption\">บัญชีของฉัน</div>\r\n            </a>\r\n          </div>\r\n          <div routerLinkActive=\"active\">\r\n            <a routerLink=\"/setting-password\" class=\"shop-setting-link-link\">\r\n              <span style=\"background: #8f67ff;\" class=\"shop-setting-link-active-bar\"></span>\r\n              <div style=\"background-color: #8f67ff;\" class=\"shop-setting-link-icon\">\r\n                <svg class=\"shop-setting-link-icon-svg\" viewBox=\"0 0 32 32\">\r\n                  <path d=\"M25.3 4.6c-3.1-3.1-8.1-3.1-11.2 0-3.1 3.1-3.1 8.1 0 11.2s8.1 3.1 11.2 0 3.1-8.1 0-11.2m1.5 12.7c-3.7 3.7-9.5 3.9-13.5.6l-4 3.7 4.6 4.6-1.5 1.5L7.8 23l-2.9 2.6 4.8 4.8-1.5 1.5L2.3 26l.1-.1c-.1-.3 0-.7.3-1l9.3-8.4c-3.1-3.9-2.9-9.7.7-13.3C16.6-.7 23-.7 26.9 3.2c3.8 3.8 3.8 10.2-.1 14.1\"></path>\r\n                </svg></div>\r\n              <div class=\"shop-setting-link-caption\">เปลี่ยนรหัสผ่าน</div>\r\n            </a>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n  </div>\r\n  <div class=\"d-block d-sm-block d-md-block d-lg-none d-xl-none col-xs-12 col-sm-12 col-md-12 text-center\">\r\n    <!-- d-none menu -->\r\n    <!-- <div class=\"d-block d-sm-block d-md-block d-lg-none d-xl-none col-xs-12 col-sm-12 col-md-12\"> -->\r\n    <button mat-button color=\"primary\" mat-flat-button class=\"md-button\" [matMenuTriggerFor]=\"menu\">ตั้งค่าร้านค้า</button>\r\n    <!-- </div> -->\r\n    <mat-menu #menu=\"matMenu\">\r\n      <button mat-menu-item [matMenuTriggerFor]=\"shop\">ร้านค้า</button>\r\n      <button mat-menu-item [matMenuTriggerFor]=\"setting\">ตั้งค่า</button>\r\n      <button mat-menu-item [matMenuTriggerFor]=\"account\">บัญชี</button>\r\n    </mat-menu>\r\n\r\n    <mat-menu #shop=\"matMenu\">\r\n      <button mat-menu-item routerLinkActive=\"active\" routerLink=\"/profile\" class=\"md-shop-setting-link-link\">\r\n        <span style=\"background: #49cbdd;\" class=\"shop-setting-link-active-bar\"></span>\r\n        <div style=\"background-color: #49cbdd;\" class=\"md-shop-setting-link-icon\">\r\n          <svg class=\"shop-setting-link-icon-svg\" viewBox=\"0 0 32 32\">\r\n            <path d=\"M23.9 12.9l-1.6-1.6 6.2-6.2 1.6 1.6-6.2 6.2zM32 4.8l-1.6-1.6-1 1L31 5.8l1-1zM19.7 15.6l2.6-1.4-1.3-1.3-1.3 2.7zm8.6-4v16.3c0 .9-.7 1.6-1.6 1.6H1.6c-.9 0-1.6-.7-1.6-1.6V6.2c0-.9.7-1.6 1.6-1.6h24.2l-2 2H2v11.9l5.6-3.8 7.2 6.1 6.7-3 4.7 4.1v-8.4l2.1-1.9zm-2 15.9v-2.9l-5.1-4.4-6.7 3-7-6L2 21v6.5h24.3z\"></path>\r\n          </svg>\r\n        </div>\r\n        <div class=\"md-shop-setting-link-caption\">รายละเอียดร้านค้า</div>\r\n        <!-- <span style=\"background: #49cbdd;\" class=\"shop-setting-link-active-bar\"></span> -->\r\n      </button>\r\n      <button mat-menu-item routerLinkActive=\"active\" routerLink=\"/logistic\" class=\"md-shop-setting-link-link\">\r\n        <span style=\"background: #6897d6;\" class=\"shop-setting-link-active-bar\"></span>\r\n        <div style=\"background-color: #6897d6;\" class=\"md-shop-setting-link-icon\">\r\n          <svg class=\"shop-setting-link-icon-svg\" viewBox=\"0 0 32 32\">\r\n            <path d=\"M31 23.5h-3.1c.1.3.1.7.1 1 0 2.8-2.2 5-5 5s-5-2.2-5-5c0-.4 0-.7.1-1h-5.2c.1.3.1.7.1 1 0 2.8-2.2 5-5 5s-5-2.2-5-5c0-.4 0-.7.1-1H3c-1.1 0-2-.9-2-2v-14c0-1.1.9-2 2-2h17c1.1 0 2 .9 2 2v2h7c.6 0 1 .4 1 1l2 12c0 .5-.4 1-1 1zm-8 4c1.7 0 3-1.3 3-3 0-1.6-1.3-3-3-3s-3 1.3-3 3c0 1.6 1.3 3 3 3zm-15 0c1.7 0 3-1.3 3-3 0-1.6-1.3-3-3-3s-3 1.3-3 3c0 1.6 1.3 3 3 3zm12-19c0-.6-.4-1-1-1H4c-.6 0-1 .4-1 1v12c0 .6.4 1 1 1 .9-1.2 2.3-2 4-2 1.6 0 3.1.8 4 2h7c.3-.4.6-.7 1-1v-12zm2 3v4h6.8l-.8-4h-6zm7.2 6H22v2.1c.3-.1.7-.1 1-.1 1.6 0 3.1.8 4 2h3l-.8-4z\"></path>\r\n          </svg>\r\n        </div>\r\n        <div class=\"md-shop-setting-link-caption\">การจัดส่งของฉัน</div>\r\n      </button>\r\n      <button mat-menu-item routerLinkActive=\"active\" routerLink=\"/address\" class=\"md-shop-setting-link-link\">\r\n        <span style=\"background: #00bfa5;\" class=\"shop-setting-link-active-bar\"></span>\r\n        <div style=\"background-color: #00bfa5;\" class=\"md-shop-setting-link-icon\">\r\n          <svg class=\"shop-setting-link-icon-svg\" viewBox=\"0 0 32 32\">\r\n            <path d=\"M17.7 29.2H22c.6 0 1 .4 1 1s-.4 1-1 1H10c-.6 0-1-.4-1-1s.4-1 1-1h4.3C11.3 25.4 5 17.1 5 12.4 5 6.2 9.9 1.2 16 1.2s11 5 11 11.2c0 4.7-6.3 13-9.3 16.8zM16 3.2c-5 0-9 4.2-9 9.4s9 15.6 9 15.6 9-10.4 9-15.6c0-5.2-4-9.4-9-9.4zm-5 9c0-2.8 2.2-5 5-5s5 2.2 5 5-2.2 5-5 5-5-2.3-5-5zm8 0c0-1.7-1.3-3-3-3s-3 1.3-3 3 1.3 3 3 3 3-1.4 3-3z\"></path>\r\n          </svg>\r\n        </div>\r\n        <div class=\"md-shop-setting-link-caption\">ที่อยู่ของฉัน</div>\r\n      </button>\r\n      <button mat-menu-item routerLinkActive=\"active\" routerLink=\"/xxxx\" class=\"md-shop-setting-link-link\">\r\n        <span style=\"background: #62b450;\" class=\"shop-setting-link-active-bar\"></span>\r\n        <div style=\"background-color: #62b450;\" class=\"md-shop-setting-link-icon\">\r\n          <svg class=\"shop-setting-link-icon-svg\" viewBox=\"0 0 32 32\">\r\n            <path d=\"M16 4.83l3.18 7 .48 1.06 1.16.11 6.76.61L22.27 19l-.75.75.2 1 1.38 7.19-6.1-3.72-1-.64-1 .64-6.15 3.7 1.42-7.16.21-1-.76-.76-5.31-5.39 6.77-.61 1.16-.11.48-1.06 3.18-7M16 0l-5 11-11 1 8.3 8.37L6 32l10-6.07L26 32l-2.31-11.63L32 12l-11-1-5-11z\"></path>\r\n          </svg>\r\n        </div>\r\n        <div class=\"md-shop-setting-link-caption\">คะแนนร้านค้า</div>\r\n      </button>\r\n      <button mat-menu-item routerLinkActive=\"active\" routerLink=\"/xxxx\" class=\"md-shop-setting-link-link\">\r\n        <span style=\"background: #FF8074;\" class=\"shop-setting-link-active-bar\"></span>\r\n        <div style=\"background-color: #FF8074;\" class=\"md-shop-setting-link-icon\">\r\n          <svg class=\"shop-setting-link-icon-svg\" viewBox=\"0 0 32 32\">\r\n            <path d=\"M16 4.83l3.18 7 .48 1.06 1.16.11 6.76.61L22.27 19l-.75.75.2 1 1.38 7.19-6.1-3.72-1-.64-1 .64-6.15 3.7 1.42-7.16.21-1-.76-.76-5.31-5.39 6.77-.61 1.16-.11.48-1.06 3.18-7M16 0l-5 11-11 1 8.3 8.37L6 32l10-6.07L26 32l-2.31-11.63L32 12l-11-1-5-11z\"></path>\r\n          </svg>\r\n        </div>\r\n        <div class=\"md-shop-setting-link-caption\">สถิติร้านค้าของฉัน</div>\r\n      </button>\r\n      <button mat-menu-item routerLinkActive=\"active\" routerLink=\"/xxxx\" class=\"md-shop-setting-link-link\">\r\n        <span style=\"background: #FF7F57;\" class=\"shop-setting-link-active-bar\"></span>\r\n        <div style=\"background-color: #FF7F57;\" class=\"md-shop-setting-link-icon\">\r\n          <svg class=\"shop-setting-link-icon-svg\" viewBox=\"0 0 32 32\">\r\n            <path d=\"M16 4.83l3.18 7 .48 1.06 1.16.11 6.76.61L22.27 19l-.75.75.2 1 1.38 7.19-6.1-3.72-1-.64-1 .64-6.15 3.7 1.42-7.16.21-1-.76-.76-5.31-5.39 6.77-.61 1.16-.11.48-1.06 3.18-7M16 0l-5 11-11 1 8.3 8.37L6 32l10-6.07L26 32l-2.31-11.63L32 12l-11-1-5-11z\"></path>\r\n          </svg>\r\n        </div>\r\n        <div class=\"md-shop-setting-link-caption\">คะแนนความประพฤติร้านค้า</div>\r\n      </button>\r\n      <button mat-menu-item routerLinkActive=\"active\" routerLink=\"/bank-account\" class=\"md-shop-setting-link-link\">\r\n        <span style=\"background: #508bce;\" class=\"shop-setting-link-active-bar\"></span>\r\n        <div style=\"background-color: #508bce;\" class=\"md-shop-setting-link-icon\">\r\n          <svg class=\"shop-setting-link-icon-svg\" viewBox=\"0 0 32 32\">\r\n            <path d=\"M28 30.5H4c-2.2 0-4-1.8-4-4v-12h32v12c0 2.2-1.8 4-4 4zm2-14H2v10c0 1.1.9 2 2 2h24c1.1 0 2-.9 2-2v-10zm-26 6h8v2H4v-2zm-4-14v-2c0-2.2 1.8-4 4-4h24c2.2 0 4 1.8 4 4v4H0v-2zm2 0h28v-2c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v2z\"></path>\r\n          </svg>\r\n        </div>\r\n        <div class=\"md-shop-setting-link-caption\">ข้อมูลบัญชีธนาคาร</div>\r\n      </button>\r\n\r\n    </mat-menu>\r\n\r\n    <mat-menu #setting=\"matMenu\">\r\n      <button mat-menu-item routerLinkActive=\"active\" routerLink=\"/xxxx\" class=\"md-shop-setting-link-link\">\r\n        <span style=\"background: #8d9a99;\" class=\"shop-setting-link-active-bar\"></span>\r\n        <div style=\"background-color: #8d9a99;\" class=\"md-shop-setting-link-icon\">\r\n          <svg class=\"shop-setting-link-icon-svg\" viewBox=\"0 0 32 32\">\r\n            <path d=\"M31.3 16c0 2-1.5 3.6-3.5 3.8-.2.7-.5 1.2-.8 1.9 1.2 1.5 1.2 3.7-.2 5.2-1.4 1.4-3.6 1.4-5.2.2-.6.3-1.2.6-1.9.8-.2 2-1.8 3.5-3.8 3.5s-3.6-1.5-3.8-3.5c-.7-.2-1.2-.5-1.9-.8-1.5 1.2-3.7 1.2-5.2-.2-1.4-1.4-1.4-3.6-.2-5.2-.3-.6-.6-1.2-.8-1.9C2.3 19.6.7 18 .7 16s1.5-3.6 3.5-3.8c.2-.7.5-1.2.8-1.9-1.2-1.5-1.2-3.7.2-5.1s3.6-1.4 5.2-.2c.6-.3 1.2-.6 1.9-.8.1-2 1.7-3.5 3.7-3.5s3.6 1.5 3.8 3.5c.7.2 1.2.5 1.9.8 1.5-1.2 3.7-1.2 5.2.2 1.4 1.4 1.4 3.6.2 5.2.3.6.6 1.2.8 1.9 1.8.1 3.4 1.7 3.4 3.7zm-5-1.9c-.3-1.4-.9-2.9-1.7-4l.9-.9c.8-.8.8-1.9 0-2.7s-1.9-.8-2.7 0l-.9.9c-1.1-.9-2.6-1.4-4-1.7V4.5c0-1.1-.9-1.9-1.9-1.9s-1.9.9-1.9 1.9v1.1c-1.4.3-2.9.9-4 1.7l-.9-.7c-.8-.8-1.9-.8-2.7 0s-.8 1.9 0 2.7l.9.9c-.9 1.1-1.4 2.6-1.7 4H4.5c-1.1 0-1.9.9-1.9 1.9S3.5 18 4.5 18h1.1c.3 1.4.9 2.9 1.7 4l-.9.9c-.8.8-.8 1.9 0 2.7s1.9.8 2.7 0l.9-.9c1.1.9 2.6 1.4 4 1.7v1.1c0 1.1.9 1.9 1.9 1.9s1.9-.9 1.9-1.9v-1.1c1.4-.3 2.9-.9 4-1.7l.9.9c.8.8 1.9.8 2.7 0s.8-1.9 0-2.7l-.9-.9c.9-1.1 1.4-2.6 1.7-4h1.1c1.1 0 1.9-.9 1.9-1.9s-.9-1.9-1.9-1.9h-1zM16 21.7c-3.2 0-5.7-2.6-5.7-5.7s2.6-5.7 5.7-5.7 5.7 2.6 5.7 5.7-2.5 5.7-5.7 5.7zm0-9.5c-2.1 0-3.8 1.7-3.8 3.8s1.7 3.8 3.8 3.8 3.8-1.7 3.8-3.8-1.7-3.8-3.8-3.8z\"></path>\r\n          </svg>\r\n        </div>\r\n        <div class=\"md-shop-setting-link-caption\">ตั้งค่าร้านค้า</div>\r\n      </button>\r\n      <button mat-menu-item routerLinkActive=\"active\" routerLink=\"/xxxx\" class=\"md-shop-setting-link-link\">\r\n        <span style=\"background: #5c6bc0;\" class=\"shop-setting-link-active-bar\"></span>\r\n        <div style=\"background-color: #5c6bc0;\" class=\"md-shop-setting-link-icon\">\r\n          <svg class=\"shop-setting-link-icon-svg\" viewBox=\"0 0 32 32\">\r\n            <path d=\"M25 32H7a4 4 0 0 1-4-4V16a4 4 0 0 1 4-4V9a9 9 0 1 1 18 0v3a4 4 0 0 1 4 4v12a4 4 0 0 1-4 4zM23 9A7 7 0 0 0 9 9v3h14V9zm4 7a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h18a2 2 0 0 0 2-2V16zM16 26a1 1 0 0 1-1-1v-6a1 1 0 1 1 2 0v6a1 1 0 0 1-1 1z\"></path>\r\n          </svg>\r\n        </div>\r\n        <div class=\"md-shop-setting-link-caption\">การตั้งค่าความเป็นส่วนตัว</div>\r\n      </button>\r\n      <button mat-menu-item routerLinkActive=\"active\" routerLink=\"/xxxx\" class=\"md-shop-setting-link-link\">\r\n        <span style=\"background: #ff5722;\" class=\"shop-setting-link-active-bar\"></span>\r\n        <div style=\"background-color: #ff5722;\" class=\"md-shop-setting-link-icon\">\r\n          <svg class=\"shop-setting-link-icon-svg\" viewBox=\"0 0 32 32\">\r\n            <path d=\"M20.69 16.36a1.73 1.73 0 1 1 1.73-1.73 1.73 1.73 0 0 1-1.73 1.73zm-6.91 0a1.73 1.73 0 1 1 1.73-1.73 1.73 1.73 0 0 1-1.73 1.73zm-6.91 0a1.73 1.73 0 1 1 1.73-1.73 1.73 1.73 0 0 1-1.73 1.73zm20.7-6.48A11.47 11.47 0 0 0 26 9.06a10.55 10.55 0 0 1 1.17 2.63 8.46 8.46 0 0 1 1.28 1.15 6.74 6.74 0 0 1 1.82 4.53 7.32 7.32 0 0 1-3.95 6.2l-.1.06v3.2L22.48 25H21c-.37 0-.74 0-1.1-.06a15.42 15.42 0 0 1-3.29 1 12.33 12.33 0 0 0 2 .55 12.84 12.84 0 0 0 2.42.23c.37 0 .76 0 1.18-.06L28 29.41v-4.83a8.82 8.82 0 0 0 4-7.22 8.94 8.94 0 0 0-4.42-7.48zm-.39 1.8A10.55 10.55 0 0 0 26 9.06 14.3 14.3 0 0 0 13.78 2.8C6.15 2.8 0 8 0 14.48a11.09 11.09 0 0 0 5.18 9.11v5.91l7.07-3.42c.51 0 1 .08 1.56.08a16.31 16.31 0 0 0 2.87-.26 15.42 15.42 0 0 0 3.29-1c4.51-1.9 7.63-5.85 7.63-10.42a10 10 0 0 0-.42-2.8zM16.86 24.15a14.43 14.43 0 0 1-2.9.33h-1.9L6.87 27v-4.36a9.59 9.59 0 0 1-5.18-8.16c0-5.53 5.41-10 12.09-10a13.13 13.13 0 0 1 9.43 3.75 9.88 9.88 0 0 1 1.62 2.2 8.54 8.54 0 0 1 1 4.06c.04 4.63-3.83 8.51-8.97 9.66z\"></path>\r\n          </svg>\r\n        </div>\r\n        <div class=\"md-shop-setting-link-caption\">ตั้งค่าการแชท</div>\r\n      </button>\r\n      <button mat-menu-item routerLinkActive=\"active\" routerLink=\"/xxxx\" class=\"md-shop-setting-link-link\">\r\n        <span style=\"background: #ffc200;\" class=\"shop-setting-link-active-bar\"></span>\r\n        <div style=\"background-color: #ffc200;\" class=\"md-shop-setting-link-icon\">\r\n          <svg class=\"shop-setting-link-icon-svg\" viewBox=\"0 0 32 32\">\r\n            <path d=\"M16 4.83l3.18 7 .48 1.06 1.16.11 6.76.61L22.27 19l-.75.75.2 1 1.38 7.19-6.1-3.72-1-.64-1 .64-6.15 3.7 1.42-7.16.21-1-.76-.76-5.31-5.39 6.77-.61 1.16-.11.48-1.06 3.18-7M16 0l-5 11-11 1 8.3 8.37L6 32l10-6.07L26 32l-2.31-11.63L32 12l-11-1-5-11z\"></path>\r\n          </svg>\r\n        </div>\r\n        <div class=\"md-shop-setting-link-caption\">ตั้งค่าการแจ้งเตือน</div>\r\n      </button>\r\n    </mat-menu>\r\n\r\n    <mat-menu #account=\"matMenu\">\r\n      <button mat-menu-item routerLinkActive=\"active\" routerLink=\"/account\" class=\"md-shop-setting-link-link\">\r\n        <span style=\"background: #00bfa5;\" class=\"shop-setting-link-active-bar\"></span>\r\n        <div style=\"background-color: #00bfa5;\" class=\"md-shop-setting-link-icon\">\r\n          <svg class=\"shop-setting-link-icon-svg\" viewBox=\"0 0 32 32\">\r\n            <path d=\"M16 20.8h10.9v-.9H16v.9zm0-2.1h10.9v-.9H16v.9zm0-2h10.9v-.9H16v.9zm0-2h6.6v-.9H16v.9zM29 23c0 .5-.4.9-.9.9H4c-.5.1-1-.4-1-.9V8.2c0-.5.4-.9.9-.9h5.3v2.1h1.9V7.3h4.3v2.1h1.9V7.3h4.5v2.1h1.9V7.3H28c.5 0 .9.4.9.9V23zm0-17.6H3c-1 0-1.9.8-1.9 1.9V24c0 1 .8 1.9 1.9 1.9h26c1 0 1.9-.8 1.9-1.9V7.3c-.1-1-.9-1.9-1.9-1.9z\"></path>\r\n          </svg>\r\n        </div>\r\n        <div class=\"md-shop-setting-link-caption\">บัญชีของฉัน</div>\r\n      </button>\r\n      <button mat-menu-item routerLinkActive=\"active\" routerLink=\"/setting-password\" class=\"md-shop-setting-link-link\">\r\n        <span style=\"background: #8f67ff;\" class=\"shop-setting-link-active-bar\"></span>\r\n        <div style=\"background-color: #8f67ff;\" class=\"md-shop-setting-link-icon\">\r\n          <svg class=\"shop-setting-link-icon-svg\" viewBox=\"0 0 32 32\">\r\n            <path d=\"M25.3 4.6c-3.1-3.1-8.1-3.1-11.2 0-3.1 3.1-3.1 8.1 0 11.2s8.1 3.1 11.2 0 3.1-8.1 0-11.2m1.5 12.7c-3.7 3.7-9.5 3.9-13.5.6l-4 3.7 4.6 4.6-1.5 1.5L7.8 23l-2.9 2.6 4.8 4.8-1.5 1.5L2.3 26l.1-.1c-.1-.3 0-.7.3-1l9.3-8.4c-3.1-3.9-2.9-9.7.7-13.3C16.6-.7 23-.7 26.9 3.2c3.8 3.8 3.8 10.2-.1 14.1\"></path>\r\n          </svg>\r\n        </div>\r\n        <div class=\"md-shop-setting-link-caption\">เปลี่ยนรหัสผ่าน</div>\r\n      </button>\r\n    </mat-menu>\r\n    <!-- fffffffffffffffff 00000000000000000000000000000000000000000000000000000000000000000 -->\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div class=\"row\">\r\n  <div class=\"no-padding d-none d-sm-none d-md-none d-lg-block d-xl-block col-lg-12 col-xl-12\">\r\n    <div class=\"grid\">\r\n      <div class=\"card-panel\">\r\n        <div>\r\n          <div class=\"card-panel-title\">ร้านค้า</div>\r\n          <div routerLinkActive=\"active\">\r\n            <a routerLink=\"/profile\" class=\"shop-setting-link-link\">\r\n              <span style=\"background: #49cbdd;\" class=\"shop-setting-link-active-bar\"></span>\r\n              <div style=\"background-color: #49cbdd;\" class=\"shop-setting-link-icon\">\r\n                <svg class=\"shop-setting-link-icon-svg\" viewBox=\"0 0 32 32\">\r\n                  <path d=\"M23.9 12.9l-1.6-1.6 6.2-6.2 1.6 1.6-6.2 6.2zM32 4.8l-1.6-1.6-1 1L31 5.8l1-1zM19.7 15.6l2.6-1.4-1.3-1.3-1.3 2.7zm8.6-4v16.3c0 .9-.7 1.6-1.6 1.6H1.6c-.9 0-1.6-.7-1.6-1.6V6.2c0-.9.7-1.6 1.6-1.6h24.2l-2 2H2v11.9l5.6-3.8 7.2 6.1 6.7-3 4.7 4.1v-8.4l2.1-1.9zm-2 15.9v-2.9l-5.1-4.4-6.7 3-7-6L2 21v6.5h24.3z\"></path>\r\n                </svg></div>\r\n              <div class=\"shop-setting-link-caption\">รายละเอียดร้านค้า</div>\r\n            </a>\r\n          </div>\r\n          <div routerLinkActive=\"active\">\r\n            <a routerLink=\"/logistic\" class=\"shop-setting-link-link\">\r\n              <span style=\"background: #6897d6;\" class=\"shop-setting-link-active-bar\"></span>\r\n              <div style=\"background-color: #6897d6;\" class=\"shop-setting-link-icon\">\r\n                <svg class=\"shop-setting-link-icon-svg\" viewBox=\"0 0 32 32\">\r\n                  <path d=\"M31 23.5h-3.1c.1.3.1.7.1 1 0 2.8-2.2 5-5 5s-5-2.2-5-5c0-.4 0-.7.1-1h-5.2c.1.3.1.7.1 1 0 2.8-2.2 5-5 5s-5-2.2-5-5c0-.4 0-.7.1-1H3c-1.1 0-2-.9-2-2v-14c0-1.1.9-2 2-2h17c1.1 0 2 .9 2 2v2h7c.6 0 1 .4 1 1l2 12c0 .5-.4 1-1 1zm-8 4c1.7 0 3-1.3 3-3 0-1.6-1.3-3-3-3s-3 1.3-3 3c0 1.6 1.3 3 3 3zm-15 0c1.7 0 3-1.3 3-3 0-1.6-1.3-3-3-3s-3 1.3-3 3c0 1.6 1.3 3 3 3zm12-19c0-.6-.4-1-1-1H4c-.6 0-1 .4-1 1v12c0 .6.4 1 1 1 .9-1.2 2.3-2 4-2 1.6 0 3.1.8 4 2h7c.3-.4.6-.7 1-1v-12zm2 3v4h6.8l-.8-4h-6zm7.2 6H22v2.1c.3-.1.7-.1 1-.1 1.6 0 3.1.8 4 2h3l-.8-4z\"></path>\r\n                </svg></div>\r\n              <div class=\"shop-setting-link-caption\">การจัดส่งของฉัน</div>\r\n            </a>\r\n          </div>\r\n          <div routerLinkActive=\"active\">\r\n            <a routerLink=\"/address\" class=\"shop-setting-link-link\">\r\n              <span style=\"background: #00bfa5;\" class=\"shop-setting-link-active-bar\"></span>\r\n              <div style=\"background-color: #00bfa5;\" class=\"shop-setting-link-icon\">\r\n                <svg class=\"shop-setting-link-icon-svg\" viewBox=\"0 0 32 32\">\r\n                  <path d=\"M17.7 29.2H22c.6 0 1 .4 1 1s-.4 1-1 1H10c-.6 0-1-.4-1-1s.4-1 1-1h4.3C11.3 25.4 5 17.1 5 12.4 5 6.2 9.9 1.2 16 1.2s11 5 11 11.2c0 4.7-6.3 13-9.3 16.8zM16 3.2c-5 0-9 4.2-9 9.4s9 15.6 9 15.6 9-10.4 9-15.6c0-5.2-4-9.4-9-9.4zm-5 9c0-2.8 2.2-5 5-5s5 2.2 5 5-2.2 5-5 5-5-2.3-5-5zm8 0c0-1.7-1.3-3-3-3s-3 1.3-3 3 1.3 3 3 3 3-1.4 3-3z\"></path>\r\n                </svg></div>\r\n              <div class=\"shop-setting-link-caption\">ที่อยู่ของฉัน</div>\r\n            </a>\r\n          </div>\r\n          <div routerLinkActive=\"active\">\r\n            <a routerLink=\"/xxxx\" class=\"shop-setting-link-link\">\r\n              <span style=\"background: #62b450;\" class=\"shop-setting-link-active-bar\"></span>\r\n              <div style=\"background-color: #62b450;\" class=\"shop-setting-link-icon\">\r\n                <svg class=\"shop-setting-link-icon-svg\" viewBox=\"0 0 32 32\">\r\n                  <path d=\"M16 4.83l3.18 7 .48 1.06 1.16.11 6.76.61L22.27 19l-.75.75.2 1 1.38 7.19-6.1-3.72-1-.64-1 .64-6.15 3.7 1.42-7.16.21-1-.76-.76-5.31-5.39 6.77-.61 1.16-.11.48-1.06 3.18-7M16 0l-5 11-11 1 8.3 8.37L6 32l10-6.07L26 32l-2.31-11.63L32 12l-11-1-5-11z\"></path>\r\n                </svg></div>\r\n              <div class=\"shop-setting-link-caption\">คะแนนร้านค้า</div>\r\n            </a>\r\n          </div>\r\n          <!-- <div routerLinkActive=\"active\">\r\n            <a routerLink=\"/xxxx\" class=\"shop-setting-link-link\">\r\n              <span style=\"background: #FF8074;\" class=\"shop-setting-link-active-bar\"></span>\r\n              <div style=\"background-color: #FF8074;\" class=\"shop-setting-link-icon\">\r\n                <svg class=\"shop-setting-link-icon-svg\" viewBox=\"0 0 32 32\">\r\n                  <path d=\"M16 4.83l3.18 7 .48 1.06 1.16.11 6.76.61L22.27 19l-.75.75.2 1 1.38 7.19-6.1-3.72-1-.64-1 .64-6.15 3.7 1.42-7.16.21-1-.76-.76-5.31-5.39 6.77-.61 1.16-.11.48-1.06 3.18-7M16 0l-5 11-11 1 8.3 8.37L6 32l10-6.07L26 32l-2.31-11.63L32 12l-11-1-5-11z\"></path>\r\n                </svg></div>\r\n              <div class=\"shop-setting-link-caption\">สถิติร้านค้าของฉัน</div>\r\n            </a>\r\n          </div> -->\r\n          <!-- <div routerLinkActive=\"active\">\r\n            <a routerLink=\"/xxxx\" class=\"shop-setting-link-link\">\r\n              <span style=\"background: #FF7F57;\" class=\"shop-setting-link-active-bar\"></span>\r\n              <div style=\"background-color: #FF7F57;\" class=\"shop-setting-link-icon\">\r\n                <svg class=\"shop-setting-link-icon-svg\" viewBox=\"0 0 32 32\">\r\n                  <path d=\"M16 4.83l3.18 7 .48 1.06 1.16.11 6.76.61L22.27 19l-.75.75.2 1 1.38 7.19-6.1-3.72-1-.64-1 .64-6.15 3.7 1.42-7.16.21-1-.76-.76-5.31-5.39 6.77-.61 1.16-.11.48-1.06 3.18-7M16 0l-5 11-11 1 8.3 8.37L6 32l10-6.07L26 32l-2.31-11.63L32 12l-11-1-5-11z\"></path>\r\n                </svg></div>\r\n              <div class=\"shop-setting-link-caption\">คะแนนความประพฤติร้านค้า</div>\r\n            </a>\r\n          </div> -->\r\n          <div routerLinkActive=\"active\">\r\n            <a routerLink=\"/bank-account\" class=\"shop-setting-link-link\">\r\n              <span style=\"background: #508bce;\" class=\"shop-setting-link-active-bar\"></span>\r\n              <div style=\"background-color: #508bce;\" class=\"shop-setting-link-icon\">\r\n                <svg class=\"shop-setting-link-icon-svg\" viewBox=\"0 0 32 32\">\r\n                  <path d=\"M28 30.5H4c-2.2 0-4-1.8-4-4v-12h32v12c0 2.2-1.8 4-4 4zm2-14H2v10c0 1.1.9 2 2 2h24c1.1 0 2-.9 2-2v-10zm-26 6h8v2H4v-2zm-4-14v-2c0-2.2 1.8-4 4-4h24c2.2 0 4 1.8 4 4v4H0v-2zm2 0h28v-2c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v2z\"></path>\r\n                </svg></div>\r\n              <div class=\"shop-setting-link-caption\">ข้อมูลบัญชีธนาคาร</div>\r\n            </a>\r\n          </div>\r\n        </div>\r\n        <div class=\"card-panel-section\">\r\n          <div class=\"card-panel-title\">ตั้งค่า</div>\r\n          <div routerLinkActive=\"active\">\r\n            <a routerLink=\"/xxxx\" class=\"shop-setting-link-link\">\r\n              <span style=\"background: #8d9a99;\" class=\"shop-setting-link-active-bar\"></span>\r\n              <div style=\"background-color: #8d9a99;\" class=\"shop-setting-link-icon\">\r\n                <svg class=\"shop-setting-link-icon-svg\" viewBox=\"0 0 32 32\">\r\n                  <path d=\"M31.3 16c0 2-1.5 3.6-3.5 3.8-.2.7-.5 1.2-.8 1.9 1.2 1.5 1.2 3.7-.2 5.2-1.4 1.4-3.6 1.4-5.2.2-.6.3-1.2.6-1.9.8-.2 2-1.8 3.5-3.8 3.5s-3.6-1.5-3.8-3.5c-.7-.2-1.2-.5-1.9-.8-1.5 1.2-3.7 1.2-5.2-.2-1.4-1.4-1.4-3.6-.2-5.2-.3-.6-.6-1.2-.8-1.9C2.3 19.6.7 18 .7 16s1.5-3.6 3.5-3.8c.2-.7.5-1.2.8-1.9-1.2-1.5-1.2-3.7.2-5.1s3.6-1.4 5.2-.2c.6-.3 1.2-.6 1.9-.8.1-2 1.7-3.5 3.7-3.5s3.6 1.5 3.8 3.5c.7.2 1.2.5 1.9.8 1.5-1.2 3.7-1.2 5.2.2 1.4 1.4 1.4 3.6.2 5.2.3.6.6 1.2.8 1.9 1.8.1 3.4 1.7 3.4 3.7zm-5-1.9c-.3-1.4-.9-2.9-1.7-4l.9-.9c.8-.8.8-1.9 0-2.7s-1.9-.8-2.7 0l-.9.9c-1.1-.9-2.6-1.4-4-1.7V4.5c0-1.1-.9-1.9-1.9-1.9s-1.9.9-1.9 1.9v1.1c-1.4.3-2.9.9-4 1.7l-.9-.7c-.8-.8-1.9-.8-2.7 0s-.8 1.9 0 2.7l.9.9c-.9 1.1-1.4 2.6-1.7 4H4.5c-1.1 0-1.9.9-1.9 1.9S3.5 18 4.5 18h1.1c.3 1.4.9 2.9 1.7 4l-.9.9c-.8.8-.8 1.9 0 2.7s1.9.8 2.7 0l.9-.9c1.1.9 2.6 1.4 4 1.7v1.1c0 1.1.9 1.9 1.9 1.9s1.9-.9 1.9-1.9v-1.1c1.4-.3 2.9-.9 4-1.7l.9.9c.8.8 1.9.8 2.7 0s.8-1.9 0-2.7l-.9-.9c.9-1.1 1.4-2.6 1.7-4h1.1c1.1 0 1.9-.9 1.9-1.9s-.9-1.9-1.9-1.9h-1zM16 21.7c-3.2 0-5.7-2.6-5.7-5.7s2.6-5.7 5.7-5.7 5.7 2.6 5.7 5.7-2.5 5.7-5.7 5.7zm0-9.5c-2.1 0-3.8 1.7-3.8 3.8s1.7 3.8 3.8 3.8 3.8-1.7 3.8-3.8-1.7-3.8-3.8-3.8z\"></path>\r\n                </svg></div>\r\n              <div class=\"shop-setting-link-caption\">ตั้งค่าร้านค้า</div>\r\n            </a>\r\n          </div>\r\n          <!-- <div routerLinkActive=\"active\">\r\n            <a routerLink=\"/xxxx\" class=\"shop-setting-link-link\">\r\n              <span style=\"background: #5c6bc0;\" class=\"shop-setting-link-active-bar\"></span>\r\n              <div style=\"background-color: #5c6bc0;\" class=\"shop-setting-link-icon\">\r\n                <svg class=\"shop-setting-link-icon-svg\" viewBox=\"0 0 32 32\">\r\n                  <path d=\"M25 32H7a4 4 0 0 1-4-4V16a4 4 0 0 1 4-4V9a9 9 0 1 1 18 0v3a4 4 0 0 1 4 4v12a4 4 0 0 1-4 4zM23 9A7 7 0 0 0 9 9v3h14V9zm4 7a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h18a2 2 0 0 0 2-2V16zM16 26a1 1 0 0 1-1-1v-6a1 1 0 1 1 2 0v6a1 1 0 0 1-1 1z\"></path>\r\n                </svg></div>\r\n              <div class=\"shop-setting-link-caption\">การตั้งค่าความเป็นส่วนตัว</div>\r\n            </a>\r\n          </div> -->\r\n          <div routerLinkActive=\"active\">\r\n            <a routerLink=\"/xxxx\" class=\"shop-setting-link-link\">\r\n              <span style=\"background: #ff5722;\" class=\"shop-setting-link-active-bar\"></span>\r\n              <div style=\"background-color: #ff5722;\" class=\"shop-setting-link-icon\">\r\n                <svg class=\"shop-setting-link-icon-svg\" viewBox=\"0 0 32 32\">\r\n                  <path d=\"M20.69 16.36a1.73 1.73 0 1 1 1.73-1.73 1.73 1.73 0 0 1-1.73 1.73zm-6.91 0a1.73 1.73 0 1 1 1.73-1.73 1.73 1.73 0 0 1-1.73 1.73zm-6.91 0a1.73 1.73 0 1 1 1.73-1.73 1.73 1.73 0 0 1-1.73 1.73zm20.7-6.48A11.47 11.47 0 0 0 26 9.06a10.55 10.55 0 0 1 1.17 2.63 8.46 8.46 0 0 1 1.28 1.15 6.74 6.74 0 0 1 1.82 4.53 7.32 7.32 0 0 1-3.95 6.2l-.1.06v3.2L22.48 25H21c-.37 0-.74 0-1.1-.06a15.42 15.42 0 0 1-3.29 1 12.33 12.33 0 0 0 2 .55 12.84 12.84 0 0 0 2.42.23c.37 0 .76 0 1.18-.06L28 29.41v-4.83a8.82 8.82 0 0 0 4-7.22 8.94 8.94 0 0 0-4.42-7.48zm-.39 1.8A10.55 10.55 0 0 0 26 9.06 14.3 14.3 0 0 0 13.78 2.8C6.15 2.8 0 8 0 14.48a11.09 11.09 0 0 0 5.18 9.11v5.91l7.07-3.42c.51 0 1 .08 1.56.08a16.31 16.31 0 0 0 2.87-.26 15.42 15.42 0 0 0 3.29-1c4.51-1.9 7.63-5.85 7.63-10.42a10 10 0 0 0-.42-2.8zM16.86 24.15a14.43 14.43 0 0 1-2.9.33h-1.9L6.87 27v-4.36a9.59 9.59 0 0 1-5.18-8.16c0-5.53 5.41-10 12.09-10a13.13 13.13 0 0 1 9.43 3.75 9.88 9.88 0 0 1 1.62 2.2 8.54 8.54 0 0 1 1 4.06c.04 4.63-3.83 8.51-8.97 9.66z\"></path>\r\n                </svg></div>\r\n              <div class=\"shop-setting-link-caption\">ตั้งค่าการแชท</div>\r\n            </a>\r\n          </div>\r\n          <div routerLinkActive=\"active\">\r\n            <a routerLink=\"/xxxx\" class=\"shop-setting-link-link\">\r\n              <span style=\"background: #ffc200;\" class=\"shop-setting-link-active-bar\"></span>\r\n              <div style=\"background-color: #ffc200;\" class=\"shop-setting-link-icon\">\r\n                <svg class=\"shop-setting-link-icon-svg\" viewBox=\"0 0 32 32\">\r\n                  <path d=\"M16 4.83l3.18 7 .48 1.06 1.16.11 6.76.61L22.27 19l-.75.75.2 1 1.38 7.19-6.1-3.72-1-.64-1 .64-6.15 3.7 1.42-7.16.21-1-.76-.76-5.31-5.39 6.77-.61 1.16-.11.48-1.06 3.18-7M16 0l-5 11-11 1 8.3 8.37L6 32l10-6.07L26 32l-2.31-11.63L32 12l-11-1-5-11z\"></path>\r\n                </svg></div>\r\n              <div class=\"shop-setting-link-caption\">ตั้งค่าการแจ้งเตือน</div>\r\n            </a>\r\n          </div>\r\n        </div>\r\n        <div class=\"card-panel-section\">\r\n          <div class=\"card-panel-title\">บัญชี</div>\r\n          <div routerLinkActive=\"active\">\r\n            <a routerLink=\"/account\" class=\"shop-setting-link-link\">\r\n              <span style=\"background: #00bfa5;\" class=\"shop-setting-link-active-bar\"></span>\r\n              <div style=\"background-color: #00bfa5;\" class=\"shop-setting-link-icon\">\r\n                <svg class=\"shop-setting-link-icon-svg\" viewBox=\"0 0 32 32\">\r\n                  <path d=\"M16 20.8h10.9v-.9H16v.9zm0-2.1h10.9v-.9H16v.9zm0-2h10.9v-.9H16v.9zm0-2h6.6v-.9H16v.9zM29 23c0 .5-.4.9-.9.9H4c-.5.1-1-.4-1-.9V8.2c0-.5.4-.9.9-.9h5.3v2.1h1.9V7.3h4.3v2.1h1.9V7.3h4.5v2.1h1.9V7.3H28c.5 0 .9.4.9.9V23zm0-17.6H3c-1 0-1.9.8-1.9 1.9V24c0 1 .8 1.9 1.9 1.9h26c1 0 1.9-.8 1.9-1.9V7.3c-.1-1-.9-1.9-1.9-1.9z\"></path>\r\n                </svg></div>\r\n              <div class=\"shop-setting-link-caption\">บัญชีของฉัน</div>\r\n            </a>\r\n          </div>\r\n          <div routerLinkActive=\"active\">\r\n            <a routerLink=\"/setting-password\" class=\"shop-setting-link-link\">\r\n              <span style=\"background: #8f67ff;\" class=\"shop-setting-link-active-bar\"></span>\r\n              <div style=\"background-color: #8f67ff;\" class=\"shop-setting-link-icon\">\r\n                <svg class=\"shop-setting-link-icon-svg\" viewBox=\"0 0 32 32\">\r\n                  <path d=\"M25.3 4.6c-3.1-3.1-8.1-3.1-11.2 0-3.1 3.1-3.1 8.1 0 11.2s8.1 3.1 11.2 0 3.1-8.1 0-11.2m1.5 12.7c-3.7 3.7-9.5 3.9-13.5.6l-4 3.7 4.6 4.6-1.5 1.5L7.8 23l-2.9 2.6 4.8 4.8-1.5 1.5L2.3 26l.1-.1c-.1-.3 0-.7.3-1l9.3-8.4c-3.1-3.9-2.9-9.7.7-13.3C16.6-.7 23-.7 26.9 3.2c3.8 3.8 3.8 10.2-.1 14.1\"></path>\r\n                </svg></div>\r\n              <div class=\"shop-setting-link-caption\">เปลี่ยนรหัสผ่าน</div>\r\n            </a>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n  </div>\r\n  <div class=\"d-block d-sm-block d-md-block d-lg-none d-xl-none col-xs-12 col-sm-12 col-md-12 text-center\">\r\n    <!-- d-none menu -->\r\n    <!-- <div class=\"d-block d-sm-block d-md-block d-lg-none d-xl-none col-xs-12 col-sm-12 col-md-12\"> -->\r\n    <button mat-button color=\"primary\" mat-flat-button class=\"md-button\" [matMenuTriggerFor]=\"menu\">ตั้งค่าร้านค้า</button>\r\n    <!-- </div> -->\r\n    <mat-menu #menu=\"matMenu\">\r\n      <button mat-menu-item [matMenuTriggerFor]=\"shop\">ร้านค้า</button>\r\n      <button mat-menu-item [matMenuTriggerFor]=\"setting\">ตั้งค่า</button>\r\n      <button mat-menu-item [matMenuTriggerFor]=\"account\">บัญชี</button>\r\n    </mat-menu>\r\n\r\n    <mat-menu #shop=\"matMenu\">\r\n      <button mat-menu-item routerLinkActive=\"active\" routerLink=\"/profile\" class=\"md-shop-setting-link-link\">\r\n        <span style=\"background: #49cbdd;\" class=\"shop-setting-link-active-bar\"></span>\r\n        <div style=\"background-color: #49cbdd;\" class=\"md-shop-setting-link-icon\">\r\n          <svg class=\"shop-setting-link-icon-svg\" viewBox=\"0 0 32 32\">\r\n            <path d=\"M23.9 12.9l-1.6-1.6 6.2-6.2 1.6 1.6-6.2 6.2zM32 4.8l-1.6-1.6-1 1L31 5.8l1-1zM19.7 15.6l2.6-1.4-1.3-1.3-1.3 2.7zm8.6-4v16.3c0 .9-.7 1.6-1.6 1.6H1.6c-.9 0-1.6-.7-1.6-1.6V6.2c0-.9.7-1.6 1.6-1.6h24.2l-2 2H2v11.9l5.6-3.8 7.2 6.1 6.7-3 4.7 4.1v-8.4l2.1-1.9zm-2 15.9v-2.9l-5.1-4.4-6.7 3-7-6L2 21v6.5h24.3z\"></path>\r\n          </svg>\r\n        </div>\r\n        <div class=\"md-shop-setting-link-caption\">รายละเอียดร้านค้า</div>\r\n        <!-- <span style=\"background: #49cbdd;\" class=\"shop-setting-link-active-bar\"></span> -->\r\n      </button>\r\n      <button mat-menu-item routerLinkActive=\"active\" routerLink=\"/logistic\" class=\"md-shop-setting-link-link\">\r\n        <span style=\"background: #6897d6;\" class=\"shop-setting-link-active-bar\"></span>\r\n        <div style=\"background-color: #6897d6;\" class=\"md-shop-setting-link-icon\">\r\n          <svg class=\"shop-setting-link-icon-svg\" viewBox=\"0 0 32 32\">\r\n            <path d=\"M31 23.5h-3.1c.1.3.1.7.1 1 0 2.8-2.2 5-5 5s-5-2.2-5-5c0-.4 0-.7.1-1h-5.2c.1.3.1.7.1 1 0 2.8-2.2 5-5 5s-5-2.2-5-5c0-.4 0-.7.1-1H3c-1.1 0-2-.9-2-2v-14c0-1.1.9-2 2-2h17c1.1 0 2 .9 2 2v2h7c.6 0 1 .4 1 1l2 12c0 .5-.4 1-1 1zm-8 4c1.7 0 3-1.3 3-3 0-1.6-1.3-3-3-3s-3 1.3-3 3c0 1.6 1.3 3 3 3zm-15 0c1.7 0 3-1.3 3-3 0-1.6-1.3-3-3-3s-3 1.3-3 3c0 1.6 1.3 3 3 3zm12-19c0-.6-.4-1-1-1H4c-.6 0-1 .4-1 1v12c0 .6.4 1 1 1 .9-1.2 2.3-2 4-2 1.6 0 3.1.8 4 2h7c.3-.4.6-.7 1-1v-12zm2 3v4h6.8l-.8-4h-6zm7.2 6H22v2.1c.3-.1.7-.1 1-.1 1.6 0 3.1.8 4 2h3l-.8-4z\"></path>\r\n          </svg>\r\n        </div>\r\n        <div class=\"md-shop-setting-link-caption\">การจัดส่งของฉัน</div>\r\n      </button>\r\n      <button mat-menu-item routerLinkActive=\"active\" routerLink=\"/address\" class=\"md-shop-setting-link-link\">\r\n        <span style=\"background: #00bfa5;\" class=\"shop-setting-link-active-bar\"></span>\r\n        <div style=\"background-color: #00bfa5;\" class=\"md-shop-setting-link-icon\">\r\n          <svg class=\"shop-setting-link-icon-svg\" viewBox=\"0 0 32 32\">\r\n            <path d=\"M17.7 29.2H22c.6 0 1 .4 1 1s-.4 1-1 1H10c-.6 0-1-.4-1-1s.4-1 1-1h4.3C11.3 25.4 5 17.1 5 12.4 5 6.2 9.9 1.2 16 1.2s11 5 11 11.2c0 4.7-6.3 13-9.3 16.8zM16 3.2c-5 0-9 4.2-9 9.4s9 15.6 9 15.6 9-10.4 9-15.6c0-5.2-4-9.4-9-9.4zm-5 9c0-2.8 2.2-5 5-5s5 2.2 5 5-2.2 5-5 5-5-2.3-5-5zm8 0c0-1.7-1.3-3-3-3s-3 1.3-3 3 1.3 3 3 3 3-1.4 3-3z\"></path>\r\n          </svg>\r\n        </div>\r\n        <div class=\"md-shop-setting-link-caption\">ที่อยู่ของฉัน</div>\r\n      </button>\r\n      <button mat-menu-item routerLinkActive=\"active\" routerLink=\"/xxxx\" class=\"md-shop-setting-link-link\">\r\n        <span style=\"background: #62b450;\" class=\"shop-setting-link-active-bar\"></span>\r\n        <div style=\"background-color: #62b450;\" class=\"md-shop-setting-link-icon\">\r\n          <svg class=\"shop-setting-link-icon-svg\" viewBox=\"0 0 32 32\">\r\n            <path d=\"M16 4.83l3.18 7 .48 1.06 1.16.11 6.76.61L22.27 19l-.75.75.2 1 1.38 7.19-6.1-3.72-1-.64-1 .64-6.15 3.7 1.42-7.16.21-1-.76-.76-5.31-5.39 6.77-.61 1.16-.11.48-1.06 3.18-7M16 0l-5 11-11 1 8.3 8.37L6 32l10-6.07L26 32l-2.31-11.63L32 12l-11-1-5-11z\"></path>\r\n          </svg>\r\n        </div>\r\n        <div class=\"md-shop-setting-link-caption\">คะแนนร้านค้า</div>\r\n      </button>\r\n      <!-- <button mat-menu-item routerLinkActive=\"active\" routerLink=\"/xxxx\" class=\"md-shop-setting-link-link\">\r\n        <span style=\"background: #FF8074;\" class=\"shop-setting-link-active-bar\"></span>\r\n        <div style=\"background-color: #FF8074;\" class=\"md-shop-setting-link-icon\">\r\n          <svg class=\"shop-setting-link-icon-svg\" viewBox=\"0 0 32 32\">\r\n            <path d=\"M16 4.83l3.18 7 .48 1.06 1.16.11 6.76.61L22.27 19l-.75.75.2 1 1.38 7.19-6.1-3.72-1-.64-1 .64-6.15 3.7 1.42-7.16.21-1-.76-.76-5.31-5.39 6.77-.61 1.16-.11.48-1.06 3.18-7M16 0l-5 11-11 1 8.3 8.37L6 32l10-6.07L26 32l-2.31-11.63L32 12l-11-1-5-11z\"></path>\r\n          </svg>\r\n        </div>\r\n        <div class=\"md-shop-setting-link-caption\">สถิติร้านค้าของฉัน</div>\r\n      </button>\r\n      <button mat-menu-item routerLinkActive=\"active\" routerLink=\"/xxxx\" class=\"md-shop-setting-link-link\">\r\n        <span style=\"background: #FF7F57;\" class=\"shop-setting-link-active-bar\"></span>\r\n        <div style=\"background-color: #FF7F57;\" class=\"md-shop-setting-link-icon\">\r\n          <svg class=\"shop-setting-link-icon-svg\" viewBox=\"0 0 32 32\">\r\n            <path d=\"M16 4.83l3.18 7 .48 1.06 1.16.11 6.76.61L22.27 19l-.75.75.2 1 1.38 7.19-6.1-3.72-1-.64-1 .64-6.15 3.7 1.42-7.16.21-1-.76-.76-5.31-5.39 6.77-.61 1.16-.11.48-1.06 3.18-7M16 0l-5 11-11 1 8.3 8.37L6 32l10-6.07L26 32l-2.31-11.63L32 12l-11-1-5-11z\"></path>\r\n          </svg>\r\n        </div>\r\n        <div class=\"md-shop-setting-link-caption\">คะแนนความประพฤติร้านค้า</div>\r\n      </button> -->\r\n      <button mat-menu-item routerLinkActive=\"active\" routerLink=\"/bank-account\" class=\"md-shop-setting-link-link\">\r\n        <span style=\"background: #508bce;\" class=\"shop-setting-link-active-bar\"></span>\r\n        <div style=\"background-color: #508bce;\" class=\"md-shop-setting-link-icon\">\r\n          <svg class=\"shop-setting-link-icon-svg\" viewBox=\"0 0 32 32\">\r\n            <path d=\"M28 30.5H4c-2.2 0-4-1.8-4-4v-12h32v12c0 2.2-1.8 4-4 4zm2-14H2v10c0 1.1.9 2 2 2h24c1.1 0 2-.9 2-2v-10zm-26 6h8v2H4v-2zm-4-14v-2c0-2.2 1.8-4 4-4h24c2.2 0 4 1.8 4 4v4H0v-2zm2 0h28v-2c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v2z\"></path>\r\n          </svg>\r\n        </div>\r\n        <div class=\"md-shop-setting-link-caption\">ข้อมูลบัญชีธนาคาร</div>\r\n      </button>\r\n\r\n    </mat-menu>\r\n\r\n    <mat-menu #setting=\"matMenu\">\r\n      <button mat-menu-item routerLinkActive=\"active\" routerLink=\"/xxxx\" class=\"md-shop-setting-link-link\">\r\n        <span style=\"background: #8d9a99;\" class=\"shop-setting-link-active-bar\"></span>\r\n        <div style=\"background-color: #8d9a99;\" class=\"md-shop-setting-link-icon\">\r\n          <svg class=\"shop-setting-link-icon-svg\" viewBox=\"0 0 32 32\">\r\n            <path d=\"M31.3 16c0 2-1.5 3.6-3.5 3.8-.2.7-.5 1.2-.8 1.9 1.2 1.5 1.2 3.7-.2 5.2-1.4 1.4-3.6 1.4-5.2.2-.6.3-1.2.6-1.9.8-.2 2-1.8 3.5-3.8 3.5s-3.6-1.5-3.8-3.5c-.7-.2-1.2-.5-1.9-.8-1.5 1.2-3.7 1.2-5.2-.2-1.4-1.4-1.4-3.6-.2-5.2-.3-.6-.6-1.2-.8-1.9C2.3 19.6.7 18 .7 16s1.5-3.6 3.5-3.8c.2-.7.5-1.2.8-1.9-1.2-1.5-1.2-3.7.2-5.1s3.6-1.4 5.2-.2c.6-.3 1.2-.6 1.9-.8.1-2 1.7-3.5 3.7-3.5s3.6 1.5 3.8 3.5c.7.2 1.2.5 1.9.8 1.5-1.2 3.7-1.2 5.2.2 1.4 1.4 1.4 3.6.2 5.2.3.6.6 1.2.8 1.9 1.8.1 3.4 1.7 3.4 3.7zm-5-1.9c-.3-1.4-.9-2.9-1.7-4l.9-.9c.8-.8.8-1.9 0-2.7s-1.9-.8-2.7 0l-.9.9c-1.1-.9-2.6-1.4-4-1.7V4.5c0-1.1-.9-1.9-1.9-1.9s-1.9.9-1.9 1.9v1.1c-1.4.3-2.9.9-4 1.7l-.9-.7c-.8-.8-1.9-.8-2.7 0s-.8 1.9 0 2.7l.9.9c-.9 1.1-1.4 2.6-1.7 4H4.5c-1.1 0-1.9.9-1.9 1.9S3.5 18 4.5 18h1.1c.3 1.4.9 2.9 1.7 4l-.9.9c-.8.8-.8 1.9 0 2.7s1.9.8 2.7 0l.9-.9c1.1.9 2.6 1.4 4 1.7v1.1c0 1.1.9 1.9 1.9 1.9s1.9-.9 1.9-1.9v-1.1c1.4-.3 2.9-.9 4-1.7l.9.9c.8.8 1.9.8 2.7 0s.8-1.9 0-2.7l-.9-.9c.9-1.1 1.4-2.6 1.7-4h1.1c1.1 0 1.9-.9 1.9-1.9s-.9-1.9-1.9-1.9h-1zM16 21.7c-3.2 0-5.7-2.6-5.7-5.7s2.6-5.7 5.7-5.7 5.7 2.6 5.7 5.7-2.5 5.7-5.7 5.7zm0-9.5c-2.1 0-3.8 1.7-3.8 3.8s1.7 3.8 3.8 3.8 3.8-1.7 3.8-3.8-1.7-3.8-3.8-3.8z\"></path>\r\n          </svg>\r\n        </div>\r\n        <div class=\"md-shop-setting-link-caption\">ตั้งค่าร้านค้า</div>\r\n      </button>\r\n      <!-- <button mat-menu-item routerLinkActive=\"active\" routerLink=\"/xxxx\" class=\"md-shop-setting-link-link\">\r\n        <span style=\"background: #5c6bc0;\" class=\"shop-setting-link-active-bar\"></span>\r\n        <div style=\"background-color: #5c6bc0;\" class=\"md-shop-setting-link-icon\">\r\n          <svg class=\"shop-setting-link-icon-svg\" viewBox=\"0 0 32 32\">\r\n            <path d=\"M25 32H7a4 4 0 0 1-4-4V16a4 4 0 0 1 4-4V9a9 9 0 1 1 18 0v3a4 4 0 0 1 4 4v12a4 4 0 0 1-4 4zM23 9A7 7 0 0 0 9 9v3h14V9zm4 7a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h18a2 2 0 0 0 2-2V16zM16 26a1 1 0 0 1-1-1v-6a1 1 0 1 1 2 0v6a1 1 0 0 1-1 1z\"></path>\r\n          </svg>\r\n        </div>\r\n        <div class=\"md-shop-setting-link-caption\">การตั้งค่าความเป็นส่วนตัว</div>\r\n      </button> -->\r\n      <button mat-menu-item routerLinkActive=\"active\" routerLink=\"/xxxx\" class=\"md-shop-setting-link-link\">\r\n        <span style=\"background: #ff5722;\" class=\"shop-setting-link-active-bar\"></span>\r\n        <div style=\"background-color: #ff5722;\" class=\"md-shop-setting-link-icon\">\r\n          <svg class=\"shop-setting-link-icon-svg\" viewBox=\"0 0 32 32\">\r\n            <path d=\"M20.69 16.36a1.73 1.73 0 1 1 1.73-1.73 1.73 1.73 0 0 1-1.73 1.73zm-6.91 0a1.73 1.73 0 1 1 1.73-1.73 1.73 1.73 0 0 1-1.73 1.73zm-6.91 0a1.73 1.73 0 1 1 1.73-1.73 1.73 1.73 0 0 1-1.73 1.73zm20.7-6.48A11.47 11.47 0 0 0 26 9.06a10.55 10.55 0 0 1 1.17 2.63 8.46 8.46 0 0 1 1.28 1.15 6.74 6.74 0 0 1 1.82 4.53 7.32 7.32 0 0 1-3.95 6.2l-.1.06v3.2L22.48 25H21c-.37 0-.74 0-1.1-.06a15.42 15.42 0 0 1-3.29 1 12.33 12.33 0 0 0 2 .55 12.84 12.84 0 0 0 2.42.23c.37 0 .76 0 1.18-.06L28 29.41v-4.83a8.82 8.82 0 0 0 4-7.22 8.94 8.94 0 0 0-4.42-7.48zm-.39 1.8A10.55 10.55 0 0 0 26 9.06 14.3 14.3 0 0 0 13.78 2.8C6.15 2.8 0 8 0 14.48a11.09 11.09 0 0 0 5.18 9.11v5.91l7.07-3.42c.51 0 1 .08 1.56.08a16.31 16.31 0 0 0 2.87-.26 15.42 15.42 0 0 0 3.29-1c4.51-1.9 7.63-5.85 7.63-10.42a10 10 0 0 0-.42-2.8zM16.86 24.15a14.43 14.43 0 0 1-2.9.33h-1.9L6.87 27v-4.36a9.59 9.59 0 0 1-5.18-8.16c0-5.53 5.41-10 12.09-10a13.13 13.13 0 0 1 9.43 3.75 9.88 9.88 0 0 1 1.62 2.2 8.54 8.54 0 0 1 1 4.06c.04 4.63-3.83 8.51-8.97 9.66z\"></path>\r\n          </svg>\r\n        </div>\r\n        <div class=\"md-shop-setting-link-caption\">ตั้งค่าการแชท</div>\r\n      </button>\r\n      <button mat-menu-item routerLinkActive=\"active\" routerLink=\"/xxxx\" class=\"md-shop-setting-link-link\">\r\n        <span style=\"background: #ffc200;\" class=\"shop-setting-link-active-bar\"></span>\r\n        <div style=\"background-color: #ffc200;\" class=\"md-shop-setting-link-icon\">\r\n          <svg class=\"shop-setting-link-icon-svg\" viewBox=\"0 0 32 32\">\r\n            <path d=\"M16 4.83l3.18 7 .48 1.06 1.16.11 6.76.61L22.27 19l-.75.75.2 1 1.38 7.19-6.1-3.72-1-.64-1 .64-6.15 3.7 1.42-7.16.21-1-.76-.76-5.31-5.39 6.77-.61 1.16-.11.48-1.06 3.18-7M16 0l-5 11-11 1 8.3 8.37L6 32l10-6.07L26 32l-2.31-11.63L32 12l-11-1-5-11z\"></path>\r\n          </svg>\r\n        </div>\r\n        <div class=\"md-shop-setting-link-caption\">ตั้งค่าการแจ้งเตือน</div>\r\n      </button>\r\n    </mat-menu>\r\n\r\n    <mat-menu #account=\"matMenu\">\r\n      <button mat-menu-item routerLinkActive=\"active\" routerLink=\"/account\" class=\"md-shop-setting-link-link\">\r\n        <span style=\"background: #00bfa5;\" class=\"shop-setting-link-active-bar\"></span>\r\n        <div style=\"background-color: #00bfa5;\" class=\"md-shop-setting-link-icon\">\r\n          <svg class=\"shop-setting-link-icon-svg\" viewBox=\"0 0 32 32\">\r\n            <path d=\"M16 20.8h10.9v-.9H16v.9zm0-2.1h10.9v-.9H16v.9zm0-2h10.9v-.9H16v.9zm0-2h6.6v-.9H16v.9zM29 23c0 .5-.4.9-.9.9H4c-.5.1-1-.4-1-.9V8.2c0-.5.4-.9.9-.9h5.3v2.1h1.9V7.3h4.3v2.1h1.9V7.3h4.5v2.1h1.9V7.3H28c.5 0 .9.4.9.9V23zm0-17.6H3c-1 0-1.9.8-1.9 1.9V24c0 1 .8 1.9 1.9 1.9h26c1 0 1.9-.8 1.9-1.9V7.3c-.1-1-.9-1.9-1.9-1.9z\"></path>\r\n          </svg>\r\n        </div>\r\n        <div class=\"md-shop-setting-link-caption\">บัญชีของฉัน</div>\r\n      </button>\r\n      <button mat-menu-item routerLinkActive=\"active\" routerLink=\"/setting-password\" class=\"md-shop-setting-link-link\">\r\n        <span style=\"background: #8f67ff;\" class=\"shop-setting-link-active-bar\"></span>\r\n        <div style=\"background-color: #8f67ff;\" class=\"md-shop-setting-link-icon\">\r\n          <svg class=\"shop-setting-link-icon-svg\" viewBox=\"0 0 32 32\">\r\n            <path d=\"M25.3 4.6c-3.1-3.1-8.1-3.1-11.2 0-3.1 3.1-3.1 8.1 0 11.2s8.1 3.1 11.2 0 3.1-8.1 0-11.2m1.5 12.7c-3.7 3.7-9.5 3.9-13.5.6l-4 3.7 4.6 4.6-1.5 1.5L7.8 23l-2.9 2.6 4.8 4.8-1.5 1.5L2.3 26l.1-.1c-.1-.3 0-.7.3-1l9.3-8.4c-3.1-3.9-2.9-9.7.7-13.3C16.6-.7 23-.7 26.9 3.2c3.8 3.8 3.8 10.2-.1 14.1\"></path>\r\n          </svg>\r\n        </div>\r\n        <div class=\"md-shop-setting-link-caption\">เปลี่ยนรหัสผ่าน</div>\r\n      </button>\r\n    </mat-menu>\r\n    <!-- fffffffffffffffff 00000000000000000000000000000000000000000000000000000000000000000 -->\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -1160,7 +1991,7 @@ module.exports = "<div class=\"row\">\r\n  <div class=\"no-padding d-none d-sm-n
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".grid {\n  max-width: -webkit-fit-content;\n  max-width: -moz-fit-content;\n  max-width: fit-content;\n  float: right; }\n\n.row {\n  margin-right: -10px !important;\n  margin-left: -10px !important; }\n\n.card-panel {\n  background-color: #fff;\n  box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.09); }\n\n.card-panel-section {\n  border-top: 1px solid #e8e8e8; }\n\n.card-panel-title {\n  font-size: 12px;\n  padding: 10px 20px;\n  color: #8c8c8c; }\n\n.shop-setting-link-link {\n  line-height: 24px;\n  font-size: 16px;\n  color: rgba(0, 0, 0, 0.87);\n  border-right: 3px solid transparent;\n  padding: 6px 0;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  text-decoration: none; }\n\n.shop-setting-link-icon {\n  width: 24px;\n  height: 24px;\n  padding: 6px;\n  margin: 0 0 0 20px;\n  border-radius: 50%;\n  text-align: center; }\n\n.shop-setting-link-icon-svg {\n  display: block;\n  fill: #fff; }\n\n.shop-setting-link-caption {\n  min-width: 0;\n  flex-grow: 1;\n  margin-left: 8px; }\n\n.active {\n  font-weight: 600;\n  color: #000000;\n  background: #fafafa; }\n\n.shop-setting-link-active-bar {\n  width: 3px; }\n\n.active .shop-setting-link-active-bar {\n  width: 3px;\n  height: 25px; }\n\n.md-shop-setting-link-caption {\n  font-size: 14px;\n  font-weight: 400; }\n\n.active .md-shop-setting-link-caption {\n  font-size: 14px;\n  font-weight: 400; }\n\n.md-shop-setting-link-icon {\n  width: 24px;\n  height: 24px;\n  padding: 6px;\n  margin: 0 5px 0 10px;\n  border-radius: 50%;\n  text-align: center; }\n\n.mat-menu-item {\n  height: unset; }\n\n.md-button {\n  width: 100%; }\n\n.md-shop-setting-link-link {\n  line-height: 24px;\n  font-size: 16px;\n  color: rgba(0, 0, 0, 0.87);\n  border-right: 3px solid transparent;\n  padding: 6px 0;\n  display: flex;\n  -ms-flex-pack: justify;\n  align-items: center;\n  text-decoration: none; }\n\n@media screen and (min-width: 450px) {\n  .md-button {\n    width: 50% !important; } }\n"
+module.exports = ".grid {\n  max-width: -webkit-fit-content;\n  max-width: -moz-fit-content;\n  max-width: fit-content;\n  float: right; }\n\n.row {\n  margin-right: -10px !important;\n  margin-left: -10px !important; }\n\n.card-panel {\n  background-color: #fff;\n  box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.09);\n  padding: 12px 32px 12px 8px !important; }\n\n.card-panel-section {\n  border-top: 1px solid #e8e8e8; }\n\n.card-panel-title {\n  font-size: 12px;\n  padding: 10px 20px;\n  color: #8c8c8c; }\n\n.shop-setting-link-link {\n  line-height: 24px;\n  font-size: 16px;\n  color: rgba(0, 0, 0, 0.87);\n  border-right: 3px solid transparent;\n  padding: 6px 0;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  text-decoration: none; }\n\n.shop-setting-link-icon {\n  width: 24px;\n  height: 24px;\n  padding: 6px;\n  margin: 0 0 0 20px;\n  border-radius: 50%;\n  text-align: center; }\n\n.shop-setting-link-icon-svg {\n  display: block;\n  fill: #fff; }\n\n.shop-setting-link-caption {\n  min-width: 0;\n  flex-grow: 1;\n  margin-left: 8px; }\n\n.active {\n  font-weight: 600;\n  color: #000000;\n  background: #fafafa; }\n\n.shop-setting-link-active-bar {\n  width: 3px; }\n\n.active .shop-setting-link-active-bar {\n  width: 3px;\n  height: 25px; }\n\n.md-shop-setting-link-caption {\n  font-size: 14px;\n  font-weight: 400; }\n\n.active .md-shop-setting-link-caption {\n  font-size: 14px;\n  font-weight: 400; }\n\n.md-shop-setting-link-icon {\n  width: 24px;\n  height: 24px;\n  padding: 6px;\n  margin: 0 5px 0 10px;\n  border-radius: 50%;\n  text-align: center; }\n\n.mat-menu-item {\n  height: unset; }\n\n.md-button {\n  width: 100%; }\n\n.md-shop-setting-link-link {\n  line-height: 24px;\n  font-size: 16px;\n  color: rgba(0, 0, 0, 0.87);\n  border-right: 3px solid transparent;\n  padding: 6px 0;\n  display: flex;\n  -ms-flex-pack: justify;\n  align-items: center;\n  text-decoration: none; }\n\n@media screen and (min-width: 450px) {\n  .md-button {\n    width: 50% !important; } }\n"
 
 /***/ }),
 
@@ -1715,7 +2546,7 @@ var UploadImageComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".txt-right {\r\n    text-align: right;\r\n}\r\n.txt-left {\r\n    text-align: left;\r\n}\r\n.icon-green {\r\n    color: #00bfa5;\r\n}\r\n.txt-gray {\r\n    color: #989999;\r\n}"
+module.exports = ".txt-right {\r\n    text-align: right;\r\n}\r\n\r\n.txt-left {\r\n    text-align: left;\r\n}\r\n\r\n.icon-green {\r\n    color: #00bfa5;\r\n}\r\n\r\n.txt-gray {\r\n    color: #989999;\r\n}\r\n\r\n.row-style {\r\n    height: 72px;\r\n}\r\n\r\n/* ////////////// */\r\n\r\n.txt-title {\r\n    margin-left: 2rem;\r\n    position: absolute;\r\n    font-weight: bold;\r\n    margin-top: 0.4rem;\r\n}\r\n\r\n.ic-color {\r\n    color: #00bfa5;\r\n    font-size: 1.8rem;\r\n    margin-left: 2rem;\r\n}\r\n\r\n.avatar-icon {\r\n    width: 34px;\r\n    height: 34px;\r\n    border-radius: 100%;\r\n}\r\n\r\n.mgl {\r\n    margin-left: 0.6rem;\r\n}\r\n\r\n.ic-orange {\r\n    color: #ff7f57;\r\n}\r\n\r\n.ic-pink {\r\n    color: #ff4081;\r\n}"
 
 /***/ }),
 
@@ -1726,7 +2557,7 @@ module.exports = ".txt-right {\r\n    text-align: right;\r\n}\r\n.txt-left {\r\n
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\r\n  <div class=\"col-lg-3 col-xl-3 col-xs-12 col-sm-12 col-md-12\">\r\n    <side-menu-setting-shop></side-menu-setting-shop>\r\n  </div>\r\n  <div class=\"col-lg-8\">\r\n    <mat-card>\r\n      <app-setting-header></app-setting-header>\r\n\r\n      <!-- row1 -->\r\n      <div class=\"row\">\r\n        <div class=\"col-1 col-sm-1 col-md-1\">\r\n          <mat-icon class=\"icon-green\">person_outline</mat-icon>\r\n        </div>\r\n        <div class=\"col-5 col-sm-5 col-md-5\">\r\n          หน้าของฉัน\r\n        </div>\r\n\r\n        <div class=\"col-6 col-sm-6 col-md-6\">\r\n          <div class=\"row\">\r\n            <div class=\"col-3 col-sm-3 col-md-3\">\r\n              <div class=\"row\">\r\n                <div class=\"col-2\">\r\n                  <mat-icon class=\"icon-green\">account_circle</mat-icon>\r\n                </div>\r\n                <div class=\"col-10\">\r\n                  <p class=\"txt-gray\">nid.nid</p>\r\n                </div>\r\n              </div>\r\n            </div>\r\n\r\n\r\n            <div class=\"col-3 col-sm-3 col-md-3\">\r\n              <div class=\"row\">\r\n                <div class=\"col-6\">\r\n                  <mat-icon class=\"icon-green\">wc</mat-icon>\r\n                </div>\r\n                <div class=\"col-6\">\r\n                  <p class=\"txt-gray\">หญิง</p>\r\n                </div>\r\n              </div>\r\n            </div>\r\n\r\n\r\n            <div class=\"col-3 col-sm-3 col-md-3\">\r\n              <div class=\"row\">\r\n                <div class=\"col-2\">\r\n                  <mat-icon class=\"icon-green\">cake</mat-icon>\r\n                </div>\r\n                <div class=\"col-10 txt-right\">\r\n                  <p class=\"txt-gray\">22/2/2022</p>\r\n                </div>\r\n              </div>\r\n            </div>\r\n\r\n\r\n            <div class=\"col-3 col-sm-3 col-md-3\">\r\n              <button mat-stroked-button [mat-dialog-close]>แก้ไข</button>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n\r\n      <!-- row -->\r\n      <div class=\"row\">\r\n        <div class=\"col-1 col-sm-1 col-md-1\">\r\n          <mat-icon class=\"icon-green \">phone</mat-icon>\r\n        </div>\r\n        <div class=\"col-5 col-sm-5 col-md-5\">\r\n          เบอร์โทร\r\n        </div>\r\n\r\n        <div class=\"col-6 col-sm-6 col-md-6\">\r\n          <div class=\"row\">\r\n            <div class=\"col-9 col-sm-9 col-md-9 txt-right\">\r\n              <p class=\"txt-gray\">0876352478</p>\r\n            </div>\r\n            <div class=\"col-3 col-sm-3 col-md-3\">\r\n              <button mat-stroked-button [mat-dialog-close]>แก้ไข</button>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n\r\n      <!-- row3 -->\r\n      <div class=\"row\">\r\n        <div class=\"col-1 col-sm-1 col-md-1\">\r\n          <mat-icon class=\"icon-green \">mail_outline</mat-icon>\r\n        </div>\r\n        <div class=\"col-5 col-sm-5 col-md-5\">\r\n          E-mail\r\n        </div>\r\n\r\n        <div class=\"col-6 col-sm-6 col-md-6\">\r\n          <div class=\"row\">\r\n            <div class=\"col-9 col-sm-9 col-md-9 txt-right\">\r\n              <p class=\"txt-gray\">nid@gmail.com</p>\r\n            </div>\r\n            <div class=\"col-3 col-sm-3 col-md-3\">\r\n              <button mat-stroked-button [mat-dialog-close]>แก้ไข</button>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>"
+module.exports = "<div class=\"row\">\r\n  <div class=\"col-lg-3 col-xs-12 col-sm-12 col-md-12 col-xl-3\">\r\n    <side-menu-setting-shop></side-menu-setting-shop>\r\n  </div>\r\n  <div class=\"col-lg-8\">\r\n    <mat-card>\r\n      <app-setting-header></app-setting-header>\r\n      <br>\r\n      <br>\r\n      <div class=\"row\">\r\n        <div class=\"col-5 col-sm-5 col-md-5\">\r\n          <mat-icon class=\"ic-color\">person_outline</mat-icon>\r\n          <span class=\"txt-title\">หน้าของฉัน</span>\r\n        </div>\r\n        <div class=\"col-7 col-sm-7 col-md-7 txt-right\">\r\n          <img class=\"avatar-icon\" src=\"https://st2.depositphotos.com/2703645/7676/v/950/depositphotos_76762205-stock-illustration-male-avatar-icon.jpg\"\r\n            alt=\"img\">\r\n          <span class=\"mgl txt-gray\">oraphanpoohuipra</span>\r\n          <mat-icon class=\"mgl ic-pink\">wc</mat-icon><span class=\"mgl txt-gray\">หญิง</span>\r\n          <mat-icon class=\"mgl ic-orange\">cake</mat-icon><span class=\"mgl txt-gray\">22/2/2022</span>\r\n          <button mat-stroked-button class=\"mgl\">แก้ไข</button>\r\n        </div>\r\n      </div>\r\n\r\n\r\n      <br>\r\n      <div class=\"row\">\r\n        <div class=\"col-5 col-sm-5 col-md-5\">\r\n          <mat-icon class=\"ic-color\">call_outline</mat-icon>\r\n          <span class=\"txt-title\">เบอร์โทร</span>\r\n        </div>\r\n        <div class=\"col-7 col-sm-7 col-md-7 txt-right\">\r\n          <span class=\"mgl txt-gray\">0876543321</span>\r\n          <button mat-stroked-button class=\"mgl\">แก้ไข</button>\r\n        </div>\r\n      </div>\r\n\r\n\r\n      <br>\r\n      <div class=\"row\">\r\n        <div class=\"col-5 col-sm-5 col-md-5\">\r\n          <mat-icon class=\"ic-color\">mail_outline</mat-icon>\r\n          <span class=\"txt-title\">E-mail</span>\r\n        </div>\r\n        <div class=\"col-7 col-sm-7 col-md-7 txt-right\">\r\n          <span class=\"mgl txt-gray\">nid@gmail.com</span>\r\n          <button mat-stroked-button class=\"mgl\">แก้ไข</button>\r\n        </div>\r\n      </div>\r\n    </mat-card>\r\n  </div>"
 
 /***/ }),
 
@@ -2352,6 +3183,218 @@ var HomeComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/pages/info-my-promotion/info-my-promotion.component.css":
+/*!*************************************************************************!*\
+  !*** ./src/app/pages/info-my-promotion/info-my-promotion.component.css ***!
+  \*************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".wrapper.content {\r\n    background-color: #fff;\r\n    box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, .09);\r\n    padding: 20px 48px;\r\n}\r\n\r\n.wrapper {\r\n    width: auto;\r\n    margin: 0 auto;\r\n}\r\n\r\n.del-box {\r\n    text-align: right;\r\n}\r\n\r\n.btn-margin {\r\n    margin-left: 1.4rem;\r\n}"
+
+/***/ }),
+
+/***/ "./src/app/pages/info-my-promotion/info-my-promotion.component.html":
+/*!**************************************************************************!*\
+  !*** ./src/app/pages/info-my-promotion/info-my-promotion.component.html ***!
+  \**************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"wrapper content\">\n  <div class=\"row\">\n    <div class=\"col-12 del-box\">\n      <button mat-stroked-button color=\"primary\" (click)=\"delete()\">\n        <mat-icon>delete_outline</mat-icon> ลบโปรโมชั่น\n      </button>\n    </div>\n  </div>\n\n  <div class=\"row\">\n    <div class=\"col-12\">\n      <app-my-promotion-header [data]=\"data\" (outputData)=\"getDataHeader($event)\"></app-my-promotion-header>\n    </div>\n  </div>\n\n  <div class=\"row\">\n    <div class=\"col-12 del-box\">\n      <button mat-stroked-button color=\"primary\" (click)=\"openModalAddProduct()\">\n        <mat-icon>add</mat-icon> เพิ่มสินค้า\n      </button>\n      <button mat-flat-button class=\"btn-margin\" color=\"primary\" (click)=\"save()\">\n        <mat-icon>done</mat-icon> เสร็จสิ้น\n      </button>\n    </div>\n  </div>\n\n  <div class=\"row\">\n    <div class=\"col-12\">\n      <app-my-promotion-list></app-my-promotion-list>\n    </div>\n  </div>\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/pages/info-my-promotion/info-my-promotion.component.ts":
+/*!************************************************************************!*\
+  !*** ./src/app/pages/info-my-promotion/info-my-promotion.component.ts ***!
+  \************************************************************************/
+/*! exports provided: InfoMyPromotionComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InfoMyPromotionComponent", function() { return InfoMyPromotionComponent; });
+/* harmony import */ var src_app_app_constants__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! src/app/app.constants */ "./src/app/app.constants.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _modals_modal_select_product_modal_select_product_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../modals/modal-select-product/modal-select-product.component */ "./src/app/pages/modals/modal-select-product/modal-select-product.component.ts");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var src_app_providers_rest_api_service_rest_api_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/providers/rest-api-service/rest-api.service */ "./src/app/providers/rest-api-service/rest-api.service.ts");
+/* harmony import */ var ngx_spinner__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-spinner */ "./node_modules/ngx-spinner/fesm5/ngx-spinner.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (undefined && undefined.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = y[op[0] & 2 ? "return" : op[0] ? "throw" : "next"]) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [0, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+
+
+
+
+
+
+
+var InfoMyPromotionComponent = /** @class */ (function () {
+    // data: any = {
+    //   _id: '1234',
+    //   shop_id: '001',
+    //   title: 'ลด 10%',
+    //   start_date: '',
+    //   start_time: '',
+    //   end_date: '',
+    //   end_time: '',
+    //   products: [{
+    //     product_id: '001',
+    //     name: 'โต๊ะ',
+    //     image: { url: '001.jpg' },
+    //     prices: [{
+    //       name: 'ปกติ',
+    //       price: 100,
+    //       newprice: 80,
+    //       percentage: 20,
+    //       isuse: true,
+    //       stock: 5
+    //     }],
+    //     qty: 5
+    //   }],
+    //   status: 'soon'
+    // };
+    function InfoMyPromotionComponent(dialog, restApi, spinner, activatedRoute) {
+        this.dialog = dialog;
+        this.restApi = restApi;
+        this.spinner = spinner;
+        this.activatedRoute = activatedRoute;
+        this.data = {
+            products: []
+        };
+    }
+    InfoMyPromotionComponent.prototype.ngOnInit = function () {
+        this.activatedRoute
+            .queryParams
+            .subscribe(function (params) {
+            if (params['id']) {
+                var id = params['id'];
+            }
+            else {
+            }
+        });
+    };
+    InfoMyPromotionComponent.prototype.openModalAddProduct = function () {
+        var _this = this;
+        var dialogRef = this.dialog.open(_modals_modal_select_product_modal_select_product_component__WEBPACK_IMPORTED_MODULE_2__["ModalSelectProductComponent"], {
+            width: '95vw',
+            height: '90vh',
+            data: { products: this.data.products.length > 0 ? this.data.products : [], status: 'sell' }
+        });
+        dialogRef.afterClosed().subscribe(function (result) {
+            if (result) {
+                result.forEach(function (item) {
+                    var index = _this.data.products.findIndex(function (findindex) {
+                        return findindex._id === item._id;
+                    });
+                    if (index === -1 || _this.data.products.length === 0) {
+                        _this.data.products.push(item);
+                    }
+                });
+            }
+        });
+    };
+    InfoMyPromotionComponent.prototype.getDataHeader = function (e) {
+        this.data = e;
+    };
+    InfoMyPromotionComponent.prototype.save = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                console.log(this.data);
+                return [2 /*return*/];
+            });
+        });
+    };
+    InfoMyPromotionComponent.prototype.delete = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var confirm, res, error_1;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        confirm = window.confirm('ยืนยันการลบโปรโมชั่น');
+                        if (!confirm) return [3 /*break*/, 4];
+                        this.spinner.show();
+                        _a.label = 1;
+                    case 1:
+                        _a.trys.push([1, 3, , 4]);
+                        return [4 /*yield*/, this.restApi.delete(src_app_app_constants__WEBPACK_IMPORTED_MODULE_0__["Constants"] + '/api/discount/' + this.data._id)];
+                    case 2:
+                        res = _a.sent();
+                        console.log(res);
+                        this.spinner.hide();
+                        return [3 /*break*/, 4];
+                    case 3:
+                        error_1 = _a.sent();
+                        console.log(error_1);
+                        this.spinner.hide();
+                        return [3 /*break*/, 4];
+                    case 4: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    InfoMyPromotionComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-info-my-promotion',
+            template: __webpack_require__(/*! ./info-my-promotion.component.html */ "./src/app/pages/info-my-promotion/info-my-promotion.component.html"),
+            styles: [__webpack_require__(/*! ./info-my-promotion.component.css */ "./src/app/pages/info-my-promotion/info-my-promotion.component.css")]
+        }),
+        __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_3__["MatDialog"],
+            src_app_providers_rest_api_service_rest_api_service__WEBPACK_IMPORTED_MODULE_4__["RestApiService"],
+            ngx_spinner__WEBPACK_IMPORTED_MODULE_5__["NgxSpinnerService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_6__["ActivatedRoute"]])
+    ], InfoMyPromotionComponent);
+    return InfoMyPromotionComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/pages/info-product/info-product.component.css":
 /*!***************************************************************!*\
   !*** ./src/app/pages/info-product/info-product.component.css ***!
@@ -2818,7 +3861,7 @@ module.exports = "/* // ของหน้า info-shop-category // */\r\n\r\n.s
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row no-padding\">\r\n  <div class=\"col-sm-12 col-md-1 col-lg-1 col-xl-1 no-padding\">\r\n\r\n  </div>\r\n  <div class=\"col-sm-12 col-md-10 col-lg-10 col-xl-10\">\r\n    <button mat-stroked-button class=\"buttonAdd border-radius\" (click)=\"onBack()\" color=\"primary\">ย้อนกลับ</button>\r\n\r\n    <div class=\"row padding\">\r\n      <div class=\"col-12\">\r\n        <mat-card>\r\n          <div class=\"row\">\r\n            <div class=\"col-12 col-md-7 padding-left\" *ngIf=\"!isEdit\">\r\n              <p>\r\n                <b class=\"setting-font-header\">{{categoryData.name}}</b> &nbsp;\r\n                <button mat-stroked-button (click)='isEdit = true' class=\"setting-bnt-rename\"><span class=\"setting-bnt-text-rename\">เปลี่ยนชื่อ</span></button>\r\n              </p>\r\n              <p class=\"setting-text-set-cat\">กำหนดหมวดหมู่สินค้าเอง <span class=\"padding-left\"> รายการสินค้า 0 รายการ</span></p>\r\n\r\n            </div>\r\n            <div class=\"col-12 col-md-7 padding-left\" *ngIf=\"isEdit\">\r\n              <div class=\"col-12\">\r\n                <div class=\"row padding\">\r\n                  <div class=\"col-12 col-md-4 col-lg-4\">\r\n                    <mat-form-field class=\"example-full-width\">\r\n                      <input [(ngModel)]=\"categoryData.name\" type=\"text\" matInput placeholder=\"ตั้งชื่อหมวดหมู่เอง\"\r\n                        required>\r\n                    </mat-form-field>\r\n                  </div>\r\n                  <div class=\"col-12 col-md-2 col-lg-2\">\r\n                    <button style=\"width: 100%\" (click)=\"onSaveData()\" mat-stroked-button class=\"setting-bnt-rename\"><span\r\n                        class=\"setting-bnt-text-rename\">บันทึก</span></button>\r\n                  </div>\r\n                  <div class=\"col-12 col-md-2 col-lg-2\">\r\n                    <button style=\"width: 100%\" mat-stroked-button (click)='isEdit = !isEdit' class=\"setting-bnt-rename\"><span\r\n                        class=\"setting-bnt-text-rename\">ยกเลิก</span></button>\r\n                  </div>\r\n                  <p class=\"setting-text-set-cat\">กำหนดหมวดหมู่สินค้าเอง <span class=\"padding-left\"> รายการสินค้า 0\r\n                      รายการ</span></p>\r\n                </div>\r\n              </div>\r\n            </div>\r\n            <div class=\"col-12 col-md-4 text-center font-cate\">\r\n              เปิดการใช้งานเพื่อให้ผู้ใช้มองเห็นหมวดหมู่นี้\r\n            </div>\r\n            <div class=\"col-2 col-md-1\">\r\n              <mat-slide-toggle [disabled]=\"!categoryData.name || (categoryData.items && categoryData.items.length === 0)\"\r\n                [(ngModel)]=\"categoryData.status\" class=\"setting-toggle\" (ngModelChange)=\"onChangeStatus()\"></mat-slide-toggle>\r\n            </div>\r\n\r\n\r\n            <div class=\"col-12 col-sm-12 col-md-12 col-lg-12\">\r\n              <div class=\"padding-bottom padding-top\">\r\n\r\n                <div class=\"row padding\" *ngIf=\"this.categoryData.items && this.categoryData.items.length > 0\">\r\n\r\n                  <div class=\"col-12 col-md-6 col-lg-6  \" *ngFor=\"let item of this.categoryData.items; let i = index;\">\r\n                    <div class=\"col-12\">\r\n                      <mat-card class=\"card-product\">\r\n                        <div class=\"row\">\r\n\r\n                          <div class=\"col-12 col-md-3 col-lg-3 text-center padding-right \">\r\n                            <img class=\"img-product\" *ngIf=\"item.image && item.image.url \" [src]=\"item.image.url\">\r\n                          </div>\r\n                          <div class=\"col-12 col-md-9 col-lg-9\">\r\n                            <p class=\"no-margin font-name text-nowrap\"> {{item.name}} </p>\r\n                            <p class=\"no-margin font-price\">฿ {{item.pricetext || 0}}\r\n                          </div>\r\n\r\n                          <div class=\"col-12 col-md-12 col-lg-12 text-center \">\r\n                            <button mat-stroked-button class=\"buttonAdd\" (click)=\"deleteItem(i,item)\" color=\"primary\">ลบสินค้า</button>\r\n                          </div>\r\n\r\n                        </div>\r\n                      </mat-card>\r\n\r\n                    </div>\r\n                  </div>\r\n\r\n                </div>\r\n                <div *ngIf=\"!categoryData || (categoryData.items && categoryData.items.length === 0)\">\r\n                  <img class=\"img\" src=\"./assets/imgs/productLogo.png\">\r\n\r\n                </div>\r\n              </div>\r\n\r\n              <div class=\"row\">\r\n\r\n                <div class=\"col-12 text-center padding-top\" *ngIf=\"checkLogProductChange()\">\r\n                  <div class=\"row\">\r\n                    <div class=\"col-12 col-md-12 col-lg-12\">\r\n                      <span class=\"font-text\">หลังจากบันทึกการเปลี่ยนแปลงแล้วสินค้าจะเรียงตามเวลาของการแก้ไขล่าสุด</span>\r\n\r\n                    </div>\r\n                    <div class=\"col-12 col-md-12 col-lg-12\">\r\n                      <button mat-button class=\"buttonAdd\" (click)=\"onSaveData()\" color=\"primary\">บันทึกการเปลี่ยนแปลง</button>\r\n                      <button mat-stroked-button class=\"buttonAdd margin-left\" (click)=\"onRollbackItems()\">ยกเลิก</button>\r\n                    </div>\r\n                  </div>\r\n                </div>\r\n\r\n                <div class=\"col-12 text-center padding-top\" *ngIf=\"categoryCompele && !categoryData.status\">\r\n                  <div class=\"row\">\r\n                    <div class=\"col-12 col-md-12 col-lg-12\">\r\n                      <span class=\"font-text\">หมวดหมู่สินค้าของคุณกำลังปิดการใช้งานอยู่ขณะนี้\r\n                        เปิดการใช้งานเพื่อให้ผู้ซื้อสามารถมองเห็นหมวดหมู่ของคุณหรือไม่?</span>\r\n\r\n                    </div>\r\n                    <div class=\"col-12 col-md-12 col-lg-12\">\r\n                      <button mat-button class=\"buttonAdd\" (click)=\"onUpdateOpenCategory()\" color=\"primary\">เปิดการใช้งานตอนนี้</button>\r\n                      <button mat-stroked-button class=\"buttonAdd margin-left\" (click)=\"categoryCompele = false\">ยกเลิก</button>\r\n                    </div>\r\n                  </div>\r\n                </div>\r\n              </div>\r\n\r\n            </div>\r\n            <!-- <div class=\"col-12 col-sm-12 col-md-12 col-lg-12 text-center\">\r\n              <div class=\"padding-bottom padding-top\">\r\n                <button mat-stroked-button color=\"primary\">เพิ่มสินค้า</button>\r\n              </div>\r\n            </div> -->\r\n          </div>\r\n        </mat-card>\r\n      </div>\r\n\r\n      <div class=\"col-12\">\r\n        <mat-card>\r\n          <div class=\"row padding\">\r\n            <div class=\"col-12 col-sm-12 col-md-12 col-lg-12\">\r\n              <div class=\"row\">\r\n                <div class=\"col-12 col-md-4 col-sm-4\">\r\n\r\n                </div>\r\n                <div class=\"col-12 col-md-4 col-sm-4\">\r\n                  <mat-form-field>\r\n                    <mat-icon class=\"search-ic\">search</mat-icon>\r\n                    <input matInput placeholder=\"ค้นหา\" [(ngModel)]=\"page.name\" (keydown)=\"onSearch($event)\">\r\n                  </mat-form-field>\r\n                </div>\r\n                <div class=\"col-12 col-md-4 col-sm-4\">\r\n\r\n                </div>\r\n              </div>\r\n            </div>\r\n\r\n          </div>\r\n\r\n\r\n          <div class=\"col-12 col-md-12 col-lg-12\">\r\n            <div class=\"row padding\">\r\n\r\n              <div class=\"col-12 col-md-6 col-lg-6  \" *ngFor=\"let item of getProduct\">\r\n                <div class=\"col-12\">\r\n                  <mat-card class=\"card-product\">\r\n\r\n                    <div class=\"row\">\r\n\r\n                      <div class=\"col-12 col-md-3 col-lg-3 text-center padding-right \">\r\n                        <img class=\"img-product\" *ngIf=\"item.image && item.image.url\" [src]=\"item.image.url\">\r\n                      </div>\r\n                      <div class=\"col-12 col-md-9 col-lg-9\">\r\n                        <p class=\"no-margin font-name text-nowrap\"> {{item.name}} </p>\r\n                        <p class=\"no-margin font-price\">฿ {{item.pricetext}}</p>\r\n                      </div>\r\n\r\n                      <div class=\"col-12 col-md-12 col-lg-12 text-center \">\r\n                        <div *ngIf=\"checkButtonAdd(item)\">\r\n                          <mat-icon class=\"done-size\" svgIcon=\"done\"></mat-icon> <span class=\"font-text\">เพิ่มสินค้าแล้ว</span>\r\n                        </div>\r\n                        <button *ngIf=\"!checkButtonAdd(item)\" mat-stroked-button class=\"buttonAdd\" (click)=\"selectedItem(item)\"\r\n                          color=\"primary\">เพิ่มสินค้า</button>\r\n                      </div>\r\n\r\n                    </div>\r\n                  </mat-card>\r\n\r\n                </div>\r\n              </div>\r\n            </div>\r\n\r\n          </div>\r\n        </mat-card>\r\n      </div>\r\n    </div>\r\n  </div>\r\n\r\n\r\n\r\n  <div class=\"\r\n                    col-sm-12 col-md-1 col-lg-1 col-xl-1 no-padding\">\r\n\r\n  </div>\r\n\r\n</div>"
+module.exports = "<div class=\"row no-padding\">\r\n  <div class=\"col-sm-12 col-md-1 col-lg-1 col-xl-1 no-padding\">\r\n\r\n  </div>\r\n  <div class=\"col-sm-12 col-md-10 col-lg-10 col-xl-10\">\r\n    <button mat-stroked-button class=\"buttonAdd border-radius\" (click)=\"onBack()\" color=\"primary\">ย้อนกลับ</button>\r\n\r\n    <div class=\"row padding\">\r\n      <div class=\"col-12\">\r\n        <mat-card>\r\n          <div class=\"row\">\r\n            <div class=\"col-12 col-md-7 padding-left\" *ngIf=\"!isEdit\">\r\n              <p>\r\n                <b class=\"setting-font-header\">{{categoryData.name}}</b> &nbsp;\r\n                <button mat-stroked-button (click)='isEdit = true' class=\"setting-bnt-rename\"><span class=\"setting-bnt-text-rename\">เปลี่ยนชื่อ</span></button>\r\n              </p>\r\n              <p class=\"setting-text-set-cat\">กำหนดหมวดหมู่สินค้าเอง <span class=\"padding-left\"> รายการสินค้า 0 รายการ</span></p>\r\n\r\n            </div>\r\n            <div class=\"col-12 col-md-7 padding-left\" *ngIf=\"isEdit\">\r\n              <div class=\"col-12\">\r\n                <div class=\"row padding\">\r\n                  <div class=\"col-12 col-md-4 col-lg-4\">\r\n                    <mat-form-field class=\"example-full-width\">\r\n                      <input [(ngModel)]=\"categoryData.name\" type=\"text\" matInput placeholder=\"ตั้งชื่อหมวดหมู่เอง\"\r\n                        required>\r\n                    </mat-form-field>\r\n                  </div>\r\n                  <div class=\"col-12 col-md-2 col-lg-2\">\r\n                    <button style=\"width: 100%\" (click)=\"onSaveData()\" mat-stroked-button class=\"setting-bnt-rename\"><span\r\n                        class=\"setting-bnt-text-rename\">บันทึก</span></button>\r\n                  </div>\r\n                  <div class=\"col-12 col-md-2 col-lg-2\">\r\n                    <button style=\"width: 100%\" mat-stroked-button (click)='isEdit = !isEdit' class=\"setting-bnt-rename\"><span\r\n                        class=\"setting-bnt-text-rename\">ยกเลิก</span></button>\r\n                  </div>\r\n                  <p class=\"setting-text-set-cat\">กำหนดหมวดหมู่สินค้าเอง <span class=\"padding-left\"> รายการสินค้า 0\r\n                      รายการ</span></p>\r\n                </div>\r\n              </div>\r\n            </div>\r\n            <div class=\"col-12 col-md-4 text-center font-cate\">\r\n              เปิดการใช้งานเพื่อให้ผู้ใช้มองเห็นหมวดหมู่นี้\r\n            </div>\r\n            <div class=\"col-2 col-md-1\">\r\n              <mat-slide-toggle [disabled]=\"!categoryData.name || (categoryData.items && categoryData.items.length === 0)\"\r\n                [(ngModel)]=\"categoryData.status\" class=\"setting-toggle\" (ngModelChange)=\"onChangeStatus()\"></mat-slide-toggle>\r\n            </div>\r\n\r\n\r\n            <div class=\"col-12 col-sm-12 col-md-12 col-lg-12\">\r\n              <div class=\"padding-bottom padding-top\">\r\n\r\n                <div class=\"row padding\" *ngIf=\"this.categoryData.items && this.categoryData.items.length > 0\">\r\n\r\n                  <div class=\"col-12 col-md-6 col-lg-6  \" *ngFor=\"let item of this.categoryData.items; let i = index;\">\r\n                    <div class=\"col-12\">\r\n                      <mat-card class=\"card-product\">\r\n                        <div class=\"row\">\r\n\r\n                          <div class=\"col-12 col-md-3 col-lg-3 text-center padding-right \">\r\n                            <img class=\"img-product\" *ngIf=\"item.image && item.image.url \" [src]=\"item.image.url\">\r\n                          </div>\r\n                          <div class=\"col-12 col-md-9 col-lg-9\">\r\n                            <p class=\"no-margin font-name text-nowrap\"> {{item.name}} </p>\r\n                            <p class=\"no-margin font-price\">฿ {{item.pricetext || 0}}\r\n                          </div>\r\n\r\n                          <div class=\"col-12 col-md-12 col-lg-12 text-center \">\r\n                            <button mat-stroked-button class=\"buttonAdd\" (click)=\"deleteItem(i,item)\" color=\"primary\">ลบสินค้า</button>\r\n                          </div>\r\n\r\n                        </div>\r\n                      </mat-card>\r\n\r\n                    </div>\r\n                  </div>\r\n\r\n                </div>\r\n                <div *ngIf=\"!categoryData || (categoryData.items && categoryData.items.length === 0)\">\r\n                  <img class=\"img\" src=\"./assets/imgs/productLogo.png\">\r\n\r\n                </div>\r\n              </div>\r\n\r\n              <div class=\"row\">\r\n\r\n                <div class=\"col-12 text-center padding-top\" *ngIf=\"checkLogProductChange()\">\r\n                  <div class=\"row\">\r\n                    <div class=\"col-12 col-md-12 col-lg-12\">\r\n                      <span class=\"font-text\">หลังจากบันทึกการเปลี่ยนแปลงแล้วสินค้าจะเรียงตามเวลาของการแก้ไขล่าสุด</span>\r\n\r\n                    </div>\r\n                    <div class=\"col-12 col-md-12 col-lg-12\">\r\n                      <button mat-button class=\"buttonAdd\" (click)=\"onSaveData()\" color=\"primary\">บันทึกการเปลี่ยนแปลง</button>\r\n                      <button mat-stroked-button class=\"buttonAdd margin-left\" (click)=\"onRollbackItems()\">ยกเลิก</button>\r\n                    </div>\r\n                  </div>\r\n                </div>\r\n\r\n                <div class=\"col-12 text-center padding-top\" *ngIf=\"categoryCompele && !categoryData.status\">\r\n                  <div class=\"row\">\r\n                    <div class=\"col-12 col-md-12 col-lg-12\">\r\n                      <span class=\"font-text\">หมวดหมู่สินค้าของคุณกำลังปิดการใช้งานอยู่ขณะนี้\r\n                        เปิดการใช้งานเพื่อให้ผู้ซื้อสามารถมองเห็นหมวดหมู่ของคุณหรือไม่?</span>\r\n\r\n                    </div>\r\n                    <div class=\"col-12 col-md-12 col-lg-12\">\r\n                      <button mat-button class=\"buttonAdd\" (click)=\"onUpdateOpenCategory()\" color=\"primary\">เปิดการใช้งานตอนนี้</button>\r\n                      <button mat-stroked-button class=\"buttonAdd margin-left\" (click)=\"categoryCompele = false\">ยกเลิก</button>\r\n                    </div>\r\n                  </div>\r\n                </div>\r\n              </div>\r\n\r\n            </div>\r\n            <!-- <div class=\"col-12 col-sm-12 col-md-12 col-lg-12 text-center\">\r\n              <div class=\"padding-bottom padding-top\">\r\n                <button mat-stroked-button color=\"primary\">เพิ่มสินค้า</button>\r\n              </div>\r\n            </div> -->\r\n          </div>\r\n        </mat-card>\r\n      </div>\r\n\r\n      <div class=\"col-12\">\r\n        <mat-card>\r\n          <div class=\"row padding\">\r\n            <div class=\"col-12 col-sm-12 col-md-12 col-lg-12\">\r\n              <div class=\"row\">\r\n                <div class=\"col-12 col-md-4 col-sm-4\">\r\n\r\n                </div>\r\n                <div class=\"col-12 col-md-4 col-sm-4\">\r\n                  <mat-form-field>\r\n                    <mat-icon class=\"search-ic\">search</mat-icon>\r\n                    <input matInput placeholder=\"ค้นหา\" [(ngModel)]=\"page.name\" (keydown)=\"onSearch($event)\">\r\n                  </mat-form-field>\r\n                </div>\r\n                <div class=\"col-12 col-md-4 col-sm-4\">\r\n\r\n                </div>\r\n              </div>\r\n            </div>\r\n\r\n          </div>\r\n\r\n\r\n          <div class=\"col-12 col-md-12 col-lg-12\">\r\n            <div class=\"row padding\">\r\n\r\n              <div class=\"col-12 col-md-6 col-lg-6  \" *ngFor=\"let item of getProduct\">\r\n                <div class=\"col-12\">\r\n                  <mat-card class=\"card-product\">\r\n\r\n                    <div class=\"row\">\r\n\r\n                      <div class=\"col-12 col-md-3 col-lg-3 text-center padding-right \">\r\n                        <img class=\"img-product\" *ngIf=\"item.image && item.image.url\" [src]=\"item.image.url\">\r\n                      </div>\r\n                      <div class=\"col-12 col-md-9 col-lg-9\">\r\n                        <p class=\"no-margin font-name text-nowrap\"> {{item.name}} </p>\r\n                        <p class=\"no-margin font-price\">฿ {{item.pricetext}}</p>\r\n                      </div>\r\n\r\n                      <div class=\"col-12 col-md-12 col-lg-12 text-center \">\r\n                        <div *ngIf=\"checkButtonAdd(item)\">\r\n                          <mat-icon class=\"done-size\" svgIcon=\"done\"></mat-icon> <span class=\"font-text\">เพิ่มสินค้าแล้ว</span>\r\n                        </div>\r\n                        <button *ngIf=\"!checkButtonAdd(item)\" mat-stroked-button class=\"buttonAdd\" (click)=\"selectedItem(item)\"\r\n                          color=\"primary\">เพิ่มสินค้า</button>\r\n                      </div>\r\n\r\n                    </div>\r\n                  </mat-card>\r\n\r\n                </div>\r\n              </div>\r\n            </div>\r\n\r\n          </div>\r\n\r\n          <div class=\"text-center\" >\r\n            <button mat-flat-button color=\"primary\" class=\"btn-summit select\" style=\"margin: 5px;\" *ngIf=\"page.page > 1\"\r\n              (click)=\"previos()\">ก่อนหน้า</button>\r\n            <button mat-flat-button color=\"primary\" ngClass=\"{{page.page === (i + 1) ? 'select' : 'un-select'}}\"\r\n               *ngFor=\"let item of tabs;let i = index\" (click)=\"pageData(item)\">{{item}}</button>\r\n            <button mat-flat-button color=\"primary\" class=\"btn-summit select\"  *ngIf=\"page.page < tabs.length\"\r\n              (click)=\"next()\">ต่อไป</button>\r\n          </div>\r\n\r\n        </mat-card>\r\n      </div>\r\n    </div>\r\n  </div>\r\n\r\n\r\n\r\n  <div class=\"\r\n                    col-sm-12 col-md-1 col-lg-1 col-xl-1 no-padding\">\r\n\r\n  </div>\r\n\r\n</div>"
 
 /***/ }),
 
@@ -2911,6 +3954,7 @@ var InfoShopCategoryComponent = /** @class */ (function () {
         };
         this.getProduct = [];
         this.isEdit = false;
+        this.tabs = [];
         this.page = {
             shop_id: "",
             status: "sell",
@@ -3151,6 +4195,20 @@ var InfoShopCategoryComponent = /** @class */ (function () {
     };
     InfoShopCategoryComponent.prototype.onRollbackItems = function () {
         this.categoryData = JSON.parse(JSON.stringify(this.categoryDataCopy));
+    };
+    InfoShopCategoryComponent.prototype.previos = function () {
+        this.page.page--;
+        this.getDataProduct();
+    };
+    InfoShopCategoryComponent.prototype.pageData = function (item) {
+        if (this.page.page !== item) {
+            this.page.page = item;
+            this.getDataProduct();
+        }
+    };
+    InfoShopCategoryComponent.prototype.next = function () {
+        this.page.page++;
+        this.getDataProduct();
     };
     InfoShopCategoryComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -3565,7 +4623,7 @@ var LogisticComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".title {\r\n    margin-top: 60px !important;\r\n    font-size: 40px;\r\n}\r\n\r\n.subtitle {\r\n    font-size: 15px;\r\n    line-height: 32px;\r\n    font-weight: 300;\r\n    color: rgb(184, 184, 184);\r\n    margin: 0% !important;\r\n}\r\n\r\n.card-height {\r\n    border-radius: 3px;\r\n    height: 100%;\r\n}\r\n\r\n.circle1 {\r\n    height: 90px;\r\n    width: 90px;\r\n    background-color: rgb(133, 135, 233);\r\n    border-radius: 50%;\r\n    display: inline-block;\r\n}\r\n\r\n.circle2 {\r\n    height: 90px;\r\n    width: 90px;\r\n    background-color: #FDD835;\r\n\r\n    border-radius: 50%;\r\n    display: inline-block;\r\n}\r\n\r\n.circle3 {\r\n    height: 90px;\r\n    width: 90px;\r\n    background-color: #81D4FA;    \r\n    border-radius: 50%;\r\n    display: inline-block;\r\n}\r\n\r\n.magin{\r\n    margin-top: -5px !important;\r\n    margin-left: -5px !important;\r\n}\r\n\r\n.smallFont{\r\n    font-size: 15px;\r\n    color: rgb(194, 194, 194);\r\n}\r\n\r\n.bigFont{\r\n    font-size: 22px;\r\n}\r\n\r\n.icon-size{\r\n    height: 100px !important;\r\n    width: 100px !important;\r\n}\r\n\r\n.padding-top-div {\r\n    padding-top: 20px;\r\n}"
+module.exports = ".title {\r\n    margin-top: 60px !important;\r\n    font-size: 40px;\r\n}\r\n\r\n.subtitle {\r\n    font-size: 15px;\r\n    line-height: 32px;\r\n    font-weight: 300;\r\n    color: rgb(184, 184, 184);\r\n    margin: 0% !important;\r\n}\r\n\r\n.card-height {\r\n    border-radius: 3px;\r\n    height: 100%;\r\n}\r\n\r\n.circle1 {\r\n    height: 90px;\r\n    width: 90px;\r\n    background-color: rgb(133, 135, 233);\r\n    border-radius: 50%;\r\n    display: inline-block;\r\n}\r\n\r\n.circle2 {\r\n    height: 90px;\r\n    width: 90px;\r\n    background-color: #FDD835;\r\n\r\n    border-radius: 50%;\r\n    display: inline-block;\r\n}\r\n\r\n.circle3 {\r\n    height: 90px;\r\n    width: 90px;\r\n    background-color: #81D4FA;    \r\n    border-radius: 50%;\r\n    display: inline-block;\r\n}\r\n\r\n.magin{\r\n    margin-top: -5px !important;\r\n    margin-left: -5px !important;\r\n}\r\n\r\n.smallFont{\r\n    font-size: 15px;\r\n    color: rgb(194, 194, 194);\r\n}\r\n\r\n.bigFont{\r\n    font-size: 22px;\r\n}\r\n\r\n.icon-size{\r\n    height: 100px !important;\r\n    width: 100px !important;\r\n}\r\n\r\n.padding-top-div {\r\n    padding-top: 20px;\r\n}\r\n\r\n.onCursor {\r\n    cursor: pointer;\r\n}\r\n"
 
 /***/ }),
 
@@ -3576,7 +4634,7 @@ module.exports = ".title {\r\n    margin-top: 60px !important;\r\n    font-size:
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\r\n  <div class=\"col-12\">\r\n    <div class=\"title text-center\">Marketing Center</div>\r\n    <div class=\"subtitle text-center\">ใช้เครื่องมือส่งเสริมการขายของ Shopee ในการเข้าร่วมแคมเปญต่างๆ\r\n      เพื่อเพิ่มยอดขายและดึงดูดผู้ซื้อให้เข้ามาในร้านคุณ</div>\r\n\r\n    <!-- <p class=\"text-center\">Marketing Centre</p>\r\n    <p class=\"text-center\">ใช้เครื่องมือส่งเสริมการขายของ Shopee ในการเข้าร่วมแคมเปญต่างๆ เพื่อเพิ่มยอดขายและดึงดูดผู้ซื้อให้เข้ามาในร้านคุณ</p> -->\r\n    <div>\r\n      <div class=\"row\">\r\n        <div class=\"col-sm-12 col-md-1 col-lg-1 col-xl-1\">\r\n        </div>\r\n        <div class=\"col-sm-12 col-md-10 col-lg-10 col-xl-10\">\r\n          <div class=\"col-12\">\r\n            <div class=\"row\">\r\n              <div class=\" col-sm-12 col-md-4 col-lg-4 text-center\">\r\n                <mat-card class=\"card-height text-center\">\r\n                  <div class=\"circle1 text-center\">\r\n                    <div class=\"magin\">\r\n                      <mat-icon svgIcon=\"promotion\" class=\"icon-size\"></mat-icon>\r\n                    </div>\r\n                  </div>\r\n                  <div class=\"padding-top-div\">\r\n                    <label class=\"bigFont \">โปรโมชันส่วนลดของฉัน</label>\r\n                    <label class=\"smallFont\">ติดป้ายลดราคาให้กับสินค้าของคุณเพื่อเพิ่มยอดขาย</label>\r\n                  </div>\r\n                </mat-card>\r\n              </div>\r\n              <div class=\" col-sm-12 col-md-4 col-lg-4 text-center\">\r\n                <mat-card class=\"card-height text-center\">\r\n                  <div class=\"circle2 text-center\">\r\n                    <div class=\"magin\">\r\n                      <mat-icon svgIcon=\"campaign\" class=\"icon-size\"></mat-icon>\r\n                    </div>\r\n                  </div>\r\n                  <div class=\"padding-top-div\">\r\n                    <label class=\"bigFont \">แคมเปญของ Furnover</label>\r\n                    <label class=\"smallFont\">การนำเสนอสินค้าของคุณจะทำให้ผู้ซื้อเข้าถึงคุณได้มากขึ้นและเพิ่มยอดขายของคุณให้ดียิ่งขึ้น</label>\r\n                  </div>\r\n                </mat-card>\r\n              </div>\r\n              <div class=\" col-sm-12 col-md-4 col-lg-4 text-center\">\r\n                <mat-card class=\"card-height text-center\">\r\n                  <div class=\"circle3 text-center\">\r\n                    <div class=\"magin\">\r\n                      <mat-icon svgIcon=\"coupons\" class=\"icon-size\"></mat-icon>\r\n                    </div>\r\n                  </div>\r\n                  <div class=\"padding-top-div\">\r\n                    <label class=\"bigFont \">โค้ดส่วนลดของฉัน</label>\r\n                    <label class=\"smallFont\">สร้างและจัดการโค้ดส่วนลดของสินค้าภายในร้านคุณ</label>\r\n                  </div>\r\n                </mat-card>\r\n              </div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n        <div class=\"col-sm-12 col-md-1 col-lg-1 col-xl-1\">\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>"
+module.exports = "<div class=\"row\">\r\n  <div class=\"col-12\">\r\n    <div class=\"title text-center\">Marketing Center</div>\r\n    <div class=\"subtitle text-center\">ใช้เครื่องมือส่งเสริมการขายของ Shopee ในการเข้าร่วมแคมเปญต่างๆ\r\n      เพื่อเพิ่มยอดขายและดึงดูดผู้ซื้อให้เข้ามาในร้านคุณ</div>\r\n\r\n    <!-- <p class=\"text-center\">Marketing Centre</p>\r\n    <p class=\"text-center\">ใช้เครื่องมือส่งเสริมการขายของ Shopee ในการเข้าร่วมแคมเปญต่างๆ เพื่อเพิ่มยอดขายและดึงดูดผู้ซื้อให้เข้ามาในร้านคุณ</p> -->\r\n    <div>\r\n      <div class=\"row\">\r\n        <div class=\"col-sm-12 col-md-1 col-lg-1 col-xl-1\">\r\n        </div>\r\n        <div class=\"col-sm-12 col-md-10 col-lg-10 col-xl-10\">\r\n          <div class=\"col-12\">\r\n            <div class=\"row\">\r\n              <div class=\" col-sm-12 col-md-4 col-lg-4 text-center onCursor\" (click)=\"openMyPromotion()\">\r\n                <mat-card class=\"card-height text-center\" >\r\n                  <div class=\"circle1 text-center\">\r\n                    <div class=\"magin\">\r\n                      <mat-icon svgIcon=\"promotion\" class=\"icon-size\"></mat-icon>\r\n                    </div>\r\n                  </div>\r\n                  <div class=\"padding-top-div\">\r\n                    <label class=\"bigFont \">โปรโมชันส่วนลดของฉัน</label>\r\n                    <label class=\"smallFont\">ติดป้ายลดราคาให้กับสินค้าของคุณเพื่อเพิ่มยอดขาย</label>\r\n                  </div>\r\n                </mat-card>\r\n              </div>\r\n              <div class=\" col-sm-12 col-md-4 col-lg-4 text-center onCursor\">\r\n                <mat-card class=\"card-height text-center\">\r\n                  <div class=\"circle2 text-center\">\r\n                    <div class=\"magin\">\r\n                      <mat-icon svgIcon=\"campaign\" class=\"icon-size\"></mat-icon>\r\n                    </div>\r\n                  </div>\r\n                  <div class=\"padding-top-div\">\r\n                    <label class=\"bigFont \">แคมเปญของ Furnover</label>\r\n                    <label class=\"smallFont\">การนำเสนอสินค้าของคุณจะทำให้ผู้ซื้อเข้าถึงคุณได้มากขึ้นและเพิ่มยอดขายของคุณให้ดียิ่งขึ้น</label>\r\n                  </div>\r\n                </mat-card>\r\n              </div>\r\n              <div class=\" col-sm-12 col-md-4 col-lg-4 text-center onCursor\">\r\n                <mat-card class=\"card-height text-center\">\r\n                  <div class=\"circle3 text-center\">\r\n                    <div class=\"magin\">\r\n                      <mat-icon svgIcon=\"coupons\" class=\"icon-size\"></mat-icon>\r\n                    </div>\r\n                  </div>\r\n                  <div class=\"padding-top-div\">\r\n                    <label class=\"bigFont \">โค้ดส่วนลดของฉัน</label>\r\n                    <label class=\"smallFont\">สร้างและจัดการโค้ดส่วนลดของสินค้าภายในร้านคุณ</label>\r\n                  </div>\r\n                </mat-card>\r\n              </div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n        <div class=\"col-sm-12 col-md-1 col-lg-1 col-xl-1\">\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -3593,6 +4651,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3605,16 +4664,21 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var MenuMarketingComponent = /** @class */ (function () {
-    function MenuMarketingComponent(iconRegistry, sanitizer) {
+    function MenuMarketingComponent(iconRegistry, sanitizer, router) {
         this.iconRegistry = iconRegistry;
         this.sanitizer = sanitizer;
+        this.router = router;
         iconRegistry.addSvgIcon('local_offer', sanitizer.bypassSecurityTrustResourceUrl('assets/baseline-local_offer-24px.svg'));
         iconRegistry.addSvgIcon('promotion', sanitizer.bypassSecurityTrustResourceUrl('assets/marketing-center-promotion.svg'));
         iconRegistry.addSvgIcon('coupons', sanitizer.bypassSecurityTrustResourceUrl('assets/marketing-center-coupons.svg'));
         iconRegistry.addSvgIcon('campaign', sanitizer.bypassSecurityTrustResourceUrl('assets/marketing-center-campaign.svg'));
     }
     MenuMarketingComponent.prototype.ngOnInit = function () {
+    };
+    MenuMarketingComponent.prototype.openMyPromotion = function () {
+        this.router.navigate(['/my-promotion']);
     };
     MenuMarketingComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -3623,7 +4687,8 @@ var MenuMarketingComponent = /** @class */ (function () {
             styles: [__webpack_require__(/*! ./menu-marketing.component.css */ "./src/app/pages/menu-marketing/menu-marketing.component.css")]
         }),
         __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_1__["MatIconRegistry"],
-            _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["DomSanitizer"]])
+            _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["DomSanitizer"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])
     ], MenuMarketingComponent);
     return MenuMarketingComponent;
 }());
@@ -3940,7 +5005,7 @@ module.exports = ".padding-left {\r\n    padding-left: 25px !important;\r\n}\r\n
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<b>รายละเอียดผู้ใช้</b>\r\n<mat-horizontal-stepper [linear]=\"isLinear\" #stepper>\r\n\r\n  <mat-step [stepControl]=\"firstFormGroup\">\r\n    <ng-template matStepLabel>ข้อมูลผู้ใช้งาน</ng-template>\r\n    <form [formGroup]=\"firstFormGroup\">\r\n\r\n      <div class=\"col-12 no-padding\">\r\n        <div class=\"row\">\r\n          <div class=\"col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12\">\r\n            <mat-form-field class=\"example-full-width\">\r\n              <input type=\"tel\" matInput placeholder=\"ชื่อ - นามสกุล\" [(ngModel)]=\"createBankData.name\" formControlName=\"name\" required>\r\n            </mat-form-field>\r\n          </div>\r\n          <div class=\"col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12\">\r\n            <mat-form-field class=\"example-full-width\">\r\n              <input type=\"tel\" matInput placeholder=\"หมายเลขบัตรประชาชน\" [(ngModel)]=\"createBankData.citizenid\" formControlName=\"citizinid\"\r\n                required>\r\n            </mat-form-field>\r\n            <div class=\"col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12\">\r\n              <p class=\"text-req\">* กรุณาตรวจสอบว่าคุณได้ใส่ชื่อและหมายเลขบัตรประชาชนถูกต้อง</p>\r\n            </div>\r\n          </div>\r\n          <message class=\"text-center\" [type]=\"dataService.messageType\" [message]=\"dataService.message\"></message>          \r\n          <div class=\"col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12\">\r\n            <div class=\"row\">\r\n              <div class=\"col-xs-2 col-sm-12 col-md-2 col-lg-2 col-xl-2\">\r\n                <button style=\"width:100%\" mat-button matStepperNext color=\"primary\">ต่อไป</button>\r\n              </div>\r\n              <div class=\"col-xs-2 col-sm-12 col-md-2 col-lg-2 col-xl-2\">\r\n                <button style=\"width:100%\" mat-stroked-button [mat-dialog-close]>ยกเลิก</button>\r\n              </div>\r\n            </div>\r\n\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </form>\r\n  </mat-step>\r\n  <mat-step [stepControl]=\"secondFormGroup\">\r\n    <ng-template matStepLabel>ข้อมูลธนาคาร</ng-template>\r\n    <form [formGroup]=\"secondFormGroup\">\r\n      <div class=\"col-12 no-padding\">\r\n        <div class=\"row\">\r\n          <div class=\"col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12\">\r\n            <mat-form-field class=\"example-full-width\">\r\n              <input type=\"tel\" matInput placeholder=\"ชื่อนามสกุลตามที่ปรากฎในบัญชีธนาคาร\" [(ngModel)]=\"createBankData.accountname\" formControlName=\"name\"\r\n                required>\r\n            </mat-form-field>\r\n          </div>\r\n          <div class=\"col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12\">\r\n            <mat-form-field class=\"example-full-width\">\r\n              <input type=\"tel\" matInput placeholder=\"เลขที่บัญชี\" [(ngModel)]=\"createBankData.accountnumber\" formControlName=\"bankNumber\"\r\n                required>\r\n            </mat-form-field>\r\n          </div>\r\n          <div class=\"col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12\">\r\n            <mat-form-field>\r\n              <mat-select placeholder=\"เลือกธนาคาร\" [(ngModel)]=\"createBankData.bank\" required>\r\n                <mat-option *ngFor=\"let item of Getbank\" [value]=\"item\" formControlName=\"nameBank\">\r\n                  {{item.name}} ({{item.code}})\r\n                </mat-option>\r\n              </mat-select>\r\n            </mat-form-field>\r\n            <div class=\"col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 \">\r\n              <p class=\"text-req paddding-top \">* กรุณาตรวจสอบข้อมูลที่กรอกให้ถูกต้อง หากต้องการแก้ไขกรุณาติดต่อฝ่ายบริการลูกค้า</p>\r\n            </div>\r\n          </div>\r\n          <message class=\"text-center\" [type]=\"dataService.messageType\" [message]=\"dataService.message\"></message>\r\n          <div class=\"col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12\">\r\n            <div class=\"row\">\r\n              <div class=\"col-xs-2 col-sm-12 col-md-2 col-lg-2 col-xl-2\">\r\n                <button style=\"width:100%\" mat-button matStepperNext color=\"primary\">ต่อไป</button>\r\n              </div>\r\n              <div class=\"col-xs-2 col-sm-12 col-md-2 col-lg-2 col-xl-2\">\r\n                <button style=\"width:100%\" mat-stroked-button [mat-dialog-close]>ยกเลิก</button>\r\n              </div>\r\n              <div class=\"col-xs-4 col-sm-12 col-md-4 col-lg-4 col-xl-4\">\r\n              </div>\r\n              <div class=\"col-xs-4 col-sm-12 col-md-4 col-lg-4 col-xl-4\">\r\n                <button style=\"width:100%\" mat-stroked-button matStepperPrevious>ย้อนกลับก่อนหน้านี้</button>\r\n              </div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </form>\r\n  </mat-step>\r\n  <mat-step>\r\n    <ng-template matStepLabel>ยืนยัน</ng-template>\r\n    <mat-dialog-content>\r\n      <div class=\"col-12 no-padding\">\r\n        <div class=\"row\">\r\n          <div class=\"col-xs-6 col-sm-12 col-md-6 col-lg-6 col-xl-6\">\r\n            <div class=\"row\">\r\n              <div class=\"col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12\">\r\n                <p class=\"font-size1\">กรุณาใส่ข้อมูล</p>\r\n                <p class=\"font-size2\">ชื่อ-นามสกุล</p>\r\n                <p class=\"font-size3 magin-botton\">{{createBankData.name}}</p>\r\n                <p class=\"font-size2\">หมายเลขบัตรประชาชน</p>\r\n                <p class=\"font-size3 magin-botton\">{{createBankData.citizenid}}</p>\r\n              </div>\r\n            </div>\r\n          </div>\r\n          <div class=\"col-xs-6 col-sm-12 col-md-6 col-lg-6 col-xl-6\">\r\n            <div class=\"row\">\r\n              <div class=\"col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12\">\r\n                <p class=\"font-size1\">ข้อมูลบัญชีธนาคาร</p>\r\n                <p class=\"font-size2\">ชื่อนามสกุลตามที่ปรากฎในบัญชีธนาคาร</p>\r\n                <p class=\"font-size3 magin-botton\">{{createBankData.accountname}}</p>\r\n                <p class=\"font-size2\">เลขที่บัญชี</p>\r\n                <p class=\"font-size3 magin-botton\">{{createBankData.accountnumber}}</p>\r\n                <p class=\"font-size2\">ชื่อธนาคาร</p>\r\n                <p class=\"font-size3\">{{createBankData.bank.name}} ({{ createBankData.bank.code }})</p>\r\n              </div>\r\n            </div>\r\n          </div>\r\n          <message class=\"text-center\" [type]=\"dataService.messageType\" [message]=\"dataService.message\"></message>\r\n          \r\n          <div class=\"col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12\">\r\n            <div class=\"row\">\r\n              <div class=\"col-xs-2 col-sm-12 col-md-2 col-lg-2 col-xl-2\">\r\n                <button style=\"width:100%\" (click)=\"createBank()\" mat-button matStepperNext color=\"primary\">บันทึก</button>\r\n              </div>\r\n              <div class=\"col-xs-2 col-sm-12 col-md-2 col-lg-2 col-xl-2\">\r\n                <button style=\"width:100%\" mat-stroked-button [mat-dialog-close]>ยกเลิก</button>\r\n              </div>\r\n              <div class=\"col-xs-4 col-sm-12 col-md-4 col-lg-4 col-xl-4\">\r\n              </div>\r\n              <div class=\"col-xs-4 col-sm-12 col-md-4 col-lg-4 col-xl-4\">\r\n                <button style=\"width:100%\" mat-stroked-button matStepperPrevious>ย้อนกลับก่อนหน้านี้</button>\r\n              </div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </mat-dialog-content>\r\n  </mat-step>\r\n</mat-horizontal-stepper>"
+module.exports = "<b>รายละเอียดผู้ใช้</b>\r\n<mat-horizontal-stepper [linear]=\"isLinear\" #stepper>\r\n\r\n  <mat-step [stepControl]=\"firstFormGroup\">\r\n    <ng-template matStepLabel>ข้อมูลผู้ใช้งาน</ng-template>\r\n    <form [formGroup]=\"firstFormGroup\">\r\n\r\n      <div class=\"col-12 no-padding\">\r\n        <div class=\"row\">\r\n          <div class=\"col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12\">\r\n            <mat-form-field class=\"example-full-width\">\r\n              <input type=\"tel\" matInput placeholder=\"ชื่อ - นามสกุล\" [(ngModel)]=\"createBankData.name\" formControlName=\"name\" required>\r\n            </mat-form-field>\r\n          </div>\r\n          <div class=\"col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12\">\r\n            <mat-form-field class=\"example-full-width\">\r\n              <input type=\"tel\" matInput placeholder=\"หมายเลขบัตรประชาชน\" [(ngModel)]=\"createBankData.citizenid\" formControlName=\"citizinid\"\r\n                required>\r\n            </mat-form-field>\r\n            <div class=\"col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12\">\r\n              <p class=\"text-req\">* กรุณาตรวจสอบว่าคุณได้ใส่ชื่อและหมายเลขบัตรประชาชนถูกต้อง</p>\r\n            </div>\r\n          </div>\r\n          <message class=\"text-center\" [type]=\"dataService.messageType\" [message]=\"dataService.message\"></message>          \r\n          <div class=\"col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12\">\r\n            <div class=\"row\">\r\n              <div class=\"col-xs-2 col-sm-12 col-md-2 col-lg-2 col-xl-2\">\r\n                <button style=\"width:100%\" mat-button matStepperNext color=\"primary\">ต่อไป</button>\r\n              </div>\r\n              <div class=\"col-xs-2 col-sm-12 col-md-2 col-lg-2 col-xl-2\">\r\n                <button style=\"width:100%\" mat-stroked-button [mat-dialog-close]>ยกเลิก</button>\r\n              </div>\r\n            </div>\r\n\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </form>\r\n  </mat-step>\r\n\r\n  <mat-step [stepControl]=\"secondFormGroup\">\r\n    <ng-template matStepLabel>ข้อมูลธนาคาร</ng-template>\r\n    <form [formGroup]=\"secondFormGroup\">\r\n      <div class=\"col-12 no-padding\">\r\n        <div class=\"row\">\r\n          <div class=\"col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12\">\r\n            <mat-form-field class=\"example-full-width\">\r\n              <input type=\"tel\" matInput placeholder=\"ชื่อนามสกุลตามที่ปรากฎในบัญชีธนาคาร\" [(ngModel)]=\"createBankData.accountname\" formControlName=\"name\"\r\n                required>\r\n            </mat-form-field>\r\n          </div>\r\n          <div class=\"col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12\">\r\n            <mat-form-field class=\"example-full-width\">\r\n              <input type=\"tel\" matInput placeholder=\"เลขที่บัญชี\" [(ngModel)]=\"createBankData.accountnumber\" formControlName=\"bankNumber\"\r\n                required>\r\n            </mat-form-field>\r\n          </div>\r\n          <div class=\"col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12\">\r\n            <mat-form-field>\r\n              <mat-select placeholder=\"เลือกธนาคาร\" [(ngModel)]=\"createBankData.bank\" formControlName=\"nameBank\" required>\r\n                <mat-option *ngFor=\"let item of Getbank\" [value]=\"item\" >\r\n                  {{item.name}} ({{item.code}})\r\n                </mat-option>\r\n              </mat-select>\r\n            </mat-form-field>\r\n            <div class=\"col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 \">\r\n              <p class=\"text-req paddding-top \">* กรุณาตรวจสอบข้อมูลที่กรอกให้ถูกต้อง หากต้องการแก้ไขกรุณาติดต่อฝ่ายบริการลูกค้า</p>\r\n            </div>\r\n          </div>\r\n          <message class=\"text-center\" [type]=\"dataService.messageType\" [message]=\"dataService.message\"></message>\r\n          <div class=\"col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12\">\r\n            <div class=\"row\">\r\n              <div class=\"col-xs-2 col-sm-12 col-md-2 col-lg-2 col-xl-2\">\r\n                <button style=\"width:100%\" mat-button matStepperNext color=\"primary\">ต่อไป</button>\r\n              </div>\r\n              <div class=\"col-xs-2 col-sm-12 col-md-2 col-lg-2 col-xl-2\">\r\n                <button style=\"width:100%\" mat-stroked-button [mat-dialog-close]>ยกเลิก</button>\r\n              </div>\r\n              <div class=\"col-xs-4 col-sm-12 col-md-4 col-lg-4 col-xl-4\">\r\n              </div>\r\n              <div class=\"col-xs-4 col-sm-12 col-md-4 col-lg-4 col-xl-4\">\r\n                <button style=\"width:100%\" mat-stroked-button matStepperPrevious>ย้อนกลับก่อนหน้านี้</button>\r\n              </div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </form>\r\n  </mat-step>\r\n\r\n\r\n  <mat-step>\r\n    <ng-template matStepLabel>ยืนยัน</ng-template>\r\n    <mat-dialog-content>\r\n      <div class=\"col-12 no-padding\">\r\n        <div class=\"row\">\r\n          <div class=\"col-xs-6 col-sm-12 col-md-6 col-lg-6 col-xl-6\">\r\n            <div class=\"row\">\r\n              <div class=\"col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12\">\r\n                <p class=\"font-size1\">กรุณาใส่ข้อมูล</p>\r\n                <p class=\"font-size2\">ชื่อ-นามสกุล</p>\r\n                <p class=\"font-size3 magin-botton\">{{createBankData.name}}</p>\r\n                <p class=\"font-size2\">หมายเลขบัตรประชาชน</p>\r\n                <p class=\"font-size3 magin-botton\">{{createBankData.citizenid}}</p>\r\n              </div>\r\n            </div>\r\n          </div>\r\n          <div class=\"col-xs-6 col-sm-12 col-md-6 col-lg-6 col-xl-6\">\r\n            <div class=\"row\">\r\n              <div class=\"col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12\">\r\n                <p class=\"font-size1\">ข้อมูลบัญชีธนาคาร</p>\r\n                <p class=\"font-size2\">ชื่อนามสกุลตามที่ปรากฎในบัญชีธนาคาร</p>\r\n                <p class=\"font-size3 magin-botton\">{{createBankData.accountname}}</p>\r\n                <p class=\"font-size2\">เลขที่บัญชี</p>\r\n                <p class=\"font-size3 magin-botton\">{{createBankData.accountnumber}}</p>\r\n                <p class=\"font-size2\">ชื่อธนาคาร</p>\r\n                <p class=\"font-size3\">{{createBankData.bank.name}} ({{ createBankData.bank.code }})</p>\r\n              </div>\r\n            </div>\r\n          </div>\r\n          <message class=\"text-center\" [type]=\"dataService.messageType\" [message]=\"dataService.message\"></message>\r\n          \r\n          <div class=\"col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12\">\r\n            <div class=\"row\">\r\n              <div class=\"col-xs-2 col-sm-12 col-md-2 col-lg-2 col-xl-2\">\r\n                <button style=\"width:100%\" (click)=\"createBank()\" mat-button matStepperNext color=\"primary\">บันทึก</button>\r\n              </div>\r\n              <div class=\"col-xs-2 col-sm-12 col-md-2 col-lg-2 col-xl-2\">\r\n                <button style=\"width:100%\" mat-stroked-button [mat-dialog-close]>ยกเลิก</button>\r\n              </div>\r\n              <div class=\"col-xs-4 col-sm-12 col-md-4 col-lg-4 col-xl-4\">\r\n              </div>\r\n              <div class=\"col-xs-4 col-sm-12 col-md-4 col-lg-4 col-xl-4\">\r\n                <button style=\"width:100%\" mat-stroked-button matStepperPrevious>ย้อนกลับก่อนหน้านี้</button>\r\n              </div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </mat-dialog-content>\r\n  </mat-step>\r\n</mat-horizontal-stepper>"
 
 /***/ }),
 
@@ -4288,6 +5353,161 @@ var ModalDeleteBankAccountComponent = /** @class */ (function () {
             _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"]])
     ], ModalDeleteBankAccountComponent);
     return ModalDeleteBankAccountComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/pages/modals/modal-delete-my-promotion/modal-delete-my-promotion.component.html":
+/*!*************************************************************************************************!*\
+  !*** ./src/app/pages/modals/modal-delete-my-promotion/modal-delete-my-promotion.component.html ***!
+  \*************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<mat-dialog-content>\r\n<div class=\"row text-center\">\r\n  <div class=\"col-12\">\r\n    <p>\r\n      คุณยืนยันที่จะลบหรือไม่?\r\n    </p>\r\n  </div>\r\n</div>\r\n<message *ngIf=\"dataService.message\" class=\"text-center\" [type]=\"dataService.messageType\" [message]=\"dataService.message\"></message>\r\n\r\n<div class=\"row text-center\">\r\n  <div class=\"col-6\">\r\n    <button mat-button style=\"width: 100%;\" [mat-dialog-close]>ยกเลิก</button>\r\n  </div>\r\n  <div class=\"col-6\">\r\n    <button mat-button style=\"width: 100%;\" (click)=\"delete()\"><span style=\"color:#ff9558\">ใช่, ทำต่อไป</span> </button>\r\n  </div>\r\n</div>\r\n</mat-dialog-content>"
+
+/***/ }),
+
+/***/ "./src/app/pages/modals/modal-delete-my-promotion/modal-delete-my-promotion.component.scss":
+/*!*************************************************************************************************!*\
+  !*** ./src/app/pages/modals/modal-delete-my-promotion/modal-delete-my-promotion.component.scss ***!
+  \*************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "mat-dialog-container {\n  padding: 0 !important; }\n\n.mat-dialog-container {\n  padding: 0 !important; }\n"
+
+/***/ }),
+
+/***/ "./src/app/pages/modals/modal-delete-my-promotion/modal-delete-my-promotion.component.ts":
+/*!***********************************************************************************************!*\
+  !*** ./src/app/pages/modals/modal-delete-my-promotion/modal-delete-my-promotion.component.ts ***!
+  \***********************************************************************************************/
+/*! exports provided: ModalDeleteMyPromotionComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ModalDeleteMyPromotionComponent", function() { return ModalDeleteMyPromotionComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _providers_rest_api_service_rest_api_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../providers/rest-api-service/rest-api.service */ "./src/app/providers/rest-api-service/rest-api.service.ts");
+/* harmony import */ var ngx_spinner__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ngx-spinner */ "./node_modules/ngx-spinner/fesm5/ngx-spinner.js");
+/* harmony import */ var _providers_data_service_data_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../providers/data-service/data.service */ "./src/app/providers/data-service/data.service.ts");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _app_constants__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../app.constants */ "./src/app/app.constants.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (undefined && undefined.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (undefined && undefined.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = y[op[0] & 2 ? "return" : op[0] ? "throw" : "next"]) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [0, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+
+
+
+
+
+
+var ModalDeleteMyPromotionComponent = /** @class */ (function () {
+    function ModalDeleteMyPromotionComponent(restApi, spinner, dataService, dialogRef, item) {
+        this.restApi = restApi;
+        this.spinner = spinner;
+        this.dataService = dataService;
+        this.dialogRef = dialogRef;
+        this.item = item;
+        this.data = {};
+        this.data = item;
+        console.log(this.data);
+    }
+    ModalDeleteMyPromotionComponent.prototype.ngOnInit = function () {
+    };
+    ModalDeleteMyPromotionComponent.prototype.delete = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var _this = this;
+            var res, errer_1;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        this.spinner.show();
+                        _a.label = 1;
+                    case 1:
+                        _a.trys.push([1, 3, , 4]);
+                        return [4 /*yield*/, this.restApi.post(_app_constants__WEBPACK_IMPORTED_MODULE_5__["Constants"].URL() + '/api/xxx-delete/', this.data)];
+                    case 2:
+                        res = _a.sent();
+                        if (res['status'] === 200) {
+                            this.dialogRef.close(res);
+                            this.spinner.hide();
+                        }
+                        return [3 /*break*/, 4];
+                    case 3:
+                        errer_1 = _a.sent();
+                        this.spinner.hide();
+                        this.dataService.error('ลบโปรโมชั่นล้มเหลว กรุณาลองอีกครั้ง');
+                        setTimeout(function () {
+                            _this.dataService.error('');
+                        }, 2000);
+                        return [3 /*break*/, 4];
+                    case 4: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    ModalDeleteMyPromotionComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-modal-delete-my-promotion',
+            template: __webpack_require__(/*! ./modal-delete-my-promotion.component.html */ "./src/app/pages/modals/modal-delete-my-promotion/modal-delete-my-promotion.component.html"),
+            styles: [__webpack_require__(/*! ./modal-delete-my-promotion.component.scss */ "./src/app/pages/modals/modal-delete-my-promotion/modal-delete-my-promotion.component.scss")]
+        }),
+        __param(4, Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"])(_angular_material__WEBPACK_IMPORTED_MODULE_4__["MAT_DIALOG_DATA"])),
+        __metadata("design:paramtypes", [_providers_rest_api_service_rest_api_service__WEBPACK_IMPORTED_MODULE_1__["RestApiService"],
+            ngx_spinner__WEBPACK_IMPORTED_MODULE_2__["NgxSpinnerService"],
+            _providers_data_service_data_service__WEBPACK_IMPORTED_MODULE_3__["DataService"],
+            _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatDialogRef"], Object])
+    ], ModalDeleteMyPromotionComponent);
+    return ModalDeleteMyPromotionComponent;
 }());
 
 
@@ -4794,6 +6014,87 @@ var ModalPrepareShippingComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/pages/modals/modal-select-product/modal-select-product.component.html":
+/*!***************************************************************************************!*\
+  !*** ./src/app/pages/modals/modal-select-product/modal-select-product.component.html ***!
+  \***************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div>\r\n  <div class=\"row header-style\">\r\n    <div class=\"col-12 padding-left\">\r\n      <h3>เลือกสินค้า ({{datas.length}})</h3>\r\n    </div>\r\n  </div>\r\n  <div class=\"over-scroll\">\r\n    <app-select-product [productSelected]=\"paramiter.products\" [status]=\"paramiter.status\" (onSelectedProduct)=\"onSelectedProductEmit($event)\"></app-select-product>\r\n  </div>\r\n  <div class=\"row\">\r\n    <div class=\"col-12 col-md-6 padding-left text-left\">\r\n      <p class=\"product-count-text\">เลือก {{datas.length}} รายการ</p>\r\n    </div>\r\n    <div class=\"col-12 col-md-6 padding-left text-right\">\r\n      <button mat-stroked-button (click)=\"onCloseModel()\">ยกเลิก</button>\r\n      <button mat-button color=\"primary\" (click)=\"onConfirmProducts()\">ยืนยัน</button>\r\n    </div>\r\n  </div>\r\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/pages/modals/modal-select-product/modal-select-product.component.scss":
+/*!***************************************************************************************!*\
+  !*** ./src/app/pages/modals/modal-select-product/modal-select-product.component.scss ***!
+  \***************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "mat-dialog-container {\n  padding: 16px !important; }\n\n.header-style {\n  border-bottom: 0.5px solid #e8e8e8; }\n\n.product-count-text {\n  font-size: 14px; }\n\n.over-scroll {\n  height: 55vh;\n  overflow-y: auto;\n  overflow-x: hidden; }\n\n@media screen and (min-width: 480px) {\n  .over-scroll {\n    height: 65vh;\n    overflow-y: auto;\n    overflow-x: hidden; } }\n"
+
+/***/ }),
+
+/***/ "./src/app/pages/modals/modal-select-product/modal-select-product.component.ts":
+/*!*************************************************************************************!*\
+  !*** ./src/app/pages/modals/modal-select-product/modal-select-product.component.ts ***!
+  \*************************************************************************************/
+/*! exports provided: ModalSelectProductComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ModalSelectProductComponent", function() { return ModalSelectProductComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (undefined && undefined.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+
+
+var ModalSelectProductComponent = /** @class */ (function () {
+    function ModalSelectProductComponent(paramiter, dialogRef) {
+        this.paramiter = paramiter;
+        this.dialogRef = dialogRef;
+        this.datas = [];
+        this.datas = paramiter.products;
+    }
+    ModalSelectProductComponent.prototype.ngOnInit = function () { };
+    ModalSelectProductComponent.prototype.onSelectedProductEmit = function (event) {
+        this.datas = event;
+    };
+    ModalSelectProductComponent.prototype.onCloseModel = function () {
+        this.dialogRef.close();
+    };
+    ModalSelectProductComponent.prototype.onConfirmProducts = function () {
+        this.dialogRef.close(this.datas);
+    };
+    ModalSelectProductComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: "app-modal-select-product",
+            template: __webpack_require__(/*! ./modal-select-product.component.html */ "./src/app/pages/modals/modal-select-product/modal-select-product.component.html"),
+            styles: [__webpack_require__(/*! ./modal-select-product.component.scss */ "./src/app/pages/modals/modal-select-product/modal-select-product.component.scss")]
+        }),
+        __param(0, Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"])(_angular_material__WEBPACK_IMPORTED_MODULE_1__["MAT_DIALOG_DATA"])),
+        __metadata("design:paramtypes", [Object, _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDialogRef"]])
+    ], ModalSelectProductComponent);
+    return ModalSelectProductComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/pages/my-product/my-product.component.html":
 /*!************************************************************!*\
   !*** ./src/app/pages/my-product/my-product.component.html ***!
@@ -4801,7 +6102,7 @@ var ModalPrepareShippingComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-tab-group (selectedTabChange)=\"onLinkClick($event)\">\r\n  <mat-tab label=\"ทั้งหมด\">\r\n\r\n    <div *ngIf=\"showDelete\" class=\"portal-panel\">\r\n      <div class=\"row\">\r\n        <div class=\"col-6 txt-left\">\r\n          <mat-checkbox class=\"ch_box\" [(ngModel)]=\"checked\" (change)=\"onselectAll($event)\">เลือกทั้งหมด</mat-checkbox>\r\n        </div>\r\n        <div class=\"col-6 txt-right\">\r\n          <button mat-stroked-button color=\"primary\" (click)=\"openDialog()\">ลบ</button>\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"row padding\">\r\n      <div class=\"col-12 col-md-12 col-sm-12\">\r\n        สินค้า {{productData.products.length}} รายการ\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"row padding\">\r\n      <div class=\"col-12 col-md-4 col-sm-4\">\r\n        <mat-form-field>\r\n          <mat-icon class=\"search-ic\">search</mat-icon>\r\n          <input matInput placeholder=\"ค้นหา\" [(ngModel)]=\"pageData.name\" (keydown)=\"search($event)\">\r\n        </mat-form-field>\r\n      </div>\r\n      <!-- <div class=\"col-12 col-md-8 col-sm-8 txt-right\">\r\n        <ng-container *ngFor=\"let item of sortModel;let i = index\">\r\n          <span ngClass=\"{{this.sortIndex === item.sortId ? 'select' : 'un-select'}}\" (click)=\"selectSortIndex(item,i)\">{{item.sortName}}</span>&nbsp;\r\n        </ng-container>\r\n      </div> -->\r\n    </div>\r\n\r\n    <div class=\"row padding\">\r\n      <div class=\"col-12 col-md-2 col-sm-4\" (click)=\"gotoCreateProduct()\">\r\n        <div class=\"fix-col\">\r\n          <p>\r\n            <button mat-fab color=\"primary\">\r\n              <mat-icon>add</mat-icon>\r\n            </button>\r\n          </p>\r\n          <p class=\"add-txt\">เพิ่มสินค้า</p>\r\n        </div>\r\n      </div>\r\n\r\n      <div class=\"col-12 col-md-2 col-sm-4 fix-col-2 mgt-1\" *ngFor=\"let item of productData.products\">\r\n        <mat-card class=\"mat-card_cus\">\r\n          <!-- <div style=\"background: url('http://my-test-11.slatic.net/original/536fa036d0bc1e7a54e9496d75aa494f.jpg_720x720q80.jpg') no-repeat center center;background-size: cover;min-height: 12rem;\"> -->\r\n          <div style=\"background-size: cover;min-height: 12rem;\">\r\n            <img [src]=\"item.image ? item.image.url:''\" style=\"position: absolute;\r\n                width: 100%;min-height: 12rem;object-fit: contain;\"\r\n              (click)=\"gotoEditProduct(item._id)\">\r\n            <mat-checkbox class=\"ch_box\" [(ngModel)]=\"item.checked\" (change)=\"checkboxOptions($event,item)\"></mat-checkbox>\r\n            <span *ngIf=\"item.iswholesale\" style=\"right: 0;\r\n            background-color: #00d0ff;\r\n            position: absolute;\r\n            color: white;\r\n            padding-left: 2px;\r\n            padding-right: 2px;\r\n            font-size: 14px;\r\n            border-radius: 3px;\">ขายส่ง</span>\r\n\r\n\r\n            <div *ngIf=\"item.status === 'suspended'\" class=\"product-item-soldout-overlay\">\r\n              <div class=\"soldout\">{{'ถูกระงับ'}}</div>\r\n            </div>\r\n            <div *ngIf=\"item.status !== 'suspended' && item.stock === 0\" class=\"product-item-soldout-overlay\">\r\n              <div class=\"soldout\">{{'ขายแล้ว'}}</div>\r\n            </div>\r\n\r\n            <!-- <div class=\"product-item__badges\">\r\n              <div class=\"product-label new\">\r\n                <div class=\"badge-content\">\r\n                  <div class=\"text\">ใหม่</div>\r\n                </div><svg viewBox=\"-107 102 48 54\">\r\n                  <path d=\"M-107 102v54l24-6.8 24 6.8v-54z\"></path>\r\n                </svg>\r\n              </div>\r\n            </div> -->\r\n          </div>\r\n          <div class=\"padding\">\r\n            <p class=\"p-name\">\r\n              {{item.name}}\r\n            </p>\r\n            <div class=\"row\">\r\n              <div class=\"col-6 txt-price\">\r\n                {{item.pricetext}}\r\n              </div>\r\n              <div class=\"col-6 txt-right\" style=\"font-size: 14px;\">\r\n                คลัง {{item.stock}}\r\n              </div>\r\n            </div>\r\n            <!-- <div class=\"row fn-size\">\r\n              <div class=\"col-3 footer-card-txt\">\r\n                ดู 0\r\n              </div>\r\n              <div class=\"col-4 footer-card-txt\">\r\n                ถูกใจ 0\r\n              </div>\r\n              <div class=\"col-5 txt-right footer-card-txt\">\r\n                ยอดขาย 0\r\n              </div>\r\n            </div> -->\r\n          </div>\r\n        </mat-card>\r\n      </div>\r\n    </div>\r\n    <div class=\"text-center\" *ngIf=\"productData.products.length > 0\">\r\n      <button mat-flat-button color=\"primary\" class=\"btn-summit select\" style=\"margin: 5px;\" *ngIf=\"pageData.page > 1\"\r\n        (click)=\"previos()\">ก่อนหน้า</button>\r\n      <button mat-flat-button color=\"primary\" ngClass=\"{{pageData.page === (i + 1) ? 'select' : 'un-select'}} btn-summit\"\r\n        style=\"margin: 5px;min-width: unset;\" *ngFor=\"let item of tabs;let i = index\" (click)=\"page(item)\">{{item}}</button>\r\n      <button mat-flat-button color=\"primary\" class=\"btn-summit select\" style=\"margin: 5px;\" *ngIf=\"pageData.page < tabs.length\"\r\n        (click)=\"next()\">ต่อไป</button>\r\n    </div>\r\n  </mat-tab>\r\n  <mat-tab label=\"ขายอยู่\">\r\n\r\n    <div *ngIf=\"showDelete\" class=\"portal-panel\">\r\n      <div class=\"row\">\r\n        <div class=\"col-6 txt-left\">\r\n          <mat-checkbox class=\"ch_box\" [(ngModel)]=\"checked\" (change)=\"onselectAll($event)\">เลือกทั้งหมด</mat-checkbox>\r\n        </div>\r\n        <div class=\"col-6 txt-right\">\r\n          <button mat-stroked-button color=\"primary\" (click)=\"openDialog()\">ลบ</button>\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"row padding\">\r\n      <div class=\"col-12 col-md-12 col-sm-12\">\r\n        สินค้า {{productData.products.length}} รายการ\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"row padding\">\r\n      <div class=\"col-12 col-md-4 col-sm-4\">\r\n        <mat-form-field>\r\n          <mat-icon class=\"search-ic\">search</mat-icon>\r\n          <input matInput placeholder=\"ค้นหา\" [(ngModel)]=\"pageData.name\" (keydown)=\"search($event)\">\r\n        </mat-form-field>\r\n      </div>\r\n      <!-- <div class=\"col-12 col-md-8 col-sm-8 txt-right\">\r\n        <span class=\"select\">ล่าสุด</span> &nbsp;<span class=\"un-select\">สินค้าขายดี</span> &nbsp;<span class=\"un-select\">ราคา</span>\r\n      </div> -->\r\n    </div>\r\n    <div class=\"row padding\">\r\n      <div class=\"col-12 col-md-2 col-sm-4 fix-col-2 mgt-1\" *ngFor=\"let item of productData.products\">\r\n        <mat-card class=\"mat-card_cus\">\r\n          <div style=\"background-size: cover;min-height: 12rem;\">\r\n            <img [src]=\"item.image ? item.image.url: ''\" style=\"position: absolute;\r\n                    width: 100%;min-height: 12rem;object-fit: contain;\"\r\n              (click)=\"gotoEditProduct(item._id)\">\r\n            <mat-checkbox class=\"ch_box\" [(ngModel)]=\"item.checked\" (change)=\"checkboxOptions($event,item)\"></mat-checkbox>\r\n            <span *ngIf=\"item.iswholesale\" style=\"right: 0;\r\n                background-color: #00d0ff;\r\n                position: absolute;\r\n                color: white;\r\n                padding-left: 2px;\r\n                padding-right: 2px;\r\n                font-size: 14px;\r\n                border-radius: 3px;\">ขายส่ง</span>\r\n            <div *ngIf=\"item.status === 'suspended'\" class=\"product-item-soldout-overlay\">\r\n              <div class=\"soldout\">{{'ถูกระงับ'}}</div>\r\n            </div>\r\n            <div *ngIf=\"item.status !== 'suspended' && item.stock === 0\" class=\"product-item-soldout-overlay\">\r\n              <div class=\"soldout\">{{'ขายแล้ว'}}</div>\r\n            </div>\r\n          </div>\r\n          <div class=\"padding\">\r\n            <p class=\"p-name\">\r\n              {{item.name}}\r\n            </p>\r\n            <div class=\"row\">\r\n              <div class=\"col-6 txt-price\">\r\n                {{item.pricetext}}\r\n              </div>\r\n              <div class=\"col-6 txt-right\" style=\"font-size: 14px;\">\r\n                คลัง {{item.stock}}\r\n              </div>\r\n            </div>\r\n          </div>\r\n        </mat-card>\r\n      </div>\r\n    </div>\r\n    <div class=\"text-center\" *ngIf=\"productData.products.length > 0\">\r\n      <button mat-flat-button color=\"primary\" class=\"btn-summit select\" style=\"margin: 5px;\" *ngIf=\"pageData.page > 1\"\r\n        (click)=\"previos()\">ก่อนหน้า</button>\r\n      <button mat-flat-button color=\"primary\" ngClass=\"{{pageData.page === (i + 1) ? 'select' : 'un-select'}} btn-summit\"\r\n        style=\"margin: 5px;min-width: unset;\" *ngFor=\"let item of tabs;let i = index\" (click)=\"page(item)\">{{item}}</button>\r\n      <button mat-flat-button color=\"primary\" class=\"btn-summit select\" style=\"margin: 5px;\" *ngIf=\"pageData.page < tabs.length\"\r\n        (click)=\"next()\">ต่อไป</button>\r\n    </div>\r\n  </mat-tab>\r\n  <mat-tab label=\"หมด\">\r\n    <div *ngIf=\"showDelete\" class=\"portal-panel\">\r\n      <div class=\"row\">\r\n        <div class=\"col-6 txt-left\">\r\n          <mat-checkbox class=\"ch_box\" [(ngModel)]=\"checked\" (change)=\"onselectAll($event)\">เลือกทั้งหมด</mat-checkbox>\r\n        </div>\r\n        <div class=\"col-6 txt-right\">\r\n          <button mat-stroked-button color=\"primary\" (click)=\"openDialog()\">ลบ</button>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"row padding\">\r\n      <div class=\"col-12 col-md-12 col-sm-12\">\r\n        สินค้า {{productData.products.length}} รายการ\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"row padding\">\r\n      <div class=\"col-12 col-md-4 col-sm-4\">\r\n        <mat-form-field>\r\n          <mat-icon class=\"search-ic\">search</mat-icon>\r\n          <input matInput placeholder=\"ค้นหา\" [(ngModel)]=\"pageData.name\" (keydown)=\"search($event)\">\r\n        </mat-form-field>\r\n      </div>\r\n      <!-- <div class=\"col-12 col-md-8 col-sm-8 txt-right\">\r\n        <span class=\"select\">ล่าสุด</span> &nbsp;<span class=\"un-select\">สินค้าขายดี</span> &nbsp;<span class=\"un-select\">ราคา</span>\r\n      </div> -->\r\n    </div>\r\n    <div class=\"row padding\">\r\n      <div class=\"col-12 col-md-2 col-sm-4 fix-col-2 mgt-1\" *ngFor=\"let item of productData.products\">\r\n        <mat-card class=\"mat-card_cus\">\r\n          <div style=\"background-size: cover;min-height: 12rem;\">\r\n            <img [src]=\"item.image ? item.image.url: ''\" style=\"position: absolute;\r\n                    width: 100%;min-height: 12rem;object-fit: contain;\"\r\n              (click)=\"gotoEditProduct(item._id)\">\r\n            <mat-checkbox class=\"ch_box\" [(ngModel)]=\"item.checked\" (change)=\"checkboxOptions($event,item)\"></mat-checkbox>\r\n            <span *ngIf=\"item.iswholesale\" style=\"right: 0;\r\n                background-color: #00d0ff;\r\n                position: absolute;\r\n                color: white;\r\n                padding-left: 2px;\r\n                padding-right: 2px;\r\n                font-size: 14px;\r\n                border-radius: 3px;\">ขายส่ง</span>\r\n            <div *ngIf=\"item.status === 'suspended'\" class=\"product-item-soldout-overlay\">\r\n              <div class=\"soldout\">{{'ถูกระงับ'}}</div>\r\n            </div>\r\n            <div *ngIf=\"item.status !== 'suspended' && item.stock === 0\" class=\"product-item-soldout-overlay\">\r\n              <div class=\"soldout\">{{'ขายแล้ว'}}</div>\r\n            </div>\r\n          </div>\r\n          <div class=\"padding\">\r\n            <p class=\"p-name\">\r\n              {{item.name}}\r\n            </p>\r\n            <div class=\"row\">\r\n              <div class=\"col-6 txt-price\">\r\n                {{item.pricetext}}\r\n              </div>\r\n              <div class=\"col-6 txt-right\" style=\"font-size: 14px;\">\r\n                คลัง {{item.stock}}\r\n              </div>\r\n            </div>\r\n          </div>\r\n        </mat-card>\r\n      </div>\r\n    </div>\r\n    <div class=\"text-center\" *ngIf=\"productData.products.length > 0\">\r\n      <button mat-flat-button color=\"primary\" class=\"btn-summit select\" style=\"margin: 5px;\" *ngIf=\"pageData.page > 1\"\r\n        (click)=\"previos()\">ก่อนหน้า</button>\r\n      <button mat-flat-button color=\"primary\" ngClass=\"{{pageData.page === (i + 1) ? 'select' : 'un-select'}} btn-summit\"\r\n        style=\"margin: 5px;min-width: unset;\" *ngFor=\"let item of tabs;let i = index\" (click)=\"page(item)\">{{item}}</button>\r\n      <button mat-flat-button color=\"primary\" class=\"btn-summit select\" style=\"margin: 5px;\" *ngIf=\"pageData.page < tabs.length\"\r\n        (click)=\"next()\">ต่อไป</button>\r\n    </div>\r\n  </mat-tab>\r\n  <mat-tab label=\"ถูกระงับ\">\r\n    <div *ngIf=\"showDelete\" class=\"portal-panel\">\r\n      <div class=\"row\">\r\n        <div class=\"col-6 txt-left\">\r\n          <mat-checkbox class=\"ch_box\" [(ngModel)]=\"checked\" (change)=\"onselectAll($event)\">เลือกทั้งหมด</mat-checkbox>\r\n        </div>\r\n        <div class=\"col-6 txt-right\">\r\n          <button mat-stroked-button color=\"primary\" (click)=\"openDialog()\">ลบ</button>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"row padding\">\r\n      <div class=\"col-12 col-md-12 col-sm-12\">\r\n        สินค้า {{productData.products.length}} รายการ\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"row padding\">\r\n      <div class=\"col-12 col-md-4 col-sm-4\">\r\n        <mat-form-field>\r\n          <mat-icon class=\"search-ic\">search</mat-icon>\r\n          <input matInput placeholder=\"ค้นหา\" [(ngModel)]=\"pageData.name\" (keydown)=\"search($event)\">\r\n        </mat-form-field>\r\n      </div>\r\n      <!-- <div class=\"col-12 col-md-8 col-sm-8 txt-right\">\r\n        <span class=\"select\">ล่าสุด</span> &nbsp;<span class=\"un-select\">สินค้าขายดี</span> &nbsp;<span class=\"un-select\">ราคา</span>\r\n      </div> -->\r\n    </div>\r\n    <div class=\"row padding\">\r\n      <div class=\"col-12 col-md-2 col-sm-4 fix-col-2 mgt-1\" *ngFor=\"let item of productData.products\">\r\n        <mat-card class=\"mat-card_cus\">\r\n          <div style=\"background-size: cover;min-height: 12rem;\">\r\n            <img [src]=\"item.image ? item.image.url: ''\" style=\"position: absolute;\r\n                    width: 100%;min-height: 12rem;object-fit: contain;\"\r\n              (click)=\"gotoEditProduct(item._id)\">\r\n            <mat-checkbox class=\"ch_box\" [(ngModel)]=\"item.checked\" (change)=\"checkboxOptions($event,item)\"></mat-checkbox>\r\n            <span *ngIf=\"item.iswholesale\" style=\"right: 0;\r\n                background-color: #00d0ff;\r\n                position: absolute;\r\n                color: white;\r\n                padding-left: 2px;\r\n                padding-right: 2px;\r\n                font-size: 14px;\r\n                border-radius: 3px;\">ขายส่ง</span>\r\n            <div *ngIf=\"item.status === 'suspended'\" class=\"product-item-soldout-overlay\">\r\n              <div class=\"soldout\">{{'ถูกระงับ'}}</div>\r\n            </div>\r\n            <div *ngIf=\"item.status !== 'suspended' && item.stock === 0\" class=\"product-item-soldout-overlay\">\r\n              <div class=\"soldout\">{{'ขายแล้ว'}}</div>\r\n            </div>\r\n          </div>\r\n          <div class=\"padding\">\r\n            <p class=\"p-name\">\r\n              {{item.name}}\r\n            </p>\r\n            <div class=\"row\">\r\n              <div class=\"col-6 txt-price\">\r\n                {{item.pricetext}}\r\n              </div>\r\n              <div class=\"col-6 txt-right\" style=\"font-size: 14px;\">\r\n                คลัง {{item.stock}}\r\n              </div>\r\n            </div>\r\n          </div>\r\n        </mat-card>\r\n      </div>\r\n    </div>\r\n    <div class=\"text-center\" *ngIf=\"productData.products.length > 0\">\r\n      <button mat-flat-button color=\"primary\" class=\"btn-summit select\" style=\"margin: 5px;\" *ngIf=\"pageData.page > 1\"\r\n        (click)=\"previos()\">ก่อนหน้า</button>\r\n      <button mat-flat-button color=\"primary\" ngClass=\"{{pageData.page === (i + 1) ? 'select' : 'un-select'}} btn-summit\"\r\n        style=\"margin: 5px;min-width: unset;\" *ngFor=\"let item of tabs;let i = index\" (click)=\"page(item)\">{{item}}</button>\r\n      <button mat-flat-button color=\"primary\" class=\"btn-summit select\" style=\"margin: 5px;\" *ngIf=\"pageData.page < tabs.length\"\r\n        (click)=\"next()\">ต่อไป</button>\r\n    </div>\r\n  </mat-tab>\r\n</mat-tab-group>"
+module.exports = "<mat-tab-group  (selectedTabChange)=\"onLinkClick($event)\">\r\n  <mat-tab label=\"ทั้งหมด\">\r\n\r\n    <div *ngIf=\"showDelete\" class=\"portal-panel\">\r\n      <div class=\"row\">\r\n        <div class=\"col-6 txt-left\">\r\n          <mat-checkbox class=\"ch_box\" [(ngModel)]=\"checked\" (change)=\"onselectAll($event)\">เลือกทั้งหมด</mat-checkbox>\r\n        </div>\r\n        <div class=\"col-6 txt-right\">\r\n          <button mat-stroked-button color=\"primary\" (click)=\"openDialog()\">ลบ</button>\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"row padding text-left\">\r\n      <div class=\"col-12 col-md-12 col-sm-12\">\r\n        สินค้า {{productData.products.length}} รายการ\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"row padding\">\r\n      <div class=\"col-12 col-md-4 col-sm-4\">\r\n        <mat-form-field>\r\n          <mat-icon class=\"search-ic\">search</mat-icon>\r\n          <input matInput placeholder=\"ค้นหา\" [(ngModel)]=\"pageData.name\" (keydown)=\"search($event)\">\r\n        </mat-form-field>\r\n      </div>\r\n      <!-- <div class=\"col-12 col-md-8 col-sm-8 txt-right\">\r\n        <ng-container *ngFor=\"let item of sortModel;let i = index\">\r\n          <span ngClass=\"{{this.sortIndex === item.sortId ? 'select' : 'un-select'}}\" (click)=\"selectSortIndex(item,i)\">{{item.sortName}}</span>&nbsp;\r\n        </ng-container>\r\n      </div> -->\r\n    </div>\r\n\r\n    <div class=\"row padding\">\r\n      <div class=\"col-12 col-md-2 col-sm-4\" (click)=\"gotoCreateProduct()\">\r\n        <div class=\"fix-col\">\r\n          <p>\r\n            <button mat-fab color=\"primary\">\r\n              <mat-icon>add</mat-icon>\r\n            </button>\r\n          </p>\r\n          <p class=\"add-txt\">เพิ่มสินค้า</p>\r\n        </div>\r\n      </div>\r\n\r\n      <div class=\"col-12 col-md-2 col-sm-4 fix-col-2 mgt-1\" *ngFor=\"let item of productData.products\">\r\n        <mat-card class=\"mat-card_cus\">\r\n          <!-- <div style=\"background: url('http://my-test-11.slatic.net/original/536fa036d0bc1e7a54e9496d75aa494f.jpg_720x720q80.jpg') no-repeat center center;background-size: cover;min-height: 12rem;\"> -->\r\n          <div style=\"background-size: cover;min-height: 12rem;\">\r\n            <img [src]=\"item.image ? item.image.url:''\" style=\"width: 100%;min-height: 12rem;object-fit: contain;\"\r\n              (click)=\"gotoEditProduct(item._id)\">\r\n            <mat-checkbox class=\"ch_box\" [(ngModel)]=\"item.checked\" (change)=\"checkboxOptions($event,item)\"></mat-checkbox>\r\n            <span *ngIf=\"item.iswholesale\" style=\"right: 0;\r\n            background-color: #00d0ff;\r\n            position: absolute;\r\n            color: white;\r\n            padding-left: 2px;\r\n            padding-right: 2px;\r\n            font-size: 14px;\r\n            border-radius: 3px;\">ขายส่ง</span>\r\n\r\n\r\n            <div *ngIf=\"item.status === 'suspended'\" class=\"product-item-soldout-overlay\">\r\n              <div class=\"soldout\">{{'ถูกระงับ'}}</div>\r\n            </div>\r\n            <div *ngIf=\"item.status !== 'suspended' && item.stock === 0\" class=\"product-item-soldout-overlay\">\r\n              <div class=\"soldout\">{{'ขายแล้ว'}}</div>\r\n            </div>\r\n\r\n            <!-- <div class=\"product-item__badges\">\r\n              <div class=\"product-label new\">\r\n                <div class=\"badge-content\">\r\n                  <div class=\"text\">ใหม่</div>\r\n                </div><svg viewBox=\"-107 102 48 54\">\r\n                  <path d=\"M-107 102v54l24-6.8 24 6.8v-54z\"></path>\r\n                </svg>\r\n              </div>\r\n            </div> -->\r\n          </div>\r\n          <div class=\"padding\">\r\n            <p class=\"p-name\">\r\n              {{item.name}}\r\n            </p>\r\n            <div class=\"row\">\r\n              <div class=\"col-6 txt-price\">\r\n                {{item.pricetext}}\r\n              </div>\r\n              <div class=\"col-6 txt-right\" style=\"font-size: 14px;\">\r\n                คลัง {{item.stock}}\r\n              </div>\r\n            </div>\r\n            <!-- <div class=\"row fn-size\">\r\n              <div class=\"col-3 footer-card-txt\">\r\n                ดู 0\r\n              </div>\r\n              <div class=\"col-4 footer-card-txt\">\r\n                ถูกใจ 0\r\n              </div>\r\n              <div class=\"col-5 txt-right footer-card-txt\">\r\n                ยอดขาย 0\r\n              </div>\r\n            </div> -->\r\n          </div>\r\n        </mat-card>\r\n      </div>\r\n    </div>\r\n    <div class=\"text-center\" *ngIf=\"productData.products.length > 0\">\r\n      <button mat-flat-button color=\"primary\" class=\"btn-summit select\" style=\"margin: 5px;\" *ngIf=\"pageData.page > 1\"\r\n        (click)=\"previos()\">ก่อนหน้า</button>\r\n      <button mat-flat-button color=\"primary\" ngClass=\"{{pageData.page === (i + 1) ? 'select' : 'un-select'}} btn-summit\"\r\n        style=\"margin: 5px;min-width: unset;\" *ngFor=\"let item of tabs;let i = index\" (click)=\"page(item)\">{{item}}</button>\r\n      <button mat-flat-button color=\"primary\" class=\"btn-summit select\" style=\"margin: 5px;\" *ngIf=\"pageData.page < tabs.length\"\r\n        (click)=\"next()\">ต่อไป</button>\r\n    </div>\r\n  </mat-tab>\r\n  <mat-tab label=\"ขายอยู่\">\r\n\r\n    <div *ngIf=\"showDelete\" class=\"portal-panel\">\r\n      <div class=\"row\">\r\n        <div class=\"col-6 txt-left\">\r\n          <mat-checkbox class=\"ch_box\" [(ngModel)]=\"checked\" (change)=\"onselectAll($event)\">เลือกทั้งหมด</mat-checkbox>\r\n        </div>\r\n        <div class=\"col-6 txt-right\">\r\n          <button mat-stroked-button color=\"primary\" (click)=\"openDialog()\">ลบ</button>\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"row padding\">\r\n      <div class=\"col-12 col-md-12 col-sm-12\">\r\n        สินค้า {{productData.products.length}} รายการ\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"row padding\">\r\n      <div class=\"col-12 col-md-4 col-sm-4\">\r\n        <mat-form-field>\r\n          <mat-icon class=\"search-ic\">search</mat-icon>\r\n          <input matInput placeholder=\"ค้นหา\" [(ngModel)]=\"pageData.name\" (keydown)=\"search($event)\">\r\n        </mat-form-field>\r\n      </div>\r\n      <!-- <div class=\"col-12 col-md-8 col-sm-8 txt-right\">\r\n        <span class=\"select\">ล่าสุด</span> &nbsp;<span class=\"un-select\">สินค้าขายดี</span> &nbsp;<span class=\"un-select\">ราคา</span>\r\n      </div> -->\r\n    </div>\r\n    <div class=\"row padding\">\r\n      <div class=\"col-12 col-md-2 col-sm-4 fix-col-2 mgt-1\" *ngFor=\"let item of productData.products\">\r\n        <mat-card class=\"mat-card_cus\">\r\n          <div style=\"background-size: cover;min-height: 12rem;\">\r\n            <img [src]=\"item.image ? item.image.url: ''\" style=\"width: 100%;min-height: 12rem;object-fit: contain;\"\r\n              (click)=\"gotoEditProduct(item._id)\">\r\n            <mat-checkbox class=\"ch_box\" [(ngModel)]=\"item.checked\" (change)=\"checkboxOptions($event,item)\"></mat-checkbox>\r\n            <span *ngIf=\"item.iswholesale\" style=\"right: 0;\r\n                background-color: #00d0ff;\r\n                position: absolute;\r\n                color: white;\r\n                padding-left: 2px;\r\n                padding-right: 2px;\r\n                font-size: 14px;\r\n                border-radius: 3px;\">ขายส่ง</span>\r\n            <div *ngIf=\"item.status === 'suspended'\" class=\"product-item-soldout-overlay\">\r\n              <div class=\"soldout\">{{'ถูกระงับ'}}</div>\r\n            </div>\r\n            <div *ngIf=\"item.status !== 'suspended' && item.stock === 0\" class=\"product-item-soldout-overlay\">\r\n              <div class=\"soldout\">{{'ขายแล้ว'}}</div>\r\n            </div>\r\n          </div>\r\n          <div class=\"padding\">\r\n            <p class=\"p-name\">\r\n              {{item.name}}\r\n            </p>\r\n            <div class=\"row\">\r\n              <div class=\"col-6 txt-price\">\r\n                {{item.pricetext}}\r\n              </div>\r\n              <div class=\"col-6 txt-right\" style=\"font-size: 14px;\">\r\n                คลัง {{item.stock}}\r\n              </div>\r\n            </div>\r\n          </div>\r\n        </mat-card>\r\n      </div>\r\n    </div>\r\n    <div class=\"text-center\" *ngIf=\"productData.products.length > 0\">\r\n      <button mat-flat-button color=\"primary\" class=\"btn-summit select\" style=\"margin: 5px;\" *ngIf=\"pageData.page > 1\"\r\n        (click)=\"previos()\">ก่อนหน้า</button>\r\n      <button mat-flat-button color=\"primary\" ngClass=\"{{pageData.page === (i + 1) ? 'select' : 'un-select'}} btn-summit\"\r\n        style=\"margin: 5px;min-width: unset;\" *ngFor=\"let item of tabs;let i = index\" (click)=\"page(item)\">{{item}}</button>\r\n      <button mat-flat-button color=\"primary\" class=\"btn-summit select\" style=\"margin: 5px;\" *ngIf=\"pageData.page < tabs.length\"\r\n        (click)=\"next()\">ต่อไป</button>\r\n    </div>\r\n  </mat-tab>\r\n  <mat-tab label=\"หมด\">\r\n    <div *ngIf=\"showDelete\" class=\"portal-panel\">\r\n      <div class=\"row\">\r\n        <div class=\"col-6 txt-left\">\r\n          <mat-checkbox class=\"ch_box\" [(ngModel)]=\"checked\" (change)=\"onselectAll($event)\">เลือกทั้งหมด</mat-checkbox>\r\n        </div>\r\n        <div class=\"col-6 txt-right\">\r\n          <button mat-stroked-button color=\"primary\" (click)=\"openDialog()\">ลบ</button>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"row padding\">\r\n      <div class=\"col-12 col-md-12 col-sm-12\">\r\n        สินค้า {{productData.products.length}} รายการ\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"row padding\">\r\n      <div class=\"col-12 col-md-4 col-sm-4\">\r\n        <mat-form-field>\r\n          <mat-icon class=\"search-ic\">search</mat-icon>\r\n          <input matInput placeholder=\"ค้นหา\" [(ngModel)]=\"pageData.name\" (keydown)=\"search($event)\">\r\n        </mat-form-field>\r\n      </div>\r\n      <!-- <div class=\"col-12 col-md-8 col-sm-8 txt-right\">\r\n        <span class=\"select\">ล่าสุด</span> &nbsp;<span class=\"un-select\">สินค้าขายดี</span> &nbsp;<span class=\"un-select\">ราคา</span>\r\n      </div> -->\r\n    </div>\r\n    <div class=\"row padding\">\r\n      <div class=\"col-12 col-md-2 col-sm-4 fix-col-2 mgt-1\" *ngFor=\"let item of productData.products\">\r\n        <mat-card class=\"mat-card_cus\">\r\n          <div style=\"background-size: cover;min-height: 12rem;\">\r\n            <img [src]=\"item.image ? item.image.url: ''\" style=\"width: 100%;min-height: 12rem;object-fit: contain;\"\r\n              (click)=\"gotoEditProduct(item._id)\">\r\n            <mat-checkbox class=\"ch_box\" [(ngModel)]=\"item.checked\" (change)=\"checkboxOptions($event,item)\"></mat-checkbox>\r\n            <span *ngIf=\"item.iswholesale\" style=\"right: 0;\r\n                background-color: #00d0ff;\r\n                position: absolute;\r\n                color: white;\r\n                padding-left: 2px;\r\n                padding-right: 2px;\r\n                font-size: 14px;\r\n                border-radius: 3px;\">ขายส่ง</span>\r\n            <div *ngIf=\"item.status === 'suspended'\" class=\"product-item-soldout-overlay\">\r\n              <div class=\"soldout\">{{'ถูกระงับ'}}</div>\r\n            </div>\r\n            <div *ngIf=\"item.status !== 'suspended' && item.stock === 0\" class=\"product-item-soldout-overlay\">\r\n              <div class=\"soldout\">{{'ขายแล้ว'}}</div>\r\n            </div>\r\n          </div>\r\n          <div class=\"padding\">\r\n            <p class=\"p-name\">\r\n              {{item.name}}\r\n            </p>\r\n            <div class=\"row\">\r\n              <div class=\"col-6 txt-price\">\r\n                {{item.pricetext}}\r\n              </div>\r\n              <div class=\"col-6 txt-right\" style=\"font-size: 14px;\">\r\n                คลัง {{item.stock}}\r\n              </div>\r\n            </div>\r\n          </div>\r\n        </mat-card>\r\n      </div>\r\n    </div>\r\n    <div class=\"text-center\" *ngIf=\"productData.products.length > 0\">\r\n      <button mat-flat-button color=\"primary\" class=\"btn-summit select\" style=\"margin: 5px;\" *ngIf=\"pageData.page > 1\"\r\n        (click)=\"previos()\">ก่อนหน้า</button>\r\n      <button mat-flat-button color=\"primary\" ngClass=\"{{pageData.page === (i + 1) ? 'select' : 'un-select'}} btn-summit\"\r\n        style=\"margin: 5px;min-width: unset;\" *ngFor=\"let item of tabs;let i = index\" (click)=\"page(item)\">{{item}}</button>\r\n      <button mat-flat-button color=\"primary\" class=\"btn-summit select\" style=\"margin: 5px;\" *ngIf=\"pageData.page < tabs.length\"\r\n        (click)=\"next()\">ต่อไป</button>\r\n    </div>\r\n  </mat-tab>\r\n  <mat-tab label=\"ถูกระงับ\">\r\n    <div *ngIf=\"showDelete\" class=\"portal-panel\">\r\n      <div class=\"row\">\r\n        <div class=\"col-6 txt-left\">\r\n          <mat-checkbox class=\"ch_box\" [(ngModel)]=\"checked\" (change)=\"onselectAll($event)\">เลือกทั้งหมด</mat-checkbox>\r\n        </div>\r\n        <div class=\"col-6 txt-right\">\r\n          <button mat-stroked-button color=\"primary\" (click)=\"openDialog()\">ลบ</button>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"row padding\">\r\n      <div class=\"col-12 col-md-12 col-sm-12\">\r\n        สินค้า {{productData.products.length}} รายการ\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"row padding\">\r\n      <div class=\"col-12 col-md-4 col-sm-4\">\r\n        <mat-form-field>\r\n          <mat-icon class=\"search-ic\">search</mat-icon>\r\n          <input matInput placeholder=\"ค้นหา\" [(ngModel)]=\"pageData.name\" (keydown)=\"search($event)\">\r\n        </mat-form-field>\r\n      </div>\r\n      <!-- <div class=\"col-12 col-md-8 col-sm-8 txt-right\">\r\n        <span class=\"select\">ล่าสุด</span> &nbsp;<span class=\"un-select\">สินค้าขายดี</span> &nbsp;<span class=\"un-select\">ราคา</span>\r\n      </div> -->\r\n    </div>\r\n    <div class=\"row padding\">\r\n      <div class=\"col-12 col-md-2 col-sm-4 fix-col-2 mgt-1\" *ngFor=\"let item of productData.products\">\r\n        <mat-card class=\"mat-card_cus\">\r\n          <div style=\"background-size: cover;min-height: 12rem;\">\r\n            <img [src]=\"item.image ? item.image.url: ''\" style=\"width: 100%;min-height: 12rem;object-fit: contain;\"\r\n              (click)=\"gotoEditProduct(item._id)\">\r\n            <mat-checkbox class=\"ch_box\" [(ngModel)]=\"item.checked\" (change)=\"checkboxOptions($event,item)\"></mat-checkbox>\r\n            <span *ngIf=\"item.iswholesale\" style=\"right: 0;\r\n                background-color: #00d0ff;\r\n                position: absolute;\r\n                color: white;\r\n                padding-left: 2px;\r\n                padding-right: 2px;\r\n                font-size: 14px;\r\n                border-radius: 3px;\">ขายส่ง</span>\r\n            <div *ngIf=\"item.status === 'suspended'\" class=\"product-item-soldout-overlay\">\r\n              <div class=\"soldout\">{{'ถูกระงับ'}}</div>\r\n            </div>\r\n            <div *ngIf=\"item.status !== 'suspended' && item.stock === 0\" class=\"product-item-soldout-overlay\">\r\n              <div class=\"soldout\">{{'ขายแล้ว'}}</div>\r\n            </div>\r\n          </div>\r\n          <div class=\"padding\">\r\n            <p class=\"p-name\">\r\n              {{item.name}}\r\n            </p>\r\n            <div class=\"row\">\r\n              <div class=\"col-6 txt-price\">\r\n                {{item.pricetext}}\r\n              </div>\r\n              <div class=\"col-6 txt-right\" style=\"font-size: 14px;\">\r\n                คลัง {{item.stock}}\r\n              </div>\r\n            </div>\r\n          </div>\r\n        </mat-card>\r\n      </div>\r\n    </div>\r\n    <div class=\"text-center\" *ngIf=\"productData.products.length > 0\">\r\n      <button mat-flat-button color=\"primary\" class=\"btn-summit select\" style=\"margin: 5px;\" *ngIf=\"pageData.page > 1\"\r\n        (click)=\"previos()\">ก่อนหน้า</button>\r\n      <button mat-flat-button color=\"primary\" ngClass=\"{{pageData.page === (i + 1) ? 'select' : 'un-select'}} btn-summit\"\r\n        style=\"margin: 5px;min-width: unset;\" *ngFor=\"let item of tabs;let i = index\" (click)=\"page(item)\">{{item}}</button>\r\n      <button mat-flat-button color=\"primary\" class=\"btn-summit select\" style=\"margin: 5px;\" *ngIf=\"pageData.page < tabs.length\"\r\n        (click)=\"next()\">ต่อไป</button>\r\n    </div>\r\n  </mat-tab>\r\n</mat-tab-group>"
 
 /***/ }),
 
@@ -4812,7 +6113,7 @@ module.exports = "<mat-tab-group (selectedTabChange)=\"onLinkClick($event)\">\r\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".mgt-right {\n  margin-right: 0.4rem; }\n\n.txt-right {\n  text-align: right; }\n\n.txt-left {\n  text-align: left; }\n\n.select {\n  font-weight: bold;\n  cursor: pointer; }\n\n.un-select {\n  color: #dadada;\n  cursor: pointer; }\n\n.fix-col {\n  border: dotted;\n  border-color: #a9a9a9;\n  height: 20rem;\n  position: relative;\n  cursor: pointer; }\n\n.fix-col p {\n  margin: 0;\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  -webkit-transform: translate(-50%, -50%);\n          transform: translate(-50%, -50%); }\n\n.add-txt {\n  margin-top: 3rem !important;\n  color: #ff9558;\n  cursor: pointer; }\n\n.mat-card_cus {\n  transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);\n  display: block;\n  position: relative;\n  padding: 0px;\n  border-radius: 4px;\n  height: 20rem; }\n\n.p-name {\n  font-size: 0.8rem;\n  white-space: nowrap;\n  text-overflow: ellipsis;\n  overflow: hidden; }\n\n.txt-price {\n  color: #ff9558;\n  white-space: nowrap;\n  font-size: 15px; }\n\n.fix-col-2 {\n  height: 20rem;\n  cursor: pointer; }\n\n.fn-size {\n  font-size: 0.6rem; }\n\n.ch_box {\n  margin-left: 1rem;\n  margin-top: 0.5rem;\n  position: absolute;\n  z-index: 999; }\n\n.product-item__badges {\n  position: absolute;\n  z-index: 1;\n  top: 0;\n  left: 0;\n  right: 0;\n  text-align: right; }\n\n.product-label {\n  display: inline-block;\n  position: relative;\n  overflow: hidden;\n  margin: 0;\n  width: 48px;\n  height: 54px; }\n\n.product-label .badge-content {\n  display: block;\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  overflow: hidden; }\n\n.product-label .badge-content .text {\n  display: inline-block;\n  width: 100%;\n  overflow: hidden;\n  vertical-align: middle;\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  -webkit-transform: translate(-50%, -55%);\n  transform: translate(-50%, -55%); }\n\n.product-item .product-label svg {\n  width: 100%;\n  height: 100%; }\n\n.product-label.new svg {\n  fill: rgba(0, 191, 165, 0.85); }\n\n.text {\n  margin-left: -0.8rem;\n  color: #ffffff;\n  font-size: 0.8rem; }\n\n.mgt-1 {\n  margin-bottom: 1rem; }\n\n.footer-card-txt {\n  font-size: 0.8rem; }\n\n.search-ic {\n  position: absolute;\n  right: 0;\n  bottom: 2px;\n  color: #9f9f9f; }\n\n.portal-panel {\n  width: 100%;\n  background: #fff;\n  box-shadow: 0 0.1rem 0.4rem rgba(0, 0, 0, 0.1);\n  top: 56px;\n  left: 0;\n  z-index: 90000;\n  padding: 20px; }\n\n.product-item-soldout-overlay {\n  display: flex;\n  position: absolute;\n  width: 100%;\n  height: 50%;\n  left: 0;\n  top: 0;\n  background: rgba(255, 255, 255, 0.54);\n  align-items: center;\n  justify-content: center; }\n\n.product-item-soldout-overlay .soldout {\n  background: rgba(0, 0, 0, 0.65);\n  color: #fff;\n  text-align: center;\n  width: 60px;\n  height: 60px;\n  border-radius: 60px;\n  font-size: 12px;\n  display: flex;\n  align-items: center;\n  justify-content: center; }\n"
+module.exports = ".mgt-right {\n  margin-right: 0.4rem; }\n\n.txt-right {\n  text-align: right; }\n\n.txt-left {\n  text-align: left; }\n\n.select {\n  margin: 2px;\n  min-width: unset; }\n\n.un-select {\n  background-color: #e8e8e8 !important;\n  color: #000000 !important;\n  margin: 2px;\n  min-width: unset; }\n\n.fix-col {\n  border: dotted;\n  border-color: #a9a9a9;\n  height: 20rem;\n  position: relative;\n  cursor: pointer; }\n\n.fix-col p {\n  margin: 0;\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  -webkit-transform: translate(-50%, -50%);\n          transform: translate(-50%, -50%); }\n\n.add-txt {\n  margin-top: 3rem !important;\n  color: #ff9558;\n  cursor: pointer; }\n\n.mat-card_cus {\n  transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);\n  display: block;\n  position: relative;\n  padding: 0px;\n  border-radius: 4px;\n  height: 20rem; }\n\n.p-name {\n  font-size: 0.8rem;\n  white-space: nowrap;\n  text-overflow: ellipsis;\n  overflow: hidden; }\n\n.txt-price {\n  color: #ff9558;\n  white-space: nowrap;\n  font-size: 15px; }\n\n.fix-col-2 {\n  height: 20rem;\n  cursor: pointer; }\n\n.fn-size {\n  font-size: 0.6rem; }\n\n.ch_box {\n  left: 0;\n  margin-left: 0.7rem;\n  margin-top: 0.5rem;\n  position: absolute;\n  z-index: 999; }\n\n.product-item__badges {\n  position: absolute;\n  z-index: 1;\n  top: 0;\n  left: 0;\n  right: 0;\n  text-align: right; }\n\n.product-label {\n  display: inline-block;\n  position: relative;\n  overflow: hidden;\n  margin: 0;\n  width: 48px;\n  height: 54px; }\n\n.product-label .badge-content {\n  display: block;\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  overflow: hidden; }\n\n.product-label .badge-content .text {\n  display: inline-block;\n  width: 100%;\n  overflow: hidden;\n  vertical-align: middle;\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  -webkit-transform: translate(-50%, -55%);\n  transform: translate(-50%, -55%); }\n\n.product-item .product-label svg {\n  width: 100%;\n  height: 100%; }\n\n.product-label.new svg {\n  fill: rgba(0, 191, 165, 0.85); }\n\n.text {\n  margin-left: -0.8rem;\n  color: #ffffff;\n  font-size: 0.8rem; }\n\n.mgt-1 {\n  margin-bottom: 1rem; }\n\n.footer-card-txt {\n  font-size: 0.8rem; }\n\n.search-ic {\n  position: absolute;\n  right: 0;\n  bottom: 2px;\n  color: #9f9f9f; }\n\nmat-tab-group {\n  text-align: center; }\n\n.portal-panel {\n  width: 100%;\n  background: #fff;\n  box-shadow: 0 0.1rem 0.4rem rgba(0, 0, 0, 0.1);\n  top: 56px;\n  left: 0;\n  z-index: 90000;\n  padding: 20px; }\n\n.product-item-soldout-overlay {\n  display: flex;\n  position: absolute;\n  width: 100%;\n  height: 50%;\n  left: 0;\n  top: 0;\n  background: rgba(255, 255, 255, 0.54);\n  align-items: center;\n  justify-content: center; }\n\n.product-item-soldout-overlay .soldout {\n  background: rgba(0, 0, 0, 0.65);\n  color: #fff;\n  text-align: center;\n  width: 60px;\n  height: 60px;\n  border-radius: 60px;\n  font-size: 12px;\n  display: flex;\n  align-items: center;\n  justify-content: center; }\n"
 
 /***/ }),
 
@@ -4984,7 +6285,7 @@ var MyProductComponent = /** @class */ (function () {
                             console.log(this.productData);
                             this.tabs = data.data.tabs;
                             if (this.productData && this.productData.length === 0) {
-                                this.dataService.warning('ไม่พบข้อมูลบุคลากร');
+                                this.dataService.warning('ไม่พบข้อมูลสินค้า');
                             }
                         }
                         return [3 /*break*/, 4];
@@ -5102,6 +6403,203 @@ var MyProductComponent = /** @class */ (function () {
             ngx_spinner__WEBPACK_IMPORTED_MODULE_7__["NgxSpinnerService"]])
     ], MyProductComponent);
     return MyProductComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/pages/my-promotion/my-promotion.component.html":
+/*!****************************************************************!*\
+  !*** ./src/app/pages/my-promotion/my-promotion.component.html ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<mat-card class=\"container\">\r\n    <div class=\"promotion-setting-header-title row\">\r\n        <div class=\"col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12\">\r\n            <span>โปรโมชั่นส่วนลดของฉัน</span>\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"row\">\r\n        <div class=\"col-12 col-sm-6 col-md-6 col-lg-4 col-xl-4\">\r\n            <mat-form-field>\r\n                <mat-icon class=\"search-ic\">search</mat-icon>\r\n                <input matInput placeholder=\"ค้นหา\"  (keydown)=\"search($event)\">\r\n            </mat-form-field>\r\n        </div>\r\n        <div class=\"d-none d-sm-block d-md-block d-lg-block d-xl-block col-sm-6 col-md-6 col-lg-8 col-xl-8 text-right\">\r\n            <button mat-flat-button color=\"primary\" (click)=\"onCreatePromotion()\">\r\n                <mat-icon>add</mat-icon><span style=\"font-weight: bold;\" class=\"padding-left\">โปรโมชั่นส่วนลดใหม่</span>\r\n            </button>\r\n        </div>\r\n        <div class=\"d-block d-sm-none col-12\" (click)=\"onCreatePromotion()\">\r\n            <button mat-flat-button color=\"primary\">\r\n                <mat-icon>add</mat-icon><span style=\"font-weight: bold;\" class=\"padding-left\">โปรโมชั่นส่วนลดใหม่</span>\r\n            </button>\r\n        </div>\r\n\r\n    </div>\r\n    <mat-tab-group (selectedTabChange)=\"onLinkClick($event)\" [selectedIndex]=\"0\">\r\n        <mat-tab label=\"{{item}}\" *ngFor=\"let item of tabs\">\r\n\r\n            <mat-list>\r\n                <div class=\"row\" style=\"background-color: #f5f5f5;\">\r\n                    <div class=\"col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3\">\r\n                        <h3 mat-subheader>ชื่อของรายการ</h3>\r\n                    </div>\r\n                    <div class=\"col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3\">\r\n                        <h3 mat-subheader>รายการสินค้า</h3>\r\n                    </div>\r\n                    <div class=\"col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2\">\r\n                        <h3 mat-subheader>จาก</h3>\r\n                    </div>\r\n                    <div class=\"col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2\">\r\n                        <h3 mat-subheader>ถึง</h3>\r\n                    </div>\r\n                    <div class=\"col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2\">\r\n                        <h3 mat-subheader>กำลังจัดรายการ</h3>\r\n                    </div>\r\n                </div>\r\n                <!-- <mat-list-item > -->\r\n                <div class=\"row\" style=\"border-bottom: 1px solid #e0e0e0;\" *ngFor=\"let item of data\">\r\n                    <div class=\"col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3\">\r\n                        <h3 mat-subheader>{{item.title}}</h3>\r\n                    </div>\r\n                    <div class=\"col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3\">\r\n                        <h3 mat-subheader>{{item.products.length}} รายการ</h3>\r\n                    </div>\r\n                    <div class=\"col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2\">\r\n                        <h3 mat-subheader>{{item.start_date | date:\"dd-MM-yyyy\" }} {{item.start_time | date:\"HH:MM\" }}</h3>\r\n                    </div>\r\n                    <div class=\"col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2\">\r\n                        <h3 mat-subheader>{{item.start_date | date:\"dd-MM-yyyy\"}} {{item.start_time | date:\"HH:MM\"}}</h3>\r\n                    </div>\r\n                    <div class=\"col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2\">\r\n                        <div class=\"padding-left\">\r\n                            <button mat-flat-button color=\"primary\" (click)=\"onDetail(item)\">\r\n                                <span>ข้อมูล</span>\r\n                            </button>\r\n                            <button mat-stroked-button (click)=\"onDelete(item)\">\r\n                                <span>ลบ</span>\r\n                            </button>\r\n                        </div>\r\n\r\n                    </div>\r\n                    \r\n                </div>\r\n                <!-- </mat-list-item> -->\r\n                <div class=\"text-center padding padding-top\" >\r\n                        <button mat-flat-button color=\"primary\" class=\"btn-summit select\" style=\"margin: 5px;\" \r\n                            (click)=\"previos()\">ก่อนหน้า</button>\r\n                        <button mat-flat-button color=\"primary\" \r\n                            style=\"margin: 5px;min-width: unset;\" *ngFor=\"let item of [1,2,3];let i = index\" (click)=\"page(item)\">{{1}}</button>\r\n                        <button mat-flat-button color=\"primary\" class=\"btn-summit select\" style=\"margin: 5px;\" \r\n                            (click)=\"next()\">ต่อไป</button>\r\n                    </div>\r\n            </mat-list>\r\n            \r\n\r\n        </mat-tab>\r\n\r\n    </mat-tab-group>\r\n\r\n\r\n</mat-card>"
+
+/***/ }),
+
+/***/ "./src/app/pages/my-promotion/my-promotion.component.scss":
+/*!****************************************************************!*\
+  !*** ./src/app/pages/my-promotion/my-promotion.component.scss ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".promotion-setting-header-title {\n  font-size: 23px; }\n\n.container {\n  max-width: 90% !important; }\n\n.search-ic {\n  position: absolute;\n  right: 0;\n  bottom: 2px;\n  color: #9f9f9f; }\n\ntable {\n  width: 100%;\n  overflow: auto; }\n\n.mat-list {\n  min-width: 600px; }\n\n.mat-list .mat-subheader:first-child,\n.mat-nav-list .mat-subheader:first-child,\n.mat-selection-list .mat-subheader:first-child {\n  margin-bottom: -8px; }\n\n.mat-list-item .mat-list-item-content {\n  display: flow-root !important;\n  padding: unset !important; }\n\n.cdk-overlay-backdrop.cdk-overlay-backdrop-showing {\n  opacity: 1; }\n\n.cdk-overlay-dark-backdrop {\n  background: rgba(0, 0, 0, 0.288); }\n\n.cdk-overlay-backdrop {\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  z-index: 1000;\n  pointer-events: auto;\n  -webkit-tap-highlight-color: transparent;\n  transition: opacity 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);\n  opacity: 0; }\n\nmat-dialog-container {\n  padding-bottom: 0 !important; }\n\n.mat-dialog-container {\n  padding-bottom: 0 !important; }\n\n.select {\n  margin: 2px;\n  min-width: unset; }\n\n.un-select {\n  background-color: #e8e8e8 !important;\n  color: #000000 !important;\n  margin: 2px;\n  min-width: unset; }\n"
+
+/***/ }),
+
+/***/ "./src/app/pages/my-promotion/my-promotion.component.ts":
+/*!**************************************************************!*\
+  !*** ./src/app/pages/my-promotion/my-promotion.component.ts ***!
+  \**************************************************************/
+/*! exports provided: MyPromotionComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MyPromotionComponent", function() { return MyPromotionComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var ngx_spinner__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ngx-spinner */ "./node_modules/ngx-spinner/fesm5/ngx-spinner.js");
+/* harmony import */ var _app_constants__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../app.constants */ "./src/app/app.constants.ts");
+/* harmony import */ var _providers_rest_api_service_rest_api_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../providers/rest-api-service/rest-api.service */ "./src/app/providers/rest-api-service/rest-api.service.ts");
+/* harmony import */ var _providers_data_service_data_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../providers/data-service/data.service */ "./src/app/providers/data-service/data.service.ts");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _modals_modal_delete_my_promotion_modal_delete_my_promotion_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../modals/modal-delete-my-promotion/modal-delete-my-promotion.component */ "./src/app/pages/modals/modal-delete-my-promotion/modal-delete-my-promotion.component.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (undefined && undefined.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = y[op[0] & 2 ? "return" : op[0] ? "throw" : "next"]) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [0, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+
+
+
+
+
+
+
+
+var MyPromotionComponent = /** @class */ (function () {
+    function MyPromotionComponent(route, restApi, dataService, dialog, spinner) {
+        this.route = route;
+        this.restApi = restApi;
+        this.dataService = dataService;
+        this.dialog = dialog;
+        this.spinner = spinner;
+        this.tabs = ['กำลังจะมา', 'กำลังดำเนินการ', 'หมดอายุแล้ว'];
+        this.data = [];
+        console.log(this.tabs);
+    }
+    MyPromotionComponent.prototype.ngOnInit = function () {
+        this.getPromotion();
+    };
+    MyPromotionComponent.prototype.search = function (event) {
+        console.log(event);
+    };
+    MyPromotionComponent.prototype.onLinkClick = function (event) {
+        console.log(event);
+    };
+    MyPromotionComponent.prototype.onCreatePromotion = function () {
+        this.route.navigate(['/info-my-promotion']);
+    };
+    MyPromotionComponent.prototype.onDetail = function (item) {
+        this.route.navigate(['/info-my-promotion'], { queryParams: { itemId: item._id } });
+    };
+    MyPromotionComponent.prototype.onDelete = function (item) {
+        var dialogRef = this.dialog.open(_modals_modal_delete_my_promotion_modal_delete_my_promotion_component__WEBPACK_IMPORTED_MODULE_7__["ModalDeleteMyPromotionComponent"], {
+            width: '500px',
+            // background-color: 'red',
+            hasBackdrop: true,
+            data: JSON.parse(JSON.stringify(item))
+        });
+        dialogRef.afterClosed().subscribe(function (result) {
+            if (result) {
+            }
+            else {
+            }
+        });
+    };
+    MyPromotionComponent.prototype.getPromotion = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var shop, object, res, error_1;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        this.spinner.show();
+                        shop = window.localStorage.getItem(_app_constants__WEBPACK_IMPORTED_MODULE_3__["Constants"].URL() + '@usershop') ? JSON.parse(window.localStorage.getItem(_app_constants__WEBPACK_IMPORTED_MODULE_3__["Constants"].URL() + '@usershop')) : null;
+                        object = {
+                            shop_id: shop.shop_id,
+                            status: 'all',
+                            name: '',
+                            page: 1,
+                            limit: 30
+                        };
+                        _a.label = 1;
+                    case 1:
+                        _a.trys.push([1, 3, , 4]);
+                        return [4 /*yield*/, this.restApi.post(_app_constants__WEBPACK_IMPORTED_MODULE_3__["Constants"].URL() + '/api/discount-list', object)];
+                    case 2:
+                        res = _a.sent();
+                        if (res['status'] === 200) {
+                            this.spinner.hide();
+                            console.log(res);
+                            this.data = res.datas;
+                            // if (this.data && this.data.length === 0) {
+                            //   this.dataService.warning('ไม่พบข้อมูลสินค้า');
+                            // }
+                        }
+                        return [3 /*break*/, 4];
+                    case 3:
+                        error_1 = _a.sent();
+                        this.spinner.hide();
+                        this.dataService.error("โหลดข้อมูลล้มเหลว กรุณาลองใหม่อีกครั้ง");
+                        return [3 /*break*/, 4];
+                    case 4: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    MyPromotionComponent.prototype.previos = function () {
+    };
+    MyPromotionComponent.prototype.page = function (item) {
+    };
+    MyPromotionComponent.prototype.next = function () {
+    };
+    MyPromotionComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-my-promotion',
+            template: __webpack_require__(/*! ./my-promotion.component.html */ "./src/app/pages/my-promotion/my-promotion.component.html"),
+            styles: [__webpack_require__(/*! ./my-promotion.component.scss */ "./src/app/pages/my-promotion/my-promotion.component.scss")]
+        }),
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"],
+            _providers_rest_api_service_rest_api_service__WEBPACK_IMPORTED_MODULE_4__["RestApiService"],
+            _providers_data_service_data_service__WEBPACK_IMPORTED_MODULE_5__["DataService"],
+            _angular_material__WEBPACK_IMPORTED_MODULE_6__["MatDialog"],
+            ngx_spinner__WEBPACK_IMPORTED_MODULE_2__["NgxSpinnerService"]])
+    ], MyPromotionComponent);
+    return MyPromotionComponent;
 }());
 
 
@@ -5530,7 +7028,7 @@ module.exports = ".bg-card-icon {\r\n    transition: none !important;\r\n    box
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- <mat-card class=\"setting-mat-card\">\r\n  <div class=\"row setting-div\">\r\n    <div class=\"col-10 col-md-10 padding-left\">\r\n      <mat-card class=\"bg-card-icon\">\r\n        <img src=\"/assets/imgs/look.png\" class=\"setting-icon-look\">\r\n      </mat-card>\r\n      <p class=\"setting-text-header1\"><b>หมวดหมู่ที่เปิดการใช้งาน</b></p>\r\n      <p class=\"setting-text-header2\">ผู้ซื้อสามารถมองเห็นหมวดหมู่เหล่านี้ได้จากร้านของคุณ</p>\r\n    </div>\r\n  </div>\r\n  <div class=\"row\">\r\n    <div class=\"col-12 \" style=\"text-align: center\">\r\n      <img src=\"/assets/imgs/responsive.png\" class=\"setting-icon-responsive\">\r\n      <p class=\"setting-text-body1\">คุณยังไม่มีหมวดหมู่สินค้าที่ใช้งานขณะนี้</p>\r\n    </div>\r\n  </div>\r\n</mat-card> -->\r\n\r\n<!-- <br> -->\r\n<!-- <mat-card class=\"setting-mat-card\">\r\n  <div class=\"row\">\r\n    <div class=\"col-10 col-md-10 padding-left\">\r\n      <mat-card class=\"bg-card-icon1\">\r\n        <img src=\"/assets/imgs/private.png\" class=\"setting-icon-look\">\r\n      </mat-card>\r\n      <p class=\"setting-text-header1\"><b>หมวดหมู่ที่ปิดการใช้งาน</b></p>\r\n      <p class=\"setting-text-header2\">เพื่อให้ผู้ซื้อมองเห็นกรุณาเปิดใช้งานหมวดหมู่นี้</p>\r\n    </div>\r\n  </div>\r\n  <div class=\"row\">\r\n    <div class=\"col-12 padding-left\" style=\"text-align: center\">\r\n      <button mat-stroked-button color=\"primary\" class=\"setting-btn-add-cat setting-btn-text-add-cat\">+\r\n        สร้างหมวดหมู่ใหม่เอง</button>\r\n    </div>\r\n  </div>\r\n  <div class=\"row\">\r\n    <div class=\"col-1\"></div>\r\n    <div class=\"col-10 \">\r\n      <div>\r\n        <div class=\"row border-list-cat\">\r\n          <div class=\"col-12 col-md-4\">\r\n            <p>\r\n              <b>เครื่องเขียน</b> &nbsp;\r\n              <button mat-stroked-button class=\"setting-bnt-rename\"><span class=\"setting-bnt-text-rename\">เปลี่ยนชื่อ</span></button>\r\n            </p>\r\n            <p class=\"setting-text-set-cat\">กำหนดหมวดหมู่สินค้าเอง</p>\r\n          </div>\r\n          <div class=\"col-12 col-md-4\" style=\"text-align: center\">\r\n            <div class=\"row\">\r\n              <div class=\"col-4 col-md-4\"></div>\r\n              <div class=\"col-12 col-md-4\">\r\n                <button mat-stroked-button style=\"width:100%\">ข้อมูล</button>\r\n              </div>\r\n            </div>\r\n          </div>\r\n          <div class=\"col-6 col-md-2\" style=\"text-align: center\">\r\n            <mat-slide-toggle class=\"setting-toggle\"></mat-slide-toggle>\r\n          </div>\r\n          <div class=\"col-6 col-md-2\" style=\"text-align: center\">\r\n            <button mat-icon-button>\r\n              <mat-icon svgIcon=\"del\" class=\"setting-icon-del\"></mat-icon>\r\n            </button>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"col-1\"></div>\r\n  </div>\r\n</mat-card> -->\r\n\r\n<!-- <mat-card>\r\n  <div class=\"row setting-div\">\r\n    <div class=\"col-10 col-md-10 size-div-header padding-left-div\">\r\n      <mat-card class=\"bg-card-icon\">\r\n        <img src=\"/assets/imgs/look.png\" class=\"setting-icon-look\">\r\n      </mat-card>\r\n      <p class=\"setting-text-header1\"><b>หมวดหมู่ที่เปิดการใช้งาน</b></p>\r\n      <p class=\"setting-text-header2\">ผู้ซื้อสามารถมองเห็นหมวดหมู่เหล่านี้ได้จากร้านของคุณ</p>\r\n    </div>\r\n  </div>\r\n  <div *ngFor=\"let item of modelData\" class=\"row card-padding-div\">\r\n    <div class=\"col-1 card-padding-div\"></div>\r\n    <div class=\"col-12 col-md-10 card-padding-div\" *ngIf=\"item.status\">\r\n      <mat-card class=\"size-card\">\r\n        <div class=\"row\">\r\n          <div class=\"col-1 no-padding-div\"></div>\r\n          <div class=\"col-10  no-padding-div\">\r\n            <div>\r\n              <div class=\"row border-list-cat\">\r\n                <div class=\"col-12 col-md-4 no-padding-div\">\r\n                  <p>\r\n                    <b>{{item.name}}</b> &nbsp;\r\n                    <button mat-stroked-button class=\"setting-bnt-rename\"><span class=\"setting-bnt-text-rename\">เปลี่ยนชื่อ</span></button>\r\n                  </p>\r\n                  <p class=\"setting-text-set-cat\">กำหนดหมวดหมู่สินค้าเอง</p>\r\n                </div>\r\n                <div class=\"col-12 col-md-4 no-padding-div\" style=\"text-align: center\">\r\n                  <div class=\"row\">\r\n                    <div class=\"col-4 col-md-4 no-padding-div\"></div>\r\n                    <div class=\"col-12 col-md-4 no-padding-div\">\r\n                      <button mat-stroked-button style=\"width:100%\" (click)=\"editCategory(item)\">ข้อมูล</button>\r\n                    </div>\r\n                  </div>\r\n                </div>\r\n                <div class=\"col-6 col-md-2 no-padding-div\" style=\"text-align: center\">\r\n                  <mat-slide-toggle class=\"setting-toggle\" [(ngModel)]=\"item.status\" (change)=\"onChangeStatus(item)\"></mat-slide-toggle>\r\n                </div>\r\n                <div class=\"col-6 col-md-2 no-padding-div\" style=\"text-align: center\">\r\n                  <button mat-icon-button>\r\n                    <mat-icon svgIcon=\"drag\" class=\"setting-icon-del\"></mat-icon>\r\n                  </button>\r\n                </div>\r\n              </div>\r\n            </div>\r\n          </div>\r\n          <div class=\"col-1 no-padding-div\"></div>\r\n        </div>\r\n      </mat-card>\r\n    </div>\r\n    <div class=\"col-1 card-padding-div\"></div>\r\n  </div>\r\n</mat-card> -->\r\n<!-- <br> -->\r\n<!-- <mat-card>\r\n  <div class=\"row setting-div padding-left-div\">\r\n    <div class=\"col-10 col-md-10 size-div-header\">\r\n      <mat-card class=\"bg-card-icon1\">\r\n        <img src=\"/assets/imgs/private.png\" class=\"setting-icon-look\">\r\n      </mat-card>\r\n      <p class=\"setting-text-header1\"><b>หมวดหมู่ที่ปิดการใช้งาน</b></p>\r\n      <p class=\"setting-text-header2\">เพื่อให้ผู้ซื้อมองเห็นกรุณาเปิดใช้งานหมวดหมู่นี้</p>\r\n    </div>\r\n  </div>\r\n  <div class=\"row\">\r\n    <div class=\"col-1\"></div>\r\n    <div class=\"col-12 col-md-10\" style=\"text-align: center\">\r\n      <button mat-stroked-button color=\"primary\" class=\"setting-btn-add-cat setting-btn-text-add-cat\" (click)=\"infoCategory()\">+\r\n        สร้างหมวดหมู่ใหม่เอง</button>\r\n    </div>\r\n    <div class=\"col-1\"></div>\r\n  </div>\r\n  <div *ngFor=\"let item of modelData\" class=\" row card-padding-div\">\r\n    <div class=\"col-1 card-padding-div\"></div>\r\n    <div class=\"col-12 col-md-10 card-padding-div\" *ngIf=\"!item.status\">\r\n      <mat-card>\r\n        <div class=\"row\">\r\n          <div class=\"col-1 no-padding-div\"></div>\r\n          <div class=\"col-10  no-padding-div\">\r\n            <div>\r\n              <div class=\"row border-list-cat\">\r\n                <div class=\"col-12 col-md-4 no-padding-div\">\r\n                  <p>\r\n                    <b>{{item.name}}</b> &nbsp;\r\n                    <button mat-stroked-button class=\"setting-bnt-rename\"><span class=\"setting-bnt-text-rename\">เปลี่ยนชื่อ</span></button>\r\n                  </p>\r\n                  <p class=\"setting-text-set-cat\">กำหนดหมวดหมู่สินค้าเอง</p>\r\n                </div>\r\n                <div class=\"col-12 col-md-4 no-padding-div\" style=\"text-align: center\">\r\n                  <div class=\"row\">\r\n                    <div class=\"col-4 col-md-4 no-padding-div\"></div>\r\n                    <div class=\"col-12 col-md-4 no-padding-div\">\r\n                      <button mat-stroked-button style=\"width:100%\" (click)=\"editCategory(item)\">ข้อมูล</button>\r\n                    </div>\r\n                  </div>\r\n                </div>\r\n                <div class=\"col-6 col-md-2 no-padding-div\" style=\"text-align: center\">\r\n                  <mat-slide-toggle class=\"setting-toggle\" [(ngModel)]=\"item.status\" (change)=\"onChangeStatus(item)\"></mat-slide-toggle>\r\n                </div>\r\n                <div class=\"col-6 col-md-2 no-padding-div\" style=\"text-align: center\">\r\n                  <button mat-icon-button>\r\n                    <mat-icon svgIcon=\"del\" class=\"setting-icon-del\"></mat-icon>\r\n                  </button>\r\n                </div>\r\n              </div>\r\n            </div>\r\n          </div>\r\n          <div class=\"col-1 no-padding-div\"></div>\r\n        </div>\r\n      </mat-card>\r\n    </div>\r\n    <div class=\"col-1 card-padding-div\"></div>\r\n  </div>\r\n</mat-card>   -->\r\n\r\n<mat-card>\r\n  <div class=\"row setting-div\">\r\n    <div class=\"col-10 col-md-10 size-div-header padding-left-div\">\r\n      <mat-card class=\"bg-card-icon\" >\r\n        <img mat-card-image src=\"/assets/imgs/open.png\" class=\"setting-icon-look\">\r\n      </mat-card>\r\n      <p class=\"setting-text-header1\"><b>หมวดหมู่ที่เปิดการใช้งาน</b></p>\r\n      <p class=\"setting-text-header2\">ผู้ซื้อสามารถมองเห็นหมวดหมู่เหล่านี้ได้จากร้านของคุณ</p>\r\n    </div>\r\n  </div>\r\n  <div *ngFor=\"let item of modelData\" class=\"row card-padding-div\">\r\n    <div class=\"col-1 card-padding-div\"></div>\r\n    <div class=\"col-12 col-md-10 card-padding-div\" *ngIf=\"item.status\">\r\n      <mat-list class=\"border-list\">\r\n        <div class=\"row\">\r\n          <div class=\"col-1 no-padding-div\"></div>\r\n          <div class=\"col-10  no-padding-div\">\r\n            <div>\r\n              <div class=\"row border-list-cat position-list\">\r\n                <div class=\"col-12 col-md-4 no-padding-div\">\r\n                  <p>\r\n                    <b>{{item.name}}</b> &nbsp;\r\n                    <!-- <button mat-stroked-button class=\"setting-bnt-rename\"><span class=\"setting-bnt-text-rename\">เปลี่ยนชื่อ</span></button> -->\r\n                  </p>\r\n                  <p class=\"setting-text-set-cat\">กำหนดหมวดหมู่สินค้าเอง</p>\r\n                </div>\r\n                <div class=\"col-12 col-md-4 no-padding-div\" style=\"text-align: center\">\r\n                  <div class=\"row\">\r\n                    <div class=\"col-4 col-md-4 no-padding-div\"></div>\r\n                    <div class=\"col-12 col-md-4 no-padding-div\">\r\n                      <button mat-stroked-button style=\"width:100%\" (click)=\"editCategory(item)\">ข้อมูล</button>\r\n                    </div>\r\n                  </div>\r\n                </div>\r\n                <div class=\"col-6 col-md-2 no-padding-div\" style=\"text-align: center\">\r\n                  <mat-slide-toggle class=\"setting-toggle\" [(ngModel)]=\"item.status\" (change)=\"onChangeStatus(item)\"></mat-slide-toggle>\r\n                </div>\r\n                <div class=\"col-6 col-md-2 no-padding-div\" style=\"text-align: center\">\r\n                  <button mat-icon-button>\r\n                      <!-- <mat-icon svgIcon=\"drag\" class=\"setting-icon-del\"></mat-icon> -->\r\n                    </button>\r\n                </div>\r\n              </div>\r\n            </div>\r\n          </div>\r\n          <div class=\"col-1 no-padding-div\"></div>\r\n        </div>\r\n      </mat-list>\r\n    </div>\r\n    <div class=\"col-1 card-padding-div\"></div>\r\n  </div>\r\n</mat-card>\r\n\r\n<br>\r\n\r\n<mat-card>\r\n  <div class=\"row setting-div padding-left-div\">\r\n    <div class=\"col-10 col-md-10 size-div-header\">\r\n      <mat-card class=\"bg-card-icon1\">\r\n        <img mat-card-image src=\"/assets/imgs/close.png\" class=\"setting-icon-look\">\r\n      </mat-card>\r\n      <p class=\"setting-text-header1\"><b>หมวดหมู่ที่ปิดการใช้งาน</b></p>\r\n      <p class=\"setting-text-header2\">เพื่อให้ผู้ซื้อมองเห็นกรุณาเปิดใช้งานหมวดหมู่นี้</p>\r\n    </div>\r\n  </div>\r\n  <div class=\"row\">\r\n    <div class=\"col-1\"></div>\r\n    <div class=\"col-12 col-md-10\" style=\"text-align: center\">\r\n      <button mat-stroked-button color=\"primary\" class=\"setting-btn-add-cat setting-btn-text-add-cat\" (click)=\"infoCategory()\">+\r\n        สร้างหมวดหมู่ใหม่เอง</button>\r\n    </div>\r\n    <div class=\"col-1\"></div>\r\n  </div>\r\n  <div *ngFor=\"let item of modelData\" class=\" row card-padding-div\">\r\n    <div class=\"col-1 card-padding-div\"></div>\r\n    <div class=\"col-12 col-md-10 card-padding-div\" *ngIf=\"!item.status\">\r\n      <mat-list class=\"border-list\">\r\n        <div class=\"row\">\r\n          <div class=\"col-1 no-padding-div\"></div>\r\n          <div class=\"col-10  no-padding-div\">\r\n            <div>\r\n              <div class=\"row border-list-cat position-list\">\r\n                <div class=\"col-12 col-md-4 no-padding-div\">\r\n                  <p>\r\n                    <b>{{item.name}}</b> &nbsp;\r\n                    <!-- <button mat-stroked-button class=\"setting-bnt-rename\"><span class=\"setting-bnt-text-rename\">เปลี่ยนชื่อ</span></button> -->\r\n                  </p>\r\n                  <p class=\"setting-text-set-cat\">กำหนดหมวดหมู่สินค้าเอง</p>\r\n                </div>\r\n                <div class=\"col-12 col-md-4 no-padding-div\" style=\"text-align: center\">\r\n                  <div class=\"row\">\r\n                    <div class=\"col-4 col-md-4 no-padding-div\"></div>\r\n                    <div class=\"col-12 col-md-4 no-padding-div\">\r\n                      <button mat-stroked-button style=\"width:100%\" (click)=\"editCategory(item)\">ข้อมูล</button>\r\n                    </div>\r\n                  </div>\r\n                </div>\r\n                <div class=\"col-6 col-md-2 no-padding-div\" style=\"text-align: center\">\r\n                  <mat-slide-toggle class=\"setting-toggle\" [(ngModel)]=\"item.status\" (change)=\"onChangeStatus(item)\" [disabled] =\"item.items && item.items.length ===0\"></mat-slide-toggle>\r\n                </div>\r\n                <div class=\"col-6 col-md-2 no-padding-div\" style=\"text-align: center\">\r\n                  <button mat-icon-button (click)=\"deleteCate(item)\">\r\n                    <mat-icon svgIcon=\"del\" class=\"setting-icon-del\"></mat-icon>\r\n                  </button>\r\n                </div>\r\n              </div>\r\n            </div>\r\n          </div>\r\n          <div class=\"col-1 no-padding-div\"></div>\r\n        </div>\r\n      </mat-list>\r\n    </div>\r\n    <div class=\"col-1 card-padding-div\"></div>\r\n  </div>\r\n</mat-card>"
+module.exports = "<!-- <mat-card class=\"setting-mat-card\">\r\n  <div class=\"row setting-div\">\r\n    <div class=\"col-10 col-md-10 padding-left\">\r\n      <mat-card class=\"bg-card-icon\">\r\n        <img src=\"/assets/imgs/look.png\" class=\"setting-icon-look\">\r\n      </mat-card>\r\n      <p class=\"setting-text-header1\"><b>หมวดหมู่ที่เปิดการใช้งาน</b></p>\r\n      <p class=\"setting-text-header2\">ผู้ซื้อสามารถมองเห็นหมวดหมู่เหล่านี้ได้จากร้านของคุณ</p>\r\n    </div>\r\n  </div>\r\n  <div class=\"row\">\r\n    <div class=\"col-12 \" style=\"text-align: center\">\r\n      <img src=\"/assets/imgs/responsive.png\" class=\"setting-icon-responsive\">\r\n      <p class=\"setting-text-body1\">คุณยังไม่มีหมวดหมู่สินค้าที่ใช้งานขณะนี้</p>\r\n    </div>\r\n  </div>\r\n</mat-card> -->\r\n\r\n<!-- <br> -->\r\n<!-- <mat-card class=\"setting-mat-card\">\r\n  <div class=\"row\">\r\n    <div class=\"col-10 col-md-10 padding-left\">\r\n      <mat-card class=\"bg-card-icon1\">\r\n        <img src=\"/assets/imgs/private.png\" class=\"setting-icon-look\">\r\n      </mat-card>\r\n      <p class=\"setting-text-header1\"><b>หมวดหมู่ที่ปิดการใช้งาน</b></p>\r\n      <p class=\"setting-text-header2\">เพื่อให้ผู้ซื้อมองเห็นกรุณาเปิดใช้งานหมวดหมู่นี้</p>\r\n    </div>\r\n  </div>\r\n  <div class=\"row\">\r\n    <div class=\"col-12 padding-left\" style=\"text-align: center\">\r\n      <button mat-stroked-button color=\"primary\" class=\"setting-btn-add-cat setting-btn-text-add-cat\">+\r\n        สร้างหมวดหมู่ใหม่เอง</button>\r\n    </div>\r\n  </div>\r\n  <div class=\"row\">\r\n    <div class=\"col-1\"></div>\r\n    <div class=\"col-10 \">\r\n      <div>\r\n        <div class=\"row border-list-cat\">\r\n          <div class=\"col-12 col-md-4\">\r\n            <p>\r\n              <b>เครื่องเขียน</b> &nbsp;\r\n              <button mat-stroked-button class=\"setting-bnt-rename\"><span class=\"setting-bnt-text-rename\">เปลี่ยนชื่อ</span></button>\r\n            </p>\r\n            <p class=\"setting-text-set-cat\">กำหนดหมวดหมู่สินค้าเอง</p>\r\n          </div>\r\n          <div class=\"col-12 col-md-4\" style=\"text-align: center\">\r\n            <div class=\"row\">\r\n              <div class=\"col-4 col-md-4\"></div>\r\n              <div class=\"col-12 col-md-4\">\r\n                <button mat-stroked-button style=\"width:100%\">ข้อมูล</button>\r\n              </div>\r\n            </div>\r\n          </div>\r\n          <div class=\"col-6 col-md-2\" style=\"text-align: center\">\r\n            <mat-slide-toggle class=\"setting-toggle\"></mat-slide-toggle>\r\n          </div>\r\n          <div class=\"col-6 col-md-2\" style=\"text-align: center\">\r\n            <button mat-icon-button>\r\n              <mat-icon svgIcon=\"del\" class=\"setting-icon-del\"></mat-icon>\r\n            </button>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"col-1\"></div>\r\n  </div>\r\n</mat-card> -->\r\n\r\n<!-- <mat-card>\r\n  <div class=\"row setting-div\">\r\n    <div class=\"col-10 col-md-10 size-div-header padding-left-div\">\r\n      <mat-card class=\"bg-card-icon\">\r\n        <img src=\"/assets/imgs/look.png\" class=\"setting-icon-look\">\r\n      </mat-card>\r\n      <p class=\"setting-text-header1\"><b>หมวดหมู่ที่เปิดการใช้งาน</b></p>\r\n      <p class=\"setting-text-header2\">ผู้ซื้อสามารถมองเห็นหมวดหมู่เหล่านี้ได้จากร้านของคุณ</p>\r\n    </div>\r\n  </div>\r\n  <div *ngFor=\"let item of modelData\" class=\"row card-padding-div\">\r\n    <div class=\"col-1 card-padding-div\"></div>\r\n    <div class=\"col-12 col-md-10 card-padding-div\" *ngIf=\"item.status\">\r\n      <mat-card class=\"size-card\">\r\n        <div class=\"row\">\r\n          <div class=\"col-1 no-padding-div\"></div>\r\n          <div class=\"col-10  no-padding-div\">\r\n            <div>\r\n              <div class=\"row border-list-cat\">\r\n                <div class=\"col-12 col-md-4 no-padding-div\">\r\n                  <p>\r\n                    <b>{{item.name}}</b> &nbsp;\r\n                    <button mat-stroked-button class=\"setting-bnt-rename\"><span class=\"setting-bnt-text-rename\">เปลี่ยนชื่อ</span></button>\r\n                  </p>\r\n                  <p class=\"setting-text-set-cat\">กำหนดหมวดหมู่สินค้าเอง</p>\r\n                </div>\r\n                <div class=\"col-12 col-md-4 no-padding-div\" style=\"text-align: center\">\r\n                  <div class=\"row\">\r\n                    <div class=\"col-4 col-md-4 no-padding-div\"></div>\r\n                    <div class=\"col-12 col-md-4 no-padding-div\">\r\n                      <button mat-stroked-button style=\"width:100%\" (click)=\"editCategory(item)\">ข้อมูล</button>\r\n                    </div>\r\n                  </div>\r\n                </div>\r\n                <div class=\"col-6 col-md-2 no-padding-div\" style=\"text-align: center\">\r\n                  <mat-slide-toggle class=\"setting-toggle\" [(ngModel)]=\"item.status\" (change)=\"onChangeStatus(item)\"></mat-slide-toggle>\r\n                </div>\r\n                <div class=\"col-6 col-md-2 no-padding-div\" style=\"text-align: center\">\r\n                  <button mat-icon-button>\r\n                    <mat-icon svgIcon=\"drag\" class=\"setting-icon-del\"></mat-icon>\r\n                  </button>\r\n                </div>\r\n              </div>\r\n            </div>\r\n          </div>\r\n          <div class=\"col-1 no-padding-div\"></div>\r\n        </div>\r\n      </mat-card>\r\n    </div>\r\n    <div class=\"col-1 card-padding-div\"></div>\r\n  </div>\r\n</mat-card> -->\r\n<!-- <br> -->\r\n<!-- <mat-card>\r\n  <div class=\"row setting-div padding-left-div\">\r\n    <div class=\"col-10 col-md-10 size-div-header\">\r\n      <mat-card class=\"bg-card-icon1\">\r\n        <img src=\"/assets/imgs/private.png\" class=\"setting-icon-look\">\r\n      </mat-card>\r\n      <p class=\"setting-text-header1\"><b>หมวดหมู่ที่ปิดการใช้งาน</b></p>\r\n      <p class=\"setting-text-header2\">เพื่อให้ผู้ซื้อมองเห็นกรุณาเปิดใช้งานหมวดหมู่นี้</p>\r\n    </div>\r\n  </div>\r\n  <div class=\"row\">\r\n    <div class=\"col-1\"></div>\r\n    <div class=\"col-12 col-md-10\" style=\"text-align: center\">\r\n      <button mat-stroked-button color=\"primary\" class=\"setting-btn-add-cat setting-btn-text-add-cat\" (click)=\"infoCategory()\">+\r\n        สร้างหมวดหมู่ใหม่เอง</button>\r\n    </div>\r\n    <div class=\"col-1\"></div>\r\n  </div>\r\n  <div *ngFor=\"let item of modelData\" class=\" row card-padding-div\">\r\n    <div class=\"col-1 card-padding-div\"></div>\r\n    <div class=\"col-12 col-md-10 card-padding-div\" *ngIf=\"!item.status\">\r\n      <mat-card>\r\n        <div class=\"row\">\r\n          <div class=\"col-1 no-padding-div\"></div>\r\n          <div class=\"col-10  no-padding-div\">\r\n            <div>\r\n              <div class=\"row border-list-cat\">\r\n                <div class=\"col-12 col-md-4 no-padding-div\">\r\n                  <p>\r\n                    <b>{{item.name}}</b> &nbsp;\r\n                    <button mat-stroked-button class=\"setting-bnt-rename\"><span class=\"setting-bnt-text-rename\">เปลี่ยนชื่อ</span></button>\r\n                  </p>\r\n                  <p class=\"setting-text-set-cat\">กำหนดหมวดหมู่สินค้าเอง</p>\r\n                </div>\r\n                <div class=\"col-12 col-md-4 no-padding-div\" style=\"text-align: center\">\r\n                  <div class=\"row\">\r\n                    <div class=\"col-4 col-md-4 no-padding-div\"></div>\r\n                    <div class=\"col-12 col-md-4 no-padding-div\">\r\n                      <button mat-stroked-button style=\"width:100%\" (click)=\"editCategory(item)\">ข้อมูล</button>\r\n                    </div>\r\n                  </div>\r\n                </div>\r\n                <div class=\"col-6 col-md-2 no-padding-div\" style=\"text-align: center\">\r\n                  <mat-slide-toggle class=\"setting-toggle\" [(ngModel)]=\"item.status\" (change)=\"onChangeStatus(item)\"></mat-slide-toggle>\r\n                </div>\r\n                <div class=\"col-6 col-md-2 no-padding-div\" style=\"text-align: center\">\r\n                  <button mat-icon-button>\r\n                    <mat-icon svgIcon=\"del\" class=\"setting-icon-del\"></mat-icon>\r\n                  </button>\r\n                </div>\r\n              </div>\r\n            </div>\r\n          </div>\r\n          <div class=\"col-1 no-padding-div\"></div>\r\n        </div>\r\n      </mat-card>\r\n    </div>\r\n    <div class=\"col-1 card-padding-div\"></div>\r\n  </div>\r\n</mat-card>   -->\r\n\r\n<mat-card>\r\n  <div class=\"row setting-div\">\r\n    <div class=\"col-10 col-md-10 size-div-header padding-left-div\">\r\n      <mat-card class=\"bg-card-icon\" >\r\n        <img mat-card-image src=\"/assets/imgs/open.png\" class=\"setting-icon-look\">\r\n      </mat-card>\r\n      <p class=\"setting-text-header1\"><b>หมวดหมู่ที่เปิดการใช้งาน</b></p>\r\n      <p class=\"setting-text-header2\">ผู้ซื้อสามารถมองเห็นหมวดหมู่เหล่านี้ได้จากร้านของคุณ</p>\r\n    </div>\r\n  </div>\r\n  <div *ngFor=\"let item of modelData\" class=\"row card-padding-div\">\r\n    <div class=\"col-1 card-padding-div\"></div>\r\n    <div class=\"col-12 col-md-10 card-padding-div\" *ngIf=\"item.status\">\r\n      <mat-list class=\"border-list\">\r\n        <div class=\"row\">\r\n          <div class=\"col-1 no-padding-div\"></div>\r\n          <div class=\"col-10  no-padding-div\">\r\n            <div>\r\n              <div class=\"row border-list-cat position-list\">\r\n                <div class=\"col-12 col-md-4 no-padding-div\">\r\n                  <p>\r\n                    <b>{{item.name}}</b> &nbsp;\r\n                    <!-- <button mat-stroked-button class=\"setting-bnt-rename\"><span class=\"setting-bnt-text-rename\">เปลี่ยนชื่อ</span></button> -->\r\n                  </p>\r\n                  <p class=\"setting-text-set-cat\">กำหนดหมวดหมู่สินค้าเอง</p>\r\n                </div>\r\n                <div class=\"col-12 col-md-4 no-padding-div\" style=\"text-align: center\">\r\n                  <div class=\"row\">\r\n                    <div class=\"col-4 col-md-4 no-padding-div\"></div>\r\n                    <div class=\"col-12 col-md-4 no-padding-div\">\r\n                      <button mat-button style=\"width:100%\" (click)=\"editCategory(item)\" color=\"primary\">ข้อมูล</button>\r\n                    </div>\r\n                  </div>\r\n                </div>\r\n                <div class=\"col-6 col-md-2 no-padding-div\" style=\"text-align: center\">\r\n                  <mat-slide-toggle class=\"setting-toggle\" [(ngModel)]=\"item.status\" (change)=\"onChangeStatus(item)\"></mat-slide-toggle>\r\n                </div>\r\n                <div class=\"col-6 col-md-2 no-padding-div\" style=\"text-align: center\">\r\n                  <button mat-icon-button>\r\n                      <!-- <mat-icon svgIcon=\"drag\" class=\"setting-icon-del\"></mat-icon> -->\r\n                    </button>\r\n                </div>\r\n              </div>\r\n            </div>\r\n          </div>\r\n          <div class=\"col-1 no-padding-div\"></div>\r\n        </div>\r\n      </mat-list>\r\n    </div>\r\n    <div class=\"col-1 card-padding-div\"></div>\r\n  </div>\r\n</mat-card>\r\n\r\n<br>\r\n\r\n<mat-card>\r\n  <div class=\"row setting-div padding-left-div\">\r\n    <div class=\"col-10 col-md-10 size-div-header\">\r\n      <mat-card class=\"bg-card-icon1\">\r\n        <img mat-card-image src=\"/assets/imgs/close.png\" class=\"setting-icon-look\">\r\n      </mat-card>\r\n      <p class=\"setting-text-header1\"><b>หมวดหมู่ที่ปิดการใช้งาน</b></p>\r\n      <p class=\"setting-text-header2\">เพื่อให้ผู้ซื้อมองเห็นกรุณาเปิดใช้งานหมวดหมู่นี้</p>\r\n    </div>\r\n  </div>\r\n  <div class=\"row\">\r\n    <div class=\"col-1\"></div>\r\n    <div class=\"col-12 col-md-10\" style=\"text-align: center\">\r\n      <button mat-stroked-button color=\"primary\" class=\"setting-btn-add-cat setting-btn-text-add-cat\" (click)=\"infoCategory()\">+\r\n        สร้างหมวดหมู่ใหม่เอง</button>\r\n    </div>\r\n    <div class=\"col-1\"></div>\r\n  </div>\r\n  <div *ngFor=\"let item of modelData\" class=\" row card-padding-div\">\r\n    <div class=\"col-1 card-padding-div\"></div>\r\n    <div class=\"col-12 col-md-10 card-padding-div\" *ngIf=\"!item.status\">\r\n      <mat-list class=\"border-list\">\r\n        <div class=\"row\">\r\n          <div class=\"col-1 no-padding-div\"></div>\r\n          <div class=\"col-10  no-padding-div\">\r\n            <div>\r\n              <div class=\"row border-list-cat position-list\">\r\n                <div class=\"col-12 col-md-4 no-padding-div\">\r\n                  <p>\r\n                    <b>{{item.name}}</b> &nbsp;\r\n                    <!-- <button mat-stroked-button class=\"setting-bnt-rename\"><span class=\"setting-bnt-text-rename\">เปลี่ยนชื่อ</span></button> -->\r\n                  </p>\r\n                  <p class=\"setting-text-set-cat\">กำหนดหมวดหมู่สินค้าเอง</p>\r\n                </div>\r\n                <div class=\"col-12 col-md-4 no-padding-div\" style=\"text-align: center\">\r\n                  <div class=\"row\">\r\n                    <div class=\"col-4 col-md-4 no-padding-div\"></div>\r\n                    <div class=\"col-12 col-md-4 no-padding-div\">\r\n                      <button mat-button style=\"width:100%\" (click)=\"editCategory(item)\" color=\"primary\">ข้อมูล</button>\r\n                    </div>\r\n                  </div>\r\n                </div>\r\n                <div class=\"col-6 col-md-2 no-padding-div\" style=\"text-align: center\">\r\n                  <mat-slide-toggle class=\"setting-toggle\" [(ngModel)]=\"item.status\" (change)=\"onChangeStatus(item)\" [disabled] =\"item.items && item.items.length ===0\"></mat-slide-toggle>\r\n                </div>\r\n                <div class=\"col-6 col-md-2 no-padding-div\" style=\"text-align: center\">\r\n                  <button mat-icon-button (click)=\"deleteCate(item)\">\r\n                    <mat-icon svgIcon=\"del\" class=\"setting-icon-del\"></mat-icon>\r\n                  </button>\r\n                </div>\r\n              </div>\r\n            </div>\r\n          </div>\r\n          <div class=\"col-1 no-padding-div\"></div>\r\n        </div>\r\n      </mat-list>\r\n    </div>\r\n    <div class=\"col-1 card-padding-div\"></div>\r\n  </div>\r\n</mat-card>"
 
 /***/ }),
 
@@ -5700,11 +7198,12 @@ var ShopCategoryComponent = /** @class */ (function () {
     };
     ShopCategoryComponent.prototype.deleteCate = function (item) {
         return __awaiter(this, void 0, void 0, function () {
-            var error_3;
+            var conf, error_3;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        //  console.log(item._id);
+                        conf = confirm("ยืนยันการลบที่อยู่");
+                        if (!conf) return [3 /*break*/, 4];
                         this.spinner.show();
                         _a.label = 1;
                     case 1:
