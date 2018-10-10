@@ -80,4 +80,8 @@ table {
     
     display: flow-root !important;
     padding: unset !important;
+}.size-div{
+    width: 100px !important;
+}.scroll{
+    overflow: scroll;
 }
