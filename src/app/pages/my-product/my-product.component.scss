@@ -75,7 +75,8 @@
 }
 
 .ch_box {
-    margin-left: 1rem;
+    left:0;
+    margin-left: 0.7rem;
     margin-top: 0.5rem;
     position: absolute;
     z-index: 999;
@@ -151,6 +152,10 @@
     bottom: 2px;
     color: #9f9f9f;
 }
+
+mat-tab-group {
+    text-align: center;
+  }
 
 .portal-panel {
     width: 100%;
