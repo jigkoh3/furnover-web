@@ -26,7 +26,12 @@
             <p class="font-form">วันเริ่มต้นของโปรโมชั่น</p>
           </div>
           <div class="col-12 col-md-5">
-              <input matInput type="date" >
+            <!-- <input matInput type="date" > -->
+            <mat-form-field>
+              <input matInput [matDatepicker]="dp" placeholder="Verbose datepicker" [(ngModel)]="date" (ngModelChange)="getStartDate($event)">
+              <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+              <mat-datepicker #dp></mat-datepicker>
+            </mat-form-field>
           </div>
         </div>
       </div>
@@ -36,7 +41,12 @@
             <p class="font-form">วันสิ้นสุดของโปรโมชั่น</p>
           </div>
           <div class="col-12 col-md-5">
-            <input matInput type="date" >
+            <!-- <input matInput type="date"> -->
+            <mat-form-field>
+              <input matInput [matDatepicker]="dp2" placeholder="Verbose datepicker" [(ngModel)]="date">
+              <mat-datepicker-toggle matSuffix [for]="dp2"></mat-datepicker-toggle>
+              <mat-datepicker #dp2></mat-datepicker>
+            </mat-form-field>
           </div>
         </div>
       </div>
@@ -56,7 +66,7 @@
             <p class="font-form">เวลาสิ้นสุดของโปรโมชั่น</p>
           </div>
           <div class="col-12 col-md-5">
-            <input matInput type="time" >
+            <input matInput type="time">
           </div>
         </div>
       </div>
