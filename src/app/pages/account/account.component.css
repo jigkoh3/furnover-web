@@ -17,3 +17,36 @@
 .row-style {
     height: 72px;
 }
+
+/* ////////////// */
+
+.txt-title {
+    margin-left: 2rem;
+    position: absolute;
+    font-weight: bold;
+    margin-top: 0.4rem;
+}
+
+.ic-color {
+    color: #00bfa5;
+    font-size: 1.8rem;
+    margin-left: 2rem;
+}
+
+.avatar-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 100%;
+}
+
+.mgl {
+    margin-left: 0.6rem;
+}
+
+.ic-orange {
+    color: #ff7f57;
+}
+
+.ic-pink {
+    color: #ff4081;
+}

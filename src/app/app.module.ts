@@ -47,6 +47,7 @@ import { MyPromotionListComponent } from './components/my-promotion-list/my-prom
 import { ModalSelectProductComponent } from './pages/modals/modal-select-product/modal-select-product.component';
 import { SelectProductComponent } from './components/select-product/select-product.component';
 import { InfoMyPromotionComponent } from './pages/info-my-promotion/info-my-promotion.component';
+import { ModalDeleteMyPromotionComponent } from './pages/modals/modal-delete-my-promotion/modal-delete-my-promotion.component';
 
 @NgModule({
   declarations: [
@@ -87,7 +88,8 @@ import { InfoMyPromotionComponent } from './pages/info-my-promotion/info-my-prom
     MyPromotionListComponent,
     ModalSelectProductComponent,
     SelectProductComponent,
-    InfoMyPromotionComponent
+    InfoMyPromotionComponent,
+    ModalDeleteMyPromotionComponent
   ],
   entryComponents: [
     ModalCreateBankAccountComponent,
@@ -97,7 +99,8 @@ import { InfoMyPromotionComponent } from './pages/info-my-promotion/info-my-prom
     ModalCompleteComponent,
     ModalDeleteBankAccountComponent,
     ModalDeleteProductComponent,
-    ModalSelectProductComponent
+    ModalSelectProductComponent,
+    ModalDeleteMyPromotionComponent
   ],
   imports: [
     BrowserModule,
