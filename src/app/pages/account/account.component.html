@@ -13,12 +13,33 @@
           <span class="txt-title">หน้าของฉัน</span>
         </div>
         <div class="col-7 col-sm-7 col-md-7 txt-right">
-          <img class="avatar-icon" src="https://st2.depositphotos.com/2703645/7676/v/950/depositphotos_76762205-stock-illustration-male-avatar-icon.jpg"
+          <!-- <img class="avatar-icon" src="https://st2.depositphotos.com/2703645/7676/v/950/depositphotos_76762205-stock-illustration-male-avatar-icon.jpg"
             alt="img">
           <span class="mgl txt-gray">oraphanpoohuipra</span>
           <mat-icon class="mgl ic-pink">wc</mat-icon><span class="mgl txt-gray">หญิง</span>
-          <mat-icon class="mgl ic-orange">cake</mat-icon><span class="mgl txt-gray">22/2/2022</span>
+          <mat-icon class="mgl ic-orange">cake</mat-icon><span class="mgl txt-gray">22/2/2022</span> -->
+          <button mat-flat-button color="primary" class="mgl">อัพเดท</button>
           <button mat-stroked-button class="mgl">แก้ไข</button>
+          <div class="row">
+            <span class="txt-gray inp-style">
+              <mat-form-field>
+                <input matInput placeholder="ชื่อผู้ใช้" value="">
+              </mat-form-field>
+              <br>
+              <br>
+              <mat-form-field>
+                <input matInput placeholder="เพศ" value="">
+              </mat-form-field>
+              <br>
+              <br>
+              <mat-form-field>
+                <input matInput [matDatepicker]="dp" placeholder="วันเกิด" [(ngModel)]="date" (ngModelChange)="getStartDate($event)">
+                <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+                <mat-datepicker #dp></mat-datepicker>
+              </mat-form-field>
+            </span>
+
+          </div>
         </div>
       </div>
 
@@ -30,8 +51,12 @@
           <span class="txt-title">เบอร์โทร</span>
         </div>
         <div class="col-7 col-sm-7 col-md-7 txt-right">
-          <span class="mgl txt-gray">0876543321</span>
+          <!-- <span class="mgl txt-gray">0876543321</span> -->
+          <button mat-flat-button color="primary" class="mgl">อัพเดท</button>
           <button mat-stroked-button class="mgl">แก้ไข</button>
+          <mat-form-field>
+            <input matInput placeholder="เบอร์โทร" value="">
+          </mat-form-field>
         </div>
       </div>
 
@@ -43,8 +68,11 @@
           <span class="txt-title">E-mail</span>
         </div>
         <div class="col-7 col-sm-7 col-md-7 txt-right">
-          <span class="mgl txt-gray">nid@gmail.com</span>
+          <!-- <span class="mgl txt-gray">nid@gmail.com</span> --><button mat-flat-button color="primary" class="mgl">อัพเดท</button>
           <button mat-stroked-button class="mgl">แก้ไข</button>
+          <mat-form-field>
+            <input matInput placeholder="อีเมล์" value="">
+          </mat-form-field>
         </div>
       </div>
     </mat-card>
