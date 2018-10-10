@@ -8,6 +8,7 @@ import { DataService } from '../../providers/data-service/data.service';
 import * as firebase from 'firebase';
 import { ClassUpload } from '../upload-image/class-upload';
 import * as _ from "lodash";
+import { NgxSpinnerService } from 'ngx-spinner';
 //Image
 @Component({
   selector: 'profile',
@@ -41,7 +42,8 @@ export class ProfileSettingComponent implements OnInit {
   constructor(
     public dialog: MatDialog,
     public restApi: RestApiService,
-    public dataService: DataService
+    public dataService: DataService,
+    private spinner: NgxSpinnerService,
   ) { }
 
   ngOnInit() {
@@ -49,20 +51,25 @@ export class ProfileSettingComponent implements OnInit {
   }
 
   async getProfile() {
+    this.spinner.show();
     this.shopUser = window.localStorage.getItem(Constants.URL() + '@usershop') ? JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop')) : null;
     try {
       let data: any = await this.restApi.get(Constants.URL() + '/api/shop/' + this.shopUser.shop_id);
       this.shop = data.data;
+      this.spinner.hide();
       console.log(this.shop);
     } catch (error) {
+      this.spinner.hide();
       this.dataService.error("โหลดข้อมูลล้มเหลว กรุณาลองใหม่อีกครั้ง")
     }
   }
 
   async submit() {
+    this.spinner.show();
     this.shopUser = window.localStorage.getItem(Constants.URL() + '@usershop') ? JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop')) : null;
     try {
       let data: any = await this.restApi.put(Constants.URL() + '/api/shop/' + this.shopUser.shop_id, this.shop);
+      this.spinner.hide();
       if (data['status'] === 200) {
         this.dataService.success('บันทึกข้อมูลสำเร็จ');
         setTimeout(() => {
@@ -70,6 +77,7 @@ export class ProfileSettingComponent implements OnInit {
         }, 2000);
       }
     } catch (error) {
+      this.spinner.hide();
       this.dataService.error("บันทึกข้อมูลล้มเหลว กรุณาลองใหม่อีกครั้ง")
     }
   }
@@ -140,15 +148,15 @@ export class ProfileSettingComponent implements OnInit {
             if (this.imageArray.length === this.selectedFiles.length) {
               // this.shop.images = this.imageArray;
               if (status === 'shopImg') {
-                this.shop.images = this.imageArray;
+                this.imageArray.forEach(image => {
+                  this.shop.images.push(image);
+                });
               } else if (status === 'coverImg') {
-                console.log(this.imageArray[0]);
                 this.shop.coverimage = {
                   url: this.imageArray[0].url
                 }
                 this.submit();
               } else if (status === 'profileImg') {
-                console.log(this.imageArray[0]);
                 this.updateImgProfile(this.imageArray[0].url);
               }
               // this.image.emit(this.imageArray);
