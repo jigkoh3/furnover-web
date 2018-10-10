@@ -26,11 +26,7 @@
             <p class="font-form">วันเริ่มต้นของโปรโมชั่น</p>
           </div>
           <div class="col-12 col-md-5">
-            <md-input-container>
-              <input mdInput [value]="start_date" [mdDatepicker]="startDate" readonly>
-              <button mdSuffix [mdDatepickerToggle]="startDate"></button>
-            </md-input-container>
-            <md-datepicker #startDate></md-datepicker>
+              <input matInput type="date" >
           </div>
         </div>
       </div>
@@ -40,7 +36,7 @@
             <p class="font-form">วันสิ้นสุดของโปรโมชั่น</p>
           </div>
           <div class="col-12 col-md-5">
-            <input matInput type="date">
+            <input matInput type="date" >
           </div>
         </div>
       </div>
@@ -60,7 +56,7 @@
             <p class="font-form">เวลาสิ้นสุดของโปรโมชั่น</p>
           </div>
           <div class="col-12 col-md-5">
-            <input matInput type="time">
+            <input matInput type="time" >
           </div>
         </div>
       </div>
