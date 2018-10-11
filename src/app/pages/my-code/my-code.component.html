@@ -22,7 +22,7 @@
     <mat-tab label="{{item.name}}" *ngFor="let item of data.status">
       <mat-list>
         <div class="row" style="background-color: #f5f5f5;">
-          <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+          <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
             <h3 mat-subheader>โค้ดส่วนลด | ชื่อโค้ดส่วนลด</h3>
           </div>
           <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">
@@ -31,13 +31,13 @@
           <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">
             <h3 mat-subheader>จำนวน</h3>
           </div>
-          <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 text-center">
-            <h3 mat-subheader>โค้ดส่วนลดที่กดรับแล้ว</h3>
+          <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 text-center">
+            <h3 mat-subheader class="no-flex">โค้ดส่วนลดที่กดรับแล้ว</h3>
           </div>
-          <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 text-center">
-            <h3 mat-subheader>โค้ดส่วนลดที่ใช้แล้ว</h3>
+          <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 text-center">
+            <h3 mat-subheader class="no-flex">โค้ดส่วนลดที่ใช้แล้ว</h3>
           </div>
-          <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+          <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
             <h3 mat-subheader>สถานะ | ระยะเวลา</h3>
           </div>
           <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">
@@ -45,12 +45,12 @@
           </div>
         </div>
         <div class="row" style="border-bottom: 1px solid #e0e0e0;" *ngFor="let item of data.codes">
-          <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+          <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
             <!-- <h3 mat-subheader>{{item.code}}</h3>
             <h3 mat-subheader>{{item.name}}</h3>
              -->
              <mat-list-item>
-                <mat-icon mat-list-icon color="primary" style="color:white">attach_money</mat-icon>
+                <mat-icon mat-list-icon color="primary" class="mat-icon-header">attach_money</mat-icon>
                 <h4 mat-line style="font-family: Roboto,'Helvetica Neue',sans-serif;
                 font-size: 14px;
                 font-weight: 700;">{{item.code}}</h4>
@@ -66,17 +66,17 @@
           <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">
             <h3 mat-subheader>{{item.codeqty}}</h3>
           </div>
-          <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 text-center">
+          <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 text-center">
             <h3 mat-subheader class="no-flex">{{item.codeaccept}}</h3>
           </div>
-          <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 text-center">
+          <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 text-center">
             <h3 mat-subheader class="no-flex">{{item.codeused}}</h3>
           </div>
-          <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+          <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
             <h3 mat-subheader>{{item.startdate | date:"dd-MM-yyyy"}} ถึง {{item.enddate | date:"dd-MM-yyyy"}}</h3>
           </div>
           <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">
-            <div class="padding-left">
+            <div>
               <button mat-flat-button color="primary" (click)="onDetail(item)">
                 <span>ข้อมูล</span>
               </button>
