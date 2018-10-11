@@ -1,5 +1,5 @@
 <div class="wrapper content">
-  <div class="row">
+  <div class="row" *ngIf="data._id">
     <div class="col-12 del-box">
       <button mat-stroked-button color="primary" (click)="delete()">
         <mat-icon>delete_outline</mat-icon> ลบโปรโมชั่น

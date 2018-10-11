@@ -75,7 +75,7 @@
           <div class="col-12 col-md-5">
           </div>
           <div class="col-12 col-md-2">
-            <button style="width:100%" mat-button color="primary" (click)="sendData()">บันทึก</button>
+            <button style="width:100%" mat-button color="primary" [disabled]="!(data.title && data.startdate && data.enddate && data.starttime && data.endtime)" (click)="sendData()">บันทึก</button>
           </div>
           <div class="col-12 col-md-5"></div>
         </div>
