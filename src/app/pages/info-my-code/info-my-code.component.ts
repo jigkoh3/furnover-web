@@ -4,7 +4,7 @@ import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/materia
 import * as _moment from 'moment';
 import { MatDialog } from '@angular/material';
 import { ModalSelectProductComponent } from '../modals/modal-select-product/modal-select-product.component';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { RestApiService } from 'src/app/providers/rest-api-service/rest-api.service';
 import { Constants } from 'src/app/app.constants';
@@ -54,9 +54,10 @@ export class InfoMyCodeComponent implements OnInit {
 
   constructor(
     public dialog: MatDialog,
-    private activatedRoute: ActivatedRoute,
+    private restApi: RestApiService,
     private spinner: NgxSpinnerService,
-    private restApi: RestApiService
+    private activatedRoute: ActivatedRoute,
+    private route: Router
   ) { }
 
   ngOnInit() {
@@ -143,6 +144,7 @@ export class InfoMyCodeComponent implements OnInit {
       try {
         const res: any = await this.restApi.put(Constants.URL() + '/api/Mycode/' + this.itemId, this.data);
         this.spinner.hide();
+        this.route.navigate(['my-code']);
 
       } catch (error) {
         console.log(error);
@@ -152,6 +154,7 @@ export class InfoMyCodeComponent implements OnInit {
       try {
         const res: any = await this.restApi.post(Constants.URL() + '/api/Mycode', this.data);
         this.spinner.hide();
+        this.route.navigate(['my-code']);
       } catch (error) {
         console.log(error);
 
