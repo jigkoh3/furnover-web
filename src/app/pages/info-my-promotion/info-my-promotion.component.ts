@@ -21,30 +21,6 @@ export class InfoMyPromotionComponent implements OnInit {
     endtime: '00:00'
   };
   itemId: any;
-  // data: any = {
-  //   _id: '1234',
-  //   shop_id: '001',
-  //   title: 'ลด 10%',
-  //   start_date: '',
-  //   start_time: '',
-  //   end_date: '',
-  //   end_time: '',
-  //   products: [{
-  //     product_id: '001',
-  //     name: 'โต๊ะ',
-  //     image: { url: '001.jpg' },
-  //     prices: [{
-  //       name: 'ปกติ',
-  //       price: 100,
-  //       newprice: 80,
-  //       percentage: 20,
-  //       isuse: true,
-  //       stock: 5
-  //     }],
-  //     qty: 5
-  //   }],
-  //   status: 'soon'
-  // };
   constructor(public dialog: MatDialog,
     private restApi: RestApiService,
     private spinner: NgxSpinnerService,
@@ -68,36 +44,12 @@ export class InfoMyPromotionComponent implements OnInit {
     try {
       const res: any = await this.restApi.get(Constants.URL() + '/api/discount/' + this.itemId);
       this.data = res.data;
-      // this.convertTime();
       this.spinner.hide();
     } catch (error) {
       console.log(error);
       this.spinner.hide();
     }
   }
-
-  // convertTime() {
-  //   if (this.data._id) {
-  //     const _startdate = new Date(this.data.startdate);
-  //     const _enddate = new Date(this.data.enddate);
-  //     const st_time = new Date(this.data.startdate);
-  //     const h1 = st_time.getHours();
-  //     const m1 = st_time.getMinutes();
-  //     const hh1 = h1 < 9 ? '0' + h1 : h1;
-  //     const mm1 = m1 < 9 ? '0' + m1 : m1;
-
-  //     const en_time = new Date(this.data.enddate);
-  //     const h2 = en_time.getHours();
-  //     const m2 = en_time.getMinutes();
-  //     const hh2 = h2 < 9 ? '0' + h2 : h2;
-  //     const mm2 = m2 < 9 ? '0' + m2 : m2;
-
-  //     this.data.starttime = hh1 + ':' + mm1;
-  //     this.data.endtime = hh2 + ':' + mm2;
-  //     this.data._startdate = _startdate;
-  //     this.data._enddate = _enddate;
-  //   }
-  // }
 
   openModalAddProduct() {
     const dialogRef = this.dialog.open(ModalSelectProductComponent, {
@@ -116,7 +68,6 @@ export class InfoMyPromotionComponent implements OnInit {
             this.data.products.push(item);
           }
         });
-        console.log(this.data);
       }
     });
   }
@@ -152,7 +103,6 @@ export class InfoMyPromotionComponent implements OnInit {
     if (this.itemId) {
       try {
         const res: any = await this.restApi.put(Constants.URL() + '/api/discount/' + this.itemId, this.data);
-        console.log(res);
         this.data.starttime = this.oldTime.starttime;
         this.data.endtime = this.oldTime.endtime;
         this.spinner.hide();
@@ -166,7 +116,6 @@ export class InfoMyPromotionComponent implements OnInit {
     } else {
       try {
         const res: any = await this.restApi.post(Constants.URL() + '/api/discount', this.data);
-        console.log(res);
         this.data.starttime = this.oldTime.starttime;
         this.data.endtime = this.oldTime.endtime;
         this.spinner.hide();
@@ -186,7 +135,6 @@ export class InfoMyPromotionComponent implements OnInit {
       this.spinner.show();
       try {
         const res: any = await this.restApi.delete(Constants.URL() + '/api/discount/' + this.itemId);
-        console.log(res);
         this.spinner.hide();
         this.route.navigate(['my-promotion']);
       } catch (error) {
