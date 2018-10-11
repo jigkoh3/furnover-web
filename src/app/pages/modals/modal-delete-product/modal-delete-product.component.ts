@@ -14,7 +14,7 @@ export class ModalDeleteProductComponent implements OnInit {
   constructor(
     private restApi: RestApiService,
     private spinner: NgxSpinnerService,
-    private dataService: DataService,
+    public dataService: DataService,
     public dialogRef: MatDialogRef<ModalDeleteProductComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {

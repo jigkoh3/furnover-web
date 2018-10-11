@@ -20,7 +20,7 @@ export class ModalPrepareShippingComponent implements OnInit {
   constructor(
     private restApi: RestApiService,
     private spinner: NgxSpinnerService,
-    private dataService: DataService,
+    public dataService: DataService,
     public dialog: MatDialog,
   ) { }
 

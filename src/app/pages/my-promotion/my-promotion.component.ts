@@ -79,9 +79,9 @@ console.log(event)
         this.spinner.hide();
         console.log(res);
         this.data = res.datas;
-        // if (this.data && this.data.length === 0) {
-        //   this.dataService.warning('ไม่พบข้อมูลสินค้า');
-        // }
+        if (this.data && this.data.length === 0) {
+          this.dataService.warning('ไม่พบข้อมูลโปรโมชั่น');
+        }
       }
       // this.spinner.hide();
     } catch (error) {
