@@ -20,6 +20,7 @@ export class InfoMyPromotionComponent implements OnInit {
     starttime: '00:00',
     endtime: '00:00'
   };
+  itemId: any;
   // data: any = {
   //   _id: '1234',
   //   shop_id: '001',
@@ -55,13 +56,23 @@ export class InfoMyPromotionComponent implements OnInit {
     this.activatedRoute
       .queryParams
       .subscribe(params => {
-        if (params['id']) {
-          const id = params['id'];
-
-        } else {
-
+        if (params['itemId']) {
+          this.itemId = params['itemId'];
+          this.initLoadData();
         }
       });
+  }
+
+  async initLoadData() {
+    this.spinner.show();
+    try {
+      const res: any = await this.restApi.get(Constants.URL() + '/api/discount/' + this.itemId);
+      this.data = res.data;
+      this.spinner.hide();
+    } catch (error) {
+      console.log(error);
+      this.spinner.hide();
+    }
   }
 
   openModalAddProduct() {
@@ -114,18 +125,34 @@ export class InfoMyPromotionComponent implements OnInit {
     const userShop: any = JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop'));
     this.data.shop_id = userShop.shop._id;
 
-    try {
-      const res: any = await this.restApi.post(Constants.URL() + '/api/discount', this.data);
-      console.log(res);
-      this.data.starttime = this.oldTime.starttime;
-      this.data.endtime = this.oldTime.endtime;
-      this.spinner.hide();
-      this.route.navigate(['my-promotion']);
-    } catch (error) {
-      console.log(error);
-      this.data.starttime = this.oldTime.starttime;
-      this.data.endtime = this.oldTime.endtime;
-      this.spinner.hide();
+    if (this.itemId) {
+      try {
+        const res: any = await this.restApi.put(Constants.URL() + '/api/discount/' + this.itemId, this.data);
+        console.log(res);
+        this.data.starttime = this.oldTime.starttime;
+        this.data.endtime = this.oldTime.endtime;
+        this.spinner.hide();
+        this.route.navigate(['my-promotion']);
+      } catch (error) {
+        console.log(error);
+        this.data.starttime = this.oldTime.starttime;
+        this.data.endtime = this.oldTime.endtime;
+        this.spinner.hide();
+      }
+    } else {
+      try {
+        const res: any = await this.restApi.post(Constants.URL() + '/api/discount', this.data);
+        console.log(res);
+        this.data.starttime = this.oldTime.starttime;
+        this.data.endtime = this.oldTime.endtime;
+        this.spinner.hide();
+        this.route.navigate(['my-promotion']);
+      } catch (error) {
+        console.log(error);
+        this.data.starttime = this.oldTime.starttime;
+        this.data.endtime = this.oldTime.endtime;
+        this.spinner.hide();
+      }
     }
   }
 
@@ -134,9 +161,10 @@ export class InfoMyPromotionComponent implements OnInit {
     if (confirm) {
       this.spinner.show();
       try {
-        const res: any = await this.restApi.delete(Constants.URL() + '/api/discount/' + this.data._id);
+        const res: any = await this.restApi.delete(Constants.URL() + '/api/discount/' + this.itemId);
         console.log(res);
         this.spinner.hide();
+        this.route.navigate(['my-promotion']);
       } catch (error) {
         console.log(error);
         this.spinner.hide();
