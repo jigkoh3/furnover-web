@@ -42,28 +42,30 @@ export class MyPromotionHeaderComponent implements OnInit {
   constructor(
 
   ) {
-    console.log(this.date);
+
   }
 
   ngOnInit() {
-    setInterval(() => {
-      this._startdate = new Date(this.data.startdate);
-      this._enddate = new Date(this.data.enddate);
-      const st_time = new Date(this.data.startdate);
-      const h1 = st_time.getHours();
-      const m1 = st_time.getMinutes();
-      const hh1 = h1 < 9 ? '0' + h1 : h1;
-      const mm1 = m1 < 9 ? '0' + m1 : m1;
+    setTimeout(() => {
+      if (this.data._id) {
+        this._startdate = new Date(this.data.startdate);
+        this._enddate = new Date(this.data.enddate);
+        const st_time = new Date(this.data.startdate);
+        const h1 = st_time.getHours();
+        const m1 = st_time.getMinutes();
+        const hh1 = h1 < 9 ? '0' + h1 : h1;
+        const mm1 = m1 < 9 ? '0' + m1 : m1;
 
-      const en_time = new Date(this.data.enddate);
-      const h2 = en_time.getHours();
-      const m2 = en_time.getMinutes();
-      const hh2 = h2 < 9 ? '0' + h2 : h2;
-      const mm2 = m2 < 9 ? '0' + m2 : m2;
+        const en_time = new Date(this.data.enddate);
+        const h2 = en_time.getHours();
+        const m2 = en_time.getMinutes();
+        const hh2 = h2 < 9 ? '0' + h2 : h2;
+        const mm2 = m2 < 9 ? '0' + m2 : m2;
 
-      this.data.starttime = hh1 + ':' + mm1;
-      this.data.endtime = hh2 + ':' + mm2;
-    }, 1000);
+        this.data.starttime = hh1 + ':' + mm1;
+        this.data.endtime = hh2 + ':' + mm2;
+      }
+    }, 1600);
   }
 
   sendData() {

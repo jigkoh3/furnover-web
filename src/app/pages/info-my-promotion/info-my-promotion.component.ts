@@ -68,12 +68,36 @@ export class InfoMyPromotionComponent implements OnInit {
     try {
       const res: any = await this.restApi.get(Constants.URL() + '/api/discount/' + this.itemId);
       this.data = res.data;
+      // this.convertTime();
       this.spinner.hide();
     } catch (error) {
       console.log(error);
       this.spinner.hide();
     }
   }
+
+  // convertTime() {
+  //   if (this.data._id) {
+  //     const _startdate = new Date(this.data.startdate);
+  //     const _enddate = new Date(this.data.enddate);
+  //     const st_time = new Date(this.data.startdate);
+  //     const h1 = st_time.getHours();
+  //     const m1 = st_time.getMinutes();
+  //     const hh1 = h1 < 9 ? '0' + h1 : h1;
+  //     const mm1 = m1 < 9 ? '0' + m1 : m1;
+
+  //     const en_time = new Date(this.data.enddate);
+  //     const h2 = en_time.getHours();
+  //     const m2 = en_time.getMinutes();
+  //     const hh2 = h2 < 9 ? '0' + h2 : h2;
+  //     const mm2 = m2 < 9 ? '0' + m2 : m2;
+
+  //     this.data.starttime = hh1 + ':' + mm1;
+  //     this.data.endtime = hh2 + ':' + mm2;
+  //     this.data._startdate = _startdate;
+  //     this.data._enddate = _enddate;
+  //   }
+  // }
 
   openModalAddProduct() {
     const dialogRef = this.dialog.open(ModalSelectProductComponent, {
