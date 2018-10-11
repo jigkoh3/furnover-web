@@ -42,11 +42,30 @@ export class MyPromotionHeaderComponent implements OnInit {
   constructor(
 
   ) {
-    console.log(this.date);
+
   }
 
   ngOnInit() {
+    setTimeout(() => {
+      if (this.data._id) {
+        this._startdate = new Date(this.data.startdate);
+        this._enddate = new Date(this.data.enddate);
+        const st_time = new Date(this.data.startdate);
+        const h1 = st_time.getHours();
+        const m1 = st_time.getMinutes();
+        const hh1 = h1 < 9 ? '0' + h1 : h1;
+        const mm1 = m1 < 9 ? '0' + m1 : m1;
 
+        const en_time = new Date(this.data.enddate);
+        const h2 = en_time.getHours();
+        const m2 = en_time.getMinutes();
+        const hh2 = h2 < 9 ? '0' + h2 : h2;
+        const mm2 = m2 < 9 ? '0' + m2 : m2;
+
+        this.data.starttime = hh1 + ':' + mm1;
+        this.data.endtime = hh2 + ':' + mm2;
+      }
+    }, 1600);
   }
 
   sendData() {
@@ -58,13 +77,13 @@ export class MyPromotionHeaderComponent implements OnInit {
     const date = new Date(
       e._i.year, e._i.month, e._i.date
     );
-    this.data.start_date = date;
+    this.data.startdate = date;
   }
   endDate(e) {
     const date = new Date(
       e._i.year, e._i.month, e._i.date
     );
-    this.data.end_date = date;
+    this.data.enddate = date;
   }
 
 }

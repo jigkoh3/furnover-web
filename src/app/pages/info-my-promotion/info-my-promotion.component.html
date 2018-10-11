@@ -1,5 +1,5 @@
 <div class="wrapper content">
-  <div class="row">
+  <div class="row" *ngIf="itemId">
     <div class="col-12 del-box">
       <button mat-stroked-button color="primary" (click)="delete()">
         <mat-icon>delete_outline</mat-icon> ลบโปรโมชั่น
@@ -18,7 +18,8 @@
       <button mat-stroked-button color="primary" (click)="openModalAddProduct()">
         <mat-icon>add</mat-icon> เพิ่มสินค้า
       </button>
-      <button mat-flat-button class="btn-margin" color="primary" (click)="save()">
+      <button mat-flat-button class="btn-margin" color="primary" [disabled]="!(data.title && data.startdate && data.enddate && data.starttime && data.endtime && data.products.length > 0)"
+        (click)="save()">
         <mat-icon>done</mat-icon> เสร็จสิ้น
       </button>
     </div>
