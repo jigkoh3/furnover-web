@@ -28,6 +28,8 @@ export class AccountComponent implements OnInit {
 
   date = new Date();
   show1 = false;
+  show2 = false;
+  show3 = false;
 
 
   constructor() { }
@@ -42,5 +44,18 @@ export class AccountComponent implements OnInit {
       this.show1 = true;
     }
   }
-
+  clickShow2() {
+    if (this.show2) {
+      this.show2 = false;
+    }else{
+      this.show2 = true;
+    }
+  }
+  clickShow3() {
+    if (this.show3) {
+      this.show3 = false;
+    }else{
+      this.show3 = true;
+    }
+  }
 }

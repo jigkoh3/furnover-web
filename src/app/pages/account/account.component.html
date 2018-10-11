@@ -13,33 +13,41 @@
           <span class="txt-title">หน้าของฉัน</span>
         </div>
         <div class="col-7 col-sm-7 col-md-7 txt-right">
-          <!-- <img class="avatar-icon" src="https://st2.depositphotos.com/2703645/7676/v/950/depositphotos_76762205-stock-illustration-male-avatar-icon.jpg"
-            alt="img">
-          <span class="mgl txt-gray">oraphanpoohuipra</span>
-          <mat-icon class="mgl ic-pink">wc</mat-icon><span class="mgl txt-gray">หญิง</span>
-          <mat-icon class="mgl ic-orange">cake</mat-icon><span class="mgl txt-gray">22/2/2022</span> -->
-          <button mat-flat-button color="primary" class="mgl">อัพเดท</button>
-          <button mat-stroked-button class="mgl">แก้ไข</button>
-          <div class="row">
-            <span class="txt-gray inp-style">
-              <mat-form-field>
-                <input matInput placeholder="ชื่อผู้ใช้" value="">
-              </mat-form-field>
-              <br>
-              <br>
-              <mat-form-field>
-                <input matInput placeholder="เพศ" value="">
-              </mat-form-field>
-              <br>
-              <br>
-              <mat-form-field>
-                <input matInput [matDatepicker]="dp" placeholder="วันเกิด" [(ngModel)]="date" (ngModelChange)="getStartDate($event)">
-                <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
-                <mat-datepicker #dp></mat-datepicker>
-              </mat-form-field>
-            </span>
+
+          <div *ngIf="!show1">
+            <img class="avatar-icon" src="https://st2.depositphotos.com/2703645/7676/v/950/depositphotos_76762205-stock-illustration-male-avatar-icon.jpg"
+              alt="img">
+            <span class="mgl txt-gray">oraphanpoohuipra</span>
+            <mat-icon class="mgl ic-pink">wc</mat-icon><span class="mgl txt-gray">หญิง</span>
+            <mat-icon class="mgl ic-orange">cake</mat-icon><span class="mgl txt-gray">22/2/2022</span>
+            <button mat-stroked-button class="mgl" (click)="clickShow1()">แก้ไข</button>
 
           </div>
+
+          <div *ngIf="show1">
+            <button mat-flat-button color="primary" class="mgl">อัพเดท</button>
+            <button mat-stroked-button class="mgl" (click)="clickShow1()">แก้ไข</button>
+            <div class="row">
+              <span class="txt-gray inp-style">
+                <mat-form-field>
+                  <input matInput placeholder="ชื่อผู้ใช้" value="">
+                </mat-form-field>
+                <br>
+                <br>
+                <mat-form-field>
+                  <input matInput placeholder="เพศ" value="">
+                </mat-form-field>
+                <br>
+                <br>
+                <mat-form-field>
+                  <input matInput [matDatepicker]="dp" placeholder="วันเกิด" [(ngModel)]="date" (ngModelChange)="getStartDate($event)">
+                  <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+                  <mat-datepicker #dp></mat-datepicker>
+                </mat-form-field>
+              </span>
+            </div>
+          </div>
+
         </div>
       </div>
 
@@ -51,10 +59,10 @@
           <span class="txt-title">เบอร์โทร</span>
         </div>
         <div class="col-7 col-sm-7 col-md-7 txt-right">
-          <!-- <span class="mgl txt-gray">0876543321</span> -->
-          <button mat-flat-button color="primary" class="mgl">อัพเดท</button>
-          <button mat-stroked-button class="mgl">แก้ไข</button>
-          <mat-form-field>
+          <span *ngIf="!show2" class="mgl txt-gray">0876543321</span>
+          <button *ngIf="show2" mat-flat-button color="primary" class="mgl">อัพเดท</button>
+          <button mat-stroked-button class="mgl" (click)="clickShow2()">แก้ไข</button>
+          <mat-form-field *ngIf="show2">
             <input matInput placeholder="เบอร์โทร" value="">
           </mat-form-field>
         </div>
@@ -68,11 +76,11 @@
           <span class="txt-title">E-mail</span>
         </div>
         <div class="col-7 col-sm-7 col-md-7 txt-right">
-          <span *ngIf="!show1" class="mgl txt-gray">nid@gmail.com</span>
-          <button *ngIf="show1" mat-flat-button color="primary" class="mgl">อัพเดท</button>
-          <button mat-stroked-button class="mgl" (click)="clickShow1()">แก้ไข</button>
-          <mat-form-field>
-            <input *ngIf="show1" matInput placeholder="อีเมล์" value="">
+          <span *ngIf="!show3" class="mgl txt-gray">nid@gmail.com</span>
+          <button *ngIf="show3" mat-flat-button color="primary" class="mgl">อัพเดท</button>
+          <button mat-stroked-button class="mgl" (click)="clickShow3()">แก้ไข</button>
+          <mat-form-field *ngIf="show3">
+            <input matInput placeholder="อีเมล์" value="">
           </mat-form-field>
         </div>
       </div>
