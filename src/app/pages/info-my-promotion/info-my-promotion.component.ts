@@ -76,12 +76,18 @@ export class InfoMyPromotionComponent implements OnInit {
             this.data.products.push(item);
           }
         });
+        console.log(this.data);
       }
     });
   }
 
   getDataHeader(e) {
     this.data = e;
+  }
+
+  getDataPromotionList(e) {
+    this.data = e;
+    console.log(this.data);
   }
 
   async save() {

@@ -48,6 +48,8 @@ import { ModalSelectProductComponent } from './pages/modals/modal-select-product
 import { SelectProductComponent } from './components/select-product/select-product.component';
 import { InfoMyPromotionComponent } from './pages/info-my-promotion/info-my-promotion.component';
 import { ModalDeleteMyPromotionComponent } from './pages/modals/modal-delete-my-promotion/modal-delete-my-promotion.component';
+import { InfoMyCodeComponent } from './pages/info-my-code/info-my-code.component';
+import { MyCodeComponent } from './pages/my-code/my-code.component';
 
 @NgModule({
   declarations: [
@@ -89,7 +91,9 @@ import { ModalDeleteMyPromotionComponent } from './pages/modals/modal-delete-my-
     ModalSelectProductComponent,
     SelectProductComponent,
     InfoMyPromotionComponent,
-    ModalDeleteMyPromotionComponent
+    ModalDeleteMyPromotionComponent,
+    InfoMyCodeComponent,
+    MyCodeComponent
   ],
   entryComponents: [
     ModalCreateBankAccountComponent,

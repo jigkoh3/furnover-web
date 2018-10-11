@@ -39,4 +39,7 @@ export class MenuMarketingComponent implements OnInit {
     this.router.navigate(['/my-promotion']);
   }
 
+  openMyCode(){
+    this.router.navigate(['/my-code']);
+  }
 }
