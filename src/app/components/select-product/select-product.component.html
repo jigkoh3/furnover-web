@@ -1,9 +1,9 @@
 <div class="select-product-div">
   <div class="row">
-    <div class="col-4 text-left">
+    <div class="col-12 col-md-4 text-left">
       <mat-checkbox [(ngModel)]="checked" (ngModelChange)="onSelectedAll()">เลือกทั้งหมด</mat-checkbox>
     </div>
-    <div class="col-4 text-center">
+    <div class="col-12 col-md-4 text-center">
       <mat-form-field>
         <mat-icon class="search-ic">search</mat-icon>
         <input matInput placeholder="ค้นหา" [(ngModel)]="pageData.name" (keydown)="search($event)">
@@ -17,6 +17,7 @@
         <img [src]="item.image ? item.image.url:''" class="product-image">
         <div class="product-item-soldout-overlay" *ngIf="checkSelected(item)">
           <mat-icon class="selected-icon">check_circle_outline</mat-icon>
+          <p class="product-pricetext">฿{{ item.pricetext }}</p>
         </div>
         <div class="padding-custom">
           <p class="product-name text-nowrap">

@@ -47,7 +47,7 @@
     width: 100%;
     height: 100%;
     top: 0;
-    background: rgba(0, 0, 0, 0.24);
+    background: rgba(0, 0, 0, 0.34);
     align-items: center;
     justify-content: center;
 }
@@ -64,4 +64,10 @@
     right: 0;
     bottom: 2px;
     color: #9f9f9f;
+}
+
+.product-pricetext{
+    position: absolute;
+    color: #ffffff;
+    top:62%;
 }

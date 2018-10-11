@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
+import { MatIconRegistry } from '@angular/material';
 
 @Component({
   selector: 'app-my-promotion-list',
@@ -13,7 +15,13 @@ export class MyPromotionListComponent implements OnInit {
   ];
 
 
-  constructor() { }
+  constructor(
+    public iconRegistry: MatIconRegistry,
+    public sanitizer: DomSanitizer) {
+    iconRegistry.addSvgIcon(
+      'del',
+      sanitizer.bypassSecurityTrustResourceUrl('assets/imgs/icons/del.svg'));
+  }
 
   ngOnInit() {
     this.getData();
@@ -31,9 +39,8 @@ export class MyPromotionListComponent implements OnInit {
             discount: '10',
             choice: true,
             namechoice: 'เสื้อสีดำ'
-          },
-          {
-            oldprice: '120',
+          }, {
+            oldprice: '130',
             newprice: '100',
             discount: '10',
             choice: true,

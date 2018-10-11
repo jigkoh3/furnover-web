@@ -17,6 +17,7 @@ export class SelectProductComponent implements OnInit {
   @Output()
   onSelectedProduct: EventEmitter<any> = new EventEmitter<any>();
   checked: boolean = false;
+  productSelectedCopy: any;
 
   data: any = {
     tabs: []
@@ -39,7 +40,8 @@ export class SelectProductComponent implements OnInit {
     let user = window.localStorage.getItem(Constants.URL() + "@usershop")
       ? JSON.parse(window.localStorage.getItem(Constants.URL() + "@usershop"))
       : null;
-
+    this.productSelected = JSON.parse(JSON.stringify(this.productSelected));
+    this.productSelectedCopy = JSON.parse(JSON.stringify(this.productSelected));
     this.pageData.shop_id = user.shop_id;
     this.pageData.status = this.status;
     // this.pageData.status = "all";
@@ -91,25 +93,35 @@ export class SelectProductComponent implements OnInit {
   onSelectedAll() {
     if (this.checked) {
       this.data.products.forEach(item => {
-        let index = this.productSelected.findIndex(e => {
-          return e._id === item._id;
-        });
+        item.product_id = item._id;
+        if (this.validateEditProduct(item)) {
+          let index = this.productSelected.findIndex(e => {
+            return e.product_id === item._id;
+          });
 
-        if (index === -1) {
-          this.productSelected.push(item);
+          if (index === -1) {
+            this.productSelected.push(item);
+          }
         }
       });
     } else {
       this.data.products.forEach(item => {
-        let index = this.productSelected.findIndex(e => {
-          return e._id === item._id;
-        });
+        item.product_id = item._id;
+        if (this.validateEditProduct(item)) {
+          let index = this.productSelected.findIndex(e => {
+            return e.product_id === item._id;
+          });
 
-        if (index !== -1) {
-          this.productSelected.splice(index, 1);
+          if (index !== -1) {
+            this.productSelected.splice(index, 1);
+          }
         }
       });
     }
+
+    setTimeout(() => {
+      this.onCheckSelectedAll();
+    }, 0);
     this.emit();
   }
 
@@ -117,7 +129,7 @@ export class SelectProductComponent implements OnInit {
     this.checked = true;
     this.data.products.forEach(e => {
       let index = this.productSelected.findIndex(item => {
-        return e._id === item._id;
+        return e._id === item.product_id;
       });
 
       if (index === -1) {
@@ -132,7 +144,7 @@ export class SelectProductComponent implements OnInit {
 
   checkSelected(item) {
     let index = this.productSelected.filter(i => {
-      return i._id === item._id;
+      return i.product_id === item._id;
     });
 
     if (!index[0]) {
@@ -143,18 +155,33 @@ export class SelectProductComponent implements OnInit {
   }
 
   onSelected(item) {
-    let index = this.productSelected.findIndex(i => {
-      return i._id === item._id;
+    item.product_id = item._id;
+    if (this.validateEditProduct(item)) {
+      let index = this.productSelected.findIndex(i => {
+        return i._id === item.product_id;
+      });
+
+      if (index === -1 || this.productSelected.length === 0) {
+        this.productSelected.push(item);
+      } else {
+        this.productSelected.splice(index, 1);
+      }
+
+      this.onCheckSelectedAll();
+      this.emit();
+    }
+  }
+
+  validateEditProduct(item) {
+    let indexCopy = this.productSelectedCopy.findIndex(i => {
+      return i._id === item.product_id;
     });
 
-    if (index === -1 || this.productSelected.length === 0) {
-      this.productSelected.push(item);
+    if (indexCopy === -1) {
+      return true;
     } else {
-      this.productSelected.splice(index, 1);
+      return false;
     }
-
-    this.onCheckSelectedAll();
-    this.emit();
   }
 
   emit() {

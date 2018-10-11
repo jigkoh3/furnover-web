@@ -12,7 +12,7 @@ export class ModalSelectProductComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public paramiter: any,
     public dialogRef: MatDialogRef<ModalSelectProductComponent>
   ) {
-    console.log(paramiter);
+    this.datas = paramiter.products;
   }
 
   ngOnInit() {}

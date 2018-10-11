@@ -1,0 +1,19 @@
+<mat-dialog-content>
+<div class="row text-center">
+  <div class="col-12">
+    <p>
+      คุณยืนยันที่จะลบหรือไม่?
+    </p>
+  </div>
+</div>
+<message *ngIf="dataService.message" class="text-center" [type]="dataService.messageType" [message]="dataService.message"></message>
+
+<div class="row text-center">
+  <div class="col-6">
+    <button mat-button style="width: 100%;" [mat-dialog-close]>ยกเลิก</button>
+  </div>
+  <div class="col-6">
+    <button mat-button style="width: 100%;" (click)="delete()"><span style="color:#ff9558">ใช่, ทำต่อไป</span> </button>
+  </div>
+</div>
+</mat-dialog-content>

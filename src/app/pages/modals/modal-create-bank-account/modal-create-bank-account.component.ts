@@ -29,7 +29,7 @@ export class ModalCreateBankAccountComponent implements OnInit {
     private restApi: RestApiService,
     public dialog: MatDialog,
     private spinner: NgxSpinnerService,
-    private dataService: DataService,
+    public dataService: DataService,
     public dialogRef: MatDialogRef<ModalCreateBankAccountComponent>
 
 

@@ -9,7 +9,7 @@
         <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-4">
             <mat-form-field>
                 <mat-icon class="search-ic">search</mat-icon>
-                <input matInput placeholder="ค้นหา">
+                <input matInput placeholder="ค้นหา"  (keydown)="search($event)">
             </mat-form-field>
         </div>
         <div class="d-none d-sm-block d-md-block d-lg-block d-xl-block col-sm-6 col-md-6 col-lg-8 col-xl-8 text-right">
@@ -61,16 +61,28 @@
                     </div>
                     <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
                         <div class="padding-left">
-                            <button class="padding-left" mat-flat-button color="primary" (click)="onDetail(item)">
+                            <button mat-flat-button color="primary" (click)="onDetail(item)">
                                 <span>ข้อมูล</span>
+                            </button>
+                            <button mat-stroked-button (click)="onDelete(item)">
+                                <span>ลบ</span>
                             </button>
                         </div>
 
                     </div>
+                    
                 </div>
                 <!-- </mat-list-item> -->
-
+                <div class="text-center padding padding-top" >
+                        <button mat-flat-button color="primary" class="btn-summit select" style="margin: 5px;" 
+                            (click)="previos()">ก่อนหน้า</button>
+                        <button mat-flat-button color="primary" 
+                            style="margin: 5px;min-width: unset;" *ngFor="let item of [1,2,3];let i = index" (click)="page(item)">{{1}}</button>
+                        <button mat-flat-button color="primary" class="btn-summit select" style="margin: 5px;" 
+                            (click)="next()">ต่อไป</button>
+                    </div>
             </mat-list>
+            
 
         </mat-tab>
 

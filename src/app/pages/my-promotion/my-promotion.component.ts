@@ -4,6 +4,8 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { Constants } from '../../app.constants';
 import { RestApiService } from '../../providers/rest-api-service/rest-api.service';
 import { DataService } from '../../providers/data-service/data.service';
+import { MatDialog } from '@angular/material';
+import { ModalDeleteMyPromotionComponent } from '../modals/modal-delete-my-promotion/modal-delete-my-promotion.component';
 
 @Component({
   selector: 'app-my-promotion',
@@ -17,6 +19,7 @@ export class MyPromotionComponent implements OnInit {
     public route: Router,
     public restApi: RestApiService,
     public dataService: DataService,
+    public dialog: MatDialog,
     private spinner: NgxSpinnerService
   ) {
     console.log(this.tabs)
@@ -26,6 +29,10 @@ export class MyPromotionComponent implements OnInit {
     this.getPromotion();
   }
 
+  search(event){
+console.log(event)
+  }
+  
   onLinkClick(event) {
     console.log(event)
   }
@@ -34,8 +41,25 @@ export class MyPromotionComponent implements OnInit {
     this.route.navigate(['/info-my-promotion']);
   }
 
-  onDetail(item){
+  onDetail(item) {
     this.route.navigate(['/info-my-promotion'], { queryParams: { itemId: item._id } });
+  }
+
+  onDelete(item): void {
+    const dialogRef = this.dialog.open(ModalDeleteMyPromotionComponent, {
+      width: '500px',
+      // background-color: 'red',
+      hasBackdrop: true,
+      data: JSON.parse(JSON.stringify(item))
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+
+      } else {
+
+      }
+    });
   }
 
 
@@ -64,6 +88,18 @@ export class MyPromotionComponent implements OnInit {
       this.spinner.hide();
       this.dataService.error("โหลดข้อมูลล้มเหลว กรุณาลองใหม่อีกครั้ง")
     }
+  }
+
+  previos() {
+    
+  }
+
+  page(item) {
+   
+  }
+
+  next() {
+   
   }
 
 }
