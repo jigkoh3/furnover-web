@@ -6,91 +6,8 @@
 
     <div class="col-12 col-sm-10 col-md-10 col-lg-10">
       <div class="col-12">
-    
+
         <mat-card>
-
-            <mat-list>
-                <div class="row" style="background-color: #f5f5f5;">
-                  <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                    <h3 mat-subheader>ชื่อสินค้า</h3>
-                  </div>
-                  <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                    <h3 mat-subheader>ตัวเลือกสินค้า</h3>
-                  </div>
-                  <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">
-                    <h3 mat-subheader>ราคาเดิม</h3>
-                  </div>
-                  <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                    <h3 mat-subheader>ราคาที่ลดแล้ว</h3>
-                  </div>
-                  <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                    <h3 mat-subheader>ส่วนลด</h3>
-                  </div>
-                  <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                    <h3 mat-subheader>จำกัดยอดซื้อ</h3>
-                  </div>
-                  <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">
-                    <h3 mat-subheader></h3>
-                  </div>
-                </div>
-                <!-- <mat-list-item > -->
-                <div *ngFor="let item of data">
-                  <div class="row" style="border-bottom: 1px solid #e0e0e0;" *ngFor="let itm of item.prices ;let i = index">
-                    <div *ngIf="i === 0" class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">
-                      <img class="img-product" [src]="item.img">
-                    </div>
-                    <div *ngIf="i === 0" class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 padding-left padding-right ">
-                        <span>
-                             <h3 mat-subheader> {{item.name}} </h3>
-                          </span>
-                    </div>
-                    <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1" *ngIf="i !== 0"></div>
-                    <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1" *ngIf="i !== 0"></div>
-                    <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 padding-left padding-right">
-                        <mat-slide-toggle [(ngModel)]="itm.choice"></mat-slide-toggle>
-                    </div>
-                    <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 ">
-                        <h3 mat-subheader class="padding-left padding-right"> {{itm.namechoice}}</h3>
-                    </div>
-                    <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">
-                        <h3 mat-subheader > {{itm.oldprice}}</h3>
-                        
-                    </div>
-                    <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                        <mat-form-field class="text">
-                           
-                              <input matInput>
-                         
-                          </mat-form-field>
-                    </div>
-                    <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                        <mat-form-field class="text">
-                           
-                              <input matInput>
-                       
-                          </mat-form-field>
-                    </div>
-                    <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                        <mat-form-field class="text">
-                         
-                              <input matInput>
-                          
-                          </mat-form-field>
-                    </div>
-                    <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">
-    
-                    <mat-icon svgIcon="del" class="setting-icon-del"></mat-icon>
-    
-    
-                    </div>
-                  </div>
-                </div>
-    
-                <!-- </mat-list-item> -->
-    
-              </mat-list>
-    
-
 
           <mat-list>
             <div class="row" style="background-color: #f5f5f5;">
@@ -100,7 +17,7 @@
               <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
                 <h3 mat-subheader>ตัวเลือกสินค้า</h3>
               </div>
-              <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+              <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">
                 <h3 mat-subheader>ราคาเดิม</h3>
               </div>
               <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
@@ -112,42 +29,122 @@
               <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
                 <h3 mat-subheader>จำกัดยอดซื้อ</h3>
               </div>
-              
+              <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">
+                <h3 mat-subheader></h3>
+              </div>
             </div>
             <!-- <mat-list-item > -->
-            <div *ngFor="let item of data">
-              <div class="row" style="border-bottom: 1px solid #e0e0e0;" *ngFor="let itm of item.prices ;let i = index">
+            <div *ngFor="let item of data.products;let i = index">
+              <div class="row" style="border-bottom: 1px solid #e0e0e0;" *ngFor="let itm of item.prices ;let j = index">
                 <div *ngIf="i === 0" class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">
-                  <img class="img-product" [src]="item.img">
+                  <img class="img-product" [src]="item.image ? item.image.url : ''">
                 </div>
-                <div *ngIf="i === 0" class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 padding-left padding-right">
-                    <span>
-                        <h3 mat-subheader> {{item.name}} </h3>
-                      </span>
+                <div *ngIf="i === 0" class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 padding-left padding-right ">
+                  <span>
+                    <h3 mat-subheader> {{item.name}} </h3>
+                  </span>
                 </div>
                 <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1" *ngIf="i !== 0"></div>
                 <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1" *ngIf="i !== 0"></div>
-                <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                  <h3 mat-subheader> {{itm.namechoice}}</h3>
+                <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 padding-left padding-right">
+                  <mat-slide-toggle [(ngModel)]="itm.isuse" (ngModelChange)="changeData($event)"></mat-slide-toggle>
+                </div>
+                <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 ">
+                  <h3 mat-subheader class="padding-left padding-right"> {{itm.name}}</h3>
+                </div>
+                <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">
+                  <h3 mat-subheader> {{itm.price}}</h3>
+
                 </div>
                 <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                  <h3 mat-subheader> {{itm.oldprice}} </h3>
+                  <mat-form-field class="text">
+
+                    <input matInput [(ngModel)]="itm.newprice" placeholder="฿" (ngModelChange)="swapPrice($event,'cash',i,j,itm.price)">
+
+                  </mat-form-field>
                 </div>
                 <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                  <h3 mat-subheader>{{itm.newprice}}</h3>
+                  <mat-form-field class="text">
+
+                    <input matInput [(ngModel)]="itm.percentage" placeholder="%ลด" (ngModelChange)="swapPrice($event,'percent',i,j,itm.price)">
+
+                  </mat-form-field>
                 </div>
                 <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                  <h3 mat-subheader>{{itm.discount}}%ลด</h3>
+                  <mat-form-field class="text">
+
+                    <input matInput [(ngModel)]="item.qty" (ngModelChange)="changeData($event)">
+
+                  </mat-form-field>
                 </div>
-                <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                  <h3 mat-subheader>{{item.limitsell}}</h3>
+                <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">
+
+                  <mat-icon svgIcon="del" class="setting-icon-del"></mat-icon>
+
+
                 </div>
-                           </div>
+              </div>
             </div>
 
             <!-- </mat-list-item> -->
 
           </mat-list>
+
+
+
+          <!-- <mat-list>
+                      <div class="row" style="background-color: #f5f5f5;">
+                        <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                          <h3 mat-subheader>ชื่อสินค้า</h3>
+                        </div>
+                        <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                          <h3 mat-subheader>ตัวเลือกสินค้า</h3>
+                        </div>
+                        <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                          <h3 mat-subheader>ราคาเดิม</h3>
+                        </div>
+                        <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                          <h3 mat-subheader>ราคาที่ลดแล้ว</h3>
+                        </div>
+                        <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                          <h3 mat-subheader>ส่วนลด</h3>
+                        </div>
+                        <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                          <h3 mat-subheader>จำกัดยอดซื้อ</h3>
+                        </div>
+                        
+                      </div>
+                      <div *ngFor="let item of data">
+                        <div class="row" style="border-bottom: 1px solid #e0e0e0;" *ngFor="let itm of item.prices ;let i = index">
+                          <div *ngIf="i === 0" class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">
+                            <img class="img-product" [src]="item.img">
+                          </div>
+                          <div *ngIf="i === 0" class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 padding-left padding-right">
+                              <span>
+                                  <h3 mat-subheader> {{item.name}} </h3>
+                                </span>
+                          </div>
+                          <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1" *ngIf="i !== 0"></div>
+                          <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1" *ngIf="i !== 0"></div>
+                          <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                            <h3 mat-subheader> {{itm.namechoice}}</h3>
+                          </div>
+                          <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                            <h3 mat-subheader> {{itm.oldprice}} </h3>
+                          </div>
+                          <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                            <h3 mat-subheader>{{itm.newprice}}</h3>
+                          </div>
+                          <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                            <h3 mat-subheader>{{itm.discount}}%ลด</h3>
+                          </div>
+                          <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                            <h3 mat-subheader>{{item.limitsell}}</h3>
+                          </div>
+                                     </div>
+                      </div>
+          
+                    </mat-list> -->
 
         </mat-card>
 
