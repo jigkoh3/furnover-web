@@ -103,13 +103,19 @@
         </div>
         <div class="col-md-4">
           <mat-form-field>
-            <input matInput [(ngModel)]="data.startdate">
+            <input matInput [matDatepicker]="dp" placeholder="Verbose datepicker" (ngModelChange)="startDate($event)"
+              [(ngModel)]="_startdate">
+            <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+            <mat-datepicker #dp></mat-datepicker>
           </mat-form-field>
         </div>
         <div class="col-md-1"></div>
         <div class="col-md-4">
           <mat-form-field>
-            <input matInput [(ngModel)]="data.enddate">
+            <input matInput [matDatepicker]="dp2" placeholder="Verbose datepicker" (ngModelChange)="endDate($event)"
+              [(ngModel)]="_enddate">
+            <mat-datepicker-toggle matSuffix [for]="dp2"></mat-datepicker-toggle>
+            <mat-datepicker #dp2></mat-datepicker>
           </mat-form-field>
         </div>
       </div>
@@ -137,7 +143,7 @@
   </div>
   <div class="row">
     <div class="col-12 col-md-2 col-sm-4" (click)="openModalAddProduct()">
-      <div class="fix-col">
+      <div class="fix-col div-add-prod">
         <p>
           <button mat-fab color="primary">
             <mat-icon>add</mat-icon>
@@ -149,8 +155,7 @@
     <div class="col-12 col-md-2 col-sm-4" *ngFor="let item of data.products">
       <mat-card class="mat-card_cus">
         <div style="background-size: cover;min-height: 12rem;">
-          <img [src]="item.image ? item.image.url:''" style="width: 100%;min-height: 12rem;object-fit: contain;"
-            (click)="gotoEditProduct(item._id)">
+          <img [src]="item.image ? item.image.url:''" class="img-style" (click)="gotoEditProduct(item._id)">
         </div>
       </mat-card>
     </div>

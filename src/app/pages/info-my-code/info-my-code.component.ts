@@ -25,7 +25,7 @@ export const MY_FORMATS = {
 @Component({
   selector: 'app-info-my-code',
   templateUrl: './info-my-code.component.html',
-  styleUrls: ['./info-my-code.component.css'],
+  styleUrls: ['./info-my-code.component.scss'],
   providers: [
     { provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE] },
     { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS },
@@ -74,10 +74,13 @@ export class InfoMyCodeComponent implements OnInit {
     this.spinner.show();
     try {
       const res: any = await this.restApi.get(Constants.URL() + '/api/mycode/' + this.itemId);
-      if(res.data._id){
+      if (res.data._id) {
         this.data = res.data;
+        this._startdate = new Date(this.data.startdate);
+        this._enddate = new Date(this.data.enddate);
+        console.log(this.data);
       }
-      
+
       this.spinner.hide();
     } catch (error) {
       console.log(error);
@@ -92,7 +95,7 @@ export class InfoMyCodeComponent implements OnInit {
     const date = new Date(
       e._i.year, e._i.month, e._i.date
     );
-    this.data.start_date = date;
+    this.data.startdate = date;
     // console.log(this.data.start_date);
   }
 
@@ -100,7 +103,7 @@ export class InfoMyCodeComponent implements OnInit {
     const date = new Date(
       e._i.year, e._i.month, e._i.date
     );
-    this.data.end_date = date;
+    this.data.enddate = date;
     // console.log(this.data.end_date);
   }
 
@@ -129,47 +132,29 @@ export class InfoMyCodeComponent implements OnInit {
     });
   }
 
-  
+
 
   async saveData() {
     this.spinner.show();
-    // this.oldTime = {
-    //   starttime: this.data.starttime,
-    //   endtime: this.data.endtime
-    // };
-    // const dateTimeStart = new Date(this.data.startdate);
-    // const timespl = this.data.starttime.split(':');
-    // dateTimeStart.setHours(timespl[0], timespl[1], 0, 0);
-    // const dateTimeEnd = new Date(this.data.enddate);
-    // const timespl2 = this.data.endtime.split(':');
-    // dateTimeEnd.setHours(timespl2[0], timespl2[1], 0, 0);
-    // this.data.startdate = dateTimeStart;
-    // this.data.enddate = dateTimeEnd;
-    // this.data.starttime = dateTimeStart;
-    // this.data.endtime = dateTimeEnd;
     const userShop: any = JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop'));
     this.data.shop_id = userShop.shop._id;
 
     if (this.itemId) {
       try {
         const res: any = await this.restApi.put(Constants.URL() + '/api/Mycode/' + this.itemId, this.data);
-        
         this.spinner.hide();
-        
+
       } catch (error) {
         console.log(error);
-        
         this.spinner.hide();
       }
     } else {
       try {
         const res: any = await this.restApi.post(Constants.URL() + '/api/Mycode', this.data);
-       
         this.spinner.hide();
-        
       } catch (error) {
         console.log(error);
-       
+
         this.spinner.hide();
       }
     }
