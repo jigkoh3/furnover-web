@@ -132,11 +132,11 @@
   </div>
   <div class="row">
     <div class="col-md-12">
-      <mat-checkbox   [(ngModel)]="data.itemtype">สามารถใช้ได้กับสินค้าทั้งร้าน</mat-checkbox>
+      <mat-checkbox [(ngModel)]="data.itemtype">สามารถใช้ได้กับสินค้าทั้งร้าน</mat-checkbox>
     </div>
   </div>
   <div class="row">
-    <div class="col-12 col-md-2 col-sm-4" (click)="gotoCreateProduct()">
+    <div class="col-12 col-md-2 col-sm-4" (click)="openModalAddProduct()">
       <div class="fix-col">
         <p>
           <button mat-fab color="primary">
@@ -151,11 +151,14 @@
         <div style="background-size: cover;min-height: 12rem;">
           <img [src]="item.image ? item.image.url:''" style="width: 100%;min-height: 12rem;object-fit: contain;"
             (click)="gotoEditProduct(item._id)">
-
         </div>
       </mat-card>
     </div>
-
-
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <button mat-button (click)="saveData()">บันทึก</button>
+      <button mat-button>ยกเลิก</button>
+    </div>
   </div>
 </mat-card>
