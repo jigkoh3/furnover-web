@@ -88,58 +88,60 @@
 
 
           <!-- <mat-list>
-                      <div class="row" style="background-color: #f5f5f5;">
-                        <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                          <h3 mat-subheader>ชื่อสินค้า</h3>
-                        </div>
-                        <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                          <h3 mat-subheader>ตัวเลือกสินค้า</h3>
-                        </div>
-                        <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                          <h3 mat-subheader>ราคาเดิม</h3>
-                        </div>
-                        <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                          <h3 mat-subheader>ราคาที่ลดแล้ว</h3>
-                        </div>
-                        <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                          <h3 mat-subheader>ส่วนลด</h3>
-                        </div>
-                        <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                          <h3 mat-subheader>จำกัดยอดซื้อ</h3>
-                        </div>
-                        
-                      </div>
-                      <div *ngFor="let item of data">
-                        <div class="row" style="border-bottom: 1px solid #e0e0e0;" *ngFor="let itm of item.prices ;let i = index">
-                          <div *ngIf="i === 0" class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">
-                            <img class="img-product" [src]="item.img">
-                          </div>
-                          <div *ngIf="i === 0" class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 padding-left padding-right">
-                              <span>
-                                  <h3 mat-subheader> {{item.name}} </h3>
-                                </span>
-                          </div>
-                          <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1" *ngIf="i !== 0"></div>
-                          <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1" *ngIf="i !== 0"></div>
-                          <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                            <h3 mat-subheader> {{itm.namechoice}}</h3>
-                          </div>
-                          <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                            <h3 mat-subheader> {{itm.oldprice}} </h3>
-                          </div>
-                          <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                            <h3 mat-subheader>{{itm.newprice}}</h3>
-                          </div>
-                          <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                            <h3 mat-subheader>{{itm.discount}}%ลด</h3>
-                          </div>
-                          <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                            <h3 mat-subheader>{{item.limitsell}}</h3>
-                          </div>
-                                     </div>
-                      </div>
-          
-                    </mat-list> -->
+            <div class="row" style="background-color: #f5f5f5;">
+              <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                <h3 mat-subheader>ชื่อสินค้า</h3>
+              </div>
+              <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                <h3 mat-subheader>ตัวเลือกสินค้า</h3>
+              </div>
+              <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                <h3 mat-subheader>ราคาเดิม</h3>
+              </div>
+              <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                <h3 mat-subheader>ราคาที่ลดแล้ว</h3>
+              </div>
+              <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                <h3 mat-subheader>ส่วนลด</h3>
+              </div>
+              <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                <h3 mat-subheader>จำกัดยอดซื้อ</h3>
+              </div>
+
+            </div>
+            <div *ngFor="let item of data.products;let i = index">
+              <div class="row" [ngClass]="{'line': j + 1 === item.prices.length}" *ngFor="let itm of item.prices ;let j = index">
+                <div *ngIf="j === 0" class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">
+                  <img class="img-product" [src]="item.image ? item.image.url : ''">
+                </div>
+                <div *ngIf="j === 0" class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">
+                  <div class="txt-name">
+                    {{item.name}}
+                  </div>
+                </div>
+                <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1" *ngIf="j !== 0"></div>
+                <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1" *ngIf="j !== 0"></div>
+                <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                  <h3 mat-subheader> {{itm.isuse}}</h3>
+                </div>
+                <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                  <h3 mat-subheader> {{itm.price}} </h3>
+                </div>
+                <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                  <h3 mat-subheader>{{itm.newprice}}</h3>
+                </div>
+                <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                  <h3 mat-subheader>{{itm.percentage}}%ลด</h3>
+                </div>
+                <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                  <h3 mat-subheader>{{item.qty}}</h3>
+                </div>
+              </div>
+            </div>
+
+          </mat-list> -->
+
+
         </mat-card>
       </div>
     </div>
