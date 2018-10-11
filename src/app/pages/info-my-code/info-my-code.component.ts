@@ -63,8 +63,8 @@ export class InfoMyCodeComponent implements OnInit {
     this.activatedRoute
       .queryParams
       .subscribe(params => {
-        if (params['itemId']) {
-          this.itemId = params['itemId'];
+        if (params['item']) {
+          this.itemId = params['item'];
           this.initLoadData();
         }
       });

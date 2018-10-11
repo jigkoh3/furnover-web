@@ -78,7 +78,7 @@ export class MyCodeComponent implements OnInit {
   }
 
   onDetail(item) {
-    this.route.navigate(['/info-my-code'], { queryParams: { item: item } });
+    this.route.navigate(['/info-my-code'], { queryParams: { item: item._id } });
   }
 
   previos() {
