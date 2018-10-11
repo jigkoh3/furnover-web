@@ -22,19 +22,19 @@ export class MyPromotionComponent implements OnInit {
     public dialog: MatDialog,
     private spinner: NgxSpinnerService
   ) {
-    console.log(this.tabs)
+    console.log(this.tabs);
   }
 
   ngOnInit() {
     this.getPromotion();
   }
 
-  search(event){
-console.log(event)
+  search(event) {
+    console.log(event);
   }
-  
+
   onLinkClick(event) {
-    console.log(event)
+    console.log(event);
   }
 
   onCreatePromotion() {
@@ -55,9 +55,7 @@ console.log(event)
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-
-      } else {
-
+        this.getPromotion();
       }
     });
   }
@@ -65,8 +63,9 @@ console.log(event)
 
   async getPromotion() {
     this.spinner.show();
-    let shop = window.localStorage.getItem(Constants.URL() + '@usershop') ? JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop')) : null;
-    let object = {
+    const shop = window.localStorage.getItem(Constants.URL() + '@usershop') ?
+      JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop')) : null;
+    const object = {
       shop_id: shop.shop_id,
       status: 'all',
       name: '',
@@ -74,7 +73,7 @@ console.log(event)
       limit: 30
     };
     try {
-      let res: any = await this.restApi.post(Constants.URL() + '/api/discount-list', object);
+      const res: any = await this.restApi.post(Constants.URL() + '/api/discount-list', object);
       if (res['status'] === 200) {
         this.spinner.hide();
         console.log(res);
@@ -86,20 +85,20 @@ console.log(event)
       // this.spinner.hide();
     } catch (error) {
       this.spinner.hide();
-      this.dataService.error("โหลดข้อมูลล้มเหลว กรุณาลองใหม่อีกครั้ง")
+      this.dataService.error('โหลดข้อมูลล้มเหลว กรุณาลองใหม่อีกครั้ง');
     }
   }
 
   previos() {
-    
+
   }
 
   page(item) {
-   
+
   }
 
   next() {
-   
+
   }
 
 }

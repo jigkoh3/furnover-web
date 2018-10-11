@@ -21,7 +21,7 @@ export class ModalDeleteMyPromotionComponent implements OnInit {
   ) {
 
     this.data = item;
-    console.log(this.data)
+    console.log(this.data);
   }
 
   ngOnInit() {
@@ -29,7 +29,7 @@ export class ModalDeleteMyPromotionComponent implements OnInit {
   async delete() {
     this.spinner.show();
     try {
-      let res: any = await this.restApi.post(Constants.URL() + '/api/xxx-delete/', this.data);
+      const res: any = await this.restApi.delete(Constants.URL() + '/api/discount/' + this.data._id);
       if (res['status'] === 200) {
         this.dialogRef.close(res);
         this.spinner.hide();

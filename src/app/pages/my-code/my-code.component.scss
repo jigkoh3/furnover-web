@@ -1,0 +1,31 @@
+.container {
+    max-width: 90% !important;
+}
+
+.code-setting-header-title {
+    font-size: 23px;
+}
+
+.mat-list{
+    min-width: 800px;
+}
+
+.no-flex{
+display: unset !important;
+}
+
+.select {
+    margin: 2px;
+    min-width: unset;
+}
+
+.un-select {
+    background-color: #e8e8e8 !important;
+    color: #000000 !important;
+    margin: 2px;
+    min-width: unset;
+}
+
+.mat-icon-header{
+    color:white;
+}
