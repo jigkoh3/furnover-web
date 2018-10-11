@@ -27,10 +27,20 @@ export const MY_FORMATS = {
 export class AccountComponent implements OnInit {
 
   date = new Date();
+  show1 = false;
+
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  clickShow1() {
+    if (this.show1) {
+      this.show1 = false;
+    } else {
+      this.show1 = true;
+    }
   }
 
 }

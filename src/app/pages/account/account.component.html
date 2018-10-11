@@ -68,10 +68,11 @@
           <span class="txt-title">E-mail</span>
         </div>
         <div class="col-7 col-sm-7 col-md-7 txt-right">
-          <!-- <span class="mgl txt-gray">nid@gmail.com</span> --><button mat-flat-button color="primary" class="mgl">อัพเดท</button>
-          <button mat-stroked-button class="mgl">แก้ไข</button>
+          <span *ngIf="!show1" class="mgl txt-gray">nid@gmail.com</span>
+          <button *ngIf="show1" mat-flat-button color="primary" class="mgl">อัพเดท</button>
+          <button mat-stroked-button class="mgl" (click)="clickShow1()">แก้ไข</button>
           <mat-form-field>
-            <input matInput placeholder="อีเมล์" value="">
+            <input *ngIf="show1" matInput placeholder="อีเมล์" value="">
           </mat-form-field>
         </div>
       </div>
