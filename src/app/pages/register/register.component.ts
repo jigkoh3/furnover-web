@@ -22,7 +22,7 @@ export class RegisterComponent implements OnInit {
   constructor(
     private _formBuilder: FormBuilder,
     private restApi: RestApiService,
-    private dataService: DataService,
+    public dataService: DataService,
     private router: Router,
     private spinner: NgxSpinnerService
   ) { }
