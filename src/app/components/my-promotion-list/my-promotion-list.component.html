@@ -1,10 +1,6 @@
 <div class="col-12">
   <div class="row">
-    <div class="col-12 col-sm-1 col-md-1 col-lg-1">
-    </div>
-
-
-    <div class="col-12 col-sm-10 col-md-10 col-lg-10">
+    <div class="col-12 col-sm-12 col-md-12 col-lg-12">
       <div class="col-12">
 
         <mat-card>
@@ -35,17 +31,17 @@
             </div>
             <!-- <mat-list-item > -->
             <div *ngFor="let item of data.products;let i = index">
-              <div class="row" style="border-bottom: 1px solid #e0e0e0;" *ngFor="let itm of item.prices ;let j = index">
-                <div *ngIf="i === 0" class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">
+              <div class="row" [ngClass]="{'line': j + 1 === item.prices.length}" *ngFor="let itm of item.prices ;let j = index">
+                <div *ngIf="j === 0" class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">
                   <img class="img-product" [src]="item.image ? item.image.url : ''">
                 </div>
-                <div *ngIf="i === 0" class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 padding-left padding-right ">
-                  <span>
-                    <h3 mat-subheader> {{item.name}} </h3>
-                  </span>
+                <div *ngIf="j === 0" class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">
+                  <div class="txt-name">
+                    {{item.name}}
+                  </div>
                 </div>
-                <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1" *ngIf="i !== 0"></div>
-                <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1" *ngIf="i !== 0"></div>
+                <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1" *ngIf="j !== 0"></div>
+                <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1" *ngIf="j !== 0"></div>
                 <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 padding-left padding-right">
                   <mat-slide-toggle [(ngModel)]="itm.isuse" (ngModelChange)="changeData($event)"></mat-slide-toggle>
                 </div>
@@ -54,35 +50,34 @@
                 </div>
                 <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">
                   <h3 mat-subheader> {{itm.price}}</h3>
-
                 </div>
                 <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
                   <mat-form-field class="text">
-
                     <input matInput [(ngModel)]="itm.newprice" placeholder="฿" (ngModelChange)="swapPrice($event,'cash',i,j,itm.price)">
-
                   </mat-form-field>
                 </div>
                 <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
                   <mat-form-field class="text">
-
                     <input matInput [(ngModel)]="itm.percentage" placeholder="%ลด" (ngModelChange)="swapPrice($event,'percent',i,j,itm.price)">
-
                   </mat-form-field>
                 </div>
-                <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                <div *ngIf="j === 0" class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
                   <mat-form-field class="text">
-
                     <input matInput [(ngModel)]="item.qty" (ngModelChange)="changeData($event)">
-
                   </mat-form-field>
                 </div>
-                <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">
-
-                  <mat-icon svgIcon="del" class="setting-icon-del"></mat-icon>
-
-
+                <div *ngIf="j !== 0">
                 </div>
+                <div *ngIf="j === 0" class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">
+                  <mat-icon svgIcon="del" class="setting-icon-del del-btn" (click)="delProduct(i)"></mat-icon>
+                </div>
+                <div *ngIf="j !== 0">
+                </div>
+              </div>
+            </div>
+            <div class="row" *ngIf="data.products.length <= 0">
+              <div class="col-12 txt-no-data">
+                ไม่มีข้อมูลสินค้า
               </div>
             </div>
 
@@ -145,20 +140,8 @@
                       </div>
           
                     </mat-list> -->
-
         </mat-card>
-
-
-
-
-
       </div>
-
-    </div>
-
-
-    <div class="col-12 col-sm-1 col-md-1 col-lg-1">
-
     </div>
   </div>
 </div>

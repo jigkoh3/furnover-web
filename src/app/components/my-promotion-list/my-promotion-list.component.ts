@@ -63,4 +63,11 @@ export class MyPromotionListComponent implements OnInit {
     }
     this.outputData.emit(this.data);
   }
+
+  delProduct(i) {
+    const confirm = window.confirm('ยืนยันการลบสินค้า');
+    if (confirm) {
+      this.data.products.splice(i, 1);
+    }
+  }
 }
