@@ -1,0 +1,29 @@
+.header-style {
+    text-align: center !important;
+    font-size: 20px !important;
+    color: grey !important;
+}
+.fix-col {
+    border: dotted;
+    border-color: #a9a9a9;
+    height: 12rem;
+    position: relative;
+    cursor: pointer;
+}
+.div-header-style {
+    border-bottom: solid lightgrey !important ;
+}
+
+.header-from {
+    
+}
+
+.card-add-prod-style {
+    
+}
+
+.wrapper.content {
+    background-color: #fff;
+    box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, .09);
+    padding: 20px 48px;
+}
