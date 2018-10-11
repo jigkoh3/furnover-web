@@ -58,13 +58,13 @@ export class MyPromotionHeaderComponent implements OnInit {
     const date = new Date(
       e._i.year, e._i.month, e._i.date
     );
-    this.data.start_date = date;
+    this.data.startdate = date;
   }
   endDate(e) {
     const date = new Date(
       e._i.year, e._i.month, e._i.date
     );
-    this.data.end_date = date;
+    this.data.enddate = date;
   }
 
 }
