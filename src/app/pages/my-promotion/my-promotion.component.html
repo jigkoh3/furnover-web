@@ -4,7 +4,6 @@
             <span>โปรโมชั่นส่วนลดของฉัน</span>
         </div>
     </div>
-
     <div class="row">
         <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-4">
             <mat-form-field>
@@ -72,7 +71,7 @@
                 </div>
                 <div padding *ngIf="dataService.message">
                     <message padding-top class="text-center" [type]="dataService.messageType" [message]="dataService.message"></message>
-                  </div>
+                </div>
                 <!-- </mat-list-item> -->
                 <div class="text-center padding padding-top">
                     <button mat-flat-button color="primary" class="btn-summit select" style="margin: 5px;" (click)="previos()">ก่อนหน้า</button>
@@ -81,11 +80,6 @@
                     <button mat-flat-button color="primary" class="btn-summit select" style="margin: 5px;" (click)="next()">ต่อไป</button>
                 </div>
             </mat-list>
-
-
         </mat-tab>
-
     </mat-tab-group>
-
-
 </mat-card>
