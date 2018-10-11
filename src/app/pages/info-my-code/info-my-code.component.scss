@@ -1,0 +1,40 @@
+.header-style {
+    text-align: center !important;
+    font-size: 20px !important;
+    color: grey !important;
+}
+.fix-col {
+    border: dotted;
+    border-color: #a9a9a9;
+    height: 15rem;
+    position: relative;
+    cursor: pointer;
+}
+.div-header-style {
+    border-bottom: solid lightgrey !important ;
+}
+
+.wrapper.content {
+    background-color: #fff;
+    box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, .09);
+    padding: 20px 48px;
+}
+
+.mat-card_cus {
+    transition: box-shadow 280ms cubic-bezier(.4, 0, .2, 1);
+    display: block;
+    position: relative;
+    padding: 0px;
+    border-radius: 4px;
+    height: 15rem;
+}
+
+.img-style {
+    width: 100%;
+    min-height: 9rem;
+    object-fit: contain;
+}
+
+.div-add-prod {
+    text-align: center;    
+}

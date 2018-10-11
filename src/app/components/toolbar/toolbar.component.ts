@@ -31,7 +31,7 @@ export class ToolbarComponent implements OnInit {
     const usershop = window.localStorage.getItem(Constants.URL() + '@usershop') ?
       JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop')) : {};
     if (token && usershop) {
-      this.shopname = usershop.shop ? usershop.shop.name : '';
+      this.shopname = usershop ? usershop.username : '';
       return true;
     } else {
       return false;

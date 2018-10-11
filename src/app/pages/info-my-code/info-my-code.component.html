@@ -1,3 +1,169 @@
-<p>
-  info-my-code works!
-</p>
+<mat-card>
+  <div class="row">
+    <div class="col-md-6 col-12">
+      <div class="row">
+        <div class="col-md-12">
+          <p>voucher info</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          <p>ชื่อโค้ดส่วนลด</p>
+        </div>
+        <div class="col-md-9">
+          <mat-form-field>
+            <input matInput [(ngModel)]="data.name">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          <p>โค้ดส่วนลด</p>
+        </div>
+        <div class="col-md-9">
+          <mat-form-field>
+            <input matInput [(ngModel)]="data.code">
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-3">
+          <p>ประเภทโค้ดส่วนลด</p>
+        </div>
+        <div class="col-md-4">
+          <mat-form-field>
+            <mat-select placeholder="เลือกประเภทส่วนลด" [(ngModel)]="data.codetype">
+              <mat-option value="cash">
+                บาท
+              </mat-option>
+              <mat-option value="percentage">
+                เปอร์เซ็น
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col-1"></div>
+        <div class="col-md-4" *ngIf="data.codetype == 'cash'">
+          <mat-form-field>
+            <input matInput [(ngModel)]="data.cash.discount">
+          </mat-form-field>
+        </div>
+        <div class="col-md-4" *ngIf="data.codetype == 'percentage'">
+          <mat-form-field>
+            <input matInput [(ngModel)]="data.percentage.discount">
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row" *ngIf="data.codetype == 'percentage'">
+        <div class="col-md-3">
+          <p>ส่วนลดสูงสุด</p>
+        </div>
+        <div class="col-md-9">
+          <mat-radio-group [(ngModel)]="data.percentage.percentagetype">
+            <mat-radio-button value="limit">กำหนดราคา</mat-radio-button>
+            <mat-radio-button value="unlimit">ไม่จำกัด</mat-radio-button>
+          </mat-radio-group>
+        </div>
+      </div>
+      <div class="row" *ngIf="data.percentage.percentagetype == 'limit' && data.codetype == 'percentage'">
+        <div class="col-md-3">
+
+        </div>
+        <div class="col-md-9">
+          <mat-form-field>
+            <input matInput [(ngModel)]="data.percentage.setamount">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row" *ngIf="data.codetype == 'cash'">
+        <div class="col-md-3">
+          <p>ราคาขั้นต่ำ</p>
+        </div>
+        <div class="col-md-9">
+          <mat-form-field>
+            <input matInput [(ngModel)]="data.cash.minprice">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row" *ngIf="data.codetype == 'percentage'">
+        <div class="col-md-3">
+          <p>ราคาขั้นต่ำ</p>
+        </div>
+        <div class="col-md-9">
+          <mat-form-field>
+            <input matInput [(ngModel)]="data.percentage.minprice">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          <p>ระยะเวลาเริ่มต้น/สิ้นสุด</p>
+        </div>
+        <div class="col-md-4">
+          <mat-form-field>
+            <input matInput [matDatepicker]="dp" placeholder="Verbose datepicker" (ngModelChange)="startDate($event)"
+              [(ngModel)]="_startdate">
+            <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+            <mat-datepicker #dp></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-4">
+          <mat-form-field>
+            <input matInput [matDatepicker]="dp2" placeholder="Verbose datepicker" (ngModelChange)="endDate($event)"
+              [(ngModel)]="_enddate">
+            <mat-datepicker-toggle matSuffix [for]="dp2"></mat-datepicker-toggle>
+            <mat-datepicker #dp2></mat-datepicker>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          <p>จำนวนโค้ดส่วนลด</p>
+        </div>
+        <div class="col-md-9">
+          <mat-form-field>
+            <input matInput [(ngModel)]="data.codeqty">
+          </mat-form-field>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-md-6">panal immage</div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">cvbcbcvbcvb</div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <mat-checkbox [(ngModel)]="data.itemtype">สามารถใช้ได้กับสินค้าทั้งร้าน</mat-checkbox>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 col-md-2 col-sm-4" (click)="openModalAddProduct()">
+      <div class="fix-col div-add-prod">
+        <p>
+          <button mat-fab color="primary">
+            <mat-icon>add</mat-icon>
+          </button>
+        </p>
+        <p class="add-txt">เพิ่มสินค้า</p>
+      </div>
+    </div>
+    <div class="col-12 col-md-2 col-sm-4" *ngFor="let item of data.products">
+      <mat-card class="mat-card_cus">
+        <div style="background-size: cover;min-height: 12rem;">
+          <img [src]="item.image ? item.image.url:''" class="img-style" (click)="gotoEditProduct(item._id)">
+        </div>
+      </mat-card>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <button mat-button (click)="saveData()">บันทึก</button>
+      <button mat-button>ยกเลิก</button>
+    </div>
+  </div>
+</mat-card>
