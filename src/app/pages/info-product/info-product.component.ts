@@ -378,24 +378,24 @@ export class InfoProductComponent implements OnInit {
       this.data.prepareshipping = 2;
     }
 
-    // if (this.data._id) {
-    //   try {
-    //     const res: any = await this.restApi.put(Constants.URL() + '/api/product/' + this.data._id, this.data);
-    //     this.spinner.hide();
-    //     this.route.navigate(['my-product']);
-    //   } catch (error) {
-    //     console.log(error);
-    //   }
-    // } else {
-    //   try {
-    //     const res: any = await this.restApi.post(Constants.URL() + '/api/product', this.data);
-    //     this.spinner.hide();
-    //     this.route.navigate(['my-product']);
-    //   } catch (error) {
-    //     console.log(error);
-    //     this.spinner.hide();
-    //   }
-    // }
+    if (this.data._id) {
+      try {
+        const res: any = await this.restApi.put(Constants.URL() + '/api/product/' + this.data._id, this.data);
+        this.spinner.hide();
+        this.route.navigate(['my-product']);
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      try {
+        const res: any = await this.restApi.post(Constants.URL() + '/api/product', this.data);
+        this.spinner.hide();
+        this.route.navigate(['my-product']);
+      } catch (error) {
+        console.log(error);
+        this.spinner.hide();
+      }
+    }
   }
 
 }
