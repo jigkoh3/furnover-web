@@ -244,6 +244,7 @@ export class InfoMyCodeComponent implements OnInit {
   }
 
   validateNumber() {
+    //ใช้เช็คการกรอกตัวเลขในช่่อง
     let last = this.data.cash.discount[this.data.cash.discount.length - 1];
     if (isNaN(last)) {
       setTimeout(() => {

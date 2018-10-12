@@ -118,6 +118,7 @@ export class InfoProductComponent implements OnInit {
       } else {
         this.isShowMainOption1 = false;
         this.isOptions = false;
+        this.dataSource = [];
       }
     } else if (idx === 2) {
       this.isShowMainOption2 = false;

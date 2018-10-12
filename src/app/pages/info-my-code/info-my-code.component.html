@@ -52,7 +52,7 @@
         <div class="col-1"></div>
         <div class="col-md-4" *ngIf="data.codetype == 'cash'">
           <mat-form-field>
-            <input matInput type="tel" placeholder="จำนวนส่วนลด(บาท)" [(ngModel)]="data.cash.discount" (ngModelChange)="validateNumber()">
+            <input matInput type="tel" placeholder="จำนวนส่วนลด(บาท)" [(ngModel)]="data.cash.discount">
           </mat-form-field>
         </div>
         <div class="col-md-4" *ngIf="data.codetype == 'percentage'">
