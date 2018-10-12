@@ -89,3 +89,19 @@
 .star-req {
     color: #F44336 ;
 }
+
+.padding-top-btn {
+    padding-top: 16px !important ;
+}
+
+.alert-error-style {
+    width: 100% !important;
+}
+
+::ng-deep .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+    border-color:#ff9137;
+}
+
+::ng-deep .mat-radio-button.mat-accent .mat-radio-inner-circle {
+    background-color: #ff9137;
+}
