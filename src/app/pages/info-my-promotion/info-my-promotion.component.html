@@ -13,7 +13,7 @@
     </div>
   </div>
 
-  <div class="row" *ngIf="data.title && data.startdate && data.enddate && data.starttime && data.endtime">
+  <div class="row" *ngIf="data.isSave">
     <div class="col-12 del-box">
       <button mat-stroked-button color="primary" (click)="openModalAddProduct()">
         <mat-icon>add</mat-icon> เพิ่มสินค้า
@@ -25,7 +25,7 @@
     </div>
   </div>
 
-  <div class="row" *ngIf="data.title && data.startdate && data.enddate && data.starttime && data.endtime">
+  <div class="row" *ngIf="data.isSave">
     <div class="col-12">
       <app-my-promotion-list [data]="data" (outputData)="getDataPromotionList($event)"></app-my-promotion-list>
     </div>

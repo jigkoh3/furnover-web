@@ -29,6 +29,7 @@ export class MyPromotionHeaderComponent implements OnInit {
   isEdit = false;
   _startdate: any;
   _enddate: any;
+  isSave = false;
   // data :any = {
   //   title: '',
   //   start_date:'',
@@ -64,12 +65,16 @@ export class MyPromotionHeaderComponent implements OnInit {
 
         this.data.starttime = hh1 + ':' + mm1;
         this.data.endtime = hh2 + ':' + mm2;
+        this.isSave = true;
+        this.data.isSave = this.isSave;
+        this.outputData.emit(this.data);
       }
     }, 1600);
   }
 
   sendData() {
-    console.log(this.data);
+    this.isSave = true;
+    this.data.isSave = this.isSave;
     this.outputData.emit(this.data);
   }
 
