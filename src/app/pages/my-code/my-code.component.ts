@@ -80,6 +80,7 @@ export class MyCodeComponent implements OnInit {
   }
 
   async getCode() {
+    this.dataService.warning('');
     this.spinner.show();
     let shop = window.localStorage.getItem(Constants.URL() + '@usershop') ? JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop')) : null;
     let objectData = {
@@ -95,7 +96,6 @@ export class MyCodeComponent implements OnInit {
 
         this.data = res.data;
         this.tabs = this.data.tabs;
-        this.dataService.warning('');
         this.spinner.hide();
         if (this.data && this.data.codes.length === 0) {
           this.dataService.warning('ไม่พบข้อมูลส่วนลด');
