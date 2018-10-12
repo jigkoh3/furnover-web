@@ -244,7 +244,6 @@ export class InfoProductComponent implements OnInit {
   }
 
   shippingChange(e, item) {
-    console.log(e.checked);
     if (e.checked) {
       const logistics = this.shippings.filter(el => {
         return el._id === item._id;
@@ -289,7 +288,6 @@ export class InfoProductComponent implements OnInit {
   generateDataSource(idx) {
     this.dataSource = [];
     if (idx === 0) {
-      console.log('pass 0');
       this.stockType[idx].items.forEach(el => {
         this.dataSource.push({
           name1: el.name ? el.name : 'ตัวเลือก',
@@ -299,7 +297,6 @@ export class InfoProductComponent implements OnInit {
         });
       });
     } else {
-      console.log('pass 1');
       for (let i = 0; i < this.stockType[0].items.length; i++) {
         for (let j = 0; j < this.stockType[1].items.length; j++) {
           this.dataSource.push({
@@ -311,8 +308,6 @@ export class InfoProductComponent implements OnInit {
         }
       }
     }
-
-    console.log(this.dataSource);
   }
 
   addSubOption1() {
@@ -360,7 +355,15 @@ export class InfoProductComponent implements OnInit {
     });
     this.data.shipping = tranformShipping;
     if (this.isOptions) {
-      console.log(this.dataSource);
+      const priceList: Array<any> = [];
+      this.dataSource.forEach(el => {
+        priceList.push({
+          name: el.name1 + ' ' + el.name2,
+          price: el.price,
+          stock: el.stock
+        });
+      });
+      this.data.prices = priceList;
     } else {
       this.data.prices = [{
         name: 'normal',
@@ -377,6 +380,8 @@ export class InfoProductComponent implements OnInit {
     if (!this.prepare) {
       this.data.prepareshipping = 2;
     }
+
+    console.log(this.data);
 
     if (this.data._id) {
       try {
