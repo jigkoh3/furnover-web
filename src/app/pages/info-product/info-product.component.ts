@@ -41,12 +41,9 @@ export class InfoProductComponent implements OnInit {
   isShowCol2 = false;
   nameOption1 = '';
   nameOption2 = '';
-  subOption1 = '';
-  subOption2 = '';
   prepare = false;
   mainOptions_1: Array<any> = [];
   mainOptions_2: Array<any> = [];
-  subOptions_2: Array<any> = [];
   toggleSubMenu = false;
   shippings: Array<any> = [];
   stateSubmenu: Array<any> = [];
@@ -121,6 +118,20 @@ export class InfoProductComponent implements OnInit {
     this.findNamebyLogistic();
     if (this.data.prepareshipping > 2) {
       this.prepare = true;
+    }
+  }
+
+  deleteMainOption(idx) {
+    if (idx === 1) {
+      if (this.isShowMainOption2) {
+        this.isShowMainOption1 = true;
+      } else {
+        this.isShowMainOption1 = false;
+        this.isOptions = false;
+      }
+    } else if (idx === 2) {
+      this.isShowMainOption2 = false;
+      this.isShowMainOption1 = true;
     }
   }
 
@@ -270,9 +281,6 @@ export class InfoProductComponent implements OnInit {
       this.mainOptions_2.push({
         name: 'ชื่อ'
       });
-      this.subOptions_2.push({
-        name: 'ตัวเลือก'
-      });
       this.generateDataSource();
       // this.dataSource[0] = {
       //   name1: this.subOption1 ? this.subOption1 : 'ตัวเลือก', name2: 'ตัวเลือก', price: 0, stock: 0
@@ -296,6 +304,23 @@ export class InfoProductComponent implements OnInit {
       });
     }
     console.log(this.stockType);
+  }
+
+  addSubOption2() {
+    this.stockType[1].name = this.nameOption2;
+    if (this.stockType[1].items.length < 20) {
+      this.stockType[1].items.push({
+        name: ''
+      });
+    }
+    console.log(this.stockType);
+  }
+
+  delSubOption(idx, index) {
+    const confirm = window.confirm('ยืนยันการลบ');
+    if (confirm) {
+      this.stockType[idx].items.splice(index, 1);
+    }
   }
 
   async save() {

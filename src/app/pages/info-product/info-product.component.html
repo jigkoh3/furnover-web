@@ -156,7 +156,7 @@
                 ตัวเลือกที่ 1
               </div>
               <div class="col-10 col-sm-10 col-md-10 options-ctn">
-                <div class="del-btn">
+                <div class="del-btn" (click)="deleteMainOption(1)">
                   <mat-icon>close</mat-icon>
                 </div>
                 <div>
@@ -166,12 +166,13 @@
                   </mat-form-field>
                 </div>
                 <div *ngIf="stockType[0].items.length > 0">
-                  <div *ngFor="let item of stockType[0].items">
-                    <div class="sub-del-btn">
+                  <div *ngFor="let item of stockType[0].items;let i = index">
+                    <div class="sub-del-btn" (click)="delSubOption(0,i)">
                       <mat-icon>close</mat-icon>
                     </div>
                     <mat-form-field>
-                      <input matInput placeholder="ใส่ข้อมูลตัวเลือก เช่นสีแดง สีขาว..." [(ngModel)]="item.name" type="text" required>
+                      <input matInput placeholder="ใส่ข้อมูลตัวเลือก เช่นสีแดง สีขาว..." [(ngModel)]="item.name" type="text"
+                        required>
                     </mat-form-field>
                   </div>
                 </div>
@@ -187,7 +188,7 @@
                 ตัวเลือกที่ 2
               </div>
               <div class="col-10 col-sm-10 col-md-10 options-ctn">
-                <div class="del-btn">
+                <div class="del-btn" (click)="deleteMainOption(2)">
                   <mat-icon>close</mat-icon>
                 </div>
                 <div>
@@ -196,22 +197,19 @@
                       required>
                   </mat-form-field>
                 </div>
-                <div>
-                  <mat-form-field>
-                    <input matInput placeholder="ใส่ข้อมูลตัวเลือก เช่นสีแดง สีขาว..." [(ngModel)]="subOption2" type="text"
-                      required>
-                  </mat-form-field>
-                </div>
-                <div>
-                  <div class="sub-del-btn">
-                    <mat-icon>close</mat-icon>
+                <div *ngIf="stockType[1].items.length > 0">
+                  <div *ngFor="let item of stockType[1].items;let i = index">
+                    <div class="sub-del-btn" (click)="delSubOption(1,i)">
+                      <mat-icon>close</mat-icon>
+                    </div>
+                    <mat-form-field>
+                      <input matInput placeholder="ใส่ข้อมูลตัวเลือก เช่นสีแดง สีขาว..." [(ngModel)]="item.name" type="text" required>
+                    </mat-form-field>
                   </div>
-                  <mat-form-field>
-                    <input matInput placeholder="ใส่ข้อมูลตัวเลือก เช่นสีแดง สีขาว..." type="text" required>
-                  </mat-form-field>
                 </div>
-                <div class="btn-option">
-                  <mat-icon class="add-cus">add</mat-icon> เพิ่มตัวเลือก 0/20
+
+                <div class="btn-option" (click)="addSubOption2()">
+                  <mat-icon class="add-cus">add</mat-icon> เพิ่มตัวเลือก {{stockType[1].items.length }}/20
                 </div>
               </div>
             </div>
