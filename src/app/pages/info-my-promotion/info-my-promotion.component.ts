@@ -68,6 +68,13 @@ export class InfoMyPromotionComponent implements OnInit {
             this.data.products.push(item);
           }
         });
+
+        this.data.products.forEach(item => {
+          item.prices.forEach(price => {
+            price.isuse = true
+            // console.log(price)
+          });
+        });
       }
     });
   }
