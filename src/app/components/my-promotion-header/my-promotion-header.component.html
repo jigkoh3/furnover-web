@@ -29,9 +29,10 @@
           </div>
           <div class="col-12 col-md-4">
             <mat-form-field>
-              <input matInput [matDatepicker]="dp" placeholder="Verbose datepicker" (ngModelChange)="startDate($event)" [(ngModel)]="_startdate">
+              <input matInput [matDatepicker]="dp" placeholder="เลือกวันที่" (ngModelChange)="startDate($event)"
+                [(ngModel)]="_startdate" disabled>
               <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
-              <mat-datepicker #dp></mat-datepicker>
+              <mat-datepicker #dp disabled="false"></mat-datepicker>
             </mat-form-field>
           </div>
         </div>
@@ -53,9 +54,10 @@
           </div>
           <div class="col-12 col-md-4">
             <mat-form-field>
-              <input matInput [matDatepicker]="dp2" placeholder="Verbose datepicker" (ngModelChange)="endDate($event)" [(ngModel)]="_enddate">
+              <input matInput [matDatepicker]="dp2" placeholder="เลือกวันที่" (ngModelChange)="endDate($event)"
+                [(ngModel)]="_enddate" disabled>
               <mat-datepicker-toggle matSuffix [for]="dp2"></mat-datepicker-toggle>
-              <mat-datepicker #dp2></mat-datepicker>
+              <mat-datepicker #dp2 disabled="false"></mat-datepicker>
             </mat-form-field>
           </div>
         </div>
@@ -75,7 +77,8 @@
           <div class="col-12 col-md-5">
           </div>
           <div class="col-12 col-md-2">
-            <button style="width:100%" mat-button color="primary" [disabled]="!(data.title && data.startdate && data.enddate && data.starttime && data.endtime)" (click)="sendData()">บันทึก</button>
+            <button style="width:100%" mat-button color="primary" [disabled]="!(data.title && data.startdate && data.enddate && data.starttime && data.endtime)"
+              (click)="sendData()">บันทึก</button>
           </div>
           <div class="col-12 col-md-5"></div>
         </div>
