@@ -1,14 +1,21 @@
 <mat-card>
   <div class="row">
-    <div class="col-md-6 col-12">
+    <div class="col-12">
+      <div class="btn-del-header">
+        <button mat-stroked-button color="primary" (click)="deleteCode()">ลบโค้ดส่วนลด</button>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 col-12 padding-left-div ">
       <div class="row">
         <div class="col-md-12">
-          <p>voucher info</p>
+          <p class="font-header">สร้างโค้ดส่วนลดใหม่</p>
         </div>
       </div>
       <div class="row">
         <div class="col-md-3">
-          <p>ชื่อโค้ดส่วนลด</p>
+          <p>ชื่อโค้ดส่วนลด<span class="star-req">*</span></p>
         </div>
         <div class="col-md-9">
           <mat-form-field>
@@ -18,7 +25,7 @@
       </div>
       <div class="row">
         <div class="col-md-3">
-          <p>โค้ดส่วนลด</p>
+          <p>โค้ดส่วนลด<span class="star-req">*</span></p>
         </div>
         <div class="col-md-9">
           <mat-form-field>
@@ -26,10 +33,9 @@
           </mat-form-field>
         </div>
       </div>
-
       <div class="row">
         <div class="col-md-3">
-          <p>ประเภทโค้ดส่วนลด</p>
+          <p>ประเภทโค้ดส่วนลด<span class="star-req">*</span></p>
         </div>
         <div class="col-md-4">
           <mat-form-field>
@@ -46,16 +52,15 @@
         <div class="col-1"></div>
         <div class="col-md-4" *ngIf="data.codetype == 'cash'">
           <mat-form-field>
-            <input matInput [(ngModel)]="data.cash.discount">
+            <input matInput type="number" placeholder="จำนวนส่วนลด(บาท)" [(ngModel)]="data.cash.discount">
           </mat-form-field>
         </div>
         <div class="col-md-4" *ngIf="data.codetype == 'percentage'">
           <mat-form-field>
-            <input matInput [(ngModel)]="data.percentage.discount">
+            <input matInput type="number" placeholder="จำนวนส่วนลด(เปอร์เซ็น)" [(ngModel)]="data.percentage.discount">
           </mat-form-field>
         </div>
       </div>
-
       <div class="row" *ngIf="data.codetype == 'percentage'">
         <div class="col-md-3">
           <p>ส่วนลดสูงสุด</p>
@@ -63,17 +68,16 @@
         <div class="col-md-9">
           <mat-radio-group [(ngModel)]="data.percentage.percentagetype">
             <mat-radio-button value="limit">กำหนดราคา</mat-radio-button>
+            &nbsp;&nbsp;
             <mat-radio-button value="unlimit">ไม่จำกัด</mat-radio-button>
           </mat-radio-group>
         </div>
       </div>
       <div class="row" *ngIf="data.percentage.percentagetype == 'limit' && data.codetype == 'percentage'">
-        <div class="col-md-3">
-
-        </div>
+        <div class="col-md-3"></div>
         <div class="col-md-9">
           <mat-form-field>
-            <input matInput [(ngModel)]="data.percentage.setamount">
+            <input matInput placeholder="กำหนดราคาสูงสุด" [(ngModel)]="data.percentage.setamount">
           </mat-form-field>
         </div>
       </div>
@@ -83,7 +87,7 @@
         </div>
         <div class="col-md-9">
           <mat-form-field>
-            <input matInput [(ngModel)]="data.cash.minprice">
+            <input matInput type="number" [(ngModel)]="data.cash.minprice">
           </mat-form-field>
         </div>
       </div>
@@ -93,17 +97,17 @@
         </div>
         <div class="col-md-9">
           <mat-form-field>
-            <input matInput [(ngModel)]="data.percentage.minprice">
+            <input matInput type="number" [(ngModel)]="data.percentage.minprice">
           </mat-form-field>
         </div>
       </div>
       <div class="row">
         <div class="col-md-3">
-          <p>ระยะเวลาเริ่มต้น/สิ้นสุด</p>
+          <p>ระยะเวลาเริ่มต้น/สิ้นสุด<span class="star-req">*</span></p>
         </div>
         <div class="col-md-4">
           <mat-form-field>
-            <input matInput [matDatepicker]="dp" placeholder="Verbose datepicker" (ngModelChange)="startDate($event)"
+            <input matInput [matDatepicker]="dp" placeholder="วันเริ่มต้น" (ngModelChange)="startDate($event)"
               [(ngModel)]="_startdate">
             <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
             <mat-datepicker #dp></mat-datepicker>
@@ -112,7 +116,7 @@
         <div class="col-md-1"></div>
         <div class="col-md-4">
           <mat-form-field>
-            <input matInput [matDatepicker]="dp2" placeholder="Verbose datepicker" (ngModelChange)="endDate($event)"
+            <input matInput [matDatepicker]="dp2" placeholder="วันสิ้นสุด" (ngModelChange)="endDate($event)"
               [(ngModel)]="_enddate">
             <mat-datepicker-toggle matSuffix [for]="dp2"></mat-datepicker-toggle>
             <mat-datepicker #dp2></mat-datepicker>
@@ -121,32 +125,35 @@
       </div>
       <div class="row">
         <div class="col-md-3">
-          <p>จำนวนโค้ดส่วนลด</p>
+          <p>จำนวนโค้ดส่วนลด<span class="star-req">*</span></p>
         </div>
         <div class="col-md-9">
           <mat-form-field>
-            <input matInput [(ngModel)]="data.codeqty">
+            <input matInput type="number" [(ngModel)]="data.codeqty">
           </mat-form-field>
         </div>
       </div>
-
     </div>
-    <div class="col-md-6">panal immage</div>
-  </div>
-  <div class="row">
-    <div class="col-md-12">
-      <p>เลือกสินค้าสำหรับการใช้โค้ดส่วนลด</p>
+    <div class="d-none d-md-block d-lg-block d-xl-block col-md-6 div-img-right-style">
+      <img src="assets/imgs/code_img_right.png" class="code-img-right-style">
+      <p class="text-img-right-style">（สูงสุด 10,000 โค้ด หมายเหตุ: ระบบของ Furnover จะจำกัดการใช้โค้ด 1
+        ครั้ง/คน/เครื่อง โดยอัตโนมัติ）</p>
     </div>
   </div>
   <div class="row">
     <div class="col-md-12">
-      <mat-checkbox [(ngModel)]="data.itemtype">สามารถใช้ได้กับสินค้าทั้งร้าน</mat-checkbox>
+      <p class="font-header">เลือกสินค้าสำหรับการใช้โค้ดส่วนลด<span class="star-req">*</span></p>
     </div>
   </div>
   <div class="row">
+    <div class="col-md-12">
+      <mat-checkbox [(ngModel)]="_itemtype" (ngModelChange)="isChecked(_itemtype)">สามารถใช้ได้กับสินค้าทั้งร้าน</mat-checkbox>
+    </div>
+  </div>
+  <div class="row" *ngIf="_itemtype === false">
     <div class="col-12 col-md-2 col-sm-4" (click)="openModalAddProduct()">
       <div class="fix-col div-add-prod">
-        <p>
+        <p class="add-txt-icon">
           <button mat-fab color="primary">
             <mat-icon>add</mat-icon>
           </button>
@@ -156,16 +163,25 @@
     </div>
     <div class="col-12 col-md-2 col-sm-4" *ngFor="let item of data.products">
       <mat-card class="mat-card_cus">
-        <div style="background-size: cover;min-height: 12rem;">
+        <div style="background-size: cover;min-height: 7rem;">
           <img [src]="item.image ? item.image.url:''" class="img-style" (click)="gotoEditProduct(item._id)">
         </div>
       </mat-card>
     </div>
   </div>
   <div class="row">
-    <div class="col-md-12">
-      <button mat-button (click)="saveData()">บันทึก</button>
-      <button mat-button>ยกเลิก</button>
+    <div class="col-12 col-md-12">
+      <message class="text-center" [type]="dataService.messageType" [message]="dataService.message"></message>
     </div>
+  </div>
+  <div class="row padding-top-btn">
+    <div class="col-12 col-md-5"></div>
+    <div class="col-12 col-md-1">
+      <button mat-flat-button color="primary" style="width:100%;" (click)="saveData()">บันทึก</button>
+    </div>
+    <div class="col-12 col-md-1 padding-btn-div">
+      <button mat-stroked-button color="primary" style="width:100%;" (click)="clickCancel()">ยกเลิก</button>
+    </div>
+    <div class="col-12 col-md-5"></div>
   </div>
 </mat-card>

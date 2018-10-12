@@ -9,6 +9,7 @@ import * as firebase from 'firebase';
 import { ClassUpload } from '../upload-image/class-upload';
 import * as _ from "lodash";
 import { NgxSpinnerService } from 'ngx-spinner';
+import { ModalMessageComponent } from '../../pages/modals/modal-message/modal-message.component';
 //Image
 @Component({
   selector: 'profile',
@@ -116,12 +117,32 @@ export class ProfileSettingComponent implements OnInit {
   detectFiles(event, status) {
     this.selectedFiles = event.target.files;
     if (this.selectedFiles.length >= 5) {
-      alert('sd');
+      let text: any = 'คุณสามารถอัพโหลดไฟล์ได้ไม่เกิน 5 ไฟล์';
+      const dialogRef = this.dialog.open(ModalMessageComponent, {
+        width: "500px",
+        data: { message: text }
+      });
+
+      dialogRef.afterClosed().subscribe(result => {
+        if (result) {
+
+        }
+      });
     } else {
       let checkArrayImage = 0;
       checkArrayImage = this.shop.images.length + this.selectedFiles.length;
-      if (checkArrayImage >= 5) {
-        alert('sd');
+      if (checkArrayImage > 5) {
+        let text: any = 'คุณสามารถอัพโหลดไฟล์ได้ไม่เกิน 5 ไฟล์';
+        const dialogRef = this.dialog.open(ModalMessageComponent, {
+          width: "500px",
+          data: { message: text }
+        });
+
+        dialogRef.afterClosed().subscribe(result => {
+          if (result) {
+
+          }
+        });
       } else {
         let files = this.selectedFiles
         let filesIndex = _.range(files.length)

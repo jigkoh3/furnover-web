@@ -297,3 +297,22 @@ table {
     height: 180px;
     cursor: move;
 }
+
+/* ///// table */
+
+table {
+    width: 100%;
+}
+
+thead {
+    background-color: rgb(231, 231, 231) !important;
+    padding: 5px !important;
+}
+
+.txt-name {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 14px;
+    color: #868686;
+}

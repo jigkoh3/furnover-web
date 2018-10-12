@@ -156,34 +156,29 @@
                 ตัวเลือกที่ 1
               </div>
               <div class="col-10 col-sm-10 col-md-10 options-ctn">
-                <div class="del-btn">
+                <div class="del-btn" (click)="deleteMainOption(1)">
                   <mat-icon>close</mat-icon>
                 </div>
                 <div>
                   <mat-form-field>
-                    <input matInput placeholder="ใส่ชื่อตัวเลือก เช่นสี ไซส์..." [(ngModel)]="nameOption1" type="text"
-                      required>
+                    <input matInput placeholder="ใส่ชื่อตัวเลือก เช่นสี ไซส์..." [(ngModel)]="nameOption1"
+                      (ngModelChange)="generateDataSource(0)" type="text" required>
                   </mat-form-field>
                 </div>
-                <div>
-                  <mat-form-field>
-                    <input matInput placeholder="ใส่ข้อมูลตัวเลือก เช่นสีแดง สีขาว..." [(ngModel)]="subOption1" type="text"
-                      required>
-                  </mat-form-field>
-                </div>
-                <div *ngIf="subOptions_1.length > 1">
-                  <div *ngFor="let item of subOptions_1">
-                    <div class="sub-del-btn">
+                <div *ngIf="stockType[0].items.length > 0">
+                  <div *ngFor="let item of stockType[0].items;let i = index">
+                    <div class="sub-del-btn" (click)="delSubOption(0,i)">
                       <mat-icon>close</mat-icon>
                     </div>
                     <mat-form-field>
-                      <input matInput placeholder="ใส่ข้อมูลตัวเลือก เช่นสีแดง สีขาว..." type="text" required>
+                      <input matInput placeholder="ใส่ข้อมูลตัวเลือก เช่นสีแดง สีขาว..." [(ngModel)]="item.name"
+                        (ngModelChange)="generateDataSource(0)" type="text" required>
                     </mat-form-field>
                   </div>
                 </div>
 
                 <div class="btn-option" (click)="addSubOption1()">
-                  <mat-icon class="add-cus">add</mat-icon> เพิ่มตัวเลือก {{subOptions_1.length }}/20
+                  <mat-icon class="add-cus">add</mat-icon> เพิ่มตัวเลือก {{stockType[0].items.length }}/20
                 </div>
               </div>
             </div>
@@ -193,43 +188,48 @@
                 ตัวเลือกที่ 2
               </div>
               <div class="col-10 col-sm-10 col-md-10 options-ctn">
-                <div class="del-btn">
+                <div class="del-btn" (click)="deleteMainOption(2)">
                   <mat-icon>close</mat-icon>
                 </div>
                 <div>
                   <mat-form-field>
                     <input matInput placeholder="ใส่ชื่อตัวเลือก เช่นสี ไซส์..." [(ngModel)]="nameOption2" type="text"
-                      required>
+                      (ngModelChange)="generateDataSource(1)" required>
                   </mat-form-field>
                 </div>
-                <div>
-                  <mat-form-field>
-                    <input matInput placeholder="ใส่ข้อมูลตัวเลือก เช่นสีแดง สีขาว..." [(ngModel)]="subOption2" type="text"
-                      required>
-                  </mat-form-field>
-                </div>
-                <div>
-                  <div class="sub-del-btn">
-                    <mat-icon>close</mat-icon>
+                <div *ngIf="stockType[1].items.length > 0">
+                  <div *ngFor="let item of stockType[1].items;let i = index">
+                    <div class="sub-del-btn" (click)="delSubOption(1,i)">
+                      <mat-icon>close</mat-icon>
+                    </div>
+                    <mat-form-field>
+                      <input matInput placeholder="ใส่ข้อมูลตัวเลือก เช่นสีแดง สีขาว..." [(ngModel)]="item.name"
+                        (ngModelChange)="generateDataSource(1)" type="text" required>
+                    </mat-form-field>
                   </div>
-                  <mat-form-field>
-                    <input matInput placeholder="ใส่ข้อมูลตัวเลือก เช่นสีแดง สีขาว..." type="text" required>
-                  </mat-form-field>
                 </div>
-                <div class="btn-option">
-                  <mat-icon class="add-cus">add</mat-icon> เพิ่มตัวเลือก 0/20
+
+                <div class="btn-option" (click)="addSubOption2()">
+                  <mat-icon class="add-cus">add</mat-icon> เพิ่มตัวเลือก {{stockType[1].items.length }}/20
                 </div>
               </div>
             </div>
 
           </div>
 
-          <div class="btn-option" (click)="showOption(1)" *ngIf="!isShowMainOption1">
-            <mat-icon class="add-cus">add</mat-icon> เพิ่มตัวเลือกสินค้า
-          </div>
+          <div class="row">
+            <div class="col-2">
 
-          <div class="btn-option" (click)="showOption(2)" *ngIf="isShowMainOption1 && !isShowMainOption2">
-            <mat-icon class="add-cus">add</mat-icon> เพิ่มตัวเลือกสินค้า
+            </div>
+            <div class="col-10">
+              <div class="btn-option" (click)="showOption(1)" *ngIf="!isShowMainOption1">
+                <mat-icon class="add-cus">add</mat-icon> เพิ่มตัวเลือกสินค้า
+              </div>
+
+              <div class="btn-option" (click)="showOption(2)" *ngIf="isShowMainOption1 && !isShowMainOption2">
+                <mat-icon class="add-cus">add</mat-icon> เพิ่มตัวเลือกสินค้า
+              </div>
+            </div>
           </div>
 
         </div>
@@ -238,43 +238,67 @@
     <div class="col-0 col-sm-2 col-md-3"></div>
   </div>
   <!-- //ตาราง -->
-  <div class="row" *ngIf="isShowMainOption1">
+  <!-- <div class="row" *ngIf="isShowMainOption1">
     <div class="col-2 col-sm-2 col-md-2"></div>
     <div class="col-10 col-sm-10 col-md-10">
       <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-        <!--- Note that these columns can be defined in any order.
-              The actual rendered columns are set as a property on the row definition" -->
-
-        <!-- Position Column -->
         <ng-container matColumnDef="name1" *ngIf="isShowCol1">
           <th mat-header-cell *matHeaderCellDef> {{nameOption1 ? nameOption1 : 'ชื่อ'}} </th>
           <td mat-cell *matCellDef="let element"> {{element.name1}} </td>
         </ng-container>
 
-        <!-- Name Column -->
         <ng-container matColumnDef="name2" *ngIf="isShowCol2">
           <th mat-header-cell *matHeaderCellDef> {{nameOption2 ? nameOption2 : 'ชื่อ'}} </th>
           <td mat-cell *matCellDef="let element"> {{element.name2}} </td>
         </ng-container>
 
-        <!-- Weight Column -->
         <ng-container matColumnDef="price">
           <th mat-header-cell *matHeaderCellDef> ราคา </th>
-          <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+          <td mat-cell *matCellDef="let element"> <input matInput [(ngModel)]="element.price" type="number"> </td>
         </ng-container>
 
-        <!-- Symbol Column -->
         <ng-container matColumnDef="stock">
           <th mat-header-cell *matHeaderCellDef> คลัง </th>
-          <td mat-cell *matCellDef="let element"> {{element.stock}} </td>
+          <td mat-cell *matCellDef="let element"> <input matInput [(ngModel)]="element.stock" type="number"> </td>
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>
     </div>
+  </div> -->
+  <div class="row" *ngIf="isShowMainOption1">
+    <div class="col-2"></div>
+    <div class="col-10">
+      <mat-card>
+        <div class="table-responsive table-full-width">
+          <table class="table ">
+            <thead>
+              <tr class="txt-name">
+                <th *ngIf="isShowMainOption1">{{nameOption1 ? nameOption1 : 'ชื่อ'}}</th>
+                <th *ngIf="isShowMainOption2">{{nameOption2 ? nameOption2 : 'ชื่อ'}}</th>
+                <th width="200">ราคา</th>
+                <th width="200">คลัง</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of dataSource">
+                <td *ngIf="item.name1">{{item.name1}}</td>
+                <td *ngIf="item.name2">{{item.name2}}</td>
+                <td><input matInput type="number" [(ngModel)]="item.price"></td>
+                <td><input matInput type="number" [(ngModel)]="item.stock"></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </mat-card>
+    </div>
   </div>
+
+
 
   <!-- wholesale -->
 

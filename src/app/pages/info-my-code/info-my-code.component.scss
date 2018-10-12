@@ -3,13 +3,7 @@
     font-size: 20px !important;
     color: grey !important;
 }
-.fix-col {
-    border: dotted;
-    border-color: #a9a9a9;
-    height: 15rem;
-    position: relative;
-    cursor: pointer;
-}
+
 .div-header-style {
     border-bottom: solid lightgrey !important ;
 }
@@ -20,13 +14,21 @@
     padding: 20px 48px;
 }
 
+.fix-col {
+    border: dotted;
+    border-color: #a9a9a9;
+    height: 12rem;
+    position: relative;
+    cursor: pointer;
+}
+
 .mat-card_cus {
     transition: box-shadow 280ms cubic-bezier(.4, 0, .2, 1);
     display: block;
     position: relative;
     padding: 0px;
     border-radius: 4px;
-    height: 15rem;
+    height: 12rem;
 }
 
 .img-style {
@@ -37,4 +39,69 @@
 
 .div-add-prod {
     text-align: center;    
+}
+
+
+.add-txt-icon {
+    margin-top: 3rem !important;
+    color: #ff9558;
+    cursor: pointer;
+}
+
+.padding-btn-div {
+    padding-left: 10px !important ;
+}
+
+.font-header {
+    font-size: 20px;
+}
+
+.code-img-right-style{
+    width: 400px;
+}
+
+.div-img-right-style {
+    text-align: center;
+}
+
+.text-img-right-style {
+    color: grey;
+    font-size: 12px;
+}
+
+.padding-left-div {
+    padding-left: 20px !important;
+}
+
+.add-txt {
+    color: #ff9558;
+    cursor: pointer;
+}
+
+.btn-del-header{
+    text-align: right !important ;
+}
+
+.text-center-header{
+    text-align: center !important ;
+}
+
+.star-req {
+    color: #F44336 ;
+}
+
+.padding-top-btn {
+    padding-top: 16px !important ;
+}
+
+.alert-error-style {
+    width: 100% !important;
+}
+
+::ng-deep .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+    border-color:#ff9137;
+}
+
+::ng-deep .mat-radio-button.mat-accent .mat-radio-inner-circle {
+    background-color: #ff9137;
 }

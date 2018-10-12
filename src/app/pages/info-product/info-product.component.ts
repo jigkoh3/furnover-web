@@ -5,15 +5,6 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { Router, ActivatedRoute } from '@angular/router';
 import * as firebase from 'firebase';
 
-export interface PeriodicElement {
-  name1: string;
-  name2: string;
-  price: number;
-  stock: number;
-}
-
-const ELEMENT_DATA: PeriodicElement[] = [];
-
 @Component({
   selector: 'app-info-product',
   templateUrl: './info-product.component.html',
@@ -33,26 +24,31 @@ export class InfoProductComponent implements OnInit {
   stock = null;
   resData: any = {};
   isOptions = false;
-  displayedColumns: string[] = [];
-  dataSource = ELEMENT_DATA;
+  dataSource: Array<any> = [];
   isShowMainOption1 = false;
   isShowMainOption2 = false;
   isShowCol1 = false;
   isShowCol2 = false;
   nameOption1 = '';
-  subOption1 = '';
-  subOption2 = '';
+  nameOption2 = '';
   prepare = false;
   mainOptions_1: Array<any> = [];
   mainOptions_2: Array<any> = [];
-  subOptions_1: Array<any> = [];
-  subOptions_2: Array<any> = [];
   toggleSubMenu = false;
   shippings: Array<any> = [];
   stateSubmenu: Array<any> = [];
   wholesaleList: Array<any> = [];
-  priceList: Array<any> = [];
   images: Array<any> = [];
+  priceList: Array<any> = [];
+  stockType: Array<any> = [
+    {
+      name: '',
+      items: []
+    },
+    {
+      name: '',
+      items: []
+    }];
 
   constructor(private activatedRoute: ActivatedRoute,
     private restApi: RestApiService,
@@ -112,6 +108,23 @@ export class InfoProductComponent implements OnInit {
     this.findNamebyLogistic();
     if (this.data.prepareshipping > 2) {
       this.prepare = true;
+    }
+  }
+
+  deleteMainOption(idx) {
+    if (idx === 1) {
+      if (this.isShowMainOption2) {
+        this.isShowMainOption1 = true;
+      } else {
+        this.isShowMainOption1 = false;
+        this.isOptions = false;
+      }
+    } else if (idx === 2) {
+      this.isShowMainOption2 = false;
+      this.isShowMainOption1 = true;
+      this.stockType[1].name = '';
+      this.stockType[1].items = [];
+      this.generateDataSource(0);
     }
   }
 
@@ -224,7 +237,6 @@ export class InfoProductComponent implements OnInit {
   }
 
   shippingChange(e, item) {
-    console.log(e.checked);
     if (e.checked) {
       const logistics = this.shippings.filter(el => {
         return el._id === item._id;
@@ -247,48 +259,78 @@ export class InfoProductComponent implements OnInit {
   showOption(num) {
     this.isOptions = true;
     if (num === 1) {
+      this.stockType[0].items = [];
       this.isShowMainOption1 = true;
       this.isShowCol1 = true;
-      this.displayedColumns = ['name1', 'price', 'stock'];
-      this.mainOptions_1.push({
-        name: 'ชื่อ'
+      this.stockType[0].items.push({
+        name: ''
       });
-      this.subOptions_1.push({
-        name: 'ตัวเลือก'
-      });
-      this.generateDataSource();
-      // this.dataSource.push({
-      //   name1: 'ตัวเลือก', name2: null, price: 0, stock: 0
-      // });
+      this.generateDataSource(0);
     } else if (num === 2) {
       this.isShowMainOption2 = true;
       this.isShowCol2 = true;
-      this.displayedColumns = ['name1', 'name2', 'price', 'stock'];
-      this.mainOptions_2.push({
-        name: 'ชื่อ'
+      this.stockType[1].items.push({
+        name: ''
       });
-      this.subOptions_2.push({
-        name: 'ตัวเลือก'
-      });
-      this.generateDataSource();
-      // this.dataSource[0] = {
-      //   name1: this.subOption1 ? this.subOption1 : 'ตัวเลือก', name2: 'ตัวเลือก', price: 0, stock: 0
-      // };
+      this.generateDataSource(1);
     }
   }
 
-  onFixSubOptionNameChange() {
+  generateDataSource(idx) {
     this.dataSource = [];
-  }
-
-  generateDataSource() {
-
+    if (idx === 0) {
+      this.stockType[idx].items.forEach(el => {
+        this.dataSource.push({
+          name1: el.name ? el.name : 'ตัวเลือก',
+          name2: null,
+          price: 0,
+          stock: 0
+        });
+      });
+    } else {
+      for (let i = 0; i < this.stockType[0].items.length; i++) {
+        for (let j = 0; j < this.stockType[1].items.length; j++) {
+          this.dataSource.push({
+            name1: this.stockType[0].items[i].name ? this.stockType[0].items[i].name : 'ตัวเลือก',
+            name2: this.stockType[1].items[j].name ? this.stockType[1].items[j].name : 'ตัวเลือก',
+            price: 0,
+            stock: 0
+          });
+        }
+      }
+    }
   }
 
   addSubOption1() {
-    this.subOptions_1.push({
-      name: 'ตัวเลือก'
-    });
+    this.stockType[0].name = this.nameOption1;
+    if (this.stockType[0].items.length < 20) {
+      this.stockType[0].items.push({
+        name: ''
+      });
+    }
+    this.generateDataSource(0);
+  }
+
+  addSubOption2() {
+    this.stockType[1].name = this.nameOption2;
+    if (this.stockType[1].items.length < 20) {
+      this.stockType[1].items.push({
+        name: ''
+      });
+    }
+    this.generateDataSource(1);
+  }
+
+  delSubOption(idx, index) {
+    const confirm = window.confirm('ยืนยันการลบ');
+    if (confirm) {
+      this.stockType[idx].items.splice(index, 1);
+    }
+    if (idx === 0) {
+      this.generateDataSource(0);
+    } else {
+      this.generateDataSource(1);
+    }
   }
 
   async save() {
@@ -303,11 +345,23 @@ export class InfoProductComponent implements OnInit {
       });
     });
     this.data.shipping = tranformShipping;
-    this.data.prices = [{
-      name: 'normal',
-      price: this.price,
-      stock: this.stock
-    }];
+    if (this.isOptions) {
+      const priceList: Array<any> = [];
+      this.dataSource.forEach(el => {
+        priceList.push({
+          name: el.name1 + ' ' + el.name2,
+          price: el.price,
+          stock: el.stock
+        });
+      });
+      this.data.prices = priceList;
+    } else {
+      this.data.prices = [{
+        name: 'normal',
+        price: this.price,
+        stock: this.stock
+      }];
+    }
     this.data.category_id = this.stateSubmenu[this.stateSubmenu.length - 1] ? this.stateSubmenu[this.stateSubmenu.length - 1]._id : '';
     this.data.wholesale = this.wholesaleList;
     this.data.images = this.images;
@@ -317,6 +371,8 @@ export class InfoProductComponent implements OnInit {
     if (!this.prepare) {
       this.data.prepareshipping = 2;
     }
+
+    console.log(this.data);
 
     if (this.data._id) {
       try {
@@ -328,7 +384,6 @@ export class InfoProductComponent implements OnInit {
       }
     } else {
       try {
-        // console.log(this.findParent(this.resData.categories, this.stateSubmenu[this.stateSubmenu.length - 1]));
         const res: any = await this.restApi.post(Constants.URL() + '/api/product', this.data);
         this.spinner.hide();
         this.route.navigate(['my-product']);
@@ -338,24 +393,5 @@ export class InfoProductComponent implements OnInit {
       }
     }
   }
-
-  // findParent(items, item) {
-  //   var member, i, array;
-  //   for (member in items) {
-  //     if (
-  //       items.hasOwnProperty(member) &&
-  //       typeof items[member] === "object" &&
-  //       items[member] instanceof Array
-  //     ) {
-  //       array = items[member].children;
-  //       for (i = 0; i < array.length; i += 1) {
-  //         if (array[i]._id === item.parent) {
-  //           return array;
-  //         }
-  //       }
-  //     }
-  //   }
-  // }
-
 
 }

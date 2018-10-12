@@ -6,6 +6,7 @@ import { RestApiService } from '../../providers/rest-api-service/rest-api.servic
 import { DataService } from '../../providers/data-service/data.service';
 import { MatDialog } from '@angular/material';
 import { ModalDeleteMyPromotionComponent } from '../modals/modal-delete-my-promotion/modal-delete-my-promotion.component';
+import { ModalMessageComponent } from '../modals/modal-message/modal-message.component';
 
 @Component({
   selector: 'app-my-promotion',
@@ -89,22 +90,47 @@ export class MyPromotionComponent implements OnInit {
   onDetail(item) {
     this.route.navigate(['/info-my-promotion'], { queryParams: { itemId: item._id } });
   }
-
-  onDelete(item): void {
-    const dialogRef = this.dialog.open(ModalDeleteMyPromotionComponent, {
-      width: '500px',
-      // background-color: 'red',
-      hasBackdrop: true,
-      data: JSON.parse(JSON.stringify(item))
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        this.getPromotion();
-      }
-    });
+  addZero(i) {
+    if (i < 10) {
+      i = "0" + i;
+    }
+    return i;
   }
 
+  onDelete(item): void {
+    let newDate = new Date(item.startdate);
+    let getTime = newDate.getTime();
+    let Hour = newDate.getHours() + 1;
+    let chkTime = newDate.setHours(Hour);
+
+    if (chkTime > getTime) {
+      const dialogRef = this.dialog.open(ModalDeleteMyPromotionComponent, {
+        width: '500px',
+        // background-color: 'red',
+        hasBackdrop: true,
+        data: JSON.parse(JSON.stringify(item))
+      });
+
+      dialogRef.afterClosed().subscribe(result => {
+        if (result) {
+          this.getPromotion();
+        }
+      });
+    } else {
+      let text = 'โปรโมชั่นนี้ยังไม่สามารถลบได้';
+      const dialogRef = this.dialog.open(ModalMessageComponent, {
+        width: '500px',
+        hasBackdrop: true,
+        data: { message: text }
+      });
+
+      dialogRef.afterClosed().subscribe(result => {
+        if (result) {
+
+        }
+      });
+    }
+  }
 
   async getPromotion() {
     this.dataService.warning('');
