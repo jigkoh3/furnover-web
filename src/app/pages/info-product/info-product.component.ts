@@ -267,33 +267,52 @@ export class InfoProductComponent implements OnInit {
   showOption(num) {
     this.isOptions = true;
     if (num === 1) {
+      this.stockType[0].items = [];
       this.isShowMainOption1 = true;
       this.isShowCol1 = true;
       this.displayedColumns = ['name1', 'price', 'stock'];
-      this.generateDataSource();
-      // this.dataSource.push({
-      //   name1: 'ตัวเลือก', name2: null, price: 0, stock: 0
-      // });
+      this.stockType[0].items.push({
+        name: ''
+      });
+      this.generateDataSource(0);
     } else if (num === 2) {
       this.isShowMainOption2 = true;
       this.isShowCol2 = true;
       this.displayedColumns = ['name1', 'name2', 'price', 'stock'];
-      this.mainOptions_2.push({
-        name: 'ชื่อ'
+      this.stockType[1].items.push({
+        name: ''
       });
-      this.generateDataSource();
-      // this.dataSource[0] = {
-      //   name1: this.subOption1 ? this.subOption1 : 'ตัวเลือก', name2: 'ตัวเลือก', price: 0, stock: 0
-      // };
+      this.generateDataSource(1);
     }
   }
 
-  onFixSubOptionNameChange() {
+  generateDataSource(idx) {
     this.dataSource = [];
-  }
+    if (idx === 0) {
+      console.log('pass 0');
+      this.stockType[idx].items.forEach(el => {
+        this.dataSource.push({
+          name1: el.name ? el.name : 'ตัวเลือก',
+          name2: null,
+          price: 0,
+          stock: 0
+        });
+      });
+    } else {
+      console.log('pass 1');
+      for (let i = 0; i < this.stockType[0].items.length; i++) {
+        for (let j = 0; j < this.stockType[1].items.length; j++) {
+          this.dataSource.push({
+            name1: this.stockType[0].items[i].name ? this.stockType[0].items[i].name : 'ตัวเลือก',
+            name2: this.stockType[1].items[j].name ? this.stockType[1].items[j].name : 'ตัวเลือก',
+            price: 0,
+            stock: 0
+          });
+        }
+      }
+    }
 
-  generateDataSource() {
-
+    console.log(this.dataSource);
   }
 
   addSubOption1() {
@@ -303,7 +322,7 @@ export class InfoProductComponent implements OnInit {
         name: ''
       });
     }
-    console.log(this.stockType);
+    this.generateDataSource(0);
   }
 
   addSubOption2() {
@@ -313,7 +332,7 @@ export class InfoProductComponent implements OnInit {
         name: ''
       });
     }
-    console.log(this.stockType);
+    this.generateDataSource(1);
   }
 
   delSubOption(idx, index) {
