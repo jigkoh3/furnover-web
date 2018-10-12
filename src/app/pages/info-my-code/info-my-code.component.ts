@@ -60,7 +60,7 @@ export class InfoMyCodeComponent implements OnInit {
     private spinner: NgxSpinnerService,
     private activatedRoute: ActivatedRoute,
     private route: Router,
-    private dataService: DataService
+    public dataService: DataService
   ) { }
 
   ngOnInit() {
