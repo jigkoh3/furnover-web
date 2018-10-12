@@ -40,19 +40,25 @@ export class InfoProductComponent implements OnInit {
   isShowCol1 = false;
   isShowCol2 = false;
   nameOption1 = '';
-  subOption1 = '';
-  subOption2 = '';
+  nameOption2 = '';
   prepare = false;
   mainOptions_1: Array<any> = [];
   mainOptions_2: Array<any> = [];
-  subOptions_1: Array<any> = [];
-  subOptions_2: Array<any> = [];
   toggleSubMenu = false;
   shippings: Array<any> = [];
   stateSubmenu: Array<any> = [];
   wholesaleList: Array<any> = [];
-  priceList: Array<any> = [];
   images: Array<any> = [];
+  priceList: Array<any> = [];
+  stockType: Array<any> = [
+    {
+      name: '',
+      items: []
+    },
+    {
+      name: '',
+      items: []
+    }];
 
   constructor(private activatedRoute: ActivatedRoute,
     private restApi: RestApiService,
@@ -112,6 +118,20 @@ export class InfoProductComponent implements OnInit {
     this.findNamebyLogistic();
     if (this.data.prepareshipping > 2) {
       this.prepare = true;
+    }
+  }
+
+  deleteMainOption(idx) {
+    if (idx === 1) {
+      if (this.isShowMainOption2) {
+        this.isShowMainOption1 = true;
+      } else {
+        this.isShowMainOption1 = false;
+        this.isOptions = false;
+      }
+    } else if (idx === 2) {
+      this.isShowMainOption2 = false;
+      this.isShowMainOption1 = true;
     }
   }
 
@@ -250,12 +270,6 @@ export class InfoProductComponent implements OnInit {
       this.isShowMainOption1 = true;
       this.isShowCol1 = true;
       this.displayedColumns = ['name1', 'price', 'stock'];
-      this.mainOptions_1.push({
-        name: 'ชื่อ'
-      });
-      this.subOptions_1.push({
-        name: 'ตัวเลือก'
-      });
       this.generateDataSource();
       // this.dataSource.push({
       //   name1: 'ตัวเลือก', name2: null, price: 0, stock: 0
@@ -266,9 +280,6 @@ export class InfoProductComponent implements OnInit {
       this.displayedColumns = ['name1', 'name2', 'price', 'stock'];
       this.mainOptions_2.push({
         name: 'ชื่อ'
-      });
-      this.subOptions_2.push({
-        name: 'ตัวเลือก'
       });
       this.generateDataSource();
       // this.dataSource[0] = {
@@ -286,9 +297,30 @@ export class InfoProductComponent implements OnInit {
   }
 
   addSubOption1() {
-    this.subOptions_1.push({
-      name: 'ตัวเลือก'
-    });
+    this.stockType[0].name = this.nameOption1;
+    if (this.stockType[0].items.length < 20) {
+      this.stockType[0].items.push({
+        name: ''
+      });
+    }
+    console.log(this.stockType);
+  }
+
+  addSubOption2() {
+    this.stockType[1].name = this.nameOption2;
+    if (this.stockType[1].items.length < 20) {
+      this.stockType[1].items.push({
+        name: ''
+      });
+    }
+    console.log(this.stockType);
+  }
+
+  delSubOption(idx, index) {
+    const confirm = window.confirm('ยืนยันการลบ');
+    if (confirm) {
+      this.stockType[idx].items.splice(index, 1);
+    }
   }
 
   async save() {
