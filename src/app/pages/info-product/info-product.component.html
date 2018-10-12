@@ -165,25 +165,19 @@
                       required>
                   </mat-form-field>
                 </div>
-                <div>
-                  <mat-form-field>
-                    <input matInput placeholder="ใส่ข้อมูลตัวเลือก เช่นสีแดง สีขาว..." [(ngModel)]="subOption1" type="text"
-                      required>
-                  </mat-form-field>
-                </div>
-                <div *ngIf="subOptions_1.length > 1">
-                  <div *ngFor="let item of subOptions_1">
+                <div *ngIf="stockType[0].items.length > 0">
+                  <div *ngFor="let item of stockType[0].items">
                     <div class="sub-del-btn">
                       <mat-icon>close</mat-icon>
                     </div>
                     <mat-form-field>
-                      <input matInput placeholder="ใส่ข้อมูลตัวเลือก เช่นสีแดง สีขาว..." type="text" required>
+                      <input matInput placeholder="ใส่ข้อมูลตัวเลือก เช่นสีแดง สีขาว..." [(ngModel)]="item.name" type="text" required>
                     </mat-form-field>
                   </div>
                 </div>
 
                 <div class="btn-option" (click)="addSubOption1()">
-                  <mat-icon class="add-cus">add</mat-icon> เพิ่มตัวเลือก {{subOptions_1.length }}/20
+                  <mat-icon class="add-cus">add</mat-icon> เพิ่มตัวเลือก {{stockType[0].items.length }}/20
                 </div>
               </div>
             </div>

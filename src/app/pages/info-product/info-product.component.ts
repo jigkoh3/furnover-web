@@ -40,19 +40,28 @@ export class InfoProductComponent implements OnInit {
   isShowCol1 = false;
   isShowCol2 = false;
   nameOption1 = '';
+  nameOption2 = '';
   subOption1 = '';
   subOption2 = '';
   prepare = false;
   mainOptions_1: Array<any> = [];
   mainOptions_2: Array<any> = [];
-  subOptions_1: Array<any> = [];
   subOptions_2: Array<any> = [];
   toggleSubMenu = false;
   shippings: Array<any> = [];
   stateSubmenu: Array<any> = [];
   wholesaleList: Array<any> = [];
-  priceList: Array<any> = [];
   images: Array<any> = [];
+  priceList: Array<any> = [];
+  stockType: Array<any> = [
+    {
+      name: '',
+      items: []
+    },
+    {
+      name: '',
+      items: []
+    }];
 
   constructor(private activatedRoute: ActivatedRoute,
     private restApi: RestApiService,
@@ -250,12 +259,6 @@ export class InfoProductComponent implements OnInit {
       this.isShowMainOption1 = true;
       this.isShowCol1 = true;
       this.displayedColumns = ['name1', 'price', 'stock'];
-      this.mainOptions_1.push({
-        name: 'ชื่อ'
-      });
-      this.subOptions_1.push({
-        name: 'ตัวเลือก'
-      });
       this.generateDataSource();
       // this.dataSource.push({
       //   name1: 'ตัวเลือก', name2: null, price: 0, stock: 0
@@ -286,9 +289,13 @@ export class InfoProductComponent implements OnInit {
   }
 
   addSubOption1() {
-    this.subOptions_1.push({
-      name: 'ตัวเลือก'
-    });
+    this.stockType[0].name = this.nameOption1;
+    if (this.stockType[0].items.length < 20) {
+      this.stockType[0].items.push({
+        name: ''
+      });
+    }
+    console.log(this.stockType);
   }
 
   async save() {
