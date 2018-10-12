@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { MomentDateAdapter } from '@angular/material-moment-adapter';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import * as _moment from 'moment';
+import { NgxSpinnerService } from 'ngx-spinner';
 const moment = _moment;
 export const MY_FORMATS = {
   parse: {
@@ -29,16 +30,19 @@ export class MyPromotionHeaderComponent implements OnInit {
   _startdate: any;
   _enddate: any;
   isSave = false;
+  isValidateDate: boolean = true;
   @Input() data: any = {};
   @Output() outputData = new EventEmitter();
 
   constructor(
+    private spinner: NgxSpinnerService,
 
   ) {
 
   }
 
   ngOnInit() {
+    this.spinner.show();
     setTimeout(() => {
       if (this.data._id) {
         this._startdate = new Date(this.data.startdate);
@@ -61,8 +65,12 @@ export class MyPromotionHeaderComponent implements OnInit {
         this.data.isSave = this.isSave;
         this.outputData.emit(this.data);
       }
+      this.spinner.hide();
+
     }, 1400);
     this.setDefault();
+
+
   }
 
   setDefault() {
@@ -79,7 +87,6 @@ export class MyPromotionHeaderComponent implements OnInit {
     this._enddate = dateTime;
     this.data.startdate = dateTime;
     this.data.enddate = dateTime;
-
   }
 
   edit() {
@@ -89,22 +96,57 @@ export class MyPromotionHeaderComponent implements OnInit {
   }
 
   sendData() {
-    this.isSave = true;
-    this.data.isSave = this.isSave;
-    this.outputData.emit(this.data);
+    this.validateDate()
+    setTimeout(() => {
+      if (this.isValidateDate) {
+        this.isSave = true;
+        this.data.isSave = this.isSave;
+        this.outputData.emit(this.data);
+      }
+    }, 1000);
   }
 
-  startDate(e) {
-    const date = new Date(
-      e._i.year, e._i.month, e._i.date
-    );
-    this.data.startdate = date;
-  }
-  endDate(e) {
-    const date = new Date(
-      e._i.year, e._i.month, e._i.date
-    );
-    this.data.enddate = date;
+  validateDate() {
+    this.isValidateDate = true;
+    setTimeout(() => {
+      this._startdate = new Date(new Date(this._startdate).setHours(this.data.starttime.split(':')[0], this.data.starttime.split(':')[1], 0, 0));
+      this._enddate = new Date(new Date(this._enddate).setHours(this.data.endtime.split(':')[0], this.data.endtime.split(':')[1], 0, 0));
+
+      let currentDate = new Date();
+      let startDate = new Date(this._startdate);
+      let endDate = new Date(this._enddate);
+      if (currentDate > startDate) {
+        setTimeout(() => {
+          this._startdate = new Date(new Date(this._startdate).setDate(currentDate.getDate()));
+        }, 0);
+        // this.isValidateDate = false;
+      }
+
+      if (currentDate > endDate) {
+        this.isValidateDate = false;
+      }
+
+      if (startDate > endDate) {
+        setTimeout(() => {
+          this._enddate = this._startdate;
+        }, 0);
+        // this.isValidateDate = false;
+      }
+
+      setTimeout(() => {
+        if (this._startdate.toString() === this._enddate.toString()) {
+          if (this.data.starttime >= this.data.endtime) {
+            // setTimeout(() => {
+            //   this.data.endtime = this.data.starttime;
+            // }, 0);
+            this.isValidateDate = false;
+          }
+        }
+      }, 0);
+
+    }, 0);
+
+
   }
 
 }

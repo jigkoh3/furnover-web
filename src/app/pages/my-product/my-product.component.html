@@ -1,5 +1,5 @@
-<mat-tab-group  (selectedTabChange)="onLinkClick($event)">
-  <mat-tab label="ทั้งหมด">
+<mat-tab-group (selectedTabChange)="onLinkClick($event)">
+  <mat-tab label="{{item.name}}" *ngFor="let item of statusArray">
 
     <div *ngIf="showDelete" class="portal-panel">
       <div class="row">
@@ -14,7 +14,7 @@
 
     <div class="row padding text-left">
       <div class="col-12 col-md-12 col-sm-12">
-        สินค้า {{productData.products.length}} รายการ
+        สินค้า {{data.products.length}} รายการ
       </div>
     </div>
 
@@ -44,13 +44,14 @@
         </div>
       </div>
 
-      <div class="col-12 col-md-2 col-sm-4 fix-col-2 mgt-1" *ngFor="let item of productData.products">
-        <mat-card class="mat-card_cus">
+      <div class="col-12 col-md-2 col-sm-4 fix-col-2 mgt-1" *ngFor="let item of data.products">
+          <mat-checkbox class="ch_box" [(ngModel)]="item.checked" (change)="checkboxOptions($event,item)"></mat-checkbox>
+        <mat-card class="mat-card_cus" (click)="gotoEditProduct(item._id)">
           <!-- <div style="background: url('http://my-test-11.slatic.net/original/536fa036d0bc1e7a54e9496d75aa494f.jpg_720x720q80.jpg') no-repeat center center;background-size: cover;min-height: 12rem;"> -->
           <div style="background-size: cover;min-height: 12rem;">
-            <img [src]="item.image ? item.image.url:''" style="width: 100%;min-height: 12rem;object-fit: contain;"
+            <img [src]="item.image ? item.image.url:''" style="width: 100%;min-height: 12rem;object-fit: contain;max-height: 12rem;"
               (click)="gotoEditProduct(item._id)">
-            <mat-checkbox class="ch_box" [(ngModel)]="item.checked" (change)="checkboxOptions($event,item)"></mat-checkbox>
+            
             <span *ngIf="item.iswholesale" style="right: 0;
             background-color: #00d0ff;
             position: absolute;
@@ -84,7 +85,7 @@
             </p>
             <div class="row">
               <div class="col-6 txt-price">
-                {{item.pricetext}}
+                ฿ {{item.pricetext}}
               </div>
               <div class="col-6 txt-right" style="font-size: 14px;">
                 คลัง {{item.stock}}
@@ -105,7 +106,10 @@
         </mat-card>
       </div>
     </div>
-    <div class="text-center" *ngIf="productData.products.length > 0">
+    <div padding *ngIf="dataService.message">
+      <message padding-top class="text-center" [type]="dataService.messageType" [message]="dataService.message"></message>
+    </div>
+    <div class="text-center" *ngIf="data.products.length > 0">
       <button mat-flat-button color="primary" class="btn-summit select" style="margin: 5px;" *ngIf="pageData.page > 1"
         (click)="previos()">ก่อนหน้า</button>
       <button mat-flat-button color="primary" ngClass="{{pageData.page === (i + 1) ? 'select' : 'un-select'}} btn-summit"
@@ -114,7 +118,7 @@
         (click)="next()">ต่อไป</button>
     </div>
   </mat-tab>
-  <mat-tab label="ขายอยู่">
+  <!-- <mat-tab label="ขายอยู่">
 
     <div *ngIf="showDelete" class="portal-panel">
       <div class="row">
@@ -129,7 +133,7 @@
 
     <div class="row padding">
       <div class="col-12 col-md-12 col-sm-12">
-        สินค้า {{productData.products.length}} รายการ
+        สินค้า {{data.products.length}} รายการ
       </div>
     </div>
 
@@ -140,12 +144,10 @@
           <input matInput placeholder="ค้นหา" [(ngModel)]="pageData.name" (keydown)="search($event)">
         </mat-form-field>
       </div>
-      <!-- <div class="col-12 col-md-8 col-sm-8 txt-right">
-        <span class="select">ล่าสุด</span> &nbsp;<span class="un-select">สินค้าขายดี</span> &nbsp;<span class="un-select">ราคา</span>
-      </div> -->
+     
     </div>
     <div class="row padding">
-      <div class="col-12 col-md-2 col-sm-4 fix-col-2 mgt-1" *ngFor="let item of productData.products">
+      <div class="col-12 col-md-2 col-sm-4 fix-col-2 mgt-1" *ngFor="let item of data.products">
         <mat-card class="mat-card_cus">
           <div style="background-size: cover;min-height: 12rem;">
             <img [src]="item.image ? item.image.url: ''" style="width: 100%;min-height: 12rem;object-fit: contain;"
@@ -182,7 +184,7 @@
         </mat-card>
       </div>
     </div>
-    <div class="text-center" *ngIf="productData.products.length > 0">
+    <div class="text-center" *ngIf="data.products.length > 0">
       <button mat-flat-button color="primary" class="btn-summit select" style="margin: 5px;" *ngIf="pageData.page > 1"
         (click)="previos()">ก่อนหน้า</button>
       <button mat-flat-button color="primary" ngClass="{{pageData.page === (i + 1) ? 'select' : 'un-select'}} btn-summit"
@@ -204,7 +206,7 @@
     </div>
     <div class="row padding">
       <div class="col-12 col-md-12 col-sm-12">
-        สินค้า {{productData.products.length}} รายการ
+        สินค้า {{data.products.length}} รายการ
       </div>
     </div>
 
@@ -215,12 +217,10 @@
           <input matInput placeholder="ค้นหา" [(ngModel)]="pageData.name" (keydown)="search($event)">
         </mat-form-field>
       </div>
-      <!-- <div class="col-12 col-md-8 col-sm-8 txt-right">
-        <span class="select">ล่าสุด</span> &nbsp;<span class="un-select">สินค้าขายดี</span> &nbsp;<span class="un-select">ราคา</span>
-      </div> -->
+      
     </div>
     <div class="row padding">
-      <div class="col-12 col-md-2 col-sm-4 fix-col-2 mgt-1" *ngFor="let item of productData.products">
+      <div class="col-12 col-md-2 col-sm-4 fix-col-2 mgt-1" *ngFor="let item of data.products">
         <mat-card class="mat-card_cus">
           <div style="background-size: cover;min-height: 12rem;">
             <img [src]="item.image ? item.image.url: ''" style="width: 100%;min-height: 12rem;object-fit: contain;"
@@ -257,7 +257,7 @@
         </mat-card>
       </div>
     </div>
-    <div class="text-center" *ngIf="productData.products.length > 0">
+    <div class="text-center" *ngIf="data.products.length > 0">
       <button mat-flat-button color="primary" class="btn-summit select" style="margin: 5px;" *ngIf="pageData.page > 1"
         (click)="previos()">ก่อนหน้า</button>
       <button mat-flat-button color="primary" ngClass="{{pageData.page === (i + 1) ? 'select' : 'un-select'}} btn-summit"
@@ -279,7 +279,7 @@
     </div>
     <div class="row padding">
       <div class="col-12 col-md-12 col-sm-12">
-        สินค้า {{productData.products.length}} รายการ
+        สินค้า {{data.products.length}} รายการ
       </div>
     </div>
 
@@ -290,12 +290,10 @@
           <input matInput placeholder="ค้นหา" [(ngModel)]="pageData.name" (keydown)="search($event)">
         </mat-form-field>
       </div>
-      <!-- <div class="col-12 col-md-8 col-sm-8 txt-right">
-        <span class="select">ล่าสุด</span> &nbsp;<span class="un-select">สินค้าขายดี</span> &nbsp;<span class="un-select">ราคา</span>
-      </div> -->
+     
     </div>
     <div class="row padding">
-      <div class="col-12 col-md-2 col-sm-4 fix-col-2 mgt-1" *ngFor="let item of productData.products">
+      <div class="col-12 col-md-2 col-sm-4 fix-col-2 mgt-1" *ngFor="let item of data.products">
         <mat-card class="mat-card_cus">
           <div style="background-size: cover;min-height: 12rem;">
             <img [src]="item.image ? item.image.url: ''" style="width: 100%;min-height: 12rem;object-fit: contain;"
@@ -332,7 +330,7 @@
         </mat-card>
       </div>
     </div>
-    <div class="text-center" *ngIf="productData.products.length > 0">
+    <div class="text-center" *ngIf="data.products.length > 0">
       <button mat-flat-button color="primary" class="btn-summit select" style="margin: 5px;" *ngIf="pageData.page > 1"
         (click)="previos()">ก่อนหน้า</button>
       <button mat-flat-button color="primary" ngClass="{{pageData.page === (i + 1) ? 'select' : 'un-select'}} btn-summit"
@@ -340,5 +338,5 @@
       <button mat-flat-button color="primary" class="btn-summit select" style="margin: 5px;" *ngIf="pageData.page < tabs.length"
         (click)="next()">ต่อไป</button>
     </div>
-  </mat-tab>
+  </mat-tab> -->
 </mat-tab-group>

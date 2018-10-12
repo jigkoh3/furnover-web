@@ -29,7 +29,7 @@
           </div>
           <div class="col-12 col-md-4">
             <mat-form-field>
-              <input matInput [matDatepicker]="dp" placeholder="เลือกวันที่" (ngModelChange)="startDate($event)"
+              <input matInput [matDatepicker]="dp" placeholder="เลือกวันที่" (ngModelChange)="validateDate($event)"
                 [(ngModel)]="_startdate" disabled>
               <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
               <mat-datepicker #dp disabled="false"></mat-datepicker>
@@ -43,7 +43,7 @@
             <p class="font-form">เวลาเริ่มต้นของโปรโมชั่น</p>
           </div>
           <div class="col-12 col-md-4">
-            <mat-form-field><input matInput type="time" [(ngModel)]="data.starttime"></mat-form-field>
+            <mat-form-field><input matInput type="time" (ngModelChange)="validateDate($event)" [(ngModel)]="data.starttime"></mat-form-field>
           </div>
         </div>
       </div>
@@ -54,7 +54,7 @@
           </div>
           <div class="col-12 col-md-4">
             <mat-form-field>
-              <input matInput [matDatepicker]="dp2" placeholder="เลือกวันที่" (ngModelChange)="endDate($event)"
+              <input matInput [matDatepicker]="dp2" placeholder="เลือกวันที่" (ngModelChange)="validateDate($event)"
                 [(ngModel)]="_enddate" disabled>
               <mat-datepicker-toggle matSuffix [for]="dp2"></mat-datepicker-toggle>
               <mat-datepicker #dp2 disabled="false"></mat-datepicker>
@@ -68,17 +68,23 @@
             <p class="font-form">เวลาสิ้นสุดของโปรโมชั่น</p>
           </div>
           <div class="col-12 col-md-4">
-            <mat-form-field><input matInput type="time" [(ngModel)]="data.endtime"></mat-form-field>
+            <mat-form-field><input matInput type="time" (ngModelChange)='validateDate($event)' [(ngModel)]="data.endtime"></mat-form-field>
           </div>
         </div>
       </div>
       <div class="col-12">
+        <div class="row" *ngIf="!isValidateDate">
+          <div class="col-12 text-center">
+            <p class="text-error">
+              วันที่เริ่มต้นต้องมากกว่าหรือเท่ากับวันที่ปัจจุบันและเวลาสิ้นสุดต้องมากกว่าวันที่เริ่มต้น
+            </p>
+          </div>
+        </div>
         <div class="row">
           <div class="col-12 col-md-5">
           </div>
           <div class="col-12 col-md-2">
-            <button style="width:100%" mat-button color="primary" [disabled]="!(data.title && data.startdate && data.enddate && data.starttime && data.endtime)"
-              (click)="sendData()">บันทึกและทำต่อไป</button>
+            <button style="width:100%" mat-button color="primary" [disabled]="!isValidateDate || !data.title" (click)="sendData()">บันทึกและทำต่อไป</button>
           </div>
           <div class="col-12 col-md-5"></div>
         </div>
