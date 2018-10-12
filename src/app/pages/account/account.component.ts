@@ -1,3 +1,4 @@
+import { Constants } from './../../app.constants';
 import { Component, OnInit } from '@angular/core';
 import { MomentDateAdapter } from '@angular/material-moment-adapter';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
@@ -26,6 +27,7 @@ export const MY_FORMATS = {
 })
 export class AccountComponent implements OnInit {
 
+  data: any = {};
   date = new Date();
   show1 = false;
   show2 = false;
@@ -35,6 +37,7 @@ export class AccountComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.getData();
   }
 
   clickShow1() {
@@ -47,15 +50,22 @@ export class AccountComponent implements OnInit {
   clickShow2() {
     if (this.show2) {
       this.show2 = false;
-    }else{
+    } else {
       this.show2 = true;
     }
   }
   clickShow3() {
     if (this.show3) {
       this.show3 = false;
-    }else{
+    } else {
       this.show3 = true;
     }
+  }
+  getData() {
+    const usershop = window.localStorage.getItem(Constants.URL() + '@usershop') ?
+      JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop')) : {};
+    console.log(usershop);
+
+    this.data = usershop;
   }
 }
