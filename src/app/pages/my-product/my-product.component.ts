@@ -20,24 +20,15 @@ export class MyProductComponent implements OnInit {
     }
   };
 
-  // sortModel: any = [
-  //   {
-  //     sortId: 0,
-  //     sortName: 'ล่าสุด'
-  //   },
-  //   {
-  //     sortId: 1,
-  //     sortName: 'สินค้าขายดี'
-  //   },
-  //   {
-  //     sortId: 2,
-  //     sortName: 'ราคา'
-  //   }
-  // ];
-
-  productData: any = {
-    products: []
+  data: any = {
+    products: [],
+    status: [],
+    tabs: []
   };
+
+  statusArray: any = [];
+  status: any = 'all';
+
   tabs: any = [];
   pageData: any = {
     shop_id: "",
@@ -61,49 +52,66 @@ export class MyProductComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getProduct(this.tabStatus);
+    this.getStatus();
+  }
+
+  async getStatus() {
+    this.spinner.show();
+    let shop = window.localStorage.getItem(Constants.URL() + '@usershop') ? JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop')) : null;
+    let objectData = {
+      shop_id: shop.shop_id,
+      status: this.status,
+      name: this.pageData.name,
+      page: this.pageData.page,
+      limit: this.pageData.limit
+    };
+    try {
+      let res: any = await this.restApi.post(Constants.URL() + '/api/product-shop-list', objectData);
+      if (res['status'] === 200) {
+        this.statusArray = res.data.status;
+        this.spinner.hide();
+        this.getProduct();
+      }
+    } catch (error) {
+      this.spinner.hide();
+      this.dataService.error("โหลดข้อมูลล้มเหลว กรุณาลองใหม่อีกครั้ง")
+    }
   }
 
   onLinkClick(event) {
     this.showDelete = false;
     this.selectedProduct = [];
     this.pageData.name = '';
-    if (event.index === 0) {
-      this.tabStatus = 'all';
-      this.getProduct(this.tabStatus);
-    } else if (event.index === 1) {
-      this.tabStatus = 'sell';
-      this.getProduct(this.tabStatus);
-    } else if (event.index === 2) {
-      this.tabStatus = 'outofstock';
-      this.getProduct(this.tabStatus);
-    } else if (event.index === 3) {
-      this.tabStatus = 'suspended';
-      this.getProduct(this.tabStatus);
+    this.pageData.page = 1;
+
+    if (this.statusArray && this.statusArray.length > 0) {
+      this.status = this.statusArray[event.index].status;
     }
+    this.getProduct();
   }
 
-  async getProduct(status) {
-    console.log(status)
+  async getProduct() {
+    this.dataService.warning('');
+
     this.spinner.show();
     this.shopUser = window.localStorage.getItem(Constants.URL() + '@usershop') ? JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop')) : null;
 
-    this.pageData = {
+    let objectData = {
       shop_id: this.shopUser.shop_id,
-      status: status,
+      status: this.status,
       name: this.pageData.name,
       page: this.pageData.page,
       limit: this.pageData.limit
     };
-    console.log(this.pageData)
     try {
-      let data: any = await this.restApi.post(Constants.URL() + '/api/product-shop-list', this.pageData);
-      if (data['status'] === 200) {
-        this.productData = data.data;
+      let res: any = await this.restApi.post(Constants.URL() + '/api/product-shop-list', objectData);
+      if (res['status'] === 200) {
+        this.data = res.data;
+        console.log(this.data);
+        this.tabs = res.data.tabs;
         this.spinner.hide();
-        console.log(this.productData);
-        this.tabs = data.data.tabs;
-        if (this.productData && this.productData.length === 0) {
+
+        if (this.data && this.data.products.length === 0) {
           this.dataService.warning('ไม่พบข้อมูลสินค้า');
         }
       }
@@ -126,35 +134,34 @@ export class MyProductComponent implements OnInit {
   }
 
   search(event) {
-    console.log(this.tabStatus)
     if (event.keyCode == 13) {
       this.pageData.page = 1;
-      this.getProduct(this.tabStatus);
+      this.getProduct();
     }
   }
 
   previos() {
     this.pageData.page--;
-    this.getProduct(this.tabStatus);
+    this.getProduct();
   }
 
   page(item) {
     if (this.pageData.page !== item) {
       this.pageData.page = item;
-      this.getProduct(this.tabStatus);
+      this.getProduct();
     }
   }
 
   next() {
     this.pageData.page++;
-    this.getProduct(this.tabStatus);
+    this.getProduct();
   }
 
   checkboxOptions(event, item) {
     if (event.checked) {
       this.showDelete = true;
       this.selectedProduct.push(item);
-      if (this.productData.products.length === this.selectedProduct.length) {
+      if (this.data.products.length === this.selectedProduct.length) {
         this.checked = true;
       }
     } else {
@@ -178,7 +185,7 @@ export class MyProductComponent implements OnInit {
 
   onselectAll(event) {
     this.selectedProduct = [];
-    this.productData.products.forEach(selectItem => {
+    this.data.products.forEach(selectItem => {
       if (event.checked) {
         selectItem.checked = true;
         this.selectedProduct.push(selectItem);
@@ -201,7 +208,7 @@ export class MyProductComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.showDelete = false;
-        this.getProduct(this.tabStatus);
+        this.getProduct();
       }
       else {
         // this.showDelete = false;
