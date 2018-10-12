@@ -4,7 +4,7 @@
       <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
 
         <mat-card>
-          <div class="tableth table-responsive table-full-width">
+          <div class="table-responsive table-full-width">
             <table class="table ">
               <thead>
                 <tr class="txt-name">
@@ -18,11 +18,11 @@
                 </tr>
               </thead>
               <tbody *ngFor="let item of data.products;let i = index">
-                <tr [ngClass]="{'line': j + 1 === item.prices.length}" *ngFor="let itm of item.prices ;let j = index">
+                <tr [ngClass]="{'line': j + 1 !== item.prices.length}" *ngFor="let itm of item.prices ;let j = index">
                   <td *ngIf="j === 0">
 
-                    <img class="img-product" [src]="item.image ? item.image.url : ''"> <span class="txt-name">
-                      {{item.name}}</span>
+                    <img class="img-product" [src]="item.image ? item.image.url : ''">
+                      <span class="txt-name">{{item.name}}</span>
 
                   </td>
                   <td *ngIf="j !== 0"></td>

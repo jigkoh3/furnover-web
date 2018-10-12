@@ -102,10 +102,6 @@ table {
     overflow: scroll;
 }
 
-.line {
-    border-bottom: 1px solid #dddddd;
-}
-
 .txt-name {
     overflow: hidden;
     white-space: nowrap;
@@ -127,8 +123,6 @@ table {
     width: 80px !important;
 }
 
-.tableth {
-    padding: .75rem;
-    vertical-align: top;
-    border-top: 0px !important;
+.line {
+    border-bottom: 2px solid #ffffff !important;
 }
