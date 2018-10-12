@@ -1,4 +1,4 @@
-.col-profile{
+.col-profile {
     width: 550px;
 }
 
@@ -167,8 +167,7 @@
 }
 
 .dropzone {
-    overflow: hidden;
-    // cursor: pointer;
+    overflow: hidden; // cursor: pointer;
 }
 
 .seller-profile-container {
@@ -459,8 +458,7 @@
 .uploader-btn {
     display: -webkit-flex;
     display: -ms-flexbox;
-    display: flex;
-    // width: 100%;
+    display: flex; // width: 100%;
     height: 100px;
     font-size: 11px;
     text-align: center;
@@ -520,8 +518,7 @@
 .image-manager__item {
     // position: relative;
     // cursor: move;
-    border-radius: 2px;
-    // border: 1px solid #e8e8e8; 
+    border-radius: 2px; // border: 1px solid #e8e8e8; 
     // height: 0;
     padding-top: 100%;
 }
@@ -611,7 +608,40 @@
     resize: none;
 }
 
-.btn-summit{
-    max-width: 100px ;
-    width: 100% ;
+.btn-summit {
+    max-width: 100px;
+    width: 100%;
+}
+
+.image-tools {
+    // display: inline-block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding-top: 6px;
+    text-align: right;
+}
+
+.image-tools span {
+    cursor: pointer !important;
+    width: 32px;
+    height: 32px;
+    padding: 8px;
+    border-radius: 32px;
+    opacity: 1;
+    display: inline-block;
+    margin-right: 12px;
+    transition: background-color .5s ease;
+}
+
+.image-tools .delete {
+    background-color: #ff9558;
+}
+
+.image-tools span svg {
+    fill: #fff;
+    height: 16px;
+    width: 16px;
+    display: block;
+    vertical-align: middle;
 }

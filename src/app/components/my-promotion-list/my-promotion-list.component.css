@@ -126,3 +126,7 @@ table {
 .line {
     border-bottom: 2px solid #ffffff !important;
 }
+.have-padding-left{
+    padding-left: 10px !important;
+
+}
