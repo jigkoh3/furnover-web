@@ -93,8 +93,8 @@ export class InfoMyCodeComponent implements OnInit {
       }
       this.spinner.hide();
     } catch (error) {
-      console.log(error);
       this.spinner.hide();
+      this.dataService.error('เรียกข้อมูลไม่สำเร็จ');
     }
   }
 
@@ -108,6 +108,7 @@ export class InfoMyCodeComponent implements OnInit {
       console.log(this.data.itemtype);
     }
   }
+
   startDate(e) {
     const date = new Date(
       e._i.year, e._i.month, e._i.date
@@ -167,8 +168,27 @@ export class InfoMyCodeComponent implements OnInit {
         console.log(this.data);
 
       } catch (error) {
-        console.log(error);
         this.spinner.hide();
+        if (error) {
+          if (error['error']['message'] === 'Code already exists') {
+            return this.dataService.error('โค้ดส่วนลดนี้มีข้อมูลแล้ว');
+          } else if (error['error']['message'] === 'Please fill in a code name') {
+            return this.dataService.error('กรุณาระบุข้อมูลชื่อส่วนลด');
+          } else if (error['error']['message'] === 'Please fill in a code') {
+            return this.dataService.error('กรุณาระบุข้อมูลโค้ดส่วนลด');
+          } else if (error['error']['message'] === 'Please fill in a codetype') {
+            return this.dataService.error('กรุณาระบุประเภทส่วนลด');
+          } else if (error['error']['message'] === 'Please fill in a startdate') {
+            return this.dataService.error('กรุณาระบุวันที่เริ่มต้น');
+          } else if (error['error']['message'] === 'Please fill in a enddate') {
+            return this.dataService.error('กรุณาระบุวันที่สิ้นสุด');
+          } else if (error['error']['message'] === 'Please fill in a itemtype') {
+            return this.dataService.error('กรุณาระบุประเภทการลดของสินค้า');
+          } else if (error['error']['message'] === 'Please fill in a codeqty') {
+            return this.dataService.error('กรุณาระบุจำนวนการใช้งานโค้ดส่วนลด');
+          }
+        }
+        return this.dataService.error('บันทึกข้อมูลไม่สำเร็จ');
       }
     } else {
       try {
@@ -177,8 +197,25 @@ export class InfoMyCodeComponent implements OnInit {
         this.route.navigate(['my-code']);
         console.log(this.data);
       } catch (error) {
-        console.log(error);
         this.spinner.hide();
+        if (error) {
+          if (error['error']['message'] === 'Code already exists') {
+            return this.dataService.error('โค้ดส่วนลดนี้มีข้อมูลแล้ว');
+          } else if (error['error']['message'] === 'Please fill in a code name') {
+            return this.dataService.error('กรุณาระบุข้อมูลชื่อส่วนลด');
+          } else if (error['error']['message'] === 'Please fill in a code') {
+            return this.dataService.error('กรุณาระบุข้อมูลโค้ดส่วนลด');
+          } else if (error['error']['message'] === 'Please fill in a codetype') {
+            return this.dataService.error('กรุณาระบุประเภทส่วนลด');
+          } else if (error['error']['message'] === 'Please fill in a startdate') {
+            return this.dataService.error('กรุณาระบุวันที่เริ่มต้น');
+          } else if (error['error']['message'] === 'Please fill in a enddate') {
+            return this.dataService.error('กรุณาระบุวันที่สิ้นสุด');
+          } else if (error['error']['message'] === 'Please fill in a itemtype') {
+            return this.dataService.error('กรุณาระบุประเภทการลดของสินค้า');
+          }
+        }
+        return this.dataService.error('บันทึกข้อมูลไม่สำเร็จ');
       }
     }
   }

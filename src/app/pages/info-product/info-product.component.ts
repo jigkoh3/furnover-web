@@ -267,33 +267,52 @@ export class InfoProductComponent implements OnInit {
   showOption(num) {
     this.isOptions = true;
     if (num === 1) {
+      this.stockType[0].items = [];
       this.isShowMainOption1 = true;
       this.isShowCol1 = true;
       this.displayedColumns = ['name1', 'price', 'stock'];
-      this.generateDataSource();
-      // this.dataSource.push({
-      //   name1: 'ตัวเลือก', name2: null, price: 0, stock: 0
-      // });
+      this.stockType[0].items.push({
+        name: ''
+      });
+      this.generateDataSource(0);
     } else if (num === 2) {
       this.isShowMainOption2 = true;
       this.isShowCol2 = true;
       this.displayedColumns = ['name1', 'name2', 'price', 'stock'];
-      this.mainOptions_2.push({
-        name: 'ชื่อ'
+      this.stockType[1].items.push({
+        name: ''
       });
-      this.generateDataSource();
-      // this.dataSource[0] = {
-      //   name1: this.subOption1 ? this.subOption1 : 'ตัวเลือก', name2: 'ตัวเลือก', price: 0, stock: 0
-      // };
+      this.generateDataSource(1);
     }
   }
 
-  onFixSubOptionNameChange() {
+  generateDataSource(idx) {
     this.dataSource = [];
-  }
+    if (idx === 0) {
+      console.log('pass 0');
+      this.stockType[idx].items.forEach(el => {
+        this.dataSource.push({
+          name1: el.name ? el.name : 'ตัวเลือก',
+          name2: null,
+          price: 0,
+          stock: 0
+        });
+      });
+    } else {
+      console.log('pass 1');
+      for (let i = 0; i < this.stockType[0].items.length; i++) {
+        for (let j = 0; j < this.stockType[1].items.length; j++) {
+          this.dataSource.push({
+            name1: this.stockType[0].items[i].name ? this.stockType[0].items[i].name : 'ตัวเลือก',
+            name2: this.stockType[1].items[j].name ? this.stockType[1].items[j].name : 'ตัวเลือก',
+            price: 0,
+            stock: 0
+          });
+        }
+      }
+    }
 
-  generateDataSource() {
-
+    console.log(this.dataSource);
   }
 
   addSubOption1() {
@@ -303,7 +322,7 @@ export class InfoProductComponent implements OnInit {
         name: ''
       });
     }
-    console.log(this.stockType);
+    this.generateDataSource(0);
   }
 
   addSubOption2() {
@@ -313,13 +332,18 @@ export class InfoProductComponent implements OnInit {
         name: ''
       });
     }
-    console.log(this.stockType);
+    this.generateDataSource(1);
   }
 
   delSubOption(idx, index) {
     const confirm = window.confirm('ยืนยันการลบ');
     if (confirm) {
       this.stockType[idx].items.splice(index, 1);
+    }
+    if (idx === 0) {
+      this.generateDataSource(0);
+    } else {
+      this.generateDataSource(1);
     }
   }
 
@@ -335,11 +359,15 @@ export class InfoProductComponent implements OnInit {
       });
     });
     this.data.shipping = tranformShipping;
-    this.data.prices = [{
-      name: 'normal',
-      price: this.price,
-      stock: this.stock
-    }];
+    if (this.isOptions) {
+      console.log(this.dataSource);
+    } else {
+      this.data.prices = [{
+        name: 'normal',
+        price: this.price,
+        stock: this.stock
+      }];
+    }
     this.data.category_id = this.stateSubmenu[this.stateSubmenu.length - 1] ? this.stateSubmenu[this.stateSubmenu.length - 1]._id : '';
     this.data.wholesale = this.wholesaleList;
     this.data.images = this.images;
@@ -350,44 +378,24 @@ export class InfoProductComponent implements OnInit {
       this.data.prepareshipping = 2;
     }
 
-    if (this.data._id) {
-      try {
-        const res: any = await this.restApi.put(Constants.URL() + '/api/product/' + this.data._id, this.data);
-        this.spinner.hide();
-        this.route.navigate(['my-product']);
-      } catch (error) {
-        console.log(error);
-      }
-    } else {
-      try {
-        // console.log(this.findParent(this.resData.categories, this.stateSubmenu[this.stateSubmenu.length - 1]));
-        const res: any = await this.restApi.post(Constants.URL() + '/api/product', this.data);
-        this.spinner.hide();
-        this.route.navigate(['my-product']);
-      } catch (error) {
-        console.log(error);
-        this.spinner.hide();
-      }
-    }
+    // if (this.data._id) {
+    //   try {
+    //     const res: any = await this.restApi.put(Constants.URL() + '/api/product/' + this.data._id, this.data);
+    //     this.spinner.hide();
+    //     this.route.navigate(['my-product']);
+    //   } catch (error) {
+    //     console.log(error);
+    //   }
+    // } else {
+    //   try {
+    //     const res: any = await this.restApi.post(Constants.URL() + '/api/product', this.data);
+    //     this.spinner.hide();
+    //     this.route.navigate(['my-product']);
+    //   } catch (error) {
+    //     console.log(error);
+    //     this.spinner.hide();
+    //   }
+    // }
   }
-
-  // findParent(items, item) {
-  //   var member, i, array;
-  //   for (member in items) {
-  //     if (
-  //       items.hasOwnProperty(member) &&
-  //       typeof items[member] === "object" &&
-  //       items[member] instanceof Array
-  //     ) {
-  //       array = items[member].children;
-  //       for (i = 0; i < array.length; i += 1) {
-  //         if (array[i]._id === item.parent) {
-  //           return array;
-  //         }
-  //       }
-  //     }
-  //   }
-  // }
-
 
 }
