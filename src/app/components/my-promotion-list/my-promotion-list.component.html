@@ -7,9 +7,9 @@
           <div class="table-responsive table-full-width">
             <table class="table ">
               <thead>
-                <tr  class="txt-name text-center">
+                <tr class="txt-name text-center">
                   <th width='350'>ชื่อสินค้า</th>
-                  <th width='200'>ตัวเลือกสินค้า</th>
+                  <th width='150'>ตัวเลือกสินค้า</th>
                   <th width='100'>ราคาเดิม</th>
                   <th width='100'>ราคาที่ลดแล้ว</th>
                   <th width='100'>ส่วนลด</th>
@@ -18,7 +18,7 @@
                 </tr>
               </thead>
               <tbody *ngFor="let item of data.products;let i = index">
-                <tr  [ngClass]="{'line': j + 1 !== item.prices.length}" *ngFor="let itm of item.prices ;let j = index">
+                <tr [ngClass]="{'line': j + 1 !== item.prices.length}" *ngFor="let itm of item.prices ;let j = index">
                   <td *ngIf="j === 0">
 
                     <img class="img-product" [src]="item.image ? item.image.url : ''">
@@ -27,7 +27,8 @@
                   </td>
                   <td *ngIf="j !== 0"></td>
                   <td>
-                    <mat-slide-toggle *ngIf="item.prices.length > 1" [(ngModel)]="itm.isuse" (ngModelChange)="changeData($event)"></mat-slide-toggle>
+                    <mat-slide-toggle *ngIf="item.prices.length > 1" [(ngModel)]="itm.isuse" 
+                      (ngModelChange)="changeData($event)"></mat-slide-toggle>
                     <span class="txt-name ">
                       {{itm.name}}
                     </span>
@@ -37,17 +38,17 @@
                   </td>
                   <td>
                     <mat-form-field class="text width-input">
-                      <input matInput type="number" [(ngModel)]="itm.newprice" placeholder="฿" (ngModelChange)="swapPrice($event,'cash',i,j,itm.price)">
+                      <input matInput type="number" [disabled]="!itm.isuse" [(ngModel)]="itm.newprice" placeholder="฿" (ngModelChange)="swapPrice($event,'cash',i,j,itm.price)">
                     </mat-form-field>
                   </td>
                   <td>
                     <mat-form-field class="text width-input">
-                      <input matInput type="number" [(ngModel)]="itm.percentage" placeholder="%ลด" (ngModelChange)="swapPrice($event,'percent',i,j,itm.price)">
+                      <input matInput type="number" [disabled]="!itm.isuse" [(ngModel)]="itm.percentage" placeholder="%ลด" (ngModelChange)="swapPrice($event,'percent',i,j,itm.price)">
                     </mat-form-field>
                   </td>
                   <td *ngIf="j === 0">
                     <mat-form-field class="text width-input">
-                      <input matInput type="number" [(ngModel)]="item.qty" (ngModelChange)="changeData($event)">
+                      <input matInput type="number" [disabled]="!itm.isuse" [(ngModel)]="item.qty" (ngModelChange)="changeData($event)">
                     </mat-form-field>
                   </td>
                   <td *ngIf="j !== 0"></td>

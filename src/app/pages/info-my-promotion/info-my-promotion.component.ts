@@ -1,3 +1,4 @@
+import { DataService } from './../../providers/data-service/data.service';
 import { Constants } from 'src/app/app.constants';
 import { async } from '@angular/core/testing';
 import { Component, OnInit } from '@angular/core';
@@ -25,7 +26,8 @@ export class InfoMyPromotionComponent implements OnInit {
     private restApi: RestApiService,
     private spinner: NgxSpinnerService,
     private activatedRoute: ActivatedRoute,
-    private route: Router
+    private route: Router,
+    private dataService: DataService
   ) { }
 
   ngOnInit() {
@@ -115,11 +117,23 @@ export class InfoMyPromotionComponent implements OnInit {
         this.spinner.hide();
         this.route.navigate(['my-promotion']);
       } catch (error) {
-        console.log(error);
+        if (error['error']['message'] === 'Please fill in a title') {
+          return this.dataService.error('กรุณาระบุข้อมูลชื่อโปรโมชั่น');
+        } else if (error['error']['message'] === 'Please fill in a startdate') {
+          return this.dataService.error('กรุณาระบุวันที่เริ่มต้น');
+        } else if (error['error']['message'] === 'Please fill in a starttime') {
+          return this.dataService.error('กรุณาระบุเวลาเริ่มต้น');
+        } else if (error['error']['message'] === 'Please fill in a enddate') {
+          return this.dataService.error('กรุณาระบุวันที่สิ้นสุด');
+        } else if (error['error']['message'] === 'Please fill in a endtime') {
+          return this.dataService.error('กรุณาระบุเวลาสิ้นสุด');
+        }
         this.data.starttime = this.oldTime.starttime;
         this.data.endtime = this.oldTime.endtime;
         this.spinner.hide();
       }
+      return this.dataService.error('เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง');
+
     } else {
       try {
         const res: any = await this.restApi.post(Constants.URL() + '/api/discount', this.data);
@@ -128,11 +142,23 @@ export class InfoMyPromotionComponent implements OnInit {
         this.spinner.hide();
         this.route.navigate(['my-promotion']);
       } catch (error) {
-        console.log(error);
+        if (error['error']['message'] === 'Please fill in a title') {
+          return this.dataService.error('กรุณาระบุข้อมูลชื่อโปรโมชั่น');
+        } else if (error['error']['message'] === 'Please fill in a startdate') {
+          return this.dataService.error('กรุณาระบุวันที่เริ่มต้น');
+        } else if (error['error']['message'] === 'Please fill in a starttime') {
+          return this.dataService.error('กรุณาระบุเวลาเริ่มต้น');
+        } else if (error['error']['message'] === 'Please fill in a enddate') {
+          return this.dataService.error('กรุณาระบุวันที่สิ้นสุด');
+        } else if (error['error']['message'] === 'Please fill in a endtime') {
+          return this.dataService.error('กรุณาระบุเวลาสิ้นสุด');
+        }
         this.data.starttime = this.oldTime.starttime;
         this.data.endtime = this.oldTime.endtime;
         this.spinner.hide();
       }
+      return this.dataService.error('เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง');
+
     }
   }
 
