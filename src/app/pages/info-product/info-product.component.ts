@@ -5,15 +5,6 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { Router, ActivatedRoute } from '@angular/router';
 import * as firebase from 'firebase';
 
-export interface PeriodicElement {
-  name1: string;
-  name2: string;
-  price: number;
-  stock: number;
-}
-
-const ELEMENT_DATA: PeriodicElement[] = [];
-
 @Component({
   selector: 'app-info-product',
   templateUrl: './info-product.component.html',
@@ -33,8 +24,7 @@ export class InfoProductComponent implements OnInit {
   stock = null;
   resData: any = {};
   isOptions = false;
-  displayedColumns: string[] = [];
-  dataSource = ELEMENT_DATA;
+  dataSource: Array<any> = [];
   isShowMainOption1 = false;
   isShowMainOption2 = false;
   isShowCol1 = false;
@@ -132,6 +122,9 @@ export class InfoProductComponent implements OnInit {
     } else if (idx === 2) {
       this.isShowMainOption2 = false;
       this.isShowMainOption1 = true;
+      this.stockType[1].name = '';
+      this.stockType[1].items = [];
+      this.generateDataSource(0);
     }
   }
 
@@ -269,7 +262,6 @@ export class InfoProductComponent implements OnInit {
       this.stockType[0].items = [];
       this.isShowMainOption1 = true;
       this.isShowCol1 = true;
-      this.displayedColumns = ['name1', 'price', 'stock'];
       this.stockType[0].items.push({
         name: ''
       });
@@ -277,7 +269,6 @@ export class InfoProductComponent implements OnInit {
     } else if (num === 2) {
       this.isShowMainOption2 = true;
       this.isShowCol2 = true;
-      this.displayedColumns = ['name1', 'name2', 'price', 'stock'];
       this.stockType[1].items.push({
         name: ''
       });

@@ -12,6 +12,7 @@
       <app-my-promotion-header [data]="data" (outputData)="getDataHeader($event)"></app-my-promotion-header>
     </div>
   </div>
+  <message class="text-center" [type]="dataService.messageType" [message]="dataService.message"></message>
 
   <div class="row" *ngIf="data.isSave">
     <div class="col-12 del-box">
