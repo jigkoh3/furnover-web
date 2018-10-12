@@ -1,4 +1,4 @@
-<mat-tab-group  (selectedTabChange)="onLinkClick($event)">
+<mat-tab-group (selectedTabChange)="onLinkClick($event)">
   <mat-tab label="ทั้งหมด">
 
     <div *ngIf="showDelete" class="portal-panel">
@@ -48,7 +48,7 @@
         <mat-card class="mat-card_cus">
           <!-- <div style="background: url('http://my-test-11.slatic.net/original/536fa036d0bc1e7a54e9496d75aa494f.jpg_720x720q80.jpg') no-repeat center center;background-size: cover;min-height: 12rem;"> -->
           <div style="background-size: cover;min-height: 12rem;">
-            <img [src]="item.image ? item.image.url:''" style="width: 100%;min-height: 12rem;object-fit: contain;"
+            <img [src]="item.image ? item.image.url:''" style="width: 100%;min-height: 12rem;object-fit: contain;max-height: 12rem;"
               (click)="gotoEditProduct(item._id)">
             <mat-checkbox class="ch_box" [(ngModel)]="item.checked" (change)="checkboxOptions($event,item)"></mat-checkbox>
             <span *ngIf="item.iswholesale" style="right: 0;
@@ -84,7 +84,7 @@
             </p>
             <div class="row">
               <div class="col-6 txt-price">
-                {{item.pricetext}}
+               ฿ {{item.pricetext}}
               </div>
               <div class="col-6 txt-right" style="font-size: 14px;">
                 คลัง {{item.stock}}
