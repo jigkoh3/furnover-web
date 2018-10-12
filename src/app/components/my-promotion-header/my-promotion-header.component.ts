@@ -101,6 +101,8 @@ export class MyPromotionHeaderComponent implements OnInit {
       if (this.isValidateDate) {
         this.isSave = true;
         this.data.isSave = this.isSave;
+        this.data.startdate = this._startdate;
+        this.data.enddate = this._enddate;
         this.outputData.emit(this.data);
       }
     }, 1000);
@@ -118,6 +120,15 @@ export class MyPromotionHeaderComponent implements OnInit {
       if (currentDate > startDate) {
         setTimeout(() => {
           this._startdate = new Date(new Date(this._startdate).setDate(currentDate.getDate()));
+          this.isValidateDate = true;
+        }, 0);
+        // this.isValidateDate = false;
+      }
+
+      if (startDate > endDate) {
+        setTimeout(() => {
+          this._enddate = this._startdate;
+          this.isValidateDate = true;
         }, 0);
         // this.isValidateDate = false;
       }
@@ -126,12 +137,6 @@ export class MyPromotionHeaderComponent implements OnInit {
         this.isValidateDate = false;
       }
 
-      if (startDate > endDate) {
-        setTimeout(() => {
-          this._enddate = this._startdate;
-        }, 0);
-        // this.isValidateDate = false;
-      }
 
       setTimeout(() => {
         if (this._startdate.toString() === this._enddate.toString()) {
