@@ -8,6 +8,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { RestApiService } from 'src/app/providers/rest-api-service/rest-api.service';
 import { Constants } from 'src/app/app.constants';
+import { DataService } from 'src/app/providers/data-service/data.service';
 const moment = _moment;
 export const MY_FORMATS = {
   parse: {
@@ -36,14 +37,14 @@ export class InfoMyCodeComponent implements OnInit {
   data: any = {
 
     cash: {
-      discount: 0,
-      minprice: 0,
+      discount: null,
+      minprice: null,
     },
     percentage: {
-      discount: 0,
+      discount: null,
       percentagetype: "limit", // มีสองอย่าง limit กับ unlimit
-      setamount: 0,
-      minprice: 0
+      setamount: null,
+      minprice: null
     },
     products: []
   };
@@ -51,13 +52,15 @@ export class InfoMyCodeComponent implements OnInit {
   _startdate: any;
   _enddate: any;
   itemId: any;
+  _itemtype: boolean = false;
 
   constructor(
     public dialog: MatDialog,
     private restApi: RestApiService,
     private spinner: NgxSpinnerService,
     private activatedRoute: ActivatedRoute,
-    private route: Router
+    private route: Router,
+    private dataService: DataService
   ) { }
 
   ngOnInit() {
@@ -77,11 +80,17 @@ export class InfoMyCodeComponent implements OnInit {
       const res: any = await this.restApi.get(Constants.URL() + '/api/mycode/' + this.itemId);
       if (res.data._id) {
         this.data = res.data;
+        this.data.cash = this.data.cash || {};
+        this.data.percentage = this.data.percentage || {};
         this._startdate = new Date(this.data.startdate);
         this._enddate = new Date(this.data.enddate);
-        console.log(this.data);
+        if (this.data.itemtype == 'all') {
+          this._itemtype = true;
+        } else {
+          this._itemtype = false;
+        }
+        // console.log(this.data);
       }
-
       this.spinner.hide();
     } catch (error) {
       console.log(error);
@@ -89,8 +98,15 @@ export class InfoMyCodeComponent implements OnInit {
     }
   }
 
-  isChecked() {
-    return this.data.itemtype == 'all';
+  isChecked(e) {
+    console.log(e);
+    if (e == true) {
+      this.data.itemtype = 'all';
+      console.log(this.data.itemtype);
+    } else {
+      this.data.itemtype = 'item';
+      console.log(this.data.itemtype);
+    }
   }
   startDate(e) {
     const date = new Date(
@@ -139,12 +155,16 @@ export class InfoMyCodeComponent implements OnInit {
     this.spinner.show();
     const userShop: any = JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop'));
     this.data.shop_id = userShop.shop._id;
+    this.data.itemtype = this._itemtype ? 'all' : 'item';
+    this.data.products = this._itemtype ? [] : this.data.products;
+    this.data.percentage.setamount = this.data.percentage.percentagetype == 'unlimit' ? null : this.data.percentage.setamount;
 
     if (this.itemId) {
       try {
-        const res: any = await this.restApi.put(Constants.URL() + '/api/Mycode/' + this.itemId, this.data);
+        const res: any = await this.restApi.put(Constants.URL() + '/api/mycode/' + this.itemId, this.data);
         this.spinner.hide();
         this.route.navigate(['my-code']);
+        console.log(this.data);
 
       } catch (error) {
         console.log(error);
@@ -152,13 +172,34 @@ export class InfoMyCodeComponent implements OnInit {
       }
     } else {
       try {
-        const res: any = await this.restApi.post(Constants.URL() + '/api/Mycode', this.data);
+        const res: any = await this.restApi.post(Constants.URL() + '/api/mycode', this.data);
         this.spinner.hide();
         this.route.navigate(['my-code']);
+        console.log(this.data);
       } catch (error) {
         console.log(error);
-
         this.spinner.hide();
+      }
+    }
+  }
+
+  clickCancel() {
+    this.route.navigate(['my-code']);
+  }
+
+  async deleteCode() {
+    let conf = confirm("ยืนยันการลบที่อยู่");
+    if (conf) {
+      this.spinner.show();
+      try {
+        await this.restApi.delete(Constants.URL() + '/api/mycode/' + this.data._id);
+        this.spinner.hide();
+        this.route.navigate(['my-code']);
+        // console.log(this.modelData)
+      } catch (error) {
+        this.spinner.hide();
+        this.dataService.error('ลบข้อมูลไม่สำเร็จ');
+
       }
     }
   }
