@@ -92,6 +92,10 @@ table {
 .mat-list-item .mat-list-item-content {
     display: flow-root !important;
     padding: unset !important;
+}.size-div{
+    width: 100px !important;
+}.scroll{
+    overflow: scroll;
 }
 
 .line {
