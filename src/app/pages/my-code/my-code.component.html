@@ -19,8 +19,8 @@
   </div>
 
   <mat-tab-group (selectedTabChange)="onLinkClick($event)" [selectedIndex]="0">
-    <mat-tab label="{{item.name}}" *ngFor="let item of data.status">
-      <mat-list>
+    <mat-tab label="{{item.name}}" *ngFor="let item of statusArray">
+      <mat-list class="padding">
         <div class="row" style="background-color: #f5f5f5;">
           <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
             <h3 mat-subheader>โค้ดส่วนลด | ชื่อโค้ดส่วนลด</h3>
@@ -49,17 +49,18 @@
             <!-- <h3 mat-subheader>{{item.code}}</h3>
             <h3 mat-subheader>{{item.name}}</h3>
              -->
-             <mat-list-item>
-                <mat-icon mat-list-icon color="primary" class="mat-icon-header">attach_money</mat-icon>
-                <h4 mat-line style="font-family: Roboto,'Helvetica Neue',sans-serif;
+            <mat-list-item>
+              <mat-icon mat-list-icon color="primary" class="mat-icon-header">attach_money</mat-icon>
+              <h4 mat-line style="font-family: Roboto,'Helvetica Neue',sans-serif;
                 font-size: 14px;
                 font-weight: 700;">{{item.code}}</h4>
-                <p mat-line style="font-family: Roboto,'Helvetica Neue',sans-serif;
+              <p mat-line style="font-family: Roboto,'Helvetica Neue',sans-serif;
                 font-size: 14px;
-                font-weight: 500;       color: rgba(0,0,0,.54);"> {{item.name}} </p>
-                <!-- <mat-divider [inset]="true"></mat-divider> -->
-             </mat-list-item>
-            </div>
+                font-weight: 500;       color: rgba(0,0,0,.54);">
+                {{item.name}} </p>
+              <!-- <mat-divider [inset]="true"></mat-divider> -->
+            </mat-list-item>
+          </div>
           <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">
             <h3 mat-subheader>{{item.discounttext}}</h3>
           </div>
@@ -76,20 +77,17 @@
             <h3 mat-subheader>{{item.startdate | date:"dd-MM-yyyy"}} ถึง {{item.enddate | date:"dd-MM-yyyy"}}</h3>
           </div>
           <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">
-            <div>
-              <button mat-flat-button color="primary" (click)="onDetail(item)">
-                <span>ข้อมูล</span>
-              </button>
-
-            </div>
+            <button mat-flat-button color="primary" (click)="onDetail(item)">
+              <span>ข้อมูล</span>
+            </button>
           </div>
         </div>
 
 
         <div padding *ngIf="dataService.message">
-            <message padding-top class="text-center" [type]="dataService.messageType" [message]="dataService.message"></message>
+          <message padding-top class="text-center" [type]="dataService.messageType" [message]="dataService.message"></message>
         </div>
-<!--         
+        <!--         
         <div class="text-center padding padding-top">
             <button mat-flat-button color="primary" class="btn-summit select" style="margin: 5px;" (click)="previos()">ก่อนหน้า</button>
             <button mat-flat-button color="primary" style="margin: 5px;min-width: unset;" *ngFor="let item of [1,2,3];let i = index"
@@ -97,14 +95,14 @@
             <button mat-flat-button color="primary" class="btn-summit select" style="margin: 5px;" (click)="next()">ต่อไป</button>
         </div> -->
 
-        <div class="text-center" *ngIf="data && data.codes.length > 0">
-            <button mat-flat-button color="primary" class="btn-summit select" style="margin: 5px;" *ngIf="pageData.page > 1"
-              (click)="previos()">ก่อนหน้า</button>
-            <button mat-flat-button color="primary" ngClass="{{pageData.page === (i + 1) ? 'select' : 'un-select'}} btn-summit"
-              style="margin: 5px;min-width: unset;" *ngFor="let item of tabs;let i = index" (click)="page(item)">{{item}}</button>
-            <button mat-flat-button color="primary" class="btn-summit select" style="margin: 5px;" *ngIf="pageData.page < tabs.length"
-              (click)="next()">ต่อไป</button>
-          </div>
+        <div class="text-center" *ngIf="data.codes && data.codes.length > 0">
+          <button mat-flat-button color="primary" class="btn-summit select" style="margin: 5px;" *ngIf="pageData.page > 1"
+            (click)="previos()">ก่อนหน้า</button>
+          <button mat-flat-button color="primary" ngClass="{{pageData.page === (i + 1) ? 'select' : 'un-select'}} btn-summit"
+            style="margin: 5px;min-width: unset;" *ngFor="let item of tabs;let i = index" (click)="page(item)">{{item}}</button>
+          <button mat-flat-button color="primary" class="btn-summit select" style="margin: 5px;" *ngIf="pageData.page < tabs.length"
+            (click)="next()">ต่อไป</button>
+        </div>
 
 
       </mat-list>

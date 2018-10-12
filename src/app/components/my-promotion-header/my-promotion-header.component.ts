@@ -26,17 +26,9 @@ export const MY_FORMATS = {
 })
 export class MyPromotionHeaderComponent implements OnInit {
   date = new Date();
-  isEdit = false;
   _startdate: any;
   _enddate: any;
   isSave = false;
-  // data :any = {
-  //   title: '',
-  //   start_date:'',
-  //   end_date:'',
-  //   start_time:'',
-  //   end_time: ''
-  // };
   @Input() data: any = {};
   @Output() outputData = new EventEmitter();
 
@@ -69,7 +61,31 @@ export class MyPromotionHeaderComponent implements OnInit {
         this.data.isSave = this.isSave;
         this.outputData.emit(this.data);
       }
-    }, 1600);
+    }, 1400);
+    this.setDefault();
+  }
+
+  setDefault() {
+    const dateTime = new Date();
+    const h = dateTime.getHours();
+    const m = dateTime.getMinutes();
+    const hh = h < 9 ? '0' + h : h;
+    const mm = m < 9 ? '0' + m : m;
+
+    const hh2 = h + 1 < 9 ? '0' + h + 1 : h + 1;
+    this.data.starttime = hh + ':' + mm;
+    this.data.endtime = hh2 + ':' + mm;
+    this._startdate = dateTime;
+    this._enddate = dateTime;
+    this.data.startdate = dateTime;
+    this.data.enddate = dateTime;
+
+  }
+
+  edit() {
+    this.isSave = false;
+    this.data.isSave = this.isSave;
+    this.outputData.emit(this.data);
   }
 
   sendData() {

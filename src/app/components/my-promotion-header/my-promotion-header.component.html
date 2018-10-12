@@ -1,5 +1,5 @@
 <!-- สร้างโปรโมชั่น -->
-<div class="row" *ngIf="!isEdit">
+<div class="row" *ngIf="!isSave">
   <div class="col-1"></div>
   <div class="col-10 col-md-10">
     <div class="row">
@@ -78,7 +78,7 @@
           </div>
           <div class="col-12 col-md-2">
             <button style="width:100%" mat-button color="primary" [disabled]="!(data.title && data.startdate && data.enddate && data.starttime && data.endtime)"
-              (click)="sendData()">บันทึก</button>
+              (click)="sendData()">บันทึกและทำต่อไป</button>
           </div>
           <div class="col-12 col-md-5"></div>
         </div>
@@ -87,92 +87,22 @@
   </div>
   <div class="col-1"></div>
 </div>
+
 <!-- เเก้ไขโปรโมชั่น -->
-<div class="row" *ngIf="isEdit">
-  <div class="col-1"></div>
-  <div class="col-10 col-md-10">
-    <div class="row">
-      <div class="col-12 padding-heder">
-        <div class="row padding-heder">
-          <div class="col-12 padding-heder">
-            <p class="font-header">ข้อมูลโปรโมชั่น</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-12">
-        <div class="row">
-          <div class="col-12 col-md-3">
-            <p class="font-form">ชื่อโปรโมชั่น</p>
-          </div>
-          <div class="col-12 col-md-3">
-            <!-- <mat-form-field> <input matInput></mat-form-field> -->
-            <label>asd</label>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-md-6">
-        <div class="row">
-          <div class="col-12 col-md-6">
-            <p class="font-form">วันเริ่มต้นของโปรโมชั่น</p>
-          </div>
-          <div class="col-12 col-md-4">
-            <!-- <mat-form-field>
-              <input matInput [matDatepicker]="dp" placeholder="Verbose datepicker" [(ngModel)]="date" (ngModelChange)="getStartDate($event)">
-              <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
-              <mat-datepicker #dp></mat-datepicker>
-            </mat-form-field> -->
-            <label>asd</label>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-md-6">
-        <div class="row">
-          <div class="col-12 col-md-6">
-            <p class="font-form">เวลาเริ่มต้นของโปรโมชั่น</p>
-          </div>
-          <div class="col-12 col-md-4">
-            <!-- <mat-form-field><input matInput type="time"></mat-form-field> -->
-            <label>asd</label>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-md-6">
-        <div class="row">
-          <div class="col-12 col-md-6">
-            <p class="font-form">วันสิ้นสุดของโปรโมชั่น</p>
-          </div>
-          <div class="col-12 col-md-4">
-            <!-- <mat-form-field>
-              <input matInput [matDatepicker]="dp2" placeholder="Verbose datepicker" [(ngModel)]="date">
-              <mat-datepicker-toggle matSuffix [for]="dp2"></mat-datepicker-toggle>
-              <mat-datepicker #dp2></mat-datepicker>
-            </mat-form-field> -->
-            <label>asd</label>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-md-6">
-        <div class="row">
-          <div class="col-12 col-md-6">
-            <p class="font-form">เวลาสิ้นสุดของโปรโมชั่น</p>
-          </div>
-          <div class="col-12 col-md-4">
-            <!-- <mat-form-field><input matInput type="time"></mat-form-field> -->
-            <label>asd</label>
-          </div>
-        </div>
-      </div>
-      <div class="col-12">
-        <div class="row">
-          <div class="col-12 col-md-5">
-          </div>
-          <div class="col-12 col-md-2">
-            <button style="width:100%" mat-button color="primary">บันทึก</button>
-          </div>
-          <div class="col-12 col-md-5"></div>
-        </div>
-      </div>
-    </div>
+<div class="row row-pd" *ngIf="isSave">
+  <div class="col-2 label">
+    <h6>ชนิด</h6>
   </div>
-  <div class="col-1"></div>
+  <div class="col-10">
+    <h6>{{data.title}}</h6>
+  </div>
+  <div class="col-2 label">
+    <h6>ระยะเวลาการจัดรายการ</h6>
+  </div>
+  <div class="col-10">
+    <h6>{{data.startdate | date:"dd-MM-yyyy" }} {{data.starttime }} - {{data.enddate | date:"dd-MM-yyyy" }}
+      {{data.endtime }} <span class="sp-txt" (click)="edit()">
+        <mat-icon class="ic-pst">create</mat-icon> <span class="sp-txt-2">แก้ไขโปรโมชั่น</span>
+      </span></h6>
+  </div>
 </div>
