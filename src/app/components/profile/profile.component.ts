@@ -131,7 +131,7 @@ export class ProfileSettingComponent implements OnInit {
     } else {
       let checkArrayImage = 0;
       checkArrayImage = this.shop.images.length + this.selectedFiles.length;
-      if (checkArrayImage >= 5) {
+      if (checkArrayImage > 5) {
         let text: any = 'คุณสามารถอัพโหลดไฟล์ได้ไม่เกิน 5 ไฟล์';
         const dialogRef = this.dialog.open(ModalMessageComponent, {
           width: "500px",
