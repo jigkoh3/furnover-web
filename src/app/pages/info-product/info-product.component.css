@@ -316,3 +316,19 @@ thead {
     font-size: 14px;
     color: #868686;
 }
+
+.ic-center {
+    text-align: center;
+}
+
+.ic-green {
+    color: rgb(13, 240, 13);
+}
+
+.ic-red {
+    color: red;
+}
+
+.ic-orange{
+    color: orange;
+}

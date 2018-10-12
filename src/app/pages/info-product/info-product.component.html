@@ -237,37 +237,7 @@
     </div>
     <div class="col-0 col-sm-2 col-md-3"></div>
   </div>
-  <!-- //ตาราง -->
-  <!-- <div class="row" *ngIf="isShowMainOption1">
-    <div class="col-2 col-sm-2 col-md-2"></div>
-    <div class="col-10 col-sm-10 col-md-10">
-      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-        <ng-container matColumnDef="name1" *ngIf="isShowCol1">
-          <th mat-header-cell *matHeaderCellDef> {{nameOption1 ? nameOption1 : 'ชื่อ'}} </th>
-          <td mat-cell *matCellDef="let element"> {{element.name1}} </td>
-        </ng-container>
-
-        <ng-container matColumnDef="name2" *ngIf="isShowCol2">
-          <th mat-header-cell *matHeaderCellDef> {{nameOption2 ? nameOption2 : 'ชื่อ'}} </th>
-          <td mat-cell *matCellDef="let element"> {{element.name2}} </td>
-        </ng-container>
-
-        <ng-container matColumnDef="price">
-          <th mat-header-cell *matHeaderCellDef> ราคา </th>
-          <td mat-cell *matCellDef="let element"> <input matInput [(ngModel)]="element.price" type="number"> </td>
-        </ng-container>
-
-        <ng-container matColumnDef="stock">
-          <th mat-header-cell *matHeaderCellDef> คลัง </th>
-          <td mat-cell *matCellDef="let element"> <input matInput [(ngModel)]="element.stock" type="number"> </td>
-        </ng-container>
-
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-      </table>
-    </div>
-  </div> -->
   <div class="row" *ngIf="isShowMainOption1">
     <div class="col-2"></div>
     <div class="col-10">
@@ -431,23 +401,23 @@
                 </div>
                 <div class="col-6 logis-price">
                   <div *ngIf="item.isEdit" class="row">
-                    <div class="col-8">
+                    <div class="col-6">
                       <mat-form-field>
                         <input matInput placeholder="ระบุค่าจัดส่ง" type="number" [(ngModel)]="item.shippingfee">
                       </mat-form-field>
                     </div>
 
-                    <div class="col-2 ic-1">
+                    <div class="col-3 ic-1 ic-center ic-green">
                       <mat-icon (click)="submitShipping(i)">check</mat-icon>
                     </div>
-                    <div class="col-2 ic-1">
+                    <div class="col-3 ic-1 ic-center ic-red">
                       <mat-icon (click)="cancelShiping(i)">clear</mat-icon>
                     </div>
 
                   </div>
                   <div *ngIf="!item.isEdit">
                     ฿{{item.shippingfee ? item.shippingfee : 0 }} <span class="logis-ic">
-                      <mat-icon class="add-cus" (click)="toggleEditShippingPrice(i)">create</mat-icon>
+                      <mat-icon class="add-cus ic-orange" (click)="toggleEditShippingPrice(i)">create</mat-icon>
                     </span>
                   </div>
                 </div>
