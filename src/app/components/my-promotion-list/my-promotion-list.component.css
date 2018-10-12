@@ -92,9 +92,13 @@ table {
 .mat-list-item .mat-list-item-content {
     display: flow-root !important;
     padding: unset !important;
-}.size-div{
+}
+
+.size-div {
     width: 100px !important;
-}.scroll{
+}
+
+.scroll {
     overflow: scroll;
 }
 
@@ -117,4 +121,14 @@ table {
 .txt-no-data {
     text-align: center;
     color: #a9a9a9;
+}
+
+.width-input {
+    width: 80px !important;
+}
+
+.tableth {
+    padding: .75rem;
+    vertical-align: top;
+    border-top: 0px !important;
 }

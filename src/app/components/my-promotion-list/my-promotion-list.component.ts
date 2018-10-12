@@ -24,6 +24,7 @@ export class MyPromotionListComponent implements OnInit {
     this.getData();
   }
   getData() {
+    console.log(this.data)
     // const respone = {
     //   datas: [
     //     {
