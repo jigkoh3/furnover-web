@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { MomentDateAdapter } from '@angular/material-moment-adapter';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import * as _moment from 'moment';
+import { NgxSpinnerService } from 'ngx-spinner';
 const moment = _moment;
 export const MY_FORMATS = {
   parse: {
@@ -26,27 +27,22 @@ export const MY_FORMATS = {
 })
 export class MyPromotionHeaderComponent implements OnInit {
   date = new Date();
-  isEdit = false;
   _startdate: any;
   _enddate: any;
   isSave = false;
-  // data :any = {
-  //   title: '',
-  //   start_date:'',
-  //   end_date:'',
-  //   start_time:'',
-  //   end_time: ''
-  // };
+  isValidateDate: boolean = true;
   @Input() data: any = {};
   @Output() outputData = new EventEmitter();
 
   constructor(
+    private spinner: NgxSpinnerService,
 
   ) {
 
   }
 
   ngOnInit() {
+    this.spinner.show();
     setTimeout(() => {
       if (this.data._id) {
         this._startdate = new Date(this.data.startdate);
@@ -69,26 +65,93 @@ export class MyPromotionHeaderComponent implements OnInit {
         this.data.isSave = this.isSave;
         this.outputData.emit(this.data);
       }
-    }, 1600);
+      this.spinner.hide();
+
+    }, 1400);
+    this.setDefault();
+
+
   }
 
-  sendData() {
-    this.isSave = true;
+  setDefault() {
+    const dateTime = new Date();
+    const h = dateTime.getHours();
+    const m = dateTime.getMinutes();
+    const hh = h < 9 ? '0' + h : h;
+    const mm = m < 9 ? '0' + m : m;
+
+    const hh2 = h + 1 < 9 ? '0' + h + 1 : h + 1;
+    this.data.starttime = hh + ':' + mm;
+    this.data.endtime = hh2 + ':' + mm;
+    this._startdate = dateTime;
+    this._enddate = dateTime;
+    this.data.startdate = dateTime;
+    this.data.enddate = dateTime;
+  }
+
+  edit() {
+    this.isSave = false;
     this.data.isSave = this.isSave;
     this.outputData.emit(this.data);
   }
 
-  startDate(e) {
-    const date = new Date(
-      e._i.year, e._i.month, e._i.date
-    );
-    this.data.startdate = date;
+  sendData() {
+    this.validateDate()
+    setTimeout(() => {
+      if (this.isValidateDate) {
+        this.isSave = true;
+        this.data.isSave = this.isSave;
+        this.data.startdate = this._startdate;
+        this.data.enddate = this._enddate;
+        this.outputData.emit(this.data);
+      }
+    }, 1000);
   }
-  endDate(e) {
-    const date = new Date(
-      e._i.year, e._i.month, e._i.date
-    );
-    this.data.enddate = date;
+
+  validateDate() {
+    this.isValidateDate = true;
+    setTimeout(() => {
+      this._startdate = new Date(new Date(this._startdate).setHours(this.data.starttime.split(':')[0], this.data.starttime.split(':')[1], 0, 0));
+      this._enddate = new Date(new Date(this._enddate).setHours(this.data.endtime.split(':')[0], this.data.endtime.split(':')[1], 0, 0));
+
+      let currentDate = new Date();
+      let startDate = new Date(this._startdate);
+      let endDate = new Date(this._enddate);
+      if (currentDate > startDate) {
+        setTimeout(() => {
+          this._startdate = new Date(new Date(this._startdate).setDate(currentDate.getDate()));
+          this.isValidateDate = true;
+        }, 0);
+        // this.isValidateDate = false;
+      }
+
+      if (startDate > endDate) {
+        setTimeout(() => {
+          this._enddate = this._startdate;
+          this.isValidateDate = true;
+        }, 0);
+        // this.isValidateDate = false;
+      }
+
+      if (currentDate > endDate) {
+        this.isValidateDate = false;
+      }
+
+
+      setTimeout(() => {
+        if (this._startdate.toString() === this._enddate.toString()) {
+          if (this.data.starttime >= this.data.endtime) {
+            // setTimeout(() => {
+            //   this.data.endtime = this.data.starttime;
+            // }, 0);
+            this.isValidateDate = false;
+          }
+        }
+      }, 0);
+
+    }, 0);
+
+
   }
 
 }

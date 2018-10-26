@@ -9,6 +9,7 @@ import * as firebase from 'firebase';
 import { ClassUpload } from '../upload-image/class-upload';
 import * as _ from "lodash";
 import { NgxSpinnerService } from 'ngx-spinner';
+import { ModalMessageComponent } from '../../pages/modals/modal-message/modal-message.component';
 //Image
 @Component({
   selector: 'profile',
@@ -24,6 +25,7 @@ export class ProfileSettingComponent implements OnInit {
   imageArray: any = [];
   private basePath: string = '/uploads';
   //Image
+  logImage: any = [];
 
   shop: any = {
     images: [
@@ -66,11 +68,21 @@ export class ProfileSettingComponent implements OnInit {
 
   async submit() {
     this.spinner.show();
+
+    if (this.logImage && this.logImage.length > 0) {
+      for (let index = 0; index < this.logImage.length; index++) {
+        let storageRef = firebase.storage().refFromURL(this.logImage[index]);
+        storageRef.delete();
+      }
+      this.logImage = [];
+    }
+
     this.shopUser = window.localStorage.getItem(Constants.URL() + '@usershop') ? JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop')) : null;
     try {
       let data: any = await this.restApi.put(Constants.URL() + '/api/shop/' + this.shopUser.shop_id, this.shop);
       this.spinner.hide();
       if (data['status'] === 200) {
+        this.getProfile();
         this.dataService.success('บันทึกข้อมูลสำเร็จ');
         setTimeout(() => {
           this.dataService.success('');
@@ -104,13 +116,44 @@ export class ProfileSettingComponent implements OnInit {
   //Image
   detectFiles(event, status) {
     this.selectedFiles = event.target.files;
-    let files = this.selectedFiles
-    let filesIndex = _.range(files.length)
-    _.each(filesIndex, (idx) => {
-      this.currentUpload = new ClassUpload(files[idx]);
-      this.pushUpload(this.currentUpload, status);
-      // this.upSvc.pushUpload(this.currentUpload)
-    })
+    if (this.selectedFiles.length >= 5) {
+      let text: any = 'คุณสามารถอัพโหลดไฟล์ได้ไม่เกิน 5 ไฟล์';
+      const dialogRef = this.dialog.open(ModalMessageComponent, {
+        width: "500px",
+        data: { message: text }
+      });
+
+      dialogRef.afterClosed().subscribe(result => {
+        if (result) {
+
+        }
+      });
+    } else {
+      let checkArrayImage = 0;
+      checkArrayImage = this.shop.images.length + this.selectedFiles.length;
+      if (checkArrayImage > 5) {
+        let text: any = 'คุณสามารถอัพโหลดไฟล์ได้ไม่เกิน 5 ไฟล์';
+        const dialogRef = this.dialog.open(ModalMessageComponent, {
+          width: "500px",
+          data: { message: text }
+        });
+
+        dialogRef.afterClosed().subscribe(result => {
+          if (result) {
+
+          }
+        });
+      } else {
+        let files = this.selectedFiles
+        let filesIndex = _.range(files.length)
+        _.each(filesIndex, (idx) => {
+          this.currentUpload = new ClassUpload(files[idx]);
+          this.pushUpload(this.currentUpload, status);
+          // this.upSvc.pushUpload(this.currentUpload)
+        })
+      }
+    }
+
   }
 
   pushUpload(upload: ClassUpload, status) {
@@ -168,5 +211,14 @@ export class ProfileSettingComponent implements OnInit {
   }
   //Image
 
+  deleteImage(item) {
+    // let storageRef = firebase.storage().refFromURL(item.url);
+    // storageRef.delete();
+    this.logImage.push(item.url);
+    let index = this.shop.images.indexOf(item, 0);
+    if (index > -1) {
+      this.shop.images.splice(index, 1);
+    }
+  }
 
 }

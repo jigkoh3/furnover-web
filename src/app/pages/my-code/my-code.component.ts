@@ -1,3 +1,4 @@
+import { async } from '@angular/core/testing';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { RestApiService } from '../../providers/rest-api-service/rest-api.service';
@@ -17,7 +18,10 @@ export class MyCodeComponent implements OnInit {
     status: [],
     tabs: []
   };
-  status: string = 'all';
+
+  statusArray: any = [];
+
+  status: any = 'all';
   tabs: any = [];
   pageData: any = {
     shop_id: "",
@@ -34,7 +38,32 @@ export class MyCodeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getCode();
+    this.getStatus();
+  }
+
+  async getStatus() {
+    this.spinner.show();
+    let shop = window.localStorage.getItem(Constants.URL() + '@usershop') ? JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop')) : null;
+    let objectData = {
+      shop_id: shop.shop_id,
+      status: this.status,
+      page: this.pageData.page,
+      limit: this.pageData.limit
+    };
+    try {
+      let res: any = await this.restApi.post(Constants.URL() + '/api/my-code', objectData);
+      if (res['status'] === 200) {
+        this.statusArray = res.data.status;
+        // if (this.statusArray || this.statusArray.length === 0) {
+        //   this.statusArray = [{ name: 'ทั้งหมด' }, { name: 'ตั้งเวลาล่วงหน้า' }, { name: 'อยู่ระหว่างการโฆษณา' }, { name: 'สิ้นสุดแล้ว' }];
+        // }
+        this.spinner.hide();
+        this.getCode();
+      }
+    } catch (error) {
+      this.spinner.hide();
+      this.dataService.error("โหลดข้อมูลล้มเหลว กรุณาลองใหม่อีกครั้ง")
+    }
   }
 
   onCreateCode() {
@@ -42,34 +71,35 @@ export class MyCodeComponent implements OnInit {
   }
 
   onLinkClick(event) {
-    this.status = this.data.status[event.index].status;
+    this.pageData.page = 1;
+    if (this.statusArray && this.statusArray.length > 0) {
+      this.status = this.statusArray[event.index].status;
+    }
+    console.log(this.status);
     this.getCode();
   }
 
   async getCode() {
+    this.dataService.warning('');
     this.spinner.show();
     let shop = window.localStorage.getItem(Constants.URL() + '@usershop') ? JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop')) : null;
-    let object = {
+    let objectData = {
       shop_id: shop.shop_id,
       status: this.status,
       page: this.pageData.page,
       limit: this.pageData.limit
     };
-    console.log(object);
+    console.log(objectData);
     try {
-      let res: any = await this.restApi.post(Constants.URL() + '/api/my-code', object);
+      let res: any = await this.restApi.post(Constants.URL() + '/api/my-code', objectData);
       if (res['status'] === 200) {
 
         this.data = res.data;
-        this.tabs = this.data.tabs
-        console.log(this.data);
-        if (!this.data || !this.data.status) {
-          this.data.status = [{ name: 'ทั้งหมด' }, { name: 'ตั้งเวลาล่วงหน้า' }, { name: 'อยู่ระหว่างการโฆษณา' }, { name: 'สิ้นสุดแล้ว' }];
-        }
+        this.tabs = this.data.tabs;
+        this.spinner.hide();
         if (this.data && this.data.codes.length === 0) {
           this.dataService.warning('ไม่พบข้อมูลส่วนลด');
         }
-        this.spinner.hide();
       }
     } catch (error) {
       this.spinner.hide();

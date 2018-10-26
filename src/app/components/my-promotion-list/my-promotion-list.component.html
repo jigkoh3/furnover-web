@@ -4,49 +4,51 @@
       <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
 
         <mat-card>
-          <div class="table-hover">
+          <div class="table-responsive table-full-width">
             <table class="table ">
               <thead>
-                <tr class="txt-name">
-                  <th width='300'>ชื่อสินค้า</th>
-                  <th width='200'>ตัวเลือกสินค้า</th>
-                  <th width='150'>ราคาเดิม</th>
-                  <th width='150'>ราคาที่ลดแล้ว</th>
-                  <th width='150'>ส่วนลด</th>
+                <tr class="txt-name text-center">
+                  <th width='350'>ชื่อสินค้า</th>
+                  <th width='150'>ตัวเลือกสินค้า</th>
+                  <th width='100'>ราคาเดิม</th>
+                  <th width='100'>ราคาที่ลดแล้ว</th>
+                  <th width='100'>ส่วนลด</th>
                   <th width='100'>จำกัดยอดซื้อ</th>
-                  <th width='80'></th>
+                  <th width='20'></th>
                 </tr>
               </thead>
               <tbody *ngFor="let item of data.products;let i = index">
-                <tr [ngClass]="{'line': j + 1 === item.prices.length}" *ngFor="let itm of item.prices ;let j = index">
+                <tr [ngClass]="{'line': j + 1 !== item.prices.length}" *ngFor="let itm of item.prices ;let j = index">
                   <td *ngIf="j === 0">
 
-                    <img class="img-product" [src]="item.image ? item.image.url : ''"> <span class="txt-name">{{item.name}}</span>
+                    <img class="img-product" [src]="item.image ? item.image.url : ''">
+                    <span class="txt-name have-padding-left">{{item.name}}</span>
 
                   </td>
                   <td *ngIf="j !== 0"></td>
                   <td>
-                    <mat-slide-toggle [(ngModel)]="itm.isuse" (ngModelChange)="changeData($event)"></mat-slide-toggle>
-                    <span class="txt-name">
+                    <mat-slide-toggle *ngIf="item.prices.length > 1" [(ngModel)]="itm.isuse" 
+                      (ngModelChange)="changeData($event)"></mat-slide-toggle>
+                    <span class="txt-name ">
                       {{itm.name}}
                     </span>
                   </td>
                   <td class="txt-name">
-                    {{itm.price}}
+                    {{itm.price |number}}
                   </td>
                   <td>
-                    <mat-form-field class="text">
-                      <input matInput [(ngModel)]="itm.newprice" placeholder="฿" (ngModelChange)="swapPrice($event,'cash',i,j,itm.price)">
+                    <mat-form-field class="text width-input">
+                      <input matInput type="number" [disabled]="!itm.isuse" [(ngModel)]="itm.newprice" placeholder="฿" (ngModelChange)="swapPrice($event,'cash',i,j,itm.price)">
                     </mat-form-field>
                   </td>
                   <td>
-                    <mat-form-field class="text">
-                      <input matInput [(ngModel)]="itm.percentage" placeholder="%ลด" (ngModelChange)="swapPrice($event,'percent',i,j,itm.price)">
+                    <mat-form-field class="text width-input">
+                      <input matInput type="number" [disabled]="!itm.isuse" [(ngModel)]="itm.percentage" placeholder="%ลด" (ngModelChange)="swapPrice($event,'percent',i,j,itm.price)">
                     </mat-form-field>
                   </td>
                   <td *ngIf="j === 0">
-                    <mat-form-field class="text">
-                      <input matInput [(ngModel)]="item.qty" (ngModelChange)="changeData($event)">
+                    <mat-form-field class="text width-input">
+                      <input matInput type="number" [disabled]="!itm.isuse" [(ngModel)]="item.qty" (ngModelChange)="changeData($event)">
                     </mat-form-field>
                   </td>
                   <td *ngIf="j !== 0"></td>
@@ -61,6 +63,49 @@
             </table>
           </div>
 
+          <!-- <div class="table-responsive table-full-width">
+            <table class="table ">
+              <thead>
+                <tr class="txt-name text-center">
+                  <th width='350'>ชื่อสินค้า</th>
+                  <th width='200'>ตัวเลือกสินค้า</th>
+                  <th width='100'>ราคาเดิม</th>
+                  <th width='100'>ราคาที่ลดแล้ว</th>
+                  <th width='100'>ส่วนลด</th>
+                  <th width='100'>จำกัดยอดซื้อ</th>
+                </tr>
+              </thead>
+              <tbody *ngFor="let item of data.products;let i = index">
+                <tr [ngClass]="{'line': j + 1 !== item.prices.length}" *ngFor="let itm of item.prices ;let j = index">
+                  <td *ngIf="j === 0">
+
+                    <img class="img-product" [src]="item.image ? item.image.url : ''">
+                    <span class="txt-name have-padding-left">{{item.name}}</span>
+
+                  </td>
+                  <td *ngIf="j !== 0"></td>
+                  <td>
+                    <span class="txt-name ">
+                      {{itm.name}}
+                    </span>
+                  </td>
+                  <td class="txt-name">
+                    {{itm.price |number}}
+                  </td>
+                  <td class="txt-name">
+                   ฿ {{itm.newprice|number}}
+                  </td>
+                  <td class="txt-name">
+                    {{itm.percentage}} %ลด
+                  </td>
+                  <td class="txt-name" *ngIf="j === 0">
+                    {{item.qty}}
+                  </td>
+                  <td *ngIf="j !== 0"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div> -->
 
 
           <!-- 
