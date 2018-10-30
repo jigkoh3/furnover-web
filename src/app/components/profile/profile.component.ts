@@ -60,7 +60,7 @@ export class ProfileSettingComponent implements OnInit {
       let data: any = await this.restApi.get(Constants.URL() + '/api/shop/' + this.shopUser.shop_id);
       this.shop = data.data;
       this.spinner.hide();
-      if (this.shop.coverimage.url) {
+      if (this.shop.coverimage && this.shop.coverimage.url) {
         this.imageLoader = false;
       }
       console.log(this.shop);
