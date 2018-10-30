@@ -458,14 +458,12 @@
 .uploader-btn {
     display: -webkit-flex;
     display: -ms-flexbox;
-    display: flex; // width: 100%;
+    display: flex;
     height: 100px;
     font-size: 11px;
     text-align: center;
     line-height: 3;
-    background-color: #fafafa; // position: absolute;
-    // top: 0;
-    // left: 0;
+    background-color: #fafafa;
     z-index: 2;
     color: #666666;
     padding-top: 10%;
@@ -486,17 +484,6 @@
     fill: #b11e1e;
 }
 
-//  .shop-desc-media .edit-input {
-//     padding-left: 0 !important;
-// }
-// .image-manager .sortable-items {
-//     position: absolute;
-//     left: 0;
-//     right: 0;
-//     top: 0;
-//     z-index: 2;
-//     height: 100%;
-// }
 .sortable-items {
     -webkit-flex: 0 0 50%;
     -ms-flex: 0 0 50%;
@@ -516,46 +503,10 @@
 }
 
 .image-manager__item {
-    // position: relative;
-    // cursor: move;
-    border-radius: 2px; // border: 1px solid #e8e8e8; 
-    // height: 0;
+    border-radius: 2px;
     padding-top: 100%;
 }
 
-// .image-manager__item {
-//     padding-top: 50%;
-// }
-// .sortable-items {
-//     -webkit-justify-content: flex-start;
-//     -ms-flex-pack: start;
-//     justify-content: flex-start;
-//     list-style: none;
-//     margin: 0 -5px;
-//     padding: 0;
-// }
-//  .shop-desc-media .uploader-btn {
-//     display: -webkit-flex;
-//     display: -ms-flexbox;
-//     display: flex;
-//     width: 100%;
-//     height: 100%;
-//     font-size: 11px;
-//     text-align: center;
-//     line-height: 1;
-//     background-color: #fafafa;
-//     position: absolute;
-//     top: 0;
-//     left: 0;
-//     z-index: 2;
-//     color: #666666;
-// }
-// .uploader-btn .shopee-dropzone.shop-desc-img-uploader {
-//     width: 50%;
-//     height: 100%;
-//     border: none;
-//     position: relative;
-// }
 .uploader-btn svg {
     width: 24px;
     height: 24px;
@@ -578,15 +529,6 @@
     zoom: 1;
 }
 
-// .route-portal-settings-shop .shop-desc-media .uploader-btn .shop-desc-vid-uploader::after {
-//     width: 1px;
-//     height: 50%;
-//     content: ' ';
-//     background-color: #e8e8e8;
-//     position: absolute;
-//     left: 0;
-//     top: 25%;
-// }
 .ember-text-area {
     background: #fdfdfd;
     border: 1px solid rgba(0, 0, 0, .14);
@@ -614,7 +556,6 @@
 }
 
 .image-tools {
-    // display: inline-block;
     position: absolute;
     right: 0;
     top: 0;
