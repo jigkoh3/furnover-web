@@ -24,7 +24,12 @@
           <div class="seller-meta">
             <div *ngIf="shop && shop.coverimage.url" [ngStyle]="{'background-image': 'url('+ shop.coverimage.url + ')'}"
               class="cover-photo">
+              <div class="spinner loadPosition" *ngIf="imageLoader">
+                  <div class="dot1"></div>
+                  <div class="dot2"></div>
+              </div>
             </div>
+            
             <div class="cover-uploader dropzone">
               <label for="file-input">
                 <div class="validation-toast"></div> <svg class="validation-toast-svg" viewBox="0 0 32 32">
@@ -42,7 +47,8 @@
               <!-- <div class="avatar-container"> -->
               <label for="file-avatar-input">
                 <div class="avatar">
-                  <img *ngIf="shopUser.profileImageURL" [src]="shopUser.profileImageURL">
+                  <!-- <img *ngIf="shopUser.profileImageURL" [src]="shopUser.profileImageURL"> -->
+                  <img *ngIf="shop.profileimage && shop.profileimage.url" [src]="shop.profileimage.url">
                   <div class="avatar-uploader dropzone" style="cursor: pointer;">
                     <div class="validation-toast "></div>
                     <div class="edit">

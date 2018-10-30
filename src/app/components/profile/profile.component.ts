@@ -27,6 +27,8 @@ export class ProfileSettingComponent implements OnInit {
   //Image
   logImage: any = [];
 
+  imageLoader: boolean = true;
+
   shop: any = {
     images: [
       // { url: '', }
@@ -59,6 +61,9 @@ export class ProfileSettingComponent implements OnInit {
       let data: any = await this.restApi.get(Constants.URL() + '/api/shop/' + this.shopUser.shop_id);
       this.shop = data.data;
       this.spinner.hide();
+      if (this.shop.coverimage.url) {
+        this.imageLoader = false;
+      }
       console.log(this.shop);
     } catch (error) {
       this.spinner.hide();
@@ -94,24 +99,24 @@ export class ProfileSettingComponent implements OnInit {
     }
   }
 
-  async updateImgProfile(image) {
-    let user = window.localStorage.getItem(Constants.URL() + '@usershop') ? JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop')) : null;
-    console.log(user.profileImageURL);
-    user.profileImageURL = image;
-    try {
-      let data: any = await this.restApi.put(Constants.URL() + '/api/user/' + user._id, user);
-      if (data['status'] === 200) {
-        this.shopUser.profileImageURL = user.profileImageURL;
-        window.localStorage.setItem(Constants.URL() + '@usershop', JSON.stringify(data.data));
-        this.dataService.success('บันทึกข้อมูลสำเร็จ');
-        setTimeout(() => {
-          this.dataService.success('');
-        }, 2000);
-      }
-    } catch (error) {
-      this.dataService.error("บันทึกข้อมูลล้มเหลว กรุณาลองใหม่อีกครั้ง")
-    }
-  }
+  // async updateImgProfile(image) {
+    // let user = window.localStorage.getItem(Constants.URL() + '@usershop') ? JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop')) : null;
+    // console.log(user.profileImageURL);
+    // user.profileImageURL = image;
+    // try {
+      // let data: any = await this.restApi.put(Constants.URL() + '/api/user/' + user._id, user);
+      // if (data['status'] === 200) {
+      //   this.shopUser.profileImageURL = user.profileImageURL;
+      //   window.localStorage.setItem(Constants.URL() + '@usershop', JSON.stringify(data.data));
+      //   this.dataService.success('บันทึกข้อมูลสำเร็จ');
+      //   setTimeout(() => {
+      //     this.dataService.success('');
+      //   }, 2000);
+      // }
+    // } catch (error) {
+    //   this.dataService.error("บันทึกข้อมูลล้มเหลว กรุณาลองใหม่อีกครั้ง")
+    // }
+  // }
 
   //Image
   detectFiles(event, status) {
@@ -131,19 +136,7 @@ export class ProfileSettingComponent implements OnInit {
     } else {
       let checkArrayImage = 0;
       checkArrayImage = this.shop.images.length + this.selectedFiles.length;
-      if (checkArrayImage > 5) {
-        let text: any = 'คุณสามารถอัพโหลดไฟล์ได้ไม่เกิน 5 ไฟล์';
-        const dialogRef = this.dialog.open(ModalMessageComponent, {
-          width: "500px",
-          data: { message: text }
-        });
-
-        dialogRef.afterClosed().subscribe(result => {
-          if (result) {
-
-          }
-        });
-      } else {
+      if (status === 'coverImg' || status === 'profileImg') {
         let files = this.selectedFiles
         let filesIndex = _.range(files.length)
         _.each(filesIndex, (idx) => {
@@ -151,6 +144,28 @@ export class ProfileSettingComponent implements OnInit {
           this.pushUpload(this.currentUpload, status);
           // this.upSvc.pushUpload(this.currentUpload)
         })
+      } else {
+        if (checkArrayImage > 5) {
+          let text: any = 'คุณสามารถอัพโหลดไฟล์ได้ไม่เกิน 5 ไฟล์';
+          const dialogRef = this.dialog.open(ModalMessageComponent, {
+            width: "500px",
+            data: { message: text }
+          });
+
+          dialogRef.afterClosed().subscribe(result => {
+            if (result) {
+
+            }
+          });
+        } else {
+          let files = this.selectedFiles
+          let filesIndex = _.range(files.length)
+          _.each(filesIndex, (idx) => {
+            this.currentUpload = new ClassUpload(files[idx]);
+            this.pushUpload(this.currentUpload, status);
+            // this.upSvc.pushUpload(this.currentUpload)
+          })
+        }
       }
     }
 
@@ -200,7 +215,11 @@ export class ProfileSettingComponent implements OnInit {
                 }
                 this.submit();
               } else if (status === 'profileImg') {
-                this.updateImgProfile(this.imageArray[0].url);
+                this.shop.profileimage = {
+                  url: this.imageArray[0].url
+                }
+                this.submit();
+                // this.updateImgProfile(this.imageArray[0].url);
               }
               // this.image.emit(this.imageArray);
             }
