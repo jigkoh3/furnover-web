@@ -52,12 +52,12 @@
         <div class="col-1"></div>
         <div class="col-md-4" *ngIf="data.codetype == 'cash'">
           <mat-form-field>
-            <input matInput type="number" placeholder="จำนวนส่วนลด(บาท)" [(ngModel)]="data.cash.discount">
+            <input matInput type="tel" placeholder="จำนวนส่วนลด(บาท)" [(ngModel)]="data.cash.discount">
           </mat-form-field>
         </div>
         <div class="col-md-4" *ngIf="data.codetype == 'percentage'">
           <mat-form-field>
-            <input matInput type="number" placeholder="จำนวนส่วนลด(เปอร์เซ็น)" [(ngModel)]="data.percentage.discount">
+            <input matInput type="tel" placeholder="จำนวนส่วนลด(เปอร์เซ็น)" [(ngModel)]="data.percentage.discount">
           </mat-form-field>
         </div>
       </div>
@@ -87,7 +87,7 @@
         </div>
         <div class="col-md-9">
           <mat-form-field>
-            <input matInput type="number" [(ngModel)]="data.cash.minprice">
+            <input matInput type="tel" [(ngModel)]="data.cash.minprice">
           </mat-form-field>
         </div>
       </div>
@@ -97,7 +97,7 @@
         </div>
         <div class="col-md-9">
           <mat-form-field>
-            <input matInput type="number" [(ngModel)]="data.percentage.minprice">
+            <input matInput type="tel" [(ngModel)]="data.percentage.minprice">
           </mat-form-field>
         </div>
       </div>
@@ -129,7 +129,7 @@
         </div>
         <div class="col-md-9">
           <mat-form-field>
-            <input matInput type="number" [(ngModel)]="data.codeqty">
+            <input matInput type="tel"  [(ngModel)]="data.codeqty">
           </mat-form-field>
         </div>
       </div>

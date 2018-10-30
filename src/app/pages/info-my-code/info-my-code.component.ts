@@ -60,7 +60,7 @@ export class InfoMyCodeComponent implements OnInit {
     private spinner: NgxSpinnerService,
     private activatedRoute: ActivatedRoute,
     private route: Router,
-    private dataService: DataService
+    public dataService: DataService
   ) { }
 
   ngOnInit() {
@@ -213,6 +213,8 @@ export class InfoMyCodeComponent implements OnInit {
             return this.dataService.error('กรุณาระบุวันที่สิ้นสุด');
           } else if (error['error']['message'] === 'Please fill in a itemtype') {
             return this.dataService.error('กรุณาระบุประเภทการลดของสินค้า');
+          } else if (error['error']['message'] === 'Please fill in a codeqty') {
+            return this.dataService.error('กรุณาระบุจำนวนการใช้งานโค้ดส่วนลด');
           }
         }
         return this.dataService.error('บันทึกข้อมูลไม่สำเร็จ');
@@ -238,6 +240,16 @@ export class InfoMyCodeComponent implements OnInit {
         this.dataService.error('ลบข้อมูลไม่สำเร็จ');
 
       }
+    }
+  }
+
+  validateNumber() {
+    //ใช้เช็คการกรอกตัวเลขในช่่อง
+    let last = this.data.cash.discount[this.data.cash.discount.length - 1];
+    if (isNaN(last)) {
+      setTimeout(() => {
+        this.data.cash.discount = this.data.cash.discount.slice(0, this.data.cash.discount[this.data.cash.discount.length - 1]);
+      }, 0);
     }
   }
 
