@@ -50,6 +50,7 @@ export class InfoProductComponent implements OnInit {
       name: '',
       items: []
     }];
+  isSamePrice = true;
 
   constructor(private activatedRoute: ActivatedRoute,
     private restApi: RestApiService,
@@ -161,6 +162,7 @@ export class InfoProductComponent implements OnInit {
     if (this.data.prepareshipping > 2) {
       this.prepare = true;
     }
+    this.checkSamePrice();
   }
 
   deleteMainOption(idx) {
@@ -265,6 +267,16 @@ export class InfoProductComponent implements OnInit {
     if (e) {
 
     }
+  }
+
+  checkSamePrice() {
+    this.isSamePrice = true;
+    this.dataSource.forEach(el => {
+      if (this.dataSource[0].price !== el.price) {
+        this.isSamePrice = false;
+      }
+    });
+    console.log(this.isSamePrice);
   }
 
   delWholesale(index) {

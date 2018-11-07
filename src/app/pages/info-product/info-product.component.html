@@ -262,7 +262,7 @@
                 <tr *ngFor="let item of dataSource">
                   <td *ngIf="item.name1">{{item.name1}}</td>
                   <td *ngIf="item.name2">{{item.name2}}</td>
-                  <td><input matInput type="number" [(ngModel)]="item.price"></td>
+                  <td><input matInput type="number" [(ngModel)]="item.price" (ngModelChange)="checkSamePrice()"></td>
                   <td><input matInput type="number" [(ngModel)]="item.stock"></td>
                   <td></td>
                 </tr>
@@ -290,7 +290,7 @@
     <div class="col-12 col-sm-8 col-md-6">
       <div class="row">
         <div class="col-12 contanner-wholsale">
-          <div class="row" *ngIf="wholesaleList.length > 0">
+          <div class="row" *ngIf="wholesaleList.length > 0 && isSamePrice">
             <div class="col-4">
 
             </div>
@@ -308,39 +308,45 @@
             </div>
           </div>
           <!-- ///// dynamic input -->
-          <div class="row" *ngFor="let item of wholesaleList;let i = index">
-            <div class="col-4 sale-txt">
-              {{i + 1}}. ช่วงราคา {{i + 1}}
-            </div>
-            <div class="col-2">
-              <mat-form-field>
-                <input matInput placeholder="ต่ำสุด" [disabled]="i > 0" [(ngModel)]="item.min" (ngModelChange)="checkWholesaleMin($event,i)"
-                  type="number">
-              </mat-form-field>
-            </div>
-            <div class="col-2">
-              <mat-form-field>
-                <input matInput placeholder="สูงสุด" [(ngModel)]="item.max" (ngModelChange)="checkWholesaleMax($event,i)"
-                  type="number">
-              </mat-form-field>
-            </div>
-            <div class="col-2">
-              <mat-form-field>
-                <input matInput placeholder="฿ หน่วยราคา" [(ngModel)]="item.price" type="text">
-              </mat-form-field>
-            </div>
-            <div class="col-2" (click)="delWholesale(i)">
-              <div class="circle-box">
-                <mat-icon class="ic-position">minimize</mat-icon>
+          <span *ngIf="isSamePrice">
+            <div class="row" *ngFor="let item of wholesaleList;let i = index">
+              <div class="col-4 sale-txt">
+                {{i + 1}}. ช่วงราคา {{i + 1}}
+              </div>
+              <div class="col-2">
+                <mat-form-field>
+                  <input matInput placeholder="ต่ำสุด" [disabled]="i > 0" [(ngModel)]="item.min" (ngModelChange)="checkWholesaleMin($event,i)"
+                    type="number">
+                </mat-form-field>
+              </div>
+              <div class="col-2">
+                <mat-form-field>
+                  <input matInput placeholder="สูงสุด" [(ngModel)]="item.max" (ngModelChange)="checkWholesaleMax($event,i)"
+                    type="number">
+                </mat-form-field>
+              </div>
+              <div class="col-2">
+                <mat-form-field>
+                  <input matInput placeholder="฿ หน่วยราคา" [(ngModel)]="item.price" type="text">
+                </mat-form-field>
+              </div>
+              <div class="col-2" (click)="delWholesale(i)">
+                <div class="circle-box">
+                  <mat-icon class="ic-position">minimize</mat-icon>
+                </div>
               </div>
             </div>
-          </div>
+          </span>
 
           <div class="row ws-padding">
-            <div class="col-12">
+            <div class="col-12" *ngIf="isSamePrice">
               <div class="box-btn" (click)="addWholesale()">
                 <mat-icon class="ic-position">add_circle_outline</mat-icon> <span class="txt-icon">เพิ่มช่วงราคา</span>
               </div>
+            </div>
+
+            <div class="col-12" *ngIf="!isSamePrice && isOptions">
+              <mat-icon class="ic-position">error</mat-icon> <span class="txt-icon">ราคาขายส่งจะใช้ได้ก็ต่อเมื่อตัวเลือกสินค้าเป็นราคาเดียวกัน</span>
             </div>
           </div>
         </div>
@@ -532,7 +538,7 @@
 
   <div class="row">
     <div class="col-12 center">
-      <button mat-flat-button color="primary" [disabled]="!(images.length > 0 && data.name && stateSubmenu.length > 0 && shippings.length > 0 && ((price && stock) || dataSource.length > 0))"
+      <button mat-flat-button color="primary" [disabled]="!(images.length > 0 && data.name && stateSubmenu.length > 0 && shippings.length > 0 && (price || dataSource.length > 0))"
         (click)="save()">บันทึก</button>
       <!-- <button mat-flat-button color="primary" (click)="save()">บันทึก</button> -->
     </div>
