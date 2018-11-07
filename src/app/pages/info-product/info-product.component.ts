@@ -140,6 +140,11 @@ export class InfoProductComponent implements OnInit {
           }
         }
       });
+      this.generateDataSource(2);
+      this.dataSource.forEach((el, i) => {
+        el.price = this.data.prices[i].price;
+        el.stock = this.data.prices[i].stock;
+      });
     }
     this.wholesaleList = this.data.wholesale;
     this.findNamebyLogistic();
