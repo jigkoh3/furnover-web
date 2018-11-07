@@ -12,6 +12,7 @@ import * as firebase from 'firebase';
 })
 export class InfoProductComponent implements OnInit {
   @ViewChild('productImg') productImg;
+  product_id: any;
   productImgModel: any;
   data: any = {
     category_id: '',
@@ -61,6 +62,7 @@ export class InfoProductComponent implements OnInit {
       .subscribe(params => {
         if (params['productid']) {
           const productid = params['productid'];
+          this.product_id = productid;
           this.getInitData(productid);
         } else {
           this.getInitData(null);
@@ -86,6 +88,7 @@ export class InfoProductComponent implements OnInit {
     } catch (error) {
       console.log(error);
       this.spinner.hide();
+      throw error;
     }
   }
 
@@ -103,6 +106,11 @@ export class InfoProductComponent implements OnInit {
     if (this.data.prices.length > 0 && this.data.prices[0].name === 'normal') {
       this.price = this.data.prices[0].price;
       this.stock = this.data.prices[0].stock;
+      this.isOptions = false;
+    } else if (this.data.prices.length === 0) {
+      this.isOptions = false;
+    } else {
+      this.isOptions = true;
     }
     this.wholesaleList = this.data.wholesale;
     this.findNamebyLogistic();
@@ -285,7 +293,9 @@ export class InfoProductComponent implements OnInit {
           name1: el.name ? el.name : 'ตัวเลือก',
           name2: null,
           price: 0,
-          stock: 0
+          stock: 0,
+          concat1: null,
+          concat2: null
         });
       });
     } else {
@@ -295,7 +305,9 @@ export class InfoProductComponent implements OnInit {
             name1: this.stockType[0].items[i].name ? this.stockType[0].items[i].name : 'ตัวเลือก',
             name2: this.stockType[1].items[j].name ? this.stockType[1].items[j].name : 'ตัวเลือก',
             price: 0,
-            stock: 0
+            stock: 0,
+            concat1: this.stockType[0].name + ' ' + this.stockType[0].items[i].name,
+            concat2: this.stockType[1].name + ' ' + this.stockType[1].items[j].name
           });
         }
       }
@@ -349,8 +361,9 @@ export class InfoProductComponent implements OnInit {
     if (this.isOptions) {
       const priceList: Array<any> = [];
       this.dataSource.forEach(el => {
+        console.log(el);
         priceList.push({
-          name: el.name1 + ' ' + el.name2,
+          name: el.concat1 + ' ' + el.concat2,
           price: el.price,
           stock: el.stock
         });

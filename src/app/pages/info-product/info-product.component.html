@@ -137,6 +137,8 @@
     <div class="col-12 col-sm-8 col-md-6">
       <div class="row">
         <div class="col col-12 text-center">
+
+          <!-- ///////////// normal price and stock //////// -->
           <div *ngIf="!isOptions">
             <mat-form-field>
               <input matInput placeholder="ราคา" [(ngModel)]="price" type="number" required>
@@ -148,9 +150,9 @@
             </mat-form-field>
           </div>
 
+          <!-- ///////////////////// -->
+
           <div *ngIf="isOptions">
-
-
             <div class="row mgt" *ngIf="isShowMainOption1">
               <div class="col-2 col-sm-2 col-md-2 txt-left">
                 ตัวเลือกที่ 1
@@ -517,7 +519,8 @@
 
   <div class="row">
     <div class="col-12 center">
-      <button mat-flat-button color="primary" [disabled]="!(images.length > 0 && data.name && (price || dataSource.length > 0))" (click)="save()">บันทึก</button>
+      <!-- <button mat-flat-button color="primary" [disabled]="!(images.length > 0 && data.name && (price || dataSource.length > 0))" (click)="save()">บันทึก</button> -->
+      <button mat-flat-button color="primary" (click)="save()">บันทึก</button>
     </div>
   </div>
 
