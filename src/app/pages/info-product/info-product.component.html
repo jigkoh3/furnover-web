@@ -314,12 +314,14 @@
             </div>
             <div class="col-2">
               <mat-form-field>
-                <input matInput placeholder="ต่ำสุด" [(ngModel)]="item.min" type="number">
+                <input matInput placeholder="ต่ำสุด" [disabled]="i > 0" [(ngModel)]="item.min" (ngModelChange)="checkWholesaleMin($event,i)"
+                  type="number">
               </mat-form-field>
             </div>
             <div class="col-2">
               <mat-form-field>
-                <input matInput placeholder="สูงสุด" [(ngModel)]="item.max" type="number">
+                <input matInput placeholder="สูงสุด" [(ngModel)]="item.max" (ngModelChange)="checkWholesaleMax($event,i)"
+                  type="number">
               </mat-form-field>
             </div>
             <div class="col-2">

@@ -232,11 +232,39 @@ export class InfoProductComponent implements OnInit {
   }
 
   addWholesale() {
-    this.wholesaleList.push({
-      min: 0,
-      max: 0,
-      price: 'บาท'
-    });
+    if (this.wholesaleList.length <= 0) {
+      this.wholesaleList.push({
+        min: 0,
+        max: 0,
+        price: 'บาท'
+      });
+    } else {
+      let min = 0;
+      if (this.wholesaleList[this.wholesaleList.length - 1].min > this.wholesaleList[this.wholesaleList.length - 1].max) {
+        min = this.wholesaleList[this.wholesaleList.length - 1].min + 1;
+      } else if (this.wholesaleList[this.wholesaleList.length - 1].max > this.wholesaleList[this.wholesaleList.length - 1].min) {
+        min = this.wholesaleList[this.wholesaleList.length - 1].max + 1;
+      } else {
+        min = this.wholesaleList[this.wholesaleList.length - 1].max + 1;
+      }
+      this.wholesaleList.push({
+        min: min,
+        max: 0,
+        price: 'บาท'
+      });
+    }
+  }
+
+  checkWholesaleMin(e, i) {
+    if (e) {
+      console.log(this.wholesaleList[i]);
+    }
+  }
+
+  checkWholesaleMax(e, i) {
+    if (e) {
+
+    }
   }
 
   delWholesale(index) {
