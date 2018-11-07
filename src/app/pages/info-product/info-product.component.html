@@ -76,7 +76,7 @@
               </div>
               <span *ngFor="let state of stateSubmenu;let i = index">{{state.name}} <span *ngIf="stateSubmenu.length !== i + 1">
                   > </span> </span>
-              <span *ngIf="stateSubmenu.length <= 0">เลือกหมวดหมู่</span>
+              <span *ngIf="stateSubmenu.length <= 0">เลือกหมวดหมู่ *</span>
               <div class="row" *ngIf="toggleSubMenu">
                 <div class="col-4">
                   <div class="row box-submenu">
@@ -519,8 +519,8 @@
 
   <div class="row">
     <div class="col-12 center">
-      <!-- <button mat-flat-button color="primary" [disabled]="!(images.length > 0 && data.name && (price || dataSource.length > 0))" (click)="save()">บันทึก</button> -->
-      <button mat-flat-button color="primary" (click)="save()">บันทึก</button>
+      <button mat-flat-button color="primary" [disabled]="!(images.length > 0 && data.name && stateSubmenu.length > 0 && shippings.length > 0 && ((price && stock) || dataSource.length > 0))" (click)="save()">บันทึก</button>
+      <!-- <button mat-flat-button color="primary" (click)="save()">บันทึก</button> -->
     </div>
   </div>
 
