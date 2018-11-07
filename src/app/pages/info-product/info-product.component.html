@@ -240,48 +240,56 @@
     <div class="col-0 col-sm-2 col-md-3"></div>
   </div>
 
-  <div class="row" *ngIf="isShowMainOption1">
-    <div class="col-2"></div>
-    <div class="col-10">
-      <mat-card>
-        <div class="table-responsive table-full-width">
-          <table class="table ">
-            <thead>
-              <tr class="txt-name">
-                <th *ngIf="isShowMainOption1">{{nameOption1 ? nameOption1 : 'ชื่อ'}}</th>
-                <th *ngIf="isShowMainOption2">{{nameOption2 ? nameOption2 : 'ชื่อ'}}</th>
-                <th width="200">ราคา</th>
-                <th width="200">คลัง</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let item of dataSource">
-                <td *ngIf="item.name1">{{item.name1}}</td>
-                <td *ngIf="item.name2">{{item.name2}}</td>
-                <td><input matInput type="number" [(ngModel)]="item.price"></td>
-                <td><input matInput type="number" [(ngModel)]="item.stock"></td>
-                <td></td>
-              </tr>
-            </tbody>
-          </table>
+  <!-- /////// new price list /// -->
+
+  <div class="row">
+    <div class="col-0 col-sm-2 col-md-3"></div>
+    <div class="col-12 col-sm-8 col-md-6">
+      <div class="row" *ngIf="isShowMainOption1">
+        <div class="col-12 pl-box">
+          <div class="table-responsive table-full-width">
+            <table class="table ">
+              <thead>
+                <tr class="txt-name">
+                  <th width="150" *ngIf="isShowMainOption1">{{nameOption1 ? nameOption1 : 'ชื่อ'}}</th>
+                  <th width="130" *ngIf="isShowMainOption2">{{nameOption2 ? nameOption2 : 'ชื่อ'}}</th>
+                  <th>ราคา</th>
+                  <th>คลัง</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of dataSource">
+                  <td *ngIf="item.name1">{{item.name1}}</td>
+                  <td *ngIf="item.name2">{{item.name2}}</td>
+                  <td><input matInput type="number" [(ngModel)]="item.price"></td>
+                  <td><input matInput type="number" [(ngModel)]="item.stock"></td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
-      </mat-card>
+      </div>
+    </div>
+    <div class="col-0 col-sm-2 col-md-3"></div>
+  </div>
+
+  <!-- ///////// -->
+
+  <!-- /////// new holsale /// -->
+
+  <div class="row">
+    <div class="col-12 col-sm-12 col-md-12">
+      ขายส่ง
     </div>
   </div>
 
-
-
-  <!-- wholesale -->
-
-  <div class="row" *ngIf="isShowMainOption1">
-    <div class="col-2 col-sm-2 col-md-2"></div>
-    <div class="col-10 col-sm-10 col-md-10">
+  <div class="row">
+    <div class="col-0 col-sm-2 col-md-3"></div>
+    <div class="col-12 col-sm-8 col-md-6">
       <div class="row">
-        <div class="col-2">
-          ขายส่ง
-        </div>
-        <div class="col-10 contanner-wholsale">
+        <div class="col-12 contanner-wholsale">
           <div class="row">
             <div class="col-4">
 
@@ -316,7 +324,7 @@
             </div>
             <div class="col-2">
               <mat-form-field>
-                <input matInput placeholder="฿ หน่วยราคา" [(ngModel)]="item.price" type="number">
+                <input matInput placeholder="฿ หน่วยราคา" [(ngModel)]="item.price" type="text">
               </mat-form-field>
             </div>
             <div class="col-2" (click)="delWholesale(i)">
@@ -336,7 +344,10 @@
         </div>
       </div>
     </div>
+    <div class="col-0 col-sm-2 col-md-3"></div>
   </div>
+
+  <!-- ///////// -->
 
   <div class="row">
     <div class="col-12 col-sm-12 col-md-12">
@@ -519,7 +530,8 @@
 
   <div class="row">
     <div class="col-12 center">
-      <button mat-flat-button color="primary" [disabled]="!(images.length > 0 && data.name && stateSubmenu.length > 0 && shippings.length > 0 && ((price && stock) || dataSource.length > 0))" (click)="save()">บันทึก</button>
+      <button mat-flat-button color="primary" [disabled]="!(images.length > 0 && data.name && stateSubmenu.length > 0 && shippings.length > 0 && ((price && stock) || dataSource.length > 0))"
+        (click)="save()">บันทึก</button>
       <!-- <button mat-flat-button color="primary" (click)="save()">บันทึก</button> -->
     </div>
   </div>

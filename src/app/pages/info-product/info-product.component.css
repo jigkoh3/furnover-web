@@ -329,6 +329,11 @@ thead {
     color: red;
 }
 
-.ic-orange{
+.ic-orange {
     color: orange;
+}
+
+.pl-box {
+    border: 1px solid #dddddd;
+    border-radius: 4px;
 }

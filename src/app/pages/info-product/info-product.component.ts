@@ -235,7 +235,7 @@ export class InfoProductComponent implements OnInit {
     this.wholesaleList.push({
       min: 0,
       max: 0,
-      price: 0
+      price: 'บาท'
     });
   }
 
