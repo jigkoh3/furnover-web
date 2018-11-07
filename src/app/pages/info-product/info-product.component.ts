@@ -259,13 +259,17 @@ export class InfoProductComponent implements OnInit {
 
   checkWholesaleMin(e, i) {
     if (e) {
-      console.log(this.wholesaleList[i]);
+
     }
   }
 
   checkWholesaleMax(e, i) {
     if (e) {
-
+      this.wholesaleList.forEach((el, idx) => {
+        if (i !== idx && idx > i) {
+          this.wholesaleList[idx].min = this.wholesaleList[i].max + 1;
+        }
+      });
     }
   }
 
@@ -276,7 +280,6 @@ export class InfoProductComponent implements OnInit {
         this.isSamePrice = false;
       }
     });
-    console.log(this.isSamePrice);
   }
 
   delWholesale(index) {
