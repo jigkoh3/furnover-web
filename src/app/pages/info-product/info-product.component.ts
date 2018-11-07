@@ -111,6 +111,35 @@ export class InfoProductComponent implements OnInit {
       this.isOptions = false;
     } else {
       this.isOptions = true;
+      this.data.prices.forEach(price => {
+        const name: Array<any> = price.name.split(' ');
+        if (name.length === 2) {
+          console.log('22222');
+        } else if (name.length === 4) {
+          this.isShowMainOption1 = true;
+          this.isShowMainOption2 = true;
+          this.nameOption1 = name[0];
+          this.nameOption2 = name[2];
+          this.stockType[0].name = this.nameOption1;
+          const arr_1: Array<any> = this.stockType[0].items.filter(el => {
+            return el.name === name[1];
+          });
+          if (arr_1.length <= 0) {
+            this.stockType[0].items.push({
+              name: name[1]
+            });
+          }
+          this.stockType[1].name = this.nameOption2;
+          const arr_2: Array<any> = this.stockType[1].items.filter(el => {
+            return el.name === name[3];
+          });
+          if (arr_2.length <= 0) {
+            this.stockType[1].items.push({
+              name: name[3]
+            });
+          }
+        }
+      });
     }
     this.wholesaleList = this.data.wholesale;
     this.findNamebyLogistic();
@@ -361,7 +390,6 @@ export class InfoProductComponent implements OnInit {
     if (this.isOptions) {
       const priceList: Array<any> = [];
       this.dataSource.forEach(el => {
-        console.log(el);
         priceList.push({
           name: el.concat1 + ' ' + el.concat2,
           price: el.price,
