@@ -84,7 +84,6 @@ export class InfoProductComponent implements OnInit {
         this.bindBack();
       }
       this.spinner.hide();
-      console.log(res);
     } catch (error) {
       console.log(error);
       this.spinner.hide();
@@ -114,7 +113,18 @@ export class InfoProductComponent implements OnInit {
       this.data.prices.forEach(price => {
         const name: Array<any> = price.name.split(' ');
         if (name.length === 2) {
-          console.log('22222');
+          this.isShowMainOption1 = true;
+          this.nameOption1 = name[0];
+          this.stockType[0].name = this.nameOption1;
+          const arr_1: Array<any> = this.stockType[0].items.filter(el => {
+            return el.name === name[1];
+          });
+          if (arr_1.length <= 0) {
+            this.stockType[0].items.push({
+              name: name[1]
+            });
+          }
+          this.generateDataSource(0);
         } else if (name.length === 4) {
           this.isShowMainOption1 = true;
           this.isShowMainOption2 = true;
@@ -138,12 +148,12 @@ export class InfoProductComponent implements OnInit {
               name: name[3]
             });
           }
+          this.generateDataSource(1);
         }
-      });
-      this.generateDataSource(2);
-      this.dataSource.forEach((el, i) => {
-        el.price = this.data.prices[i].price;
-        el.stock = this.data.prices[i].stock;
+        this.dataSource.forEach((el, i) => {
+          el.price = this.data.prices[i].price;
+          el.stock = this.data.prices[i].stock;
+        });
       });
     }
     this.wholesaleList = this.data.wholesale;
@@ -328,7 +338,7 @@ export class InfoProductComponent implements OnInit {
           name2: null,
           price: 0,
           stock: 0,
-          concat1: null,
+          concat1: 'สี' + ' ' + el.name,
           concat2: null
         });
       });
@@ -395,11 +405,19 @@ export class InfoProductComponent implements OnInit {
     if (this.isOptions) {
       const priceList: Array<any> = [];
       this.dataSource.forEach(el => {
-        priceList.push({
-          name: el.concat1 + ' ' + el.concat2,
-          price: el.price,
-          stock: el.stock
-        });
+        if (el.concat2 === null) {
+          priceList.push({
+            name: el.concat1,
+            price: el.price,
+            stock: el.stock
+          });
+        } else {
+          priceList.push({
+            name: el.concat1 + ' ' + el.concat2,
+            price: el.price,
+            stock: el.stock
+          });
+        }
       });
       this.data.prices = priceList;
     } else {
