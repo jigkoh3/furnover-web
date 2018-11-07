@@ -238,7 +238,7 @@ export class InfoProductComponent implements OnInit {
       this.wholesaleList.push({
         min: 0,
         max: 0,
-        price: 'บาท'
+        price: 0
       });
     } else {
       let min = 0;
@@ -252,7 +252,7 @@ export class InfoProductComponent implements OnInit {
       this.wholesaleList.push({
         min: min,
         max: 0,
-        price: 'บาท'
+        price: 0
       });
     }
   }
