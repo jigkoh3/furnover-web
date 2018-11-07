@@ -341,3 +341,8 @@ thead {
 .ws-padding {
     padding-top: 0.8rem;
 }
+
+.mgt-l {
+    margin-left: 18px;
+    color: #ffffff !important;
+}

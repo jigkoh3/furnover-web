@@ -499,4 +499,19 @@ export class InfoProductComponent implements OnInit {
     }
   }
 
+  async deleteProduct() {
+    const conf = window.confirm('ยืนยันการลบสินค้า');
+    if (conf) {
+      this.spinner.show();
+      try {
+        const res: any = await this.restApi.delete(Constants.URL() + '/api/product/' + this.product_id);
+        this.spinner.hide();
+        this.route.navigate(['my-product']);
+      } catch (error) {
+        this.spinner.hide();
+        throw error;
+      }
+    }
+  }
+
 }

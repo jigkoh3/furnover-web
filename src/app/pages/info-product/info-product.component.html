@@ -540,7 +540,7 @@
     <div class="col-12 center">
       <button mat-flat-button color="primary" [disabled]="!(images.length > 0 && data.name && stateSubmenu.length > 0 && shippings.length > 0 && (price || dataSource.length > 0))"
         (click)="save()">บันทึก</button>
-      <!-- <button mat-flat-button color="primary" (click)="save()">บันทึก</button> -->
+      <button *ngIf="product_id" mat-flat-button class="mgt-l" color="gay" (click)="deleteProduct()">ลบ</button>
     </div>
   </div>
 
