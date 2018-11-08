@@ -54,6 +54,8 @@ export class InfoProductComponent implements OnInit {
   ///////////////////// new price list////////
   isOptionBox = false;
   optionBoxs: Array<any> = [];
+  optionList: Array<any> = [];
+
 
   constructor(private activatedRoute: ActivatedRoute,
     private restApi: RestApiService,
@@ -80,9 +82,11 @@ export class InfoProductComponent implements OnInit {
     this.optionBoxs.push({
       name: '',
       options: [{
-        name: ''
+        name: '',
+        items: []
       }]
     });
+    this.genTable();
   }
 
   addOptionBox() {
@@ -90,26 +94,67 @@ export class InfoProductComponent implements OnInit {
       this.optionBoxs.push({
         name: '',
         options: [{
-          name: ''
+          name: '',
+          items: []
         }]
       });
     }
+    this.genTable();
   }
 
   delOptionBox(i) {
     this.optionBoxs.splice(i, 1);
+    this.genTable();
   }
 
   addOptions(i) {
     if (this.optionBoxs[i].options.length < 20) {
       this.optionBoxs[i].options.push({
-        name: ''
+        name: '',
+        items: []
       });
     }
+    this.genTable();
   }
 
   delOptions(i, j) {
     this.optionBoxs[i].options.splice(j, 1);
+    this.genTable();
+  }
+
+  genTable() {
+    // {_id: "5be2c6711c9d0c0015f38a01", name: "kkkkk", price: 100, stock: 1}
+    const optionList: Array<any> = [];
+    if (this.optionBoxs.length === 1) {
+      this.optionBoxs[0].options.forEach(option => {
+        optionList.push({
+          ref: option.name,
+          name: option.name,
+          price: 0,
+          stock: 0
+        });
+      });
+    } else if (this.optionBoxs.length === 2) {
+      this.optionBoxs[0].options.forEach(opt => {
+        opt.items = [];
+        this.optionBoxs[1].options.forEach(opt2 => {
+          opt.items.push(opt2.name);
+        });
+      });
+      this.optionBoxs[0].options.forEach(option => {
+        option.items.forEach(item => {
+          optionList.push({
+            ref: option.name,
+            name: item,
+            price: 0,
+            stock: 0
+          });
+        });
+      });
+    }
+    this.optionList = optionList;
+    console.log(this.optionBoxs);
+    console.log(this.optionList);
   }
 
 
@@ -498,24 +543,8 @@ export class InfoProductComponent implements OnInit {
       });
     });
     this.data.shipping = tranformShipping;
-    if (this.isOptions) {
-      const priceList: Array<any> = [];
-      this.dataSource.forEach(el => {
-        if (el.concat2 === null) {
-          priceList.push({
-            name: el.concat1,
-            price: el.price,
-            stock: el.stock
-          });
-        } else {
-          priceList.push({
-            name: el.concat1 + ' ' + el.concat2,
-            price: el.price,
-            stock: el.stock
-          });
-        }
-      });
-      this.data.prices = priceList;
+    if (this.optionBoxs.length > 0) {
+      this.data.prices = this.optionList;
     } else {
       this.data.prices = [{
         name: 'normal',

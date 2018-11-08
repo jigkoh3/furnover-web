@@ -143,6 +143,9 @@
           </div>
 
           <div *ngIf="optionBoxs.length > 0">
+            <div>
+              <button mat-flat-button color="primary" (click)="genTable()">Test Gen Table</button>
+            </div>
             <div class="row mgt" *ngFor="let item of optionBoxs;let i = index">
               <div class="col-2 col-sm-2 col-md-2 txt-left">
                 ตัวเลือกที่ {{i + 1}}
@@ -154,7 +157,8 @@
                 <div>
                   <span class="option-name1">ชื่อ</span>
                   <mat-form-field>
-                    <input matInput placeholder="ใส่ชื่อตัวเลือก เช่นสี ไซส์..." type="text" required>
+                    <input matInput [(ngModel)]="item.name" (ngModelChange)="genTable()" placeholder="ใส่ชื่อตัวเลือก เช่นสี ไซส์..."
+                      type="text" required>
                   </mat-form-field>
                 </div>
                 <div *ngFor="let option of item.options;let j = index">
@@ -163,7 +167,8 @@
                       <mat-icon>close</mat-icon>
                     </div>
                     <mat-form-field>
-                      <input matInput [(ngModel)]="option.name" placeholder="ใส่ข้อมูลตัวเลือก เช่นสีแดง สีขาว..." type="text" required>
+                      <input matInput [(ngModel)]="option.name" (ngModelChange)="genTable()" placeholder="ใส่ข้อมูลตัวเลือก เช่นสีแดง สีขาว..."
+                        type="text" required>
                     </mat-form-field>
                   </div>
                 </div>
@@ -182,6 +187,38 @@
                 <mat-icon class="add-cus">add</mat-icon> เพิ่มตัวเลือกสินค้า
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-0 col-sm-2 col-md-3"></div>
+  </div>
+
+  <div class="row" *ngIf="optionBoxs.length > 0">
+    <div class="col-0 col-sm-2 col-md-3"></div>
+    <div class="col-12 col-sm-8 col-md-6">
+      <div class="row">
+        <div class="col-12 pl-box">
+          <div class="table-responsive table-full-width">
+            <table class="table">
+              <thead>
+                <tr class="txt-name">
+                  <th width="150" *ngFor="let item of optionBoxs">{{item.name ? item.name:'ชื่อ'}}</th>
+                  <th>ราคา</th>
+                  <th>คลัง</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of optionList">
+                  <td>{{item.ref ? item.ref : 'ตัวเลือก'}}</td>
+                  <td *ngIf="optionBoxs.length > 1">{{item.name ? item.name : 'ตัวเลือก'}}</td>
+                  <td><input matInput type="number" [(ngModel)]="item.price"></td>
+                  <td><input matInput type="number" [(ngModel)]="item.stock"></td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
