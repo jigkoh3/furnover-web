@@ -199,15 +199,6 @@ export class InfoProductComponent implements OnInit {
       this.price = 0;
       this.stock = 0;
     } else {
-      // bind back box options
-      // this.optionBoxs.push({
-      //   name: '',
-      //   options: [{
-      //     name: '',
-      //     items: []
-      //   }]
-      // });
-      console.log(this.data.prices);
       this.isOptionBox = true;
       const uniqType: Array<any> = [];
       const uniqName: Array<any> = [];
@@ -245,8 +236,6 @@ export class InfoProductComponent implements OnInit {
         });
       });
 
-      console.log(uniqName);
-
       /////////////////////////////////
 
       //////////////// type box 2/////////////
@@ -255,26 +244,29 @@ export class InfoProductComponent implements OnInit {
       uniqName.forEach(el => {
         const spl: Array<any> = el.split(' ');
         if (_uniqName1.indexOf(spl[0]) === -1) {
-          _uniqName1.push(spl[0]);
+          if (spl[0]) {
+            _uniqName1.push(spl[0]);
+          }
         }
         if (_uniqName2.indexOf(spl[1]) === -1) {
-          _uniqName2.push(spl[1]);
+          if (spl[1]) {
+            _uniqName2.push(spl[1]);
+          }
         }
       });
 
-      console.log(_uniqName1);
-      console.log(_uniqName2);
-
-      this.optionBoxs.push({
-        name: _uniqName1[0],
-        options: []
-      });
-      _uniqName2.forEach(el => {
-        this.optionBoxs[1].options.push({
-          name: el,
-          items: []
+      if (_uniqName2.length > 0) {
+        this.optionBoxs.push({
+          name: _uniqName1[0],
+          options: []
         });
-      });
+        _uniqName2.forEach(el => {
+          this.optionBoxs[1].options.push({
+            name: el,
+            items: []
+          });
+        });
+      }
 
 
       this.optionList = this.data.prices;
