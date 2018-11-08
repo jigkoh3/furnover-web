@@ -287,6 +287,15 @@ export class InfoProductComponent implements OnInit {
     this.checkSamePrice();
   }
 
+  tranformTxt(txt) {
+    const txtArr: Array<any> = txt.split(' ');
+    if (txtArr.length > 1) {
+      return txtArr[1];
+    } else {
+      return txt;
+    }
+  }
+
   deleteMainOption(idx) {
     if (idx === 1) {
       if (this.isShowMainOption2) {
