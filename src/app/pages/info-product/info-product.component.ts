@@ -128,7 +128,7 @@ export class InfoProductComponent implements OnInit {
     if (this.optionBoxs.length === 1) {
       this.optionBoxs[0].options.forEach(option => {
         optionList.push({
-          ref: option.name,
+          type: this.optionBoxs[0].name + ' ' + option.name,
           name: option.name,
           price: 0,
           stock: 0
@@ -144,8 +144,8 @@ export class InfoProductComponent implements OnInit {
       this.optionBoxs[0].options.forEach(option => {
         option.items.forEach(item => {
           optionList.push({
-            ref: option.name,
-            name: item,
+            type: this.optionBoxs[0].name + ' ' + option.name,
+            name: this.optionBoxs[1].name + ' ' + item,
             price: 0,
             stock: 0
           });
@@ -153,18 +153,9 @@ export class InfoProductComponent implements OnInit {
       });
     }
     this.optionList = optionList;
-    console.log(this.optionBoxs);
     console.log(this.optionList);
+    console.log(this.optionBoxs);
   }
-
-
-
-
-
-
-
-
-
 
   //////////////////////////////////////////////
 
@@ -204,56 +195,89 @@ export class InfoProductComponent implements OnInit {
     if (this.data.prices.length > 0 && this.data.prices[0].name === 'normal') {
       this.price = this.data.prices[0].price;
       this.stock = this.data.prices[0].stock;
-      this.isOptions = false;
     } else if (this.data.prices.length === 0) {
-      this.isOptions = false;
+      this.price = 0;
+      this.stock = 0;
     } else {
-      this.isOptions = true;
-      this.data.prices.forEach(price => {
-        const name: Array<any> = price.name.split(' ');
-        if (name.length === 2) {
-          this.isShowMainOption1 = true;
-          this.nameOption1 = name[0];
-          this.stockType[0].name = this.nameOption1;
-          const arr_1: Array<any> = this.stockType[0].items.filter(el => {
-            return el.name === name[1];
-          });
-          if (arr_1.length <= 0) {
-            this.stockType[0].items.push({
-              name: name[1]
-            });
-          }
-          this.generateDataSource(0);
-        } else if (name.length === 4) {
-          this.isShowMainOption1 = true;
-          this.isShowMainOption2 = true;
-          this.nameOption1 = name[0];
-          this.nameOption2 = name[2];
-          this.stockType[0].name = this.nameOption1;
-          const arr_1: Array<any> = this.stockType[0].items.filter(el => {
-            return el.name === name[1];
-          });
-          if (arr_1.length <= 0) {
-            this.stockType[0].items.push({
-              name: name[1]
-            });
-          }
-          this.stockType[1].name = this.nameOption2;
-          const arr_2: Array<any> = this.stockType[1].items.filter(el => {
-            return el.name === name[3];
-          });
-          if (arr_2.length <= 0) {
-            this.stockType[1].items.push({
-              name: name[3]
-            });
-          }
-          this.generateDataSource(1);
+      // bind back box options
+      // this.optionBoxs.push({
+      //   name: '',
+      //   options: [{
+      //     name: '',
+      //     items: []
+      //   }]
+      // });
+      console.log(this.data.prices);
+      this.isOptionBox = true;
+      const uniqType: Array<any> = [];
+      const uniqName: Array<any> = [];
+      this.data.prices.forEach(el => {
+        if (uniqType.indexOf(el.type) === -1) {
+          uniqType.push(el.type);
         }
-        this.dataSource.forEach((el, i) => {
-          el.price = this.data.prices[i].price;
-          el.stock = this.data.prices[i].stock;
+        if (uniqName.indexOf(el.name) === -1) {
+          uniqName.push(el.name);
+        }
+      });
+
+      /////// type box 1/////////////
+      const _uniqType1: Array<any> = [];
+      const _uniqType2: Array<any> = [];
+      uniqType.forEach(el => {
+        const spl: Array<any> = el.split(' ');
+        if (_uniqType1.indexOf(spl[0]) === -1) {
+          _uniqType1.push(spl[0]);
+        }
+        if (_uniqType2.indexOf(spl[1]) === -1) {
+          _uniqType2.push(spl[1]);
+        }
+      });
+
+
+      this.optionBoxs.push({
+        name: _uniqType1[0],
+        options: []
+      });
+      _uniqType2.forEach(el => {
+        this.optionBoxs[0].options.push({
+          name: el,
+          items: []
         });
       });
+
+      console.log(uniqName);
+
+      /////////////////////////////////
+
+      //////////////// type box 2/////////////
+      const _uniqName1: Array<any> = [];
+      const _uniqName2: Array<any> = [];
+      uniqName.forEach(el => {
+        const spl: Array<any> = el.split(' ');
+        if (_uniqName1.indexOf(spl[0]) === -1) {
+          _uniqName1.push(spl[0]);
+        }
+        if (_uniqName2.indexOf(spl[1]) === -1) {
+          _uniqName2.push(spl[1]);
+        }
+      });
+
+      console.log(_uniqName1);
+      console.log(_uniqName2);
+
+      this.optionBoxs.push({
+        name: _uniqName1[0],
+        options: []
+      });
+      _uniqName2.forEach(el => {
+        this.optionBoxs[1].options.push({
+          name: el,
+          items: []
+        });
+      });
+
+
+      this.optionList = this.data.prices;
     }
     this.wholesaleList = this.data.wholesale;
     this.findNamebyLogistic();
