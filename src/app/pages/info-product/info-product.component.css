@@ -346,3 +346,9 @@ thead {
     margin-left: 18px;
     color: #ffffff !important;
 }
+
+.option-name1 {
+    position: absolute;
+    left: 10px;
+    margin-top: 14px;
+}

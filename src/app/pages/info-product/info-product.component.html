@@ -109,16 +109,6 @@
                 </div>
               </div>
             </div>
-            <!-- <mat-form-field>
-              <mat-select value="" [(ngModel)]="data.category_id">
-                <mat-option value="">
-                  เลือกหมวดหมู่
-                </mat-option>
-                <mat-option value="{{item._id}}" *ngFor="let item of resData.categories">
-                  {{item.name}}
-                </mat-option>
-              </mat-select>
-            </mat-form-field> -->
           </div>
         </div>
       </div>
@@ -126,6 +116,7 @@
     <div class="col-0 col-sm-2 col-md-3"></div>
   </div>
 
+  <!-- /////////////////////////////// new price list ///////////////// -->
   <div class="row">
     <div class="col-12 col-sm-12 col-md-12">
       ราคาและคลัง
@@ -137,9 +128,82 @@
     <div class="col-12 col-sm-8 col-md-6">
       <div class="row">
         <div class="col col-12 text-center">
+          <div *ngIf="optionBoxs.length <= 0">
+            <mat-form-field>
+              <input matInput placeholder="ราคา" [(ngModel)]="price" type="number" required>
+            </mat-form-field>
+          </div>
+          <div *ngIf="optionBoxs.length <= 0">
+            <mat-form-field>
+              <input matInput placeholder="คลัง" type="number" [(ngModel)]="stock">
+            </mat-form-field>
+          </div>
+          <div class="btn-option" (click)="openOption()" *ngIf="optionBoxs.length <= 0">
+            <mat-icon class="add-cus">add</mat-icon> เปิดตัวเลือก
+          </div>
 
-          <!-- ///////////// normal price and stock //////// -->
-          <div *ngIf="!isOptions">
+          <div *ngIf="optionBoxs.length > 0">
+            <div class="row mgt" *ngFor="let item of optionBoxs;let i = index">
+              <div class="col-2 col-sm-2 col-md-2 txt-left">
+                ตัวเลือกที่ 1
+              </div>
+              <div class="col-10 col-sm-10 col-md-10 options-ctn">
+                <div class="del-btn">
+                  <mat-icon>close</mat-icon>
+                </div>
+                <div>
+                  <span class="option-name1">ชื่อ</span>
+                  <mat-form-field>
+                    <input matInput placeholder="ใส่ชื่อตัวเลือก เช่นสี ไซส์..." type="text" required>
+                  </mat-form-field>
+                </div>
+                <div *ngFor="let option of item.options;let j = index">
+                  <div>
+                    <div class="sub-del-btn" *ngIf="item.options.length > 1" (click)="delOptions(i,j)">
+                      <mat-icon>close</mat-icon>
+                    </div>
+                    <mat-form-field>
+                      <input matInput [(ngModel)]="option.name" placeholder="ใส่ข้อมูลตัวเลือก เช่นสีแดง สีขาว..." type="text" required>
+                    </mat-form-field>
+                  </div>
+                </div>
+
+                <div class="btn-option" (click)="addOptions(i)">
+                  <mat-icon class="add-cus">add</mat-icon> เพิ่มตัวเลือก {{item.options.length}}/20
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row" *ngIf="optionBoxs.length > 0">
+            <div class="col-2"></div>
+            <div class="col-10">
+              <div class="btn-option">
+                <mat-icon class="add-cus">add</mat-icon> เพิ่มตัวเลือกสินค้า
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-0 col-sm-2 col-md-3"></div>
+  </div>
+  <!-- //////////////////////////////////////////////////////////////// -->
+  <!-- /////////////////////////// input price list//////////// -->
+  <!-- <div class="row">
+    <div class="col-12 col-sm-12 col-md-12">
+      ราคาและคลัง
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-0 col-sm-2 col-md-3"></div>
+    <div class="col-12 col-sm-8 col-md-6">
+      <div class="row">
+        <div class="col col-12 text-center"> -->
+
+  <!-- ///////////// normal price and stock //////// -->
+  <!-- <div *ngIf="!isOptions">
             <mat-form-field>
               <input matInput placeholder="ราคา" [(ngModel)]="price" type="number" required>
             </mat-form-field>
@@ -148,11 +212,11 @@
             <mat-form-field>
               <input matInput placeholder="คลัง" type="number" [(ngModel)]="stock" required>
             </mat-form-field>
-          </div>
+          </div> -->
 
-          <!-- ///////////////////// -->
+  <!-- ///////////////////// -->
 
-          <div *ngIf="isOptions">
+  <!-- <div *ngIf="isOptions">
             <div class="row mgt" *ngIf="isShowMainOption1">
               <div class="col-2 col-sm-2 col-md-2 txt-left">
                 ตัวเลือกที่ 1
@@ -238,11 +302,13 @@
       </div>
     </div>
     <div class="col-0 col-sm-2 col-md-3"></div>
-  </div>
+  </div> -->
 
-  <!-- /////// new price list /// -->
+  <!-- //////////////////////////// -->
 
-  <div class="row">
+  <!-- /////// price list /// -->
+
+  <!-- <div class="row">
     <div class="col-0 col-sm-2 col-md-3"></div>
     <div class="col-12 col-sm-8 col-md-6">
       <div class="row" *ngIf="isShowMainOption1">
@@ -273,11 +339,11 @@
       </div>
     </div>
     <div class="col-0 col-sm-2 col-md-3"></div>
-  </div>
+  </div> -->
 
   <!-- ///////// -->
 
-  <!-- /////// new holsale /// -->
+  <!-- /////// new wholsale /// -->
 
   <div class="row">
     <div class="col-12 col-sm-12 col-md-12">

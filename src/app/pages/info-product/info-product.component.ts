@@ -51,6 +51,9 @@ export class InfoProductComponent implements OnInit {
       items: []
     }];
   isSamePrice = true;
+  ///////////////////// new price list////////
+  isOptionBox = false;
+  optionBoxs: Array<any> = [];
 
   constructor(private activatedRoute: ActivatedRoute,
     private restApi: RestApiService,
@@ -71,6 +74,51 @@ export class InfoProductComponent implements OnInit {
       });
   }
 
+  //////////////////// new price list////////////
+  openOption() {
+    this.isOptionBox = true;
+    this.optionBoxs.push({
+      name: '',
+      options: [{
+        name: ''
+      }]
+    });
+  }
+
+  addOptionBox() {
+    if (this.optionBoxs.length < 2) {
+      this.optionBoxs.push({
+        name: '',
+        options: [{
+          name: ''
+        }]
+      });
+    }
+  }
+
+  addOptions(i) {
+    if (this.optionBoxs[i].options.length < 20) {
+      this.optionBoxs[i].options.push({
+        name: ''
+      });
+    }
+  }
+
+  delOptions(i, j) {
+    this.optionBoxs[i].options.splice(j, 1);
+  }
+
+
+
+
+
+
+
+
+
+
+  //////////////////////////////////////////////
+
   async getInitData(productid) {
     this.spinner.show();
     try {
@@ -81,6 +129,7 @@ export class InfoProductComponent implements OnInit {
       };
       const res: any = await this.restApi.post(Constants.URL() + '/api/product-item', bodyReq);
       this.resData = res.data;
+      console.log(this.resData);
       if (productid) {
         this.bindBack();
       }
@@ -381,7 +430,7 @@ export class InfoProductComponent implements OnInit {
           name2: null,
           price: 0,
           stock: 0,
-          concat1: 'สี' + ' ' + el.name,
+          concat1: el.name,
           concat2: null
         });
       });
