@@ -96,6 +96,10 @@ export class InfoProductComponent implements OnInit {
     }
   }
 
+  delOptionBox(i) {
+    this.optionBoxs.splice(i, 1);
+  }
+
   addOptions(i) {
     if (this.optionBoxs[i].options.length < 20) {
       this.optionBoxs[i].options.push({
