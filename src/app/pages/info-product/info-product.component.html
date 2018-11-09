@@ -275,7 +275,7 @@
               </div>
               <div class="col-2">
                 <mat-form-field>
-                  <input matInput placeholder="฿ หน่วยราคา" [(ngModel)]="item.price" type="number">
+                  <input matInput placeholder="฿ หน่วยราคา" [(ngModel)]="item.price" (ngModelChange)="checkNum()" type="number">
                 </mat-form-field>
               </div>
               <div class="col-2" (click)="delWholesale(i)">

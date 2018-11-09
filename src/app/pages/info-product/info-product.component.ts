@@ -148,10 +148,35 @@ export class InfoProductComponent implements OnInit {
 
   checkNum() {
     this.optionList.forEach(el => {
-      if (el.price < 0) {
-        el.price = 0;
-      } else if (el.stock < 0) {
-        el.stock = 0;
+      const reg = new RegExp('^[0-9]+$');
+      if (el.price < 0 || !reg.test(el.price)) {
+        setTimeout(() => {
+          el.price = '';
+        }, 100);
+      }
+      if (el.stock < 0 || !reg.test(el.stock)) {
+        setTimeout(() => {
+          el.stock = '';
+        }, 100);
+      }
+    });
+
+    this.wholesaleList.forEach(el => {
+      const reg = new RegExp('^[0-9]+$');
+      if (el.min < 0 || !reg.test(el.min)) {
+        setTimeout(() => {
+          el.min = '';
+        }, 100);
+      }
+      if (el.max < 0 || !reg.test(el.max)) {
+        setTimeout(() => {
+          el.max = '';
+        }, 100);
+      }
+      if (el.price < 0 || !reg.test(el.price)) {
+        setTimeout(() => {
+          el.price = '';
+        }, 100);
       }
     });
   }
@@ -362,12 +387,14 @@ export class InfoProductComponent implements OnInit {
   }
 
   checkWholesaleMin(e, i) {
+    this.checkNum();
     if (e) {
 
     }
   }
 
   checkWholesaleMax(e, i) {
+    this.checkNum();
     if (e) {
       this.wholesaleList.forEach((el, idx) => {
         if (i !== idx && idx > i) {
