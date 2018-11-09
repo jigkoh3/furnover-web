@@ -130,12 +130,13 @@
         <div class="col col-12 text-center">
           <div *ngIf="optionBoxs.length <= 0">
             <mat-form-field>
-              <input matInput placeholder="ราคา" [(ngModel)]="price" type="number" required>
+              <input matInput placeholder="ราคา" [(ngModel)]="price" (ngModelChange)="validatePriceAndStock()" type="number"
+                required>
             </mat-form-field>
           </div>
           <div *ngIf="optionBoxs.length <= 0">
             <mat-form-field>
-              <input matInput placeholder="คลัง" type="number" [(ngModel)]="stock">
+              <input matInput placeholder="คลัง" type="number" [(ngModel)]="stock" (ngModelChange)="validatePriceAndStock()">
             </mat-form-field>
           </div>
           <div class="btn-option" (click)="openOption()" *ngIf="optionBoxs.length <= 0">

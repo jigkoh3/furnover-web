@@ -146,6 +146,21 @@ export class InfoProductComponent implements OnInit {
     });
   }
 
+  validatePriceAndStock() {
+    const reg = new RegExp('^[0-9]+$');
+    if (this.price < 0 || !reg.test(this.price)) {
+      setTimeout(() => {
+        this.price = '';
+      }, 100);
+    }
+
+    if (this.stock < 0 || !reg.test(this.stock)) {
+      setTimeout(() => {
+        this.stock = '';
+      }, 100);
+    }
+  }
+
   checkNum() {
     this.optionList.forEach(el => {
       const reg = new RegExp('^[0-9]+$');
