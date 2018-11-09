@@ -145,10 +145,10 @@
 
           <div *ngIf="optionBoxs.length > 0">
             <div class="row mgt" *ngFor="let item of optionBoxs;let i = index">
-              <div class="col-2 col-sm-2 col-md-2 txt-left">
+              <div class="option-head">
                 ตัวเลือกที่ {{i + 1}}
               </div>
-              <div class="col-10 col-sm-10 col-md-10 options-ctn">
+              <div class="col-12 col-sm-12 col-md-12 options-ctn">
                 <div class="del-btn" (click)="delOptionBox(i)">
                   <mat-icon>close</mat-icon>
                 </div>
@@ -179,8 +179,7 @@
           </div>
 
           <div class="row" *ngIf="optionBoxs.length > 0">
-            <div class="col-2"></div>
-            <div class="col-10">
+            <div class="col-12">
               <div class="btn-option" (click)="addOptionBox()" *ngIf="optionBoxs.length < 2">
                 <mat-icon class="add-cus">add</mat-icon> เพิ่มตัวเลือกสินค้า
               </div>
