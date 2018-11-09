@@ -86,7 +86,7 @@ h3 {
 }
 
 .fix-col {
-    border: dotted;
+    border: dashed;
     border-color: #a9a9a9;
     height: 180px;
     position: relative;
@@ -365,7 +365,7 @@ thead {
     position: absolute;
     z-index: 999;
     margin: 6px 0 0 10px;
-    background-color: #ffffff;
+    background-color: #f7f7f7;
     padding: 4px;
     border-radius: 4px;
 }

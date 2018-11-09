@@ -23,9 +23,9 @@
 }
 
 .fix-col {
-    border: dotted;
+    border: dashed;
     border-color: #a9a9a9;
-    height: 20rem;
+    height: 16rem;
     position: relative;
     cursor: pointer;
 }
@@ -51,7 +51,7 @@
     position: relative;
     padding: 0px;
     border-radius: 4px;
-    height: 20rem;
+    height: 16rem;
 }
 
 .p-name {
@@ -59,12 +59,24 @@
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
+    text-align: left;
+    padding: 10px;
+}
+
+.txt-stock {
+    white-space: nowrap;
+    font-size: 12px;
+    position: absolute;
+    right: 6px;
+    color: #c0c0c0;
 }
 
 .txt-price {
     color: #ff9558;
     white-space: nowrap;
     font-size: 15px;
+    left: 6px;
+    position: absolute;
 }
 
 .fix-col-2 {
