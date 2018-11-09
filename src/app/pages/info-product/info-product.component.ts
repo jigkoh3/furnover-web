@@ -35,7 +35,7 @@ export class InfoProductComponent implements OnInit {
   isOptionBox = false;
   optionBoxs: Array<any> = [];
   optionList: Array<any> = [];
-
+  isValidWholsale = false;
 
   constructor(private activatedRoute: ActivatedRoute,
     private restApi: RestApiService,
@@ -146,6 +146,17 @@ export class InfoProductComponent implements OnInit {
     });
   }
 
+  checkMinMax() {
+    this.isValidWholsale = false;
+    this.wholesaleList.forEach(el => {
+      if (el.min > el.max) {
+        this.isValidWholsale = true;
+      } else if (el.max < el.min) {
+        this.isValidWholsale = true;
+      }
+    });
+  }
+
   validatePriceAndStock() {
     const reg = new RegExp('^[0-9]+$');
     if (this.price < 0 || !reg.test(this.price)) {
@@ -194,6 +205,8 @@ export class InfoProductComponent implements OnInit {
         }, 100);
       }
     });
+
+    this.checkMinMax();
   }
 
   //////////////////////////////////////////////

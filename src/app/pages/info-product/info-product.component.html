@@ -285,6 +285,10 @@
                 </div>
               </div>
             </div>
+            <div *ngIf="isSamePrice && wholesaleList.length > 0 && isValidWholsale" class="err-msg">
+              <mat-icon class="ic-position">error</mat-icon> <span class="txt-icon">แต่ละช่วงราคา
+                ต่ำสุดต้องน้อยกว่าหรือเท่ากับสูงสุด</span>
+            </div>
           </span>
 
           <div class="row ws-padding">

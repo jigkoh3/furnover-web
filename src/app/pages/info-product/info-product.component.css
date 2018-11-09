@@ -352,3 +352,10 @@ thead {
     left: 10px;
     margin-top: 14px;
 }
+
+.err-msg {
+    padding-top: 10px;
+    background-color: #ff9372;
+    color: #ffffff;
+    border-radius: 4px;
+}
