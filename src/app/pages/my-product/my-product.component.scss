@@ -10,14 +10,6 @@
     text-align: left;
 }
 
-// .select {
-//     font-weight: bold;
-//     cursor: pointer;
-// }
-// .un-select {
-//     color: #dadada;
-//     cursor: pointer;
-// }
 .select {
     margin: 2px;
     min-width: unset;
@@ -85,11 +77,11 @@
 }
 
 .ch_box {
-    left: 0;
+    left: 10px;
     margin-left: 0.7rem;
-    // margin-top: 0.5rem;
     position: absolute;
     z-index: 999;
+    margin-top: 20px;
 }
 
 .product-item__badges {
@@ -168,10 +160,9 @@ mat-tab-group {
 }
 
 .portal-panel {
-    width: 100%; // min-width: 1200px;
-    // height: 80px;
+    width: 100%;
     background: #fff;
-    box-shadow: 0 0.1rem 0.4rem rgba(0, 0, 0, .1); // position: fixed;
+    box-shadow: 0 0.1rem 0.4rem rgba(0, 0, 0, .1);
     top: 56px;
     left: 0;
     z-index: 90000;
@@ -213,4 +204,42 @@ mat-tab-group {
     -webkit-justify-content: center;
     -ms-flex-pack: center;
     justify-content: center;
+}
+
+.wholesale-badge {
+    left: 0;
+    background-color: #00d0ff;
+    position: absolute;
+    color: white;
+    padding-left: 2px;
+    padding-right: 2px;
+    font-size: 14px;
+    border-radius: 4px;
+}
+
+.badge-box {
+    position: absolute;
+    z-index: 999;
+    right: 8px;
+    font-size: 0.8rem;
+    background-color: rgba(255, 212, 36, .9);
+    color: #ffffff;
+    width: 36px;
+    font-weight: bold;
+}
+
+.badge-box:after {
+    content: "";
+    width: 0;
+    height: 0;
+    left: 0;
+    bottom: -4px;
+    border-style: solid;
+    position: absolute;
+    border-width: 0 18px 4px;
+    border-color: transparent rgba(255,212,36,.9);
+}
+
+.badge-num {
+    color: #ff8100;
 }

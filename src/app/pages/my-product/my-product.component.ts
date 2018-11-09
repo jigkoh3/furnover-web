@@ -31,18 +31,18 @@ export class MyProductComponent implements OnInit {
 
   tabs: any = [];
   pageData: any = {
-    shop_id: "",
-    status: "",
-    name: "",
+    shop_id: '',
+    status: '',
+    name: '',
     page: 1,
     limit: 30
   };
 
-  showDelete: boolean = false;
+  showDelete = false;
   selectedProduct: any = [];
-  checked: boolean = false;
-  // sortIndex: number = 0;
+  checked = false;
   tabStatus: any = 'all';
+  products: Array<any> = [];
   constructor(
     public route: Router,
     public restApi: RestApiService,
@@ -57,8 +57,9 @@ export class MyProductComponent implements OnInit {
 
   async getStatus() {
     this.spinner.show();
-    let shop = window.localStorage.getItem(Constants.URL() + '@usershop') ? JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop')) : null;
-    let objectData = {
+    const shop = window.localStorage.getItem(Constants.URL() + '@usershop') ?
+      JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop')) : null;
+    const objectData = {
       shop_id: shop.shop_id,
       status: this.status,
       name: this.pageData.name,
@@ -66,7 +67,7 @@ export class MyProductComponent implements OnInit {
       limit: this.pageData.limit
     };
     try {
-      let res: any = await this.restApi.post(Constants.URL() + '/api/product-shop-list', objectData);
+      const res: any = await this.restApi.post(Constants.URL() + '/api/product-shop-list', objectData);
       if (res['status'] === 200) {
         this.statusArray = res.data.status;
         this.spinner.hide();
@@ -74,7 +75,7 @@ export class MyProductComponent implements OnInit {
       }
     } catch (error) {
       this.spinner.hide();
-      this.dataService.error("โหลดข้อมูลล้มเหลว กรุณาลองใหม่อีกครั้ง")
+      this.dataService.error('โหลดข้อมูลล้มเหลว กรุณาลองใหม่อีกครั้ง');
     }
   }
 
@@ -94,9 +95,10 @@ export class MyProductComponent implements OnInit {
     this.dataService.warning('');
 
     this.spinner.show();
-    this.shopUser = window.localStorage.getItem(Constants.URL() + '@usershop') ? JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop')) : null;
+    this.shopUser = window.localStorage.getItem(Constants.URL() + '@usershop') ?
+      JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop')) : null;
 
-    let objectData = {
+    const objectData = {
       shop_id: this.shopUser.shop_id,
       status: this.status,
       name: this.pageData.name,
@@ -104,26 +106,22 @@ export class MyProductComponent implements OnInit {
       limit: this.pageData.limit
     };
     try {
-      let res: any = await this.restApi.post(Constants.URL() + '/api/product-shop-list', objectData);
+      const res: any = await this.restApi.post(Constants.URL() + '/api/product-shop-list', objectData);
       if (res['status'] === 200) {
         this.data = res.data;
-        console.log(this.data);
+        this.products = res.data.product.items;
         this.tabs = res.data.tabs;
         this.spinner.hide();
 
-        if (this.data && this.data.products.length === 0) {
+        if (this.data && this.data.product.items.length === 0) {
           this.dataService.warning('ไม่พบข้อมูลสินค้า');
         }
       }
     } catch (error) {
       this.spinner.show();
-      this.dataService.error("โหลดข้อมูลล้มเหลว กรุณาลองใหม่อีกครั้ง")
+      this.dataService.error('โหลดข้อมูลล้มเหลว กรุณาลองใหม่อีกครั้ง');
     }
   }
-
-  // selectSortIndex(item, i) {
-  //   this.sortIndex = i;
-  // }
 
   gotoCreateProduct() {
     this.route.navigate(['/info-product']);
@@ -134,7 +132,7 @@ export class MyProductComponent implements OnInit {
   }
 
   search(event) {
-    if (event.keyCode == 13) {
+    if (event.keyCode === 13) {
       this.pageData.page = 1;
       this.getProduct();
     }
@@ -161,7 +159,7 @@ export class MyProductComponent implements OnInit {
     if (event.checked) {
       this.showDelete = true;
       this.selectedProduct.push(item);
-      if (this.data.products.length === this.selectedProduct.length) {
+      if (this.data.product.items.length === this.selectedProduct.length) {
         this.checked = true;
       }
     } else {
@@ -180,7 +178,6 @@ export class MyProductComponent implements OnInit {
         this.showDelete = false;
       }
     }
-    // console.log(this.selectedProduct);
   }
 
   onselectAll(event) {
@@ -195,7 +192,6 @@ export class MyProductComponent implements OnInit {
         this.selectedProduct = [];
       }
     });
-    // console.log(this.selectedProduct);
   }
 
   openDialog(): void {
@@ -209,10 +205,6 @@ export class MyProductComponent implements OnInit {
       if (result) {
         this.showDelete = false;
         this.getProduct();
-      }
-      else {
-        // this.showDelete = false;
-        // this.selectedProduct = [];
       }
     });
   }
