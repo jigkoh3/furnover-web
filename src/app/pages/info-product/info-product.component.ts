@@ -24,32 +24,12 @@ export class InfoProductComponent implements OnInit {
   price = null;
   stock = null;
   resData: any = {};
-  isOptions = false;
-  dataSource: Array<any> = [];
-  isShowMainOption1 = false;
-  isShowMainOption2 = false;
-  isShowCol1 = false;
-  isShowCol2 = false;
-  nameOption1 = '';
-  nameOption2 = '';
   prepare = false;
-  mainOptions_1: Array<any> = [];
-  mainOptions_2: Array<any> = [];
   toggleSubMenu = false;
   shippings: Array<any> = [];
   stateSubmenu: Array<any> = [];
   wholesaleList: Array<any> = [];
   images: Array<any> = [];
-  priceList: Array<any> = [];
-  stockType: Array<any> = [
-    {
-      name: '',
-      items: []
-    },
-    {
-      name: '',
-      items: []
-    }];
   isSamePrice = true;
   ///////////////////// new price list////////
   isOptionBox = false;
@@ -153,8 +133,27 @@ export class InfoProductComponent implements OnInit {
       });
     }
     this.optionList = optionList;
-    console.log(this.optionList);
-    console.log(this.optionBoxs);
+    this.checkSamePrice();
+  }
+
+  checkSamePrice() {
+    this.checkNum();
+    this.isSamePrice = true;
+    this.optionList.forEach(el => {
+      if (this.optionList[0].price !== el.price) {
+        this.isSamePrice = false;
+      }
+    });
+  }
+
+  checkNum() {
+    this.optionList.forEach(el => {
+      if (el.price < 0) {
+        el.price = 0;
+      } else if (el.stock < 0) {
+        el.stock = 0;
+      }
+    });
   }
 
   //////////////////////////////////////////////
@@ -271,12 +270,12 @@ export class InfoProductComponent implements OnInit {
 
       this.optionList = this.data.prices;
     }
+    this.checkSamePrice();
     this.wholesaleList = this.data.wholesale;
     this.findNamebyLogistic();
     if (this.data.prepareshipping > 2) {
       this.prepare = true;
     }
-    this.checkSamePrice();
   }
 
   tranformTxt(txt) {
@@ -285,24 +284,6 @@ export class InfoProductComponent implements OnInit {
       return txtArr[1];
     } else {
       return txt;
-    }
-  }
-
-  deleteMainOption(idx) {
-    if (idx === 1) {
-      if (this.isShowMainOption2) {
-        this.isShowMainOption1 = true;
-      } else {
-        this.isShowMainOption1 = false;
-        this.isOptions = false;
-        this.dataSource = [];
-      }
-    } else if (idx === 2) {
-      this.isShowMainOption2 = false;
-      this.isShowMainOption1 = true;
-      this.stockType[1].name = '';
-      this.stockType[1].items = [];
-      this.generateDataSource(0);
     }
   }
 
@@ -396,15 +377,6 @@ export class InfoProductComponent implements OnInit {
     }
   }
 
-  checkSamePrice() {
-    this.isSamePrice = true;
-    this.dataSource.forEach(el => {
-      if (this.dataSource[0].price !== el.price) {
-        this.isSamePrice = false;
-      }
-    });
-  }
-
   delWholesale(index) {
     this.wholesaleList.splice(index, 1);
   }
@@ -472,87 +444,6 @@ export class InfoProductComponent implements OnInit {
           break;
         }
       }
-    }
-  }
-
-  showOption(num) {
-    this.isOptions = true;
-    if (num === 1) {
-      this.stockType[0].items = [];
-      this.isShowMainOption1 = true;
-      this.isShowCol1 = true;
-      this.stockType[0].items.push({
-        name: ''
-      });
-      this.generateDataSource(0);
-    } else if (num === 2) {
-      this.isShowMainOption2 = true;
-      this.isShowCol2 = true;
-      this.stockType[1].items.push({
-        name: ''
-      });
-      this.generateDataSource(1);
-    }
-  }
-
-  generateDataSource(idx) {
-    this.dataSource = [];
-    if (idx === 0) {
-      this.stockType[idx].items.forEach(el => {
-        this.dataSource.push({
-          name1: el.name ? el.name : 'ตัวเลือก',
-          name2: null,
-          price: 0,
-          stock: 0,
-          concat1: el.name,
-          concat2: null
-        });
-      });
-    } else {
-      for (let i = 0; i < this.stockType[0].items.length; i++) {
-        for (let j = 0; j < this.stockType[1].items.length; j++) {
-          this.dataSource.push({
-            name1: this.stockType[0].items[i].name ? this.stockType[0].items[i].name : 'ตัวเลือก',
-            name2: this.stockType[1].items[j].name ? this.stockType[1].items[j].name : 'ตัวเลือก',
-            price: 0,
-            stock: 0,
-            concat1: this.stockType[0].name + ' ' + this.stockType[0].items[i].name,
-            concat2: this.stockType[1].name + ' ' + this.stockType[1].items[j].name
-          });
-        }
-      }
-    }
-  }
-
-  addSubOption1() {
-    this.stockType[0].name = this.nameOption1;
-    if (this.stockType[0].items.length < 20) {
-      this.stockType[0].items.push({
-        name: ''
-      });
-    }
-    this.generateDataSource(0);
-  }
-
-  addSubOption2() {
-    this.stockType[1].name = this.nameOption2;
-    if (this.stockType[1].items.length < 20) {
-      this.stockType[1].items.push({
-        name: ''
-      });
-    }
-    this.generateDataSource(1);
-  }
-
-  delSubOption(idx, index) {
-    const confirm = window.confirm('ยืนยันการลบ');
-    if (confirm) {
-      this.stockType[idx].items.splice(index, 1);
-    }
-    if (idx === 0) {
-      this.generateDataSource(0);
-    } else {
-      this.generateDataSource(1);
     }
   }
 

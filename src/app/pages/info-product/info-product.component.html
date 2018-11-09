@@ -143,9 +143,6 @@
           </div>
 
           <div *ngIf="optionBoxs.length > 0">
-            <!-- <div>
-              <button mat-flat-button color="primary" (click)="genTable()">Test Gen Table</button>
-            </div> -->
             <div class="row mgt" *ngFor="let item of optionBoxs;let i = index">
               <div class="col-2 col-sm-2 col-md-2 txt-left">
                 ตัวเลือกที่ {{i + 1}}
@@ -214,8 +211,8 @@
                   <!-- <td>{{item.type ? item.type : 'ตัวเลือก'}}</td> -->
                   <td>{{tranformTxt(item.type ? item.type : 'ตัวเลือก')}}</td>
                   <td *ngIf="optionBoxs.length > 1">{{tranformTxt(item.name ? item.name : 'ตัวเลือก')}}</td>
-                  <td><input matInput type="number" [(ngModel)]="item.price"></td>
-                  <td><input matInput type="number" [(ngModel)]="item.stock"></td>
+                  <td><input matInput type="number" [(ngModel)]="item.price" (ngModelChange)="checkSamePrice()"></td>
+                  <td><input matInput type="number" [(ngModel)]="item.stock" (ngModelChange)="checkNum()"></td>
                   <td></td>
                 </tr>
               </tbody>
@@ -227,159 +224,6 @@
     <div class="col-0 col-sm-2 col-md-3"></div>
   </div>
   <!-- //////////////////////////////////////////////////////////////// -->
-  <!-- /////////////////////////// input price list//////////// -->
-  <!-- <div class="row">
-    <div class="col-12 col-sm-12 col-md-12">
-      ราคาและคลัง
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-0 col-sm-2 col-md-3"></div>
-    <div class="col-12 col-sm-8 col-md-6">
-      <div class="row">
-        <div class="col col-12 text-center"> -->
-
-  <!-- ///////////// normal price and stock //////// -->
-  <!-- <div *ngIf="!isOptions">
-            <mat-form-field>
-              <input matInput placeholder="ราคา" [(ngModel)]="price" type="number" required>
-            </mat-form-field>
-          </div>
-          <div *ngIf="!isOptions">
-            <mat-form-field>
-              <input matInput placeholder="คลัง" type="number" [(ngModel)]="stock" required>
-            </mat-form-field>
-          </div> -->
-
-  <!-- ///////////////////// -->
-
-  <!-- <div *ngIf="isOptions">
-            <div class="row mgt" *ngIf="isShowMainOption1">
-              <div class="col-2 col-sm-2 col-md-2 txt-left">
-                ตัวเลือกที่ 1
-              </div>
-              <div class="col-10 col-sm-10 col-md-10 options-ctn">
-                <div class="del-btn" (click)="deleteMainOption(1)">
-                  <mat-icon>close</mat-icon>
-                </div>
-                <div>
-                  <mat-form-field>
-                    <input matInput placeholder="ใส่ชื่อตัวเลือก เช่นสี ไซส์..." [(ngModel)]="nameOption1"
-                      (ngModelChange)="generateDataSource(0)" type="text" required>
-                  </mat-form-field>
-                </div>
-                <div *ngIf="stockType[0].items.length > 0">
-                  <div *ngFor="let item of stockType[0].items;let i = index">
-                    <div class="sub-del-btn" (click)="delSubOption(0,i)">
-                      <mat-icon>close</mat-icon>
-                    </div>
-                    <mat-form-field>
-                      <input matInput placeholder="ใส่ข้อมูลตัวเลือก เช่นสีแดง สีขาว..." [(ngModel)]="item.name"
-                        (ngModelChange)="generateDataSource(0)" type="text" required>
-                    </mat-form-field>
-                  </div>
-                </div>
-
-                <div class="btn-option" (click)="addSubOption1()">
-                  <mat-icon class="add-cus">add</mat-icon> เพิ่มตัวเลือก {{stockType[0].items.length }}/20
-                </div>
-              </div>
-            </div>
-
-            <div class="row mgt" *ngIf="isShowMainOption2">
-              <div class="col-2 col-sm-2 col-md-2 txt-left">
-                ตัวเลือกที่ 2
-              </div>
-              <div class="col-10 col-sm-10 col-md-10 options-ctn">
-                <div class="del-btn" (click)="deleteMainOption(2)">
-                  <mat-icon>close</mat-icon>
-                </div>
-                <div>
-                  <mat-form-field>
-                    <input matInput placeholder="ใส่ชื่อตัวเลือก เช่นสี ไซส์..." [(ngModel)]="nameOption2" type="text"
-                      (ngModelChange)="generateDataSource(1)" required>
-                  </mat-form-field>
-                </div>
-                <div *ngIf="stockType[1].items.length > 0">
-                  <div *ngFor="let item of stockType[1].items;let i = index">
-                    <div class="sub-del-btn" (click)="delSubOption(1,i)">
-                      <mat-icon>close</mat-icon>
-                    </div>
-                    <mat-form-field>
-                      <input matInput placeholder="ใส่ข้อมูลตัวเลือก เช่นสีแดง สีขาว..." [(ngModel)]="item.name"
-                        (ngModelChange)="generateDataSource(1)" type="text" required>
-                    </mat-form-field>
-                  </div>
-                </div>
-
-                <div class="btn-option" (click)="addSubOption2()">
-                  <mat-icon class="add-cus">add</mat-icon> เพิ่มตัวเลือก {{stockType[1].items.length }}/20
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-          <div class="row">
-            <div class="col-2">
-
-            </div>
-            <div class="col-10">
-              <div class="btn-option" (click)="showOption(1)" *ngIf="!isShowMainOption1">
-                <mat-icon class="add-cus">add</mat-icon> เพิ่มตัวเลือกสินค้า
-              </div>
-
-              <div class="btn-option" (click)="showOption(2)" *ngIf="isShowMainOption1 && !isShowMainOption2">
-                <mat-icon class="add-cus">add</mat-icon> เพิ่มตัวเลือกสินค้า
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-    <div class="col-0 col-sm-2 col-md-3"></div>
-  </div> -->
-
-  <!-- //////////////////////////// -->
-
-  <!-- /////// price list /// -->
-
-  <!-- <div class="row">
-    <div class="col-0 col-sm-2 col-md-3"></div>
-    <div class="col-12 col-sm-8 col-md-6">
-      <div class="row" *ngIf="isShowMainOption1">
-        <div class="col-12 pl-box">
-          <div class="table-responsive table-full-width">
-            <table class="table ">
-              <thead>
-                <tr class="txt-name">
-                  <th width="150" *ngIf="isShowMainOption1">{{nameOption1 ? nameOption1 : 'ชื่อ'}}</th>
-                  <th width="130" *ngIf="isShowMainOption2">{{nameOption2 ? nameOption2 : 'ชื่อ'}}</th>
-                  <th>ราคา</th>
-                  <th>คลัง</th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let item of dataSource">
-                  <td *ngIf="item.name1">{{item.name1}}</td>
-                  <td *ngIf="item.name2">{{item.name2}}</td>
-                  <td><input matInput type="number" [(ngModel)]="item.price" (ngModelChange)="checkSamePrice()"></td>
-                  <td><input matInput type="number" [(ngModel)]="item.stock"></td>
-                  <td></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-0 col-sm-2 col-md-3"></div>
-  </div> -->
-
-  <!-- ///////// -->
 
   <!-- /////// new wholsale /// -->
 
@@ -449,7 +293,7 @@
               </div>
             </div>
 
-            <div class="col-12" *ngIf="!isSamePrice && isOptions">
+            <div class="col-12" *ngIf="!isSamePrice && optionBoxs.length > 0">
               <mat-icon class="ic-position">error</mat-icon> <span class="txt-icon">ราคาขายส่งจะใช้ได้ก็ต่อเมื่อตัวเลือกสินค้าเป็นราคาเดียวกัน</span>
             </div>
           </div>
@@ -546,9 +390,6 @@
                     </span>
                   </div>
                 </div>
-                <!-- <div class="col-2">
-                  <mat-slide-toggle [(ngModel)]="item.isChecked"></mat-slide-toggle>
-                </div> -->
               </div>
             </div>
           </div>
