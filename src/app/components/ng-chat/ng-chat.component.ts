@@ -6,10 +6,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./ng-chat.component.css']
 })
 export class NgChatComponent implements OnInit {
-
+  isMinimize = true;
   constructor() { }
 
   ngOnInit() {
+  }
+
+  minimize() {
+    if (this.isMinimize) {
+      this.isMinimize = false;
+    } else {
+      this.isMinimize = true;
+    }
   }
 
 }
