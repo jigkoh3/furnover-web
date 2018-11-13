@@ -118,6 +118,13 @@
     font-weight: bold;
 }
 
+.active-user {
+    background-color: #f0f0f0;
+    height: 6vh;
+    border-radius: 2px;
+    font-weight: bold;
+}
+
 .user-title {
     margin-left: 5vw;
     text-overflow: ellipsis;
@@ -137,4 +144,26 @@
 
 .txt-bold {
     font-weight: bold;
+}
+
+.clear-fix {
+    height: 4vh;
+}
+
+.typing-box {
+    position: fixed;
+    bottom: 8px;
+    width: 38vw;
+    background-color: #eeeeee;
+    height: 16vh;
+}
+
+.typing {
+    border: none;
+    border-radius: 2px;
+    width: 36vw;
+    height: 8vh;
+    box-sizing: border-box;
+    padding: 4px;
+    font-size: 0.9rem;
 }
