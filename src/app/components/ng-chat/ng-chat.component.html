@@ -18,7 +18,8 @@
   <div class="row">
     <div class="col-4 scroll-user">
       <div class="row">
-        <div class="col-12 no-padding" *ngFor="let item of [1,2,3,4,5,6,7,8,9,10,11,12,13,14];let i = index" (click)="selectPerson(i)">
+        <div [ngClass]="person === i ? 'col-12 no-padding active-user':'col-12 no-padding'" *ngFor="let item of [1,2,3,4,5,6,7,8,9,10,11,12,13,14];let i = index"
+          (click)="selectPerson(i)">
           <div class="user-title">ลูกค้าคนที่ {{i + 1}}</div>
           <img class="avatar-img" src="https://www.pngarts.com/files/3/Avatar-Transparent-Image.png" alt="image">
         </div>
@@ -26,9 +27,52 @@
         </div>
       </div>
     </div>
-    <div class="col-8">
+    <div class="col-8 conversation-contrainner">
       <div class="row">
         <div class="col-12">
+
+          <div id="box" *ngIf="conversationList.length <= 0" class="center">
+            <img src="https://image.flaticon.com/icons/svg/942/942802.svg" width="64px" height="64px" alt="image">
+            <p>
+              ไม่มีข้อมูลการสนทนา
+            </p>
+          </div>
+          <div id="box" class="chat-container" *ngIf="conversationList.length > 0">
+            <div *ngFor="let item of conversationList">
+              <!-- //me -->
+              <div *ngIf="item.user._id !== receiver">
+                <div class="time-me">{{item.dateTime}}</div>
+                <div class="arrow-right"></div>
+                <div class="box-me">
+                  <div class="bubble-me">
+                    <div class="txt-justify">
+                      {{item.chat}}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- //other -->
+
+              <div *ngIf="item.user._id === receiver">
+                <div class="time-other">{{item.dateTime}}</div>
+                <div>
+                  <img class="avatar" [src]="item.user.img" alt="avatar">
+                </div>
+                <div class="arrow-left"></div>
+                <div class="box-other">
+                  <div class="bubble-other">{{item.chat}}</div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="clear-fix"></div>
+
+          </div>
+
+
+
 
         </div>
       </div>
