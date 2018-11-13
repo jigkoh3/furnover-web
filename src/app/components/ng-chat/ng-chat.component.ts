@@ -11,14 +11,11 @@ export class NgChatComponent implements OnInit {
   chat: string;
   conversationList: Array<any> = [];
   receiver = '';
-  constructor() { }
+  constructor() {
+
+  }
 
   ngOnInit() {
-    // setTimeout(() => {
-    //   const element = document.getElementById('box');
-    //   element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
-    // }, 400);
-
     this.conversationList = [{
       _id: '11111', // ลูกค้า
       user: {
@@ -126,6 +123,10 @@ export class NgChatComponent implements OnInit {
   minimize() {
     if (this.isMinimize) {
       this.isMinimize = false;
+      setTimeout(() => {
+        const element = document.getElementById('box');
+        element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+      }, 200);
     } else {
       this.isMinimize = true;
     }
