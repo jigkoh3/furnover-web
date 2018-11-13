@@ -51,6 +51,7 @@ import { ModalDeleteMyPromotionComponent } from './pages/modals/modal-delete-my-
 import { InfoMyCodeComponent } from './pages/info-my-code/info-my-code.component';
 import { MyCodeComponent } from './pages/my-code/my-code.component';
 import { ModalMessageComponent } from './pages/modals/modal-message/modal-message.component';
+import { NgChatComponent } from './components/ng-chat/ng-chat.component';
 
 @NgModule({
   declarations: [
@@ -95,7 +96,8 @@ import { ModalMessageComponent } from './pages/modals/modal-message/modal-messag
     ModalDeleteMyPromotionComponent,
     InfoMyCodeComponent,
     MyCodeComponent,
-    ModalMessageComponent
+    ModalMessageComponent,
+    NgChatComponent
   ],
   entryComponents: [
     ModalCreateBankAccountComponent,
