@@ -517,11 +517,22 @@ export class InfoProductComponent implements OnInit {
     if (this.optionBoxs.length > 0) {
       this.data.prices = this.optionList;
     } else {
-      this.data.prices = [{
-        name: 'ปกติ',
-        price: this.price,
-        stock: this.stock
-      }];
+      // tslint:disable-next-line:max-line-length
+      if (this.data._id && this.data.prices.length === 1 && (this.data.prices[0].name === 'normal' || this.data.prices[0].name === 'ปกติ')) {
+        this.data.prices = [{
+          _id: this.data.prices[0]._id,
+          name: 'ปกติ',
+          price: this.price,
+          stock: this.stock
+        }];
+      } else {
+        this.data.prices = [{
+          name: 'ปกติ',
+          price: this.price,
+          stock: this.stock
+        }];
+      }
+
     }
     this.data.category_id = this.stateSubmenu[this.stateSubmenu.length - 1] ? this.stateSubmenu[this.stateSubmenu.length - 1]._id : '';
     this.data.wholesale = this.wholesaleList;
