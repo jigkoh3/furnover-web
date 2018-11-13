@@ -244,7 +244,7 @@ export class InfoProductComponent implements OnInit {
         index: i
       });
     });
-    if (this.data.prices.length > 0 && this.data.prices[0].name === 'normal') {
+    if (this.data.prices.length === 1 && (this.data.prices[0].name === 'normal' || this.data.prices[0].name === 'ปกติ')) {
       this.price = this.data.prices[0].price;
       this.stock = this.data.prices[0].stock;
     } else if (this.data.prices.length === 0) {
@@ -518,7 +518,7 @@ export class InfoProductComponent implements OnInit {
       this.data.prices = this.optionList;
     } else {
       this.data.prices = [{
-        name: 'normal',
+        name: 'ปกติ',
         price: this.price,
         stock: this.stock
       }];
