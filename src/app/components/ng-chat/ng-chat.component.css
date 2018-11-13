@@ -49,7 +49,7 @@
 }
 
 .chat-containner-head {
-    background-color: #00bfa5;
+    background-color: #c4c4c4;
     color: #ffffff;
     border-radius: 2px;
 }
@@ -303,4 +303,9 @@
 
 .txt-justify {
     text-align: initial;
+}
+
+.chat-scroll {
+    overflow-y: scroll;
+    height: 52vh;
 }
