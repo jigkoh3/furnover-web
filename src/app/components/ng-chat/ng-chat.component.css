@@ -96,3 +96,28 @@
     cursor: pointer;
     background-color: #ffffff;
 }
+
+.avatar-img {
+    width: 32px;
+    height: 32px;
+    border-radius: 100%;
+    position: absolute;
+    top: 0px;
+}
+
+.no-padding {
+    padding: 0px !important;
+    margin-bottom: 20px;
+}
+
+.user-title {
+    margin-left: 5vw;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.scroll-user {
+    overflow: scroll;
+    height: -webkit-fill-available;
+}
