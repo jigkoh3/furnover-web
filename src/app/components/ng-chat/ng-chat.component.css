@@ -167,3 +167,47 @@
     padding: 4px;
     font-size: 0.9rem;
 }
+
+.sticker {
+    position: fixed;
+    bottom: 10px;
+    font-size: 0.6rem;
+    text-align: center;
+    line-height: 8px;
+    margin-left: 10px;
+    color: #30c900;
+    cursor: pointer;
+}
+
+.image {
+    position: fixed;
+    bottom: 10px;
+    font-size: 0.6rem;
+    text-align: center;
+    line-height: 8px;
+    margin-left: 8vw;
+    color: #ff4081;
+    cursor: pointer;
+}
+
+.product {
+    position: fixed;
+    bottom: 10px;
+    font-size: 0.6rem;
+    text-align: center;
+    line-height: 8px;
+    margin-left: 14vw;
+    color: #007bff;
+    cursor: pointer;
+}
+
+.invoid {
+    position: fixed;
+    bottom: 10px;
+    font-size: 0.6rem;
+    text-align: center;
+    line-height: 8px;
+    margin-left: 19vw;
+    color: #ff9558;
+    cursor: pointer;
+}
