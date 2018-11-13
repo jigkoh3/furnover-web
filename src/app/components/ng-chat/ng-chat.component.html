@@ -10,7 +10,7 @@
     <div class="col-4 bd-right center"><input type="text" class="search" placeholder="ค้นหาผู้ใช้">
       <mat-icon class="search-btn">search</mat-icon>
     </div>
-    <div class="col-8 center">ร้านเฟอร์นิเจอร์ <mat-icon class="setting-btn">settings</mat-icon>
+    <div class="col-8 center txt-bold">ลูกค้าคนที่ {{person + 1}} <mat-icon class="setting-btn">settings</mat-icon>
       <mat-icon class="minimize-btn" (click)="minimize()">remove</mat-icon>
     </div>
   </div>
@@ -18,11 +18,20 @@
   <div class="row">
     <div class="col-4 scroll-user">
       <div class="row">
-        <div class="col-12 no-padding" *ngFor="let item of [1,2,3,4,5,6,7,8,9,10,11,12,13,14]">
-          <div class="user-title">zsdlfsldjflsdjflksdflhsdf</div>
+        <div class="col-12 no-padding" *ngFor="let item of [1,2,3,4,5,6,7,8,9,10,11,12,13,14];let i = index" (click)="selectPerson(i)">
+          <div class="user-title">ลูกค้าคนที่ {{i + 1}}</div>
           <img class="avatar-img" src="https://www.pngarts.com/files/3/Avatar-Transparent-Image.png" alt="image">
         </div>
       </div>
+    </div>
+    <div class="col-8">
+      <!-- // chat containner -->
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-4">
+
     </div>
     <div class="col-8">
 

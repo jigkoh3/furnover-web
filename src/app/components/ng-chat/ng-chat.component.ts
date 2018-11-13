@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NgChatComponent implements OnInit {
   isMinimize = true;
+  person = 0;
   constructor() { }
 
   ngOnInit() {
@@ -18,6 +19,10 @@ export class NgChatComponent implements OnInit {
     } else {
       this.isMinimize = true;
     }
+  }
+
+  selectPerson(i) {
+    this.person = i;
   }
 
 }
