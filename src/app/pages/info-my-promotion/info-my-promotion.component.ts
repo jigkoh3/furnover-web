@@ -63,6 +63,7 @@ export class InfoMyPromotionComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         result.forEach(item => {
+          console.log(item);
           const index = this.data.products.findIndex(findindex => {
             return findindex._id === item._id;
           });

@@ -13,6 +13,7 @@ export class ModalSelectProductComponent implements OnInit {
     public dialogRef: MatDialogRef<ModalSelectProductComponent>
   ) {
     this.datas = paramiter.products;
+    console.log(this.datas);
   }
 
   ngOnInit() {}

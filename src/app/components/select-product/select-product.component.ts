@@ -61,7 +61,7 @@ export class SelectProductComponent implements OnInit {
       if (data["status"] === 200) {
         this.data = data.data;
         this.onCheckSelectedAll();
-        if (this.data.items && this.data.items.length === 0) {
+        if (this.data.product.items && this.data.product.items.length === 0) {
           this.dataService.warning("ไม่พบข้อมูลสินค้า");
         }
       }
@@ -105,7 +105,7 @@ export class SelectProductComponent implements OnInit {
         }
       });
     } else {
-      this.data.products.forEach(item => {
+      this.data.product.items.forEach(item => {
         item.product_id = item._id;
         if (this.validateEditProduct(item)) {
           let index = this.productSelected.findIndex(e => {
@@ -127,7 +127,7 @@ export class SelectProductComponent implements OnInit {
 
   onCheckSelectedAll() {
     this.checked = true;
-    this.data.products.forEach(e => {
+    this.data.product.items.forEach(e => {
       let index = this.productSelected.findIndex(item => {
         return e._id === item.product_id;
       });
@@ -137,7 +137,7 @@ export class SelectProductComponent implements OnInit {
       }
     });
 
-    if (this.data.products.length === 0 && this.productSelected.length === 0) {
+    if (this.data.product.items.length === 0 && this.productSelected.length === 0) {
       this.checked = false;
     }
   }
