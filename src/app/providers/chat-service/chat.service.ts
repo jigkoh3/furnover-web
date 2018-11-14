@@ -7,8 +7,8 @@ import { Constants } from '../../app.constants';
   providedIn: 'root'
 })
 export class ChatService {
-  // private url = Constants.URL() || 'http://localhost:3000';
-  private url = 'http://localhost:3000';
+  private url = Constants.URL();
+  // private url = 'http://localhost:3000';
   private socket;
   constructor() {
     this.initSocket();
