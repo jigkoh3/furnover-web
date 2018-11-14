@@ -54,6 +54,7 @@ import { ModalMessageComponent } from './pages/modals/modal-message/modal-messag
 import { NgChatComponent } from './components/ng-chat/ng-chat.component';
 import { ChatService } from './providers/chat-service/chat.service';
 import { ParamsService } from './providers/params/params.service';
+import { MomentPipe } from './pipes/moment/moment.pipe';
 
 @NgModule({
   declarations: [
@@ -99,7 +100,8 @@ import { ParamsService } from './providers/params/params.service';
     InfoMyCodeComponent,
     MyCodeComponent,
     ModalMessageComponent,
-    NgChatComponent
+    NgChatComponent,
+    MomentPipe
   ],
   entryComponents: [
     ModalCreateBankAccountComponent,
