@@ -52,6 +52,8 @@ import { InfoMyCodeComponent } from './pages/info-my-code/info-my-code.component
 import { MyCodeComponent } from './pages/my-code/my-code.component';
 import { ModalMessageComponent } from './pages/modals/modal-message/modal-message.component';
 import { NgChatComponent } from './components/ng-chat/ng-chat.component';
+import { ChatService } from './providers/chat-service/chat.service';
+import { ParamsService } from './providers/params/params.service';
 
 @NgModule({
   declarations: [
@@ -121,7 +123,7 @@ import { NgChatComponent } from './components/ng-chat/ng-chat.component';
     AppMaterialModule,
     NgxSpinnerModule
   ],
-  providers: [DataService, RestApiService ],
+  providers: [DataService, RestApiService, ChatService, ParamsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

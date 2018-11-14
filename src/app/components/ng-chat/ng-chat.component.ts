@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Constants } from 'src/app/app.constants';
+import { ChatService } from 'src/app/providers/chat-service/chat.service';
 
 @Component({
   selector: 'app-ng-chat',
@@ -11,11 +13,24 @@ export class NgChatComponent implements OnInit {
   chat: string;
   conversationList: Array<any> = [];
   receiver = '';
-  constructor() {
+  connection: any;
+  user: any = {};
+  chatList: Array<any> = [];
+  constructor(private chatService: ChatService) {
 
   }
 
   ngOnInit() {
+    const user = JSON.parse(localStorage.getItem(Constants.URL() + '@usershop')) ?
+      JSON.parse(localStorage.getItem(Constants.URL() + '@usershop')) : {}; // me
+    this.user = user;
+    this.getChatList();
+
+
+
+
+
+
     this.conversationList = [{
       _id: '11111', // ลูกค้า
       user: {
@@ -116,8 +131,39 @@ export class NgChatComponent implements OnInit {
       chat: 'สวัสดีค่ะ มีสินค้าค่ะ',
       dateTime: 'วันนี้, 13:00 น.'
     }];
-
     this.receiver = '1';
+  }
+
+  getChatList() {
+    this.connection = this.chatService.getMessages().subscribe(data => {
+      this.chatList = [];
+      const chatList: any = data;
+      const newChatList: Array<any> = [];
+      chatList.forEach((chatEl, i) => {
+        if (chatEl._id !== this.user.shop._id && chatEl.name !== this.user.shop.name) {
+          newChatList.push(chatEl);
+        }
+      });
+
+      chatList.forEach((chatEl, i) => {
+        if (chatEl.ref) {
+          const countEl = newChatList.filter(el => {
+            return chatEl.ref._id === el._id;
+          });
+          if (countEl.length <= 0) {
+            newChatList.push({
+              dateTime: chatEl.dateTime,
+              img: chatEl.ref.img,
+              lastChat: chatEl.lastChat,
+              name: chatEl.ref.username,
+              _id: chatEl.ref._id
+            });
+          }
+        }
+      });
+      this.chatList = newChatList;
+      console.log(this.chatList);
+    });
   }
 
   minimize() {
