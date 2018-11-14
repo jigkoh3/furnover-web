@@ -15,7 +15,6 @@ export class ChatService {
   }
 
   sendMessage(data) {
-    console.log(data);
     this.socket.emit('message', data);
   }
 

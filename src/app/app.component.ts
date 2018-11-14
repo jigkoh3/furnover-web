@@ -1,16 +1,18 @@
-import { Component, ViewChild, ElementRef, ChangeDetectorRef, HostListener } from '@angular/core';
+import { Component, ViewChild, ElementRef, ChangeDetectorRef, HostListener, AfterViewInit, AfterViewChecked } from '@angular/core';
 import { SidenavService } from './components/sidenav/sidenav.service';
 import * as firebase from 'firebase';
+import { Constants } from './app.constants';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit, AfterViewChecked {
   @ViewChild('appDrawer') appDrawer: ElementRef;
-  mode: string = 'over';
-  opened: boolean = false;
+  mode = 'over';
+  opened = false;
+  user: any = {};
 
   @HostListener('window:resize') onResize() {
     this.onResizeDisplay();
@@ -23,9 +25,18 @@ export class AppComponent {
     this.configFirebase();
   }
 
+  ngAfterViewChecked() {
+    const user = JSON.parse(localStorage.getItem(Constants.URL() + '@usershop')) ?
+      JSON.parse(localStorage.getItem(Constants.URL() + '@usershop')) : {};
+    this.user = user;
+  }
+
   ngAfterViewInit() {
     this.sidenavService.appDrawer = this.appDrawer;
     this.onResizeDisplay();
+    const user = JSON.parse(localStorage.getItem(Constants.URL() + '@usershop')) ?
+      JSON.parse(localStorage.getItem(Constants.URL() + '@usershop')) : {};
+    this.user = user;
   }
 
   onResizeDisplay() {
@@ -40,13 +51,13 @@ export class AppComponent {
   }
 
   configFirebase() {
-    let config = {
-      apiKey: "AIzaSyCanMutez3Coe6Yg4oEhEgzMK3iHEXauz0",
-      authDomain: "school-hub-37d55.firebaseapp.com",
-      databaseURL: "https://school-hub-37d55.firebaseio.com",
-      projectId: "school-hub-37d55",
-      storageBucket: "school-hub-37d55.appspot.com",
-      messagingSenderId: "116012923728"
+    const config = {
+      apiKey: 'AIzaSyCanMutez3Coe6Yg4oEhEgzMK3iHEXauz0',
+      authDomain: 'school-hub-37d55.firebaseapp.com',
+      databaseURL: 'https://school-hub-37d55.firebaseio.com',
+      projectId: 'school-hub-37d55',
+      storageBucket: 'school-hub-37d55.appspot.com',
+      messagingSenderId: '116012923728'
     };
     firebase.initializeApp(config);
   }

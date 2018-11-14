@@ -66,10 +66,6 @@ export class NgChatComponent implements OnInit, OnDestroy {
           this.chatList.splice(i, 1);
         }
       }
-      // if (this.chatList.length > 0) {
-      //   this.person = this.chatList[0];
-      // } // select defalut
-      console.log(this.chatList);
     });
   }
 
@@ -78,7 +74,7 @@ export class NgChatComponent implements OnInit, OnDestroy {
       this.isMinimize = false;
       setTimeout(() => {
         const element = document.getElementById('box');
-        element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+        element.scrollIntoView({ behavior: 'instant', block: 'end', inline: 'nearest' });
       }, 200);
     } else {
       this.isMinimize = true;
@@ -98,33 +94,34 @@ export class NgChatComponent implements OnInit, OnDestroy {
     };
     this.chatService.getChatDetailList(reqData).subscribe(data => {
       const dataArr: any = data;
-      console.log(dataArr);
       this.conversationList = dataArr;
     });
     setTimeout(() => {
       const element = document.getElementById('box');
-      element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+      element.scrollIntoView({ behavior: 'instant', block: 'end', inline: 'nearest' });
     }, 200);
   }
 
   sendMessage(e) {
-    const sender: any = {
-      _id: this.user.shop._id,
-      username: this.user.shop.name,
-      img: this.user.shop.profileimage.url,
-    };
-    const data = {
-      name: this.person.name,
-      sender: sender,
-      receiver: {
-        _id: this.person._id,
-        username: this.person.name,
-        img: this.person.img
-      },
-      message: this.message
-    };
-    this.chatService.sendMessage(data);
-    this.message = '';
+    if (this.message) {
+      const sender: any = {
+        _id: this.user.shop._id,
+        username: this.user.shop.name,
+        img: this.user.shop.profileimage.url,
+      };
+      const data = {
+        name: this.person.name,
+        sender: sender,
+        receiver: {
+          _id: this.person._id,
+          username: this.person.name,
+          img: this.person.img
+        },
+        message: this.message
+      };
+      this.chatService.sendMessage(data);
+      this.message = '';
+    }
   }
 
 }
