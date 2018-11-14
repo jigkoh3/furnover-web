@@ -21,7 +21,6 @@ export class ChatService {
   initSocket() {
     const user = JSON.parse(localStorage.getItem(Constants.URL() + '@usershop')) ?
       JSON.parse(localStorage.getItem(Constants.URL() + '@usershop')) : {};
-      console.log(user);
     this.socket = io(this.url);
     this.socket.emit('init', { receiver: { _id: user.shop._id } });
   }

@@ -1,5 +1,5 @@
 <div class="chat-box" *ngIf="isMinimize" (click)="minimize()">
-  <div class="badge">2</div>
+  <div class="badge">{{chatList.length}}</div>
   <mat-icon class="icon-chat">chat</mat-icon> <span class="chat-txt">พูดคุย</span>
 </div>
 
@@ -10,7 +10,7 @@
     <div class="col-4 bd-right center"><input type="text" class="search" placeholder="ค้นหาผู้ใช้">
       <mat-icon class="search-btn">search</mat-icon>
     </div>
-    <div class="col-8 center txt-bold">ลูกค้าคนที่ {{person + 1}} <mat-icon class="setting-btn">settings</mat-icon>
+    <div class="col-8 center txt-bold">{{person.name}} <mat-icon class="setting-btn">settings</mat-icon>
       <mat-icon class="minimize-btn" (click)="minimize()">remove</mat-icon>
     </div>
   </div>
@@ -18,13 +18,13 @@
   <div class="row">
     <div class="col-4 scroll-user">
       <div class="row">
-        <div [ngClass]="person === i ? 'col-12 no-padding active-user':'col-12 no-padding'" *ngFor="let item of [1,2,3,4,5,6,7,8,9,10,11,12,13,14];let i = index"
-          (click)="selectPerson(i)">
-          <div class="user-title">ลูกค้าคนที่ {{i + 1}}</div>
-          <img class="avatar-img" src="https://www.pngarts.com/files/3/Avatar-Transparent-Image.png" alt="image">
-        </div>
-        <div class="col-12 clear-fix">
-        </div>
+        <span *ngFor="let item of chatList;let i = index">
+          <div *ngIf="item._id !== user.shop._id" [ngClass]="person._id === item._id ? 'col-12 no-padding active-user':'col-12 no-padding'" (click)="selectPerson(item)">
+            <div class="user-title">{{item.name}}</div>
+            <img class="avatar-img" [src]="item.img" alt="image">
+          </div>
+        </span>
+        <div class="col-12 clear-fix"></div>
       </div>
     </div>
     <div class="col-8 conversation-contrainner">

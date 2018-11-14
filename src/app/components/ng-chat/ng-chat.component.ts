@@ -9,7 +9,7 @@ import { ChatService } from 'src/app/providers/chat-service/chat.service';
 })
 export class NgChatComponent implements OnInit {
   isMinimize = true;
-  person = 0;
+  person: any = {};
   chat: string;
   conversationList: Array<any> = [];
   receiver = '';
@@ -25,12 +25,6 @@ export class NgChatComponent implements OnInit {
       JSON.parse(localStorage.getItem(Constants.URL() + '@usershop')) : {}; // me
     this.user = user;
     this.getChatList();
-
-
-
-
-
-
     this.conversationList = [{
       _id: '11111', // ลูกค้า
       user: {
@@ -162,6 +156,9 @@ export class NgChatComponent implements OnInit {
         }
       });
       this.chatList = newChatList;
+      if (this.chatList.length > 0) {
+        this.person = this.chatList[0];
+      }
       console.log(this.chatList);
     });
   }
@@ -178,8 +175,21 @@ export class NgChatComponent implements OnInit {
     }
   }
 
-  selectPerson(i) {
-    this.person = i;
+  selectPerson(item) {
+    this.person = item;
+    const reqData: any = {
+      sender: {
+        _id: this.user.shop._id
+      },
+      receiver: {
+        _id: item._id
+      }
+    };
+    this.chatService.getChatDetailList(reqData).subscribe(data => {
+      const dataArr: any = data;
+      console.log(dataArr);
+      // this.conversationList = dataArr;
+    });
   }
 
 }
