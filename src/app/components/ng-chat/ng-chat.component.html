@@ -23,6 +23,10 @@
             <div class="user-title">{{item.name}}</div>
             <img class="avatar-img" [src]="item.img" alt="image">
           </div>
+
+          <div class="col-12 center" *ngIf="chatList.length <= 0">
+            ไม่พบข้อมูลลูกค้า
+          </div>
         <!-- </span> -->
         <div class="col-12 clear-fix"></div>
       </div>
@@ -79,7 +83,7 @@
 
       <div class="row typing-box">
         <div class="col-12">
-          <input type="text" class="typing" placeholder="พิมพ์ข้อความ">
+          <input type="text" class="typing" placeholder="พิมพ์ข้อความ" [disabled]="!person._id" [(ngModel)]="message" (keyup.enter)="sendMessage($event)">
         </div>
       </div>
       <div class="sticker">

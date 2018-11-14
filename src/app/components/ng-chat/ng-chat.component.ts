@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Constants } from 'src/app/app.constants';
 import { ChatService } from 'src/app/providers/chat-service/chat.service';
 
@@ -7,7 +7,7 @@ import { ChatService } from 'src/app/providers/chat-service/chat.service';
   templateUrl: './ng-chat.component.html',
   styleUrls: ['./ng-chat.component.css']
 })
-export class NgChatComponent implements OnInit {
+export class NgChatComponent implements OnInit, OnDestroy {
   isMinimize = true;
   person: any = {};
   chat: string;
@@ -16,6 +16,7 @@ export class NgChatComponent implements OnInit {
   connection: any;
   user: any = {};
   chatList: Array<any> = [];
+  message = '';
   constructor(private chatService: ChatService) {
 
   }
@@ -26,6 +27,10 @@ export class NgChatComponent implements OnInit {
     this.user = user;
     this.getChatList();
     this.receiver = this.user.shop._id;
+  }
+
+  ngOnDestroy() {
+    this.connection.unsubscribe();
   }
 
   getChatList() {
@@ -61,9 +66,9 @@ export class NgChatComponent implements OnInit {
           this.chatList.splice(i, 1);
         }
       }
-      if (this.chatList.length > 0) {
-        this.person = this.chatList[0];
-      }
+      // if (this.chatList.length > 0) {
+      //   this.person = this.chatList[0];
+      // } // select defalut
       console.log(this.chatList);
     });
   }
@@ -81,6 +86,7 @@ export class NgChatComponent implements OnInit {
   }
 
   selectPerson(item) {
+    console.log(item);
     this.person = item;
     const reqData: any = {
       sender: {
@@ -95,6 +101,30 @@ export class NgChatComponent implements OnInit {
       console.log(dataArr);
       this.conversationList = dataArr;
     });
+    setTimeout(() => {
+      const element = document.getElementById('box');
+      element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+    }, 200);
+  }
+
+  sendMessage(e) {
+    const sender: any = {
+      _id: this.user.shop._id,
+      username: this.user.shop.name,
+      img: this.user.shop.profileimage.url,
+    };
+    const data = {
+      name: this.person.name,
+      sender: sender,
+      receiver: {
+        _id: this.person._id,
+        username: this.person.name,
+        img: this.person.img
+      },
+      message: this.message
+    };
+    this.chatService.sendMessage(data);
+    this.message = '';
   }
 
 }
