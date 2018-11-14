@@ -1,5 +1,5 @@
 <div class="chat-box" *ngIf="isMinimize" (click)="minimize()">
-  <div class="badge">{{chatList.length}}</div>
+  <!-- <div class="badge">{{chatList.length}}</div> -->
   <mat-icon class="icon-chat">chat</mat-icon> <span class="chat-txt">พูดคุย</span>
 </div>
 
@@ -18,12 +18,12 @@
   <div class="row">
     <div class="col-4 scroll-user">
       <div class="row">
-        <span *ngFor="let item of chatList;let i = index">
-          <div *ngIf="item._id !== user.shop._id" [ngClass]="person._id === item._id ? 'col-12 no-padding active-user':'col-12 no-padding'" (click)="selectPerson(item)">
+        <!-- <span *ngFor="let item of chatList;let i = index"> -->
+          <div [ngClass]="person._id === item._id ? 'col-12 no-padding active-user':'col-12 no-padding'" *ngFor="let item of chatList;let i = index" (click)="selectPerson(item)">
             <div class="user-title">{{item.name}}</div>
             <img class="avatar-img" [src]="item.img" alt="image">
           </div>
-        </span>
+        <!-- </span> -->
         <div class="col-12 clear-fix"></div>
       </div>
     </div>
@@ -40,7 +40,7 @@
           <div id="box" class="chat-container" *ngIf="conversationList.length > 0">
             <div *ngFor="let item of conversationList">
               <!-- //me -->
-              <div *ngIf="item.user._id !== receiver">
+              <div *ngIf="item.user._id === receiver">
                 <div class="time-me">{{item.dateTime}}</div>
                 <div class="arrow-right"></div>
                 <div class="box-me">
@@ -54,7 +54,7 @@
 
               <!-- //other -->
 
-              <div *ngIf="item.user._id === receiver">
+              <div *ngIf="item.user._id !== receiver">
                 <div class="time-other">{{item.dateTime}}</div>
                 <div>
                   <img class="avatar" [src]="item.user.img" alt="avatar">

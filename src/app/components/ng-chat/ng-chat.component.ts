@@ -25,107 +25,7 @@ export class NgChatComponent implements OnInit {
       JSON.parse(localStorage.getItem(Constants.URL() + '@usershop')) : {}; // me
     this.user = user;
     this.getChatList();
-    this.conversationList = [{
-      _id: '11111', // ลูกค้า
-      user: {
-        _id: '1',
-        img: 'https://www.pngarts.com/files/3/Avatar-Transparent-Image.png'
-      },
-      chat: 'สวัสดีครับ มีของหรือเปล่าครับ',
-      dateTime: 'วันนี้, 11:30 น.'
-    },
-    {
-      _id: '22222', // เจ้าของร้าน
-      user: {
-        _id: '2',
-        img: 'https://www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png'
-      },
-      chat: 'สวัสดีค่ะ มีสินค้าค่ะ',
-      dateTime: 'วันนี้, 13:00 น.'
-    },
-    {
-      _id: '22222', // เจ้าของร้าน
-      user: {
-        _id: '2',
-        img: 'https://www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png'
-      },
-      // tslint:disable-next-line:max-line-length
-      chat: '** Samsung สวัสดีค่ะ สอบถามสินค้า หรือบริการ กรุณารอสักครู่ .. เนื่องจากมีผู้สอบถามเข้ามาจำนวนมาก เจ้าหน้าที่จะรีบติดต่อกลับโดยเร็ว ขอบคุณค่ะ... THANK YOU!! (สินค้าน้ำหนักเกิน 30 กิโลขึ้นไป กรุงเทพฯ และ ปริมณฑล ส่งฟรี!! )...',
-      dateTime: 'วันนี้, 13:00 น.'
-    },
-    {
-      _id: '22222', // เจ้าของร้าน
-      user: {
-        _id: '2',
-        img: 'https://www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png'
-      },
-      chat: 'สวัสดีค่ะ มีสินค้าค่ะ',
-      dateTime: 'วันนี้, 13:00 น.'
-    },
-    {
-      _id: '22222', // เจ้าของร้าน
-      user: {
-        _id: '2',
-        img: 'https://www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png'
-      },
-      chat: 'สวัสดีค่ะ มีสินค้าค่ะ',
-      dateTime: 'วันนี้, 13:00 น.'
-    },
-    {
-      _id: '22222', // เจ้าของร้าน
-      user: {
-        _id: '2',
-        img: 'https://www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png'
-      },
-      chat: 'สวัสดีค่ะ มีสินค้าค่ะ',
-      dateTime: 'วันนี้, 13:00 น.'
-    },
-    {
-      _id: '22222', // เจ้าของร้าน
-      user: {
-        _id: '2',
-        img: 'https://www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png'
-      },
-      chat: 'สวัสดีค่ะ มีสินค้าค่ะ',
-      dateTime: 'วันนี้, 13:00 น.'
-    },
-    {
-      _id: '22222', // เจ้าของร้าน
-      user: {
-        _id: '2',
-        img: 'https://www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png'
-      },
-      chat: 'สวัสดีค่ะ มีสินค้าค่ะ',
-      dateTime: 'วันนี้, 13:00 น.'
-    },
-    {
-      _id: '22222', // เจ้าของร้าน
-      user: {
-        _id: '2',
-        img: 'https://www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png'
-      },
-      chat: 'สวัสดีค่ะ มีสินค้าค่ะ',
-      dateTime: 'วันนี้, 13:00 น.'
-    },
-    {
-      _id: '22222', // เจ้าของร้าน
-      user: {
-        _id: '2',
-        img: 'https://www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png'
-      },
-      chat: 'สวัสดีค่ะ มีสินค้าค่ะ',
-      dateTime: 'วันนี้, 13:00 น.'
-    },
-    {
-      _id: '22222', // เจ้าของร้าน
-      user: {
-        _id: '2',
-        img: 'https://www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png'
-      },
-      chat: 'สวัสดีค่ะ มีสินค้าค่ะ',
-      dateTime: 'วันนี้, 13:00 น.'
-    }];
-    this.receiver = '1';
+    this.receiver = this.user.shop._id;
   }
 
   getChatList() {
@@ -156,6 +56,11 @@ export class NgChatComponent implements OnInit {
         }
       });
       this.chatList = newChatList;
+      for (let i = 0; i < this.chatList.length; i++) {
+        if (this.chatList[i]._id === this.user.shop._id) {
+          this.chatList.splice(i, 1);
+        }
+      }
       if (this.chatList.length > 0) {
         this.person = this.chatList[0];
       }
@@ -188,7 +93,7 @@ export class NgChatComponent implements OnInit {
     this.chatService.getChatDetailList(reqData).subscribe(data => {
       const dataArr: any = data;
       console.log(dataArr);
-      // this.conversationList = dataArr;
+      this.conversationList = dataArr;
     });
   }
 
