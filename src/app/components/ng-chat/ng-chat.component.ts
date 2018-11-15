@@ -1,7 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Constants } from 'src/app/app.constants';
 import { ChatService } from 'src/app/providers/chat-service/chat.service';
-
 @Component({
   selector: 'app-ng-chat',
   templateUrl: './ng-chat.component.html',
@@ -45,22 +44,22 @@ export class NgChatComponent implements OnInit, OnDestroy {
         }
       });
 
-      chatList.forEach((chatEl, i) => {
-        if (chatEl.ref) {
-          const countEl = newChatList.filter(el => {
-            return chatEl.ref._id === el._id;
-          });
-          if (countEl.length <= 0) {
-            newChatList.push({
-              dateTime: chatEl.dateTime,
-              img: chatEl.ref._id.profileImageURL ? chatEl.ref._id.profileImageURL : '',
-              lastChat: chatEl.lastChat,
-              name: chatEl.ref._id.displayname,
-              _id: chatEl.ref._id._id
-            });
-          }
-        }
-      });
+      // chatList.forEach((chatEl, i) => {
+      //   if (chatEl.ref) {
+      //     const countEl = newChatList.filter(el => {
+      //       return chatEl.ref._id === el._id;
+      //     });
+      //     if (countEl.length <= 0) {
+      //       newChatList.push({
+      //         dateTime: chatEl.dateTime,
+      //         img: chatEl.ref._id.profileImageURL ? chatEl.ref._id.profileImageURL : '',
+      //         lastChat: chatEl.lastChat,
+      //         name: chatEl.ref._id.displayname,
+      //         _id: chatEl.ref._id._id
+      //       });
+      //     }
+      //   }
+      // });
 
       this.chatList = newChatList;
       for (let i = 0; i < this.chatList.length; i++) {
@@ -84,7 +83,6 @@ export class NgChatComponent implements OnInit, OnDestroy {
   }
 
   selectPerson(item) {
-    console.log(item);
     this.person = item;
     const reqData: any = {
       sender: {
@@ -94,9 +92,7 @@ export class NgChatComponent implements OnInit, OnDestroy {
         _id: item._id
       }
     };
-    console.log(reqData);
     this.chatService.getChatDetailList(reqData).subscribe(data => {
-      console.log(data);
       const dataArr: any = data;
       this.conversationList = dataArr;
     });
@@ -110,16 +106,14 @@ export class NgChatComponent implements OnInit, OnDestroy {
     if (this.message) {
       const sender: any = {
         _id: this.user.shop._id,
-        username: this.user.shop.name,
-        img: this.user.shop.profileimage.url,
+        role: 'shop'
       };
       const data = {
         name: this.person.name,
         sender: sender,
         receiver: {
           _id: this.person._id,
-          username: this.person.name,
-          img: this.person.img
+          role: 'member'
         },
         message: this.message
       };
