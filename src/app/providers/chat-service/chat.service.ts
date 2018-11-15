@@ -7,8 +7,8 @@ import { Constants } from '../../app.constants';
   providedIn: 'root'
 })
 export class ChatService {
-  private url = Constants.URL();
-  // private url = 'http://localhost:3000';
+  // private url = Constants.URL();
+  private url = 'http://localhost:3000'; // local
   private socket;
   constructor() {
     this.initSocket();
@@ -22,7 +22,7 @@ export class ChatService {
     const user = JSON.parse(localStorage.getItem(Constants.URL() + '@usershop')) ?
       JSON.parse(localStorage.getItem(Constants.URL() + '@usershop')) : {};
     this.socket = io(this.url);
-    this.socket.emit('init', { receiver: { _id: user.shop._id } });
+    this.socket.emit('init', { receiver: { _id: user.shop._id, role: 'shop' } });
   }
 
   getMessages() {

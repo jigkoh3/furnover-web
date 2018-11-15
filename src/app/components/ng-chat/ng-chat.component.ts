@@ -35,6 +35,7 @@ export class NgChatComponent implements OnInit, OnDestroy {
 
   getChatList() {
     this.connection = this.chatService.getMessages().subscribe(data => {
+      console.log(data);
       this.chatList = [];
       const chatList: any = data;
       const newChatList: Array<any> = [];
@@ -52,14 +53,15 @@ export class NgChatComponent implements OnInit, OnDestroy {
           if (countEl.length <= 0) {
             newChatList.push({
               dateTime: chatEl.dateTime,
-              img: chatEl.ref.img,
+              img: chatEl.ref._id.profileImageURL ? chatEl.ref._id.profileImageURL : '',
               lastChat: chatEl.lastChat,
-              name: chatEl.ref.username,
-              _id: chatEl.ref._id
+              name: chatEl.ref._id.displayname,
+              _id: chatEl.ref._id._id
             });
           }
         }
       });
+
       this.chatList = newChatList;
       for (let i = 0; i < this.chatList.length; i++) {
         if (this.chatList[i]._id === this.user.shop._id) {
@@ -92,7 +94,9 @@ export class NgChatComponent implements OnInit, OnDestroy {
         _id: item._id
       }
     };
+    console.log(reqData);
     this.chatService.getChatDetailList(reqData).subscribe(data => {
+      console.log(data);
       const dataArr: any = data;
       this.conversationList = dataArr;
     });
