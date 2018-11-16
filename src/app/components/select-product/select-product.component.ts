@@ -92,7 +92,7 @@ export class SelectProductComponent implements OnInit {
 
   onSelectedAll() {
     if (this.checked) {
-      this.data.products.forEach(item => {
+      this.data.product.items.forEach(item => {
         item.product_id = item._id;
         if (this.validateEditProduct(item)) {
           let index = this.productSelected.findIndex(e => {
