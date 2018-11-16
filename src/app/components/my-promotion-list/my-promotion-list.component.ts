@@ -13,6 +13,8 @@ export class MyPromotionListComponent implements OnInit {
     @Output() outputData = new EventEmitter();
     // data: Array<any> = [];
 
+    dateLimited: any;
+
     constructor(
         public iconRegistry: MatIconRegistry,
         public sanitizer: DomSanitizer) {
@@ -23,6 +25,7 @@ export class MyPromotionListComponent implements OnInit {
 
     ngOnInit() {
         this.getData();
+        this.dateLimit();
     }
     getData() {
         console.log(this.data);
@@ -91,4 +94,13 @@ export class MyPromotionListComponent implements OnInit {
             this.data.products.splice(i, 1);
         }
     }
+
+    dateLimit() {
+        const now: any = new Date();
+        const createDate: any = new Date(this.data.created);
+        const hours = Math.abs(now - createDate) / 36e5;
+        console.log(hours);
+        this.dateLimited = hours;
+    }
+
 }
