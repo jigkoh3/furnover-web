@@ -53,6 +53,7 @@ export class InfoMyCodeComponent implements OnInit {
   _enddate: any;
   itemId: any;
   _itemtype: boolean = false;
+  status: any;
 
   constructor(
     public dialog: MatDialog,
@@ -71,6 +72,10 @@ export class InfoMyCodeComponent implements OnInit {
           this.itemId = params['item'];
           this.initLoadData();
         }
+        if (params['status']) {
+          this.status = params['status'];
+          console.log(this.status);
+        }
       });
   }
 
@@ -78,6 +83,7 @@ export class InfoMyCodeComponent implements OnInit {
     this.spinner.show();
     try {
       const res: any = await this.restApi.get(Constants.URL() + '/api/mycode/' + this.itemId);
+      console.log(res);
       if (res.data._id) {
         this.data = res.data;
         this.data.cash = this.data.cash || {};
@@ -102,10 +108,10 @@ export class InfoMyCodeComponent implements OnInit {
     console.log(e);
     if (e == true) {
       this.data.itemtype = 'all';
-      console.log(this.data.itemtype);
+      // console.log(this.data.itemtype);
     } else {
       this.data.itemtype = 'item';
-      console.log(this.data.itemtype);
+      // console.log(this.data.itemtype);
     }
   }
 
@@ -226,6 +232,19 @@ export class InfoMyCodeComponent implements OnInit {
     this.route.navigate(['my-code']);
   }
 
+  async cancelCode() {
+    // this.spinner.show();
+    // try {
+      
+    //   this.spinner.hide();
+    //   this.route.navigate(['my-code']);
+    // } catch (error) {
+    //   this.spinner.hide();
+    //   this.dataService.error('ยกเลิกโค้ดส่วนลดไม่สำเร็จ');
+    // }
+  }
+
+
   async deleteCode() {
     let conf = confirm("ยืนยันการลบที่อยู่");
     if (conf) {
@@ -242,6 +261,7 @@ export class InfoMyCodeComponent implements OnInit {
       }
     }
   }
+
 
   validateNumber() {
     //ใช้เช็คการกรอกตัวเลขในช่่อง
