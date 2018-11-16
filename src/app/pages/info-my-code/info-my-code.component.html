@@ -33,11 +33,8 @@
         <div class="col-md-9">
           <div class="prefix-label">{{prefixUppercase}}</div>
           <mat-form-field>
-            <input class="prefix-code" maxlength="5" matInput [(ngModel)]="data.code" (ngModelChange)="checkCode()">
-<<<<<<< HEAD
-            <input matInput [(ngModel)]="data.code" [disabled]="status === 'end'">
-=======
->>>>>>> 06e7373a3e15ef20e83b6cfd3e5100dd21fc8b22
+            <input class="prefix-code" maxlength="5" matInput [(ngModel)]="data.code" (ngModelChange)="checkCode()"
+              [disabled]="status === 'end'">
           </mat-form-field>
           <div class="box-preview">
             <span>กรุณาใส่ A-Z, 0-9; สูงสุด 5 ตัวอักษร</span><br>
@@ -64,13 +61,14 @@
         <div class="col-1"></div>
         <div class="col-md-4" *ngIf="data.codetype === 'cash'">
           <mat-form-field>
-            <input matInput type="tel" placeholder="จำนวนส่วนลด(บาท)" [(ngModel)]="data.cash.discount" [disabled]="status === 'end'">
+            <input matInput type="tel" placeholder="จำนวนส่วนลด(บาท)" [(ngModel)]="data.cash.discount" [disabled]="status === 'end'"
+              [disabled]="status === 'end'" (ngModelChange)="checkNumCash(data.cash.discount)">
           </mat-form-field>
         </div>
         <div class="col-md-4" *ngIf="data.codetype === 'percentage'">
           <mat-form-field>
             <input matInput type="tel" placeholder="จำนวนส่วนลด(เปอร์เซ็น)" [(ngModel)]="data.percentage.discount"
-              [disabled]="status === 'end'">
+              [disabled]="status === 'end'" (ngModelChange)="checkNumPercen(data.percentage.discount)">
           </mat-form-field>
         </div>
       </div>
@@ -90,7 +88,8 @@
         <div class="col-md-3"></div>
         <div class="col-md-9">
           <mat-form-field>
-            <input matInput placeholder="กำหนดราคาสูงสุด" [(ngModel)]="data.percentage.setamount" [disabled]="status === 'end'">
+            <input matInput type="tel" placeholder="กำหนดราคาสูงสุด" [(ngModel)]="data.percentage.setamount" [disabled]="status === 'end'"
+              (ngModelChange)="checkNumMax(data.percentage.setamount)">
           </mat-form-field>
         </div>
       </div>
@@ -100,7 +99,7 @@
         </div>
         <div class="col-md-9">
           <mat-form-field>
-            <input matInput type="tel" [(ngModel)]="data.cash.minprice" [disabled]="status === 'end'">
+            <input matInput type="tel" [(ngModel)]="data.cash.minprice" [disabled]="status === 'end'" (ngModelChange)="checkNumCashMin(data.cash.minprice)">
           </mat-form-field>
         </div>
       </div>
@@ -110,7 +109,8 @@
         </div>
         <div class="col-md-9">
           <mat-form-field>
-            <input matInput type="tel" [(ngModel)]="data.percentage.minprice" [disabled]="status === 'end'">
+            <input matInput type="tel" [(ngModel)]="data.percentage.minprice" [disabled]="status === 'end'"
+              (ngModelChange)="checkNumPerMin(data.percentage.minprice)">
           </mat-form-field>
         </div>
       </div>
@@ -121,19 +121,27 @@
         <div class="col-md-4">
           <mat-form-field>
             <input matInput [matDatepicker]="dp" placeholder="วันเริ่มต้น" (ngModelChange)="startDate($event)"
-              [(ngModel)]="_startdate" [disabled]="status === 'end'">
+              [(ngModel)]="_startdate" disabled>
             <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
-            <mat-datepicker #dp></mat-datepicker>
+            <mat-datepicker #dp [disabled]="status === 'end' ? true : false"></mat-datepicker>
           </mat-form-field>
         </div>
         <div class="col-md-1"></div>
         <div class="col-md-4">
           <mat-form-field>
             <input matInput [matDatepicker]="dp2" placeholder="วันสิ้นสุด" (ngModelChange)="endDate($event)"
-              [(ngModel)]="_enddate" [disabled]="status === 'end'">
+              [(ngModel)]="_enddate" disabled>
             <mat-datepicker-toggle matSuffix [for]="dp2"></mat-datepicker-toggle>
-            <mat-datepicker #dp2></mat-datepicker>
+            <mat-datepicker #dp2 [disabled]="status === 'end' ? true : false"></mat-datepicker>
           </mat-form-field>
+        </div>
+      </div>
+      <div class="row" no-padding *ngIf="_startdate > _enddate">
+        <div class="col-md-3"></div>
+        <div class="col-md-9">
+          <div class="box-preview">
+            <span>กรุณากรอกวันที่สิ้นสุดให้มากกว่าวันที่เริ่มต้น</span>
+          </div>
         </div>
       </div>
       <div class="row">
@@ -142,7 +150,7 @@
         </div>
         <div class="col-md-9">
           <mat-form-field>
-            <input matInput type="tel" [(ngModel)]="data.codeqty" [disabled]="status === 'end'" >
+            <input matInput type="tel" [(ngModel)]="data.codeqty" [disabled]="status === 'end'" (ngModelChange)="checkNumQty(data.codeqty)">
           </mat-form-field>
         </div>
       </div>
@@ -179,7 +187,7 @@
         <div class="div-img container">
           <img [src]="item.image ? item.image.url:''" class="img-style">
           <div class="topright">
-            <mat-icon svgIcon="del" class="setting-icon-del"  (click)="delProd(item)"></mat-icon>
+            <mat-icon svgIcon="del" class="setting-icon-del" (click)="delProd(item)"></mat-icon>
           </div>
         </div>
       </mat-card>
@@ -193,7 +201,7 @@
   <div class="row padding-top-btn">
     <div class="col-12 col-md-5"></div>
     <div class="col-12 col-md-1">
-      <button mat-flat-button color="primary" style="width:100%;" (click)="saveData()">บันทึก</button>
+      <button mat-flat-button color="primary" style="width:100%;" (click)="saveData()" [disabled]="_startdate > _enddate || !_startdate|| !_enddate || !data.name || !data.code || !data.cash.minprice || !data.codeqty">บันทึก</button>
     </div>
     <div class="col-12 col-md-1 padding-btn-div">
       <button mat-stroked-button color="primary" style="width:100%;" (click)="clickCancel()">ยกเลิก</button>
