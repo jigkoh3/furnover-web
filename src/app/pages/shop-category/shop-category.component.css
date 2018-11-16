@@ -109,7 +109,7 @@
 }
 
 .setting-icon-del {
-    color: grey;
+    color: red;
     position: relative;
     top: -3px;
 }
