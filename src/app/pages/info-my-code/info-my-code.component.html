@@ -1,7 +1,7 @@
 <mat-card>
   <div class="row">
     <div class="col-12">
-      <div class="btn-del-header" *ngIf="status === 'soon' || status === 'end'">
+      <div class="btn-del-header" *ngIf="status === 'soon'">
         <button mat-stroked-button color="primary" (click)="deleteCode()">ลบโค้ดส่วนลด</button>
       </div>
       <div class="btn-del-header" *ngIf="status === 'now'">
@@ -31,9 +31,15 @@
           <p>โค้ดส่วนลด<span class="star-req">*</span></p>
         </div>
         <div class="col-md-9">
+          <div class="prefix-label">{{prefixUppercase}}</div>
           <mat-form-field>
+            <input class="prefix-code" maxlength="5"  matInput [(ngModel)]="data.code" (ngModelChange)="checkCode()">
             <input matInput [(ngModel)]="data.code" [disabled]="status === 'end'">
           </mat-form-field>
+          <div class="box-preview">
+            <span>กรุณาใส่ A-Z, 0-9; สูงสุด 5 ตัวอักษร</span><br>
+            <span>โค้ดส่วนลดของคุณคือ：{{prefixUppercase}}{{data.code ? data.code:''}}</span>
+          </div>
         </div>
       </div>
       <div class="row">
@@ -132,6 +138,7 @@
         </div>
         <div class="col-md-9">
           <mat-form-field>
+            <input matInput type="tel" [(ngModel)]="data.codeqty">
             <input matInput type="tel" [(ngModel)]="data.codeqty" [disabled]="status === 'end'">
           </mat-form-field>
         </div>
@@ -166,8 +173,9 @@
     </div>
     <div class="col-12 col-md-2 col-sm-4" *ngFor="let item of data.products">
       <mat-card class="mat-card_cus">
-        <div style="background-size: cover;min-height: 7rem;">
-          <img [src]="item.image ? item.image.url:''" class="img-style" (click)="gotoEditProduct(item._id)">
+        <div class="div-img">
+          <!-- <img [src]="item.image ? item.image.url:''" class="img-style" (click)="gotoEditProduct(item._id)"> -->
+          <img [src]="item.image ? item.image.url:''" class="img-style">
         </div>
       </mat-card>
     </div>
