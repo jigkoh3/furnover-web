@@ -2,13 +2,14 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { MomentDateAdapter } from '@angular/material-moment-adapter';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import * as _moment from 'moment';
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatIconRegistry } from '@angular/material';
 import { ModalSelectProductComponent } from '../modals/modal-select-product/modal-select-product.component';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { RestApiService } from 'src/app/providers/rest-api-service/rest-api.service';
 import { Constants } from 'src/app/app.constants';
 import { DataService } from 'src/app/providers/data-service/data.service';
+import { DomSanitizer } from '@angular/platform-browser';
 const moment = _moment;
 export const MY_FORMATS = {
   parse: {
@@ -63,8 +64,17 @@ export class InfoMyCodeComponent implements OnInit {
     private spinner: NgxSpinnerService,
     private activatedRoute: ActivatedRoute,
     private route: Router,
-    public dataService: DataService
-  ) { }
+    public dataService: DataService,
+    iconRegistry: MatIconRegistry,
+    sanitizer: DomSanitizer
+  ) {
+    iconRegistry.addSvgIcon(
+      'del',
+      sanitizer.bypassSecurityTrustResourceUrl('assets/imgs/icons/del.svg'));
+    iconRegistry.addSvgIcon(
+      'drag',
+      sanitizer.bypassSecurityTrustResourceUrl('assets/imgs/icons/drag.svg'));
+  }
 
   ngOnInit() {
     this.activatedRoute
@@ -85,7 +95,7 @@ export class InfoMyCodeComponent implements OnInit {
     let uppercase: String = this.userShop.username.toUpperCase();
     uppercase = uppercase.length >= 4 ? uppercase.substring(0, 4) : uppercase;
     this.prefixUppercase = uppercase;
-    console.log(this.prefixUppercase);
+    // console.log(this.prefixUppercase);
   }
 
   checkCode() {
@@ -174,7 +184,6 @@ export class InfoMyCodeComponent implements OnInit {
   }
 
 
-
   async saveData() {
     this.spinner.show();
     const userShop: any = JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop'));
@@ -247,8 +256,23 @@ export class InfoMyCodeComponent implements OnInit {
     }
   }
 
+  delProd(item) {
+    console.log(item);
+    console.log(this.data.products)
+    const index = this.data.products.findIndex((itm) => {
+      return itm._id.toString() === item._id.toString();
+    });
+    console.log(index);
+    if (index >= 0) {
+      this.data.products.splice(index, 1);
+    }
+
+  }
+
   clickCancel() {
-    this.route.navigate(['my-code']);
+    console.log(this.data.codetype);
+    // this.route.navigate(['my-code']);
+    
   }
 
   async cancelCode() {
