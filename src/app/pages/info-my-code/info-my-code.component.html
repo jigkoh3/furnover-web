@@ -34,6 +34,10 @@
           <div class="prefix-label">{{prefixUppercase}}</div>
           <mat-form-field>
             <input class="prefix-code" maxlength="5" matInput [(ngModel)]="data.code" (ngModelChange)="checkCode()">
+<<<<<<< HEAD
+            <input matInput [(ngModel)]="data.code" [disabled]="status === 'end'">
+=======
+>>>>>>> 06e7373a3e15ef20e83b6cfd3e5100dd21fc8b22
           </mat-form-field>
           <div class="box-preview">
             <span>กรุณาใส่ A-Z, 0-9; สูงสุด 5 ตัวอักษร</span><br>
@@ -58,14 +62,15 @@
           </mat-form-field>
         </div>
         <div class="col-1"></div>
-        <div class="col-md-4" *ngIf="data.codetype == 'cash'">
+        <div class="col-md-4" *ngIf="data.codetype === 'cash'">
           <mat-form-field>
             <input matInput type="tel" placeholder="จำนวนส่วนลด(บาท)" [(ngModel)]="data.cash.discount" [disabled]="status === 'end'">
           </mat-form-field>
         </div>
-        <div class="col-md-4" *ngIf="data.codetype == 'percentage'">
+        <div class="col-md-4" *ngIf="data.codetype === 'percentage'">
           <mat-form-field>
-            <input matInput type="tel" placeholder="จำนวนส่วนลด(เปอร์เซ็น)" [(ngModel)]="data.percentage.discount" [disabled]="status === 'end'">
+            <input matInput type="tel" placeholder="จำนวนส่วนลด(เปอร์เซ็น)" [(ngModel)]="data.percentage.discount"
+              [disabled]="status === 'end'">
           </mat-form-field>
         </div>
       </div>
@@ -85,7 +90,7 @@
         <div class="col-md-3"></div>
         <div class="col-md-9">
           <mat-form-field>
-            <input matInput placeholder="กำหนดราคาสูงสุด" [(ngModel)]="data.percentage.setamount" [disabled]="status === 'end'"> 
+            <input matInput placeholder="กำหนดราคาสูงสุด" [(ngModel)]="data.percentage.setamount" [disabled]="status === 'end'">
           </mat-form-field>
         </div>
       </div>
@@ -171,9 +176,11 @@
     </div>
     <div class="col-12 col-md-2 col-sm-4" *ngFor="let item of data.products">
       <mat-card class="mat-card_cus">
-        <div class="div-img">
-          <!-- <img [src]="item.image ? item.image.url:''" class="img-style" (click)="gotoEditProduct(item._id)"> -->
+        <div class="div-img container">
           <img [src]="item.image ? item.image.url:''" class="img-style">
+          <div class="topright">
+            <mat-icon svgIcon="del" class="setting-icon-del"  (click)="delProd(item)"></mat-icon>
+          </div>
         </div>
       </mat-card>
     </div>

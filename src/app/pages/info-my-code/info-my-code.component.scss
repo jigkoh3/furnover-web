@@ -39,6 +39,24 @@
     // object-fit: cover;
 }
 
+.container {
+    position: relative;
+}
+
+.setting-icon-del {
+    color: red;
+    position: relative;
+    top: -3px;
+    cursor: pointer;
+}
+
+.topright {
+    position: absolute;
+    top: 8px;
+    right: 16px;
+    font-size: 18px;
+}
+
 .div-img {
     // background-size: cover;
     // min-height: 7rem;
