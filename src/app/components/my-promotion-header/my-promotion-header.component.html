@@ -107,7 +107,7 @@
   </div>
   <div class="col-10">
     <h6>{{data.startdate | date:"dd-MM-yyyy" }} {{data.starttime }} - {{data.enddate | date:"dd-MM-yyyy" }}
-      {{data.endtime }} <span class="sp-txt" (click)="edit()">
+      {{data.endtime }} <span class="sp-txt" (click)="edit()" *ngIf="!itemStatus === 'end'">
         <mat-icon class="ic-pst">create</mat-icon> <span class="sp-txt-2">แก้ไขโปรโมชั่น</span>
       </span></h6>
   </div>

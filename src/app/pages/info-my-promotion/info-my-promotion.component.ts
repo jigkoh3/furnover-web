@@ -22,6 +22,7 @@ export class InfoMyPromotionComponent implements OnInit {
     endtime: '00:00'
   };
   itemId: any;
+  itemStatus: any;
   constructor(public dialog: MatDialog,
     private restApi: RestApiService,
     private spinner: NgxSpinnerService,
@@ -38,7 +39,11 @@ export class InfoMyPromotionComponent implements OnInit {
           this.itemId = params['itemId'];
           this.initLoadData();
         }
+        if (params['itemStatus']) {
+          this.itemStatus = params['itemStatus'];
+        }
       });
+      console.log(this.itemStatus)
   }
 
   async initLoadData() {

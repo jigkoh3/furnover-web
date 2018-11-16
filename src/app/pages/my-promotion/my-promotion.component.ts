@@ -88,7 +88,7 @@ export class MyPromotionComponent implements OnInit {
   }
 
   onDetail(item) {
-    this.route.navigate(['/info-my-promotion'], { queryParams: { itemId: item._id } });
+    this.route.navigate(['/info-my-promotion'], { queryParams: { itemId: item._id, itemStatus: item.flag } });
   }
   addZero(i) {
     if (i < 10) {
