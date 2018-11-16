@@ -34,7 +34,6 @@ export class NgChatComponent implements OnInit, OnDestroy {
 
   getChatList() {
     this.connection = this.chatService.getMessages().subscribe(data => {
-      console.log(data);
       this.chatList = [];
       const chatList: any = data;
       const newChatList: Array<any> = [];
