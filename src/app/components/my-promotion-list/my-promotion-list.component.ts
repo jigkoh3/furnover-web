@@ -55,6 +55,27 @@ export class MyPromotionListComponent implements OnInit {
     }
 
     changeData(e) {
+        console.log(this.data.products);
+        this.data.products.forEach(product => {
+            let countIsuse: any = 0;
+            product.prices.forEach(price => {
+                if (price.isuse) {
+                    countIsuse++;
+                }
+            });
+            if (countIsuse === 1) {
+                const filers = product.prices.filter(el => {
+                    return el.isuse === true;
+                });
+                filers[0].forceDisable = true;
+            } else {
+                product.prices.forEach(el => {
+                    if (el.forceDisable) {
+                        el.forceDisable = false;
+                    }
+                });
+            }
+        });
         this.outputData.emit(this.data);
     }
 
