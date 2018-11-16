@@ -27,11 +27,7 @@
                   </td>
                   <td *ngIf="j !== 0"></td>
                   <td>
-<<<<<<< HEAD
-                    <mat-slide-toggle *ngIf="item.prices.length > 1" [(ngModel)]="itm.isuse" (ngModelChange)="changeData($event)"></mat-slide-toggle>
-=======
                     <mat-slide-toggle *ngIf="item.prices.length > 1" [(ngModel)]="itm.isuse" (ngModelChange)="changeData($event)" [disabled]="itemStatus === 'end'"></mat-slide-toggle>
->>>>>>> b8e0f5da241663d7b635a655b27bef3b5f218b1d
                     <span class="txt-name ">
                       {{itm.name}}
                     </span>

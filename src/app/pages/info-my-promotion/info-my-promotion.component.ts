@@ -43,7 +43,7 @@ export class InfoMyPromotionComponent implements OnInit {
           this.itemStatus = params['itemStatus'];
         }
       });
-      console.log(this.itemStatus)
+      console.log(this.itemStatus);
   }
 
   async initLoadData() {
