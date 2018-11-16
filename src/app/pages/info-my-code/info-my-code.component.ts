@@ -180,6 +180,8 @@ export class InfoMyCodeComponent implements OnInit {
     const userShop: any = JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop'));
     this.data.shop_id = userShop.shop._id;
     this.data.itemtype = this._itemtype ? 'all' : 'item';
+    this.checkCode();
+    this.data.code = this.prefixUppercase + this.data.code;
     this.data.products = this._itemtype ? [] : this.data.products;
     this.data.percentage.setamount = this.data.percentage.percentagetype === 'unlimit' ? null : this.data.percentage.setamount;
 
