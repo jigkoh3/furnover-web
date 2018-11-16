@@ -1,8 +1,11 @@
 <mat-card>
   <div class="row">
     <div class="col-12">
-      <div class="btn-del-header">
+      <div class="btn-del-header" *ngIf="status === 'soon' || status === 'end'">
         <button mat-stroked-button color="primary" (click)="deleteCode()">ลบโค้ดส่วนลด</button>
+      </div>
+      <div class="btn-del-header" *ngIf="status === 'now'">
+        <button mat-stroked-button color="primary" (click)="cancelCode()">ยกเลิกโค้ดส่วนลด</button>
       </div>
     </div>
   </div>
@@ -19,7 +22,7 @@
         </div>
         <div class="col-md-9">
           <mat-form-field>
-            <input matInput [(ngModel)]="data.name">
+            <input matInput [(ngModel)]="data.name" [disabled]="status === 'end'">
           </mat-form-field>
         </div>
       </div>
@@ -29,7 +32,7 @@
         </div>
         <div class="col-md-9">
           <mat-form-field>
-            <input matInput [(ngModel)]="data.code">
+            <input matInput [(ngModel)]="data.code" [disabled]="status === 'end'">
           </mat-form-field>
         </div>
       </div>
@@ -39,7 +42,7 @@
         </div>
         <div class="col-md-4">
           <mat-form-field>
-            <mat-select placeholder="เลือกประเภทส่วนลด" [(ngModel)]="data.codetype">
+            <mat-select placeholder="เลือกประเภทส่วนลด" [(ngModel)]="data.codetype" [disabled]="status === 'end'">
               <mat-option value="cash">
                 บาท
               </mat-option>
@@ -52,12 +55,12 @@
         <div class="col-1"></div>
         <div class="col-md-4" *ngIf="data.codetype == 'cash'">
           <mat-form-field>
-            <input matInput type="tel" placeholder="จำนวนส่วนลด(บาท)" [(ngModel)]="data.cash.discount">
+            <input matInput type="tel" placeholder="จำนวนส่วนลด(บาท)" [(ngModel)]="data.cash.discount" [disabled]="status === 'end'">
           </mat-form-field>
         </div>
         <div class="col-md-4" *ngIf="data.codetype == 'percentage'">
           <mat-form-field>
-            <input matInput type="tel" placeholder="จำนวนส่วนลด(เปอร์เซ็น)" [(ngModel)]="data.percentage.discount">
+            <input matInput type="tel" placeholder="จำนวนส่วนลด(เปอร์เซ็น)" [(ngModel)]="data.percentage.discount" [disabled]="status === 'end'">
           </mat-form-field>
         </div>
       </div>
@@ -67,9 +70,9 @@
         </div>
         <div class="col-md-9">
           <mat-radio-group [(ngModel)]="data.percentage.percentagetype">
-            <mat-radio-button value="limit">กำหนดราคา</mat-radio-button>
+            <mat-radio-button value="limit" [disabled]="status === 'end'">กำหนดราคา</mat-radio-button>
             &nbsp;&nbsp;
-            <mat-radio-button value="unlimit">ไม่จำกัด</mat-radio-button>
+            <mat-radio-button value="unlimit" [disabled]="status === 'end'">ไม่จำกัด</mat-radio-button>
           </mat-radio-group>
         </div>
       </div>
@@ -77,7 +80,7 @@
         <div class="col-md-3"></div>
         <div class="col-md-9">
           <mat-form-field>
-            <input matInput placeholder="กำหนดราคาสูงสุด" [(ngModel)]="data.percentage.setamount">
+            <input matInput placeholder="กำหนดราคาสูงสุด" [(ngModel)]="data.percentage.setamount" [disabled]="status === 'end'"> 
           </mat-form-field>
         </div>
       </div>
@@ -87,7 +90,7 @@
         </div>
         <div class="col-md-9">
           <mat-form-field>
-            <input matInput type="tel" [(ngModel)]="data.cash.minprice">
+            <input matInput type="tel" [(ngModel)]="data.cash.minprice" [disabled]="status === 'end'">
           </mat-form-field>
         </div>
       </div>
@@ -97,7 +100,7 @@
         </div>
         <div class="col-md-9">
           <mat-form-field>
-            <input matInput type="tel" [(ngModel)]="data.percentage.minprice">
+            <input matInput type="tel" [(ngModel)]="data.percentage.minprice" [disabled]="status === 'end'">
           </mat-form-field>
         </div>
       </div>
@@ -108,7 +111,7 @@
         <div class="col-md-4">
           <mat-form-field>
             <input matInput [matDatepicker]="dp" placeholder="วันเริ่มต้น" (ngModelChange)="startDate($event)"
-              [(ngModel)]="_startdate">
+              [(ngModel)]="_startdate" [disabled]="status === 'end'">
             <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
             <mat-datepicker #dp></mat-datepicker>
           </mat-form-field>
@@ -117,7 +120,7 @@
         <div class="col-md-4">
           <mat-form-field>
             <input matInput [matDatepicker]="dp2" placeholder="วันสิ้นสุด" (ngModelChange)="endDate($event)"
-              [(ngModel)]="_enddate">
+              [(ngModel)]="_enddate" [disabled]="status === 'end'">
             <mat-datepicker-toggle matSuffix [for]="dp2"></mat-datepicker-toggle>
             <mat-datepicker #dp2></mat-datepicker>
           </mat-form-field>
@@ -129,7 +132,7 @@
         </div>
         <div class="col-md-9">
           <mat-form-field>
-            <input matInput type="tel"  [(ngModel)]="data.codeqty">
+            <input matInput type="tel" [(ngModel)]="data.codeqty" [disabled]="status === 'end'">
           </mat-form-field>
         </div>
       </div>
@@ -147,7 +150,7 @@
   </div>
   <div class="row">
     <div class="col-md-12">
-      <mat-checkbox [(ngModel)]="_itemtype" (ngModelChange)="isChecked(_itemtype)">สามารถใช้ได้กับสินค้าทั้งร้าน</mat-checkbox>
+      <mat-checkbox [(ngModel)]="_itemtype" (ngModelChange)="isChecked(_itemtype)" [disabled]="status === 'end'">สามารถใช้ได้กับสินค้าทั้งร้าน</mat-checkbox>
     </div>
   </div>
   <div class="row" *ngIf="_itemtype === false">
