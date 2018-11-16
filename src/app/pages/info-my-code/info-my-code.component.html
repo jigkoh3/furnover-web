@@ -34,7 +34,10 @@
           <div class="prefix-label">{{prefixUppercase}}</div>
           <mat-form-field>
             <input class="prefix-code" maxlength="5" matInput [(ngModel)]="data.code" (ngModelChange)="checkCode()">
+<<<<<<< HEAD
             <input matInput [(ngModel)]="data.code" [disabled]="status === 'end'">
+=======
+>>>>>>> 06e7373a3e15ef20e83b6cfd3e5100dd21fc8b22
           </mat-form-field>
           <div class="box-preview">
             <span>กรุณาใส่ A-Z, 0-9; สูงสุด 5 ตัวอักษร</span><br>
@@ -139,8 +142,7 @@
         </div>
         <div class="col-md-9">
           <mat-form-field>
-            <input matInput type="tel" [(ngModel)]="data.codeqty">
-            <input matInput type="tel" [(ngModel)]="data.codeqty" [disabled]="status === 'end'">
+            <input matInput type="tel" [(ngModel)]="data.codeqty" [disabled]="status === 'end'" >
           </mat-form-field>
         </div>
       </div>

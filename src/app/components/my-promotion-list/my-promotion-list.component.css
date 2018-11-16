@@ -112,6 +112,7 @@ table {
 
 .del-btn {
     cursor: pointer;
+    color: red;
 }
 
 .txt-no-data {
