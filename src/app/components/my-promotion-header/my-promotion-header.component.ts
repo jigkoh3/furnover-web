@@ -32,6 +32,7 @@ export class MyPromotionHeaderComponent implements OnInit {
   isSave = false;
   isValidateDate: boolean = true;
   @Input() data: any = {};
+  @Input() itemStatus: any = {};
   @Output() outputData = new EventEmitter();
 
   constructor(

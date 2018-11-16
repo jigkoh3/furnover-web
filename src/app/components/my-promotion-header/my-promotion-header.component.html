@@ -96,6 +96,10 @@
 
 <!-- เเก้ไขโปรโมชั่น -->
 <div class="row row-pd" *ngIf="isSave">
+
+  <div class="col-12 padding-heder">
+    <p class="font-header">ข้อมูลโปรโมชั่น</p>
+  </div>
   <div class="col-2 label">
     <h6>ชนิด</h6>
   </div>
@@ -107,7 +111,7 @@
   </div>
   <div class="col-10">
     <h6>{{data.startdate | date:"dd-MM-yyyy" }} {{data.starttime }} - {{data.enddate | date:"dd-MM-yyyy" }}
-      {{data.endtime }} <span class="sp-txt" (click)="edit()">
+      {{data.endtime }} <span class="sp-txt" (click)="edit()" *ngIf="!itemStatus === 'end'">
         <mat-icon class="ic-pst">create</mat-icon> <span class="sp-txt-2">แก้ไขโปรโมชั่น</span>
       </span></h6>
   </div>
