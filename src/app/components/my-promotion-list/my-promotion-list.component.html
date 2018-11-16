@@ -55,7 +55,7 @@
                   </td>
                   <td *ngIf="j !== 0"></td>
                   <td *ngIf="j === 0">
-                    <mat-icon svgIcon="del" class="setting-icon-del del-btn" (click)="delProduct(i)"></mat-icon>
+                    <mat-icon svgIcon="del" class="setting-icon-del del-btn" (click)="delProduct(i)" *ngIf="itemStatus === 'soon'"></mat-icon>
                   </td>
                   <td *ngIf="j !== 0">
 
