@@ -52,7 +52,9 @@ export class InfoMyCodeComponent implements OnInit {
   _startdate: any;
   _enddate: any;
   itemId: any;
-  _itemtype: boolean = false;
+  _itemtype = false;
+  userShop: any = {};
+  prefixUppercase: String = 'CODE';
 
   constructor(
     public dialog: MatDialog,
@@ -72,6 +74,21 @@ export class InfoMyCodeComponent implements OnInit {
           this.initLoadData();
         }
       });
+    const userShop: any = window.localStorage.getItem(Constants.URL() + '@usershop')
+      ? JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop')) : {};
+    this.userShop = userShop;
+    let uppercase: String = this.userShop.username.toUpperCase();
+    uppercase = uppercase.length >= 4 ? uppercase.substring(0, 4) : uppercase;
+    this.prefixUppercase = uppercase;
+    console.log(this.prefixUppercase);
+  }
+
+  checkCode() {
+    const txtRexg: any = this.data.code.replace(/[&\/\\#,+()$~%.'":*?<>^{}\W_]/g, '');
+    setTimeout(() => {
+      this.data.code = txtRexg;
+      this.data.code = txtRexg.toUpperCase();
+    }, 80);
   }
 
   async initLoadData() {

@@ -105,3 +105,23 @@
 ::ng-deep .mat-radio-button.mat-accent .mat-radio-inner-circle {
     background-color: #ff9137;
 }
+
+////////////// new code ////////////
+.prefix-code {
+    padding-left: 3rem;
+    text-transform: uppercase;
+}
+
+.prefix-label {
+    color: #888888;
+    margin-top: 18px;
+    font-size: 0.8rem;
+    position: absolute;
+}
+
+.box-preview {
+    background-color: #fff3e2;
+    padding: 6px;
+    font-size: 0.8rem;
+    color: #a79d84;
+}

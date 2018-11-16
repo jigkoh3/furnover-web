@@ -28,9 +28,14 @@
           <p>โค้ดส่วนลด<span class="star-req">*</span></p>
         </div>
         <div class="col-md-9">
+          <div class="prefix-label">{{prefixUppercase}}</div>
           <mat-form-field>
-            <input matInput [(ngModel)]="data.code">
+            <input class="prefix-code" maxlength="5"  matInput [(ngModel)]="data.code" (ngModelChange)="checkCode()">
           </mat-form-field>
+          <div class="box-preview">
+            <span>กรุณาใส่ A-Z, 0-9; สูงสุด 5 ตัวอักษร</span><br>
+            <span>โค้ดส่วนลดของคุณคือ：{{prefixUppercase}}{{data.code ? data.code:''}}</span>
+          </div>
         </div>
       </div>
       <div class="row">
@@ -129,7 +134,7 @@
         </div>
         <div class="col-md-9">
           <mat-form-field>
-            <input matInput type="tel"  [(ngModel)]="data.codeqty">
+            <input matInput type="tel" [(ngModel)]="data.codeqty">
           </mat-form-field>
         </div>
       </div>
