@@ -89,7 +89,7 @@ export class MyCodeComponent implements OnInit {
       page: this.pageData.page,
       limit: this.pageData.limit
     };
-    console.log(objectData);
+    // console.log(objectData);
     try {
       let res: any = await this.restApi.post(Constants.URL() + '/api/my-code', objectData);
       if (res['status'] === 200) {
@@ -108,7 +108,8 @@ export class MyCodeComponent implements OnInit {
   }
 
   onDetail(item) {
-    this.route.navigate(['/info-my-code'], { queryParams: { item: item._id } });
+    console.log(item);
+    this.route.navigate(['/info-my-code'], { queryParams: { item: item._id, status: item.flag } });
   }
 
   previos() {

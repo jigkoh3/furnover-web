@@ -9,6 +9,7 @@ import { MatIconRegistry } from '@angular/material';
 })
 export class MyPromotionListComponent implements OnInit {
     @Input() data: any = {};
+    @Input() itemStatus: any = {};
     @Output() outputData = new EventEmitter();
     // data: Array<any> = [];
 
@@ -24,7 +25,7 @@ export class MyPromotionListComponent implements OnInit {
         this.getData();
     }
     getData() {
-        console.log(this.data)
+        console.log(this.data);
         // const respone = {
         //   datas: [
         //     {
@@ -54,16 +55,35 @@ export class MyPromotionListComponent implements OnInit {
         this.outputData.emit(this.data);
     }
 
-    swapPrice(e, priceType, indexProduct, index, price) {
+    swapPrice(e, priceType, indexProduct, index, item) {
         if (priceType === 'cash') {
-            const percentByprice = Math.round((price - e) / price * 100);
-            this.data.products[indexProduct].prices[index].percentage = parseFloat(percentByprice.toString()).toFixed(0);
+            if (item.newprice <= item.price) {
+                const percentByprice = Math.round((item.newprice / item.price) * 100);
+                this.data.products[indexProduct].prices[index].percentage = parseFloat(percentByprice.toString()).toFixed(0);
+            } else if (item.newprice > item.price) {
+                item.newprice = item.price;
+            }
         } else if (priceType === 'percent') {
-            const priceBypercent = Math.round((price * e) / 100);
-            this.data.products[indexProduct].prices[index].newprice = price - priceBypercent;
+            const priceBypercent = Math.round((item.price / 100) * item.percentage);
+            this.data.products[indexProduct].prices[index].newprice = item.price - priceBypercent;
+        } else {
+            item.percentage = 0;
+            item.newprice = item.price;
         }
         this.outputData.emit(this.data);
     }
+
+
+    // swapPrice(e, priceType, indexProduct, index, price) {
+    //     if (priceType === 'cash') {
+    //         const percentByprice = Math.round((price - e) / price * 100);
+    //         this.data.products[indexProduct].prices[index].percentage = parseFloat(percentByprice.toString()).toFixed(0);
+    //     } else if (priceType === 'percent') {
+    //         const priceBypercent = Math.round((price * e) / 100);
+    //         this.data.products[indexProduct].prices[index].newprice = price - priceBypercent;
+    //     }
+    //     this.outputData.emit(this.data);
+    // }
 
     delProduct(i) {
         const confirm = window.confirm('ยืนยันการลบสินค้า');

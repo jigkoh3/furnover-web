@@ -42,7 +42,7 @@ export class InfoMyCodeComponent implements OnInit {
     },
     percentage: {
       discount: null,
-      percentagetype: "limit", // มีสองอย่าง limit กับ unlimit
+      percentagetype: 'limit', // มีสองอย่าง limit กับ unlimit
       setamount: null,
       minprice: null
     },
@@ -55,6 +55,7 @@ export class InfoMyCodeComponent implements OnInit {
   _itemtype = false;
   userShop: any = {};
   prefixUppercase: String = 'CODE';
+  status: any;
 
   constructor(
     public dialog: MatDialog,
@@ -72,6 +73,10 @@ export class InfoMyCodeComponent implements OnInit {
         if (params['item']) {
           this.itemId = params['item'];
           this.initLoadData();
+        }
+        if (params['status']) {
+          this.status = params['status'];
+          console.log(this.status);
         }
       });
     const userShop: any = window.localStorage.getItem(Constants.URL() + '@usershop')
@@ -95,13 +100,14 @@ export class InfoMyCodeComponent implements OnInit {
     this.spinner.show();
     try {
       const res: any = await this.restApi.get(Constants.URL() + '/api/mycode/' + this.itemId);
+      console.log(res);
       if (res.data._id) {
         this.data = res.data;
         this.data.cash = this.data.cash || {};
         this.data.percentage = this.data.percentage || {};
         this._startdate = new Date(this.data.startdate);
         this._enddate = new Date(this.data.enddate);
-        if (this.data.itemtype == 'all') {
+        if (this.data.itemtype === 'all') {
           this._itemtype = true;
         } else {
           this._itemtype = false;
@@ -117,12 +123,12 @@ export class InfoMyCodeComponent implements OnInit {
 
   isChecked(e) {
     console.log(e);
-    if (e == true) {
+    if (e === true) {
       this.data.itemtype = 'all';
-      console.log(this.data.itemtype);
+      // console.log(this.data.itemtype);
     } else {
       this.data.itemtype = 'item';
-      console.log(this.data.itemtype);
+      // console.log(this.data.itemtype);
     }
   }
 
@@ -143,7 +149,7 @@ export class InfoMyCodeComponent implements OnInit {
   }
 
   saveDate() {
-    console.log(this.data)
+    console.log(this.data);
   }
 
   openModalAddProduct() {
@@ -175,7 +181,7 @@ export class InfoMyCodeComponent implements OnInit {
     this.data.shop_id = userShop.shop._id;
     this.data.itemtype = this._itemtype ? 'all' : 'item';
     this.data.products = this._itemtype ? [] : this.data.products;
-    this.data.percentage.setamount = this.data.percentage.percentagetype == 'unlimit' ? null : this.data.percentage.setamount;
+    this.data.percentage.setamount = this.data.percentage.percentagetype === 'unlimit' ? null : this.data.percentage.setamount;
 
     if (this.itemId) {
       try {
@@ -243,8 +249,21 @@ export class InfoMyCodeComponent implements OnInit {
     this.route.navigate(['my-code']);
   }
 
+  async cancelCode() {
+    // this.spinner.show();
+    // try {
+
+    //   this.spinner.hide();
+    //   this.route.navigate(['my-code']);
+    // } catch (error) {
+    //   this.spinner.hide();
+    //   this.dataService.error('ยกเลิกโค้ดส่วนลดไม่สำเร็จ');
+    // }
+  }
+
+
   async deleteCode() {
-    let conf = confirm("ยืนยันการลบที่อยู่");
+    const conf = confirm('ยืนยันการลบที่อยู่');
     if (conf) {
       this.spinner.show();
       try {
@@ -260,9 +279,10 @@ export class InfoMyCodeComponent implements OnInit {
     }
   }
 
+
   validateNumber() {
-    //ใช้เช็คการกรอกตัวเลขในช่่อง
-    let last = this.data.cash.discount[this.data.cash.discount.length - 1];
+    // ใช้เช็คการกรอกตัวเลขในช่่อง
+    const last = this.data.cash.discount[this.data.cash.discount.length - 1];
     if (isNaN(last)) {
       setTimeout(() => {
         this.data.cash.discount = this.data.cash.discount.slice(0, this.data.cash.discount[this.data.cash.discount.length - 1]);
