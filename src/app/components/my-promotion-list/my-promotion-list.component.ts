@@ -9,6 +9,7 @@ import { MatIconRegistry } from '@angular/material';
 })
 export class MyPromotionListComponent implements OnInit {
     @Input() data: any = {};
+    @Input() itemStatus: any = {};
     @Output() outputData = new EventEmitter();
     // data: Array<any> = [];
 

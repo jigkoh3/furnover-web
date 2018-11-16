@@ -1,7 +1,7 @@
 <div class="wrapper content">
   <div class="row" *ngIf="itemId">
     <div class="col-12 del-box">
-      <button mat-stroked-button color="primary" (click)="delete()">
+      <button mat-stroked-button color="primary" (click)="delete()" *ngIf="itemStatus === 'soon' || !itemStatus">
         <mat-icon>delete_outline</mat-icon> ลบโปรโมชั่น
       </button>
     </div>
@@ -9,14 +9,14 @@
 
   <div class="row">
     <div class="col-12">
-      <app-my-promotion-header [data]="data" (outputData)="getDataHeader($event)"></app-my-promotion-header>
+      <app-my-promotion-header [data]="data" [itemStatus]="itemStatus" (outputData)="getDataHeader($event)"></app-my-promotion-header>
     </div>
   </div>
   <message class="text-center" [type]="dataService.messageType" [message]="dataService.message"></message>
 
   <div class="row" *ngIf="data.isSave">
     <div class="col-12 del-box">
-      <button mat-stroked-button color="primary" (click)="openModalAddProduct()">
+      <button mat-stroked-button color="primary" (click)="openModalAddProduct()" *ngIf="itemStatus === 'soon' || itemStatus ==='now' || !itemStatus">
         <mat-icon>add</mat-icon> เพิ่มสินค้า
       </button>
       <button mat-flat-button class="btn-margin" color="primary" [disabled]="!(data.title && data.startdate && data.enddate && data.starttime && data.endtime && data.products.length > 0)"
@@ -28,7 +28,7 @@
 
   <div class="row" *ngIf="data.isSave">
     <div class="col-12">
-      <app-my-promotion-list [data]="data" (outputData)="getDataPromotionList($event)"></app-my-promotion-list>
+      <app-my-promotion-list [data]="data" [itemStatus]="itemStatus" (outputData)="getDataPromotionList($event)"></app-my-promotion-list>
     </div>
   </div>
 </div>
