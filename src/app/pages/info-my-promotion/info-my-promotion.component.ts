@@ -43,7 +43,7 @@ export class InfoMyPromotionComponent implements OnInit {
           this.itemStatus = params['itemStatus'];
         }
       });
-      console.log(this.itemStatus);
+    console.log(this.itemStatus);
   }
 
   async initLoadData() {
@@ -78,10 +78,12 @@ export class InfoMyPromotionComponent implements OnInit {
         });
 
         this.data.products.forEach(item => {
-          item.prices.forEach(price => {
-            price.isuse = true;
-            // console.log(price)
-          });
+          if (item.prices.length > 1 && (!item.flagisuse || item.flagisuse === undefined)) {
+            item.flagisuse = true;
+            item.prices.forEach(price => {
+              price.isuse = true;
+            });
+          }
         });
       }
     });
