@@ -9,12 +9,12 @@
         <div class="row">
           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
             <mat-form-field class="example-full-width">
-              <input type="tel" matInput placeholder="ชื่อ - นามสกุล" [(ngModel)]="createBankData.name" formControlName="name" required>
+              <input name="firstNameAndLastName" type="tel" matInput placeholder="ชื่อ - นามสกุล" [(ngModel)]="createBankData.name" formControlName="name" required>
             </mat-form-field>
           </div>
           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
             <mat-form-field class="example-full-width">
-              <input type="tel" matInput placeholder="หมายเลขบัตรประชาชน" [(ngModel)]="createBankData.citizenid" formControlName="citizinid"
+              <input name="CitizenID" type="tel" matInput placeholder="หมายเลขบัตรประชาชน" [(ngModel)]="createBankData.citizenid" formControlName="citizinid"
                 required>
             </mat-form-field>
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
@@ -25,10 +25,10 @@
           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
             <div class="row">
               <div class="col-xs-2 col-sm-12 col-md-2 col-lg-2 col-xl-2">
-                <button style="width:100%" mat-button matStepperNext color="primary">ต่อไป</button>
+                <button name="next" style="width:100%" mat-button matStepperNext color="primary">ต่อไป</button>
               </div>
               <div class="col-xs-2 col-sm-12 col-md-2 col-lg-2 col-xl-2">
-                <button style="width:100%" mat-stroked-button [mat-dialog-close]>ยกเลิก</button>
+                <button name="cancel" style="width:100%" mat-stroked-button [mat-dialog-close]>ยกเลิก</button>
               </div>
             </div>
 
@@ -45,20 +45,20 @@
         <div class="row">
           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
             <mat-form-field class="example-full-width">
-              <input type="tel" matInput placeholder="ชื่อนามสกุลตามที่ปรากฎในบัญชีธนาคาร" [(ngModel)]="createBankData.accountname" formControlName="name"
+              <input type="text" name="accountName" matInput placeholder="ชื่อนามสกุลตามที่ปรากฎในบัญชีธนาคาร" [(ngModel)]="createBankData.accountname" formControlName="name"
                 required>
             </mat-form-field>
           </div>
           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
             <mat-form-field class="example-full-width">
-              <input type="tel" matInput placeholder="เลขที่บัญชี" [(ngModel)]="createBankData.accountnumber" formControlName="bankNumber"
+              <input type="tel" name="accountNumber" matInput placeholder="เลขที่บัญชี" [(ngModel)]="createBankData.accountnumber" formControlName="bankNumber"
                 required>
             </mat-form-field>
           </div>
           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
             <mat-form-field>
               <mat-select placeholder="เลือกธนาคาร" [(ngModel)]="createBankData.bank" formControlName="nameBank" required>
-                <mat-option *ngFor="let item of Getbank" [value]="item" >
+                <mat-option name="bankName" *ngFor="let item of Getbank" [value]="item" >
                   {{item.name}} ({{item.code}})
                 </mat-option>
               </mat-select>
@@ -71,15 +71,15 @@
           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
             <div class="row">
               <div class="col-xs-2 col-sm-12 col-md-2 col-lg-2 col-xl-2">
-                <button style="width:100%" mat-button matStepperNext color="primary">ต่อไป</button>
+                <button name="next" style="width:100%" mat-button matStepperNext color="primary">ต่อไป</button>
               </div>
               <div class="col-xs-2 col-sm-12 col-md-2 col-lg-2 col-xl-2">
-                <button style="width:100%" mat-stroked-button [mat-dialog-close]>ยกเลิก</button>
+                <button name="cancel" style="width:100%" mat-stroked-button [mat-dialog-close]>ยกเลิก</button>
               </div>
               <div class="col-xs-4 col-sm-12 col-md-4 col-lg-4 col-xl-4">
               </div>
               <div class="col-xs-4 col-sm-12 col-md-4 col-lg-4 col-xl-4">
-                <button style="width:100%" mat-stroked-button matStepperPrevious>ย้อนกลับก่อนหน้านี้</button>
+                <button name="backPage" style="width:100%" mat-stroked-button matStepperPrevious>ย้อนกลับก่อนหน้านี้</button>
               </div>
             </div>
           </div>
@@ -123,15 +123,15 @@
           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
             <div class="row">
               <div class="col-xs-2 col-sm-12 col-md-2 col-lg-2 col-xl-2">
-                <button style="width:100%" (click)="createBank()" mat-button matStepperNext color="primary">บันทึก</button>
+                <button name="saveAccount" style="width:100%" (click)="createBank()" mat-button matStepperNext color="primary">บันทึก</button>
               </div>
               <div class="col-xs-2 col-sm-12 col-md-2 col-lg-2 col-xl-2">
-                <button style="width:100%" mat-stroked-button [mat-dialog-close]>ยกเลิก</button>
+                <button name="cancelAccount" style="width:100%" mat-stroked-button [mat-dialog-close]>ยกเลิก</button>
               </div>
               <div class="col-xs-4 col-sm-12 col-md-4 col-lg-4 col-xl-4">
               </div>
               <div class="col-xs-4 col-sm-12 col-md-4 col-lg-4 col-xl-4">
-                <button style="width:100%" mat-stroked-button matStepperPrevious>ย้อนกลับก่อนหน้านี้</button>
+                <button name="backPageAgain" style="width:100%" mat-stroked-button matStepperPrevious>ย้อนกลับก่อนหน้านี้</button>
               </div>
             </div>
           </div>
