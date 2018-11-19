@@ -68,7 +68,8 @@
             <p class="font-form">เวลาสิ้นสุดของโปรโมชั่น</p>
           </div>
           <div class="col-12 col-md-4">
-            <mat-form-field><input name="endDatePomotion" matInput type="time" (ngModelChange)='validateDate($event)' [(ngModel)]="data.endtime"></mat-form-field>
+            <mat-form-field><input name="endDatePomotion" matInput type="time" (ngModelChange)='validateDate($event)'
+                [(ngModel)]="data.endtime"></mat-form-field>
           </div>
         </div>
       </div>
@@ -84,7 +85,8 @@
           <div class="col-12 col-md-5">
           </div>
           <div class="col-12 col-md-2">
-            <button name="saveAndNext" style="width:100%" mat-button color="primary" [disabled]="!isValidateDate || !data.title" (click)="sendData()">บันทึกและทำต่อไป</button>
+            <button name="saveAndNext" style="width:100%" mat-button color="primary" [disabled]="!isValidateDate || !data.title"
+              (click)="sendData()">บันทึกและทำต่อไป</button>
           </div>
           <div class="col-12 col-md-5"></div>
         </div>
@@ -111,7 +113,7 @@
   </div>
   <div class="col-10">
     <h6>{{data.startdate | date:"dd-MM-yyyy" }} {{data.starttime }} - {{data.enddate | date:"dd-MM-yyyy" }}
-      {{data.endtime }} <span class="sp-txt" name="btnEdit" (click)="edit()" *ngIf="itemStatus === 'soon' || itemStatus === 'now'">
+      {{data.endtime }} <span class="sp-txt" name="btnEdit" (click)="edit()" *ngIf="data.status !=='end'">
         <mat-icon name="editPromo" class="ic-pst">create</mat-icon> <span class="sp-txt-2">แก้ไขโปรโมชั่น</span>
       </span></h6>
   </div>
