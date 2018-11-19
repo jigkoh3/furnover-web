@@ -275,15 +275,16 @@ export class InfoMyCodeComponent implements OnInit {
   }
 
   async cancelCode() {
-    // this.spinner.show();
-    // try {
-
-    //   this.spinner.hide();
-    //   this.route.navigate(['my-code']);
-    // } catch (error) {
-    //   this.spinner.hide();
-    //   this.dataService.error('ยกเลิกโค้ดส่วนลดไม่สำเร็จ');
-    // }
+    this.spinner.show();
+    
+    try {
+      // this.restApi.put(Constants.URL() + '/api/mycode' , )
+      this.spinner.hide();
+      this.route.navigate(['my-code']);
+    } catch (error) {
+      this.spinner.hide();
+      this.dataService.error('ยกเลิกโค้ดส่วนลดไม่สำเร็จ');
+    }
   }
 
 
