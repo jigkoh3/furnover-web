@@ -12,23 +12,23 @@
             <div class="col col-12 text-center">
               <div>
                 <mat-form-field class="input-block">
-                  <input matInput placeholder="ชื่อผู้ใช้" [(ngModel)]="credentials.username" type="text"
+                  <input name="username" matInput placeholder="ชื่อผู้ใช้" [(ngModel)]="credentials.username" type="text"
                     formControlName="formGroupUsername" required>
                 </mat-form-field>
               </div>
               <div>
                 <mat-form-field class="input-block">
-                  <input matInput placeholder="รหัสผ่าน" [(ngModel)]="credentials.password" type="password"
+                  <input name="password" matInput placeholder="รหัสผ่าน" [(ngModel)]="credentials.password" type="password"
                     formControlName="formGroupPassword" required>
                 </mat-form-field>
               </div>
             </div>
             <div class="col col-12 text-center">
               <message class="text-center" [type]="dataService.messageType" [message]="dataService.message"></message>
-              <button mat-flat-button color="primary" class="btn-login" [disabled]="formGroup.invalid" (click)="onLogin()">เข้าสู่ระบบ</button>
+              <button name="buttonLogin" mat-flat-button color="primary" class="btn-login" [disabled]="formGroup.invalid" (click)="onLogin()">เข้าสู่ระบบ</button>
               <br>
               <br>
-              <p class="register">ฉันยังไม่มีบัญชี? <span class="btn primary" routerLink="/auth/register">สมัครสมาชิกที่นี่</span></p>
+              <p name="buttonRegister" class="register">ฉันยังไม่มีบัญชี? <span class="btn primary" routerLink="/auth/register">สมัครสมาชิกที่นี่</span></p>
             </div>
           </div>
         </form>

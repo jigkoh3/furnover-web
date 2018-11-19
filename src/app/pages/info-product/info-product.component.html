@@ -34,7 +34,7 @@
     </div>
 
     <div class="col-12 col-sm-4 col-md-2" *ngIf="images.length < 9">
-      <div class="fix-col" (click)="uploadImg()">
+      <div name="buttonUploadImage" class="fix-col" (click)="uploadImg()">
         <p>
           <button mat-fab color="primary">
             <mat-icon>add</mat-icon>
@@ -44,7 +44,7 @@
       </div>
     </div>
 
-    <input type="file" #productImg accept="image/*" [(ngModel)]="productImgModel" (change)="onProductImgChange($event)"
+    <input name="productImage" type="file" #productImg accept="image/*" [(ngModel)]="productImgModel" (change)="onProductImgChange($event)"
       style="visibility: hidden;">
   </div>
 
@@ -61,16 +61,16 @@
         <div class="col col-12 text-center">
           <div>
             <mat-form-field>
-              <input matInput placeholder="ชื่อสินค้า" type="text" [(ngModel)]="data.name" required>
+              <input name="productName" matInput placeholder="ชื่อสินค้า" type="text" [(ngModel)]="data.name" required>
             </mat-form-field>
           </div>
           <div>
             <mat-form-field>
-              <textarea matInput rows="4" placeholder="รายละเอียดสินค้า" [(ngModel)]="data.detail" required></textarea>
+              <textarea name="productDetail" matInput rows="4" placeholder="รายละเอียดสินค้า" [(ngModel)]="data.detail" required></textarea>
             </mat-form-field>
           </div>
           <div class="row">
-            <div [className]="toggleSubMenu ? 'col-12 box-select expan' : 'col-12 box-select'" (click)="expansubMenu()">
+            <div name="expandMenu" [className]="toggleSubMenu ? 'col-12 box-select expan' : 'col-12 box-select'" (click)="expansubMenu()">
               <div class="ar-down">
                 <mat-icon>keyboard_arrow_down</mat-icon>
               </div>
@@ -81,7 +81,7 @@
                 <div class="col-4">
                   <div class="row box-submenu">
                     <div class="col-12" *ngFor="let item of resData.categories">
-                      <div class="row sub-menu" (click)="expanChildren(0,item)">
+                      <div name="expandSubMenu" class="row sub-menu" (click)="expanChildren(0,item)">
                         <div class="col-11">
                           {{item.name}}
                         </div>
@@ -96,7 +96,7 @@
                 <div class="col-4" *ngFor="let state of stateSubmenu;let i = index">
                   <div class="row box-submenu">
                     <div class="col-12" *ngFor="let item of state.items">
-                      <div class="row sub-menu" (click)="expanChildren(i+1,item)">
+                      <div name="expandSubMenuInSubMenu" class="row sub-menu" (click)="expanChildren(i+1,item)">
                         <div class="col-11">
                           {{item.name}}
                         </div>
@@ -130,16 +130,16 @@
         <div class="col col-12 text-center">
           <div *ngIf="optionBoxs.length <= 0">
             <mat-form-field>
-              <input matInput placeholder="ราคา" [(ngModel)]="price" (ngModelChange)="validatePriceAndStock()" type="number"
+              <input name="productPrice" matInput placeholder="ราคา" [(ngModel)]="price" (ngModelChange)="validatePriceAndStock()" type="number"
                 required>
             </mat-form-field>
           </div>
           <div *ngIf="optionBoxs.length <= 0">
             <mat-form-field>
-              <input matInput placeholder="คลัง" type="number" [(ngModel)]="stock" (ngModelChange)="validatePriceAndStock()">
+              <input name="productStock" matInput placeholder="คลัง" type="number" [(ngModel)]="stock" (ngModelChange)="validatePriceAndStock()">
             </mat-form-field>
           </div>
-          <div class="btn-option" (click)="openOption()" *ngIf="optionBoxs.length <= 0">
+          <div name="buttonOpenOption" class="btn-option" (click)="openOption()" *ngIf="optionBoxs.length <= 0">
             <mat-icon class="add-cus">add</mat-icon> เปิดตัวเลือก
           </div>
 
@@ -149,30 +149,30 @@
                 ตัวเลือกที่ {{i + 1}}
               </div>
               <div class="col-12 col-sm-12 col-md-12 options-ctn">
-                <div class="del-btn" (click)="delOptionBox(i)">
+                <div name="buttonDeleteProductOption" class="del-btn" (click)="delOptionBox(i)">
                   <mat-icon>close</mat-icon>
                 </div>
                 <div>
                   <span class="option-name1">ชื่อ</span>
                   <mat-form-field>
-                    <input matInput [(ngModel)]="item.name" (ngModelChange)="genTable()" placeholder="ใส่ชื่อตัวเลือก เช่นสี ไซส์..."
+                    <input name="optionProductSize" matInput [(ngModel)]="item.name" (ngModelChange)="genTable()" placeholder="ใส่ชื่อตัวเลือก เช่นสี ไซส์..."
                       type="text" required>
                   </mat-form-field>
                 </div>
                 <div *ngFor="let option of item.options;let j = index">
                   <div>
-                    <div class="sub-del-btn" *ngIf="item.options.length > 1" (click)="delOptions(i,j)">
+                    <div name="buttonDeleteProductColorOption" class="sub-del-btn" *ngIf="item.options.length > 1" (click)="delOptions(i,j)">
                       <mat-icon>close</mat-icon>
                     </div>
                     <mat-form-field>
-                      <input matInput [(ngModel)]="option.name" (ngModelChange)="genTable()" placeholder="ใส่ข้อมูลตัวเลือก เช่นสีแดง สีขาว..."
+                      <input name="optionProductColor" matInput [(ngModel)]="option.name" (ngModelChange)="genTable()" placeholder="ใส่ข้อมูลตัวเลือก เช่นสีแดง สีขาว..."
                         type="text" required>
                     </mat-form-field>
                   </div>
                 </div>
 
                 <div class="btn-option" (click)="addOptions(i)">
-                  <mat-icon class="add-cus">add</mat-icon> เพิ่มตัวเลือก {{item.options.length}}/20
+                  <mat-icon name="buttonAddOption" class="add-cus">add</mat-icon> เพิ่มตัวเลือก {{item.options.length}}/20
                 </div>
               </div>
             </div>
@@ -180,7 +180,7 @@
 
           <div class="row" *ngIf="optionBoxs.length > 0">
             <div class="col-12">
-              <div class="btn-option" (click)="addOptionBox()" *ngIf="optionBoxs.length < 2">
+              <div name="buttonAddProductOption" class="btn-option" (click)="addOptionBox()" *ngIf="optionBoxs.length < 2">
                 <mat-icon class="add-cus">add</mat-icon> เพิ่มตัวเลือกสินค้า
               </div>
             </div>
@@ -200,7 +200,7 @@
             <table class="table">
               <thead>
                 <tr class="txt-name">
-                  <th width="150" *ngFor="let item of optionBoxs">{{item.name ? item.name:'ชื่อ'}}</th>
+                  <th name="nameSizeOption" width="150" *ngFor="let item of optionBoxs">{{item.name ? item.name:'ชื่อ'}}</th>
                   <th>ราคา</th>
                   <th>คลัง</th>
                   <th></th>
@@ -209,10 +209,10 @@
               <tbody>
                 <tr *ngFor="let item of optionList">
                   <!-- <td>{{item.type ? item.type : 'ตัวเลือก'}}</td> -->
-                  <td>{{tranformTxt(item.type ? item.type : 'ตัวเลือก')}}</td>
-                  <td *ngIf="optionBoxs.length > 1">{{tranformTxt(item.name ? item.name : 'ตัวเลือก')}}</td>
-                  <td><input matInput type="number" [(ngModel)]="item.price" (ngModelChange)="checkSamePrice()"></td>
-                  <td><input matInput type="number" [(ngModel)]="item.stock" (ngModelChange)="checkNum()"></td>
+                  <td name="nameColorOption1">{{tranformTxt(item.type ? item.type : 'ตัวเลือก')}}</td>
+                  <td name="nameColorOption2" *ngIf="optionBoxs.length > 1">{{tranformTxt(item.name ? item.name : 'ตัวเลือก')}}</td>
+                  <td><input name="priceOption" matInput type="number" [(ngModel)]="item.price" (ngModelChange)="checkSamePrice()"></td>
+                  <td><input name="stockOption" matInput type="number" [(ngModel)]="item.stock" (ngModelChange)="checkNum()"></td>
                   <td></td>
                 </tr>
               </tbody>
@@ -263,22 +263,22 @@
               </div>
               <div class="col-2">
                 <mat-form-field>
-                  <input matInput placeholder="ต่ำสุด" [disabled]="i > 0" [(ngModel)]="item.min" (ngModelChange)="checkWholesaleMin($event,i)"
+                  <input name="priceMin" matInput placeholder="ต่ำสุด" [disabled]="i > 0" [(ngModel)]="item.min" (ngModelChange)="checkWholesaleMin($event,i)"
                     type="number">
                 </mat-form-field>
               </div>
               <div class="col-2">
                 <mat-form-field>
-                  <input matInput placeholder="สูงสุด" [(ngModel)]="item.max" (ngModelChange)="checkWholesaleMax($event,i)"
+                  <input matInput name="priceMax" placeholder="สูงสุด" [(ngModel)]="item.max" (ngModelChange)="checkWholesaleMax($event,i)"
                     type="number">
                 </mat-form-field>
               </div>
               <div class="col-2">
                 <mat-form-field>
-                  <input matInput placeholder="฿ หน่วยราคา" [(ngModel)]="item.price" (ngModelChange)="checkNum()" type="number">
+                  <input matInput name="pricePerQty" placeholder="฿ หน่วยราคา" [(ngModel)]="item.price" (ngModelChange)="checkNum()" type="number">
                 </mat-form-field>
               </div>
-              <div class="col-2" (click)="delWholesale(i)">
+              <div name="buttonDeleteWholeSale" class="col-2" (click)="delWholesale(i)">
                 <div class="circle-box">
                   <mat-icon class="ic-position">minimize</mat-icon>
                 </div>
@@ -292,7 +292,7 @@
 
           <div class="row ws-padding">
             <div class="col-12" *ngIf="isSamePrice">
-              <div class="box-btn" (click)="addWholesale()">
+              <div name="buttonAddWholeSale" class="box-btn" (click)="addWholesale()">
                 <mat-icon class="ic-position">add_circle_outline</mat-icon> <span class="txt-icon">เพิ่มช่วงราคา</span>
               </div>
             </div>
@@ -325,7 +325,7 @@
         <div class="col col-3 text-center">
           <div>
             <mat-form-field>
-              <input matInput placeholder="น้ำหนัก kg" [(ngModel)]="data.weight" type="number">
+              <input name="productWeight" matInput placeholder="น้ำหนัก kg" [(ngModel)]="data.weight" type="number">
             </mat-form-field>
           </div>
         </div>
@@ -338,21 +338,21 @@
         <div class="col col-3 text-center">
           <div>
             <mat-form-field>
-              <input matInput placeholder="กว้าง cm" type="number" [(ngModel)]="data.width">
+              <input name="productWidth" matInput placeholder="กว้าง cm" type="number" [(ngModel)]="data.width">
             </mat-form-field>
           </div>
         </div>
         <div class="col col-3 text-center">
           <div>
             <mat-form-field>
-              <input matInput placeholder="ยาว cm" type="number" [(ngModel)]="data.itemlength">
+              <input name="productLength" matInput placeholder="ยาว cm" type="number" [(ngModel)]="data.itemlength">
             </mat-form-field>
           </div>
         </div>
         <div class="col col-3 text-center">
           <div>
             <mat-form-field>
-              <input matInput placeholder="สูง cm" type="number" [(ngModel)]="data.height">
+              <input name="productHeight" matInput placeholder="สูง cm" type="number" [(ngModel)]="data.height">
             </mat-form-field>
           </div>
         </div>
@@ -376,21 +376,21 @@
                   <div *ngIf="item.isEdit" class="row">
                     <div class="col-6">
                       <mat-form-field>
-                        <input matInput placeholder="ระบุค่าจัดส่ง" type="number" [(ngModel)]="item.shippingfee">
+                        <input name="fillShippingPrice" matInput placeholder="ระบุค่าจัดส่ง" type="number" [(ngModel)]="item.shippingfee">
                       </mat-form-field>
                     </div>
 
                     <div class="col-3 ic-1 ic-center ic-green">
-                      <mat-icon (click)="submitShipping(i)">check</mat-icon>
+                      <mat-icon name="buttonSubmitShipping" (click)="submitShipping(i)">check</mat-icon>
                     </div>
                     <div class="col-3 ic-1 ic-center ic-red">
-                      <mat-icon (click)="cancelShiping(i)">clear</mat-icon>
+                      <mat-icon name="buttonCancelShipping" (click)="cancelShiping(i)">clear</mat-icon>
                     </div>
 
                   </div>
                   <div *ngIf="!item.isEdit">
                     ฿{{item.shippingfee ? item.shippingfee : 0 }} <span class="logis-ic">
-                      <mat-icon class="add-cus ic-orange" (click)="toggleEditShippingPrice(i)">create</mat-icon>
+                      <mat-icon name="buttonEditShipping" class="add-cus ic-orange" (click)="toggleEditShippingPrice(i)">create</mat-icon>
                     </span>
                   </div>
                 </div>
@@ -418,7 +418,7 @@
                   </div>
                   <div class="col-2">
 
-                    <mat-slide-toggle [checked]="item.isChecked" name="{{item._id}}" (change)="shippingChange($event,item)"></mat-slide-toggle>
+                    <mat-slide-toggle name="buttonCheckShipping" [checked]="item.isChecked" name="{{item._id}}" (change)="shippingChange($event,item)"></mat-slide-toggle>
 
                   </div>
                 </div>
@@ -447,7 +447,7 @@
           เตรียมส่งนานกว่าปกติ
         </div>
         <div class="col col-2">
-          <mat-slide-toggle [(ngModel)]="prepare"></mat-slide-toggle>
+          <mat-slide-toggle name="lateShipping" [(ngModel)]="prepare"></mat-slide-toggle>
         </div>
         <div class="col col-6 text-remark" *ngIf="!prepare">
           ฉันจะจัดส่งสินค้าภายใน 2 วัน (ไม่รวมวันหยุดนักขัตฤกษ์และวันหยุดทำการของบริษัทขนส่ง)
@@ -455,7 +455,7 @@
         <div class="col col-6 text-remark" *ngIf="prepare">
           <div>
             <mat-form-field>
-              <input matInput placeholder="เวลาจัดเตรียมพัสดุ (วัน)" type="number" [(ngModel)]="data.prepareshipping">
+              <input name="shippingDate" matInput placeholder="เวลาจัดเตรียมพัสดุ (วัน)" type="number" [(ngModel)]="data.prepareshipping">
             </mat-form-field>
           </div>
         </div>
@@ -468,11 +468,11 @@
         <div class="col col-3 text-center">
           <div>
             <mat-form-field>
-              <mat-select value="ของใหม่" [(ngModel)]="data.condition">
+              <mat-select name="newProduct" value="ของใหม่" [(ngModel)]="data.condition">
                 <mat-option value="ของใหม่">
                   ของใหม่
                 </mat-option>
-                <mat-option value="ของมือสอง">
+                <mat-option name="oldProduct" value="ของมือสอง">
                   ของมือสอง
                 </mat-option>
               </mat-select>
@@ -487,9 +487,9 @@
 
   <div class="row">
     <div class="col-12 center">
-      <button mat-flat-button color="primary" [disabled]="!(images.length > 0 && data.name && data.detail && data.condition && stateSubmenu.length > 0 && !isValidWholsale && shippings.length > 0 && (price || optionBoxs.length > 0))"
+      <button  name="buttonSaveProduct" mat-flat-button color="primary" [disabled]="!(images.length > 0 && data.name && data.detail && data.condition && stateSubmenu.length > 0 && !isValidWholsale && shippings.length > 0 && (price || optionBoxs.length > 0))"
         (click)="save()">บันทึก</button>
-      <button *ngIf="product_id" mat-flat-button class="mgt-l" color="gay" (click)="deleteProduct()">ลบ</button>
+      <button name="buttonDeleteProduct" *ngIf="product_id" mat-flat-button class="mgt-l" color="gay" (click)="deleteProduct()">ลบ</button>
     </div>
   </div>
 
