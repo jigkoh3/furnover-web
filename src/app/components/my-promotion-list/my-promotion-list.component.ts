@@ -82,17 +82,17 @@ export class MyPromotionListComponent implements OnInit {
     swapPrice(e, priceType, indexProduct, index, item) {
         if (priceType === 'cash') {
             if (item.newprice <= item.price) {
-                const percentByprice = Math.round((item.newprice / item.price) * 100);
+                const percentByprice = Math.round((item.price - item.newprice) / item.price * 100);
                 this.data.products[indexProduct].prices[index].percentage = parseFloat(percentByprice.toString()).toFixed(0);
-            } else if (item.newprice > item.price) {
-                item.newprice = item.price;
+            } else if (item.newprice >= item.price) {
+                item.newprice = item.price - 1;
             }
         } else if (priceType === 'percent') {
-            const priceBypercent = Math.round((item.price / 100) * item.percentage);
+            const priceBypercent = Math.round((item.price * item.percentage) / 100);
             this.data.products[indexProduct].prices[index].newprice = item.price - priceBypercent;
         } else {
             item.percentage = 0;
-            item.newprice = item.price;
+            item.newprice = item.price - 1;
         }
         this.outputData.emit(this.data);
     }
