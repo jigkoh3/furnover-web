@@ -122,6 +122,7 @@ export class InfoMyCodeComponent implements OnInit {
         } else {
           this._itemtype = false;
         }
+        this.data.code = this.data.code.replace(this.prefixUppercase, '');
         // console.log(this.data);
       }
       this.spinner.hide();
@@ -270,9 +271,7 @@ export class InfoMyCodeComponent implements OnInit {
   }
 
   clickCancel() {
-    console.log(this.data.codetype);
-    // this.route.navigate(['my-code']);
-    
+    this.route.navigate(['my-code']);
   }
 
   async cancelCode() {
@@ -315,5 +314,69 @@ export class InfoMyCodeComponent implements OnInit {
       }, 0);
     }
   }
+
+
+  checkNumPercen(e) {
+    const reg = new RegExp('^[0-9]+$');
+    if (e < 0 || !reg.test(e)) {
+      setTimeout(() => {
+        this.data.percentage.discount = '';
+      }, 100);
+    }
+  }
+
+  checkNumCash(e) {
+    const reg = new RegExp('^[0-9]+$');
+    if (e < 0 || !reg.test(e)) {
+      setTimeout(() => {
+        this.data.cash.discount = '';
+      }, 100);
+    }
+  }
+
+
+  checkNumCashMin(e) {
+    const reg = new RegExp('^[0-9]+$');
+    if (e < 0 || !reg.test(e)) {
+      setTimeout(() => {
+        this.data.cash.minprice = '';
+      }, 100);
+    }
+  }
+
+  checkNumPerMin(e) {
+    const reg = new RegExp('^[0-9]+$');
+    if (e < 0 || !reg.test(e)) {
+      setTimeout(() => {
+        this.data.percentage.minprice = '';
+      }, 100);
+    }
+  }
+
+  checkNumQty(e) {
+    const reg = new RegExp('^[0-9]+$');
+    if (e < 0 || !reg.test(e)) {
+      setTimeout(() => {
+        this.data.codeqty = '';
+      }, 100);
+    }
+  }
+
+  checkNumMax(e) {
+    const reg = new RegExp('^[0-9]+$');
+    if (e < 0 || !reg.test(e)) {
+      setTimeout(() => {
+        this.data.percentage.setamount = '';
+      }, 100);
+    }
+  }
+
+
+
+
+
+
+
+
 
 }
