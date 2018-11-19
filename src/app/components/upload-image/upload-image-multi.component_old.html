@@ -1,6 +1,6 @@
 <div class="card-body">
     <h5 class="card-title">เพิ่มรูปภาพ</h5>
-    <input type="file" (change)="detectFiles($event)" multiple accept=".png,.jpg,.gif,.svg" />
+    <input name="addImage" type="file" (change)="detectFiles($event)" multiple accept=".png,.jpg,.gif,.svg" />
     {{uploadProgress ? 'Upload is ' + (uploadProgress) + '% done' : ''}}
     <!-- <span *ngFor="let file of selectedFiles">
         {{file.name}}
