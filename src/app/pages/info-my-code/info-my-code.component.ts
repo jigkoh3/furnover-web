@@ -36,7 +36,6 @@ export const MY_FORMATS = {
 export class InfoMyCodeComponent implements OnInit {
 
   data: any = {
-
     cash: {
       discount: null,
       minprice: null,
@@ -275,15 +274,21 @@ export class InfoMyCodeComponent implements OnInit {
   }
 
   async cancelCode() {
-    // this.spinner.show();
-    // try {
-
-    //   this.spinner.hide();
-    //   this.route.navigate(['my-code']);
-    // } catch (error) {
-    //   this.spinner.hide();
-    //   this.dataService.error('ยกเลิกโค้ดส่วนลดไม่สำเร็จ');
-    // }
+    const conf = confirm('ยืนยันการลบที่อยู่');
+    if (conf) {
+      this.spinner.show();
+      const data = {
+        status: 'end'
+      }
+      try {
+        this.restApi.put(Constants.URL() + '/api/mycode/' + this.data._id, data)
+        this.spinner.hide();
+        this.route.navigate(['my-code']);
+      } catch (error) {
+        this.spinner.hide();
+        this.dataService.error('ยกเลิกโค้ดส่วนลดไม่สำเร็จ');
+      }
+    }
   }
 
 
