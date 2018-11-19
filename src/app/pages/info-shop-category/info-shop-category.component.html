@@ -3,7 +3,7 @@
 
   </div>
   <div class="col-sm-12 col-md-10 col-lg-10 col-xl-10">
-    <button mat-stroked-button class="buttonAdd border-radius" (click)="onBack()" color="primary">ย้อนกลับ</button>
+    <button name="btnBack" mat-stroked-button class="buttonAdd border-radius" (click)="onBack()" color="primary">ย้อนกลับ</button>
 
     <div class="row padding">
       <div class="col-12">
@@ -12,7 +12,7 @@
             <div class="col-12 col-md-7 padding-left" *ngIf="!isEdit">
               <p>
                 <b class="setting-font-header">{{categoryData.name}}</b> &nbsp;
-                <button mat-stroked-button (click)='isEdit = true' class="setting-bnt-rename"><span class="setting-bnt-text-rename">เปลี่ยนชื่อ</span></button>
+                <button name="changeName" mat-stroked-button (click)='isEdit = true' class="setting-bnt-rename"><span class="setting-bnt-text-rename">เปลี่ยนชื่อ</span></button>
               </p>
               <p class="setting-text-set-cat">กำหนดหมวดหมู่สินค้าเอง <span class="padding-left"> รายการสินค้า {{categoryData.items.length}}  รายการ</span></p>
 
@@ -22,16 +22,16 @@
                 <div class="row padding">
                   <div class="col-12 col-md-4 col-lg-4">
                     <mat-form-field class="example-full-width">
-                      <input [(ngModel)]="categoryData.name" type="text" matInput placeholder="ตั้งชื่อหมวดหมู่เอง"
+                      <input name="createNameCate" [(ngModel)]="categoryData.name" type="text" matInput placeholder="ตั้งชื่อหมวดหมู่เอง"
                         required>
                     </mat-form-field>
                   </div>
                   <div class="col-12 col-md-2 col-lg-2">
-                    <button style="width: 100%" (click)="onSaveData()" mat-stroked-button class="setting-bnt-rename"><span
+                    <button name="saveNameCate" style="width: 100%" (click)="onSaveData()" mat-stroked-button class="setting-bnt-rename"><span
                         class="setting-bnt-text-rename">บันทึก</span></button>
                   </div>
                   <div class="col-12 col-md-2 col-lg-2">
-                    <button style="width: 100%" mat-stroked-button (click)='isEdit = !isEdit' class="setting-bnt-rename"><span
+                    <button name="cancelNameCate" style="width: 100%" mat-stroked-button (click)='isEdit = !isEdit' class="setting-bnt-rename"><span
                         class="setting-bnt-text-rename">ยกเลิก</span></button>
                   </div>
                   <p class="setting-text-set-cat">กำหนดหมวดหมู่สินค้าเอง <span class="padding-left"> รายการสินค้า 0
@@ -43,7 +43,7 @@
               เปิดการใช้งานเพื่อให้ผู้ใช้มองเห็นหมวดหมู่นี้
             </div>
             <div class="col-2 col-md-1">
-              <mat-slide-toggle [disabled]="!categoryData.name || (categoryData.items && categoryData.items.length === 0)"
+              <mat-slide-toggle name="openUseCate" [disabled]="!categoryData.name || (categoryData.items && categoryData.items.length === 0)"
                 [(ngModel)]="categoryData.status" class="setting-toggle" (ngModelChange)="onChangeStatus()"></mat-slide-toggle>
             </div>
 
@@ -67,7 +67,7 @@
                           </div>
 
                           <div class="col-12 col-md-12 col-lg-12 text-center ">
-                            <button mat-stroked-button class="buttonAdd" (click)="deleteItem(i,item)" color="primary">ลบสินค้า</button>
+                            <button name="deleteProduct" mat-stroked-button class="buttonAdd" (click)="deleteItem(i,item)" color="primary">ลบสินค้า</button>
                           </div>
 
                         </div>
@@ -92,8 +92,8 @@
 
                     </div>
                     <div class="col-12 col-md-12 col-lg-12">
-                      <button mat-button class="buttonAdd" (click)="onSaveData()" color="primary">บันทึกการเปลี่ยนแปลง</button>
-                      <button mat-stroked-button class="buttonAdd margin-left" (click)="onRollbackItems()">ยกเลิก</button>
+                      <button name="saveCate" mat-button class="buttonAdd" (click)="onSaveData()" color="primary">บันทึกการเปลี่ยนแปลง</button>
+                      <button name="cancelBtn" mat-stroked-button class="buttonAdd margin-left" (click)="onRollbackItems()">ยกเลิก</button>
                     </div>
                   </div>
                 </div>
@@ -106,8 +106,8 @@
 
                     </div>
                     <div class="col-12 col-md-12 col-lg-12">
-                      <button mat-button class="buttonAdd" (click)="onUpdateOpenCategory()" color="primary">เปิดการใช้งานตอนนี้</button>
-                      <button mat-stroked-button class="buttonAdd margin-left" (click)="categoryCompele = false">ยกเลิก</button>
+                      <button name="openNow" mat-button class="buttonAdd" (click)="onUpdateOpenCategory()" color="primary">เปิดการใช้งานตอนนี้</button>
+                      <button name="cancelNow" mat-stroked-button class="buttonAdd margin-left" (click)="categoryCompele = false">ยกเลิก</button>
                     </div>
                   </div>
                 </div>
@@ -134,7 +134,7 @@
                 <div class="col-12 col-md-4 col-sm-4">
                   <mat-form-field>
                     <mat-icon class="search-ic">search</mat-icon>
-                    <input matInput placeholder="ค้นหา" [(ngModel)]="page.name" (keydown)="onSearch($event)">
+                    <input name="searchProduct" matInput placeholder="ค้นหา" [(ngModel)]="page.name" (keydown)="onSearch($event)">
                   </mat-form-field>
                 </div>
                 <div class="col-12 col-md-4 col-sm-4">
@@ -165,9 +165,9 @@
 
                       <div class="col-12 col-md-12 col-lg-12 text-center ">
                         <div *ngIf="checkButtonAdd(item)">
-                          <mat-icon class="done-size" svgIcon="done"></mat-icon> <span class="font-text">เพิ่มสินค้าแล้ว</span>
+                          <mat-icon name="addProduct" class="done-size" svgIcon="done"></mat-icon> <span class="font-text">เพิ่มสินค้าแล้ว</span>
                         </div>
-                        <button *ngIf="!checkButtonAdd(item)" mat-stroked-button class="buttonAdd" (click)="selectedItem(item)"
+                        <button name="btnAddProduct" *ngIf="!checkButtonAdd(item)" mat-stroked-button class="buttonAdd" (click)="selectedItem(item)"
                           color="primary">เพิ่มสินค้า</button>
                       </div>
 
@@ -180,14 +180,14 @@
 
           </div>
 
-          <div class="text-center" >
-            <button mat-flat-button color="primary" class="btn-summit select" style="margin: 5px;" *ngIf="page.page > 1"
+          <!-- <div class="text-center" >
+            <button  mat-flat-button color="primary" class="btn-summit select" style="margin: 5px;" *ngIf="page.page > 1"
               (click)="previos()">ก่อนหน้า</button>
             <button mat-flat-button color="primary" ngClass="{{page.page === (i + 1) ? 'select' : 'un-select'}}"
                *ngFor="let item of tabs;let i = index" (click)="pageData(item)">{{item}}</button>
             <button mat-flat-button color="primary" class="btn-summit select"  *ngIf="page.page < tabs.length"
               (click)="next()">ต่อไป</button>
-          </div>
+          </div> -->
 
         </mat-card>
       </div>
