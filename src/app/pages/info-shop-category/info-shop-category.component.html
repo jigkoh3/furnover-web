@@ -14,7 +14,7 @@
                 <b class="setting-font-header">{{categoryData.name}}</b> &nbsp;
                 <button mat-stroked-button (click)='isEdit = true' class="setting-bnt-rename"><span class="setting-bnt-text-rename">เปลี่ยนชื่อ</span></button>
               </p>
-              <p class="setting-text-set-cat">กำหนดหมวดหมู่สินค้าเอง <span class="padding-left"> รายการสินค้า 0 รายการ</span></p>
+              <p class="setting-text-set-cat">กำหนดหมวดหมู่สินค้าเอง <span class="padding-left"> รายการสินค้า {{categoryData.items.length}}  รายการ</span></p>
 
             </div>
             <div class="col-12 col-md-7 padding-left" *ngIf="isEdit">
