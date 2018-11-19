@@ -187,7 +187,8 @@
         <div class="div-img container">
           <img [src]="item.image ? item.image.url:''" class="img-style">
           <div class="topright">
-            <mat-icon svgIcon="del" class="setting-icon-del" (click)="delProd(item)"></mat-icon>
+            <!-- <mat-icon svgIcon="del" class="setting-icon-del" (click)="delProd(item)"></mat-icon> -->
+            <mat-icon class="setting-icon-del" (click)="delProd(item)">delete</mat-icon>
           </div>
         </div>
       </mat-card>
