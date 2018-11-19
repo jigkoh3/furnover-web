@@ -11,7 +11,7 @@
           ที่อยู่
         </div>
         <div class="col-6 col-sm-6 col-md-6 txt-right">
-          <button mat-flat-button color="primary" (click)="addClick()">เพิ่มที่อยู่ใหม่</button>
+          <button name="buttonAddAddress" mat-flat-button color="primary" (click)="addClick()">เพิ่มที่อยู่ใหม่</button>
         </div>
       </div>
       <!-- <mat-divider></mat-divider> -->
@@ -30,7 +30,7 @@
               <p mat-line>{{item.postcode}}</p>
 
               <button mat-icon-button class="element-style">
-                <mat-icon class="icon-gray" (click)="clickEdit(item)">edit</mat-icon>
+                <mat-icon name="buttonEditAddress" class="icon-gray" (click)="clickEdit(item)">edit</mat-icon>
               </button>
               <!-- <mat-icon class="icon-gray" (click)="clickEdit(item)">edit</mat-icon> -->
             </mat-list-item>
