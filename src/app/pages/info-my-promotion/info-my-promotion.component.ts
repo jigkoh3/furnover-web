@@ -51,11 +51,16 @@ export class InfoMyPromotionComponent implements OnInit {
     try {
       const res: any = await this.restApi.get(Constants.URL() + '/api/discount/' + this.itemId);
       this.data = res.data;
+      console.log(this.data);
       this.spinner.hide();
     } catch (error) {
       console.log(error);
       this.spinner.hide();
     }
+  }
+  
+  async ngAfterContentInit() {
+    this.initLoadData();
   }
 
   openModalAddProduct() {
@@ -120,6 +125,7 @@ export class InfoMyPromotionComponent implements OnInit {
     if (this.itemId) {
       try {
         const res: any = await this.restApi.put(Constants.URL() + '/api/discount/' + this.itemId, this.data);
+        console.log(res)
         this.data.starttime = this.oldTime.starttime;
         this.data.endtime = this.oldTime.endtime;
         this.spinner.hide();
@@ -182,6 +188,22 @@ export class InfoMyPromotionComponent implements OnInit {
         console.log(error);
         this.spinner.hide();
       }
+    }
+  }
+
+  async endNow() { 
+    this.spinner.show();
+    const data = {
+      status: 'end'
+    }
+    try {
+      const res: any = await this.restApi.put(Constants.URL() + '/api/discount/' + this.itemId, data)
+      this.spinner.hide();
+      console.log(res)
+      // this.route.navigate(['my-code']);
+    } catch (error) {
+      this.spinner.hide();
+      throw error;
     }
   }
 

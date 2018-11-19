@@ -64,7 +64,9 @@
                                 <button mat-flat-button color="primary" (click)="onDetail(item)">
                                     <span>ข้อมูล</span>
                                 </button></span>
-                            <button mat-stroked-button (click)="onDelete(item)" *ngIf="item.flag === 'soon'">
+                            <!-- <button mat-stroked-button (click)="onDelete(item)" *ngIf="item.flag === 'soon'"> -->
+                                    <button mat-stroked-button (click)="onDelete(item)" >
+
                                 <span>ลบ</span>
                             </button>
                         </div>

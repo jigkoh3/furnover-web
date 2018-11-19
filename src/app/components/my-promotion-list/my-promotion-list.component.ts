@@ -26,6 +26,7 @@ export class MyPromotionListComponent implements OnInit {
     ngOnInit() {
         this.getData();
         this.dateLimit();
+        console.log(this.itemStatus);
     }
     getData() {
         console.log(this.data);
@@ -54,28 +55,68 @@ export class MyPromotionListComponent implements OnInit {
         // this.data = respone.datas;
     }
 
-    changeData(e) {
-        console.log(this.data.products);
-        this.data.products.forEach(product => {
-            let countIsuse: any = 0;
-            product.prices.forEach(price => {
-                if (price.isuse) {
-                    countIsuse++;
-                }
-            });
-            if (countIsuse === 1) {
-                const filers = product.prices.filter(el => {
-                    return el.isuse === true;
-                });
-                filers[0].forceDisable = true;
-            } else {
-                product.prices.forEach(el => {
-                    if (el.forceDisable) {
-                        el.forceDisable = false;
+    changeData(e, i, j) {
+        console.log(e)
+        if (e) {
+            if (this.dateLimited >= 1 && this.itemStatus !== "end") {
+                console.log('1')
+                console.log(this.data.products);
+                this.data.products.forEach(product => {
+                    let countIsuse: any = 0;
+                    product.prices.forEach(price => {
+                        if (price.isuse) {
+                            countIsuse++;
+                        }
+                    });
+                    if (countIsuse === 1) {
+                        const filers = product.prices.filter(el => {
+                            return el.isuse === true;
+                        });
+                        filers[0].forceDisable = true;
+                    } else {
+                        product.prices.forEach(el => {
+                            if (el.forceDisable) {
+                                el.forceDisable = false;
+                            }
+                        });
                     }
                 });
+            } else {
+                console.log('1.2')
+                this.data.products[i].prices[j].isuse = false;
             }
-        });
+        } else {
+            if (this.dateLimited >= 1) {
+                console.log('2')
+                console.log(this.data.products);
+                this.data.products.forEach(product => {
+                    let countIsuse: any = 0;
+                    product.prices.forEach(price => {
+                        if (price.isuse) {
+                            countIsuse++;
+                        }
+                    });
+                    if (countIsuse === 1) {
+                        const filers = product.prices.filter(el => {
+                            return el.isuse === true;
+                        });
+                        filers[0].forceDisable = true;
+                    } else {
+                        product.prices.forEach(el => {
+                            if (el.forceDisable) {
+                                el.forceDisable = false;
+                            }
+                        });
+                    }
+                });
+            } else {
+                console.log('2.2')
+                setTimeout(() => {
+                    this.data.products[i].prices[j].isuse = true;
+                }, 100);
+            }
+        }
+
         this.outputData.emit(this.data);
     }
 
