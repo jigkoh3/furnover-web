@@ -79,7 +79,7 @@ export class InfoShopCategoryComponent implements OnInit {
             );
             this.spinner.hide();
 
-            this.getProduct = respone.data.products;
+            this.getProduct = respone.data.product.items;
         } catch (error) {
             this.spinner.hide();
         }
