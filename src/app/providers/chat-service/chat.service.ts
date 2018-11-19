@@ -23,6 +23,17 @@ export class ChatService {
       JSON.parse(localStorage.getItem(Constants.URL() + '@usershop')) : {};
     this.socket = io(this.url);
     this.socket.emit('init', { receiver: { _id: user.shop._id, role: 'shop' } });
+    this.excList();
+  }
+
+  excList() {
+    const observable = new Observable(observer => {
+      this.socket.on('exc-list', (data) => {
+        this.getMessages();
+        observer.next(data);
+      });
+    });
+    return observable;
   }
 
   getMessages() {
