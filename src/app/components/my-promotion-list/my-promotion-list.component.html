@@ -51,7 +51,7 @@
                   <td *ngIf="j === 0">
                     <mat-form-field class="text width-input">
                       <input matInput name="qty" type="number" [disabled]="!itm.isuse || itemStatus === 'end'" [(ngModel)]="item.qty"
-                        (ngModelChange)="changeData($event)">
+                        (ngModelChange)="changeData($event,i,j)">
                     </mat-form-field>
                   </td>
                   <td *ngIf="j !== 0"></td>

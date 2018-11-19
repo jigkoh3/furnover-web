@@ -60,9 +60,9 @@ export class InfoMyPromotionComponent implements OnInit {
     }
   }
   
-  async ngAfterContentInit() {
-    this.initLoadData();
-  }
+  // async ngAfterContentInit() {
+  //   this.initLoadData();
+  // }
 
   openModalAddProduct() {
     const dialogRef = this.dialog.open(ModalSelectProductComponent, {
@@ -106,20 +106,12 @@ export class InfoMyPromotionComponent implements OnInit {
   }
 
   validatePrice() {
-
-    // for (let i = 0; i < this.data.products.length; i++) {
-    //   for (let j = 0; j < this.data.products[i].prices.length; j++) {
-    //     if (!this.data.products[i].prices[j].newprice || !this.data.products[i].prices[j].percentage || !this.data.products[i].qty) {
-    //       this.checkPrice = false;
-    //     }
-    //   }
-    // }
     this.data.products.forEach(product => {
       product.prices.forEach(price => {
-        if (!price.newprice || !price.percentage || !product.qty) {
-          this.checkPrice = false;
-        } else {
+        if (price.newprice > 0 && price.percentage <= 100 && product.qty > 0) {
           this.checkPrice = true;
+        } else {
+          this.checkPrice = false;
         }
       });
     });
@@ -215,11 +207,20 @@ export class InfoMyPromotionComponent implements OnInit {
 
   async endNow() { 
     this.spinner.show();
-    const data = {
-      status: 'end'
-    }
+    this.data.status = 'end'
+    this.data.products.forEach(products => {
+      products.prices.forEach(prices => {
+        
+        if (prices) {
+          prices.isuse = false;
+        }
+        
+      });
+    });
+    console.log(this.data);
+    
     try {
-      const res: any = await this.restApi.put(Constants.URL() + '/api/discount/' + this.itemId, data)
+      const res: any = await this.restApi.put(Constants.URL() + '/api/discount/' + this.itemId, this.data)
       this.spinner.hide();
       console.log(res)
       // this.route.navigate(['my-code']);

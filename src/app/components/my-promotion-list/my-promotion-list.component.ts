@@ -83,7 +83,7 @@ export class MyPromotionListComponent implements OnInit {
                 });
             } else {
                 console.log('1.2')
-                this.data.products[i].prices[j].isuse = false;
+                // this.data.products[i].prices[j].isuse = false;
             }
         } else {
             if (this.dateLimited >= 1) {
@@ -111,9 +111,9 @@ export class MyPromotionListComponent implements OnInit {
                 });
             } else {
                 console.log('2.2')
-                setTimeout(() => {
-                    this.data.products[i].prices[j].isuse = true;
-                }, 100);
+                // setTimeout(() => {
+                //     this.data.products[i].prices[j].isuse = true;
+                // }, 100);
             }
         }
 
