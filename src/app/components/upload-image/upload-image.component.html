@@ -1,6 +1,6 @@
 <div class="card-body">
   <h5 class="card-title">เพิ่มรูปภาพ</h5>
-  <input type="file" (change)="detectFiles($event)" accept=".png,.jpg,.gif,.svg" /> {{uploadProgress ? 'Upload is ' + (uploadProgress) + '% done' : ''}}
+  <input type="file" name="addImage" (change)="detectFiles($event)" accept=".png,.jpg,.gif,.svg" /> {{uploadProgress ? 'Upload is ' + (uploadProgress) + '% done' : ''}}
   <!-- <br> -->
   <!-- <div class="progress">
     <div class="progress-bar progress-bar-striped bg-success" role="progressbar" [style.width]="(uploadProgress) + '%'" [attr.aria-valuenow]="(uploadProgress)"

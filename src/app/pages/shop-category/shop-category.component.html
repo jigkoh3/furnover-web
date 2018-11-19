@@ -28,12 +28,12 @@
                   <div class="row">
                     <div class="col-4 col-md-4 no-padding-div"></div>
                     <div class="col-12 col-md-4 no-padding-div">
-                      <button mat-button style="width:100%" (click)="editCategory(item)" color="primary">ข้อมูล</button>
+                      <button name="dataCategory" mat-button style="width:100%" (click)="editCategory(item)" color="primary">ข้อมูล</button>
                     </div>
                   </div>
                 </div>
                 <div class="col-6 col-md-2 no-padding-div" style="text-align: center">
-                  <mat-slide-toggle class="setting-toggle" [(ngModel)]="item.status" (change)="onChangeStatus(item)"></mat-slide-toggle>
+                  <mat-slide-toggle name="toggleCategory" class="setting-toggle" [(ngModel)]="item.status" (change)="onChangeStatus(item)"></mat-slide-toggle>
                 </div>
                 <div class="col-6 col-md-2 no-padding-div" style="text-align: center">
                   <button mat-icon-button>
@@ -66,7 +66,7 @@
   <div class="row">
     <div class="col-1"></div>
     <div class="col-12 col-md-10" style="text-align: center">
-      <button mat-stroked-button color="primary" class="setting-btn-add-cat setting-btn-text-add-cat" (click)="infoCategory()">+
+      <button name="creteCategory" mat-stroked-button color="primary" class="setting-btn-add-cat setting-btn-text-add-cat" (click)="infoCategory()">+
         สร้างหมวดหมู่ใหม่เอง</button>
     </div>
     <div class="col-1"></div>
@@ -91,16 +91,16 @@
                   <div class="row">
                     <div class="col-4 col-md-4 no-padding-div"></div>
                     <div class="col-12 col-md-4 no-padding-div">
-                      <button mat-button style="width:100%" (click)="editCategory(item)" color="primary">ข้อมูล</button>
+                      <button name="editCategoryData" mat-button style="width:100%" (click)="editCategory(item)" color="primary">ข้อมูล</button>
                     </div>
                   </div>
                 </div>
                 <div class="col-6 col-md-2 no-padding-div" style="text-align: center">
-                  <mat-slide-toggle class="setting-toggle" [(ngModel)]="item.status" (change)="onChangeStatus(item)"
+                  <mat-slide-toggle name="toggleStatus" class="setting-toggle" [(ngModel)]="item.status" (change)="onChangeStatus(item)"
                     [disabled]="item.items && item.items.length ===0"></mat-slide-toggle>
                 </div>
                 <div class="col-6 col-md-2 no-padding-div" style="text-align: center">
-                  <button mat-icon-button (click)="deleteCate(item)">
+                  <button name="deleteCate" mat-icon-button (click)="deleteCate(item)">
                     <!-- <mat-icon svgIcon="del" class="setting-icon-del"></mat-icon> -->
                     <mat-icon class="setting-icon-del">delete</mat-icon>
                   </button>
