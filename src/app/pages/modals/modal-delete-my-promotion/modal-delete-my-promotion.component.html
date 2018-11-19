@@ -10,10 +10,10 @@
 
 <div class="row text-center">
   <div class="col-6">
-    <button mat-button style="width: 100%;" [mat-dialog-close]>ยกเลิก</button>
+    <button name="cancel" mat-button style="width: 100%;" [mat-dialog-close]>ยกเลิก</button>
   </div>
   <div class="col-6">
-    <button mat-button style="width: 100%;" (click)="delete()"><span style="color:#ff9558">ใช่, ทำต่อไป</span> </button>
+    <button name="yesDelete" mat-button style="width: 100%;" (click)="delete()"><span style="color:#ff9558">ใช่, ทำต่อไป</span> </button>
   </div>
 </div>
 </mat-dialog-content>

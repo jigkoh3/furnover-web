@@ -34,7 +34,7 @@
                       </div>
                       <div class="col-12 col-md-5">
                         <label class="font-size1">เปิดใช้งานการจัดส่งนี้</label>
-                        <mat-slide-toggle class="position-toggle" [(ngModel)]="item.status" (ngModelChange)="onToggleChange(item)"></mat-slide-toggle>
+                        <mat-slide-toggle name="openStatusUse" class="position-toggle" [(ngModel)]="item.status" (ngModelChange)="onToggleChange(item)"></mat-slide-toggle>
                       </div>
                     </div>
                   </mat-card>
@@ -58,7 +58,7 @@
                 </p>
               </div>
               <div class="col-4 text-right padding-right">
-                <button mat-stroked-button color="primary" (click)="openDialog()">แก้ไข</button>
+                <button name="edit" mat-stroked-button color="primary" (click)="openDialog()">แก้ไข</button>
               </div>
             </div>
             <div class="row">

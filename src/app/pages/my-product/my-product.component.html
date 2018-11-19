@@ -4,10 +4,10 @@
     <div *ngIf="showDelete" class="portal-panel">
       <div class="row">
         <div class="col-6 txt-left">
-          <mat-checkbox class="ch_box" [(ngModel)]="checked" (change)="onselectAll($event)">เลือกทั้งหมด</mat-checkbox>
+          <mat-checkbox name="selectAll" class="ch_box" [(ngModel)]="checked" (change)="onselectAll($event)">เลือกทั้งหมด</mat-checkbox>
         </div>
         <div class="col-6 txt-right">
-          <button mat-stroked-button color="primary" (click)="openDialog()">ลบ</button>
+          <button name="dialogDelete" mat-stroked-button color="primary" (click)="openDialog()">ลบ</button>
         </div>
       </div>
     </div>
@@ -22,7 +22,7 @@
       <div class="col-12 col-md-4 col-sm-4">
         <mat-form-field>
           <mat-icon class="search-ic">search</mat-icon>
-          <input matInput placeholder="ค้นหา" [(ngModel)]="pageData.name" (keydown)="search($event)">
+          <input name="search" matInput placeholder="ค้นหา" [(ngModel)]="pageData.name" (keydown)="search($event)">
         </mat-form-field>
       </div>
     </div>
@@ -31,7 +31,7 @@
       <div class="col-12 col-md-2 col-sm-4" (click)="gotoCreateProduct()">
         <div class="fix-col">
           <p>
-            <button mat-fab color="primary">
+            <button name="addProduct" mat-fab color="primary" (click)="gotoCreateProduct()">
               <mat-icon>add</mat-icon>
             </button>
           </p>
@@ -44,10 +44,10 @@
           <span>ลด</span> <br>
           <span class="badge-num">{{item.percentage}}%</span>
         </div>
-        <mat-checkbox class="ch_box" [(ngModel)]="item.checked" (change)="checkboxOptions($event,item)"></mat-checkbox>
+        <mat-checkbox name="checkedOptions" class="ch_box" [(ngModel)]="item.checked" (change)="checkboxOptions($event,item)"></mat-checkbox>
         <mat-card class="mat-card_cus" (click)="gotoEditProduct(item._id)">
           <div style="background-size: cover;min-height: 12rem;">
-            <img [src]="item.image ? item.image.url:''" style="width: 100%;min-height: 12rem;object-fit: contain;max-height: 12rem;"
+            <img name="editProduct" [src]="item.image ? item.image.url:''" style="width: 100%;min-height: 12rem;object-fit: contain;max-height: 12rem;"
               (click)="gotoEditProduct(item._id)">
             <span *ngIf="item.iswholesale" class="wholesale-badge">ขายส่ง</span>
             <div *ngIf="item.status === 'suspended'" class="product-item-soldout-overlay">
@@ -101,12 +101,12 @@
       <message padding-top class="text-center" [type]="dataService.messageType" [message]="dataService.message"></message>
     </div>
     <div class="text-center" *ngIf="products.length > 0">
-      <button mat-flat-button color="primary" class="btn-summit select" style="margin: 5px;" *ngIf="pageData.page > 1"
+      <button name="previos" mat-flat-button color="primary" class="btn-summit select" style="margin: 5px;" *ngIf="pageData.page > 1"
         (click)="previos()">ก่อนหน้า</button>
-      <button mat-flat-button color="primary" ngClass="{{pageData.page === (i + 1) ? 'select' : 'un-select'}} btn-summit"
+      <button name="page" mat-flat-button color="primary" ngClass="{{pageData.page === (i + 1) ? 'select' : 'un-select'}} btn-summit"
         style="margin: 5px;min-width: unset;" *ngFor="let item of tabs;let i = index" (click)="page(item)">{{item}}</button>
-      <button mat-flat-button color="primary" class="btn-summit select" style="margin: 5px;" *ngIf="pageData.page < tabs.length"
-        (click)="next()">ต่อไป</button>
+      <button name="next" mat-flat-button color="primary" class="btn-summit select" style="margin: 5px;" *ngIf="pageData.page < tabs.length"
+         (click)="next()">ต่อไป</button>
     </div>
   </mat-tab>
 </mat-tab-group>
