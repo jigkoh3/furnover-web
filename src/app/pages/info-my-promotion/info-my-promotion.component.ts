@@ -14,6 +14,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./info-my-promotion.component.css']
 })
 export class InfoMyPromotionComponent implements OnInit {
+  checkPrice = false;
   data: any = {
     products: []
   };
@@ -78,12 +79,12 @@ export class InfoMyPromotionComponent implements OnInit {
         });
 
         this.data.products.forEach(item => {
-          if (item.prices.length > 1 && (!item.flagisuse || item.flagisuse === undefined)) {
-            item.flagisuse = true;
-            item.prices.forEach(price => {
+          item.prices.forEach(price => {
+            if (price.isuse === undefined) {
               price.isuse = true;
-            });
-          }
+            }
+          });
+          // }
         });
       }
     });
@@ -95,7 +96,28 @@ export class InfoMyPromotionComponent implements OnInit {
 
   getDataPromotionList(e) {
     this.data = e;
+    this.validatePrice();
     console.log(this.data);
+  }
+
+  validatePrice() {
+
+    // for (let i = 0; i < this.data.products.length; i++) {
+    //   for (let j = 0; j < this.data.products[i].prices.length; j++) {
+    //     if (!this.data.products[i].prices[j].newprice || !this.data.products[i].prices[j].percentage || !this.data.products[i].qty) {
+    //       this.checkPrice = false;
+    //     }
+    //   }
+    // }
+    this.data.products.forEach(product => {
+      product.prices.forEach(price => {
+        if (!price.newprice || !price.percentage || !product.qty) {
+          this.checkPrice = false;
+        } else {
+          this.checkPrice = true;
+        }
+      });
+    });
   }
 
   async save() {
