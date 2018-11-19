@@ -18,16 +18,16 @@
   <div class="row">
     <div class="col-4 scroll-user">
       <div class="row">
-        <!-- <span *ngFor="let item of chatList;let i = index"> -->
-          <div [ngClass]="person._id === item._id ? 'col-12 no-padding active-user':'col-12 no-padding'" *ngFor="let item of chatList;let i = index" (click)="selectPerson(item)">
+        <div *ngFor="let item of chatList;let i = index">
+          <div [ngClass]="person._id === item._id ? 'col-12 no-padding active-user':'col-12 no-padding'" (click)="selectPerson(item)" *ngIf="item._id !== receiver">
             <div class="user-title">{{item.name}}</div>
             <img class="avatar-img" [src]="item.img" alt="image">
           </div>
+        </div>
 
-          <div class="col-12 center" *ngIf="chatList.length <= 0">
-            ไม่พบข้อมูลลูกค้า
-          </div>
-        <!-- </span> -->
+        <div class="col-12 center" *ngIf="chatList.length <= 0">
+          ไม่พบข้อมูลลูกค้า
+        </div>
         <div class="col-12 clear-fix"></div>
       </div>
     </div>
@@ -83,7 +83,8 @@
 
       <div class="row typing-box">
         <div class="col-12">
-          <input type="text" class="typing" placeholder="พิมพ์ข้อความ" [disabled]="!person._id" [(ngModel)]="message" (keyup.enter)="sendMessage($event)">
+          <input type="text" class="typing" placeholder="พิมพ์ข้อความ" [disabled]="!person._id" [(ngModel)]="message"
+            (keyup.enter)="sendMessage($event)">
         </div>
       </div>
       <div class="sticker">

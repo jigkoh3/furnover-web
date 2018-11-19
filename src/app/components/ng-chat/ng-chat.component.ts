@@ -36,12 +36,25 @@ export class NgChatComponent implements OnInit, OnDestroy {
     this.connection = this.chatService.getMessages().subscribe(data => {
       this.chatList = [];
       const chatList: any = data;
+      this.chatList = chatList;
       const newChatList: Array<any> = [];
+      const uniqChat: Array<any> = [];
       chatList.forEach((chatEl, i) => {
-        if (chatEl._id !== this.user.shop._id && chatEl.name !== this.user.shop.name) {
+        if (chatEl._id === this.user.shop._id && chatEl.ref) {
+          chatEl._id = chatEl.ref._id._id;
+          chatEl.img = chatEl.ref._id.profileImageURL;
+          chatEl.name = chatEl.ref._id.displayname;
+        }
+      });
+
+      chatList.forEach((chatEl, i) => {
+        if (uniqChat.indexOf(chatEl._id) === -1) {
+          uniqChat.push(chatEl._id);
           newChatList.push(chatEl);
         }
       });
+
+      this.chatList = newChatList;
 
       // chatList.forEach((chatEl, i) => {
       //   if (chatEl.ref) {
@@ -60,12 +73,14 @@ export class NgChatComponent implements OnInit, OnDestroy {
       //   }
       // });
 
-      this.chatList = newChatList;
-      for (let i = 0; i < this.chatList.length; i++) {
-        if (this.chatList[i]._id === this.user.shop._id) {
-          this.chatList.splice(i, 1);
-        }
-      }
+      // this.chatList = newChatList;
+      // for (let i = 0; i < this.chatList.length; i++) {
+      //   if (this.chatList[i]._id === this.user.shop._id) {
+      //     this.chatList.splice(i, 1);
+      //   }
+      // }
+      // console.log(this.chatList);
+
     });
   }
 

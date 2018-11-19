@@ -11,7 +11,7 @@
           <mat-icon>cloud_upload</mat-icon>
         </p>
         <p>
-          <button mat-flat-button color="primary" (click)="uploadImg()">
+          <button name="buttonUploadImage" mat-flat-button color="primary" (click)="uploadImg()">
             ดูรูปภาพ
           </button> กดดูรูปเพื่ออัพโหลด
         </p>
@@ -23,7 +23,7 @@
       </div>
     </div>
   </div>
-  <input type="file" #productImg accept="image/*" [(ngModel)]="files" (change)="onImgChange($event)" style="visibility: hidden;">
+  <input name="imageChange" type="file" #productImg accept="image/*" [(ngModel)]="files" (change)="onImgChange($event)" style="visibility: hidden;">
 </div>
 
 <div class="wrapper content" *ngIf="productImgs.length > 0">

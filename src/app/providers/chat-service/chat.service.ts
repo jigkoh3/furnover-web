@@ -29,11 +29,7 @@ export class ChatService {
     this.initSocket();
     const observable = new Observable(observer => {
       this.socket.on('message', (data) => {
-        if (data.length <= 0) {
-          this.initSocket();
-        } else {
-          observer.next(data);
-        }
+        observer.next(data);
       });
     });
     return observable;

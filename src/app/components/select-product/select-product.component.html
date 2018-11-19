@@ -1,19 +1,19 @@
 <div class="select-product-div">
   <div class="row">
     <div class="col-12 col-md-4 text-left">
-      <mat-checkbox [(ngModel)]="checked" (ngModelChange)="onSelectedAll()">เลือกทั้งหมด</mat-checkbox>
+      <mat-checkbox name="checkAll" [(ngModel)]="checked" (ngModelChange)="onSelectedAll()">เลือกทั้งหมด</mat-checkbox>
     </div>
     <div class="col-12 col-md-4 text-center">
       <mat-form-field>
         <mat-icon class="search-ic">search</mat-icon>
-        <input matInput placeholder="ค้นหา" [(ngModel)]="pageData.name" (keydown)="search($event)">
+        <input name="search" matInput placeholder="ค้นหา" [(ngModel)]="pageData.name" (keydown)="search($event)">
       </mat-form-field>
     </div>
     <div class="col-4 text-left"></div>
   </div>
   <div class="row" *ngIf="data && data.product && data.product.items">
     <div class="col-12 col-xs-6 col-sm-6 col-md-4 col-lg-3" *ngFor="let item of data.product.items;let i = index">
-      <mat-card class="product-card" (click)="onSelected(item)">
+      <mat-card name="selectItem" class="product-card" (click)="onSelected(item)">
         <img [src]="item.image ? item.image.url:''" class="product-image">
         <div class="product-item-soldout-overlay" *ngIf="checkSelected(item)">
           <mat-icon class="selected-icon">check_circle_outline</mat-icon>
@@ -30,10 +30,10 @@
   <div class="row">
     <div class="col-12">
       <div class="text-center" *ngIf="data.tabs && data.tabs.length > 0">
-        <button mat-button color="primary" *ngIf="pageData.page > 1" (click)="previos()">ก่อนหน้า</button>
-        <button mat-button color="primary" ngClass="{{pageData.page === (i + 1) ? 'select' : 'un-select'}} btn-summit"
+        <button name="btnPrevios" mat-button color="primary" *ngIf="pageData.page > 1" (click)="previos()">ก่อนหน้า</button>
+        <button name="btnPage" mat-button color="primary" ngClass="{{pageData.page === (i + 1) ? 'select' : 'un-select'}} btn-summit"
           *ngFor="let item of data.tabs;let i = index" (click)="page(item)">{{item}}</button>
-        <button mat-flat-button color="primary" *ngIf="pageData.page < data.tabs.length" (click)="next()">ต่อไป</button>
+        <button name="btnNext" mat-flat-button color="primary" *ngIf="pageData.page < data.tabs.length" (click)="next()">ต่อไป</button>
       </div>
     </div>
   </div>

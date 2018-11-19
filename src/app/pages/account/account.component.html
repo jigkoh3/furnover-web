@@ -14,32 +14,32 @@
         </div>
         <div class="col-7 col-sm-7 col-md-7 txt-right">
           <div *ngIf="!show1">
-            <img class="avatar-icon" [src]="data.profileImageURL"
-              alt="img">
+            <img class="avatar-icon" [src]="data.profileImageURL" alt="img">
             <span class="mgl txt-gray">{{data.displayname}}</span>
             <mat-icon class="mgl ic-pink">wc</mat-icon><span class="mgl txt-gray">หญิง</span>
             <mat-icon class="mgl ic-orange">cake</mat-icon><span class="mgl txt-gray">22/2/2022</span>
-            <button mat-stroked-button class="mgl" (click)="clickShow1()">แก้ไข</button>
+            <button name="buttonEditPage1" mat-stroked-button class="mgl" (click)="clickShow1()">แก้ไข</button>
           </div>
           <div *ngIf="show1">
-            <button mat-flat-button color="primary" class="mgl">อัพเดท</button>
-            <button mat-stroked-button class="mgl" (click)="clickShow1()">ยกเลิก</button>
+            <button name="buttonUpdatePage1" mat-flat-button color="primary" class="mgl">อัพเดท</button>
+            <button name="buttonCancelPage1" mat-stroked-button class="mgl" (click)="clickShow1()">ยกเลิก</button>
             <div class="row">
               <span class="txt-gray inp-style">
                 <mat-form-field>
-                  <input matInput placeholder="ชื่อผู้ใช้" value="">
+                  <input matInput name="username" placeholder="ชื่อผู้ใช้" value="">
                 </mat-form-field>
                 <br>
                 <br>
                 <mat-form-field>
-                  <input matInput placeholder="เพศ" value="">
+                  <input matInput name="password" placeholder="เพศ" value="">
                 </mat-form-field>
                 <br>
                 <br>
                 <mat-form-field>
-                  <input matInput [matDatepicker]="dp" placeholder="วันเกิด" [(ngModel)]="date" (ngModelChange)="getStartDate($event)">
+                  <input matInput name="birthday" [matDatepicker]="dp" placeholder="วันเกิด" [(ngModel)]="date"
+                    (ngModelChange)="getStartDate($event)">
                   <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
-                  <mat-datepicker #dp></mat-datepicker>
+                  <mat-datepicker name="selectBirthday" #dp></mat-datepicker>
                 </mat-form-field>
               </span>
             </div>
@@ -57,13 +57,13 @@
         <div class="col-7 col-sm-7 col-md-7 txt-right">
           <div *ngIf="!show2">
             <span class="mgl txt-gray">0876543321</span>
-            <button mat-stroked-button class="mgl" (click)="clickShow2()">แก้ไข</button>
+            <button name="buttonEditPage2" mat-stroked-button class="mgl" (click)="clickShow2()">แก้ไข</button>
           </div>
           <div *ngIf="show2">
-            <button mat-flat-button color="primary" class="mgl">อัพเดท</button>
-            <button mat-stroked-button class="mgl" (click)="clickShow2()">ยกเลิก</button>
+            <button name="buttonUpdatePage2" mat-flat-button color="primary" class="mgl">อัพเดท</button>
+            <button name="buttonCancelPage2" mat-stroked-button class="mgl" (click)="clickShow2()">ยกเลิก</button>
             <mat-form-field *ngIf="show2">
-              <input matInput placeholder="เบอร์โทร" value="">
+              <input name="telephoneNumber" matInput placeholder="เบอร์โทร" value="">
             </mat-form-field>
           </div>
         </div>
@@ -79,13 +79,13 @@
         <div class="col-7 col-sm-7 col-md-7 txt-right">
           <div *ngIf="!show3">
             <span class="mgl txt-gray">{{data.email}}</span>
-            <button mat-stroked-button class="mgl" (click)="clickShow3()">แก้ไข</button>
+            <button name="buttonEditPage3" mat-stroked-button class="mgl" (click)="clickShow3()">แก้ไข</button>
           </div>
           <div *ngIf="show3">
-            <button mat-flat-button color="primary" class="mgl">อัพเดท</button>
-            <button mat-stroked-button class="mgl" (click)="clickShow3()">ยกเลิก</button>
+            <button name="buttonUpdatePage3" mat-flat-button color="primary" class="mgl">อัพเดท</button>
+            <button name="buttonCancelPage3" mat-stroked-button class="mgl" (click)="clickShow3()">ยกเลิก</button>
             <mat-form-field>
-              <input matInput placeholder="อีเมล์" value="">
+              <input name="email" matInput placeholder="อีเมล์" value="">
             </mat-form-field>
           </div>
         </div>

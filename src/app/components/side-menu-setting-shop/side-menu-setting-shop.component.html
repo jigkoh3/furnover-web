@@ -148,16 +148,16 @@
   <div class="d-block d-sm-block d-md-block d-lg-none d-xl-none col-xs-12 col-sm-12 col-md-12 text-center">
     <!-- d-none menu -->
     <!-- <div class="d-block d-sm-block d-md-block d-lg-none d-xl-none col-xs-12 col-sm-12 col-md-12"> -->
-    <button mat-button color="primary" mat-flat-button class="md-button" [matMenuTriggerFor]="menu">ตั้งค่าร้านค้า</button>
+    <button name="settingShop" mat-button color="primary" mat-flat-button class="md-button" [matMenuTriggerFor]="menu">ตั้งค่าร้านค้า</button>
     <!-- </div> -->
     <mat-menu #menu="matMenu">
-      <button mat-menu-item [matMenuTriggerFor]="shop">ร้านค้า</button>
-      <button mat-menu-item [matMenuTriggerFor]="setting">ตั้งค่า</button>
-      <button mat-menu-item [matMenuTriggerFor]="account">บัญชี</button>
+      <button name="shop" mat-menu-item [matMenuTriggerFor]="shop">ร้านค้า</button>
+      <button name="setting" mat-menu-item [matMenuTriggerFor]="setting">ตั้งค่า</button>
+      <button name="account" mat-menu-item [matMenuTriggerFor]="account">บัญชี</button>
     </mat-menu>
 
     <mat-menu #shop="matMenu">
-      <button mat-menu-item routerLinkActive="active" routerLink="/profile" class="md-shop-setting-link-link">
+      <button name="detailShop" mat-menu-item routerLinkActive="active" routerLink="/profile" class="md-shop-setting-link-link">
         <span style="background: #49cbdd;" class="shop-setting-link-active-bar"></span>
         <div style="background-color: #49cbdd;" class="md-shop-setting-link-icon">
           <svg class="shop-setting-link-icon-svg" viewBox="0 0 32 32">
@@ -167,7 +167,7 @@
         <div class="md-shop-setting-link-caption">รายละเอียดร้านค้า</div>
         <!-- <span style="background: #49cbdd;" class="shop-setting-link-active-bar"></span> -->
       </button>
-      <button mat-menu-item routerLinkActive="active" routerLink="/logistic" class="md-shop-setting-link-link">
+      <button name="mySend" mat-menu-item routerLinkActive="active" routerLink="/logistic" class="md-shop-setting-link-link">
         <span style="background: #6897d6;" class="shop-setting-link-active-bar"></span>
         <div style="background-color: #6897d6;" class="md-shop-setting-link-icon">
           <svg class="shop-setting-link-icon-svg" viewBox="0 0 32 32">
@@ -176,7 +176,7 @@
         </div>
         <div class="md-shop-setting-link-caption">การจัดส่งของฉัน</div>
       </button>
-      <button mat-menu-item routerLinkActive="active" routerLink="/address" class="md-shop-setting-link-link">
+      <button name="myAddress" mat-menu-item routerLinkActive="active" routerLink="/address" class="md-shop-setting-link-link">
         <span style="background: #00bfa5;" class="shop-setting-link-active-bar"></span>
         <div style="background-color: #00bfa5;" class="md-shop-setting-link-icon">
           <svg class="shop-setting-link-icon-svg" viewBox="0 0 32 32">
@@ -185,7 +185,7 @@
         </div>
         <div class="md-shop-setting-link-caption">ที่อยู่ของฉัน</div>
       </button>
-      <button mat-menu-item routerLinkActive="active" routerLink="/xxxx" class="md-shop-setting-link-link">
+      <button name="scoreShop" mat-menu-item routerLinkActive="active" routerLink="/xxxx" class="md-shop-setting-link-link">
         <span style="background: #62b450;" class="shop-setting-link-active-bar"></span>
         <div style="background-color: #62b450;" class="md-shop-setting-link-icon">
           <svg class="shop-setting-link-icon-svg" viewBox="0 0 32 32">
@@ -212,7 +212,7 @@
         </div>
         <div class="md-shop-setting-link-caption">คะแนนความประพฤติร้านค้า</div>
       </button> -->
-      <button mat-menu-item routerLinkActive="active" routerLink="/bank-account" class="md-shop-setting-link-link">
+      <button name="dataBank" mat-menu-item routerLinkActive="active" routerLink="/bank-account" class="md-shop-setting-link-link">
         <span style="background: #508bce;" class="shop-setting-link-active-bar"></span>
         <div style="background-color: #508bce;" class="md-shop-setting-link-icon">
           <svg class="shop-setting-link-icon-svg" viewBox="0 0 32 32">
@@ -225,7 +225,7 @@
     </mat-menu>
 
     <mat-menu #setting="matMenu">
-      <button mat-menu-item routerLinkActive="active" routerLink="/xxxx" class="md-shop-setting-link-link">
+      <button name="menuSettingShop" mat-menu-item routerLinkActive="active" routerLink="/xxxx" class="md-shop-setting-link-link">
         <span style="background: #8d9a99;" class="shop-setting-link-active-bar"></span>
         <div style="background-color: #8d9a99;" class="md-shop-setting-link-icon">
           <svg class="shop-setting-link-icon-svg" viewBox="0 0 32 32">
@@ -243,7 +243,7 @@
         </div>
         <div class="md-shop-setting-link-caption">การตั้งค่าความเป็นส่วนตัว</div>
       </button> -->
-      <button mat-menu-item routerLinkActive="active" routerLink="/xxxx" class="md-shop-setting-link-link">
+      <button name="menuSettingChat" mat-menu-item routerLinkActive="active" routerLink="/xxxx" class="md-shop-setting-link-link">
         <span style="background: #ff5722;" class="shop-setting-link-active-bar"></span>
         <div style="background-color: #ff5722;" class="md-shop-setting-link-icon">
           <svg class="shop-setting-link-icon-svg" viewBox="0 0 32 32">
@@ -252,7 +252,7 @@
         </div>
         <div class="md-shop-setting-link-caption">ตั้งค่าการแชท</div>
       </button>
-      <button mat-menu-item routerLinkActive="active" routerLink="/xxxx" class="md-shop-setting-link-link">
+      <button name="menuSettinNoti" mat-menu-item routerLinkActive="active" routerLink="/xxxx" class="md-shop-setting-link-link">
         <span style="background: #ffc200;" class="shop-setting-link-active-bar"></span>
         <div style="background-color: #ffc200;" class="md-shop-setting-link-icon">
           <svg class="shop-setting-link-icon-svg" viewBox="0 0 32 32">
@@ -264,7 +264,7 @@
     </mat-menu>
 
     <mat-menu #account="matMenu">
-      <button mat-menu-item routerLinkActive="active" routerLink="/account" class="md-shop-setting-link-link">
+      <button name="menuMyAccount" mat-menu-item routerLinkActive="active" routerLink="/account" class="md-shop-setting-link-link">
         <span style="background: #00bfa5;" class="shop-setting-link-active-bar"></span>
         <div style="background-color: #00bfa5;" class="md-shop-setting-link-icon">
           <svg class="shop-setting-link-icon-svg" viewBox="0 0 32 32">
@@ -273,7 +273,7 @@
         </div>
         <div class="md-shop-setting-link-caption">บัญชีของฉัน</div>
       </button>
-      <button mat-menu-item routerLinkActive="active" routerLink="/setting-password" class="md-shop-setting-link-link">
+      <button name="menuChangePassword" mat-menu-item routerLinkActive="active" routerLink="/setting-password" class="md-shop-setting-link-link">
         <span style="background: #8f67ff;" class="shop-setting-link-active-bar"></span>
         <div style="background-color: #8f67ff;" class="md-shop-setting-link-icon">
           <svg class="shop-setting-link-icon-svg" viewBox="0 0 32 32">
