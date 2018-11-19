@@ -4,6 +4,9 @@
       <button mat-stroked-button color="primary" (click)="delete()" *ngIf="itemStatus === 'soon' || !itemStatus">
         <mat-icon>delete_outline</mat-icon> ลบโปรโมชั่น
       </button>
+      <button mat-stroked-button color="primary" (click)="endNow()" *ngIf="itemStatus === 'now'">
+        <mat-icon>highlight_off</mat-icon> End Now
+      </button>
     </div>
   </div>
 
