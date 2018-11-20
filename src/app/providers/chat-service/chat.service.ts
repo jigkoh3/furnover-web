@@ -7,8 +7,8 @@ import { Constants } from '../../app.constants';
   providedIn: 'root'
 })
 export class ChatService {
-  // private url = Constants.URL();
-  private url = 'http://localhost:3000'; // local
+  private url = Constants.URL();
+  // private url = 'http://localhost:3000'; // local
   private socket;
   constructor() {
     this.initSocket();
@@ -24,12 +24,22 @@ export class ChatService {
     this.socket = io(this.url);
     this.socket.emit('init', { receiver: { _id: user.shop._id, role: 'shop' } });
     this.excList();
+    this.getUnRead();
   }
 
   excList() {
     const observable = new Observable(observer => {
       this.socket.on('exc-list', (data) => {
         this.getMessages();
+        observer.next(data);
+      });
+    });
+    return observable;
+  }
+
+  getUnRead() {
+    const observable = new Observable(observer => {
+      this.socket.on('un-read', (data) => {
         observer.next(data);
       });
     });
