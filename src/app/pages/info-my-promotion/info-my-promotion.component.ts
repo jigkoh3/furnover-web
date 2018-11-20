@@ -1,9 +1,8 @@
 import { DataService } from './../../providers/data-service/data.service';
 import { Constants } from 'src/app/app.constants';
-import { async } from '@angular/core/testing';
 import { Component, OnInit } from '@angular/core';
 import { ModalSelectProductComponent } from '../modals/modal-select-product/modal-select-product.component';
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatSnackBar } from '@angular/material';
 import { RestApiService } from 'src/app/providers/rest-api-service/rest-api.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -31,7 +30,8 @@ export class InfoMyPromotionComponent implements OnInit {
     private spinner: NgxSpinnerService,
     private activatedRoute: ActivatedRoute,
     private route: Router,
-    public dataService: DataService
+    public dataService: DataService,
+    public snackBar: MatSnackBar
   ) { }
 
   ngOnInit() {
@@ -42,11 +42,7 @@ export class InfoMyPromotionComponent implements OnInit {
           this.itemId = params['itemId'];
           this.initLoadData();
         }
-        if (params['itemStatus']) {
-          this.itemStatus = params['itemStatus'];
-        }
       });
-    console.log(this.itemStatus);
   }
 
   async initLoadData() {
@@ -55,6 +51,7 @@ export class InfoMyPromotionComponent implements OnInit {
       const res: any = await this.restApi.get(Constants.URL() + '/api/discount/' + this.itemId);
       this.data = res.data;
       console.log(this.data);
+      this.itemStatus = res.data.flag;
       this.spinner.hide();
     } catch (error) {
       console.log(error);
@@ -207,27 +204,27 @@ export class InfoMyPromotionComponent implements OnInit {
   }
 
   async endNow() {
-    this.spinner.show();
-    this.data.status = 'end'
-    this.data.products.forEach(products => {
-      products.prices.forEach(prices => {
+      this.spinner.show();
+      this.data.status = 'end'
+      this.data.products.forEach(products => {
+        products.prices.forEach(prices => {
 
-        if (prices) {
-          prices.isuse = false;
-        }
+          if (prices) {
+            prices.isuse = false;
+          }
 
+        });
       });
-    });
-    console.log(this.data);
+      console.log(this.data);
 
-    try {
-      const res: any = await this.restApi.put(Constants.URL() + '/api/discount/' + this.itemId, this.data)
-      this.spinner.hide();
-      console.log(res)
-    } catch (error) {
-      this.spinner.hide();
-      throw error;
-    }
+      try {
+        const res: any = await this.restApi.put(Constants.URL() + '/api/discount/' + this.itemId, this.data)
+        this.spinner.hide();
+        console.log(res)
+      } catch (error) {
+        this.spinner.hide();
+        throw error;
+      }
   }
 
   dateLimit() {

@@ -98,8 +98,8 @@ export class ShopCategoryComponent implements OnInit {
 
   async deleteCate(item) {
     //  console.log(item._id);
-    let conf = confirm("confirm delete shop category");
-    if (conf) {
+    // let conf = confirm("confirm delete shop category");
+    // if (conf) {
       this.spinner.show();
       try {
         await this.restApi.delete(Constants.URL() + '/api/categoryShop/' + item._id);
@@ -111,7 +111,7 @@ export class ShopCategoryComponent implements OnInit {
         this.dataService.error('ลบข้อมูลไม่สำเร็จ');
 
       }
-    }
+    // }
   }
 
 
