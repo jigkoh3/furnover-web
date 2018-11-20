@@ -58,7 +58,7 @@ export class MyPromotionListComponent implements OnInit {
     changeData(e, i, j) {
         console.log(e)
         if (e) {
-            if (this.dateLimited >= 1 && this.itemStatus !== "end") {
+            if (this.dateLimited >= 1 || this.itemStatus === "soon") {
                 console.log('1')
                 console.log(this.data.products);
                 this.data.products.forEach(product => {
@@ -86,7 +86,7 @@ export class MyPromotionListComponent implements OnInit {
                 // this.data.products[i].prices[j].isuse = false;
             }
         } else {
-            if (this.dateLimited >= 1) {
+            if (this.dateLimited >= 1 || this.itemStatus === "soon") {
                 console.log('2')
                 console.log(this.data.products);
                 this.data.products.forEach(product => {
@@ -129,14 +129,42 @@ export class MyPromotionListComponent implements OnInit {
                 item.newprice = item.price - 1;
             }
         } else if (priceType === 'percent') {
-            const priceBypercent = Math.round((item.price * item.percentage) / 100);
-            this.data.products[indexProduct].prices[index].newprice = item.price - priceBypercent;
+            if (item.percentage < 100) {
+                const priceBypercent = Math.round((item.price * item.percentage) / 100);
+                this.data.products[indexProduct].prices[index].newprice = item.price - priceBypercent;
+            } else if (item.percentage >= 100) {
+                item.percentage = 99;
+            } else if (item.percentage <= 0) {
+                item.percentage = 1;
+            }
         } else {
             item.percentage = 0;
             item.newprice = item.price - 1;
         }
         this.outputData.emit(this.data);
     }
+
+
+    checkNumNewprice(e, i, j) {
+        const reg = new RegExp('^[0-9]+$');
+        if (e < 0 || !reg.test(e)) {
+            setTimeout(() => {
+                this.data.products[i].prices[j].newprice = undefined;
+            }, 100);
+        }
+    }
+
+
+    checkNumMax(e, i, j) {
+        const reg = new RegExp('^[0-9]+$');
+        if (e < 0 || !reg.test(e)) {
+            setTimeout(() => {
+                this.data.products[i].prices[j].percentage = undefined;
+            }, 100);
+        }
+    }
+
+
 
 
     // swapPrice(e, priceType, indexProduct, index, price) {
