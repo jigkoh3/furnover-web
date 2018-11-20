@@ -64,8 +64,7 @@
                                 <button name="btnDetail" mat-flat-button color="primary" (click)="onDetail(item)">
                                     <span>ข้อมูล</span>
                                 </button></span>
-                            <!-- <button mat-stroked-button (click)="onDelete(item)" *ngIf="item.flag === 'soon'"> -->
-                            <button name="btnDelete" mat-stroked-button (click)="onDelete(item)">
+                            <button name="btnDelete" mat-stroked-button (click)="onDelete(item)" *ngIf="item.flag === 'soon'">
                                 <span>ลบ</span>
                             </button>
                         </div>
@@ -78,12 +77,12 @@
                 <!-- </mat-list-item> -->
 
                 <div class="text-center" *ngIf="data.discounts && data.discounts.length > 0">
-                    <button name="btnPrevios" mat-flat-button color="primary" class="btn-summit select" style="margin: 5px;" *ngIf="pageData.page > 1"
-                        (click)="previos()">ก่อนหน้า</button>
+                    <button name="btnPrevios" mat-flat-button color="primary" class="btn-summit select" style="margin: 5px;"
+                        *ngIf="pageData.page > 1" (click)="previos()">ก่อนหน้า</button>
                     <button name="btnPage" mat-flat-button color="primary" ngClass="{{pageData.page === (i + 1) ? 'select' : 'un-select'}} btn-summit"
                         style="margin: 5px;min-width: unset;" *ngFor="let item of tabs;let i = index" (click)="page(item)">{{item}}</button>
-                    <button name="btnNext" mat-flat-button color="primary" class="btn-summit select" style="margin: 5px;" *ngIf="pageData.page < tabs.length"
-                        (click)="next()">ต่อไป</button>
+                    <button name="btnNext" mat-flat-button color="primary" class="btn-summit select" style="margin: 5px;"
+                        *ngIf="pageData.page < tabs.length" (click)="next()">ต่อไป</button>
                 </div>
             </mat-list>
         </mat-tab>
