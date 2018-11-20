@@ -17,8 +17,8 @@
                   <th width='20'></th>
                 </tr>
               </thead>
-              <tbody *ngFor="let item of data.products;let i = index">
-                <tr [ngClass]="{'line': j + 1 !== item.prices.length}" *ngFor="let itm of item.prices ;let j = index">
+              <tbody name="nameFor" *ngFor="let item of data.products;let i = index">
+                <tr name="subFor" [ngClass]="{'line': j + 1 !== item.prices.length}" *ngFor="let itm of item.prices ;let j = index">
                   <td *ngIf="j === 0">
 
                     <img class="img-product" [src]="item.image ? item.image.url : ''">

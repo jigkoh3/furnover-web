@@ -21,7 +21,7 @@
               <p class="pointer text-add">เพิ่มบัญชีธนาคาร</p>
             </div>
           </div>
-          <div class="col-12 col-md-6 col-lg-4 pointer" *ngFor="let item of showDataBank" (click)="openmodal(item)">
+          <div name="divNgFor" class="col-12 col-md-6 col-lg-4 pointer" *ngFor="let item of showDataBank" (click)="openmodal(item)">
             <mat-card class="card-height text-center">
               <img *ngIf="item.bank && item.bank.image" class="image" [src]="item.bank.image" alt="bank-icon">
               <div class="padding-top">

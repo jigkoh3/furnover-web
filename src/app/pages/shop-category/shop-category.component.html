@@ -8,7 +8,7 @@
       <p class="setting-text-header2">ผู้ซื้อสามารถมองเห็นหมวดหมู่เหล่านี้ได้จากร้านของคุณ</p>
     </div>
   </div>
-  <div *ngFor="let item of modelData" class="row card-padding-div">
+  <div name="divNgFor" *ngFor="let item of modelData" class="row card-padding-div">
     <div class="col-1 card-padding-div"></div>
     <div class="col-12 col-md-10 card-padding-div" *ngIf="item.status">
       <mat-list class="border-list">
@@ -71,7 +71,7 @@
     </div>
     <div class="col-1"></div>
   </div>
-  <div *ngFor="let item of modelData" class=" row card-padding-div">
+  <div name="divNgForModel" *ngFor="let item of modelData" class=" row card-padding-div">
     <div class="col-1 card-padding-div"></div>
     <div class="col-12 col-md-10 card-padding-div" *ngIf="!item.status">
       <mat-list class="border-list">

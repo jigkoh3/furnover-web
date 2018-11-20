@@ -53,7 +53,7 @@
 
                 <div class="row padding" *ngIf="this.categoryData.items && this.categoryData.items.length > 0">
 
-                  <div class="col-12 col-md-6 col-lg-6  " *ngFor="let item of this.categoryData.items; let i = index;">
+                  <div name="divItemCategory" class="col-12 col-md-6 col-lg-6  " *ngFor="let item of this.categoryData.items; let i = index;">
                     <div class="col-12">
                       <mat-card class="card-product">
                         <div class="row">
@@ -149,7 +149,7 @@
           <div class="col-12 col-md-12 col-lg-12">
             <div class="row padding">
 
-              <div class="col-12 col-md-6 col-lg-6  " *ngFor="let item of getProduct">
+              <div name="divNgForGetProduct" class="col-12 col-md-6 col-lg-6  " *ngFor="let item of getProduct">
                 <div class="col-12">
                   <mat-card class="card-product">
 
