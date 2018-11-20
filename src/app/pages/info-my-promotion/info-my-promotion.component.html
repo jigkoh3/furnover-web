@@ -4,7 +4,7 @@
       <button name="btnDeletePromotion" mat-stroked-button color="primary" (click)="delete()" *ngIf="itemStatus === 'soon' || !itemStatus">
         <mat-icon>delete_outline</mat-icon> ลบโปรโมชั่น
       </button>
-      <button name="btnEndNow" [disabled]="dateLimited < 1" mat-stroked-button color="primary" (click)="endNow()" *ngIf="data.status !== 'end' && itemStatus === 'now'">
+      <button name="btnEndNow"  mat-stroked-button color="primary" (click)="endNow()" *ngIf="dateLimited >= 1 && itemStatus === 'now' && data.status !== 'end'">
         <mat-icon>highlight_off</mat-icon> End Now
       </button>
     </div>
@@ -19,7 +19,6 @@
 
   <div class="row" *ngIf="data.isSave">
     <div class="col-12 del-box">
-      <!-- <button mat-stroked-button color="primary" (click)="openModalAddProduct()" *ngIf="itemStatus === 'soon' || itemStatus ==='now' || !itemStatus"> -->
       <button name="addProduct" mat-stroked-button color="primary" (click)="openModalAddProduct()" *ngIf="data.status !== 'end'">
         <mat-icon>add</mat-icon> เพิ่มสินค้า
       </button>
