@@ -24,6 +24,8 @@ export class InfoMyPromotionComponent implements OnInit {
   };
   itemId: any;
   itemStatus: any;
+  dateLimited: any;
+
   constructor(public dialog: MatDialog,
     private restApi: RestApiService,
     private spinner: NgxSpinnerService,
@@ -58,11 +60,10 @@ export class InfoMyPromotionComponent implements OnInit {
       console.log(error);
       this.spinner.hide();
     }
+    this.dateLimit();
+
   }
-  
-  // async ngAfterContentInit() {
-  //   this.initLoadData();
-  // }
+
 
   openModalAddProduct() {
     const dialogRef = this.dialog.open(ModalSelectProductComponent, {
@@ -205,29 +206,40 @@ export class InfoMyPromotionComponent implements OnInit {
     }
   }
 
-  async endNow() { 
+  async endNow() {
     this.spinner.show();
     this.data.status = 'end'
     this.data.products.forEach(products => {
       products.prices.forEach(prices => {
-        
+
         if (prices) {
           prices.isuse = false;
         }
-        
+
       });
     });
     console.log(this.data);
-    
+
     try {
       const res: any = await this.restApi.put(Constants.URL() + '/api/discount/' + this.itemId, this.data)
       this.spinner.hide();
       console.log(res)
-      // this.route.navigate(['my-code']);
     } catch (error) {
       this.spinner.hide();
       throw error;
     }
+  }
+
+  dateLimit() {
+    const now: any = new Date();
+    const createDate: any = new Date(this.data.created);
+    const hours = Math.abs(now - createDate) / 36e5;
+    console.log(hours);
+    this.dateLimited = hours;
+  }
+
+  openPromotion() {
+    this.route.navigate(['my-promotion']);
   }
 
 }

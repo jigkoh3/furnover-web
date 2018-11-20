@@ -1,10 +1,10 @@
 <div class="wrapper content">
   <div class="row" *ngIf="itemId">
     <div class="col-12 del-box">
-      <button mat-stroked-button color="primary" (click)="delete()" *ngIf="itemStatus === 'soon' || !itemStatus">
+      <button name="btnDeletePromotion" mat-stroked-button color="primary" (click)="delete()" *ngIf="itemStatus === 'soon' || !itemStatus">
         <mat-icon>delete_outline</mat-icon> ลบโปรโมชั่น
       </button>
-      <button mat-stroked-button color="primary" (click)="endNow()" *ngIf="data.status !== 'end' && itemStatus === 'now'">
+      <button name="btnEndNow" [disabled]="dateLimited < 1" mat-stroked-button color="primary" (click)="endNow()" *ngIf="data.status !== 'end' && itemStatus === 'now'">
         <mat-icon>highlight_off</mat-icon> End Now
       </button>
     </div>
@@ -20,15 +20,15 @@
   <div class="row" *ngIf="data.isSave">
     <div class="col-12 del-box">
       <!-- <button mat-stroked-button color="primary" (click)="openModalAddProduct()" *ngIf="itemStatus === 'soon' || itemStatus ==='now' || !itemStatus"> -->
-      <button mat-stroked-button color="primary" (click)="openModalAddProduct()" *ngIf="data.status !== 'end'">
+      <button name="addProduct" mat-stroked-button color="primary" (click)="openModalAddProduct()" *ngIf="data.status !== 'end'">
         <mat-icon>add</mat-icon> เพิ่มสินค้า
       </button>
-      <button mat-flat-button class="btn-margin" *ngIf="data.status !== 'end'" color="primary" [disabled]="!(data.title && data.startdate && data.enddate && data.starttime && data.endtime && data.products.length > 0 ) && !checkPrice"
+      <button name="successProduct" mat-flat-button class="btn-margin" *ngIf="data.status !== 'end'" color="primary" [disabled]="!(data.title && data.startdate && data.enddate && data.starttime && data.endtime && data.products.length > 0 ) && !checkPrice"
         (click)="save()">
         <mat-icon>done</mat-icon> เสร็จสิ้น
       </button>
-      <button mat-flat-button class="btn-margin" *ngIf="data.status === 'end'" color="primary"
-        (click)="save()">
+      <button name="openPromotion" mat-flat-button class="btn-margin" *ngIf="data.status === 'end'" color="primary"
+        (click)="openPromotion()">
         <mat-icon>done</mat-icon> เสร็จสิ้น
       </button>
     </div>
