@@ -58,7 +58,7 @@ export class MyPromotionListComponent implements OnInit {
     changeData(e, i, j) {
         console.log(e)
         if (e) {
-            if (this.dateLimited >= 1 && this.itemStatus !== "end") {
+            if (this.dateLimited >= 1 || this.itemStatus === "soon") {
                 console.log('1')
                 console.log(this.data.products);
                 this.data.products.forEach(product => {
@@ -86,7 +86,7 @@ export class MyPromotionListComponent implements OnInit {
                 // this.data.products[i].prices[j].isuse = false;
             }
         } else {
-            if (this.dateLimited >= 1) {
+            if (this.dateLimited >= 1 || this.itemStatus === "soon") {
                 console.log('2')
                 console.log(this.data.products);
                 this.data.products.forEach(product => {
