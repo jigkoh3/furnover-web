@@ -106,10 +106,10 @@ export class InfoMyPromotionComponent implements OnInit {
   validatePrice() {
     this.data.products.forEach(product => {
       product.prices.forEach(price => {
-        if (price.newprice > 0 && price.percentage <= 100 && product.qty > 0) {
-          this.checkPrice = true;
-        } else {
+        if (!price.newprice && !price.percentage && !product.qty) {
           this.checkPrice = false;
+        } else {
+          this.checkPrice = true;
         }
       });
     });
@@ -204,27 +204,27 @@ export class InfoMyPromotionComponent implements OnInit {
   }
 
   async endNow() {
-      this.spinner.show();
-      this.data.status = 'end'
-      this.data.products.forEach(products => {
-        products.prices.forEach(prices => {
+    this.spinner.show();
+    this.data.status = 'end'
+    this.data.products.forEach(products => {
+      products.prices.forEach(prices => {
 
-          if (prices) {
-            prices.isuse = false;
-          }
+        if (prices) {
+          prices.isuse = false;
+        }
 
-        });
       });
-      console.log(this.data);
+    });
+    console.log(this.data);
 
-      try {
-        const res: any = await this.restApi.put(Constants.URL() + '/api/discount/' + this.itemId, this.data)
-        this.spinner.hide();
-        console.log(res)
-      } catch (error) {
-        this.spinner.hide();
-        throw error;
-      }
+    try {
+      const res: any = await this.restApi.put(Constants.URL() + '/api/discount/' + this.itemId, this.data)
+      this.spinner.hide();
+      console.log(res)
+    } catch (error) {
+      this.spinner.hide();
+      throw error;
+    }
   }
 
   dateLimit() {
