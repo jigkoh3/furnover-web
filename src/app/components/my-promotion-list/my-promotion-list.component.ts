@@ -134,8 +134,8 @@ export class MyPromotionListComponent implements OnInit {
                 this.data.products[indexProduct].prices[index].newprice = item.price - priceBypercent;
             } else if (item.percentage >= 100) {
                 item.percentage = 99;
-            } else if (item.percentage < 0) {
-                item.percentage = 0;
+            } else if (item.percentage <= 0) {
+                item.percentage = 1;
             }
         } else {
             item.percentage = 0;
@@ -145,32 +145,24 @@ export class MyPromotionListComponent implements OnInit {
     }
 
 
+    checkNumNewprice(e, i, j) {
+        const reg = new RegExp('^[0-9]+$');
+        if (e < 0 || !reg.test(e)) {
+            setTimeout(() => {
+                this.data.products[i].prices[j].newprice = undefined;
+            }, 100);
+        }
+    }
 
-    // checkNumMax() {
-    //     for (let i = 0; i < this.data.products.length; i++) {
-    //         for (let idx = 0; idx < this.data.products[i].prices.length; idx++) {
-    //             if (this.data.products[i].prices[idx].percentage) {
-    //                 const txtpercentage = this.data.products[i].prices[idx].percentage.toString();
-    //                 const txtRexg: any = txtpercentage.replace(/[&\/\\#,+()$~%.'":*?<>^{}\W_]/g, '');
 
-    //                 setTimeout(() => {
-    //                     this.data.products[i].prices[idx].percentage = txtRexg;
-    //                     const reg = new RegExp('^[0-9]+$');
-    //                     if (this.data.products[i].prices[idx].percentage < 0 || !reg.test(this.data.products[i].prices[idx].percentage)) {
-    //                         setTimeout(() => {
-    //                             this.data.products[i].prices[idx].percentage = '';
-    //                         }, 100);
-    //                     }
-    //                 }, 80);
-    //                 break;
-
-    //             }
-
-    //         }
-
-    //     }
-
-    // }
+    checkNumMax(e, i, j) {
+        const reg = new RegExp('^[0-9]+$');
+        if (e < 0 || !reg.test(e)) {
+            setTimeout(() => {
+                this.data.products[i].prices[j].percentage = undefined;
+            }, 100);
+        }
+    }
 
 
 
