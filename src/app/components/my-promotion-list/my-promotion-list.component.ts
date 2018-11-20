@@ -129,14 +129,50 @@ export class MyPromotionListComponent implements OnInit {
                 item.newprice = item.price - 1;
             }
         } else if (priceType === 'percent') {
-            const priceBypercent = Math.round((item.price * item.percentage) / 100);
-            this.data.products[indexProduct].prices[index].newprice = item.price - priceBypercent;
+            if (item.percentage < 100) {
+                const priceBypercent = Math.round((item.price * item.percentage) / 100);
+                this.data.products[indexProduct].prices[index].newprice = item.price - priceBypercent;
+            } else if (item.percentage >= 100) {
+                item.percentage = 99;
+            } else if (item.percentage < 0) {
+                item.percentage = 0;
+            }
         } else {
             item.percentage = 0;
             item.newprice = item.price - 1;
         }
         this.outputData.emit(this.data);
     }
+
+
+
+    // checkNumMax() {
+    //     for (let i = 0; i < this.data.products.length; i++) {
+    //         for (let idx = 0; idx < this.data.products[i].prices.length; idx++) {
+    //             if (this.data.products[i].prices[idx].percentage) {
+    //                 const txtpercentage = this.data.products[i].prices[idx].percentage.toString();
+    //                 const txtRexg: any = txtpercentage.replace(/[&\/\\#,+()$~%.'":*?<>^{}\W_]/g, '');
+
+    //                 setTimeout(() => {
+    //                     this.data.products[i].prices[idx].percentage = txtRexg;
+    //                     const reg = new RegExp('^[0-9]+$');
+    //                     if (this.data.products[i].prices[idx].percentage < 0 || !reg.test(this.data.products[i].prices[idx].percentage)) {
+    //                         setTimeout(() => {
+    //                             this.data.products[i].prices[idx].percentage = '';
+    //                         }, 100);
+    //                     }
+    //                 }, 80);
+    //                 break;
+
+    //             }
+
+    //         }
+
+    //     }
+
+    // }
+
+
 
 
     // swapPrice(e, priceType, indexProduct, index, price) {

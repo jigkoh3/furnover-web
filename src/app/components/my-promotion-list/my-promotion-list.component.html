@@ -28,7 +28,8 @@
                   <td *ngIf="j !== 0"></td>
                   <td>
                     <!-- <mat-slide-toggle [disabled]="itm.forceDisable" *ngIf="item.prices.length > 1" [(ngModel)]="itm.isuse" (ngModelChange)="changeData($event,i,j)" [disabled]="itemStatus === 'end' || itemStatus === 'now' && dateLimited < 1"></mat-slide-toggle> -->
-                    <mat-slide-toggle [disabled]="itm.forceDisable || data.status === 'end'" *ngIf="item.prices.length > 1" [(ngModel)]="itm.isuse" (ngModelChange)="changeData($event,i,j)"></mat-slide-toggle>
+                    <mat-slide-toggle [disabled]="itm.forceDisable || data.status === 'end'" *ngIf="item.prices.length > 1"
+                      [(ngModel)]="itm.isuse" (ngModelChange)="changeData($event,i,j)"></mat-slide-toggle>
                     <span class="txt-name ">
                       {{itm.name}}
                     </span>
@@ -38,25 +39,26 @@
                   </td>
                   <td>
                     <mat-form-field class="text width-input">
-                      <input matInput name="newprice" type="number" [disabled]="!itm.isuse" [(ngModel)]="itm.newprice" placeholder="฿"
-                        (keyup)="swapPrice($event,'cash',i,j,itm)">
+                      <input matInput name="newprice" type="number" [disabled]="!itm.isuse" [(ngModel)]="itm.newprice"
+                        placeholder="฿" (keyup)="swapPrice($event,'cash',i,j,itm)">
                     </mat-form-field>
                   </td>
                   <td>
                     <mat-form-field class="text width-input">
-                      <input matInput name="percentage" type="number" [disabled]="!itm.isuse" [(ngModel)]="itm.percentage" placeholder="%ลด"
-                        (keyup)="swapPrice($event,'percent',i,j,itm)">
+                      <input matInput name="percentage" type="number" [disabled]="!itm.isuse" [(ngModel)]="itm.percentage"
+                        placeholder="%ลด" (keyup)="swapPrice($event,'percent',i,j,itm)" (ngModelChange)="checkNumMax()">
                     </mat-form-field>
                   </td>
                   <td *ngIf="j === 0">
                     <mat-form-field class="text width-input">
-                      <input matInput name="qty" type="number" [disabled]="!itm.isuse || itemStatus === 'end'" [(ngModel)]="item.qty"
-                        (ngModelChange)="changeData($event,i,j)">
+                      <input matInput name="qty" type="number" [disabled]="!itm.isuse || itemStatus === 'end'"
+                        [(ngModel)]="item.qty" (ngModelChange)="changeData($event,i,j)">
                     </mat-form-field>
                   </td>
                   <td *ngIf="j !== 0"></td>
                   <td *ngIf="j === 0">
-                    <mat-icon svgIcon="del" name="delete" class="setting-icon-del del-btn" (click)="delProduct(i)" *ngIf="itemStatus === 'soon'"></mat-icon>
+                    <mat-icon svgIcon="del" name="delete" class="setting-icon-del del-btn" (click)="delProduct(i)"
+                      *ngIf="itemStatus === 'soon'"></mat-icon>
                   </td>
                   <td *ngIf="j !== 0">
 
