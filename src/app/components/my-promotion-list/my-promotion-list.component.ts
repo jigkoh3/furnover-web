@@ -26,6 +26,7 @@ export class MyPromotionListComponent implements OnInit {
     ngOnInit() {
         this.getData();
         this.dateLimit();
+        this.changeData(true)
         console.log(this.itemStatus);
     }
     getData() {
@@ -55,10 +56,10 @@ export class MyPromotionListComponent implements OnInit {
         // this.data = respone.datas;
     }
 
-    changeData(e, i, j) {
-        console.log(e)
+    changeData(e) {
+        console.log(e);
         if (e) {
-            if (this.dateLimited >= 1 || this.itemStatus === "soon") {
+            if (this.dateLimited >= 1 || this.itemStatus === "soon" || !this.itemStatus) {
                 console.log('1')
                 console.log(this.data.products);
                 this.data.products.forEach(product => {
@@ -86,7 +87,7 @@ export class MyPromotionListComponent implements OnInit {
                 // this.data.products[i].prices[j].isuse = false;
             }
         } else {
-            if (this.dateLimited >= 1 || this.itemStatus === "soon") {
+            if (this.dateLimited >= 1 || this.itemStatus === "soon" || !this.itemStatus) {
                 console.log('2')
                 console.log(this.data.products);
                 this.data.products.forEach(product => {
