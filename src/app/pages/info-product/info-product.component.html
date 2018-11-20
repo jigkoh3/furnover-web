@@ -16,7 +16,7 @@
   </div>
 
   <div class="row">
-    <div class="col-12 col-sm-4 col-md-2" *ngFor="let item of images;let i = index">
+    <div name="divNgFor" class="col-12 col-sm-4 col-md-2" *ngFor="let item of images;let i = index">
       <div class="contrain">
         <div class="tools">
           <!-- <div class="crop">
@@ -74,13 +74,13 @@
               <div class="ar-down">
                 <mat-icon>keyboard_arrow_down</mat-icon>
               </div>
-              <span *ngFor="let state of stateSubmenu;let i = index">{{state.name}} <span *ngIf="stateSubmenu.length !== i + 1">
+              <span name="spanNgFor" *ngFor="let state of stateSubmenu;let i = index">{{state.name}} <span *ngIf="stateSubmenu.length !== i + 1">
                   > </span> </span>
               <span *ngIf="stateSubmenu.length <= 0">เลือกหมวดหมู่ *</span>
               <div class="row" *ngIf="toggleSubMenu">
                 <div class="col-4">
                   <div class="row box-submenu">
-                    <div class="col-12" *ngFor="let item of resData.categories">
+                    <div name="divNgForCate" class="col-12" *ngFor="let item of resData.categories">
                       <div name="expandSubMenu" class="row sub-menu" (click)="expanChildren(0,item)">
                         <div class="col-11">
                           {{item.name}}
@@ -93,9 +93,9 @@
                   </div>
                 </div>
                 <!-- //for loop -->
-                <div class="col-4" *ngFor="let state of stateSubmenu;let i = index">
+                <div name="divNgforState" class="col-4" *ngFor="let state of stateSubmenu;let i = index">
                   <div class="row box-submenu">
-                    <div class="col-12" *ngFor="let item of state.items">
+                    <div name="divNgforStateOfItem" class="col-12" *ngFor="let item of state.items">
                       <div name="expandSubMenuInSubMenu" class="row sub-menu" (click)="expanChildren(i+1,item)">
                         <div class="col-11">
                           {{item.name}}
@@ -144,7 +144,7 @@
           </div>
 
           <div *ngIf="optionBoxs.length > 0">
-            <div class="row mgt" *ngFor="let item of optionBoxs;let i = index">
+            <div name="divNgforOptionBox" class="row mgt" *ngFor="let item of optionBoxs;let i = index">
               <div class="option-head">
                 ตัวเลือกที่ {{i + 1}}
               </div>
@@ -159,7 +159,7 @@
                       type="text" required>
                   </mat-form-field>
                 </div>
-                <div *ngFor="let option of item.options;let j = index">
+                <div name="divNgForItemOptions" *ngFor="let option of item.options;let j = index">
                   <div>
                     <div name="buttonDeleteProductColorOption" class="sub-del-btn" *ngIf="item.options.length > 1" (click)="delOptions(i,j)">
                       <mat-icon>close</mat-icon>
@@ -207,7 +207,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let item of optionList">
+                <tr name="TrNgFor" *ngFor="let item of optionList">
                   <!-- <td>{{item.type ? item.type : 'ตัวเลือก'}}</td> -->
                   <td name="nameColorOption1">{{tranformTxt(item.type ? item.type : 'ตัวเลือก')}}</td>
                   <td name="nameColorOption2" *ngIf="optionBoxs.length > 1">{{tranformTxt(item.name ? item.name : 'ตัวเลือก')}}</td>
@@ -257,7 +257,7 @@
           </div>
           <!-- ///// dynamic input -->
           <span *ngIf="isSamePrice">
-            <div class="row" *ngFor="let item of wholesaleList;let i = index">
+            <div name="divNgForWholesaleList" class="row" *ngFor="let item of wholesaleList;let i = index">
               <div class="col-4 sale-txt">
                 {{i + 1}}. ช่วงราคา {{i + 1}}
               </div>
@@ -368,7 +368,7 @@
           </div>
           <div class="row">
             <div class="col-12 logis-box">
-              <div class="row" *ngFor="let item of shippings;let i = index">
+              <div name="divNgForShipping" class="row" *ngFor="let item of shippings;let i = index">
                 <div class="col-6 logis-name">
                   {{item.name}}
                 </div>
@@ -409,7 +409,7 @@
           <div class="row">
             <div class="col-12 logis-box">
               <form>
-                <div class="row" *ngFor="let item of resData.logistics;let i = index">
+                <div name="divNgForLogistics" class="row" *ngFor="let item of resData.logistics;let i = index">
                   <div class="col-6 logis-name">
                     {{item.name}}
                   </div>
