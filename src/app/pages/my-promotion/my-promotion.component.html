@@ -8,7 +8,7 @@
         <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-4">
             <mat-form-field name="searchBar">
                 <mat-icon class="search-ic">search</mat-icon>
-                <input matInput placeholder="ค้นหา" [(ngModel)]="pageData.name" (keydown)="search($event)">
+                <input name="inPutSearchBar" matInput placeholder="ค้นหา" [(ngModel)]="pageData.name" (keydown)="search($event)">
             </mat-form-field>
         </div>
         <div class="d-none d-sm-block d-md-block d-lg-block d-xl-block col-sm-6 col-md-6 col-lg-8 col-xl-8 text-right">
@@ -16,7 +16,7 @@
                 <mat-icon>add</mat-icon><span style="font-weight: bold;" class="padding-left">โปรโมชั่นส่วนลดใหม่</span>
             </button>
         </div>
-        <div class="d-block d-sm-none col-12" (click)="onCreatePromotion()">
+        <div name="divOnCreatePromo" class="d-block d-sm-none col-12" (click)="onCreatePromotion()">
             <button name="btnNewPromotionFull" mat-flat-button color="primary">
                 <mat-icon>add</mat-icon><span style="font-weight: bold;" class="padding-left">โปรโมชั่นส่วนลดใหม่</span>
             </button>
