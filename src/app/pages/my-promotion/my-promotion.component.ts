@@ -57,7 +57,6 @@ export class MyPromotionComponent implements OnInit {
       let res: any = await this.restApi.post(Constants.URL() + '/api/discount-list', objectData);
       if (res['status'] === 200) {
         this.statusArray = res.data.status;
-
         this.spinner.hide();
         this.getPromotion();
       }

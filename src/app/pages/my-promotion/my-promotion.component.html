@@ -6,24 +6,24 @@
     </div>
     <div class="row">
         <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-4">
-            <mat-form-field>
+            <mat-form-field name="searchBar">
                 <mat-icon class="search-ic">search</mat-icon>
                 <input matInput placeholder="ค้นหา" [(ngModel)]="pageData.name" (keydown)="search($event)">
             </mat-form-field>
         </div>
         <div class="d-none d-sm-block d-md-block d-lg-block d-xl-block col-sm-6 col-md-6 col-lg-8 col-xl-8 text-right">
-            <button mat-flat-button color="primary" (click)="onCreatePromotion()">
+            <button name="btnNewPromotion" mat-flat-button color="primary" (click)="onCreatePromotion()">
                 <mat-icon>add</mat-icon><span style="font-weight: bold;" class="padding-left">โปรโมชั่นส่วนลดใหม่</span>
             </button>
         </div>
         <div class="d-block d-sm-none col-12" (click)="onCreatePromotion()">
-            <button mat-flat-button color="primary">
+            <button name="btnNewPromotionFull" mat-flat-button color="primary">
                 <mat-icon>add</mat-icon><span style="font-weight: bold;" class="padding-left">โปรโมชั่นส่วนลดใหม่</span>
             </button>
         </div>
 
     </div>
-    <mat-tab-group (selectedTabChange)="onLinkClick($event)" [selectedIndex]="0">
+    <mat-tab-group name="selectTabStatus" (selectedTabChange)="onLinkClick($event)" [selectedIndex]="0">
         <mat-tab label="{{item.name}}" *ngFor="let item of statusArray">
 
             <mat-list class="padding">
@@ -61,12 +61,11 @@
                     <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
                         <div class="padding-left" style="white-space: nowrap">
                             <span style="padding:5px">
-                                <button mat-flat-button color="primary" (click)="onDetail(item)">
+                                <button name="btnDetail" mat-flat-button color="primary" (click)="onDetail(item)">
                                     <span>ข้อมูล</span>
                                 </button></span>
                             <!-- <button mat-stroked-button (click)="onDelete(item)" *ngIf="item.flag === 'soon'"> -->
-                                    <button mat-stroked-button (click)="onDelete(item)" >
-
+                            <button name="btnDelete" mat-stroked-button (click)="onDelete(item)">
                                 <span>ลบ</span>
                             </button>
                         </div>
@@ -79,11 +78,11 @@
                 <!-- </mat-list-item> -->
 
                 <div class="text-center" *ngIf="data.discounts && data.discounts.length > 0">
-                    <button mat-flat-button color="primary" class="btn-summit select" style="margin: 5px;" *ngIf="pageData.page > 1"
+                    <button name="btnPrevios" mat-flat-button color="primary" class="btn-summit select" style="margin: 5px;" *ngIf="pageData.page > 1"
                         (click)="previos()">ก่อนหน้า</button>
-                    <button mat-flat-button color="primary" ngClass="{{pageData.page === (i + 1) ? 'select' : 'un-select'}} btn-summit"
+                    <button name="btnPage" mat-flat-button color="primary" ngClass="{{pageData.page === (i + 1) ? 'select' : 'un-select'}} btn-summit"
                         style="margin: 5px;min-width: unset;" *ngFor="let item of tabs;let i = index" (click)="page(item)">{{item}}</button>
-                    <button mat-flat-button color="primary" class="btn-summit select" style="margin: 5px;" *ngIf="pageData.page < tabs.length"
+                    <button name="btnNext" mat-flat-button color="primary" class="btn-summit select" style="margin: 5px;" *ngIf="pageData.page < tabs.length"
                         (click)="next()">ต่อไป</button>
                 </div>
             </mat-list>
