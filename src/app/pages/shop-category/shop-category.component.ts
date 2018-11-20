@@ -98,7 +98,7 @@ export class ShopCategoryComponent implements OnInit {
 
   async deleteCate(item) {
     //  console.log(item._id);
-    let conf = confirm("ยืนยันการลบหมวดหมู่");
+    let conf = confirm("confirm delete shop category");
     if (conf) {
       this.spinner.show();
       try {
