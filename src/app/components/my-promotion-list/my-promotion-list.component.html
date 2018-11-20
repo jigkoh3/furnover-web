@@ -40,13 +40,13 @@
                   <td>
                     <mat-form-field class="text width-input">
                       <input matInput name="newprice" type="number" [disabled]="!itm.isuse" [(ngModel)]="itm.newprice"
-                        placeholder="฿" (keyup)="swapPrice($event,'cash',i,j,itm)">
+                        placeholder="฿" (keyup)="swapPrice($event,'cash',i,j,itm)" (ngModelChange)="checkNumNewprice(itm.newprice,i,j)">
                     </mat-form-field>
                   </td>
                   <td>
                     <mat-form-field class="text width-input">
                       <input matInput name="percentage" type="number" [disabled]="!itm.isuse" [(ngModel)]="itm.percentage"
-                        placeholder="%ลด" (keyup)="swapPrice($event,'percent',i,j,itm)" (ngModelChange)="checkNumMax()">
+                        placeholder="%ลด" (keyup)="swapPrice($event,'percent',i,j,itm)" (ngModelChange)="checkNumMax(itm.percentage,i,j)">
                     </mat-form-field>
                   </td>
                   <td *ngIf="j === 0">
