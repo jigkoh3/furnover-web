@@ -83,10 +83,10 @@ export class InfoMyCodeComponent implements OnInit {
           this.itemId = params['item'];
           this.initLoadData();
         }
-        if (params['status']) {
-          this.status = params['status'];
-          console.log(this.status);
-        }
+        // if (params['status']) {
+        //   this.status = params['status'];
+        //   console.log(this.status);
+        // }
       });
     const userShop: any = window.localStorage.getItem(Constants.URL() + '@usershop')
       ? JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop')) : {};
@@ -112,6 +112,7 @@ export class InfoMyCodeComponent implements OnInit {
       console.log(res);
       if (res.data._id) {
         this.data = res.data;
+        this.status = res.data.flag;
         this.data.cash = this.data.cash || {};
         this.data.percentage = this.data.percentage || {};
         this._startdate = new Date(this.data.startdate);
