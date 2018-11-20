@@ -56,6 +56,16 @@ export class MyPromotionListComponent implements OnInit {
         // this.data = respone.datas;
     }
 
+    checkQty(item) {
+        if (item.qty) {
+            const dataQty = item.qty.toString();
+            if (dataQty.length >= 4) {
+                const sub = dataQty.substring(0, 4);
+                item.qty = parseInt(sub);
+            }
+        }
+
+    }
     changeData(e) {
         console.log(e);
         if (e) {
@@ -128,6 +138,8 @@ export class MyPromotionListComponent implements OnInit {
                 this.data.products[indexProduct].prices[index].percentage = parseFloat(percentByprice.toString()).toFixed(0);
             } else if (item.newprice >= item.price) {
                 item.newprice = item.price - 1;
+                item.percentage = 0;
+
             }
         } else if (priceType === 'percent') {
             if (item.percentage < 100) {

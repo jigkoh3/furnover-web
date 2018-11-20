@@ -182,7 +182,7 @@
         <p class="add-txt">เพิ่มสินค้า</p>
       </div>
     </div>
-    <div class="col-12 col-md-2 col-sm-4" *ngFor="let item of data.products">
+    <div name="divNgFor" class="col-12 col-md-2 col-sm-4" *ngFor="let item of data.products">
       <mat-card class="mat-card_cus">
         <div class="div-img container">
           <img [src]="item.image ? item.image.url:''" class="img-style">

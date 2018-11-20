@@ -16,6 +16,7 @@ export class NgChatComponent implements OnInit, OnDestroy {
   user: any = {};
   chatList: Array<any> = [];
   message = '';
+  badge = 0;
   constructor(private chatService: ChatService) {
 
   }
@@ -84,6 +85,10 @@ export class NgChatComponent implements OnInit, OnDestroy {
     });
 
     this.connection = this.chatService.excList().subscribe(data => { });
+    this.connection = this.chatService.getUnRead().subscribe(data => {
+      const badge: any = data;
+      this.badge = badge;
+    });
   }
 
   minimize() {
@@ -106,7 +111,8 @@ export class NgChatComponent implements OnInit, OnDestroy {
       },
       receiver: {
         _id: item._id
-      }
+      },
+      seat: 'shop'
     };
     this.chatService.getChatDetailList(reqData).subscribe(data => {
       const dataArr: any = data;

@@ -1,5 +1,5 @@
 <mat-tab-group (selectedTabChange)="onLinkClick($event)">
-  <mat-tab label="{{item.name}}" *ngFor="let item of statusArray">
+  <mat-tab name="matNgFor" label="{{item.name}}" *ngFor="let item of statusArray">
 
     <div *ngIf="showDelete" class="portal-panel">
       <div class="row">
@@ -30,7 +30,7 @@
     <div class="row padding">
       <div name="divAddProduct" class="col-12 col-md-2 col-sm-4" (click)="gotoCreateProduct()">
         <div name="divInDivAddProduct" class="fix-col">
-          <p>
+          <p name="textAddProduct">
             <button name="addProduct" mat-fab color="primary" (click)="gotoCreateProduct()">
               <mat-icon>add</mat-icon>
             </button>
@@ -39,7 +39,7 @@
         </div>
       </div>
 
-      <div class="col-12 col-md-2 col-sm-4 fix-col-2 mgt-1" *ngFor="let item of products">
+      <div name="divNgFor" class="col-12 col-md-2 col-sm-4 fix-col-2 mgt-1" *ngFor="let item of products">
         <div class="badge-box" *ngIf="item.percentage > 0">
           <span>ลด</span> <br>
           <span class="badge-num">{{item.percentage}}%</span>

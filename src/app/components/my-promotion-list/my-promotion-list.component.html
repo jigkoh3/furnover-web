@@ -17,8 +17,8 @@
                   <th width='20'></th>
                 </tr>
               </thead>
-              <tbody *ngFor="let item of data.products;let i = index">
-                <tr [ngClass]="{'line': j + 1 !== item.prices.length}" *ngFor="let itm of item.prices ;let j = index">
+              <tbody name="nameFor" *ngFor="let item of data.products;let i = index">
+                <tr name="subFor" [ngClass]="{'line': j + 1 !== item.prices.length}" *ngFor="let itm of item.prices ;let j = index">
                   <td *ngIf="j === 0">
 
                     <img class="img-product" [src]="item.image ? item.image.url : ''">
@@ -51,8 +51,8 @@
                   </td>
                   <td *ngIf="j === 0">
                     <mat-form-field class="text width-input">
-                      <input matInput name="qty" type="number" [disabled]="!itm.isuse || itemStatus === 'end' || data.status === 'end'"
-                        [(ngModel)]="item.qty" (ngModelChange)="changeData($event)">
+                      <input matInput name="qty" type="number" max="9999" [disabled]="!itm.isuse || itemStatus === 'end' || data.status === 'end'"
+                        [(ngModel)]="item.qty" (ngModelChange)="changeData($event,i,j)"(keyup)="checkQty(item)">
                     </mat-form-field>
                   </td>
                   <td *ngIf="j !== 0"></td>

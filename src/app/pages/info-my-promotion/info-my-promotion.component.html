@@ -22,7 +22,7 @@
       <button name="addProduct" mat-stroked-button color="primary" (click)="openModalAddProduct()" *ngIf="data.status !== 'end'">
         <mat-icon>add</mat-icon> เพิ่มสินค้า
       </button>
-      <button name="successProduct" mat-flat-button class="btn-margin" *ngIf="data.status !== 'end'" color="primary" [disabled]="!(data.title && data.startdate && data.enddate && data.starttime && data.endtime && data.products.length > 0 ) && !checkPrice"
+      <button name="successProduct" mat-flat-button class="btn-margin" *ngIf="data.status !== 'end'" color="primary" [disabled]="!(data.title && data.startdate && data.enddate && data.starttime && data.endtime && data.products.length > 0 && checkPrice) "
         (click)="save()">
         <mat-icon>done</mat-icon> เสร็จสิ้น
       </button>
