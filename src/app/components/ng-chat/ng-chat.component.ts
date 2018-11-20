@@ -106,7 +106,8 @@ export class NgChatComponent implements OnInit, OnDestroy {
       },
       receiver: {
         _id: item._id
-      }
+      },
+      seat: 'shop'
     };
     this.chatService.getChatDetailList(reqData).subscribe(data => {
       const dataArr: any = data;
