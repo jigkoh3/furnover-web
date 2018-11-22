@@ -101,8 +101,7 @@
                     [disabled]="item.items && item.items.length ===0"></mat-slide-toggle>
                 </div>
                 <div class="col-6 col-md-2 no-padding-div" style="text-align: center">
-                  <button name="openModalConfirm" mat-icon-button (click)="openDialog()">
-                    <!-- <button name="deleteCate" mat-icon-button (click)="deleteCate(item)"> -->
+                  <button name="openModalConfirm" mat-icon-button (click)="openDialog(item)">
                     <!-- <mat-icon svgIcon="del" class="setting-icon-del"></mat-icon> -->
                     <mat-icon class="setting-icon-del">delete</mat-icon>
                   </button>
