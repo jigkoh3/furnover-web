@@ -113,7 +113,7 @@
   </div>
   <div class="col-10">
     <h6>{{data.startdate | date:"dd-MM-yyyy" }} {{data.starttime }} - {{data.enddate | date:"dd-MM-yyyy" }}
-      {{data.endtime }} <span class="sp-txt" name="btnEdit" (click)="edit()" *ngIf="data.status !=='end'">
+      {{data.endtime }} <span class="sp-txt" name="btnEdit" (click)="edit()" *ngIf="itemStatus === 'soon' || itemStatus === 'now' && data.status !== 'end' || !itemStatus">
         <mat-icon name="editPromo" class="ic-pst">create</mat-icon> <span class="sp-txt-2">แก้ไขโปรโมชั่น</span>
       </span></h6>
   </div>

@@ -27,7 +27,19 @@ export class MyPromotionListComponent implements OnInit {
         this.getData();
         this.dateLimit();
         this.changeData(true)
-        console.log(this.itemStatus);
+        // console.log(this.itemStatus);
+        // console.log(this.data)
+        if (this.itemStatus === 'end') {
+            this.data.products.forEach(products => {
+                products.prices.forEach(prices => {
+
+                    if (prices) {
+                        prices.isuse = false;
+                    }
+
+                });
+            });
+        }
     }
     getData() {
         console.log(this.data);
