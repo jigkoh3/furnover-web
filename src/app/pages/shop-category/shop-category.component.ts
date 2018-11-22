@@ -119,7 +119,7 @@ export class ShopCategoryComponent implements OnInit {
   openDialog(item): void {
     const dialogRef = this.dialog.open(ModalConfirmComponent, {
       width: '500px',
-      data: { message: 'Are you want to delete?' }
+      data: { message: 'คุณต้องการลบหมวดหมู่สินค้าหรือไม่?' }
     });
 
     dialogRef.afterClosed().subscribe(async result => {
