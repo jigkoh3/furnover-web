@@ -8,12 +8,21 @@
 </div>
 <message *ngIf="dataService.message" class="text-center" [type]="dataService.messageType" [message]="dataService.message"></message>
 
-<div class="row text-center">
-  <div class="col-6">
-    <button name="cancel" mat-button style="width: 100%;" [mat-dialog-close]>ยกเลิก</button>
-  </div>
-  <div class="col-6">
-    <button name="yesDelete" mat-button style="width: 100%;" (click)="delete()"><span style="color:#ff9558">ใช่, ทำต่อไป</span> </button>
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
+        <button name="yesDelete" class="full-btn" mat-button color="primary" (click)="delete()">ใช่, ทำต่อไป</button>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
+        <button name="cancel" class="full-btn" [mat-dialog-close] mat-stroked-button>ยกเลิก</button>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
+      </div>
+    </div>
   </div>
 </div>
+
 </mat-dialog-content>
