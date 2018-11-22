@@ -55,6 +55,7 @@ import { NgChatComponent } from './components/ng-chat/ng-chat.component';
 import { ChatService } from './providers/chat-service/chat.service';
 import { ParamsService } from './providers/params/params.service';
 import { MomentPipe } from './pipes/moment/moment.pipe';
+import { ModalConfirmComponent } from './pages/modals/modal-confirm/modal-confirm.component';
 
 @NgModule({
   declarations: [
@@ -101,7 +102,8 @@ import { MomentPipe } from './pipes/moment/moment.pipe';
     MyCodeComponent,
     ModalMessageComponent,
     NgChatComponent,
-    MomentPipe
+    MomentPipe,
+    ModalConfirmComponent
   ],
   entryComponents: [
     ModalCreateBankAccountComponent,
@@ -113,7 +115,8 @@ import { MomentPipe } from './pipes/moment/moment.pipe';
     ModalDeleteProductComponent,
     ModalSelectProductComponent,
     ModalDeleteMyPromotionComponent,
-    ModalMessageComponent
+    ModalMessageComponent,
+    ModalConfirmComponent
   ],
   imports: [
     BrowserModule,

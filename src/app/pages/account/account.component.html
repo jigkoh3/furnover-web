@@ -26,7 +26,7 @@
             <div class="row">
               <span class="txt-gray inp-style">
                 <mat-form-field>
-                  <input matInput name="username" placeholder="ชื่อ-นามสกุล" value="" [(ngModel)]="data.displayname">
+                  <input matInput name="username" placeholder="ชื่อ-นามสกุล" value="" [(ngModel)]="name">
                 </mat-form-field>
                 <br>
                 <br>
@@ -69,7 +69,7 @@
             <button name="buttonUpdatePage2" mat-flat-button color="primary" class="mgl" (click)="saveTel()">อัพเดท</button>
             <button name="buttonCancelPage2" mat-stroked-button class="mgl" (click)="clickShow2()">ยกเลิก</button>
             <mat-form-field *ngIf="show2">
-              <input name="telephoneNumber" matInput placeholder="เบอร์โทร" value="" [(ngModel)]="data.tel">
+              <input name="telephoneNumber" matInput placeholder="เบอร์โทร" value="" [(ngModel)]="tel">
             </mat-form-field>
           </div>
         </div>
@@ -91,7 +91,7 @@
             <button name="buttonUpdatePage3" mat-flat-button color="primary" class="mgl" (click)="saveEmail()">อัพเดท</button>
             <button name="buttonCancelPage3" mat-stroked-button class="mgl" (click)="clickShow3()">ยกเลิก</button>
             <mat-form-field>
-              <input name="email" matInput placeholder="อีเมล์" value="" [(ngModel)]="data.email">
+              <input name="email" matInput placeholder="อีเมล์" value="" [(ngModel)]="email">
             </mat-form-field>
           </div>
         </div>

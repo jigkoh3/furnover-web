@@ -1,0 +1,13 @@
+.title-center {
+    text-align: center;
+}
+
+.full-btn {
+    width: 100%;
+}
+
+.position-btn {
+    display: block;
+    text-align: center;
+    margin: auto;
+}
