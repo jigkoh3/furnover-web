@@ -81,7 +81,7 @@ export class InfoMyCodeComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.currentDate);
+    // console.log(this.currentDate);
     this.activatedRoute
       .queryParams
       .subscribe(params => {
@@ -152,7 +152,7 @@ export class InfoMyCodeComponent implements OnInit {
   }
 
   isChecked(e) {
-    console.log(e);
+    // console.log(e);
     if (e === true) {
       this.data.itemtype = 'all';
       // console.log(this.data.itemtype);
@@ -168,7 +168,7 @@ export class InfoMyCodeComponent implements OnInit {
       e._i.year, e._i.month, e._i.date
     );
     this.data.startdate = date;
-    console.log(this.data.startdate);
+    // console.log(this.data.startdate);
   }
 
   endDate(e) {
@@ -176,11 +176,11 @@ export class InfoMyCodeComponent implements OnInit {
       e._i.year, e._i.month, e._i.date
     );
     this.data.enddate = date;
-    console.log(this.data.enddate);
+    // console.log(this.data.enddate);
   }
 
   saveDate() {
-    console.log(this.data);
+    // console.log(this.data);
   }
 
   openModalAddProduct() {
@@ -220,7 +220,7 @@ export class InfoMyCodeComponent implements OnInit {
         const res: any = await this.restApi.put(Constants.URL() + '/api/mycode/' + this.itemId, this.data);
         this.spinner.hide();
         this.route.navigate(['my-code']);
-        console.log(this.data);
+        // console.log(this.data);
 
       } catch (error) {
         this.spinner.hide();
@@ -250,7 +250,7 @@ export class InfoMyCodeComponent implements OnInit {
         const res: any = await this.restApi.post(Constants.URL() + '/api/mycode', this.data);
         this.spinner.hide();
         this.route.navigate(['my-code']);
-        console.log(this.data);
+        // console.log(this.data);
       } catch (error) {
         this.spinner.hide();
         if (error) {
