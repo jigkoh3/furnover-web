@@ -34,9 +34,12 @@ export class AccountComponent implements OnInit {
   show1 = false;
   show2 = false;
   show3 = false;
+  name: any;
   gender: any;
   birthday: any;
   _birthday: any;
+  email: any;
+  tel: any;
 
 
   constructor(
@@ -50,30 +53,39 @@ export class AccountComponent implements OnInit {
   clickShow1() {
     if (this.show1) {
       this.show1 = false;
+      this.getData();
     } else {
       this.show1 = true;
+      this.getData();
     }
   }
   clickShow2() {
     if (this.show2) {
       this.show2 = false;
+      this.getData();
     } else {
       this.show2 = true;
+      this.getData();
     }
   }
   clickShow3() {
     if (this.show3) {
       this.show3 = false;
+      this.getData();
     } else {
       this.show3 = true;
+      this.getData();
     }
   }
 
   getData() {
     let usershop = JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop'));
     this.data = usershop;
-    this._birthday = new Date(this.data.birthday);
+    this.name = usershop.displayname
     this.gender = usershop.sex;
+    this._birthday = new Date(this.data.birthday);
+    this.tel = usershop.tel;
+    this.email = usershop.email;
     console.log(this.data);
   }
 
@@ -90,16 +102,21 @@ export class AccountComponent implements OnInit {
 
   async saveData() {
     try {
+      this.data.displayname = this.name;
       this.data.sex = this.gender;
       this.data.birthday = this.birthday
+      this.data.tel = this.tel;
+      this.data.email = this.email;
       let res: any = await this.restApi.put(Constants.URL() + '/api/user/' + this.data._id, this.data);
       this.data = res.data;
       console.log(res);
       await window.localStorage.setItem(Constants.URL() + '@token', res.token);
       await window.localStorage.setItem(Constants.URL() + '@usershop', JSON.stringify(this.data));
       this.clickShow1();
+      this
     } catch (error) {
-      throw (error);
+      // throw (error);
+      console.log(error)
     }
 
   }
@@ -111,9 +128,10 @@ export class AccountComponent implements OnInit {
       console.log(res);
       await window.localStorage.setItem(Constants.URL() + '@token', res.token);
       await window.localStorage.setItem(Constants.URL() + '@usershop', JSON.stringify(this.data));
-      this.clickShow2();;
+      this.clickShow2();
     } catch (error) {
-      throw (error);
+      // throw (error);
+      console.log(error)
     }
   }
 
@@ -126,7 +144,8 @@ export class AccountComponent implements OnInit {
       await window.localStorage.setItem(Constants.URL() + '@usershop', JSON.stringify(this.data));
       this.clickShow3();
     } catch (error) {
-      throw (error);
+      // throw (error);
+      console.log(error)
     }
   }
 
