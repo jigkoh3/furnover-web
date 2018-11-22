@@ -10,6 +10,7 @@ import { RestApiService } from 'src/app/providers/rest-api-service/rest-api.serv
 import { Constants } from 'src/app/app.constants';
 import { DataService } from 'src/app/providers/data-service/data.service';
 import { DomSanitizer } from '@angular/platform-browser';
+import { ModalConfirmComponent } from '../modals/modal-confirm/modal-confirm.component';
 const moment = _moment;
 export const MY_FORMATS = {
   parse: {
@@ -56,6 +57,10 @@ export class InfoMyCodeComponent implements OnInit {
   userShop: any = {};
   prefixUppercase: String = 'CODE';
   status: any;
+  status2: any;
+  currentDate: any = new Date();
+  setDateTime = this.currentDate.setHours(0, 0, 0, 0);
+  // isValidateDate: boolean = true;
 
   constructor(
     public dialog: MatDialog,
@@ -76,6 +81,7 @@ export class InfoMyCodeComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log(this.currentDate);
     this.activatedRoute
       .queryParams
       .subscribe(params => {
@@ -122,10 +128,10 @@ export class InfoMyCodeComponent implements OnInit {
     this.spinner.show();
     try {
       const res: any = await this.restApi.get(Constants.URL() + '/api/mycode/' + this.itemId);
-      console.log(res);
       if (res.data._id) {
         this.data = res.data;
         this.status = res.data.flag;
+        this.status2 = res.data.status;
         this.data.cash = this.data.cash || {};
         this.data.percentage = this.data.percentage || {};
         this._startdate = new Date(this.data.startdate);
@@ -162,7 +168,7 @@ export class InfoMyCodeComponent implements OnInit {
       e._i.year, e._i.month, e._i.date
     );
     this.data.startdate = date;
-    // console.log(this.data.start_date);
+    console.log(this.data.startdate);
   }
 
   endDate(e) {
@@ -170,7 +176,7 @@ export class InfoMyCodeComponent implements OnInit {
       e._i.year, e._i.month, e._i.date
     );
     this.data.enddate = date;
-    // console.log(this.data.end_date);
+    console.log(this.data.enddate);
   }
 
   saveDate() {
@@ -272,15 +278,31 @@ export class InfoMyCodeComponent implements OnInit {
   }
 
   delProd(item) {
-    console.log(item);
-    console.log(this.data.products)
-    const index = this.data.products.findIndex((itm) => {
-      return itm._id.toString() === item._id.toString();
+    const dialogRef = this.dialog.open(ModalConfirmComponent, {
+      width: '500px',
+      data: { message: 'คุณต้องการลบสินค้าหรือไม่?' }
     });
-    console.log(index);
-    if (index >= 0) {
-      this.data.products.splice(index, 1);
-    }
+
+    dialogRef.afterClosed().subscribe(async result => {
+      console.log(`Dialog closed: ${result}`);
+      const deleteCat = result;
+      if (deleteCat === 'confirm') {
+        this.spinner.show();
+        try {
+          const index = this.data.products.findIndex((itm) => {
+            return itm._id.toString() === item._id.toString();
+          });
+          console.log(index);
+          if (index >= 0) {
+            this.data.products.splice(index, 1);
+          }
+          this.spinner.hide();
+        } catch (error) {
+          this.spinner.hide();
+          this.dataService.error('ลบข้อมูลไม่สำเร็จ');
+        }
+      }
+    });
 
   }
 
@@ -289,39 +311,82 @@ export class InfoMyCodeComponent implements OnInit {
   }
 
   async cancelCode() {
-    const conf = confirm('ยืนยันการลบที่อยู่');
-    if (conf) {
-      this.spinner.show();
-      const data = {
-        status: 'end'
-      }
-      try {
-        this.restApi.put(Constants.URL() + '/api/mycode/' + this.data._id, data)
-        this.spinner.hide();
-        this.route.navigate(['my-code']);
-      } catch (error) {
-        this.spinner.hide();
-        this.dataService.error('ยกเลิกโค้ดส่วนลดไม่สำเร็จ');
-      }
+    const dialogRef = this.dialog.open(ModalConfirmComponent, {
+      width: '500px',
+      data: { message: 'คุณต้องการยกเลิกโค้ดส่วนลดหรือไม่?' }
+    });
+    const data = {
+      status: 'end'
     }
+    dialogRef.afterClosed().subscribe(async result => {
+      console.log(`Dialog closed: ${result}`);
+      const deleteCat = result;
+      if (deleteCat === 'confirm') {
+        this.spinner.show();
+        try {
+          this.restApi.put(Constants.URL() + '/api/mycode/' + this.data._id, data)
+          this.spinner.hide();
+          this.route.navigate(['my-code']);
+        } catch (error) {
+          this.spinner.hide();
+          this.dataService.error('ลบข้อมูลไม่สำเร็จ');
+        }
+      }
+    });
+
+    // const conf = confirm('ยืนยันการลบที่อยู่');
+    // if (conf) {
+    //   this.spinner.show();
+    //   const data = {
+    //     status: 'end'
+    //   }
+    //   try {
+    //     this.restApi.put(Constants.URL() + '/api/mycode/' + this.data._id, data)
+    //     this.spinner.hide();
+    //     this.route.navigate(['my-code']);
+    //   } catch (error) {
+    //     this.spinner.hide();
+    //     this.dataService.error('ยกเลิกโค้ดส่วนลดไม่สำเร็จ');
+    //   }
+    // }
   }
 
 
   async deleteCode() {
-    const conf = confirm('ยืนยันการลบที่อยู่');
-    if (conf) {
-      this.spinner.show();
-      try {
-        await this.restApi.delete(Constants.URL() + '/api/mycode/' + this.data._id);
-        this.spinner.hide();
-        this.route.navigate(['my-code']);
-        // console.log(this.modelData)
-      } catch (error) {
-        this.spinner.hide();
-        this.dataService.error('ลบข้อมูลไม่สำเร็จ');
+    const dialogRef = this.dialog.open(ModalConfirmComponent, {
+      width: '500px',
+      data: { message: 'คุณต้องการลบโค้ดส่วนลดหรือไม่?' }
+    });
 
+    dialogRef.afterClosed().subscribe(async result => {
+      console.log(`Dialog closed: ${result}`);
+      const deleteCat = result;
+      if (deleteCat === 'confirm') {
+        this.spinner.show();
+        try {
+          await this.restApi.delete(Constants.URL() + '/api/mycode/' + this.data._id);
+          this.spinner.hide();
+          this.route.navigate(['my-code']);
+        } catch (error) {
+          this.spinner.hide();
+          this.dataService.error('ลบข้อมูลไม่สำเร็จ');
+        }
       }
-    }
+    });
+
+    // const conf = confirm('ยืนยันการลบที่อยู่');
+    // if (conf) {
+    //   this.spinner.show();
+    //   try {
+    //     await this.restApi.delete(Constants.URL() + '/api/mycode/' + this.data._id);
+    //     this.spinner.hide();
+    //     this.route.navigate(['my-code']);
+    //     // console.log(this.modelData)
+    //   } catch (error) {
+    //     this.spinner.hide();
+    //     this.dataService.error('ลบข้อมูลไม่สำเร็จ');
+    //   }
+    // }
   }
 
 
