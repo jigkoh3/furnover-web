@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatIconRegistry } from '@angular/material';
+import { MatIconRegistry, MatDialog } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { RestApiService } from '../../providers/rest-api-service/rest-api.service';
@@ -7,6 +7,7 @@ import { Constants } from '../../app.constants';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { DataService } from '../../providers/data-service/data.service';
 import { isNgTemplate } from '@angular/compiler';
+import { ModalConfirmComponent } from '../modals/modal-confirm/modal-confirm.component';
 
 @Component({
   selector: 'app-shop-category',
@@ -23,7 +24,8 @@ export class ShopCategoryComponent implements OnInit {
     private router: Router,
     private restApi: RestApiService,
     private spinner: NgxSpinnerService,
-    private dataService: DataService
+    private dataService: DataService,
+    public dialog: MatDialog
   ) {
     iconRegistry.addSvgIcon(
       'del',
@@ -114,6 +116,14 @@ export class ShopCategoryComponent implements OnInit {
     // }
   }
 
+  openDialog(): void {
+    const dialogRef = this.dialog.open(ModalConfirmComponent, {
+      width: '700px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+    });
+  }
 
 
 
