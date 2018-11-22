@@ -66,7 +66,7 @@
       </div>
       <div class="col-md-2 txt-left">
         <div>
-          <button name="deleteAddres" mat-stroked-button (click)="clickdelete(data._id)">ลบที่อยู่</button>
+          <button *ngIf="data._id" name="deleteAddres" mat-stroked-button (click)="clickdelete(data._id)">ลบที่อยู่</button>
         </div>
       </div>
     </div>
