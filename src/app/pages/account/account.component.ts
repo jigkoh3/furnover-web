@@ -53,22 +53,28 @@ export class AccountComponent implements OnInit {
   clickShow1() {
     if (this.show1) {
       this.show1 = false;
+      this.getData();
     } else {
       this.show1 = true;
+      this.getData();
     }
   }
   clickShow2() {
     if (this.show2) {
       this.show2 = false;
+      this.getData();
     } else {
       this.show2 = true;
+      this.getData();
     }
   }
   clickShow3() {
     if (this.show3) {
       this.show3 = false;
+      this.getData();
     } else {
       this.show3 = true;
+      this.getData();
     }
   }
 
