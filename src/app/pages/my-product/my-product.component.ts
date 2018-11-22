@@ -21,7 +21,6 @@ export class MyProductComponent implements OnInit {
   };
 
   data: any = {
-    products: [],
     status: [],
     tabs: []
   };
@@ -181,8 +180,10 @@ export class MyProductComponent implements OnInit {
   }
 
   onselectAll(event) {
+    console.log(event)
+    console.log(this.data);
     this.selectedProduct = [];
-    this.data.products.forEach(selectItem => {
+    this.data.product.items.forEach(selectItem => {
       if (event.checked) {
         selectItem.checked = true;
         this.selectedProduct.push(selectItem);
