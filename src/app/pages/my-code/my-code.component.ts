@@ -93,9 +93,9 @@ export class MyCodeComponent implements OnInit {
     try {
       let res: any = await this.restApi.post(Constants.URL() + '/api/my-code', objectData);
       if (res['status'] === 200) {
-
         this.data = res.data;
         this.tabs = this.data.tabs;
+        console.log(this.data);
         this.spinner.hide();
         if (this.data && this.data.codes.length === 0) {
           this.dataService.warning('ไม่พบข้อมูลส่วนลด');
