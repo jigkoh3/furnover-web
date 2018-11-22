@@ -48,7 +48,8 @@
         </div>
         <div class="col-md-4">
           <mat-form-field>
-            <mat-select name="codetype" placeholder="เลือกประเภทส่วนลด" [(ngModel)]="data.codetype" [disabled]="status === 'end'" (ngModelChange)="checkCodetype(data.codetype)">
+            <mat-select name="codetype" placeholder="เลือกประเภทส่วนลด" [(ngModel)]="data.codetype" [disabled]="status === 'end'"
+              (ngModelChange)="checkCodetype(data.codetype)">
               <mat-option name="cash" value="cash">
                 บาท
               </mat-option>
@@ -61,8 +62,8 @@
         <div class="col-1"></div>
         <div class="col-md-4" *ngIf="data.codetype === 'cash'">
           <mat-form-field>
-            <input name="cashDiscount" matInput type="tel" placeholder="จำนวนส่วนลด(บาท)" [(ngModel)]="data.cash.discount" [disabled]="status === 'end'"
-              [disabled]="status === 'end'" (ngModelChange)="checkNumCash(data.cash.discount)">
+            <input name="cashDiscount" matInput type="tel" placeholder="จำนวนส่วนลด(บาท)" [(ngModel)]="data.cash.discount"
+              [disabled]="status === 'end'" [disabled]="status === 'end'" (ngModelChange)="checkNumCash(data.cash.discount)">
           </mat-form-field>
         </div>
         <div class="col-md-4" *ngIf="data.codetype === 'percentage'">
@@ -88,8 +89,8 @@
         <div class="col-md-3"></div>
         <div class="col-md-9">
           <mat-form-field>
-            <input matInput name="setAmount" type="tel" placeholder="กำหนดราคาสูงสุด" [(ngModel)]="data.percentage.setamount" [disabled]="status === 'end'"
-              (ngModelChange)="checkNumMax(data.percentage.setamount)">
+            <input matInput name="setAmount" type="tel" placeholder="กำหนดราคาสูงสุด" [(ngModel)]="data.percentage.setamount"
+              [disabled]="status === 'end'" (ngModelChange)="checkNumMax(data.percentage.setamount)">
           </mat-form-field>
         </div>
       </div>
@@ -99,7 +100,8 @@
         </div>
         <div class="col-md-9">
           <mat-form-field>
-            <input matInput name="cashMinPrice" type="tel" name [(ngModel)]="data.cash.minprice" [disabled]="status === 'end'" (ngModelChange)="checkNumCashMin(data.cash.minprice)">
+            <input matInput name="cashMinPrice" type="tel" name [(ngModel)]="data.cash.minprice" [disabled]="status === 'end'"
+              (ngModelChange)="checkNumCashMin(data.cash.minprice)">
           </mat-form-field>
         </div>
       </div>
@@ -150,7 +152,8 @@
         </div>
         <div class="col-md-9">
           <mat-form-field>
-            <input matInput name="codeQty" type="tel" [(ngModel)]="data.codeqty" [disabled]="status === 'end'" (ngModelChange)="checkNumQty(data.codeqty)">
+            <input matInput name="codeQty" type="tel" [(ngModel)]="data.codeqty" [disabled]="status === 'end'"
+              (ngModelChange)="checkNumQty(data.codeqty)">
           </mat-form-field>
         </div>
       </div>
@@ -188,7 +191,8 @@
           <img [src]="item.image ? item.image.url:''" class="img-style">
           <div class="topright">
             <!-- <mat-icon svgIcon="del" class="setting-icon-del" (click)="delProd(item)"></mat-icon> -->
-            <mat-icon *ngIf="!status || status === 'soon' || status === 'now' " name="buttonDeleteProduct" class="setting-icon-del" (click)="delProd(item)">delete</mat-icon>
+            <mat-icon *ngIf="!status || status === 'soon' || status === 'now' " name="buttonDeleteProduct" class="setting-icon-del"
+              (click)="delProd(item)">delete</mat-icon>
           </div>
         </div>
       </mat-card>
@@ -202,7 +206,7 @@
   <div class="row padding-top-btn">
     <div class="col-12 col-md-5"></div>
     <div class="col-12 col-md-1">
-      <button mat-flat-button color="primary" style="width:100%;" name="buttonSave" (click)="saveData()" [disabled]="_startdate > _enddate || !_startdate|| !_enddate || !data.name || !data.code || (!data.cash.minprice && !data.percentage.minprice) || !data.codeqty">บันทึก</button>
+      <button mat-flat-button color="primary" style="width:100%;" name="buttonSave" (click)="saveData()" [disabled]="_startdate > _enddate || !_startdate|| !_enddate || !data.name || !data.code || (!data.cash.minprice && !data.percentage.minprice) || !data.codeqty || (!_itemtype && data.products.length < 1)">บันทึก</button>
     </div>
     <div class="col-12 col-md-1 padding-btn-div">
       <button mat-stroked-button color="primary" style="width:100%;" name="buttonCancel" (click)="clickCancel()">ยกเลิก</button>
