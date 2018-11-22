@@ -58,7 +58,8 @@ export class InfoMyCodeComponent implements OnInit {
   prefixUppercase: String = 'CODE';
   status: any;
   status2: any;
-  currentDate = new Date();
+  currentDate: any = new Date();
+  setDateTime = this.currentDate.setHours(0, 0, 0, 0);
   // isValidateDate: boolean = true;
 
   constructor(
@@ -80,6 +81,7 @@ export class InfoMyCodeComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log(this.currentDate);
     this.activatedRoute
       .queryParams
       .subscribe(params => {
@@ -166,7 +168,7 @@ export class InfoMyCodeComponent implements OnInit {
       e._i.year, e._i.month, e._i.date
     );
     this.data.startdate = date;
-    // console.log(this.data.start_date);
+    console.log(this.data.startdate);
   }
 
   endDate(e) {
@@ -174,7 +176,7 @@ export class InfoMyCodeComponent implements OnInit {
       e._i.year, e._i.month, e._i.date
     );
     this.data.enddate = date;
-    // console.log(this.data.end_date);
+    console.log(this.data.enddate);
   }
 
   saveDate() {
