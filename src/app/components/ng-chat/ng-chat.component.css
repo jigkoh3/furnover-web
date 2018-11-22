@@ -140,6 +140,7 @@
 .scroll-user {
     overflow: scroll;
     height: -webkit-fill-available;
+    border-left: 1px solid #eeeeee;
 }
 
 ::-webkit-scrollbar {
