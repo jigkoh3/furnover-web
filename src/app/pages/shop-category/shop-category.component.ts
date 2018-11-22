@@ -118,7 +118,8 @@ export class ShopCategoryComponent implements OnInit {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(ModalConfirmComponent, {
-      width: '700px'
+      width: '500px',
+      data: { message: 'Are you want to delete?' }
     });
 
     dialogRef.afterClosed().subscribe(result => {

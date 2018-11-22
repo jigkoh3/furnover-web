@@ -115,7 +115,8 @@ import { ModalConfirmComponent } from './pages/modals/modal-confirm/modal-confir
     ModalDeleteProductComponent,
     ModalSelectProductComponent,
     ModalDeleteMyPromotionComponent,
-    ModalMessageComponent
+    ModalMessageComponent,
+    ModalConfirmComponent
   ],
   imports: [
     BrowserModule,
