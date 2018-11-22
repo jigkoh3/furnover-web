@@ -56,6 +56,8 @@ export class AccountComponent implements OnInit {
     } else {
       this.show1 = true;
     }
+
+    console.log(this.data);
   }
   clickShow2() {
     if (this.show2) {
@@ -73,11 +75,12 @@ export class AccountComponent implements OnInit {
   }
 
   getData() {
-    let usershop = JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop'));
+    const usershop = JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop'));
     this.data = usershop;
-    this.name = usershop.displayname
+    this.name = usershop.displayname;
     this.gender = usershop.sex;
     this._birthday = new Date(this.data.birthday);
+    this.birthday = new Date(this.data.birthday);
     this.tel = usershop.tel;
     this.email = usershop.email;
     console.log(this.data);
@@ -88,7 +91,7 @@ export class AccountComponent implements OnInit {
       const date = new Date(
         e._i.year, e._i.month, e._i.date
       );
-      this.birthday = date
+      this.birthday = date;
     } else {
       this._birthday = new Date(this.data.birthday);
     }
@@ -98,48 +101,44 @@ export class AccountComponent implements OnInit {
     try {
       this.data.displayname = this.name;
       this.data.sex = this.gender;
-      this.data.birthday = this.birthday
+      this.data.birthday = this.birthday;
       this.data.tel = this.tel;
       this.data.email = this.email;
-      let res: any = await this.restApi.put(Constants.URL() + '/api/user/' + this.data._id, this.data);
+      const res: any = await this.restApi.put(Constants.URL() + '/api/user/' + this.data._id, this.data);
       this.data = res.data;
       console.log(res);
       await window.localStorage.setItem(Constants.URL() + '@token', res.token);
       await window.localStorage.setItem(Constants.URL() + '@usershop', JSON.stringify(this.data));
       this.clickShow1();
-      this
     } catch (error) {
-      // throw (error);
-      console.log(error)
+      throw error;
     }
 
   }
 
   async saveTel() {
     try {
-      let res: any = await this.restApi.put(Constants.URL() + '/api/user/' + this.data._id, this.data);
+      const res: any = await this.restApi.put(Constants.URL() + '/api/user/' + this.data._id, this.data);
       this.data = res.data;
       console.log(res);
       await window.localStorage.setItem(Constants.URL() + '@token', res.token);
       await window.localStorage.setItem(Constants.URL() + '@usershop', JSON.stringify(this.data));
       this.clickShow2();
     } catch (error) {
-      // throw (error);
-      console.log(error)
+      throw error;
     }
   }
 
   async saveEmail() {
     try {
-      let res: any = await this.restApi.put(Constants.URL() + '/api/user/' + this.data._id, this.data);
+      const res: any = await this.restApi.put(Constants.URL() + '/api/user/' + this.data._id, this.data);
       this.data = res.data;
       console.log(res);
       await window.localStorage.setItem(Constants.URL() + '@token', res.token);
       await window.localStorage.setItem(Constants.URL() + '@usershop', JSON.stringify(this.data));
       this.clickShow3();
     } catch (error) {
-      // throw (error);
-      console.log(error)
+      throw error;
     }
   }
 
