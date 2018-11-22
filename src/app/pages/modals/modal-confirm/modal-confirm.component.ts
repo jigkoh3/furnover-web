@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material';
+import { MAT_DIALOG_DATA, MatDialogRef, MatDialog } from '@angular/material';
 
 @Component({
   selector: 'app-modal-confirm',
@@ -9,10 +9,20 @@ import { MAT_DIALOG_DATA } from '@angular/material';
 export class ModalConfirmComponent implements OnInit {
 
   constructor(
+    private thisDialogRef: MatDialogRef<ModalConfirmComponent>,
+    public dialog: MatDialog,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) { }
 
   ngOnInit() {
+  }
+
+  onCloseOk() {
+    this.thisDialogRef.close('confirm');
+  }
+
+  onCloseCancel() {
+    this.dialog.closeAll();
   }
 
 }
