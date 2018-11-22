@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { MomentDateAdapter } from '@angular/material-moment-adapter';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import * as _moment from 'moment';
+import { RestApiService } from 'src/app/providers/rest-api-service/rest-api.service';
 const moment = _moment;
 export const MY_FORMATS = {
   parse: {
@@ -27,14 +28,20 @@ export const MY_FORMATS = {
 })
 export class AccountComponent implements OnInit {
 
-  data: any = {};
-  date = new Date();
+  data: any = {
+  };
+  // date = '';
   show1 = false;
   show2 = false;
   show3 = false;
+  gender: any;
+  birthday: any;
+  _birthday: any;
 
 
-  constructor() { }
+  constructor(
+    private restApi: RestApiService
+  ) { }
 
   ngOnInit() {
     this.getData();
@@ -61,11 +68,67 @@ export class AccountComponent implements OnInit {
       this.show3 = true;
     }
   }
-  getData() {
-    const usershop = window.localStorage.getItem(Constants.URL() + '@usershop') ?
-      JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop')) : {};
-    console.log(usershop);
 
+  getData() {
+    let usershop = JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop'));
     this.data = usershop;
+    this._birthday = new Date(this.data.birthday);
+    this.gender = usershop.sex;
+    console.log(this.data);
   }
+
+  getBirthday(e) {
+    if (e) {
+      const date = new Date(
+        e._i.year, e._i.month, e._i.date
+      );
+      this.birthday = date
+    } else {
+      this._birthday = new Date(this.data.birthday);
+    }
+  }
+
+  async saveData() {
+    try {
+      this.data.sex = this.gender;
+      this.data.birthday = this.birthday
+      let res: any = await this.restApi.put(Constants.URL() + '/api/user/' + this.data._id, this.data);
+      this.data = res.data;
+      console.log(res);
+      await window.localStorage.setItem(Constants.URL() + '@token', res.token);
+      await window.localStorage.setItem(Constants.URL() + '@usershop', JSON.stringify(this.data));
+      this.clickShow1();
+    } catch (error) {
+      throw (error);
+    }
+
+  }
+
+  async saveTel() {
+    try {
+      let res: any = await this.restApi.put(Constants.URL() + '/api/user/' + this.data._id, this.data);
+      this.data = res.data;
+      console.log(res);
+      await window.localStorage.setItem(Constants.URL() + '@token', res.token);
+      await window.localStorage.setItem(Constants.URL() + '@usershop', JSON.stringify(this.data));
+      this.clickShow2();;
+    } catch (error) {
+      throw (error);
+    }
+  }
+
+  async saveEmail() {
+    try {
+      let res: any = await this.restApi.put(Constants.URL() + '/api/user/' + this.data._id, this.data);
+      this.data = res.data;
+      console.log(res);
+      await window.localStorage.setItem(Constants.URL() + '@token', res.token);
+      await window.localStorage.setItem(Constants.URL() + '@usershop', JSON.stringify(this.data));
+      this.clickShow3();
+    } catch (error) {
+      throw (error);
+    }
+  }
+
+
 }
