@@ -202,7 +202,7 @@
   <div class="row padding-top-btn">
     <div class="col-12 col-md-5"></div>
     <div class="col-12 col-md-1">
-      <button mat-flat-button color="primary" style="width:100%;" name="buttonSave" (click)="saveData()" [disabled]="_startdate > _enddate || !_startdate|| !_enddate || !data.name || !data.code || !data.cash.minprice || !data.codeqty">บันทึก</button>
+      <button mat-flat-button color="primary" style="width:100%;" name="buttonSave" (click)="saveData()" [disabled]="_startdate > _enddate || !_startdate|| !_enddate || !data.name || !data.code || (!data.cash.minprice && !data.percentage.minprice) || !data.codeqty">บันทึก</button>
     </div>
     <div class="col-12 col-md-1 padding-btn-div">
       <button mat-stroked-button color="primary" style="width:100%;" name="buttonCancel" (click)="clickCancel()">ยกเลิก</button>
