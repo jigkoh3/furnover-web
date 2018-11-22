@@ -6,25 +6,42 @@
 .font-size2 {
     font-size: 10px;
     color: rgba(156, 156, 156, 0.863);
-    
 }
 
 .font-size3 {
     font-size: 13px;
-}.magin-feft{
+}
+
+.magin-feft {
     margin-left: 100px !important;
-}.pidding-left{
+}
+
+.pidding-left {
     padding-left: 8% !important;
-}.scroll {
+}
+
+.scroll {
     overflow: scroll;
 }
-.text-aline{
+
+.text-aline {
     text-align: right;
-}.magin-botton{
+}
+
+.magin-botton {
     margin-bottom: 3% !important;
 }
-.pidding-left2{
+
+.pidding-left2 {
     padding-left: 5% !important;
-}.pidding-right{
+}
+
+.pidding-right {
     padding-right: 5% !important;
+}
+
+.stye-button-delete {
+    margin-left: -10px !important;
+    padding-left: 0px !important;
+    padding-right: 40px !important;
 }
