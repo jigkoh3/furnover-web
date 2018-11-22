@@ -21,6 +21,7 @@ import { MyPromotionListComponent } from './components/my-promotion-list/my-prom
 import { MyPromotionHeaderComponent } from './components/my-promotion-header/my-promotion-header.component';
 import { MyCodeComponent } from './pages/my-code/my-code.component';
 import { InfoMyCodeComponent } from './pages/info-my-code/info-my-code.component';
+import { AuthGuard } from './guards/auth/auth.guard';
 
 export const routes: Routes = [
     {
@@ -30,7 +31,8 @@ export const routes: Routes = [
     },
     {
         path: 'home',
-        component: HomeComponent
+        component: HomeComponent,
+        canActivate: [AuthGuard]
     },
     {
         path: 'auth/login',
@@ -42,84 +44,104 @@ export const routes: Routes = [
     },
     {
         path: 'bank-account',
-        component: BankAccountComponent
+        component: BankAccountComponent,
+        canActivate: [AuthGuard]
     },
     {
         path: 'logistic',
-        component: LogisticComponent
+        component: LogisticComponent,
+        canActivate: [AuthGuard]
     },
     {
         path: 'profile',
-        component: ProfileComponent
+        component: ProfileComponent,
+        canActivate: [AuthGuard]
     },
     {
         path: 'my-product',
-        component: MyProductComponent
+        component: MyProductComponent,
+        canActivate: [AuthGuard]
     },
     {
         path: 'address',
-        component: AddressComponent
+        component: AddressComponent,
+        canActivate: [AuthGuard]
     },
     {
         path: 'info-address',
-        component: InfoAddressComponent
+        component: InfoAddressComponent,
+        canActivate: [AuthGuard]
     }
     ,
     {
         path: 'create-product',
-        component: CreateProductComponent
+        component: CreateProductComponent,
+        canActivate: [AuthGuard]
     },
     {
         path: 'info-product',
-        component: InfoProductComponent
+        component: InfoProductComponent,
+        canActivate: [AuthGuard]
     },
     {
         path: 'setting-password',
-        component: SettingPasswordComponent
+        component: SettingPasswordComponent,
+        canActivate: [AuthGuard]
     },
     {
         path: 'shop-category',
-        component: ShopCategoryComponent
+        component: ShopCategoryComponent,
+        canActivate: [AuthGuard]
     },
     {
         path: 'account',
-        component: AccountComponent
+        component: AccountComponent,
+        canActivate: [AuthGuard]
 
     },
     {
         path: 'info-shop-category',
-        component: InfoShopCategoryComponent
+        component: InfoShopCategoryComponent,
+        canActivate: [AuthGuard]
     },
     {
         path: 'menu-marketing',
-        component: MenuMarketingComponent
+        component: MenuMarketingComponent,
+        canActivate: [AuthGuard]
     },
     {
         path: 'info-shop-category',
-        component: InfoShopCategoryComponent
+        component: InfoShopCategoryComponent,
+        canActivate: [AuthGuard]
     },
     {
         path: 'my-promotion',
-        component: MyPromotionComponent
+        component: MyPromotionComponent,
+        canActivate: [AuthGuard]
     },
     {
         path: 'info-my-promotion',
-        component: InfoMyPromotionComponent
+        component: InfoMyPromotionComponent,
+        canActivate: [AuthGuard]
     },
     {
         path: 'my-promotion-list',
-        component: MyPromotionListComponent
+        component: MyPromotionListComponent,
+        canActivate: [AuthGuard]
     }, {
         path: 'my-promotion-header',
-        component: MyPromotionHeaderComponent
+        component: MyPromotionHeaderComponent,
+        canActivate: [AuthGuard]
     },
     {
         path: 'my-code',
-        component: MyCodeComponent
+        component: MyCodeComponent,
+        canActivate: [AuthGuard]
     },
     {
         path: 'info-my-code',
-        component: InfoMyCodeComponent
+        component: InfoMyCodeComponent,
+        canActivate: [AuthGuard]
     }
-    
+
 ];
