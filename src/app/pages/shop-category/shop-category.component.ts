@@ -98,31 +98,45 @@ export class ShopCategoryComponent implements OnInit {
     }
   }
 
-  async deleteCate(item) {
-    //  console.log(item._id);
-    // let conf = confirm("confirm delete shop category");
-    // if (conf) {
-      this.spinner.show();
-      try {
-        await this.restApi.delete(Constants.URL() + '/api/categoryShop/' + item._id);
-        this.getCat();
-        this.spinner.hide();
-        // console.log(this.modelData)
-      } catch (error) {
-        this.spinner.hide();
-        this.dataService.error('ลบข้อมูลไม่สำเร็จ');
+  // async deleteCate(item) {
+  //   //  console.log(item._id);
+  //   // let conf = confirm("confirm delete shop category");
+  //   // if (conf) {
+  //   this.spinner.show();
+  //   try {
+  //     await this.restApi.delete(Constants.URL() + '/api/categoryShop/' + item._id);
+  //     this.getCat();
+  //     this.spinner.hide();
+  //     // console.log(this.modelData)
+  //   } catch (error) {
+  //     this.spinner.hide();
+  //     this.dataService.error('ลบข้อมูลไม่สำเร็จ');
 
-      }
-    // }
-  }
+  //   }
+  //   // }
+  // }
 
-  openDialog(): void {
+  openDialog(item): void {
     const dialogRef = this.dialog.open(ModalConfirmComponent, {
       width: '500px',
       data: { message: 'Are you want to delete?' }
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe(async result => {
+      console.log(`Dialog closed: ${result}`);
+      const deleteCat = result;
+      if (deleteCat === 'confirm') {
+        this.spinner.show();
+        try {
+          await this.restApi.delete(Constants.URL() + '/api/categoryShop/' + item._id);
+          this.getCat();
+          this.spinner.hide();
+          // console.log(this.modelData)
+        } catch (error) {
+          this.spinner.hide();
+          this.dataService.error('ลบข้อมูลไม่สำเร็จ');
+        }
+      }
     });
   }
 
