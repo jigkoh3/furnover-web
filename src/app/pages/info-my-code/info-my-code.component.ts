@@ -10,6 +10,7 @@ import { RestApiService } from 'src/app/providers/rest-api-service/rest-api.serv
 import { Constants } from 'src/app/app.constants';
 import { DataService } from 'src/app/providers/data-service/data.service';
 import { DomSanitizer } from '@angular/platform-browser';
+import { ModalConfirmComponent } from '../modals/modal-confirm/modal-confirm.component';
 const moment = _moment;
 export const MY_FORMATS = {
   parse: {
@@ -272,15 +273,31 @@ export class InfoMyCodeComponent implements OnInit {
   }
 
   delProd(item) {
-    console.log(item);
-    console.log(this.data.products)
-    const index = this.data.products.findIndex((itm) => {
-      return itm._id.toString() === item._id.toString();
+    const dialogRef = this.dialog.open(ModalConfirmComponent, {
+      width: '500px',
+      data: { message: 'คุณต้องการลบสินค้าหรือไม่?' }
     });
-    console.log(index);
-    if (index >= 0) {
-      this.data.products.splice(index, 1);
-    }
+
+    dialogRef.afterClosed().subscribe(async result => {
+      console.log(`Dialog closed: ${result}`);
+      const deleteCat = result;
+      if (deleteCat === 'confirm') {
+        this.spinner.show();
+        try {
+          const index = this.data.products.findIndex((itm) => {
+            return itm._id.toString() === item._id.toString();
+          });
+          console.log(index);
+          if (index >= 0) {
+            this.data.products.splice(index, 1);
+          }
+          this.spinner.hide();
+        } catch (error) {
+          this.spinner.hide();
+          this.dataService.error('ลบข้อมูลไม่สำเร็จ');
+        }
+      }
+    });
 
   }
 
