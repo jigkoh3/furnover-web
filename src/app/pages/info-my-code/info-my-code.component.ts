@@ -152,6 +152,7 @@ export class InfoMyCodeComponent implements OnInit {
       // console.log(this.data.itemtype);
     } else {
       this.data.itemtype = 'item';
+      this.data.products = [];
       // console.log(this.data.itemtype);
     }
   }
