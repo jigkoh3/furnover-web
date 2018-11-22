@@ -48,7 +48,7 @@
         </div>
         <div class="col-md-4">
           <mat-form-field>
-            <mat-select name="codetype" placeholder="เลือกประเภทส่วนลด" [(ngModel)]="data.codetype" [disabled]="status === 'end'">
+            <mat-select name="codetype" placeholder="เลือกประเภทส่วนลด" [(ngModel)]="data.codetype" [disabled]="status === 'end'" (ngModelChange)="checkCodetype(data.codetype)">
               <mat-option name="cash" value="cash">
                 บาท
               </mat-option>

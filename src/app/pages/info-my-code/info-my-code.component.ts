@@ -97,6 +97,19 @@ export class InfoMyCodeComponent implements OnInit {
     // console.log(this.prefixUppercase);
   }
 
+  checkCodetype(e) {
+    if (e === 'cash') {
+      // console.log('cash');
+      this.data.percentage.minprice = '';
+      this.data.percentage.setamount = '';
+      this.data.percentage.discount = '';
+    }
+    if ((e === 'percentage')) {
+      this.data.cash.minprice = '';
+      this.data.cash.discount = '';
+    }
+  }
+
   checkCode() {
     const txtRexg: any = this.data.code.replace(/[&\/\\#,+()$~%.'":*?<>^{}\W_]/g, '');
     setTimeout(() => {
