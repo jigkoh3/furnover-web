@@ -66,7 +66,8 @@
   <div class="row">
     <div class="col-1"></div>
     <div class="col-12 col-md-10" style="text-align: center">
-      <button name="creteCategory" mat-stroked-button color="primary" class="setting-btn-add-cat setting-btn-text-add-cat" (click)="infoCategory()">+
+      <button name="creteCategory" mat-stroked-button color="primary" class="setting-btn-add-cat setting-btn-text-add-cat"
+        (click)="infoCategory()">+
         สร้างหมวดหมู่ใหม่เอง</button>
     </div>
     <div class="col-1"></div>
@@ -100,7 +101,8 @@
                     [disabled]="item.items && item.items.length ===0"></mat-slide-toggle>
                 </div>
                 <div class="col-6 col-md-2 no-padding-div" style="text-align: center">
-                  <button name="deleteCate" mat-icon-button (click)="deleteCate(item)">
+                  <button name="openModalConfirm" mat-icon-button (click)="openDialog()">
+                    <!-- <button name="deleteCate" mat-icon-button (click)="deleteCate(item)"> -->
                     <!-- <mat-icon svgIcon="del" class="setting-icon-del"></mat-icon> -->
                     <mat-icon class="setting-icon-del">delete</mat-icon>
                   </button>
