@@ -3,10 +3,12 @@ import { async } from "@angular/core/testing";
 import { Component, OnInit } from "@angular/core";
 import { RestApiService } from "../../providers/rest-api-service/rest-api.service";
 import { Constants } from "../../app.constants";
-import { MatIconRegistry } from "@angular/material";
+import { MatIconRegistry, MatDialog } from "@angular/material";
 import { DomSanitizer } from "@angular/platform-browser";
 // import { FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from "@angular/router";
+import { ModalConfirmComponent } from "../modals/modal-confirm/modal-confirm.component";
+import { ModalCompleteComponent } from "../modals/modal-complete/modal-complete.component";
 
 @Component({
     selector: "app-info-shop-category",
@@ -38,6 +40,7 @@ export class InfoShopCategoryComponent implements OnInit {
     constructor(
         public iconRegistry: MatIconRegistry,
         public sanitizer: DomSanitizer,
+        public dialog: MatDialog,
         private restApi: RestApiService,
         private actRoute: ActivatedRoute,
         private spinner: NgxSpinnerService,
@@ -129,62 +132,81 @@ export class InfoShopCategoryComponent implements OnInit {
             }
         } catch (error) { }
     }
-    async onSaveData() {
-        this.spinner.show();
-        try {
-            if (
-                this.categoryData.name &&
-                this.categoryData.items &&
-                this.categoryData.items.length === 0
-            ) {
-                this.categoryData.status = false;
-            }
 
-            if (this.categoryData._id) {
-                this.categoryData.shop_id = this.page.shop_id;
-                let respone: any = await this.restApi.put(
-                    Constants.URL() + "/api/categoryShop/" + this.categoryData._id,
-                    this.categoryData
-                );
-                this.categoryData = respone.data;
-                this.getcategoryData();
-
+    onSaveData(): void {
+        const dialogRef = this.dialog.open(ModalConfirmComponent, {
+          width: '500px',
+          data: { message: 'คุณต้องการบันทึกชื่อหมวดหมู่สินค้าใหม่หรือไม่' }
+        });
+    
+        dialogRef.afterClosed().subscribe(async result => {
+          console.log(`Dialog closed: ${result}`);
+          const deleteCat = result;
+          if (deleteCat === 'confirm') {
+            this.spinner.show();
+            try {
                 if (
                     this.categoryData.name &&
                     this.categoryData.items &&
-                    this.categoryData.items.length > 0
+                    this.categoryData.items.length === 0
                 ) {
-                    setTimeout(() => {
-                        this.categoryCompele = true;
-                    }, 500);
+                    this.categoryData.status = false;
                 }
-
+    
+                if (this.categoryData._id) {
+                    this.categoryData.shop_id = this.page.shop_id;
+                    let respone: any = await this.restApi.put(
+                        Constants.URL() + "/api/categoryShop/" + this.categoryData._id,
+                        this.categoryData
+                    );
+                    this.categoryData = respone.data;
+                    this.getcategoryData();
+    
+                    if (
+                        this.categoryData.name &&
+                        this.categoryData.items &&
+                        this.categoryData.items.length > 0
+                    ) {
+                        setTimeout(() => {
+                            this.categoryCompele = true;
+                        }, 500);
+                    }
+    
+                    this.spinner.hide();
+                } else {
+                    this.categoryData.shop_id = this.page.shop_id;
+                    let respone: any = await this.restApi.post(
+                        Constants.URL() + "/api/categoryShop/",
+                        this.categoryData
+                    );
+                    this.categoryData = respone.data;
+    
+                    this.getcategoryData();
+                    if (
+                        this.categoryData.name &&
+                        this.categoryData.items &&
+                        this.categoryData.items.length > 0
+                    ) {
+                        setTimeout(() => {
+                            this.categoryCompele = true;
+                        }, 500);
+                    }
+                    this.spinner.hide();
+                }
+                this.isEdit = false;
                 this.spinner.hide();
-            } else {
-                this.categoryData.shop_id = this.page.shop_id;
-                let respone: any = await this.restApi.post(
-                    Constants.URL() + "/api/categoryShop/",
-                    this.categoryData
-                );
-                this.categoryData = respone.data;
-
-                this.getcategoryData();
-                if (
-                    this.categoryData.name &&
-                    this.categoryData.items &&
-                    this.categoryData.items.length > 0
-                ) {
-                    setTimeout(() => {
-                        this.categoryCompele = true;
-                    }, 500);
-                }
+                this.dialog.open(ModalCompleteComponent, {
+                  width: '700px',
+                  data: { message: 'บันทึกชื่อหมวดหมู่สินค้าสำเร็จ' }
+                });
+            } catch (error) {
                 this.spinner.hide();
             }
-            this.isEdit = false;
-        } catch (error) {
-            this.spinner.hide();
-        }
+          }
+        });
     }
+
+
     async getcategoryData() {
         try {
             var resp: any = await this.restApi.get(
