@@ -93,6 +93,11 @@ export class ShopCategoryComponent implements OnInit {
       await this.restApi.put(Constants.URL() + '/api/categoryShop/' + item._id, item);
       this.getCat();
       this.spinner.hide();
+      this.spinner.hide();
+      this.dialog.open(ModalCompleteComponent, {
+        width: '700px',
+        data: { message: 'เปลี่ยนสถานะหมวดหมู่สำเร็จ' }
+      });
     } catch (error) {
       this.spinner.hide();
       this.dataService.error('เรียกข้อมูลไม่สำเร็จ');
