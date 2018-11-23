@@ -118,16 +118,7 @@ export class InfoMyPromotionComponent implements OnInit {
   }
 
 
-  save(): void {
-    const dialogRef = this.dialog.open(ModalConfirmComponent, {
-      width: '500px',
-      data: { message: 'คุณต้องการบันทึกข้อมูลโปรโมชั่นหรือไม่?' }
-    });
-
-    dialogRef.afterClosed().subscribe(async result => {
-      console.log(`Dialog closed: ${result}`);
-      const deleteCat = result;
-      if (deleteCat === 'confirm') {
+  async save() {
         this.spinner.show();
         this.oldTime = {
           starttime: this.data.starttime,
@@ -208,8 +199,6 @@ export class InfoMyPromotionComponent implements OnInit {
           return this.dataService.error('เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง');
     
         }
-      }
-    });
 }
 
 
