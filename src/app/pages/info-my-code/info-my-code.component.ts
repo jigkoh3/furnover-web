@@ -11,6 +11,7 @@ import { Constants } from 'src/app/app.constants';
 import { DataService } from 'src/app/providers/data-service/data.service';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ModalConfirmComponent } from '../modals/modal-confirm/modal-confirm.component';
+import { ModalCompleteComponent } from '../modals/modal-complete/modal-complete.component';
 const moment = _moment;
 export const MY_FORMATS = {
   parse: {
@@ -81,7 +82,7 @@ export class InfoMyCodeComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.currentDate);
+    // console.log(this.currentDate);
     this.activatedRoute
       .queryParams
       .subscribe(params => {
@@ -136,6 +137,9 @@ export class InfoMyCodeComponent implements OnInit {
         this.data.percentage = this.data.percentage || {};
         this._startdate = new Date(this.data.startdate);
         this._enddate = new Date(this.data.enddate);
+        console.log(this.data);
+        // console.log(this.status);
+        // console.log(this.status2);
         if (this.data.itemtype === 'all') {
           this._itemtype = true;
         } else {
@@ -152,7 +156,7 @@ export class InfoMyCodeComponent implements OnInit {
   }
 
   isChecked(e) {
-    console.log(e);
+    // console.log(e);
     if (e === true) {
       this.data.itemtype = 'all';
       // console.log(this.data.itemtype);
@@ -168,7 +172,7 @@ export class InfoMyCodeComponent implements OnInit {
       e._i.year, e._i.month, e._i.date
     );
     this.data.startdate = date;
-    console.log(this.data.startdate);
+    // console.log(this.data.startdate);
   }
 
   endDate(e) {
@@ -176,11 +180,11 @@ export class InfoMyCodeComponent implements OnInit {
       e._i.year, e._i.month, e._i.date
     );
     this.data.enddate = date;
-    console.log(this.data.enddate);
+    // console.log(this.data.enddate);
   }
 
   saveDate() {
-    console.log(this.data);
+    // console.log(this.data);
   }
 
   openModalAddProduct() {
@@ -220,8 +224,10 @@ export class InfoMyCodeComponent implements OnInit {
         const res: any = await this.restApi.put(Constants.URL() + '/api/mycode/' + this.itemId, this.data);
         this.spinner.hide();
         this.route.navigate(['my-code']);
-        console.log(this.data);
-
+        this.dialog.open(ModalCompleteComponent, {
+          width: '700px',
+          data: { message: 'บันทึกโค้ดส่วนลดสำเร็จ' }
+        });
       } catch (error) {
         this.spinner.hide();
         if (error) {
@@ -250,7 +256,11 @@ export class InfoMyCodeComponent implements OnInit {
         const res: any = await this.restApi.post(Constants.URL() + '/api/mycode', this.data);
         this.spinner.hide();
         this.route.navigate(['my-code']);
-        console.log(this.data);
+        this.dialog.open(ModalCompleteComponent, {
+          width: '700px',
+          data: { message: 'สร้างโค้ดส่วนลดสำเร็จ' }
+        });
+        // console.log(this.data);
       } catch (error) {
         this.spinner.hide();
         if (error) {
@@ -296,6 +306,10 @@ export class InfoMyCodeComponent implements OnInit {
           if (index >= 0) {
             this.data.products.splice(index, 1);
           }
+          this.dialog.open(ModalCompleteComponent, {
+            width: '700px',
+            data: { message: 'ลบสินค้าสำเร็จ' }
+          });
           this.spinner.hide();
         } catch (error) {
           this.spinner.hide();
@@ -327,6 +341,10 @@ export class InfoMyCodeComponent implements OnInit {
           this.restApi.put(Constants.URL() + '/api/mycode/' + this.data._id, data)
           this.spinner.hide();
           this.route.navigate(['my-code']);
+          this.dialog.open(ModalCompleteComponent, {
+            width: '700px',
+            data: { message: 'ยกเลิกโค้ดส่วนลดสำเร็จ' }
+          });
         } catch (error) {
           this.spinner.hide();
           this.dataService.error('ลบข้อมูลไม่สำเร็จ');
@@ -367,6 +385,10 @@ export class InfoMyCodeComponent implements OnInit {
           await this.restApi.delete(Constants.URL() + '/api/mycode/' + this.data._id);
           this.spinner.hide();
           this.route.navigate(['my-code']);
+          this.dialog.open(ModalCompleteComponent, {
+            width: '700px',
+            data: { message: 'ลบโค้ดส่วนลดสำเร็จ' }
+          });
         } catch (error) {
           this.spinner.hide();
           this.dataService.error('ลบข้อมูลไม่สำเร็จ');
