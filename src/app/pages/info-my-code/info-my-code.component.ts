@@ -482,7 +482,7 @@ export class InfoMyCodeComponent implements OnInit {
     if (!this.data._id || this.data.flag === 'soon') {
       return this._startdate > this._enddate || this._startdate < this.setDateTime || !this._startdate || !this._enddate || !this.data.name || !this.data.code || (!this.data.cash.minprice && !this.data.percentage.minprice) || !this.data.codeqty || (!this._itemtype && this.data.products.length < 1);
     } else if (this.data._id && this.data.flag === 'now') {
-      return this._startdate > this._enddate || !this._startdate || !this._enddate || !this.data.name || !this.data.code || (!this.data.cash.minprice && !this.data.percentage.minprice) || !this.data.codeqty || (!this._itemtype && this.data.products.length < 1);
+      return this._startdate > this._enddate || this._enddate < this.setDateTime || !this._startdate || !this._enddate || !this.data.name || !this.data.code || (!this.data.cash.minprice && !this.data.percentage.minprice) || !this.data.codeqty || (!this._itemtype && this.data.products.length < 1);
     } else {
       return true;
     }
