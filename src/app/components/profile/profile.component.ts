@@ -10,6 +10,7 @@ import { ClassUpload } from '../upload-image/class-upload';
 import * as _ from "lodash";
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ModalMessageComponent } from '../../pages/modals/modal-message/modal-message.component';
+import { ModalCompleteComponent } from 'src/app/pages/modals/modal-complete/modal-complete.component';
 //Image
 @Component({
   selector: 'profile',
@@ -85,13 +86,17 @@ export class ProfileSettingComponent implements OnInit {
     try {
       let data: any = await this.restApi.put(Constants.URL() + '/api/shop/' + this.shopUser.shop_id, this.shop);
       this.spinner.hide();
-      if (data['status'] === 200) {
-        this.getProfile();
-        this.dataService.success('บันทึกข้อมูลสำเร็จ');
-        setTimeout(() => {
-          this.dataService.success('');
-        }, 2000);
-      }
+      this.dialog.open(ModalCompleteComponent, {
+        width: '700px',
+        data: { message: 'บันทึกข้อมูลร้านค้าสำเร็จ' }
+      });
+      // if (data['status'] === 200) {
+      //   this.getProfile();
+      //   this.dataService.success('บันทึกข้อมูลสำเร็จ');
+      //   setTimeout(() => {
+      //     this.dataService.success('');
+      //   }, 2000);
+      // }
     } catch (error) {
       this.spinner.hide();
       this.dataService.error("บันทึกข้อมูลล้มเหลว กรุณาลองใหม่อีกครั้ง")
@@ -99,22 +104,22 @@ export class ProfileSettingComponent implements OnInit {
   }
 
   // async updateImgProfile(image) {
-    // let user = window.localStorage.getItem(Constants.URL() + '@usershop') ? JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop')) : null;
-    // console.log(user.profileImageURL);
-    // user.profileImageURL = image;
-    // try {
-      // let data: any = await this.restApi.put(Constants.URL() + '/api/user/' + user._id, user);
-      // if (data['status'] === 200) {
-      //   this.shopUser.profileImageURL = user.profileImageURL;
-      //   window.localStorage.setItem(Constants.URL() + '@usershop', JSON.stringify(data.data));
-      //   this.dataService.success('บันทึกข้อมูลสำเร็จ');
-      //   setTimeout(() => {
-      //     this.dataService.success('');
-      //   }, 2000);
-      // }
-    // } catch (error) {
-    //   this.dataService.error("บันทึกข้อมูลล้มเหลว กรุณาลองใหม่อีกครั้ง")
-    // }
+  // let user = window.localStorage.getItem(Constants.URL() + '@usershop') ? JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop')) : null;
+  // console.log(user.profileImageURL);
+  // user.profileImageURL = image;
+  // try {
+  // let data: any = await this.restApi.put(Constants.URL() + '/api/user/' + user._id, user);
+  // if (data['status'] === 200) {
+  //   this.shopUser.profileImageURL = user.profileImageURL;
+  //   window.localStorage.setItem(Constants.URL() + '@usershop', JSON.stringify(data.data));
+  //   this.dataService.success('บันทึกข้อมูลสำเร็จ');
+  //   setTimeout(() => {
+  //     this.dataService.success('');
+  //   }, 2000);
+  // }
+  // } catch (error) {
+  //   this.dataService.error("บันทึกข้อมูลล้มเหลว กรุณาลองใหม่อีกครั้ง")
+  // }
   // }
 
   //Image

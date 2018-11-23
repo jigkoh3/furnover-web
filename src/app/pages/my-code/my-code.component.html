@@ -18,29 +18,29 @@
 
   </div>
 
-  <mat-tab-group (selectedTabChange)="onLinkClick($event)" [selectedIndex]="0">
+  <mat-tab-group name="mat-tab-groupStatus" (selectedTabChange)="onLinkClick($event)" [selectedIndex]="0">
     <mat-tab name="mat-tabNgFor" label="{{item.name}}" *ngFor="let item of statusArray">
       <mat-list class="padding">
         <div class="row" style="background-color: #f5f5f5;">
-          <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+          <div name="subHeaderMyCode" class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
             <h3 mat-subheader>โค้ดส่วนลด | ชื่อโค้ดส่วนลด</h3>
           </div>
-          <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">
+          <div name="subHeaderValue" class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">
             <h3 mat-subheader>มูลค่า</h3>
           </div>
-          <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">
+          <div name="subHeaderQty" class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">
             <h3 mat-subheader>จำนวน</h3>
           </div>
-          <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 text-center">
+          <div name="subHeaderAccepted" class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 text-center">
             <h3 mat-subheader class="no-flex">โค้ดส่วนลดที่กดรับแล้ว</h3>
           </div>
-          <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 text-center">
+          <div name="subHeaderUsed" class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 text-center">
             <h3 mat-subheader class="no-flex">โค้ดส่วนลดที่ใช้แล้ว</h3>
           </div>
-          <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+          <div name="subHeaderStatusTime" class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
             <h3 mat-subheader>สถานะ | ระยะเวลา</h3>
           </div>
-          <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">
+          <div name="subHeaderClickDetail" class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">
             <h3 mat-subheader></h3>
           </div>
         </div>

@@ -40,11 +40,11 @@ export class InfoAddressComponent implements OnInit {
       try {
         let response: any = await this.restApi.put(Constants.URL() + '/api/address/' + this.data._id, this.data);
         this.dialogRef.close(true);
+        this.spinner.hide();
         this.dialog.open(ModalCompleteComponent, {
           width: '700px',
           data: { message: 'แก้ไขที่อยู่สำเร็จ' }
         });
-        this.spinner.hide();
       } catch (error) {
         this.spinner.hide();
         setTimeout(() => {
@@ -56,11 +56,11 @@ export class InfoAddressComponent implements OnInit {
       try {
         let response: any = await this.restApi.post(Constants.URL() + '/api/address', this.data);
         this.dialogRef.close(true);
+        this.spinner.hide();
         this.dialog.open(ModalCompleteComponent, {
           width: '700px',
           data: { message: 'สร้างที่อยู่สำเร็จ' }
         });
-        this.spinner.hide();
       } catch (error) {
         this.spinner.hide();
         setTimeout(() => {
@@ -84,11 +84,11 @@ export class InfoAddressComponent implements OnInit {
         try {
           await this.restApi.delete(Constants.URL() + '/api/address/' + id)
           this.dialogRef.close(true);
+          this.spinner.hide();
           this.dialog.open(ModalCompleteComponent, {
             width: '700px',
             data: { message: 'ลบข้อมูลที่อยู่ของคุณสำเร็จ' }
           });
-          this.spinner.hide();
         } catch (error) {
           this.spinner.hide();
           this.dataService.error('ลบที่อยู่ไม่สำเร็จ');
