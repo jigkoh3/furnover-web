@@ -249,7 +249,7 @@ export class InfoMyCodeComponent implements OnInit {
             return this.dataService.error('กรุณาระบุจำนวนการใช้งานโค้ดส่วนลด');
           }
         }
-        return this.dataService.error('บันทึกข้อมูลไม่สำเร็จ');
+        return this.dataService.error('บันทึกโค้ดส่วนลดไม่สำเร็จ');
       }
     } else {
       try {
@@ -282,7 +282,7 @@ export class InfoMyCodeComponent implements OnInit {
             return this.dataService.error('กรุณาระบุจำนวนการใช้งานโค้ดส่วนลด');
           }
         }
-        return this.dataService.error('บันทึกข้อมูลไม่สำเร็จ');
+        return this.dataService.error('สร้างโค้ดส่วนลดไม่สำเร็จ');
       }
     }
   }
@@ -347,7 +347,7 @@ export class InfoMyCodeComponent implements OnInit {
           });
         } catch (error) {
           this.spinner.hide();
-          this.dataService.error('ลบข้อมูลไม่สำเร็จ');
+          this.dataService.error('ยกเลิกโค้ดส่วนลดไม่สำเร็จ');
         }
       }
     });

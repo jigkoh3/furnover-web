@@ -4,6 +4,11 @@ import { MomentDateAdapter } from '@angular/material-moment-adapter';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import * as _moment from 'moment';
 import { RestApiService } from 'src/app/providers/rest-api-service/rest-api.service';
+import { MatDialog } from '@angular/material';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { ModalConfirmComponent } from '../modals/modal-confirm/modal-confirm.component';
+import { ModalCompleteComponent } from '../modals/modal-complete/modal-complete.component';
+import { DataService } from 'src/app/providers/data-service/data.service';
 const moment = _moment;
 export const MY_FORMATS = {
   parse: {
@@ -43,7 +48,10 @@ export class AccountComponent implements OnInit {
 
 
   constructor(
-    private restApi: RestApiService
+    private restApi: RestApiService,
+    public dialog: MatDialog,
+    private spinner: NgxSpinnerService,
+    public dataService: DataService
   ) { }
 
   ngOnInit() {
@@ -116,6 +124,10 @@ export class AccountComponent implements OnInit {
       await window.localStorage.setItem(Constants.URL() + '@token', res.token);
       await window.localStorage.setItem(Constants.URL() + '@usershop', JSON.stringify(this.data));
       this.clickShow1();
+      this.dialog.open(ModalCompleteComponent, {
+        width: '700px',
+        data: { message: 'บันทึกข้อมูลของฉันสำเร็จ' }
+      });
     } catch (error) {
       throw error;
     }
@@ -130,6 +142,10 @@ export class AccountComponent implements OnInit {
       await window.localStorage.setItem(Constants.URL() + '@token', res.token);
       await window.localStorage.setItem(Constants.URL() + '@usershop', JSON.stringify(this.data));
       this.clickShow2();
+      this.dialog.open(ModalCompleteComponent, {
+        width: '700px',
+        data: { message: 'บันทึกเบอร์โทรศัพท์สำเร็จ' }
+      });
     } catch (error) {
       throw error;
     }
@@ -143,6 +159,10 @@ export class AccountComponent implements OnInit {
       await window.localStorage.setItem(Constants.URL() + '@token', res.token);
       await window.localStorage.setItem(Constants.URL() + '@usershop', JSON.stringify(this.data));
       this.clickShow3();
+      this.dialog.open(ModalCompleteComponent, {
+        width: '700px',
+        data: { message: 'บันทึกอีเมล์สำเร็จ' }
+      });
     } catch (error) {
       throw error;
     }

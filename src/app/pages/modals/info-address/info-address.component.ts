@@ -6,6 +6,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { DataService } from '../../../providers/data-service/data.service';
 import { ModalCompleteComponent } from '../modal-complete/modal-complete.component';
 import { DialogData } from '../modal-prepare-shipping/modal-prepare-shipping.component';
+import { ModalConfirmComponent } from '../modal-confirm/modal-confirm.component';
 
 
 @Component({
@@ -38,12 +39,12 @@ export class InfoAddressComponent implements OnInit {
     if (this.data._id) {
       try {
         let response: any = await this.restApi.put(Constants.URL() + '/api/address/' + this.data._id, this.data);
-        this.spinner.hide();
         this.dialogRef.close(true);
         this.dialog.open(ModalCompleteComponent, {
           width: '700px',
-          data: { message: 'บันทึกสินค้าสำเร็จ' }
+          data: { message: 'แก้ไขที่อยู่สำเร็จ' }
         });
+        this.spinner.hide();
       } catch (error) {
         this.spinner.hide();
         setTimeout(() => {
@@ -54,16 +55,16 @@ export class InfoAddressComponent implements OnInit {
     else {
       try {
         let response: any = await this.restApi.post(Constants.URL() + '/api/address', this.data);
-        this.spinner.hide();
         this.dialogRef.close(true);
         this.dialog.open(ModalCompleteComponent, {
           width: '700px',
-          data: { message: 'แก้ไขที่อยู่สำเร็จ' }
+          data: { message: 'สร้างที่อยู่สำเร็จ' }
         });
+        this.spinner.hide();
       } catch (error) {
         this.spinner.hide();
         setTimeout(() => {
-          this.dataService.error('บันทึกที่อยู่ล้มเหลว');
+          this.dataService.error('สร้างที่อยู่ล้มเหลว');
         }, 3000);
       }
     }
@@ -71,19 +72,43 @@ export class InfoAddressComponent implements OnInit {
   }
 
   async clickdelete(id) {
-    let conf = confirm("ยืนยันการลบที่อยู่");
-    if (conf) {
-      try {
-        await this.restApi.delete(Constants.URL() + '/api/address/' + id)
-        this.dialogRef.close(true);
-        this.dialog.open(ModalCompleteComponent, {
-          width: '700px',
-          data: { message: 'ลบข้อมูลที่อยู่ของคุณสำเร็จ' }
-        });
-      } catch (errer) {
-        this.dataService.error('บันทึกที่อยู่ล้มเหลว');
+    const dialogRef = this.dialog.open(ModalConfirmComponent, {
+      width: '500px',
+      data: { message: 'คุณต้องการลบที่อยู่หรือไม่?' }
+    });
+    dialogRef.afterClosed().subscribe(async result => {
+      console.log(`Dialog closed: ${result}`);
+      const resultModal = result;
+      if (resultModal === 'confirm') {
+        this.spinner.show();
+        try {
+          await this.restApi.delete(Constants.URL() + '/api/address/' + id)
+          this.dialogRef.close(true);
+          this.dialog.open(ModalCompleteComponent, {
+            width: '700px',
+            data: { message: 'ลบข้อมูลที่อยู่ของคุณสำเร็จ' }
+          });
+          this.spinner.hide();
+        } catch (error) {
+          this.spinner.hide();
+          this.dataService.error('ลบที่อยู่ไม่สำเร็จ');
+        }
       }
-    }
+    });
+
+    // let conf = confirm("ยืนยันการลบที่อยู่");
+    // if (conf) {
+    //   try {
+    //     await this.restApi.delete(Constants.URL() + '/api/address/' + id)
+    //     this.dialogRef.close(true);
+    //     this.dialog.open(ModalCompleteComponent, {
+    //       width: '700px',
+    //       data: { message: 'ลบข้อมูลที่อยู่ของคุณสำเร็จ' }
+    //     });
+    //   } catch (errer) {
+    //     this.dataService.error('บันทึกที่อยู่ล้มเหลว');
+    //   }
+    // }
   }
 
   validateNumber() {
