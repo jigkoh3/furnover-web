@@ -86,10 +86,13 @@ export class ProfileSettingComponent implements OnInit {
     try {
       let data: any = await this.restApi.put(Constants.URL() + '/api/shop/' + this.shopUser.shop_id, this.shop);
       this.spinner.hide();
-      this.dialog.open(ModalCompleteComponent, {
-        width: '700px',
-        data: { message: 'บันทึกข้อมูลร้านค้าสำเร็จ' }
-      });
+      if (data['status'] === 200) {
+        this.getProfile();
+        this.dialog.open(ModalCompleteComponent, {
+          width: '700px',
+          data: { message: 'บันทึกข้อมูลร้านค้าสำเร็จ' }
+        });
+      }
       // if (data['status'] === 200) {
       //   this.getProfile();
       //   this.dataService.success('บันทึกข้อมูลสำเร็จ');

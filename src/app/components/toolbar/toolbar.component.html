@@ -10,11 +10,11 @@
       <mat-icon>notifications</mat-icon>
     </button>
     <mat-menu #notifications="matMenu">
-      <div class="padding content-2">
-        <div name="divNgFor" class="row padding" *ngFor="let item of [1,2,3,4,5]">
+      <div class="content-2">
+        <div name="divNgFor" class="row" *ngFor="let item of [1,2,3,4,5]">
           <div class="col col-3">
             <!-- <img src="https://cf.shopee.co.th/file/dfe640d88e65ea246da67eb7fc98ade7" alt="img" width="34px" height="34px"> -->
-            <img src="" alt="img" width="34px" height="34px">
+            <img src="https://cf.shopee.co.th/file/dfe640d88e65ea246da67eb7fc98ade7" alt="img" width="34px" height="34px">
           </div>
           <div class="col col-9">
             <p class="title">สินค้าสำหรับผู้ชายและผู้หญิง</p>
@@ -29,8 +29,8 @@
       <mat-icon>apps</mat-icon>
     </button>
     <mat-menu #menus="matMenu" class="menus">
-      <div class="padding">
-        <div class="row padding">
+      <div>
+        <div class="row">
           <div class="col col-4 text-center padding">
             <div class="buttons" [routerLink]="['/my-product']">
               <div class="menu-icon">
