@@ -4,6 +4,8 @@ import { Constants } from '../../app.constants';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Router, ActivatedRoute } from '@angular/router';
 import * as firebase from 'firebase';
+import { ModalCompleteComponent } from '../modals/modal-complete/modal-complete.component';
+import { MatDialog } from '@angular/material';
 
 @Component({
   selector: 'app-info-product',
@@ -40,6 +42,7 @@ export class InfoProductComponent implements OnInit {
   constructor(private activatedRoute: ActivatedRoute,
     private restApi: RestApiService,
     private spinner: NgxSpinnerService,
+    public dialog: MatDialog,
     public route: Router) { }
 
   ngOnInit() {
@@ -551,6 +554,10 @@ export class InfoProductComponent implements OnInit {
         const res: any = await this.restApi.put(Constants.URL() + '/api/product/' + this.data._id, this.data);
         this.spinner.hide();
         this.route.navigate(['my-product']);
+        this.dialog.open(ModalCompleteComponent, {
+          width: '700px',
+          data: { message: 'บันทึกโค้ดส่วนลดสำเร็จ' }
+        });
       } catch (error) {
         console.log(error);
       }
@@ -559,6 +566,10 @@ export class InfoProductComponent implements OnInit {
         const res: any = await this.restApi.post(Constants.URL() + '/api/product', this.data);
         this.spinner.hide();
         this.route.navigate(['my-product']);
+        this.dialog.open(ModalCompleteComponent, {
+          width: '700px',
+          data: { message: 'บันทึกโค้ดส่วนลดสำเร็จ' }
+        });
       } catch (error) {
         console.log(error);
         this.spinner.hide();
