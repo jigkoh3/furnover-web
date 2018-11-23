@@ -7,6 +7,7 @@ import { DataService } from '../../providers/data-service/data.service';
 import { MatDialog } from '@angular/material';
 import { ModalDeleteMyPromotionComponent } from '../modals/modal-delete-my-promotion/modal-delete-my-promotion.component';
 import { ModalMessageComponent } from '../modals/modal-message/modal-message.component';
+import { ModalCompleteComponent } from '../modals/modal-complete/modal-complete.component';
 
 @Component({
   selector: 'app-my-promotion',
@@ -113,6 +114,10 @@ export class MyPromotionComponent implements OnInit {
       dialogRef.afterClosed().subscribe(result => {
         if (result) {
           this.getPromotion();
+          this.dialog.open(ModalCompleteComponent, {
+            width: '700px',
+            data: { message: 'การลบโปรโมชั่นสำเร็จ' }
+          });
         }
       });
     } else {

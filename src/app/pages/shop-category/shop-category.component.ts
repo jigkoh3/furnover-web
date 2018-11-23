@@ -8,6 +8,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { DataService } from '../../providers/data-service/data.service';
 import { isNgTemplate } from '@angular/compiler';
 import { ModalConfirmComponent } from '../modals/modal-confirm/modal-confirm.component';
+import { ModalCompleteComponent } from '../modals/modal-complete/modal-complete.component';
 
 @Component({
   selector: 'app-shop-category',
@@ -131,6 +132,10 @@ export class ShopCategoryComponent implements OnInit {
           await this.restApi.delete(Constants.URL() + '/api/categoryShop/' + item._id);
           this.getCat();
           this.spinner.hide();
+          this.dialog.open(ModalCompleteComponent, {
+            width: '700px',
+            data: { message: 'ลบหมวดหมู่สินค้าสำเร็จ' }
+          });
           // console.log(this.modelData)
         } catch (error) {
           this.spinner.hide();

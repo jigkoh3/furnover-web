@@ -1,6 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
-import { MatIconRegistry } from '@angular/material';
+import { MatIconRegistry, MatDialog } from '@angular/material';
+import { ModalConfirmComponent } from 'src/app/pages/modals/modal-confirm/modal-confirm.component';
+import { ModalCompleteComponent } from 'src/app/pages/modals/modal-complete/modal-complete.component';
 
 @Component({
     selector: 'app-my-promotion-list',
@@ -17,6 +19,7 @@ export class MyPromotionListComponent implements OnInit {
 
     constructor(
         public iconRegistry: MatIconRegistry,
+        public dialog: MatDialog,
         public sanitizer: DomSanitizer) {
         iconRegistry.addSvgIcon(
             'del',
@@ -203,11 +206,23 @@ export class MyPromotionListComponent implements OnInit {
     //     this.outputData.emit(this.data);
     // }
 
-    delProduct(i) {
-        const confirm = window.confirm('ยืนยันการลบสินค้า');
-        if (confirm) {
-            this.data.products.splice(i, 1);
-        }
+
+    delProduct(i): void {
+        const dialogRef = this.dialog.open(ModalConfirmComponent, {
+            width: '500px',
+            data: { message: 'ยืนยันการลบสินค้า' }
+        });
+        dialogRef.afterClosed().subscribe(async result => {
+            console.log(`Dialog closed: ${result}`);
+            const deleteCat = result;
+            if (deleteCat === 'confirm') {
+                this.data.products.splice(i, 1);
+                this.dialog.open(ModalCompleteComponent, {
+                    width: '700px',
+                    data: { message: 'การลบสินค้าสำเร็จ' }
+                });
+            }
+        });
     }
 
     dateLimit() {

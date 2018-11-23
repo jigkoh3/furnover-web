@@ -6,6 +6,8 @@ import { MatDialog, MatSnackBar } from '@angular/material';
 import { RestApiService } from 'src/app/providers/rest-api-service/rest-api.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ModalConfirmComponent } from '../modals/modal-confirm/modal-confirm.component';
+import { ModalCompleteComponent } from '../modals/modal-complete/modal-complete.component';
 
 @Component({
   selector: 'app-info-my-promotion',
@@ -188,19 +190,31 @@ export class InfoMyPromotionComponent implements OnInit {
     }
   }
 
-  async delete() {
-    const confirm = window.confirm('ยืนยันการลบโปรโมชั่น');
-    if (confirm) {
-      this.spinner.show();
-      try {
-        const res: any = await this.restApi.delete(Constants.URL() + '/api/discount/' + this.itemId);
-        this.spinner.hide();
-        this.route.navigate(['my-promotion']);
-      } catch (error) {
-        console.log(error);
-        this.spinner.hide();
+  delete(): void {
+    const dialogRef = this.dialog.open(ModalConfirmComponent, {
+      width: '500px',
+      data: { message: 'ยืนยันการลบโปรโมชั่น' }
+    });
+
+    dialogRef.afterClosed().subscribe(async result => {
+      console.log(`Dialog closed: ${result}`);
+      const deleteCat = result;
+      if (deleteCat === 'confirm') {
+        this.spinner.show();
+        try {
+          const res: any = await this.restApi.delete(Constants.URL() + '/api/discount/' + this.itemId);
+          this.spinner.hide();
+          this.dialog.open(ModalCompleteComponent, {
+            width: '700px',
+            data: { message: 'การลบโปรโมชั่นสำเร็จ' }
+          });
+          this.route.navigate(['my-promotion']);
+        } catch (error) {
+          console.log(error);
+          this.spinner.hide();
+        }
       }
-    }
+    });
   }
 
   async endNow() {
