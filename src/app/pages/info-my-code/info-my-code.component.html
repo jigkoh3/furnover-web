@@ -125,7 +125,7 @@
             <input matInput name="startDate" [matDatepicker]="dp" placeholder="วันเริ่มต้น" (ngModelChange)="startDate($event)"
               [(ngModel)]="_startdate" disabled>
             <mat-datepicker-toggle name="selectDate" matSuffix [for]="dp"></mat-datepicker-toggle>
-            <mat-datepicker name="selectDatePicker" #dp [disabled]="status === 'end' || status2 === 'end' ? true : false"></mat-datepicker>
+            <mat-datepicker name="selectDatePicker" #dp [disabled]="status === 'end' || status2 === 'end' || status === 'now' ? true : false"></mat-datepicker>
           </mat-form-field>
         </div>
         <div class="col-md-1"></div>
