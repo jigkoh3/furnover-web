@@ -101,16 +101,7 @@ export class MyPromotionHeaderComponent implements OnInit {
   }
 
 
-  sendData(): void {
-    const dialogRef = this.dialog.open(ModalConfirmComponent, {
-      width: '500px',
-      data: { message: 'คุณกำลังบันทึกระยะเวลาโปรโมชั่น' }
-    });
-
-    dialogRef.afterClosed().subscribe(async result => {
-      console.log(`Dialog closed: ${result}`);
-      const deleteCat = result;
-      if (deleteCat === 'confirm') {
+  async sendData() {
         this.validateDate()
         setTimeout(() => {
           if (this.isValidateDate) {
@@ -127,8 +118,6 @@ export class MyPromotionHeaderComponent implements OnInit {
             });
           }
         }, 1000);
-      }
-    });
   }
 
   validateDate() {

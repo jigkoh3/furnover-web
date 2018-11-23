@@ -133,16 +133,7 @@ export class InfoShopCategoryComponent implements OnInit {
         } catch (error) { }
     }
 
-    onSaveData(): void {
-        const dialogRef = this.dialog.open(ModalConfirmComponent, {
-            width: '500px',
-            data: { message: 'คุณต้องการบันทึกชื่อหมวดหมู่สินค้าหรือไม่?' }
-        });
-
-        dialogRef.afterClosed().subscribe(async result => {
-            console.log(`Dialog closed: ${result}`);
-            const deleteCat = result;
-            if (deleteCat === 'confirm') {
+    async onSaveData() {
                 this.spinner.show();
                 try {
                     if (
@@ -202,20 +193,9 @@ export class InfoShopCategoryComponent implements OnInit {
                 } catch (error) {
                     this.spinner.hide();
                 }
-            }
-        });
     }
 
-    onSaveCate(): void {
-        const dialogRef = this.dialog.open(ModalConfirmComponent, {
-            width: '500px',
-            data: { message: 'คุณต้องการบันทึกสินค้าหรือไม่' }
-        });
-
-        dialogRef.afterClosed().subscribe(async result => {
-            console.log(`Dialog closed: ${result}`);
-            const deleteCat = result;
-            if (deleteCat === 'confirm') {
+    async onSaveCate() {
                 this.spinner.show();
                 try {
                     if (
@@ -275,8 +255,6 @@ export class InfoShopCategoryComponent implements OnInit {
                 } catch (error) {
                     this.spinner.hide();
                 }
-            }
-        });
     }
 
 
@@ -294,16 +272,7 @@ export class InfoShopCategoryComponent implements OnInit {
         this.router.navigate(["/shop-category"]);
     }
 
-    onUpdateOpenCategory(): void {
-        const dialogRef = this.dialog.open(ModalConfirmComponent, {
-            width: '500px',
-            data: { message: 'คุณกำลังเปิดการใช้งานหมวดหมู่' }
-        });
-
-        dialogRef.afterClosed().subscribe(async result => {
-            console.log(`Dialog closed: ${result}`);
-            const deleteCat = result;
-            if (deleteCat === 'confirm') {
+    async onUpdateOpenCategory() {
                 this.spinner.show();
                 this.categoryData.status = true;
                 try {
@@ -364,8 +333,6 @@ export class InfoShopCategoryComponent implements OnInit {
                 } catch (error) {
                     this.spinner.hide();
                 }
-            }
-        });
     }
 
     async onChangeStatus() {
