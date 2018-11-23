@@ -3,6 +3,9 @@ import { MomentDateAdapter } from '@angular/material-moment-adapter';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import * as _moment from 'moment';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { MatDialog } from '@angular/material';
+import { ModalConfirmComponent } from 'src/app/pages/modals/modal-confirm/modal-confirm.component';
+import { ModalCompleteComponent } from 'src/app/pages/modals/modal-complete/modal-complete.component';
 const moment = _moment;
 export const MY_FORMATS = {
   parse: {
@@ -37,6 +40,7 @@ export class MyPromotionHeaderComponent implements OnInit {
 
   constructor(
     private spinner: NgxSpinnerService,
+    public dialog: MatDialog,
 
   ) {
 
@@ -96,17 +100,35 @@ export class MyPromotionHeaderComponent implements OnInit {
     this.outputData.emit(this.data);
   }
 
-  sendData() {
-    this.validateDate()
-    setTimeout(() => {
-      if (this.isValidateDate) {
-        this.isSave = true;
-        this.data.isSave = this.isSave;
-        this.data.startdate = this._startdate;
-        this.data.enddate = this._enddate;
-        this.outputData.emit(this.data);
+
+  sendData(): void {
+    const dialogRef = this.dialog.open(ModalConfirmComponent, {
+      width: '500px',
+      data: { message: 'คุณกำลังบันทึกระยะเวลาโปรโมชั่น' }
+    });
+
+    dialogRef.afterClosed().subscribe(async result => {
+      console.log(`Dialog closed: ${result}`);
+      const deleteCat = result;
+      if (deleteCat === 'confirm') {
+        this.validateDate()
+        setTimeout(() => {
+          if (this.isValidateDate) {
+            this.isSave = true;
+            this.data.isSave = this.isSave;
+            this.data.startdate = this._startdate;
+            this.data.enddate = this._enddate;
+            this.outputData.emit(this.data);
+
+            this.spinner.hide();
+            this.dialog.open(ModalCompleteComponent, {
+              width: '700px',
+              data: { message: 'คุณบันทึกระยะเวลาโปรโมชั่นสำเร็จ' }
+            });
+          }
+        }, 1000);
       }
-    }, 1000);
+    });
   }
 
   validateDate() {
