@@ -556,7 +556,7 @@ export class InfoProductComponent implements OnInit {
         this.route.navigate(['my-product']);
         this.dialog.open(ModalCompleteComponent, {
           width: '700px',
-          data: { message: 'บันทึกโค้ดส่วนลดสำเร็จ' }
+          data: { message: 'บันทึกสินค้าสำเร็จ' }
         });
       } catch (error) {
         console.log(error);
@@ -568,7 +568,7 @@ export class InfoProductComponent implements OnInit {
         this.route.navigate(['my-product']);
         this.dialog.open(ModalCompleteComponent, {
           width: '700px',
-          data: { message: 'บันทึกโค้ดส่วนลดสำเร็จ' }
+          data: { message: 'สร้างสินค้าสำเร็จ' }
         });
       } catch (error) {
         console.log(error);
