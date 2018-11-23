@@ -6,6 +6,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import * as firebase from 'firebase';
 import { ModalCompleteComponent } from '../modals/modal-complete/modal-complete.component';
 import { MatDialog } from '@angular/material';
+import { DataService } from 'src/app/providers/data-service/data.service';
+import { ModalConfirmComponent } from '../modals/modal-confirm/modal-confirm.component';
 
 @Component({
   selector: 'app-info-product',
@@ -39,11 +41,14 @@ export class InfoProductComponent implements OnInit {
   optionList: Array<any> = [];
   isValidWholsale = false;
 
-  constructor(private activatedRoute: ActivatedRoute,
+  constructor(
+    private activatedRoute: ActivatedRoute,
     private restApi: RestApiService,
     private spinner: NgxSpinnerService,
     public dialog: MatDialog,
-    public route: Router) { }
+    public dataService: DataService,
+    public route: Router
+  ) { }
 
   ngOnInit() {
     this.activatedRoute
@@ -375,10 +380,35 @@ export class InfoProductComponent implements OnInit {
   }
 
   deleteImg(index) {
-    const conf = window.confirm('ยืนยันการลบรูปสินค้า');
-    if (conf) {
-      this.images.splice(index, 1);
-    }
+    const dialogRef = this.dialog.open(ModalConfirmComponent, {
+      width: '500px',
+      data: { message: 'คุณต้องการลบรูปสินค้าหรือไม่?' }
+    });
+
+    dialogRef.afterClosed().subscribe(async result => {
+      console.log(`Dialog closed: ${result}`);
+      const deleteCat = result;
+      if (deleteCat === 'confirm') {
+        this.spinner.show();
+        try {
+          this.images.splice(index, 1);
+          this.dialog.open(ModalCompleteComponent, {
+            width: '700px',
+            data: { message: 'ลบรูปสินค้าสำเร็จ' }
+          });
+          this.spinner.hide();
+        } catch (error) {
+          this.spinner.hide();
+          this.dataService.error('ลบรูปสินค้าไม่สำเร็จ');
+        }
+      }
+    });
+
+
+    // const conf = window.confirm('ยืนยันการลบรูปสินค้า');
+    // if (conf) {
+    //   this.images.splice(index, 1);
+    // }
   }
 
   onProductImgChange(e) {
@@ -578,18 +608,44 @@ export class InfoProductComponent implements OnInit {
   }
 
   async deleteProduct() {
-    const conf = window.confirm('ยืนยันการลบสินค้า');
-    if (conf) {
-      this.spinner.show();
-      try {
-        const res: any = await this.restApi.delete(Constants.URL() + '/api/product/' + this.product_id);
-        this.spinner.hide();
-        this.route.navigate(['my-product']);
-      } catch (error) {
-        this.spinner.hide();
-        throw error;
+    const dialogRef = this.dialog.open(ModalConfirmComponent, {
+      width: '500px',
+      data: { message: 'คุณต้องการลบสินค้าหรือไม่?' }
+    });
+
+    dialogRef.afterClosed().subscribe(async result => {
+      console.log(`Dialog closed: ${result}`);
+      const deletePrd = result;
+      if (deletePrd === 'confirm') {
+        this.spinner.show();
+        try {
+          const res: any = await this.restApi.delete(Constants.URL() + '/api/product/' + this.product_id);
+          this.route.navigate(['my-product']);
+          this.dialog.open(ModalCompleteComponent, {
+            width: '700px',
+            data: { message: 'ลบสินค้าสำเร็จ' }
+          });
+          this.spinner.hide();
+        } catch (error) {
+          this.spinner.hide();
+          this.dataService.error('ลบสินค้าไม่สำเร็จ');
+        }
       }
-    }
+    });
+
+
+    //   const conf = window.confirm('ยืนยันการลบสินค้า');
+    //   if (conf) {
+    //     this.spinner.show();
+    //     try {
+    //       const res: any = await this.restApi.delete(Constants.URL() + '/api/product/' + this.product_id);
+    //       this.spinner.hide();
+    //       this.route.navigate(['my-product']);
+    //     } catch (error) {
+    //       this.spinner.hide();
+    //       throw error;
+    //     }
+    //   }
   }
 
 }
