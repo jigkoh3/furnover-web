@@ -1,0 +1,60 @@
+.container {
+    max-width: 100% !important;
+}
+
+.code-setting-header-title {
+    font-size: 23px;
+}
+
+.mat-list{
+    min-width: 800px;
+}
+
+.no-flex {
+    display: unset !important;
+}
+
+.img-shop {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.qty-style {
+    margin-right: 100px !important;
+}
+
+.payment-type-font {
+    font-size: 10px !important;
+}
+
+.border-shop {
+    border-bottom: solid 1px rgb(242, 242, 242) !important;
+}
+
+.no-padding-top {
+    padding-top: 0px !important;
+}
+
+ื.no-padding-bot {
+    padding-bottom: 0px !important;
+}
+
+.search-order {
+    position: absolute;
+    right: 0;
+    bottom: 2px;
+    color: #9f9f9f;
+}
+
+.color-theme {
+    color: #ff9558 !important;
+}
+
+.font-bold {
+    font-weight: bold !important;
+}
+
+.color-success {
+    color: rgb(0, 150, 0) !important;
+}
