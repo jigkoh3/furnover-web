@@ -58,7 +58,8 @@ import { MomentPipe } from './pipes/moment/moment.pipe';
 import { ModalConfirmComponent } from './pages/modals/modal-confirm/modal-confirm.component';
 import { MySaleComponent } from './pages/my-sale/my-sale.component';
 import { DetailMySaleComponent } from './pages/detail-my-sale/detail-my-sale.component';
-import { OrderModule } from 'projects/order/src/public_api';
+import { OrderModule } from 'casan-order';
+
 
 @NgModule({
   declarations: [
@@ -108,7 +109,7 @@ import { OrderModule } from 'projects/order/src/public_api';
     MomentPipe,
     ModalConfirmComponent,
     MySaleComponent,
-    DetailMySaleComponent
+    DetailMySaleComponent,
   ],
   entryComponents: [
     ModalCreateBankAccountComponent,
@@ -132,7 +133,13 @@ import { OrderModule } from 'projects/order/src/public_api';
     OrderModule,
     RouterModule.forRoot(routes),
     AppMaterialModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    OrderModule.forRoot({
+      production: false,
+      environment: "dev",
+      appName: "furnover-admin",
+      apiUrl: "https://furnover-api-dev.herokuapp.com"
+    })
   ],
   providers: [DataService, RestApiService, ChatService, ParamsService],
   bootstrap: [AppComponent]

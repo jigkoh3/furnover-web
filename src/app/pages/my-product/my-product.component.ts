@@ -198,6 +198,7 @@ export class MyProductComponent implements OnInit {
   openDialog(): void {
     const dialogRef = this.dialog.open(ModalDeleteProductComponent, {
       width: '700px',
+      height: 'inherit',
       hasBackdrop: true,
       data: JSON.parse(JSON.stringify(this.selectedProduct))
     });
