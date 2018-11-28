@@ -60,6 +60,7 @@ import { MySaleComponent } from './pages/my-sale/my-sale.component';
 import { DetailMySaleComponent } from './pages/detail-my-sale/detail-my-sale.component';
 import { OrderModule } from 'casan-order';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -129,6 +130,7 @@ import { OrderModule } from 'casan-order';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    OrderModule,
     RouterModule.forRoot(routes),
     AppMaterialModule,
     NgxSpinnerModule,

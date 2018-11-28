@@ -146,6 +146,10 @@ export const routes: Routes = [
         canActivate: [AuthGuard]
     },
     {
+        path: 'my-sale',
+        component: MySaleComponent,
+    },
+    {
         path: 'detail-my-sale',
         component: DetailMySaleComponent,
         canActivate: [AuthGuard]
