@@ -56,11 +56,9 @@ import { ChatService } from './providers/chat-service/chat.service';
 import { ParamsService } from './providers/params/params.service';
 import { MomentPipe } from './pipes/moment/moment.pipe';
 import { ModalConfirmComponent } from './pages/modals/modal-confirm/modal-confirm.component';
-<<<<<<< HEAD
 import { MySaleComponent } from './pages/my-sale/my-sale.component';
-=======
 import { DetailMySaleComponent } from './pages/detail-my-sale/detail-my-sale.component';
->>>>>>> cfdd46433933c0e297607d9a77eb851d8bccc128
+import { OrderModule } from 'casan-order';
 
 @NgModule({
   declarations: [
@@ -109,11 +107,8 @@ import { DetailMySaleComponent } from './pages/detail-my-sale/detail-my-sale.com
     NgChatComponent,
     MomentPipe,
     ModalConfirmComponent,
-<<<<<<< HEAD
-    MySaleComponent
-=======
-    DetailMySaleComponent
->>>>>>> cfdd46433933c0e297607d9a77eb851d8bccc128
+    MySaleComponent,
+    DetailMySaleComponent,
   ],
   entryComponents: [
     ModalCreateBankAccountComponent,
@@ -136,7 +131,13 @@ import { DetailMySaleComponent } from './pages/detail-my-sale/detail-my-sale.com
     BrowserAnimationsModule,
     RouterModule.forRoot(routes),
     AppMaterialModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    OrderModule.forRoot({
+      production: false,
+      environment: "dev",
+      appName: "furnover-admin",
+      apiUrl: "https://furnover-api-dev.herokuapp.com"
+    })
   ],
   providers: [DataService, RestApiService, ChatService, ParamsService],
   bootstrap: [AppComponent]

@@ -22,11 +22,8 @@ import { MyPromotionHeaderComponent } from './components/my-promotion-header/my-
 import { MyCodeComponent } from './pages/my-code/my-code.component';
 import { InfoMyCodeComponent } from './pages/info-my-code/info-my-code.component';
 import { AuthGuard } from './guards/auth/auth.guard';
-<<<<<<< HEAD
 import { MySaleComponent } from './pages/my-sale/my-sale.component';
-=======
 import { DetailMySaleComponent } from './pages/detail-my-sale/detail-my-sale.component';
->>>>>>> cfdd46433933c0e297607d9a77eb851d8bccc128
 
 export const routes: Routes = [
     {
@@ -149,14 +146,15 @@ export const routes: Routes = [
         canActivate: [AuthGuard]
     },
     {
-<<<<<<< HEAD
-        path: 'my-sale',
-        component: MySaleComponent,
-=======
         path: 'detail-my-sale',
         component: DetailMySaleComponent,
->>>>>>> cfdd46433933c0e297607d9a77eb851d8bccc128
         canActivate: [AuthGuard]
+    },
+    {
+        path: 'my-sale',
+        component: MySaleComponent,
+        canActivate: [AuthGuard]
+
     }
 
 ];
