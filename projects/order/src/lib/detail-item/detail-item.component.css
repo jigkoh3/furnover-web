@@ -1,0 +1,17 @@
+.img-shop {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.no-flex {
+    display: unset !important;
+}
+
+.border-shop {
+    border-bottom: solid 1px rgb(242, 242, 242) !important;
+}
+
+.subheader{
+    font-size: 0.1rem !important;
+}

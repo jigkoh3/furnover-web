@@ -6,10 +6,10 @@
   </div>
   <mat-tab-group name="mat-tab-groupStatus">
     <mat-tab name="mat-tabStatus" label="{{item.name}}" *ngFor="let item of statusTab">
-      <mat-list class="padding">
+      <!-- <mat-list class="padding">
 
         <div class="row">
-            <div class="col-12 col-md-4 col-sm-4">
+          <div class="col-12 col-md-4 col-sm-4">
             <mat-form-field>
               <mat-icon class="search-order">search</mat-icon>
               <input name="search" matInput placeholder="ค้นหา">
@@ -19,7 +19,7 @@
 
         <div class="row" style="background-color: #f5f5f5;">
           <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4" style="padding-bottom: 0px !important;">
-            <h3 mat-subheader >สินค้าทั้งหมด</h3>
+            <h3 mat-subheader>สินค้าทั้งหมด</h3>
           </div>
           <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 text-right" style="padding-bottom: 0px !important;">
             <h3 mat-subheader class="no-flex">ยอดคำสั่งซื้อทั้งหมด</h3>
@@ -62,9 +62,13 @@
             <h3 mat-subheader class="no-flex color-success font-bold">สำเร็จแล้ว</h3>
           </div>
           <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 text-center">
-              <button mat-stroked-button color="primary">ยกเลิก</button>
+            <button mat-stroked-button color="primary">ยกเลิก</button>
           </div>
         </div>
+      </mat-list> -->
+      
+      <mat-list class="padding">
+          <order-list ></order-list>
       </mat-list>
     </mat-tab>
   </mat-tab-group>
