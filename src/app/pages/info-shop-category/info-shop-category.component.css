@@ -276,6 +276,11 @@
     width: 10px !important;
     height: 10px !important;
 }
-.border-radius{
+
+.border-radius {
     border-radius: 30 px !important;
+}
+
+.mgt-10 {
+    margin-top: 10px;
 }
