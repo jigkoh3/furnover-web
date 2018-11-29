@@ -45,7 +45,7 @@
                     </div>
                 </div>
                 <!-- <mat-list-item > -->
-                <div name="divNgFor" class="row" style="border-bottom: 1px solid #e0e0e0;" *ngFor="let item of data.discounts">
+                <div name="divNgFor" class="row padding" style="border-bottom: 1px solid #e0e0e0;" *ngFor="let item of data.discounts">
                     <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
                         <h3 mat-subheader>{{item.title}}</h3>
                     </div>
@@ -70,7 +70,7 @@
                         </div>
                     </div>
                 </div>
-                <div padding *ngIf="dataService.message">
+                <div padding *ngIf="dataService.message" class="padding">
                     <message padding-top class="text-center" [type]="dataService.messageType" [message]="dataService.message"></message>
                 </div>
 
