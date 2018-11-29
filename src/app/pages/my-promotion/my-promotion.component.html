@@ -28,37 +28,37 @@
 
             <mat-list class="padding">
                 <div class="row" style="background-color: #f5f5f5;">
-                    <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
-                        <h3 mat-subheader>ชื่อของรายการ</h3>
+                    <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 center">
+                        <h3 class="table-header">ชื่อของรายการ</h3>
                     </div>
-                    <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                        <h3 mat-subheader>รายการสินค้า</h3>
+                    <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 center">
+                        <h3 class="table-header">รายการสินค้า</h3>
                     </div>
-                    <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                        <h3 mat-subheader>จาก</h3>
+                    <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 center">
+                        <h3 class="table-header">จาก</h3>
                     </div>
-                    <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                        <h3 mat-subheader>ถึง</h3>
+                    <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 center">
+                        <h3 class="table-header">ถึง</h3>
                     </div>
-                    <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 text-center">
-                        <h3 mat-subheader class="no-flex">กำลังจัดรายการ</h3>
+                    <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 center">
+                        <h3 class="table-header">กำลังจัดรายการ</h3>
                     </div>
                 </div>
                 <!-- <mat-list-item > -->
                 <div name="divNgFor" class="row padding" style="border-bottom: 1px solid #e0e0e0;" *ngFor="let item of data.discounts">
                     <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
-                        <h3 mat-subheader>{{item.title}}</h3>
+                        <h3 class="data-col">{{item.title}}</h3>
                     </div>
-                    <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                        <h3 mat-subheader>{{item.products.length}} รายการ</h3>
+                    <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 center">
+                        <h3 class="data-col">{{item.products.length}} รายการ</h3>
                     </div>
-                    <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                        <h3 mat-subheader>{{item.startdate | date:"dd-MM-yyyy" }} {{item.startdate | date:"HH:mm" }}</h3>
+                    <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 center">
+                        <h3 class="data-col">{{item.startdate | date:"dd-MM-yyyy" }} {{item.startdate | date:"HH:mm" }}</h3>
                     </div>
-                    <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                        <h3 mat-subheader>{{item.enddate | date:"dd-MM-yyyy"}} {{item.enddate | date:"HH:mm"}}</h3>
+                    <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 center">
+                        <h3 class="data-col">{{item.enddate | date:"dd-MM-yyyy"}} {{item.enddate | date:"HH:mm"}}</h3>
                     </div>
-                    <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                    <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 center">
                         <div class="padding-left" style="white-space: nowrap">
                             <span style="padding:5px">
                                 <button name="btnDetail" mat-flat-button color="primary" (click)="onDetail(item)">
