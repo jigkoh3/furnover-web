@@ -227,12 +227,14 @@ table {
     font-weight: bold;
     font-size: 0.8rem;
     border-radius: 4px;
+    line-height: 2.2rem;
 }
 
 .ar-down {
     position: absolute;
     right: 0;
     color: #c2c1c1;
+    top: 0.4rem;
 }
 
 .expan {
@@ -249,7 +251,7 @@ table {
 }
 
 .sub-menu {
-    font-size: 1rem;
+    font-size: 0.7rem;
 }
 
 .sub-menu:hover {
@@ -368,4 +370,11 @@ thead {
     background-color: #f7f7f7;
     padding: 4px;
     border-radius: 4px;
+}
+
+.arr-sub {
+    position: absolute;
+    right: 0;
+    z-index: 999;
+    top: 0;
 }
