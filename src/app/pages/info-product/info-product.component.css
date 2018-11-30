@@ -75,8 +75,8 @@ h3 {
     background: rgba(0, 0, 0, .5);
     text-align: center;
     color: #ffffff;
-    position: absolute;
-    width: 94.5%;
+    position: sticky;
+    /* width: 94.5%; */
     margin-top: -3.7rem;
     padding: 1.2rem;
 }

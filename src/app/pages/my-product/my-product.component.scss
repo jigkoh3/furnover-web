@@ -80,7 +80,7 @@
 }
 
 .fix-col-2 {
-    height: 20rem;
+    // height: 20rem;
     cursor: pointer;
 }
 
@@ -93,7 +93,15 @@
     margin-left: 0.7rem;
     position: absolute;
     z-index: 999;
-    margin-top: 20px;
+    margin-top: 10px;
+}
+
+.ch_box_status {
+    left: 10px;
+    margin-left: 0.7rem;
+    position: absolute;
+    z-index: 999;
+    margin-top: 25px;
 }
 
 .product-item__badges {
@@ -187,7 +195,7 @@ mat-tab-group {
     display: flex;
     position: absolute;
     width: 100%;
-    height: 50%;
+    height: 100%;
     left: 0;
     top: 0;
     background: rgba(255, 255, 255, .54);
@@ -249,9 +257,16 @@ mat-tab-group {
     border-style: solid;
     position: absolute;
     border-width: 0 18px 4px;
-    border-color: transparent rgba(255,212,36,.9);
+    border-color: transparent rgba(255, 212, 36, .9);
 }
 
 .badge-num {
     color: #ff8100;
+}
+
+.imgMyProd {
+    width: 100%;
+    height: fit-content;
+    object-fit: fill;
+    max-height: 12rem
 }

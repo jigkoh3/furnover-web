@@ -32,7 +32,6 @@ export const MY_FORMATS = {
   ],
 })
 export class AccountComponent implements OnInit {
-
   data: any = {
   };
   // date = '';
@@ -167,6 +166,14 @@ export class AccountComponent implements OnInit {
       });
     } catch (error) {
       throw error;
+    }
+  }
+
+  onNumber(e) {
+    // let regEx = new RegExp(/^[0-9 ()+-]+$/);
+    let regEx = new RegExp(/^[0-9]+$/);
+    if (!(regEx.test(e.key) || e.key === 'Backspace' || e.keyCode === 8) || this.tel.length > 12) {
+      this.tel = this.tel.substring(0, this.tel.length - 1);
     }
   }
 

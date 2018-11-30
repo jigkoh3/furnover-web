@@ -28,7 +28,7 @@
     </div>
 
     <div class="row padding">
-      <div name="divAddProduct" class="col-12 col-md-2 col-sm-4" (click)="gotoCreateProduct()">
+      <div name="divAddProduct" class="col-12 col-xl-2 col-lg-3 col-md-3 col-sm-4 padding-bottom" (click)="gotoCreateProduct()">
         <div name="divInDivAddProduct" class="fix-col">
           <p name="textAddProduct">
             <button name="addProduct" mat-fab color="primary" (click)="gotoCreateProduct()">
@@ -39,16 +39,16 @@
         </div>
       </div>
 
-      <div name="divNgFor" class="col-12 col-md-2 col-sm-4 fix-col-2 mgt-1" *ngFor="let item of products">
+      <div name="divNgFor" class="col-12 col-xl-2 col-lg-3 col-md-3 col-sm-4 fix-col-2 mgt-1" *ngFor="let item of products">
         <div class="badge-box" *ngIf="item.percentage > 0">
           <span>ลด</span> <br>
           <span class="badge-num">{{item.percentage}}%</span>
         </div>
-        <mat-checkbox name="checkedOptions" class="ch_box" [(ngModel)]="item.checked" (change)="checkboxOptions($event,item)"></mat-checkbox>
+        <mat-checkbox name="checkedOptions" [ngClass]="(item.iswholesale || item.status === 'suspended') ? 'ch_box_status': 'ch_box'"
+          [(ngModel)]="item.checked" (change)="checkboxOptions($event,item)"></mat-checkbox>
         <mat-card class="mat-card_cus" (click)="gotoEditProduct(item._id)">
           <div style="background-size: cover;min-height: 12rem;">
-            <img name="editProduct" [src]="item.image ? item.image.url:''" style="width: 100%;min-height: 12rem;object-fit: contain;max-height: 12rem;"
-              (click)="gotoEditProduct(item._id)">
+            <img name="editProduct" [src]="item.image ? item.image.url:''" class="imgMyProd">
             <span *ngIf="item.iswholesale" class="wholesale-badge">ขายส่ง</span>
             <div *ngIf="item.status === 'suspended'" class="product-item-soldout-overlay">
               <div class="soldout">{{'ถูกระงับ'}}</div>

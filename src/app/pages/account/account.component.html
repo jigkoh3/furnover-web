@@ -74,7 +74,7 @@
             <button name="buttonUpdatePage2" mat-flat-button color="primary" class="mgl" (click)="saveTel()">อัพเดท</button>
             <button name="buttonCancelPage2" mat-stroked-button class="mgl" (click)="clickShow2()">ยกเลิก</button>
             <mat-form-field *ngIf="show2">
-              <input name="telephoneNumber" matInput placeholder="เบอร์โทร" value="" [(ngModel)]="tel">
+              <input name="telephoneNumber" (keyup)="onNumber($event)" matInput placeholder="เบอร์โทร" value="" [(ngModel)]="tel">
             </mat-form-field>
           </div>
         </div>

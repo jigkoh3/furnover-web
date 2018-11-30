@@ -1,5 +1,5 @@
 <div class="wrapper content">
-  <div class="row">
+  <div class="row padding-bottom">
     <div class="col-12">
       <h2>รูปภาพสินค้า</h2>
     </div>
@@ -16,7 +16,7 @@
   </div>
 
   <div class="row">
-    <div name="divNgFor" class="col-12 col-sm-4 col-md-2" *ngFor="let item of images;let i = index">
+    <div name="divNgFor" class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-2 padding-bottom" *ngFor="let item of images;let i = index">
       <div class="contrain">
         <div class="tools">
           <!-- <div class="crop">
@@ -33,7 +33,7 @@
       </div>
     </div>
 
-    <div class="col-12 col-sm-4 col-md-2" *ngIf="images.length < 9">
+    <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-2" *ngIf="images.length < 9">
       <div name="buttonUploadImage" class="fix-col" (click)="uploadImg()">
         <p>
           <button mat-fab color="primary">
@@ -48,7 +48,7 @@
       style="visibility: hidden;">
   </div>
 
-  <div class="row">
+  <div class="row padding-top">
     <div class="col-12 col-sm-12 col-md-12">
       ข้อมูลทั่วไป
     </div>
