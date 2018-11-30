@@ -12,9 +12,11 @@
             <div class="col-12 col-md-7 padding-left" *ngIf="!isEdit">
               <p>
                 <b class="setting-font-header">{{categoryData.name}}</b> &nbsp;
-                <button  name="changeName" mat-stroked-button (click)='isEdit = true' class="setting-bnt-rename"><span class="setting-bnt-text-rename">เปลี่ยนชื่อ</span></button>
+                <button name="changeName" mat-stroked-button (click)='isEdit = true' class="setting-bnt-rename"><span
+                    class="setting-bnt-text-rename">เปลี่ยนชื่อ</span></button>
               </p>
-              <p class="setting-text-set-cat">กำหนดหมวดหมู่สินค้าเอง <span class="padding-left"> รายการสินค้า {{categoryData.items.length}}  รายการ</span></p>
+              <p class="setting-text-set-cat">กำหนดหมวดหมู่สินค้าเอง <span class="padding-left"> รายการสินค้า
+                  <span name="itemCount">{{categoryData.items ? categoryData.items.length : 0 | number}}</span> รายการ</span></p>
 
             </div>
             <div class="col-12 col-md-7 padding-left" *ngIf="isEdit">
@@ -31,8 +33,8 @@
                         class="setting-bnt-text-rename">บันทึก</span></button>
                   </div>
                   <div class="col-12 col-md-2 col-lg-2">
-                    <button name="cancelNameCate" style="width: 100%" mat-stroked-button (click)='isEdit = !isEdit' class="setting-bnt-rename"><span
-                        class="setting-bnt-text-rename">ยกเลิก</span></button>
+                    <button name="cancelNameCate" style="width: 100%" mat-stroked-button (click)='isEdit = !isEdit'
+                      class="setting-bnt-rename"><span class="setting-bnt-text-rename">ยกเลิก</span></button>
                   </div>
                   <p class="setting-text-set-cat">กำหนดหมวดหมู่สินค้าเอง <span class="padding-left"> รายการสินค้า 0
                       รายการ</span></p>
@@ -67,7 +69,8 @@
                           </div>
 
                           <div class="col-12 col-md-12 col-lg-12 text-center ">
-                            <button name="deleteProduct" mat-stroked-button class="buttonAdd" (click)="deleteItem(i,item)" color="primary">ลบสินค้า</button>
+                            <button name="deleteProduct" mat-stroked-button class="buttonAdd" (click)="deleteItem(i,item)"
+                              color="primary">ลบสินค้า</button>
                           </div>
 
                         </div>
@@ -167,8 +170,8 @@
                         <div *ngIf="checkButtonAdd(item)">
                           <mat-icon name="addProduct" class="done-size" svgIcon="done"></mat-icon> <span class="font-text">เพิ่มสินค้าแล้ว</span>
                         </div>
-                        <button name="btnAddProduct" *ngIf="!checkButtonAdd(item)" mat-stroked-button class="buttonAdd" (click)="selectedItem(item)"
-                          color="primary">เพิ่มสินค้า</button>
+                        <button name="btnAddProduct" *ngIf="!checkButtonAdd(item)" mat-stroked-button class="buttonAdd"
+                          (click)="selectedItem(item)" color="primary">เพิ่มสินค้า</button>
                       </div>
 
                     </div>
