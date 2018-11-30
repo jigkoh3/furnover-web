@@ -73,10 +73,14 @@
 
 .txt-price {
     color: #ff9558;
-    white-space: nowrap;
-    font-size: 15px;
+    font-size: 0.8rem;
     left: 6px;
     position: absolute;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 72%;
+    text-align: left;
 }
 
 .fix-col-2 {
@@ -254,4 +258,11 @@ mat-tab-group {
 
 .badge-num {
     color: #ff8100;
+}
+
+.old-price {
+    color: #a9a9a9;
+    text-decoration: line-through;
+    font-size: smaller;
+    margin-right: 6px;
 }

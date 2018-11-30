@@ -56,44 +56,21 @@
             <div *ngIf="item.status !== 'suspended' && item.stock === 0" class="product-item-soldout-overlay">
               <div class="soldout">{{'ขายแล้ว'}}</div>
             </div>
-            <!-- <div class="product-item__badges">
-              <div class="product-label new">
-                <div class="badge-content">
-                  <div class="text">ใหม่</div>
-                </div><svg viewBox="-107 102 48 54">
-                  <path d="M-107 102v54l24-6.8 24 6.8v-54z"></path>
-                </svg>
-              </div>
-            </div> -->
           </div>
-
-
-          <!-- <div>
-            <p class="p-name">
-              {{item.name}}
-            </p>
-            <div class="row">
-              <div class="col-6 txt-price">
-                {{item.pricetext}}
-              </div>
-              <div class="col-6 txt-right" style="font-size: 14px;">
-                คลัง {{item.stock}}
-              </div>
-            </div>
-          </div> -->
-
           <div>
             <div class="p-name">{{item.name}}</div>
-            <div class="txt-price">
+            <div class="txt-price" *ngIf="!item.newpricetext">
               {{item.pricetext}}
             </div>
+
+            <div class="txt-price" *ngIf="item.newpricetext">
+              <span class="old-price">{{item.pricetext}}</span> <span>{{item.newpricetext}}</span>
+            </div>
+
             <div class="txt-stock">
               คลัง {{item.stock}}
             </div>
           </div>
-
-
-
         </mat-card>
       </div>
     </div>
