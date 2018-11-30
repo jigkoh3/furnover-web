@@ -14,7 +14,7 @@
 
     <div class="row padding text-left">
       <div class="col-12 col-md-12 col-sm-12">
-        สินค้า {{products.length}} รายการ
+        สินค้า <span name="itemCount">{{products.length | number}}</span> รายการ
       </div>
     </div>
 
@@ -106,7 +106,7 @@
       <button name="page" mat-flat-button color="primary" ngClass="{{pageData.page === (i + 1) ? 'select' : 'un-select'}} btn-summit"
         style="margin: 5px;min-width: unset;" *ngFor="let item of tabs;let i = index" (click)="page(item)">{{item}}</button>
       <button name="next" mat-flat-button color="primary" class="btn-summit select" style="margin: 5px;" *ngIf="pageData.page < tabs.length"
-         (click)="next()">ต่อไป</button>
+        (click)="next()">ต่อไป</button>
     </div>
   </mat-tab>
 </mat-tab-group>

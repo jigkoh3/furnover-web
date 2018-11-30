@@ -11,7 +11,8 @@
           <div class="col-12 col-md-10">
             <div class="row">
               <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                <b class="primary">การจัดส่งที่รองรับโดย Furnover</b>
+                <b class="primary">การจัดส่งที่รองรับโดย Furnover</b> <span class="total">ทั้งหมด <span name="itemCount">{{blindData.length
+                    ? blindData.length : 0 | number}}</span> รายการ</span>
                 <br>
                 <label class="font-color-grey font-size">ผู้ซื้อสามารถตรวจสอบสถานะของพัสดุผ่านแอพพลิเคชั่นได้โดยตรงเมื่อเลือกการจัดส่งที่รองรับโดย
                   Furnover</label>
@@ -34,7 +35,8 @@
                       </div>
                       <div class="col-12 col-md-5">
                         <label class="font-size1">เปิดใช้งานการจัดส่งนี้</label>
-                        <mat-slide-toggle name="openStatusUse" class="position-toggle" [(ngModel)]="item.status" (ngModelChange)="onToggleChange(item)"></mat-slide-toggle>
+                        <mat-slide-toggle name="openStatusUse" class="position-toggle" [(ngModel)]="item.status"
+                          (ngModelChange)="onToggleChange(item)"></mat-slide-toggle>
                       </div>
                     </div>
                   </mat-card>
