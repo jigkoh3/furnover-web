@@ -180,8 +180,6 @@ export class MyProductComponent implements OnInit {
   }
 
   onselectAll(event) {
-    console.log(event)
-    console.log(this.data);
     this.selectedProduct = [];
     this.data.product.items.forEach(selectItem => {
       if (event.checked) {

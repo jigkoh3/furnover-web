@@ -284,3 +284,21 @@
 .mgt-10 {
     margin-top: 10px;
 }
+
+.txt-price {
+    color: #ff9558;
+    font-size: 0.8rem;
+    left: 6px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 72%;
+    text-align: left;
+}
+
+.old-price {
+    color: #a9a9a9;
+    text-decoration: line-through;
+    font-size: smaller;
+    margin-right: 6px;
+}
