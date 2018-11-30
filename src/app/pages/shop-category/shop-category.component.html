@@ -4,6 +4,8 @@
       <mat-card class="bg-card-icon">
         <img mat-card-image src="/assets/imgs/open.png" class="setting-icon-look">
       </mat-card>
+      <span class="total">ทั้งหมด <span name="itemCountOpen">{{countItem.open.length
+          ? countItem.open.length : 0 | number}}</span> รายการ</span>
       <p class="setting-text-header1"><b>หมวดหมู่ที่เปิดการใช้งาน</b></p>
       <p class="setting-text-header2">ผู้ซื้อสามารถมองเห็นหมวดหมู่เหล่านี้ได้จากร้านของคุณ</p>
     </div>
@@ -59,6 +61,8 @@
       <mat-card class="bg-card-icon1">
         <img mat-card-image src="/assets/imgs/close.png" class="setting-icon-look">
       </mat-card>
+      <span class="total">ทั้งหมด <span name="itemCountClose">{{countItem.close.length
+          ? countItem.close.length : 0 | number}}</span> รายการ</span>
       <p class="setting-text-header1"><b>หมวดหมู่ที่ปิดการใช้งาน</b></p>
       <p class="setting-text-header2">เพื่อให้ผู้ซื้อมองเห็นกรุณาเปิดใช้งานหมวดหมู่นี้</p>
     </div>
