@@ -92,3 +92,11 @@ mat-dialog-container {
     font-size: 0.9rem;
     color: rgba(0, 0, 0, .54);
 }
+
+.total {
+    position: absolute;
+    right: 2vw;
+    margin-top: 10px;
+    z-index: 999;
+    color: #959595;
+}
