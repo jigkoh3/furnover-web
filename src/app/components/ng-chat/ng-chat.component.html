@@ -17,7 +17,15 @@
 
   <div class="row">
     <div class="col-4 scroll-user">
-      <div class="row">
+      <div *ngFor="let item of chatList;let i = index">
+        <div [ngClass]="person._id === item._id ? 'user-box user-box-active':'user-box'" (click)="selectPerson(item)"
+        *ngIf="item._id !== receiver">
+          <div class="user-name">
+            <img class="avatar-img" [src]="item.img" alt="image"> {{item.name}}
+          </div>
+        </div>
+      </div>
+      <!-- <div class="row">
         <div *ngFor="let item of chatList;let i = index">
           <div [ngClass]="person._id === item._id ? 'col-12 no-padding active-user':'col-12 no-padding'" (click)="selectPerson(item)"
             *ngIf="item._id !== receiver">
@@ -30,7 +38,11 @@
           ไม่พบข้อมูลลูกค้า
         </div>
         <div class="col-12 clear-fix"></div>
+      </div> -->
+      <div class="center" *ngIf="chatList.length <= 0">
+        ไม่พบข้อมูลลูกค้า
       </div>
+      <div class="clear-fix-user"></div>
     </div>
     <div class="col-8 conversation-contrainner">
       <div class="row">

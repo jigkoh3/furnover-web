@@ -52,7 +52,7 @@
     background-color: #c4c4c4;
     color: #ffffff;
     border-radius: 2px;
-    padding: 1vh;
+    padding: 6px;
 }
 
 .bd-right {
@@ -104,9 +104,6 @@
     width: 32px;
     height: 32px;
     border-radius: 100%;
-    position: absolute;
-    top: 2px;
-    margin-left: 4px;
 }
 
 .no-padding {
@@ -143,6 +140,8 @@
 }
 
 .scroll-user {
+    display: flex;
+    flex-direction: column;
     overflow: scroll;
     padding: 4px;
     height: -webkit-fill-available;
@@ -326,4 +325,29 @@
 
 .left {
     left: -10px;
+}
+
+.user-box {
+    padding: 4px;
+    cursor: pointer;
+    margin-bottom: 4px;
+    color: #717171;
+}
+
+.user-box:hover {
+    background-color: #eeeeee;
+}
+
+.user-box-active {
+    background-color: #eeeeee;
+}
+
+.user-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.clear-fix-user {
+    margin-top: 5vh;
 }
