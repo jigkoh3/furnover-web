@@ -23,6 +23,10 @@
     padding: 12px !important;
 }
 
+.padding-bottom {
+    padding-bottom: 16px;
+}
+
 .select {
     margin: 2px;
     min-width: unset;
