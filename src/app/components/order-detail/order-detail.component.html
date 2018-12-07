@@ -5,12 +5,16 @@
         <p>
           <mat-icon>list_alt</mat-icon> หมายเลขคำสั่งซื้อ
         </p>
-        <p class="data-color">1234567890</p>
+        <p class="data-color">{{data.orderno}}</p>
         <p>
           <mat-icon>room</mat-icon> ที่อยู่ในการจัดส่ง
         </p>
-        <p class="data-color">คนึง โฮกเส็ง, 0938475638</p>
-        <p class="data-color">66/4 หมู่ 3 ต.หนองผักแว่น อ.ท่าหลวง จ.ลพบุรี 15230</p>
+        <p class="data-color">{{data.shippingaddress ? data.shippingaddress.name : ''}}, {{data.shippingaddress ?
+          data.shippingaddress.tel : ''}}</p>
+        <p class="data-color">{{data.shippingaddress ? data.shippingaddress.address : ''}} {{data.shippingaddress ?
+          data.shippingaddress.district : ''}} {{data.shippingaddress ? data.shippingaddress.subdistrict : ''}}
+          {{data.shippingaddress ? data.shippingaddress.province : ''}} {{data.shippingaddress ?
+          data.shippingaddress.postcode : ''}}</p>
         <p>
           <mat-icon>local_shipping</mat-icon> ข้อมูลการจัดส่ง
         </p>
@@ -18,10 +22,13 @@
       </div>
 
       <div class="box">
-        <div>
+        <div *ngIf="role === 'admin'">
           <img class="avatar" src="https://s3.eu-central-1.amazonaws.com/media.vinyl.ua/UserAvatar/user-f.png" alt="image">
-          <span class="name">Dook Shop</span>
+          <span class="name">Dook</span>
         </div>
+        <p *ngIf="role === 'seller'">
+          <mat-icon>list_alt</mat-icon> รายละเอียด
+        </p>
         <div class="table-responsive mgt">
           <table class="table">
             <thead>
@@ -34,25 +41,25 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let item of [1,2,3]">
-                <td class="center pd">{{item}}</td>
-                <td><img class="image" src="https://cdn.homepro.co.th/catalog/1000000/447x447/1020753.jpg" alt="image">
-                  โคมไฟตกแต่งบ้าน</td>
-                <td class="center pd">1,000</td>
-                <td class="center pd">3</td>
-                <td class="center pd">3,000</td>
+              <tr *ngFor="let item of data.shop ? data.shop.products : [];let i = index">
+                <td class="center pd">{{i + 1}}</td>
+                <td><img class="image" [src]="item.image.url" alt="image">
+                  {{item.name}} ({{item.price.name}})</td>
+                <td class="center pd">{{item.price.price | number}}</td>
+                <td class="center pd">{{item.qty}}</td>
+                <td class="center pd">{{item.total | number}}</td>
               </tr>
               <tr>
                 <td colspan="4" class="txt-right"><b>รวมราคาสินค้า</b></td>
-                <td class="txt-right">฿3,000</td>
+                <td class="txt-right">฿{{data.totalprice | number}}</td>
               </tr>
-              <tr *ngFor="let item of [1,2,3];let i = index">
+              <tr *ngFor="let product of data.shop ? data.shop.products : [];let i = index">
                 <td colspan="4" class="txt-right"><span *ngIf="i === 0"><b>ราคาสินค้า</b></span></td>
-                <td class="txt-right">฿1,000</td>
+                <td class="txt-right">฿{{product.price.price | number}}</td>
               </tr>
               <tr>
                 <td colspan="4" class="txt-right"><b>ส่วนลด</b></td>
-                <td class="txt-right">฿100</td>
+                <td class="txt-right">฿{{data.totaldiscount | number}}</td>
               </tr>
               <tr>
                 <td colspan="4" class="txt-right"><b>โค๊ดส่วนลด</b></td>
@@ -60,7 +67,7 @@
               </tr>
               <tr>
                 <td colspan="4" class="txt-right"><b>ยอดชำระเงิน</b></td>
-                <td class="txt-right">฿3,800</td>
+                <td class="txt-right">฿{{data.totalamount | number}}</td>
               </tr>
             </tbody>
           </table>
@@ -73,13 +80,18 @@
             <mat-icon>attach_money</mat-icon> การชำระเงินของผู้ใช้
           </div>
           <div class="col-4 txt-right">
-            ฿3,800
+            ฿0
           </div>
         </div>
       </div>
     </div>
     <div class="col-4">
-      <p>ประวัติการซื้อสินค้า</p>
+      <p class="title"><b>ประวัติการซื้อสินค้า</b></p>
+      <div class="box">
+        <ul class="ul-custom">
+          <li *ngFor="let item of data.logs">{{item.name}} {{item.created | moment}}</li>
+        </ul>
+      </div>
     </div>
   </div>
 </mat-card>

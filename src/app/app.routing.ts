@@ -162,7 +162,7 @@ export const routes: Routes = [
 
     },
     {
-        path: 'order-detail/:id',
+        path: 'order-detail',
         component: InfoOrderDetailComponent,
         canActivate: [AuthGuard]
 

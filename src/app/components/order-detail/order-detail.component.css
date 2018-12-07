@@ -58,3 +58,13 @@
 .table td {
     border-top: none;
 }
+
+.title {
+    position: absolute;
+    background-color: #ffffff;
+}
+
+.ul-custom {
+    margin-top: 1rem;
+    color: #919191;
+}

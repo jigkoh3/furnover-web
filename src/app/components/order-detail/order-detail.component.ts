@@ -9,9 +9,12 @@ export class OrderDetailComponent implements OnInit {
   @Input() role: String = '';
   @Input() data: any = {};
 
-  constructor() { }
+  constructor() {
+
+  }
 
   ngOnInit() {
+
   }
 
 }
