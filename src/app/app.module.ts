@@ -59,6 +59,8 @@ import { ModalConfirmComponent } from './pages/modals/modal-confirm/modal-confir
 import { MySaleComponent } from './pages/my-sale/my-sale.component';
 import { DetailMySaleComponent } from './pages/detail-my-sale/detail-my-sale.component';
 import { OrderModule } from 'casan-order';
+import { InfoOrderDetailComponent } from './pages/info-order-detail/info-order-detail.component';
+import { OrderDetailComponent } from './components/order-detail/order-detail.component';
 
 
 @NgModule({
@@ -110,6 +112,8 @@ import { OrderModule } from 'casan-order';
     ModalConfirmComponent,
     MySaleComponent,
     DetailMySaleComponent,
+    InfoOrderDetailComponent,
+    OrderDetailComponent,
   ],
   entryComponents: [
     ModalCreateBankAccountComponent,
@@ -136,9 +140,9 @@ import { OrderModule } from 'casan-order';
     NgxSpinnerModule,
     OrderModule.forRoot({
       production: false,
-      environment: "dev",
-      appName: "furnover-admin",
-      apiUrl: "https://furnover-api-dev.herokuapp.com"
+      environment: 'dev',
+      appName: 'furnover-admin',
+      apiUrl: 'https://furnover-api-dev.herokuapp.com'
     })
   ],
   providers: [DataService, RestApiService, ChatService, ParamsService],
