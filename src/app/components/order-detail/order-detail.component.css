@@ -1,0 +1,60 @@
+.box {
+    border: 1px solid #e3e3e3;
+    border-radius: 10px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.data-color {
+    color: #a1a1a1;
+}
+
+.avatar {
+    border-radius: 100%;
+    width: 32px;
+    height: 32px;
+}
+
+.name {
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+.head {
+    padding: 4px;
+    margin-top: 14px;
+    background-color: #e1e1e1;
+    color: #6e6e6e;
+}
+
+.mgt {
+    margin-top: 2rem;
+}
+
+.pd {
+    padding-top: 2rem;
+}
+
+.center {
+    text-align: center !important;
+}
+
+.image {
+    border: 1px solid #e1e1e1;
+    border-radius: 2px;
+    width: 64px;
+    height: 64px;
+}
+
+.txt-right {
+    text-align: right;
+}
+
+.bg {
+    background-color: #e5e5e5;
+    font-weight: bold;
+}
+
+.table td {
+    border-top: none;
+}
