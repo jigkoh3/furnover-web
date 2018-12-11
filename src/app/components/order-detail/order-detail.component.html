@@ -1,0 +1,97 @@
+<mat-card>
+  <div class="row">
+    <div class="col-8">
+      <div class="box">
+        <p>
+          <mat-icon>list_alt</mat-icon> หมายเลขคำสั่งซื้อ
+        </p>
+        <p class="data-color">{{data.orderno}}</p>
+        <p>
+          <mat-icon>room</mat-icon> ที่อยู่ในการจัดส่ง
+        </p>
+        <p class="data-color">{{data.shippingaddress ? data.shippingaddress.name : ''}}, {{data.shippingaddress ?
+          data.shippingaddress.tel : ''}}</p>
+        <p class="data-color">{{data.shippingaddress ? data.shippingaddress.address : ''}} {{data.shippingaddress ?
+          data.shippingaddress.district : ''}} {{data.shippingaddress ? data.shippingaddress.subdistrict : ''}}
+          {{data.shippingaddress ? data.shippingaddress.province : ''}} {{data.shippingaddress ?
+          data.shippingaddress.postcode : ''}}</p>
+        <p>
+          <mat-icon>local_shipping</mat-icon> ข้อมูลการจัดส่ง
+        </p>
+        <p class="data-color">Furnover Shipping</p>
+      </div>
+
+      <div class="box">
+        <div *ngIf="role === 'admin'">
+          <img class="avatar" src="https://s3.eu-central-1.amazonaws.com/media.vinyl.ua/UserAvatar/user-f.png" alt="image">
+          <span class="name">Dook</span>
+        </div>
+        <p *ngIf="role === 'seller'">
+          <mat-icon>list_alt</mat-icon> รายละเอียด
+        </p>
+        <div class="table-responsive mgt">
+          <table class="table">
+            <thead>
+              <tr>
+                <th width="20" class="center">#</th>
+                <th width="600" class="center">สินค้าทั้งหมด</th>
+                <th width="200" class="center">ราคาต่อชิน</th>
+                <th width="200" class="center">จำนวน</th>
+                <th width="200" class="center">ยอดรวม</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of data.shop ? data.shop.products : [];let i = index">
+                <td class="center pd">{{i + 1}}</td>
+                <td><img class="image" [src]="item.image.url" alt="image">
+                  {{item.name}} ({{item.price.name}})</td>
+                <td class="center pd">{{item.price.price | number}}</td>
+                <td class="center pd">{{item.qty}}</td>
+                <td class="center pd">{{item.total | number}}</td>
+              </tr>
+              <tr>
+                <td colspan="4" class="txt-right"><b>รวมราคาสินค้า</b></td>
+                <td class="txt-right">฿{{data.totalprice | number}}</td>
+              </tr>
+              <tr *ngFor="let product of data.shop ? data.shop.products : [];let i = index">
+                <td colspan="4" class="txt-right"><span *ngIf="i === 0"><b>ราคาสินค้า</b></span></td>
+                <td class="txt-right">฿{{product.price.price | number}}</td>
+              </tr>
+              <tr>
+                <td colspan="4" class="txt-right"><b>ส่วนลด</b></td>
+                <td class="txt-right">฿{{data.totaldiscount | number}}</td>
+              </tr>
+              <tr>
+                <td colspan="4" class="txt-right"><b>โค๊ดส่วนลด</b></td>
+                <td class="txt-right">฿0</td>
+              </tr>
+              <tr>
+                <td colspan="4" class="txt-right"><b>ยอดชำระเงิน</b></td>
+                <td class="txt-right">฿{{data.totalamount | number}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="box bg">
+        <div class="row">
+          <div class="col-8">
+            <mat-icon>attach_money</mat-icon> การชำระเงินของผู้ใช้
+          </div>
+          <div class="col-4 txt-right">
+            ฿0
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-4">
+      <p class="title"><b>ประวัติการซื้อสินค้า</b></p>
+      <div class="box">
+        <ul class="ul-custom">
+          <li *ngFor="let item of data.logs">{{item.name}} {{item.created | moment}}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</mat-card>

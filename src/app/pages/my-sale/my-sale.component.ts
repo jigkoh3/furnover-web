@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-my-sale',
@@ -32,9 +33,13 @@ export class MySaleComponent implements OnInit {
     }
   ]
 
-  constructor() { }
+  constructor(public route: Router) { }
 
   ngOnInit() {
+  }
+
+  gotoOrderDetail() {
+    this.route.navigate(['/order-detail'], { queryParams: { id: '5bf3e80df7e6c90016f6853a' } });
   }
 
 }

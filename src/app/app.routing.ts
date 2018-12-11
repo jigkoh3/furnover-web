@@ -24,6 +24,7 @@ import { InfoMyCodeComponent } from './pages/info-my-code/info-my-code.component
 import { AuthGuard } from './guards/auth/auth.guard';
 import { MySaleComponent } from './pages/my-sale/my-sale.component';
 import { DetailMySaleComponent } from './pages/detail-my-sale/detail-my-sale.component';
+import { InfoOrderDetailComponent } from './pages/info-order-detail/info-order-detail.component';
 
 export const routes: Routes = [
     {
@@ -157,6 +158,12 @@ export const routes: Routes = [
     {
         path: 'my-sale',
         component: MySaleComponent,
+        canActivate: [AuthGuard]
+
+    },
+    {
+        path: 'order-detail',
+        component: InfoOrderDetailComponent,
         canActivate: [AuthGuard]
 
     }
