@@ -17,9 +17,7 @@ import { Router } from '@angular/router';
 })
 export class SideMenuSettingShopComponent implements OnInit {
   // public menuItems: any[];
-  constructor(private router: Router) {
-
-  }
+  constructor() {}
 
   ngOnInit() {
     // this.menuItems = ROUTES.filter(menuItem => menuItem);

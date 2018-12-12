@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatIconRegistry } from '@angular/material';
 import { Constants } from '../../app.constants';
 import { RestApiService } from '../../providers/rest-api-service/rest-api.service';
 import { DataService } from '../../providers/data-service/data.service';
@@ -11,6 +11,7 @@ import * as _ from "lodash";
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ModalMessageComponent } from '../../pages/modals/modal-message/modal-message.component';
 import { ModalCompleteComponent } from 'src/app/pages/modals/modal-complete/modal-complete.component';
+import { DomSanitizer } from '@angular/platform-browser';
 //Image
 @Component({
   selector: 'profile',
@@ -48,7 +49,13 @@ export class ProfileSettingComponent implements OnInit {
     public restApi: RestApiService,
     public dataService: DataService,
     private spinner: NgxSpinnerService,
-  ) { }
+    public iconRegistry: MatIconRegistry,
+    public sanitizer: DomSanitizer
+  ) {
+    iconRegistry.addSvgIcon(
+      'shopDetail',
+      sanitizer.bypassSecurityTrustResourceUrl('assets/imgs/icons/detailShop_icon.svg'));
+  }
 
   ngOnInit() {
     this.getProfile();

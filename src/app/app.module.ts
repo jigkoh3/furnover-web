@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, DomSanitizer } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -61,6 +61,7 @@ import { DetailMySaleComponent } from './pages/detail-my-sale/detail-my-sale.com
 import { OrderModule } from 'casan-order';
 import { InfoOrderDetailComponent } from './pages/info-order-detail/info-order-detail.component';
 import { OrderDetailComponent } from './components/order-detail/order-detail.component';
+import { MatIconRegistry } from '@angular/material';
 
 
 @NgModule({
@@ -148,5 +149,45 @@ import { OrderDetailComponent } from './components/order-detail/order-detail.com
   providers: [DataService, RestApiService, ChatService, ParamsService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+  constructor(
+    public iconRegistry: MatIconRegistry,
+    public sanitizer: DomSanitizer
+  ) {
+    iconRegistry.addSvgIcon(
+      'account',
+      sanitizer.bypassSecurityTrustResourceUrl('assets/imgs/icons/account.svg'));
+
+    iconRegistry.addSvgIcon(
+      'bookbank',
+      sanitizer.bypassSecurityTrustResourceUrl('assets/imgs/icons/bookbank.svg'));
+
+    iconRegistry.addSvgIcon(
+      'deliver',
+      sanitizer.bypassSecurityTrustResourceUrl('assets/imgs/icons/deliver.svg'));
+
+    iconRegistry.addSvgIcon(
+      'shopDetail',
+      sanitizer.bypassSecurityTrustResourceUrl('assets/imgs/icons/detailShop_icon.svg'));
+
+    iconRegistry.addSvgIcon(
+      'key',
+      sanitizer.bypassSecurityTrustResourceUrl('assets/imgs/icons/key.svg'));
+
+    iconRegistry.addSvgIcon(
+      'address',
+      sanitizer.bypassSecurityTrustResourceUrl('assets/imgs/icons/pin.svg'));
+
+    iconRegistry.addSvgIcon(
+      'settings',
+      sanitizer.bypassSecurityTrustResourceUrl('assets/imgs/icons/settings.svg'));
+
+    iconRegistry.addSvgIcon(
+      'star',
+      sanitizer.bypassSecurityTrustResourceUrl('assets/imgs/icons/star.svg'));
+
+  }
+
+}
 
