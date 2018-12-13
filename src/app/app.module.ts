@@ -62,6 +62,7 @@ import { OrderModule } from 'casan-order';
 import { InfoOrderDetailComponent } from './pages/info-order-detail/info-order-detail.component';
 import { OrderDetailComponent } from './components/order-detail/order-detail.component';
 import { MatIconRegistry } from '@angular/material';
+import { ButtonGoBackComponent } from './components/button-go-back/button-go-back.component';
 
 
 @NgModule({
@@ -115,6 +116,7 @@ import { MatIconRegistry } from '@angular/material';
     DetailMySaleComponent,
     InfoOrderDetailComponent,
     OrderDetailComponent,
+    ButtonGoBackComponent,
   ],
   entryComponents: [
     ModalCreateBankAccountComponent,
