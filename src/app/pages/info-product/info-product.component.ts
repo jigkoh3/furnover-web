@@ -223,6 +223,7 @@ export class InfoProductComponent implements OnInit {
     this.spinner.show();
     try {
       const userShop: any = JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop'));
+      console.log(userShop);
       const bodyReq: any = {
         product_id: productid,
         shop_id: userShop.shop._id
