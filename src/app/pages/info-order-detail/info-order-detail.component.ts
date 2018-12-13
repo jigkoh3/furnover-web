@@ -11,6 +11,7 @@ import { Constants } from 'src/app/app.constants';
 export class InfoOrderDetailComponent implements OnInit {
   orderID: String = '';
   data: any = {};
+  item_ids: Array<any> = [];
   constructor(private activatedRoute: ActivatedRoute, private api: RestApiService) { }
 
   ngOnInit() {
@@ -19,6 +20,8 @@ export class InfoOrderDetailComponent implements OnInit {
       .subscribe(params => {
         if (params['id']) {
           const orderID = params['id'];
+          const item_ids = params['item_ids'];
+          this.item_ids = item_ids;
           this.orderID = orderID;
           this.getOrderDetail();
         }
@@ -29,13 +32,12 @@ export class InfoOrderDetailComponent implements OnInit {
     const shop: any = JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop'));
     try {
       const reqBody: any = {
-        item_ids: ['5bf3e80df7e6c90016f68539'],
+        item_ids: this.item_ids,
         order_id: this.orderID,
         shop_id: shop.shop_id
       };
       const res: any = await this.api.post(Constants.URL() + '/api/get-order-detail', reqBody);
       this.data = res.data;
-      console.log(this.data);
     } catch (error) {
       throw error;
     }

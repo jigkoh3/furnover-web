@@ -3,11 +3,11 @@
     <div class="col-8">
       <div class="box">
         <p>
-          <mat-icon>list_alt</mat-icon> หมายเลขคำสั่งซื้อ
+          <mat-icon>list_alt</mat-icon> <b>หมายเลขคำสั่งซื้อ</b>
         </p>
         <p class="data-color">{{data.orderno}}</p>
         <p>
-          <mat-icon>room</mat-icon> ที่อยู่ในการจัดส่ง
+          <mat-icon>room</mat-icon> <b>ที่อยู่ในการจัดส่ง</b>
         </p>
         <p class="data-color">{{data.shippingaddress ? data.shippingaddress.name : ''}}, {{data.shippingaddress ?
           data.shippingaddress.tel : ''}}</p>
@@ -16,7 +16,7 @@
           {{data.shippingaddress ? data.shippingaddress.province : ''}} {{data.shippingaddress ?
           data.shippingaddress.postcode : ''}}</p>
         <p>
-          <mat-icon>local_shipping</mat-icon> ข้อมูลการจัดส่ง
+          <mat-icon>local_shipping</mat-icon> <b>ข้อมูลการจัดส่ง</b>
         </p>
         <p class="data-color">Furnover Shipping</p>
       </div>
@@ -27,7 +27,7 @@
           <span class="name">Dook</span>
         </div>
         <p *ngIf="role === 'seller'">
-          <mat-icon>list_alt</mat-icon> รายละเอียด
+          <mat-icon>list_alt</mat-icon> <b>รายละเอียด</b>
         </p>
         <div class="table-responsive mgt">
           <table class="table">
@@ -45,18 +45,20 @@
                 <td class="center pd">{{i + 1}}</td>
                 <td><img class="image" [src]="item.image.url" alt="image">
                   {{item.name}} ({{item.price.name}})</td>
-                <td class="center pd">{{item.price.price | number}}</td>
+                <!-- <td class="center pd">{{item.price.price | number}}</td> -->
+                <td class="center pd" *ngIf="item.price.newprice"><span class="txt-line">{{item.price.price | number}}</span> {{item.price.newprice | number}}</td>
+                <td class="center pd" *ngIf="!item.price.newprice">{{item.price.price | number}}</td>
                 <td class="center pd">{{item.qty}}</td>
                 <td class="center pd">{{item.total | number}}</td>
               </tr>
               <tr>
                 <td colspan="4" class="txt-right"><b>รวมราคาสินค้า</b></td>
-                <td class="txt-right">฿{{data.totalprice | number}}</td>
+                <td class="txt-right">฿{{data.totalamount | number}}</td>
               </tr>
-              <tr *ngFor="let product of data.shop ? data.shop.products : [];let i = index">
+              <!-- <tr *ngFor="let product of data.shop ? data.shop.products : [];let i = index">
                 <td colspan="4" class="txt-right"><span *ngIf="i === 0"><b>ราคาสินค้า</b></span></td>
                 <td class="txt-right">฿{{product.price.price | number}}</td>
-              </tr>
+              </tr> -->
               <tr>
                 <td colspan="4" class="txt-right"><b>ส่วนลด</b></td>
                 <td class="txt-right">฿{{data.totaldiscount | number}}</td>
@@ -67,7 +69,7 @@
               </tr>
               <tr>
                 <td colspan="4" class="txt-right"><b>ยอดชำระเงิน</b></td>
-                <td class="txt-right">฿{{data.totalamount | number}}</td>
+                <td class="txt-right">฿{{data.totalprice | number}}</td>
               </tr>
             </tbody>
           </table>
@@ -77,10 +79,10 @@
       <div class="box bg">
         <div class="row">
           <div class="col-8">
-            <mat-icon>attach_money</mat-icon> การชำระเงินของผู้ใช้
+            <mat-icon>attach_money</mat-icon> ยอดที่ต้องชำระ
           </div>
           <div class="col-4 txt-right">
-            ฿0
+            ฿{{data.totalprice | number}}
           </div>
         </div>
       </div>
@@ -89,6 +91,7 @@
       <p class="title"><b>ประวัติการซื้อสินค้า</b></p>
       <div class="box">
         <ul class="ul-custom">
+          <li *ngIf="!data.logs || data.logs.length <= 0">ไม่พบข้อมูล</li>
           <li *ngFor="let item of data.logs">{{item.name}} {{item.created | moment}}</li>
         </ul>
       </div>

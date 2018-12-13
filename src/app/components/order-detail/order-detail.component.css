@@ -68,3 +68,9 @@
     margin-top: 1rem;
     color: #919191;
 }
+
+.txt-line {
+    text-decoration: line-through;
+    color: #a9a9a9;
+    font-size: 0.8rem;
+}

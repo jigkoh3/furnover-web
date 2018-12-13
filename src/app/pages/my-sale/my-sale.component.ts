@@ -38,8 +38,4 @@ export class MySaleComponent implements OnInit {
   ngOnInit() {
   }
 
-  gotoOrderDetail() {
-    this.route.navigate(['/order-detail'], { queryParams: { id: '5bf3e80df7e6c90016f6853a' } });
-  }
-
 }
