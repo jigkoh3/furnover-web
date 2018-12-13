@@ -12,7 +12,8 @@
 
   <div class="row">
     <div class="col-12">
-      <app-my-promotion-header [data]="data" [itemStatus]="itemStatus" (outputData)="getDataHeader($event)"></app-my-promotion-header>
+      <app-my-promotion-header *ngIf="data._id && data.title" [data]="data" [itemStatus]="itemStatus" (outputData)="getDataHeader($event)"></app-my-promotion-header>
+      <app-my-promotion-header *ngIf="!data._id" [data]="data" [itemStatus]="itemStatus" (outputData)="getDataHeader($event)"></app-my-promotion-header>
     </div>
   </div>
   <message class="text-center" [type]="dataService.messageType" [message]="dataService.message"></message>

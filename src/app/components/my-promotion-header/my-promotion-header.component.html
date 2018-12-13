@@ -1,5 +1,5 @@
 <!-- สร้างโปรโมชั่น -->
-<div class="row" *ngIf="!isSave">
+<div class="row" *ngIf="isCreate">
   <div class="col-1"></div>
   <div class="col-10 col-md-10">
     <div class="row">
@@ -97,7 +97,7 @@
 </div>
 
 <!-- เเก้ไขโปรโมชั่น -->
-<div class="row row-pd" *ngIf="isSave">
+<div class="row row-pd" *ngIf="isEdit">
 
   <div class="col-12 padding-heder">
     <p class="font-header">ข้อมูลโปรโมชั่น</p>

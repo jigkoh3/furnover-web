@@ -42,6 +42,7 @@ export class InfoMyPromotionComponent implements OnInit {
       .subscribe(params => {
         if (params['itemId']) {
           this.itemId = params['itemId'];
+          this.data._id = this.itemId;
           this.initLoadData();
         }
       });
