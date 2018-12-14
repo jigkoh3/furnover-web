@@ -19,7 +19,7 @@ table {
 }
 
 .mat-list {
-    min-width: 850px;
+    min-width: 850px !important;
 }
 
 .mat-list .mat-subheader:first-child,
@@ -76,4 +76,24 @@ mat-dialog-container {
 
 .no-flex {
     display: unset !important;
+}
+
+.center {
+    text-align: center;
+}
+
+.table-header {
+    font-size: 0.9rem;
+    padding-top: 0.7rem;
+    color: rgba(0, 0, 0, .54);
+}
+
+.data-col {
+    font-size: 0.9rem;
+    color: rgba(0, 0, 0, .54);
+}
+
+.total {
+    z-index: 999;
+    color: #959595;
 }

@@ -1,3 +1,4 @@
+<app-button-go-back></app-button-go-back>
 <mat-tab-group (selectedTabChange)="onLinkClick($event)">
   <mat-tab name="matNgFor" label="{{item.name}}" *ngFor="let item of statusArray">
 
@@ -13,8 +14,8 @@
     </div>
 
     <div class="row padding text-left">
-      <div class="col-12 col-md-12 col-sm-12">
-        สินค้า {{products.length}} รายการ
+      <div class="col-12 col-md-12 col-sm-12 text-right">
+        สินค้า <span name="itemCount">{{products.length | number}}</span> รายการ
       </div>
     </div>
 
@@ -28,7 +29,7 @@
     </div>
 
     <div class="row padding">
-      <div name="divAddProduct" class="col-12 col-md-2 col-sm-4" (click)="gotoCreateProduct()">
+      <div name="divAddProduct" class="col-12 col-xl-2 col-lg-3 col-md-3 col-sm-4 padding-bottom" (click)="gotoCreateProduct()">
         <div name="divInDivAddProduct" class="fix-col">
           <p name="textAddProduct">
             <button name="addProduct" mat-fab color="primary" (click)="gotoCreateProduct()">
@@ -39,16 +40,16 @@
         </div>
       </div>
 
-      <div name="divNgFor" class="col-12 col-md-2 col-sm-4 fix-col-2 mgt-1" *ngFor="let item of products">
+      <div name="divNgFor" class="col-12 col-xl-2 col-lg-3 col-md-3 col-sm-4 fix-col-2 mgt-1" *ngFor="let item of products">
         <div class="badge-box" *ngIf="item.percentage > 0">
           <span>ลด</span> <br>
           <span class="badge-num">{{item.percentage}}%</span>
         </div>
-        <mat-checkbox name="checkedOptions" class="ch_box" [(ngModel)]="item.checked" (change)="checkboxOptions($event,item)"></mat-checkbox>
+        <mat-checkbox name="checkedOptions" [ngClass]="(item.iswholesale || item.status === 'suspended') ? 'ch_box_status': 'ch_box'"
+          [(ngModel)]="item.checked" (change)="checkboxOptions($event,item)"></mat-checkbox>
         <mat-card class="mat-card_cus" (click)="gotoEditProduct(item._id)">
           <div style="background-size: cover;min-height: 12rem;">
-            <img name="editProduct" [src]="item.image ? item.image.url:''" style="width: 100%;min-height: 12rem;object-fit: contain;max-height: 12rem;"
-              (click)="gotoEditProduct(item._id)">
+            <img name="editProduct" [src]="item.image ? item.image.url:''" class="imgMyProd">
             <span *ngIf="item.iswholesale" class="wholesale-badge">ขายส่ง</span>
             <div *ngIf="item.status === 'suspended'" class="product-item-soldout-overlay">
               <div class="soldout">{{'ถูกระงับ'}}</div>
@@ -56,44 +57,21 @@
             <div *ngIf="item.status !== 'suspended' && item.stock === 0" class="product-item-soldout-overlay">
               <div class="soldout">{{'ขายแล้ว'}}</div>
             </div>
-            <!-- <div class="product-item__badges">
-              <div class="product-label new">
-                <div class="badge-content">
-                  <div class="text">ใหม่</div>
-                </div><svg viewBox="-107 102 48 54">
-                  <path d="M-107 102v54l24-6.8 24 6.8v-54z"></path>
-                </svg>
-              </div>
-            </div> -->
           </div>
-
-
-          <!-- <div>
-            <p class="p-name">
-              {{item.name}}
-            </p>
-            <div class="row">
-              <div class="col-6 txt-price">
-                {{item.pricetext}}
-              </div>
-              <div class="col-6 txt-right" style="font-size: 14px;">
-                คลัง {{item.stock}}
-              </div>
-            </div>
-          </div> -->
-
           <div>
             <div class="p-name">{{item.name}}</div>
-            <div class="txt-price">
+            <div class="txt-price" *ngIf="!item.newpricetext">
               {{item.pricetext}}
             </div>
+
+            <div class="txt-price" *ngIf="item.newpricetext">
+              <span class="old-price">{{item.pricetext}}</span> <span>{{item.newpricetext}}</span>
+            </div>
+
             <div class="txt-stock">
               คลัง {{item.stock}}
             </div>
           </div>
-
-
-
         </mat-card>
       </div>
     </div>
@@ -106,7 +84,7 @@
       <button name="page" mat-flat-button color="primary" ngClass="{{pageData.page === (i + 1) ? 'select' : 'un-select'}} btn-summit"
         style="margin: 5px;min-width: unset;" *ngFor="let item of tabs;let i = index" (click)="page(item)">{{item}}</button>
       <button name="next" mat-flat-button color="primary" class="btn-summit select" style="margin: 5px;" *ngIf="pageData.page < tabs.length"
-         (click)="next()">ต่อไป</button>
+        (click)="next()">ต่อไป</button>
     </div>
   </mat-tab>
 </mat-tab-group>

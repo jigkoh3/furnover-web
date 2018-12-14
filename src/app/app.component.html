@@ -3,7 +3,7 @@
   <!-- <mat-sidenav #appDrawer mode="{{ mode }}" opened="{{ opened }}">
     <app-sidenav></app-sidenav>
   </mat-sidenav> -->
-  <div class="container">
+  <div class="container container-bg">
     <router-outlet></router-outlet>
   </div>
 </mat-sidenav-container>
@@ -11,4 +11,4 @@
   <p style="font-size: 14px; color: white; margin-top: 14px;">กำลังโหลด...</p>
 </ngx-spinner>
 
-<app-ng-chat *ngIf="user._id"></app-ng-chat>
+<!-- <app-ng-chat *ngIf="user && user._id"></app-ng-chat> -->

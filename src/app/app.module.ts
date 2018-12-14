@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, DomSanitizer } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -56,6 +56,15 @@ import { ChatService } from './providers/chat-service/chat.service';
 import { ParamsService } from './providers/params/params.service';
 import { MomentPipe } from './pipes/moment/moment.pipe';
 import { ModalConfirmComponent } from './pages/modals/modal-confirm/modal-confirm.component';
+import { MySaleComponent } from './pages/my-sale/my-sale.component';
+import { DetailMySaleComponent } from './pages/detail-my-sale/detail-my-sale.component';
+import { OrderModule } from 'casan-order-test';
+import { InfoOrderDetailComponent } from './pages/info-order-detail/info-order-detail.component';
+import { OrderDetailComponent } from './components/order-detail/order-detail.component';
+import { MatIconRegistry } from '@angular/material';
+import { ButtonGoBackComponent } from './components/button-go-back/button-go-back.component';
+import { ModalConfirmRemarkComponent } from './modals/modal-confirm-remark/modal-confirm-remark.component';
+
 
 @NgModule({
   declarations: [
@@ -103,7 +112,13 @@ import { ModalConfirmComponent } from './pages/modals/modal-confirm/modal-confir
     ModalMessageComponent,
     NgChatComponent,
     MomentPipe,
-    ModalConfirmComponent
+    ModalConfirmComponent,
+    MySaleComponent,
+    DetailMySaleComponent,
+    InfoOrderDetailComponent,
+    OrderDetailComponent,
+    ButtonGoBackComponent,
+    ModalConfirmRemarkComponent
   ],
   entryComponents: [
     ModalCreateBankAccountComponent,
@@ -116,7 +131,8 @@ import { ModalConfirmComponent } from './pages/modals/modal-confirm/modal-confir
     ModalSelectProductComponent,
     ModalDeleteMyPromotionComponent,
     ModalMessageComponent,
-    ModalConfirmComponent
+    ModalConfirmComponent,
+    ModalConfirmRemarkComponent
   ],
   imports: [
     BrowserModule,
@@ -124,12 +140,59 @@ import { ModalConfirmComponent } from './pages/modals/modal-confirm/modal-confir
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    OrderModule,
     RouterModule.forRoot(routes),
     AppMaterialModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    OrderModule.forRoot({
+      production: false,
+      environment: 'dev',
+      appName: 'furnover-seller',
+      apiUrl: 'https://furnover-api-dev.herokuapp.com'
+    })
   ],
   providers: [DataService, RestApiService, ChatService, ParamsService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+  constructor(
+    public iconRegistry: MatIconRegistry,
+    public sanitizer: DomSanitizer
+  ) {
+    iconRegistry.addSvgIcon(
+      'account',
+      sanitizer.bypassSecurityTrustResourceUrl('assets/imgs/icons/account.svg'));
+
+    iconRegistry.addSvgIcon(
+      'bookbank',
+      sanitizer.bypassSecurityTrustResourceUrl('assets/imgs/icons/bookbank.svg'));
+
+    iconRegistry.addSvgIcon(
+      'deliver',
+      sanitizer.bypassSecurityTrustResourceUrl('assets/imgs/icons/deliver.svg'));
+
+    iconRegistry.addSvgIcon(
+      'shopDetail',
+      sanitizer.bypassSecurityTrustResourceUrl('assets/imgs/icons/detailShop_icon.svg'));
+
+    iconRegistry.addSvgIcon(
+      'key',
+      sanitizer.bypassSecurityTrustResourceUrl('assets/imgs/icons/key.svg'));
+
+    iconRegistry.addSvgIcon(
+      'address',
+      sanitizer.bypassSecurityTrustResourceUrl('assets/imgs/icons/pin.svg'));
+
+    iconRegistry.addSvgIcon(
+      'settings',
+      sanitizer.bypassSecurityTrustResourceUrl('assets/imgs/icons/settings.svg'));
+
+    iconRegistry.addSvgIcon(
+      'star',
+      sanitizer.bypassSecurityTrustResourceUrl('assets/imgs/icons/star.svg'));
+
+  }
+
+}
 

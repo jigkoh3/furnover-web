@@ -61,8 +61,17 @@
 
 .font-size2 {
     font-size: 12px !important;
-    
 }
-.padding-top{
+
+.padding-top {
     padding-top: 3% !important;
+}
+
+.total {
+    position: absolute;
+    right: 1.8rem;
+    font-size: 0.9rem;
+    color: #656565;
+    z-index: 999;
+    margin-top: 0.4rem !important;
 }

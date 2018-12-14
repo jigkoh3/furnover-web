@@ -222,14 +222,15 @@ export class InfoProductComponent implements OnInit {
   async getInitData(productid) {
     this.spinner.show();
     try {
-      const userShop: any = JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop'));
+      const userShop: any = JSON.parse(window.localStorage.getItem(Constants.URL() + '@user'));
+      // console.log(userShop);
       const bodyReq: any = {
         product_id: productid,
         shop_id: userShop.shop._id
       };
       const res: any = await this.restApi.post(Constants.URL() + '/api/product-item', bodyReq);
       this.resData = res.data;
-      console.log(this.resData);
+      // console.log(this.resData);
       if (productid) {
         this.bindBack();
       }
@@ -386,7 +387,7 @@ export class InfoProductComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(async result => {
-      console.log(`Dialog closed: ${result}`);
+      // console.log(`Dialog closed: ${result}`);
       const deleteCat = result;
       if (deleteCat === 'confirm') {
         this.spinner.show();
@@ -537,7 +538,7 @@ export class InfoProductComponent implements OnInit {
 
   async save() {
     this.spinner.show();
-    const userShop: any = JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop'));
+    const userShop: any = JSON.parse(window.localStorage.getItem(Constants.URL() + '@user'));
     this.data.shop_id = userShop.shop._id;
     const tranformShipping: Array<any> = [];
     this.shippings.forEach(el => {
@@ -577,7 +578,7 @@ export class InfoProductComponent implements OnInit {
       this.data.prepareshipping = 2;
     }
 
-    console.log(this.data);
+    // console.log(this.data);
 
     if (this.data._id) {
       try {

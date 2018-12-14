@@ -67,7 +67,7 @@
 }
 
 .mat-tab-body-content {
-    overflow: unset !important;
+    overflow: auto !important;
 }
 
 .mat-tab-header {
@@ -91,7 +91,7 @@
 }
 
 .mat-tab-body {
-    overflow-x: inherit !important;
+    overflow-x: auto !important;
 }
 
 .mat-checkbox-checked.mat-accent .mat-checkbox-background,

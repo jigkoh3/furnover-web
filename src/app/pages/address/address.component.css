@@ -5,6 +5,7 @@
 .txt-right {
     text-align: right;
 }
+
 .txt-center {
     text-align: center;
 }
@@ -31,6 +32,20 @@
 .icon-gray {
     color: #989999;
 }
+
 .element-style {
     margin-bottom: 120px;
+}
+
+.total {
+    /* position: absolute;
+    right: 1.8rem;
+    font-size: 0.9rem; */
+    color: #656565;
+    z-index: 999;
+    margin-top: 2rem !important;
+}
+
+.mgt {
+    margin-top: 1.2rem;
 }

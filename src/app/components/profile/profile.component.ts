@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatIconRegistry } from '@angular/material';
 import { Constants } from '../../app.constants';
 import { RestApiService } from '../../providers/rest-api-service/rest-api.service';
 import { DataService } from '../../providers/data-service/data.service';
@@ -11,6 +11,7 @@ import * as _ from "lodash";
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ModalMessageComponent } from '../../pages/modals/modal-message/modal-message.component';
 import { ModalCompleteComponent } from 'src/app/pages/modals/modal-complete/modal-complete.component';
+import { DomSanitizer } from '@angular/platform-browser';
 //Image
 @Component({
   selector: 'profile',
@@ -48,7 +49,13 @@ export class ProfileSettingComponent implements OnInit {
     public restApi: RestApiService,
     public dataService: DataService,
     private spinner: NgxSpinnerService,
-  ) { }
+    public iconRegistry: MatIconRegistry,
+    public sanitizer: DomSanitizer
+  ) {
+    iconRegistry.addSvgIcon(
+      'shopDetail',
+      sanitizer.bypassSecurityTrustResourceUrl('assets/imgs/icons/detailShop_icon.svg'));
+  }
 
   ngOnInit() {
     this.getProfile();
@@ -56,7 +63,7 @@ export class ProfileSettingComponent implements OnInit {
 
   async getProfile() {
     this.spinner.show();
-    this.shopUser = window.localStorage.getItem(Constants.URL() + '@usershop') ? JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop')) : null;
+    this.shopUser = window.localStorage.getItem(Constants.URL() + '@user') ? JSON.parse(window.localStorage.getItem(Constants.URL() + '@user')) : null;
     try {
       let data: any = await this.restApi.get(Constants.URL() + '/api/shop/' + this.shopUser.shop_id);
       this.shop = data.data;
@@ -82,14 +89,17 @@ export class ProfileSettingComponent implements OnInit {
       this.logImage = [];
     }
 
-    this.shopUser = window.localStorage.getItem(Constants.URL() + '@usershop') ? JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop')) : null;
+    this.shopUser = window.localStorage.getItem(Constants.URL() + '@user') ? JSON.parse(window.localStorage.getItem(Constants.URL() + '@user')) : null;
     try {
       let data: any = await this.restApi.put(Constants.URL() + '/api/shop/' + this.shopUser.shop_id, this.shop);
       this.spinner.hide();
-      this.dialog.open(ModalCompleteComponent, {
-        width: '700px',
-        data: { message: 'บันทึกข้อมูลร้านค้าสำเร็จ' }
-      });
+      if (data['status'] === 200) {
+        this.getProfile();
+        this.dialog.open(ModalCompleteComponent, {
+          width: '700px',
+          data: { message: 'บันทึกข้อมูลร้านค้าสำเร็จ' }
+        });
+      }
       // if (data['status'] === 200) {
       //   this.getProfile();
       //   this.dataService.success('บันทึกข้อมูลสำเร็จ');
@@ -104,14 +114,14 @@ export class ProfileSettingComponent implements OnInit {
   }
 
   // async updateImgProfile(image) {
-  // let user = window.localStorage.getItem(Constants.URL() + '@usershop') ? JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop')) : null;
+  // let user = window.localStorage.getItem(Constants.URL() + '@user') ? JSON.parse(window.localStorage.getItem(Constants.URL() + '@user')) : null;
   // console.log(user.profileImageURL);
   // user.profileImageURL = image;
   // try {
   // let data: any = await this.restApi.put(Constants.URL() + '/api/user/' + user._id, user);
   // if (data['status'] === 200) {
   //   this.shopUser.profileImageURL = user.profileImageURL;
-  //   window.localStorage.setItem(Constants.URL() + '@usershop', JSON.stringify(data.data));
+  //   window.localStorage.setItem(Constants.URL() + '@user', JSON.stringify(data.data));
   //   this.dataService.success('บันทึกข้อมูลสำเร็จ');
   //   setTimeout(() => {
   //     this.dataService.success('');

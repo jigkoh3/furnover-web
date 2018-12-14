@@ -22,6 +22,9 @@ import { MyPromotionHeaderComponent } from './components/my-promotion-header/my-
 import { MyCodeComponent } from './pages/my-code/my-code.component';
 import { InfoMyCodeComponent } from './pages/info-my-code/info-my-code.component';
 import { AuthGuard } from './guards/auth/auth.guard';
+import { MySaleComponent } from './pages/my-sale/my-sale.component';
+import { DetailMySaleComponent } from './pages/detail-my-sale/detail-my-sale.component';
+import { InfoOrderDetailComponent } from './pages/info-order-detail/info-order-detail.component';
 
 export const routes: Routes = [
     {
@@ -142,6 +145,27 @@ export const routes: Routes = [
         path: 'info-my-code',
         component: InfoMyCodeComponent,
         canActivate: [AuthGuard]
+    },
+    {
+        path: 'my-sale',
+        component: MySaleComponent,
+    },
+    {
+        path: 'detail-my-sale',
+        component: DetailMySaleComponent,
+        canActivate: [AuthGuard]
+    },
+    {
+        path: 'my-sale',
+        component: MySaleComponent,
+        canActivate: [AuthGuard]
+
+    },
+    {
+        path: 'order-detail',
+        component: InfoOrderDetailComponent,
+        canActivate: [AuthGuard]
+
     }
 
 ];

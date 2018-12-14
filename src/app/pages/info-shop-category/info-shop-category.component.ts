@@ -1,38 +1,35 @@
-import { NgxSpinnerService } from "ngx-spinner";
-import { async } from "@angular/core/testing";
-import { Component, OnInit } from "@angular/core";
-import { RestApiService } from "../../providers/rest-api-service/rest-api.service";
-import { Constants } from "../../app.constants";
-import { MatIconRegistry, MatDialog } from "@angular/material";
-import { DomSanitizer } from "@angular/platform-browser";
-// import { FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from "@angular/router";
-import { ModalConfirmComponent } from "../modals/modal-confirm/modal-confirm.component";
-import { ModalCompleteComponent } from "../modals/modal-complete/modal-complete.component";
+import { NgxSpinnerService } from 'ngx-spinner';
+import { Component, OnInit } from '@angular/core';
+import { RestApiService } from '../../providers/rest-api-service/rest-api.service';
+import { Constants } from '../../app.constants';
+import { MatIconRegistry, MatDialog } from '@angular/material';
+import { DomSanitizer } from '@angular/platform-browser';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ModalCompleteComponent } from '../modals/modal-complete/modal-complete.component';
 
 @Component({
-    selector: "app-info-shop-category",
-    templateUrl: "./info-shop-category.component.html",
-    styleUrls: ["./info-shop-category.component.css"]
+    selector: 'app-info-shop-category',
+    templateUrl: './info-shop-category.component.html',
+    styleUrls: ['./info-shop-category.component.css']
 })
 export class InfoShopCategoryComponent implements OnInit {
     categoryData: any = {
-        name: "กำหนดชื่อหมวดหมู่เอง",
+        name: 'กำหนดชื่อหมวดหมู่เอง',
         items: [],
         status: false
     };
-    categoryCompele: boolean = false;
-    isCheckbtnSaveProduct: boolean = false;
+    categoryCompele: Boolean = false;
+    isCheckbtnSaveProduct: Boolean = false;
     categoryDataCopy: any = {
         items: []
     };
     getProduct: Array<any> = [];
-    isEdit: boolean = false;
+    isEdit: Boolean = false;
     tabs: Array<any> = [];
     page: any = {
-        shop_id: "",
-        status: "sell",
-        name: "",
+        shop_id: '',
+        status: 'sell',
+        name: '',
         page: 1,
         limit: 30
     };
@@ -47,37 +44,33 @@ export class InfoShopCategoryComponent implements OnInit {
         private router: Router
     ) {
         iconRegistry.addSvgIcon(
-            "done",
-            sanitizer.bypassSecurityTrustResourceUrl("assets/baseline-done-24px.svg")
+            'done',
+            sanitizer.bypassSecurityTrustResourceUrl('assets/baseline-done-24px.svg')
         );
     }
 
     ngOnInit() {
         this.actRoute.queryParams.subscribe(params => {
-            console.log(params);
-            if (params["cateID"]) {
+            if (params['cateID']) {
                 this.isEdit = false;
-                this.categoryData._id = params["cateID"];
+                this.categoryData._id = params['cateID'];
                 this.getcategoryData();
             } else {
                 this.isEdit = true;
             }
         });
         this.getDataProduct();
-        // this.saveName == this._formBuilder.group({
-        //     name: ['', Validators.required]
-        // });
     }
     async getDataProduct() {
         this.spinner.show();
 
         try {
-            let user: any = JSON.parse(
-                window.localStorage.getItem(Constants.URL() + "@usershop")
+            const user: any = JSON.parse(
+                window.localStorage.getItem(Constants.URL() + '@user')
             );
             this.page.shop_id = user.shop_id;
-            let respone: any = await this.restApi.post(
-                Constants.URL() + "/api/product-shop-list",
+            const respone: any = await this.restApi.post(
+                Constants.URL() + '/api/product-shop-list',
                 this.page
             );
             this.spinner.hide();
@@ -89,253 +82,50 @@ export class InfoShopCategoryComponent implements OnInit {
     }
     onSearch(event) {
         try {
-            if (event.key === "Enter") {
+            if (event.key === 'Enter') {
                 this.getDataProduct();
             }
         } catch (error) { }
     }
     selectedItem(item) {
-        // this.spinner.show();
         try {
             item.product_id = item._id;
             this.categoryData.items.push(item);
             this.categoryCompele = false;
-
-            // this.spinner.hide();
         } catch (error) {
-            // this.spinner.hide();
+            throw error;
         }
     }
     deleteItem(i, item) {
         try {
             this.categoryData.items.splice(i, 1);
             this.categoryCompele = false;
-
             if (
                 !this.categoryData.name ||
                 (this.categoryData.items && this.categoryData.items.length === 0)
             ) {
                 this.categoryData.status = false;
             }
-        } catch (error) { }
+        } catch (error) {
+            throw error;
+        }
     }
     checkButtonAdd(item) {
         try {
-            let index = this.categoryData.items.findIndex(itm => {
+            const index = this.categoryData.items.findIndex(itm => {
                 return itm._id === item._id;
             });
-
             if (index !== -1) {
                 return true;
             } else {
                 return false;
             }
-        } catch (error) { }
+        } catch (error) {
+            throw error;
+        }
     }
 
     async onSaveData() {
-                this.spinner.show();
-                try {
-                    if (
-                        this.categoryData.name &&
-                        this.categoryData.items &&
-                        this.categoryData.items.length === 0
-                    ) {
-                        this.categoryData.status = false;
-                    }
-
-                    if (this.categoryData._id) {
-                        this.categoryData.shop_id = this.page.shop_id;
-                        let respone: any = await this.restApi.put(
-                            Constants.URL() + "/api/categoryShop/" + this.categoryData._id,
-                            this.categoryData
-                        );
-                        this.categoryData = respone.data;
-                        this.getcategoryData();
-
-                        if (
-                            this.categoryData.name &&
-                            this.categoryData.items &&
-                            this.categoryData.items.length > 0
-                        ) {
-                            setTimeout(() => {
-                                this.categoryCompele = true;
-                            }, 500);
-                        }
-
-                        this.spinner.hide();
-                    } else {
-                        this.categoryData.shop_id = this.page.shop_id;
-                        let respone: any = await this.restApi.post(
-                            Constants.URL() + "/api/categoryShop/",
-                            this.categoryData
-                        );
-                        this.categoryData = respone.data;
-
-                        this.getcategoryData();
-                        if (
-                            this.categoryData.name &&
-                            this.categoryData.items &&
-                            this.categoryData.items.length > 0
-                        ) {
-                            setTimeout(() => {
-                                this.categoryCompele = true;
-                            }, 500);
-                        }
-                        this.spinner.hide();
-                    }
-                    this.isEdit = false;
-                    this.spinner.hide();
-                    this.dialog.open(ModalCompleteComponent, {
-                        width: '700px',
-                        data: { message: 'บันทึกชื่อหมวดหมู่สินค้าสำเร็จ' }
-                    });
-                } catch (error) {
-                    this.spinner.hide();
-                }
-    }
-
-    async onSaveCate() {
-                this.spinner.show();
-                try {
-                    if (
-                        this.categoryData.name &&
-                        this.categoryData.items &&
-                        this.categoryData.items.length === 0
-                    ) {
-                        this.categoryData.status = false;
-                    }
-
-                    if (this.categoryData._id) {
-                        this.categoryData.shop_id = this.page.shop_id;
-                        let respone: any = await this.restApi.put(
-                            Constants.URL() + "/api/categoryShop/" + this.categoryData._id,
-                            this.categoryData
-                        );
-                        this.categoryData = respone.data;
-                        this.getcategoryData();
-
-                        if (
-                            this.categoryData.name &&
-                            this.categoryData.items &&
-                            this.categoryData.items.length > 0
-                        ) {
-                            setTimeout(() => {
-                                this.categoryCompele = true;
-                            }, 500);
-                        }
-
-                        this.spinner.hide();
-                    } else {
-                        this.categoryData.shop_id = this.page.shop_id;
-                        let respone: any = await this.restApi.post(
-                            Constants.URL() + "/api/categoryShop/",
-                            this.categoryData
-                        );
-                        this.categoryData = respone.data;
-
-                        this.getcategoryData();
-                        if (
-                            this.categoryData.name &&
-                            this.categoryData.items &&
-                            this.categoryData.items.length > 0
-                        ) {
-                            setTimeout(() => {
-                                this.categoryCompele = true;
-                            }, 500);
-                        }
-                        this.spinner.hide();
-                    }
-                    this.isEdit = false;
-                    this.spinner.hide();
-                    this.dialog.open(ModalCompleteComponent, {
-                        width: '700px',
-                        data: { message: 'บันทึกสินค้าสำเร็จ' }
-                    });
-                } catch (error) {
-                    this.spinner.hide();
-                }
-    }
-
-
-    async getcategoryData() {
-        try {
-            var resp: any = await this.restApi.get(
-                Constants.URL() + "/api/categoryShop/" + this.categoryData._id
-            );
-
-            this.categoryData = resp.data;
-            this.categoryDataCopy = JSON.parse(JSON.stringify(this.categoryData));
-        } catch (error) { }
-    }
-    onBack() {
-        this.router.navigate(["/shop-category"]);
-    }
-
-    async onUpdateOpenCategory() {
-                this.spinner.show();
-                this.categoryData.status = true;
-                try {
-                    if (
-                        this.categoryData.name &&
-                        this.categoryData.items &&
-                        this.categoryData.items.length === 0
-                    ) {
-                        this.categoryData.status = false;
-                    }
-
-                    if (this.categoryData._id) {
-                        this.categoryData.shop_id = this.page.shop_id;
-                        let respone: any = await this.restApi.put(
-                            Constants.URL() + "/api/categoryShop/" + this.categoryData._id,
-                            this.categoryData
-                        );
-                        this.categoryData = respone.data;
-                        this.getcategoryData();
-
-                        if (
-                            this.categoryData.name &&
-                            this.categoryData.items &&
-                            this.categoryData.items.length > 0
-                        ) {
-                            setTimeout(() => {
-                                this.categoryCompele = true;
-                            }, 500);
-                        }
-
-                        this.spinner.hide();
-                    } else {
-                        this.categoryData.shop_id = this.page.shop_id;
-                        let respone: any = await this.restApi.post(
-                            Constants.URL() + "/api/categoryShop/",
-                            this.categoryData
-                        );
-                        this.categoryData = respone.data;
-
-                        this.getcategoryData();
-                        if (
-                            this.categoryData.name &&
-                            this.categoryData.items &&
-                            this.categoryData.items.length > 0
-                        ) {
-                            setTimeout(() => {
-                                this.categoryCompele = true;
-                            }, 500);
-                        }
-                        this.spinner.hide();
-                    }
-                    this.isEdit = false;
-                    this.spinner.hide();
-                    this.dialog.open(ModalCompleteComponent, {
-                        width: '700px',
-                        data: { message: 'เปิดใช้งานหมวดหมู่สำเร็จ' }
-                    });
-                } catch (error) {
-                    this.spinner.hide();
-                }
-    }
-
-    async onChangeStatus() {
         this.spinner.show();
         try {
             if (
@@ -347,10 +137,69 @@ export class InfoShopCategoryComponent implements OnInit {
             }
 
             if (this.categoryData._id) {
-                console.log('1')
                 this.categoryData.shop_id = this.page.shop_id;
-                let respone: any = await this.restApi.put(
-                    Constants.URL() + "/api/categoryShop/" + this.categoryData._id,
+                const respone: any = await this.restApi.put(
+                    Constants.URL() + '/api/categoryShop/' + this.categoryData._id,
+                    this.categoryData
+                );
+                this.categoryData = respone.data;
+                this.getcategoryData();
+                if (
+                    this.categoryData.name &&
+                    this.categoryData.items &&
+                    this.categoryData.items.length > 0
+                ) {
+                    setTimeout(() => {
+                        this.categoryCompele = true;
+                    }, 500);
+                }
+                this.spinner.hide();
+            } else {
+                this.categoryData.shop_id = this.page.shop_id;
+                const respone: any = await this.restApi.post(
+                    Constants.URL() + '/api/categoryShop/',
+                    this.categoryData
+                );
+                this.categoryData = respone.data;
+
+                this.getcategoryData();
+                if (
+                    this.categoryData.name &&
+                    this.categoryData.items &&
+                    this.categoryData.items.length > 0
+                ) {
+                    setTimeout(() => {
+                        this.categoryCompele = true;
+                    }, 500);
+                }
+                this.spinner.hide();
+            }
+            this.isEdit = false;
+            this.spinner.hide();
+            this.dialog.open(ModalCompleteComponent, {
+                width: '700px',
+                data: { message: 'บันทึกชื่อหมวดหมู่สินค้าสำเร็จ' }
+            });
+        } catch (error) {
+            this.spinner.hide();
+        }
+    }
+
+    async onSaveCate() {
+        this.spinner.show();
+        try {
+            if (
+                this.categoryData.name &&
+                this.categoryData.items &&
+                this.categoryData.items.length === 0
+            ) {
+                this.categoryData.status = false;
+            }
+
+            if (this.categoryData._id) {
+                this.categoryData.shop_id = this.page.shop_id;
+                const respone: any = await this.restApi.put(
+                    Constants.URL() + '/api/categoryShop/' + this.categoryData._id,
                     this.categoryData
                 );
                 this.categoryData = respone.data;
@@ -367,16 +216,154 @@ export class InfoShopCategoryComponent implements OnInit {
                 }
 
                 this.spinner.hide();
+            } else {
+                this.categoryData.shop_id = this.page.shop_id;
+                const respone: any = await this.restApi.post(
+                    Constants.URL() + '/api/categoryShop/',
+                    this.categoryData
+                );
+                this.categoryData = respone.data;
+
+                this.getcategoryData();
+                if (
+                    this.categoryData.name &&
+                    this.categoryData.items &&
+                    this.categoryData.items.length > 0
+                ) {
+                    setTimeout(() => {
+                        this.categoryCompele = true;
+                    }, 500);
+                }
+                this.spinner.hide();
+            }
+            this.isEdit = false;
+            this.spinner.hide();
+            this.dialog.open(ModalCompleteComponent, {
+                width: '700px',
+                data: { message: 'บันทึกสินค้าสำเร็จ' }
+            });
+        } catch (error) {
+            this.spinner.hide();
+        }
+    }
+
+
+    async getcategoryData() {
+        try {
+            const resp: any = await this.restApi.get(
+                Constants.URL() + '/api/categoryShop/' + this.categoryData._id
+            );
+            this.categoryData = resp.data;
+            console.log(this.categoryData);
+            this.categoryDataCopy = JSON.parse(JSON.stringify(this.categoryData));
+        } catch (error) { throw error; }
+    }
+    onBack() {
+        this.router.navigate(['/shop-category']);
+    }
+
+    async onUpdateOpenCategory() {
+        this.spinner.show();
+        this.categoryData.status = true;
+        try {
+            if (
+                this.categoryData.name &&
+                this.categoryData.items &&
+                this.categoryData.items.length === 0
+            ) {
+                this.categoryData.status = false;
+            }
+
+            if (this.categoryData._id) {
+                this.categoryData.shop_id = this.page.shop_id;
+                const respone: any = await this.restApi.put(
+                    Constants.URL() + '/api/categoryShop/' + this.categoryData._id,
+                    this.categoryData
+                );
+                this.categoryData = respone.data;
+                this.getcategoryData();
+
+                if (
+                    this.categoryData.name &&
+                    this.categoryData.items &&
+                    this.categoryData.items.length > 0
+                ) {
+                    setTimeout(() => {
+                        this.categoryCompele = true;
+                    }, 500);
+                }
+
+                this.spinner.hide();
+            } else {
+                this.categoryData.shop_id = this.page.shop_id;
+                const respone: any = await this.restApi.post(
+                    Constants.URL() + '/api/categoryShop/',
+                    this.categoryData
+                );
+                this.categoryData = respone.data;
+
+                this.getcategoryData();
+                if (
+                    this.categoryData.name &&
+                    this.categoryData.items &&
+                    this.categoryData.items.length > 0
+                ) {
+                    setTimeout(() => {
+                        this.categoryCompele = true;
+                    }, 500);
+                }
+                this.spinner.hide();
+            }
+            this.isEdit = false;
+            this.spinner.hide();
+            this.dialog.open(ModalCompleteComponent, {
+                width: '700px',
+                data: { message: 'เปิดใช้งานหมวดหมู่สำเร็จ' }
+            });
+        } catch (error) {
+            this.spinner.hide();
+        }
+    }
+
+    async onChangeStatus() {
+        this.spinner.show();
+        try {
+            if (
+                this.categoryData.name &&
+                this.categoryData.items &&
+                this.categoryData.items.length === 0
+            ) {
+                this.categoryData.status = false;
+            }
+
+            if (this.categoryData._id) {
+                this.categoryData.shop_id = this.page.shop_id;
+                const respone: any = await this.restApi.put(
+                    Constants.URL() + '/api/categoryShop/' + this.categoryData._id,
+                    this.categoryData
+                );
+                this.categoryData = respone.data;
+                this.getcategoryData();
+
+                if (
+                    this.categoryData.name &&
+                    this.categoryData.items &&
+                    this.categoryData.items.length > 0
+                ) {
+                    setTimeout(() => {
+                        this.categoryCompele = true;
+                    }, 500);
+                }
+                this.spinner.hide();
                 this.spinner.hide();
                 this.dialog.open(ModalCompleteComponent, {
                     width: '700px',
                     data: { message: 'เปลี่ยนสถานะหมวดหมู่สำเร็จ' }
                 });
             } else {
-                console.log('2')
                 this.categoryData.shop_id = this.page.shop_id;
-                let respone: any = await this.restApi.post(
-                    Constants.URL() + "/api/categoryShop/",
+                const respone: any = await this.restApi.post(
+                    Constants.URL() + '/api/categoryShop/',
                     this.categoryData
                 );
                 this.categoryData = respone.data;
@@ -401,35 +388,23 @@ export class InfoShopCategoryComponent implements OnInit {
 
     checkLogProductChange() {
         let isRetrun = false;
-
-        // console.log(this.categoryData.items);
-
-        // if (this.categoryCompele) {
-        //   isRetrun = false;
-        // } else {
-        //   isRetrun = true;
-        // }
-        // console.log(this.itemSeleted);
         this.categoryDataCopy.items.forEach(item => {
-            let index = this.categoryData.items.findIndex(cateItem => {
+            const index = this.categoryData.items.findIndex(cateItem => {
                 return item.product_id === cateItem.product_id;
             });
-            //   console.log(this.categoryData.items)
             if (index === -1 || this.categoryData.items.length === 0) {
                 isRetrun = true;
             }
         });
 
         this.categoryData.items.forEach(item => {
-            let index = this.categoryDataCopy.items.findIndex(cateItem => {
+            const index = this.categoryDataCopy.items.findIndex(cateItem => {
                 return item.product_id === cateItem.product_id;
             });
-
             if (index === -1 || this.categoryDataCopy.items.length === 0) {
                 isRetrun = true;
             }
         });
-
         return isRetrun;
     }
 

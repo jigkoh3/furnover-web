@@ -1,3 +1,4 @@
+<app-button-go-back></app-button-go-back>
 <mat-card class="container">
   <div class="code-setting-header-title row">
     <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
@@ -17,31 +18,33 @@
     </div>
 
   </div>
-
+  <div class="total text-right" style="margin-top: 10px">
+    ทั้งหมด <span name="itemCount">{{data.count ? data.count : 0 | number}}</span> รายการ
+  </div>
   <mat-tab-group name="mat-tab-groupStatus" (selectedTabChange)="onLinkClick($event)" [selectedIndex]="0">
     <mat-tab id="mat-tabNgFor" name="mat-tabNgFor" label="{{item.name}}" *ngFor="let item of statusArray">
       <mat-list class="padding">
         <div class="row" style="background-color: #f5f5f5;">
-          <div name="subHeaderMyCode" class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
-            <h3 mat-subheader>โค้ดส่วนลด | ชื่อโค้ดส่วนลด</h3>
+          <div name="subHeaderMyCode" class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 center">
+            <h3 class="table-header">โค้ดส่วนลด | ชื่อโค้ดส่วนลด</h3>
           </div>
-          <div name="subHeaderValue" class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">
-            <h3 mat-subheader>มูลค่า</h3>
+          <div name="subHeaderValue" class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 center">
+            <h3 class="table-header">มูลค่า</h3>
           </div>
-          <div name="subHeaderQty" class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">
-            <h3 mat-subheader>จำนวน</h3>
+          <div name="subHeaderQty" class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 center">
+            <h3 class="table-header">จำนวน</h3>
           </div>
-          <div name="subHeaderAccepted" class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 text-center">
-            <h3 mat-subheader class="no-flex">โค้ดส่วนลดที่กดรับแล้ว</h3>
+          <div name="subHeaderAccepted" class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 center">
+            <h3 class="table-header">โค้ดส่วนลดที่กดรับแล้ว</h3>
           </div>
-          <div name="subHeaderUsed" class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 text-center">
-            <h3 mat-subheader class="no-flex">โค้ดส่วนลดที่ใช้แล้ว</h3>
+          <div name="subHeaderUsed" class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 center">
+            <h3 class="table-header">โค้ดส่วนลดที่ใช้แล้ว</h3>
           </div>
-          <div name="subHeaderStatusTime" class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-            <h3 mat-subheader>สถานะ | ระยะเวลา</h3>
+          <div name="subHeaderStatusTime" class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 center">
+            <h3 class="table-header">สถานะ | ระยะเวลา</h3>
           </div>
-          <div name="subHeaderClickDetail" class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">
-            <h3 mat-subheader></h3>
+          <div name="subHeaderClickDetail" class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 center">
+            <h3 class="table-header"></h3>
           </div>
         </div>
         <div name="divNgFor" class="row" style="border-bottom: 1px solid #e0e0e0;" *ngFor="let item of data.codes">
@@ -61,22 +64,22 @@
               <!-- <mat-divider [inset]="true"></mat-divider> -->
             </mat-list-item>
           </div>
-          <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">
+          <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 pd-top center">
             <h3 mat-subheader>{{item.discounttext}}</h3>
           </div>
-          <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">
+          <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 pd-top center">
             <h3 mat-subheader>{{item.codeqty}}</h3>
           </div>
-          <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 text-center">
+          <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 pd-top-2 center">
             <h3 mat-subheader class="no-flex">{{item.codeaccept}}</h3>
           </div>
-          <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 text-center">
+          <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 pd-top-2 center">
             <h3 mat-subheader class="no-flex">{{item.codeused}}</h3>
           </div>
-          <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+          <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 pd-top center">
             <h3 mat-subheader>{{item.startdate | date:"dd-MM-yyyy"}} ถึง {{item.enddate | date:"dd-MM-yyyy"}}</h3>
           </div>
-          <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">
+          <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 pd-top center">
             <button name="detailData" mat-flat-button color="primary" (click)="onDetail(item)">
               <span>ข้อมูล</span>
             </button>
@@ -84,7 +87,7 @@
         </div>
 
 
-        <div padding *ngIf="dataService.message">
+        <div padding *ngIf="dataService.message" class="padding">
           <message padding-top class="text-center" [type]="dataService.messageType" [message]="dataService.message"></message>
         </div>
         <!--         

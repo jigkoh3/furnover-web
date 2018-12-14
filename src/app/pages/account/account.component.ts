@@ -32,7 +32,6 @@ export const MY_FORMATS = {
   ],
 })
 export class AccountComponent implements OnInit {
-
   data: any = {
   };
   // date = '';
@@ -40,6 +39,7 @@ export class AccountComponent implements OnInit {
   show2 = false;
   show3 = false;
   name: any;
+  surname: any;
   gender: any;
   birthday: any;
   _birthday: any;
@@ -66,9 +66,8 @@ export class AccountComponent implements OnInit {
       this.show1 = true;
       this.getData();
     }
-
-    console.log(this.data);
   }
+
   clickShow2() {
     if (this.show2) {
       this.show2 = false;
@@ -89,14 +88,15 @@ export class AccountComponent implements OnInit {
   }
 
   getData() {
-    const usershop = JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop'));
+    const usershop = JSON.parse(window.localStorage.getItem(Constants.URL() + '@user'));
     this.data = usershop;
-    this.name = usershop.displayname;
+    this.name = usershop.firstname;
+    this.surname = usershop.lastname
     this.gender = usershop.sex;
-    this._birthday = new Date(this.data.birthday);
-    this.birthday = new Date(this.data.birthday);
     this.tel = usershop.tel;
     this.email = usershop.email;
+    this._birthday = new Date(this.data.birthday);
+    this.birthday = new Date(this.data.birthday);
     console.log(this.data);
   }
 
@@ -113,16 +113,15 @@ export class AccountComponent implements OnInit {
 
   async saveData() {
     try {
-      this.data.displayname = this.name;
+      this.data.firstname = this.name;
+      this.data.lastname = this.surname;
       this.data.sex = this.gender;
       this.data.birthday = this.birthday;
-      this.data.tel = this.tel;
-      this.data.email = this.email;
       const res: any = await this.restApi.put(Constants.URL() + '/api/user/' + this.data._id, this.data);
       this.data = res.data;
       console.log(res);
       await window.localStorage.setItem(Constants.URL() + '@token', res.token);
-      await window.localStorage.setItem(Constants.URL() + '@usershop', JSON.stringify(this.data));
+      await window.localStorage.setItem(Constants.URL() + '@user', JSON.stringify(this.data));
       this.clickShow1();
       this.dialog.open(ModalCompleteComponent, {
         width: '700px',
@@ -136,11 +135,12 @@ export class AccountComponent implements OnInit {
 
   async saveTel() {
     try {
+      this.data.tel = this.tel;
       const res: any = await this.restApi.put(Constants.URL() + '/api/user/' + this.data._id, this.data);
       this.data = res.data;
       console.log(res);
       await window.localStorage.setItem(Constants.URL() + '@token', res.token);
-      await window.localStorage.setItem(Constants.URL() + '@usershop', JSON.stringify(this.data));
+      await window.localStorage.setItem(Constants.URL() + '@user', JSON.stringify(this.data));
       this.clickShow2();
       this.dialog.open(ModalCompleteComponent, {
         width: '700px',
@@ -153,11 +153,12 @@ export class AccountComponent implements OnInit {
 
   async saveEmail() {
     try {
+      this.data.email = this.email;
       const res: any = await this.restApi.put(Constants.URL() + '/api/user/' + this.data._id, this.data);
       this.data = res.data;
       console.log(res);
       await window.localStorage.setItem(Constants.URL() + '@token', res.token);
-      await window.localStorage.setItem(Constants.URL() + '@usershop', JSON.stringify(this.data));
+      await window.localStorage.setItem(Constants.URL() + '@user', JSON.stringify(this.data));
       this.clickShow3();
       this.dialog.open(ModalCompleteComponent, {
         width: '700px',
@@ -165,6 +166,14 @@ export class AccountComponent implements OnInit {
       });
     } catch (error) {
       throw error;
+    }
+  }
+
+  onNumber(e) {
+    // let regEx = new RegExp(/^[0-9 ()+-]+$/);
+    let regEx = new RegExp(/^[0-9]+$/);
+    if (!(regEx.test(e.key) || e.key === 'Backspace' || e.keyCode === 8) || this.tel.length > 12) {
+      this.tel = this.tel.substring(0, this.tel.length - 1);
     }
   }
 

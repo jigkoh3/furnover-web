@@ -15,7 +15,7 @@ import { DataService } from 'src/app/providers/data-service/data.service';
   styleUrls: ['./bank-account.component.css']
 })
 export class BankAccountComponent implements OnInit {
-  showDataBank: Array<any> = []
+  showDataBank: Array<any> = [];
 
   constructor(
     public iconRegistry: MatIconRegistry,
@@ -47,7 +47,7 @@ export class BankAccountComponent implements OnInit {
   }
   openDialog(): void {
     const dialogRef = this.dialog.open(ModalCreateBankAccountComponent, {
-      width: "700px"
+      width: '700px'
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -59,7 +59,7 @@ export class BankAccountComponent implements OnInit {
   }
   openmodal(item): void {
     const dialogRef = this.dialog.open(ModalInfoBankAccountComponent, {
-      width: "700px",
+      width: '700px',
       data: { _id: item._id }
     });
 
@@ -73,11 +73,11 @@ export class BankAccountComponent implements OnInit {
     this.spinner.show();
 
     try {
-      let user: any = JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop'));
-      let data = {
+      const user: any = JSON.parse(window.localStorage.getItem(Constants.URL() + '@user'));
+      const data = {
         shop_id: user.shop_id
-      }
-      let respone: any = await this.restApi.post(Constants.URL() + '/api/bank-account-shop', data);
+      };
+      const respone: any = await this.restApi.post(Constants.URL() + '/api/bank-account-shop', data);
       this.showDataBank = respone.datas;
       this.spinner.hide();
 

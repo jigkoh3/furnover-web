@@ -95,8 +95,8 @@ export class InfoMyCodeComponent implements OnInit {
         //   console.log(this.status);
         // }
       });
-    const userShop: any = window.localStorage.getItem(Constants.URL() + '@usershop')
-      ? JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop')) : {};
+    const userShop: any = window.localStorage.getItem(Constants.URL() + '@user')
+      ? JSON.parse(window.localStorage.getItem(Constants.URL() + '@user')) : {};
     this.userShop = userShop;
     let uppercase: String = this.userShop.username.toUpperCase();
     uppercase = uppercase.length >= 4 ? uppercase.substring(0, 4) : uppercase;
@@ -211,7 +211,7 @@ export class InfoMyCodeComponent implements OnInit {
 
   async saveData() {
     this.spinner.show();
-    const userShop: any = JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop'));
+    const userShop: any = JSON.parse(window.localStorage.getItem(Constants.URL() + '@user'));
     this.data.shop_id = userShop.shop._id;
     this.data.itemtype = this._itemtype ? 'all' : 'item';
     this.checkCode();

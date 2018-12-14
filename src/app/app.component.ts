@@ -39,16 +39,16 @@ export class AppComponent implements AfterViewInit, AfterViewChecked, OnInit {
   }
 
   ngAfterViewChecked() {
-    const user = JSON.parse(localStorage.getItem(Constants.URL() + '@usershop')) ?
-      JSON.parse(localStorage.getItem(Constants.URL() + '@usershop')) : {};
+    const user = JSON.parse(localStorage.getItem(Constants.URL() + '@user')) ?
+      JSON.parse(localStorage.getItem(Constants.URL() + '@user')) : {};
     this.user = user;
   }
 
   ngAfterViewInit() {
     this.sidenavService.appDrawer = this.appDrawer;
     this.onResizeDisplay();
-    const user = JSON.parse(localStorage.getItem(Constants.URL() + '@usershop')) ?
-      JSON.parse(localStorage.getItem(Constants.URL() + '@usershop')) : {};
+    const user = JSON.parse(localStorage.getItem(Constants.URL() + '@user')) ?
+      JSON.parse(localStorage.getItem(Constants.URL() + '@user')) : {};
     this.user = user;
   }
 

@@ -34,8 +34,7 @@
     position: relative;
     top: -45px;
     left: 60px;
-    font-size: 20px
-    
+    font-size: 20px;
 }
 
 .setting-text-header2 {
@@ -60,14 +59,14 @@
     height: 150px;
 }
 
-.setting-text-body1{
+.setting-text-body1 {
     color: grey;
     font-size: 15px;
 }
 
-.setting-btn-add-cat{
+.setting-btn-add-cat {
     height: 50px !important;
-    width:90% !important;
+    width: 90% !important;
 }
 
 .setting-btn-text-add-cat {
@@ -81,7 +80,7 @@
     top: 9px;
 }
 
-.setting-bnt-text-rename{
+.setting-bnt-text-rename {
     font-size: 10px;
     position: relative;
     top: -8px;
@@ -89,7 +88,7 @@
     color: grey
 }
 
-.setting-text-set-cat{
+.setting-text-set-cat {
     color: grey !important;
     font-size: 15px !important;
     position: relative;
@@ -97,14 +96,19 @@
 }
 
 ::ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
-    background-color: rgb(255, 255, 255); /*replace with your color*/
+    background-color: rgb(255, 255, 255);
+    /*replace with your color*/
 }
 
 ::ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
-    background-color: #00C853;  /*replace with your color*/
+    background-color: #00C853;
+    /*replace with your color*/
 }
 
-::ng-deep .mat-fab.mat-accent, .mat-flat-button.mat-accent, .mat-mini-fab.mat-accent, .mat-raised-button.mat-accent {
+::ng-deep .mat-fab.mat-accent,
+.mat-flat-button.mat-accent,
+.mat-mini-fab.mat-accent,
+.mat-raised-button.mat-accent {
     background-color: #ffffff;
 }
 
@@ -160,15 +164,28 @@
 }
 
 .size-card {
-    height: 110px !important ;
+    height: 110px !important;
 }
 
 .border-list {
     /* border-bottom: solid 1px lightgray !important ; */
-    border-top: solid 1px lightgray !important ;
+    border-top: solid 1px lightgray !important;
 }
 
-.position-list{
+.position-list {
     position: relative;
     top: 15px;
+}
+
+.total {
+    font-size: 0.9rem;
+    color: #656565;
+    z-index: 999;
+    top: 1rem;
+}
+
+.text-overflow-style {
+    white-space: nowrap !important; 
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
 }

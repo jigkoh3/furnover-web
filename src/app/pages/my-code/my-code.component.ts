@@ -43,7 +43,7 @@ export class MyCodeComponent implements OnInit {
 
   async getStatus() {
     this.spinner.show();
-    let shop = window.localStorage.getItem(Constants.URL() + '@usershop') ? JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop')) : null;
+    let shop = window.localStorage.getItem(Constants.URL() + '@user') ? JSON.parse(window.localStorage.getItem(Constants.URL() + '@user')) : null;
     let objectData = {
       shop_id: shop.shop_id,
       status: this.status,
@@ -54,6 +54,7 @@ export class MyCodeComponent implements OnInit {
       let res: any = await this.restApi.post(Constants.URL() + '/api/my-code', objectData);
       if (res['status'] === 200) {
         this.statusArray = res.data.status;
+        console.log(res.data);
         // if (this.statusArray || this.statusArray.length === 0) {
         //   this.statusArray = [{ name: 'ทั้งหมด' }, { name: 'ตั้งเวลาล่วงหน้า' }, { name: 'อยู่ระหว่างการโฆษณา' }, { name: 'สิ้นสุดแล้ว' }];
         // }
@@ -82,7 +83,7 @@ export class MyCodeComponent implements OnInit {
   async getCode() {
     this.dataService.warning('');
     this.spinner.show();
-    let shop = window.localStorage.getItem(Constants.URL() + '@usershop') ? JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop')) : null;
+    let shop = window.localStorage.getItem(Constants.URL() + '@user') ? JSON.parse(window.localStorage.getItem(Constants.URL() + '@user')) : null;
     let objectData = {
       shop_id: shop.shop_id,
       status: this.status,

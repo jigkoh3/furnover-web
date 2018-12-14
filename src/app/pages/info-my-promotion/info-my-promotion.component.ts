@@ -42,6 +42,7 @@ export class InfoMyPromotionComponent implements OnInit {
       .subscribe(params => {
         if (params['itemId']) {
           this.itemId = params['itemId'];
+          this.data._id = this.itemId;
           this.initLoadData();
         }
       });
@@ -134,7 +135,7 @@ export class InfoMyPromotionComponent implements OnInit {
         this.data.enddate = dateTimeEnd;
         this.data.starttime = dateTimeStart;
         this.data.endtime = dateTimeEnd;
-        const userShop: any = JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop'));
+        const userShop: any = JSON.parse(window.localStorage.getItem(Constants.URL() + '@user'));
         this.data.shop_id = userShop.shop._id;
     
         if (this.itemId) {

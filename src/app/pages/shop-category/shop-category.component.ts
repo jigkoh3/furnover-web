@@ -16,7 +16,10 @@ import { ModalCompleteComponent } from '../modals/modal-complete/modal-complete.
   styleUrls: ['./shop-category.component.css']
 })
 export class ShopCategoryComponent implements OnInit {
-
+  countItem: any = {
+    open: [],
+    close: []
+  };
   modelData: any;
 
   constructor(
@@ -41,12 +44,22 @@ export class ShopCategoryComponent implements OnInit {
   }
 
   async getCat() {
+    this.countItem = {
+      open: [],
+      close: []
+    };
     this.spinner.show();
     try {
-      const userShop: any = JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop'));
-      let res: any = await this.restApi.post(Constants.URL() + '/api/my-category', { shop_id: userShop.shop._id });
+      const userShop: any = JSON.parse(window.localStorage.getItem(Constants.URL() + '@user'));
+      const res: any = await this.restApi.post(Constants.URL() + '/api/my-category', { shop_id: userShop.shop._id });
       this.modelData = res.data;
-      console.log(this.modelData)
+      this.modelData.forEach(cate => {
+        if (cate.status) {
+          this.countItem.open.push(cate);
+        } else {
+          this.countItem.close.push(cate);
+        }
+      });
       this.spinner.hide();
     } catch (error) {
       this.spinner.hide();
@@ -56,22 +69,23 @@ export class ShopCategoryComponent implements OnInit {
   }
 
   getCattest() {
-    let response: any = {
-      data: [{
-        name: "เก้าอี้",
-        status: true,
-        priority: "1"
-      }, {
-        name: "ชั้นวางของ",
-        status: false,
-        priority: "2"
-      }, {
-        name: "โต๊ะ",
-        status: true,
-        priority: "3"
-      }
+    const response: any = {
+      data: [
+        {
+          name: 'เก้าอี้',
+          status: true,
+          priority: '1'
+        }, {
+          name: 'ชั้นวางของ',
+          status: false,
+          priority: '2'
+        }, {
+          name: 'โต๊ะ',
+          status: true,
+          priority: '3'
+        }
       ]
-    }
+    };
     this.modelData = response.data;
   }
 
@@ -104,24 +118,6 @@ export class ShopCategoryComponent implements OnInit {
     }
   }
 
-  // async deleteCate(item) {
-  //   //  console.log(item._id);
-  //   // let conf = confirm("confirm delete shop category");
-  //   // if (conf) {
-  //   this.spinner.show();
-  //   try {
-  //     await this.restApi.delete(Constants.URL() + '/api/categoryShop/' + item._id);
-  //     this.getCat();
-  //     this.spinner.hide();
-  //     // console.log(this.modelData)
-  //   } catch (error) {
-  //     this.spinner.hide();
-  //     this.dataService.error('ลบข้อมูลไม่สำเร็จ');
-
-  //   }
-  //   // }
-  // }
-
   openDialog(item): void {
     const dialogRef = this.dialog.open(ModalConfirmComponent, {
       width: '500px',
@@ -141,7 +137,6 @@ export class ShopCategoryComponent implements OnInit {
             width: '700px',
             data: { message: 'ลบหมวดหมู่สินค้าสำเร็จ' }
           });
-          // console.log(this.modelData)
         } catch (error) {
           this.spinner.hide();
           this.dataService.error('ลบข้อมูลไม่สำเร็จ');
@@ -149,12 +144,6 @@ export class ShopCategoryComponent implements OnInit {
       }
     });
   }
-
-
-
-
-
-
 }
 
 

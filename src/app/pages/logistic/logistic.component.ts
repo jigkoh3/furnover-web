@@ -16,9 +16,9 @@ export class LogisticComponent implements OnInit {
   rule: any = {
     mode: ''
   };
-  mode: boolean = false;
-  blindData: any;
-  status: boolean = false;
+  mode: Boolean = false;
+  blindData: Array<any> = [];
+  status: Boolean = false;
   toggles: any = {
     statusToggles: ''
   };
@@ -58,7 +58,7 @@ export class LogisticComponent implements OnInit {
     // /api/masterlogistic
     this.spinner.show();
     try {
-      let dataMaster: any = await this.restApi.get(Constants.URL() + '/api/masterlogistic');
+      const dataMaster: any = await this.restApi.get(Constants.URL() + '/api/masterlogistic');
       this.blindData = dataMaster.datas;
       this.spinner.hide();
     } catch (error) {
@@ -69,19 +69,19 @@ export class LogisticComponent implements OnInit {
   }
 
   testclick() {
-    
+
   }
 
   async onToggleChange(e) {
     this.spinner.show();
     try {
-      let user: any = JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop'));
-      let request = {
+      const user: any = JSON.parse(window.localStorage.getItem(Constants.URL() + '@user'));
+      const request = {
         shop_id: user.shop_id,
         logistic_id: e._id,
         status: e.status
       };
-      let response = await this.restApi.post(Constants.URL() + '/api/save-shop-logistic', request);
+      const response = await this.restApi.post(Constants.URL() + '/api/save-shop-logistic', request);
       this.spinner.hide();
     } catch (error) {
       this.spinner.hide();

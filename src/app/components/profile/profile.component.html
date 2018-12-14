@@ -1,204 +1,207 @@
-<div class="row">
-  <div class="no-padding col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-    <div class="card-panel">
-      <div class="shop-setting-header">
-        <div class="shop-setting-header-content">
-
-          <div style="background: #49cbdd;" class="shop-setting-header-icon">
-            <svg class="shop-setting-header-icon-svg" viewBox="0 0 32 32">
-              <path d="M23.9 12.9l-1.6-1.6 6.2-6.2 1.6 1.6-6.2 6.2zM32 4.8l-1.6-1.6-1 1L31 5.8l1-1zM19.7 15.6l2.6-1.4-1.3-1.3-1.3 2.7zm8.6-4v16.3c0 .9-.7 1.6-1.6 1.6H1.6c-.9 0-1.6-.7-1.6-1.6V6.2c0-.9.7-1.6 1.6-1.6h24.2l-2 2H2v11.9l5.6-3.8 7.2 6.1 6.7-3 4.7 4.1v-8.4l2.1-1.9zm-2 15.9v-2.9l-5.1-4.4-6.7 3-7-6L2 21v6.5h24.3z"></path>
-            </svg>
-          </div>
-
-          <div class="shop-setting-header-caption ">
-            <div class="shop-setting-header-title">รายละเอียดร้านค้า</div>
-            <div class="shop-setting-header-subtitle">ดูสถานะร้านของคุณและแก้ไขโปไฟล์ร้านของคุณ</div>
-          </div>
-
-        </div>
-        <hr class="shop-setting-header-seperator">
-      </div>
-
-      <div class="row grid with-gap setting-card--form">
-        <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5 col-xl-5 col-profile">
-          <div class="seller-meta">
-            <div *ngIf="shop.coverimage && shop.coverimage.url" [ngStyle]="{'background-image': 'url('+ ((shop.coverimage && shop.coverimage.url) ? shop.coverimage.url : '') + ')'}"
-              class="cover-photo">
-              <div class="spinner loadPosition" *ngIf="imageLoader">
-                <div class="dot1"></div>
-                <div class="dot2"></div>
-              </div>
+<mat-card>
+  <app-setting-header></app-setting-header>
+  <div class="row">
+    <div class="no-padding col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+      <div class="card-panel">
+        <!-- <div class="shop-setting-header">
+          <div class="shop-setting-header-content">
+  
+            <div style="background: #49cbdd;" class="shop-setting-header-icon">
+              <mat-icon svgIcon="shopDetail" name="iconShopDetail" class="shop-setting-header-icon-svg"></mat-icon>
             </div>
-
-            <div class="cover-uploader dropzone">
-              <label for="file-input">
-                <div class="validation-toast"></div> <svg class="validation-toast-svg" viewBox="0 0 32 32">
-                  <path d="M16 12c-3.3 0-6 2.7-6 6s2.7 6 6 6 6-2.7 6-6-2.7-6-6-6z"></path>
-                  <path d="M30 6h-5l-1-2s-.9-2-2-2H10C8.9 2 8 4 8 4L7 6H2C.9 6 0 6.9 0 8v20c0 1.1.9 2 2 2h28c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zM16 26c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8z"></path>
-                </svg> <span style="font-size: 14px; padding-left: 5px;cursor: pointer;">เปลี่ยนรูปปก</span>
-                <input name="detectFiles" id="file-input" type="file" (change)="detectFiles($event,'coverImg')" accept=".png,.jpg" />
-                <!-- <div style="display:none" class="cropper-masker cropper-masker-block">
-                  <div class="cropper-loading"><img src="/images/spinner-balls-g.gif" alt=""></div>
-                  <div class="cropper-saving">กำลังบันทึก</div>
-                </div> -->
-              </label>
+  
+            <div class="shop-setting-header-caption ">
+              <div class="shop-setting-header-title">รายละเอียดร้านค้า</div>
+              <div class="shop-setting-header-subtitle">ดูสถานะร้านของคุณและแก้ไขโปไฟล์ร้านของคุณ</div>
             </div>
-            <div class="seller-profile-container">
-              <!-- <div class="avatar-container"> -->
-              <label for="file-avatar-input">
-                <div class="avatar">
-                  <!-- <img *ngIf="shopUser.profileImageURL" [src]="shopUser.profileImageURL"> -->
-                  <img *ngIf="shop.profileimage && shop.profileimage.url" [src]="shop.profileimage.url">
-                  <div class="avatar-uploader dropzone" style="cursor: pointer;" [ngStyle]="{'background': '('+ (shop.profileimage && shop.profileimage.url) ? '' : '#b3b3b3eb' + ')'}">
-                    <div class="validation-toast "></div>
-                    <div class="edit">
-                      แก้ไข
-                    </div>
-                    <!-- <input id="file-avatar-input" type="file"> -->
-                    <input name="detectFilesEdit" id="file-avatar-input" type="file" (change)="detectFiles($event,'profileImg')" accept=".png,.jpg" />
-                    <!-- <div style="display:none" class="cropper-masker cropper-masker-block">
-                      <div class="cropper-loading"><img src="/images/spinner-balls-g.gif" alt=""></div>
-                      <div class="cropper-saving">กำลังบันทึก</div>
-                    </div> -->
-                  </div>
-                </div>
-              </label>
-              <!-- </div> -->
-              <div class="seller-name">
-                <div class="name">{{shopUser.username}}</div>
-                <!-- <div class="description">เข้าร่วมเมื่อ 3 เดือนที่แล้ว</div> -->
-                <!-- <div class="seller-following" style="color: #8c8c8c;">
-                  <div class="seller-following__item">
-                    2&nbsp;
-                    <span class="seller-following__subtitle">กำลังติดตาม</span>
-                  </div>
-                  <div class="seller-following-item">
-                    1&nbsp;
-                    <span class="seller-following__subtitle">ผู้ติดตาม</span>
-                  </div>
-                </div> -->
-              </div>
-            </div>
+  
           </div>
-        </div>
-        <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7 col-xl-7">
-          <div class="seller-profile">
-            <div class="edit-row">
-              <!-- <div class="edit-label"><svg viewBox="0 0 32 32">
-                  <path d="M28 16.9v12.8H4V16.6c-1-.9-1.7-2.6-1.7-4.1L5.7 2.2h20.6l3.4 10.3c.1 1.8-.4 3.5-1.7 4.4zM5.7 28h20.6v-3.4H5.7V28zm0-5.1h20.6v-5.2c-.3 0-.5.1-.9.1-1.3 0-2.7-.7-3.4-1.7-.7 1-1.6 1.7-3 1.7-1.2 0-2.3-.9-3-1.7-.7.9-1.8 1.7-3 1.7-1.4 0-2.3-.7-3-1.7-.8 1-2.2 1.7-3.5 1.7-.3 0-.5 0-.8-.1v5.2zM25.2 4H6.8l-2.3 6.9h22.9L25.2 4zM4 12.6C4.2 14 5.3 16 6.5 16s2.7 0 2.7-1.7h1.7s0 1.7 2.1 1.7 2.1-1.7 2.1-1.7h1.8S16.8 16 19 16c2.1 0 2.1-1.7 2.1-1.7H23s0 1.7 2.7 1.7c2.5 0 2.5-3.4 2.5-3.4H4z"></path>
-                </svg>ชื่อร้าน
-              </div> -->
-              <div class="edit-input">
-                <div class="input">
-                  <mat-form-field>
-                    <mat-icon style="position: absolute;
-                        right: 0;
-                        bottom: 2px;
-                        color: #9f9f9f;">assignment_ind</mat-icon>
-                    <input name="nameShop" type="text" [(ngModel)]="shop.name" matInput placeholder="ชื่อร้าน">
-                  </mat-form-field>
-                  <!-- <input type="text" placeholder="" maxlength="80" class="ember-text-field"></div> -->
+          <hr class="shop-setting-header-seperator">
+        </div> -->
+        <div class="row grid with-gap setting-card--form">
+          <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5 col-xl-5 col-profile">
+            <div class="seller-meta">
+              <div *ngIf="shop.coverimage && shop.coverimage.url" [ngStyle]="{'background-image': 'url('+ ((shop.coverimage && shop.coverimage.url) ? shop.coverimage.url : '') + ')'}"
+                class="cover-photo">
+                <div class="spinner loadPosition" *ngIf="imageLoader">
+                  <div class="dot1"></div>
+                  <div class="dot2"></div>
                 </div>
               </div>
-              <div class="edit-row">
-                <div class="edit-label">
-                  <svg viewBox="0 0 32 32">
-                    <path d="M30 32H2c-1.1 0-2-.9-2-2V2C0 .9.9 0 2 0h28c1.1 0 2 .9 2 2v28c0 1.1-.9 2-2 2zm0-29c0-.6-.4-1-1-1H3c-.6 0-1 .4-1 1v26c0 .6.4 1 1 1h26c.6 0 1-.4 1-1V3zM18.8 24.5c-.2.2-.5.3-.8.3-.3 0-.6-.1-.8-.3l-6-4.6-5.4 7.8c-.4.4-1.1.4-1.5 0-.4-.4-.4-1.1 0-1.6l5.9-8.4c.2-.2.5-.3.8-.3.3 0 .6.1.8.3l6 4.6 8.4-9.9c.4-.4 1.1-.4 1.5 0 .4.4.4 1.1 0 1.6l-8.9 10.5zM9 12c-1.7 0-3-1.3-3-3s1.3-3 3-3 3 1.3 3 3-1.3 3-3 3zm0-4c-.6 0-1 .5-1 1 0 .6.4 1 1 1s1-.4 1-1c0-.5-.4-1-1-1z"></path>
-                  </svg>คำอธิบายรูปภาพ
-                </div>
-                <div class="row edit-row">
-                  <div class="col-8 edit-description">รูปภาพร้านค้าจะแสดงอยู่ในโปรไฟล์ร้านค้า</div>
-                  <div class="col-4 edit-state">{{shop.images ? shop.images.length : 0}} / 5 รูปภาพ</div>
-                </div>
-                <div class="shop-desc-media">
-                  <div class="banner-manager image-manager is-min">
-                    <!-- <ul class="sortable-items">
-                  </ul> -->
-                    <!-- <ul class="sortable-items sortable-items-shadow">
-                    <li class="image-manager__dropzone"> -->
-                    <!-- <div class="image-manager__item "> -->
-                    <div class="row">
-                      <div name="nameFor" class="col-6 no-padding" *ngFor="let item of shop.images">
 
-                        <div style="
-                        margin: 2px;
-                          text-align: center;
-                          background-color: #fafafa;
-                          border: 1px solid #e8e8e8;">
-                          <img style="height: 100px;max-width: 99%;" *ngIf="item && item.url" class="img-responsive"
-                            [src]="item.url">
-                        </div>
-                        <div class="image-tools"><span class="delete" name="deleteImage" (click)="deleteImage(item)"><svg viewBox="0 0 32 32">
-                              <path d="M26.8 30c0 1.1-.9 2-2 2h-16c-1.1 0-2-.9-2-2l-1-20c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2h6V1c0-.6.4-1 1-1h8c.6 0 1 .4 1 1v3h6c1.1 0 2 .9 2 2v2c0 1.1-.9 2-2 2m-20 1v1l1 17c0 .6.4 1 1 1h14c.6 0 1-.4 1-1l1-17v-2h-18v1zm12-9h-6v2h6V2zm7 4h-20c-.6 0-1 .4-1 1s.4 1 1 1h20c.6 0 1-.4 1-1s-.4-1-1-1zM14.2 28h-2l-.5-14h2l.5 14zm3.6 0h-2V14h2v14zm3.4 0h-2l.5-14h2l-.5 14z"></path>
-                            </svg></span></div>
+              <div class="cover-uploader dropzone">
+                <label for="file-input">
+                  <div class="validation-toast"></div> <svg class="validation-toast-svg" viewBox="0 0 32 32">
+                    <path d="M16 12c-3.3 0-6 2.7-6 6s2.7 6 6 6 6-2.7 6-6-2.7-6-6-6z"></path>
+                    <path d="M30 6h-5l-1-2s-.9-2-2-2H10C8.9 2 8 4 8 4L7 6H2C.9 6 0 6.9 0 8v20c0 1.1.9 2 2 2h28c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zM16 26c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8z"></path>
+                  </svg> <span style="font-size: 14px; padding-left: 5px;cursor: pointer;">เปลี่ยนรูปปก</span>
+                  <input name="detectFiles" id="file-input" type="file" (change)="detectFiles($event,'coverImg')"
+                    accept=".png,.jpg" />
+                  <!-- <div style="display:none" class="cropper-masker cropper-masker-block">
+                    <div class="cropper-loading"><img src="/images/spinner-balls-g.gif" alt=""></div>
+                    <div class="cropper-saving">กำลังบันทึก</div>
+                  </div> -->
+                </label>
+              </div>
+              <div class="seller-profile-container">
+                <!-- <div class="avatar-container"> -->
+                <label for="file-avatar-input">
+                  <div class="avatar">
+                    <!-- <img *ngIf="shopUser.profileImageURL" [src]="shopUser.profileImageURL"> -->
+                    <img *ngIf="shop.profileimage && shop.profileimage.url" [src]="shop.profileimage.url">
+                    <div class="avatar-uploader dropzone" style="cursor: pointer;" [ngStyle]="{'background': '('+ (shop.profileimage && shop.profileimage.url) ? '' : '#b3b3b3eb' + ')'}">
+                      <div class="validation-toast "></div>
+                      <div class="edit">
+                        แก้ไข
                       </div>
-
-
-                      <div class="col-6 no-padding image-manager__item" *ngIf="shop.images && shop.images.length < 5">
-                        <div class="uploader-btn" style="margin: 2px; border: 1px solid #e8e8e8;">
-                          <div class="shop-desc-img-uploader dropzone">
-                            <label for="file-uploader-input">
-                              <!-- <div class="validation-toast "></div> -->
-                              <div class="image-s" style="cursor: pointer;"><svg viewBox="0 0 32 32">
-                                  <path d="M29.38 14.55l-3.89-4.2a1.24 1.24 0 0 0-.87-.23 1 1 0 0 0-.78.24l-7.32 6 1.25 1.41 8.49 9.55h-3L11.93 14.21a.94.94 0 0 0-.8-.29 1 1 0 0 0-.22 0h-.09a1.05 1.05 0 0 0-.51.2l-7.68 6.32V5.32a1 1 0 0 1 1-1h24.79a1 1 0 0 1 1 1v9.23zm0-12.09H2.63a1.91 1.91 0 0 0-1.91 1.9v18a.94.94 0 0 0 0 .16v4.75a1.91 1.91 0 0 0 1.91 1.93h26.75a1.91 1.91 0 0 0 1.91-1.91V4.36a1.91 1.91 0 0 0-1.91-1.91z"></path>
-                                  <circle cx="9.26" cy="10.24" r="2.25"></circle>
-                                </svg>
-                                <div>อัพโหลดรูปภาพ</div>
-                              </div>
-                              <input name="addImage" id="file-uploader-input" type="file" (change)="detectFiles($event,'shopImg')"
-                                multiple accept=".png,.jpg" />
-                              <!-- <div style="display:none" class="cropper-masker cropper-masker-block">
-                                      <div class="cropper-loading"><img src="/images/spinner-balls-g.gif" alt=""></div>
-                                      <div class="cropper-saving">กำลังบันทึก</div>
-                                    </div> -->
-                            </label>
-
-                          </div>
-                          <!-- <div class="shop-desc-vid-uploader" style="height: 75%; border-left: solid 1px #e8e8e8;"
-                          data-ember-action="" data-ember-action-1227="1227">
-                          <div class="youtube" style="cursor: pointer;" (click)="openDialog()"><svg viewBox="0 0 32 32">
-                              <path d="M16.21 4.75C12.47 4.75 6.95 5 5.3 5s-2.46.25-3.44 1.1c-1.5 1.33-1.85 4-1.85 8v3.8c0 4.57.61 6.89 1.61 7.74a4.46 4.46 0 0 0 2.68 1.19c.3 0 2.41.42 11.78.42 5.84 0 10.87-.28 11.38-.34a4.38 4.38 0 0 0 2.94-1.26c1.33-1.53 1.6-4.06 1.6-7.72v-4.44c0-2.37-.13-5.72-1.61-7.13-1.11-.94-1.52-1.21-3.84-1.36-.65 0-6.35-.25-10.34-.25zm-3.46 6.78L21.38 16l-8.63 4.49v-8.96z"></path>
-                            </svg>
-                            <div>เพิ่มลิงค์ของ วิดีโอ YouTube</div>
-                          </div>
-                        </div> -->
-                        </div>
-                      </div>
-
+                      <!-- <input id="file-avatar-input" type="file"> -->
+                      <input name="detectFilesEdit" id="file-avatar-input" type="file" (change)="detectFiles($event,'profileImg')"
+                        accept=".png,.jpg" />
+                      <!-- <div style="display:none" class="cropper-masker cropper-masker-block">
+                        <div class="cropper-loading"><img src="/images/spinner-balls-g.gif" alt=""></div>
+                        <div class="cropper-saving">กำลังบันทึก</div>
+                      </div> -->
                     </div>
-
-                    <!-- </div> -->
-                    <!-- </li>
-                  </ul> -->
                   </div>
+                </label>
+                <!-- </div> -->
+                <div class="seller-name">
+                  <div class="name">{{shopUser.username}}</div>
+                  <!-- <div class="description">เข้าร่วมเมื่อ 3 เดือนที่แล้ว</div> -->
+                  <!-- <div class="seller-following" style="color: #8c8c8c;">
+                    <div class="seller-following__item">
+                      2&nbsp;
+                      <span class="seller-following__subtitle">กำลังติดตาม</span>
+                    </div>
+                    <div class="seller-following-item">
+                      1&nbsp;
+                      <span class="seller-following__subtitle">ผู้ติดตาม</span>
+                    </div>
+                  </div> -->
                 </div>
               </div>
+            </div>
+          </div>
+          <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7 col-xl-7">
+            <div class="seller-profile">
               <div class="edit-row">
+                <!-- <div class="edit-label"><svg viewBox="0 0 32 32">
+                    <path d="M28 16.9v12.8H4V16.6c-1-.9-1.7-2.6-1.7-4.1L5.7 2.2h20.6l3.4 10.3c.1 1.8-.4 3.5-1.7 4.4zM5.7 28h20.6v-3.4H5.7V28zm0-5.1h20.6v-5.2c-.3 0-.5.1-.9.1-1.3 0-2.7-.7-3.4-1.7-.7 1-1.6 1.7-3 1.7-1.2 0-2.3-.9-3-1.7-.7.9-1.8 1.7-3 1.7-1.4 0-2.3-.7-3-1.7-.8 1-2.2 1.7-3.5 1.7-.3 0-.5 0-.8-.1v5.2zM25.2 4H6.8l-2.3 6.9h22.9L25.2 4zM4 12.6C4.2 14 5.3 16 6.5 16s2.7 0 2.7-1.7h1.7s0 1.7 2.1 1.7 2.1-1.7 2.1-1.7h1.8S16.8 16 19 16c2.1 0 2.1-1.7 2.1-1.7H23s0 1.7 2.7 1.7c2.5 0 2.5-3.4 2.5-3.4H4z"></path>
+                  </svg>ชื่อร้าน
+                </div> -->
                 <div class="edit-input">
-                  <div class="textbox">
-                    <div class="input">
-                      <mat-form-field>
-                        <mat-icon style="position: absolute;
+                  <div class="input">
+                    <mat-form-field>
+                      <mat-icon style="position: absolute;
                           right: 0;
                           bottom: 2px;
-                          color: #9f9f9f;">edit</mat-icon>
-                        <input type="text" name="detailShop" [(ngModel)]="shop.description" matInput placeholder="รายละเอียดร้านค้า">
-                      </mat-form-field>
-                      <!-- <textarea spellcheck="false" maxlength="500" class="ember-text-area"></textarea> -->
+                          color: #9f9f9f;">assignment_ind</mat-icon>
+                      <input name="nameShop" type="text" [(ngModel)]="shop.name" matInput placeholder="ชื่อร้าน">
+                    </mat-form-field>
+                    <!-- <input type="text" placeholder="" maxlength="80" class="ember-text-field"></div> -->
+                  </div>
+                </div>
+                <div class="edit-row">
+                  <div class="edit-label">
+                    <svg viewBox="0 0 32 32">
+                      <path d="M30 32H2c-1.1 0-2-.9-2-2V2C0 .9.9 0 2 0h28c1.1 0 2 .9 2 2v28c0 1.1-.9 2-2 2zm0-29c0-.6-.4-1-1-1H3c-.6 0-1 .4-1 1v26c0 .6.4 1 1 1h26c.6 0 1-.4 1-1V3zM18.8 24.5c-.2.2-.5.3-.8.3-.3 0-.6-.1-.8-.3l-6-4.6-5.4 7.8c-.4.4-1.1.4-1.5 0-.4-.4-.4-1.1 0-1.6l5.9-8.4c.2-.2.5-.3.8-.3.3 0 .6.1.8.3l6 4.6 8.4-9.9c.4-.4 1.1-.4 1.5 0 .4.4.4 1.1 0 1.6l-8.9 10.5zM9 12c-1.7 0-3-1.3-3-3s1.3-3 3-3 3 1.3 3 3-1.3 3-3 3zm0-4c-.6 0-1 .5-1 1 0 .6.4 1 1 1s1-.4 1-1c0-.5-.4-1-1-1z"></path>
+                    </svg>คำอธิบายรูปภาพ
+                  </div>
+                  <div class="row edit-row">
+                    <div class="col-8 edit-description">รูปภาพร้านค้าจะแสดงอยู่ในโปรไฟล์ร้านค้า</div>
+                    <div class="col-4 edit-state">{{shop.images ? shop.images.length : 0}} / 5 รูปภาพ</div>
+                  </div>
+                  <div class="shop-desc-media">
+                    <div class="banner-manager image-manager is-min">
+                      <!-- <ul class="sortable-items">
+                    </ul> -->
+                      <!-- <ul class="sortable-items sortable-items-shadow">
+                      <li class="image-manager__dropzone"> -->
+                      <!-- <div class="image-manager__item "> -->
+                      <div class="row">
+                        <div name="nameFor" class="col-6 no-padding" *ngFor="let item of shop.images">
+
+                          <div style="
+                          margin: 2px;
+                            text-align: center;
+                            background-color: #fafafa;
+                            border: 1px solid #e8e8e8;">
+                            <img style="height: 100px;max-width: 99%;" *ngIf="item && item.url" class="img-responsive"
+                              [src]="item.url">
+                          </div>
+                          <div class="image-tools"><span class="delete" name="deleteImage" (click)="deleteImage(item)"><svg
+                                viewBox="0 0 32 32">
+                                <path d="M26.8 30c0 1.1-.9 2-2 2h-16c-1.1 0-2-.9-2-2l-1-20c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2h6V1c0-.6.4-1 1-1h8c.6 0 1 .4 1 1v3h6c1.1 0 2 .9 2 2v2c0 1.1-.9 2-2 2m-20 1v1l1 17c0 .6.4 1 1 1h14c.6 0 1-.4 1-1l1-17v-2h-18v1zm12-9h-6v2h6V2zm7 4h-20c-.6 0-1 .4-1 1s.4 1 1 1h20c.6 0 1-.4 1-1s-.4-1-1-1zM14.2 28h-2l-.5-14h2l.5 14zm3.6 0h-2V14h2v14zm3.4 0h-2l.5-14h2l-.5 14z"></path>
+                              </svg></span></div>
+                        </div>
+
+
+                        <div class="col-6 no-padding image-manager__item" *ngIf="shop.images && shop.images.length < 5">
+                          <div class="uploader-btn" style="margin: 2px; border: 1px solid #e8e8e8;">
+                            <div class="shop-desc-img-uploader dropzone">
+                              <label for="file-uploader-input">
+                                <!-- <div class="validation-toast "></div> -->
+                                <div class="image-s" style="cursor: pointer;"><svg viewBox="0 0 32 32">
+                                    <path d="M29.38 14.55l-3.89-4.2a1.24 1.24 0 0 0-.87-.23 1 1 0 0 0-.78.24l-7.32 6 1.25 1.41 8.49 9.55h-3L11.93 14.21a.94.94 0 0 0-.8-.29 1 1 0 0 0-.22 0h-.09a1.05 1.05 0 0 0-.51.2l-7.68 6.32V5.32a1 1 0 0 1 1-1h24.79a1 1 0 0 1 1 1v9.23zm0-12.09H2.63a1.91 1.91 0 0 0-1.91 1.9v18a.94.94 0 0 0 0 .16v4.75a1.91 1.91 0 0 0 1.91 1.93h26.75a1.91 1.91 0 0 0 1.91-1.91V4.36a1.91 1.91 0 0 0-1.91-1.91z"></path>
+                                    <circle cx="9.26" cy="10.24" r="2.25"></circle>
+                                  </svg>
+                                  <div>อัพโหลดรูปภาพ</div>
+                                </div>
+                                <input name="addImage" id="file-uploader-input" type="file" (change)="detectFiles($event,'shopImg')"
+                                  multiple accept=".png,.jpg" />
+                                <!-- <div style="display:none" class="cropper-masker cropper-masker-block">
+                                        <div class="cropper-loading"><img src="/images/spinner-balls-g.gif" alt=""></div>
+                                        <div class="cropper-saving">กำลังบันทึก</div>
+                                      </div> -->
+                              </label>
+
+                            </div>
+                            <!-- <div class="shop-desc-vid-uploader" style="height: 75%; border-left: solid 1px #e8e8e8;"
+                            data-ember-action="" data-ember-action-1227="1227">
+                            <div class="youtube" style="cursor: pointer;" (click)="openDialog()"><svg viewBox="0 0 32 32">
+                                <path d="M16.21 4.75C12.47 4.75 6.95 5 5.3 5s-2.46.25-3.44 1.1c-1.5 1.33-1.85 4-1.85 8v3.8c0 4.57.61 6.89 1.61 7.74a4.46 4.46 0 0 0 2.68 1.19c.3 0 2.41.42 11.78.42 5.84 0 10.87-.28 11.38-.34a4.38 4.38 0 0 0 2.94-1.26c1.33-1.53 1.6-4.06 1.6-7.72v-4.44c0-2.37-.13-5.72-1.61-7.13-1.11-.94-1.52-1.21-3.84-1.36-.65 0-6.35-.25-10.34-.25zm-3.46 6.78L21.38 16l-8.63 4.49v-8.96z"></path>
+                              </svg>
+                              <div>เพิ่มลิงค์ของ วิดีโอ YouTube</div>
+                            </div>
+                          </div> -->
+                          </div>
+                        </div>
+
+                      </div>
+
+                      <!-- </div> -->
+                      <!-- </li>
+                    </ul> -->
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="edit-row btn-group text-center">
-                <button name="save" mat-flat-button color="primary" class="btn-summit" (click)="submit()">บันทึก</button>
+                <div class="edit-row">
+                  <div class="edit-input">
+                    <div class="textbox">
+                      <div class="input">
+                        <mat-form-field>
+                          <mat-icon style="position: absolute;
+                            right: 0;
+                            bottom: 2px;
+                            color: #9f9f9f;">edit</mat-icon>
+                          <input type="text" name="detailShop" [(ngModel)]="shop.description" matInput placeholder="รายละเอียดร้านค้า">
+                        </mat-form-field>
+                        <!-- <textarea spellcheck="false" maxlength="500" class="ember-text-area"></textarea> -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="edit-row btn-group text-center">
+                  <button name="save" mat-flat-button color="primary" class="btn-summit" (click)="submit()">บันทึก</button>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <div padding-bottom *ngIf="dataService.message">
-        <message class="text-center" [type]="dataService.messageType" [message]="dataService.message"></message>
+        <div padding-bottom *ngIf="dataService.message">
+          <message class="text-center" [type]="dataService.messageType" [message]="dataService.message"></message>
+        </div>
       </div>
     </div>
-
   </div>
+</mat-card>

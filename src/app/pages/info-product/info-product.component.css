@@ -75,8 +75,8 @@ h3 {
     background: rgba(0, 0, 0, .5);
     text-align: center;
     color: #ffffff;
-    position: absolute;
-    width: 94.5%;
+    position: sticky;
+    /* width: 94.5%; */
     margin-top: -3.7rem;
     padding: 1.2rem;
 }
@@ -200,6 +200,8 @@ table {
 }
 
 .logis-name {
+    font-size: 0.9rem;
+    line-height: 2.2rem;
     padding-left: 20px !important;
 }
 
@@ -227,12 +229,14 @@ table {
     font-weight: bold;
     font-size: 0.8rem;
     border-radius: 4px;
+    line-height: 2.2rem;
 }
 
 .ar-down {
     position: absolute;
     right: 0;
     color: #c2c1c1;
+    top: 0.4rem;
 }
 
 .expan {
@@ -249,7 +253,7 @@ table {
 }
 
 .sub-menu {
-    font-size: 1rem;
+    font-size: 0.7rem;
 }
 
 .sub-menu:hover {
@@ -368,4 +372,19 @@ thead {
     background-color: #f7f7f7;
     padding: 4px;
     border-radius: 4px;
+}
+
+.arr-sub {
+    position: absolute;
+    right: 0;
+    z-index: 999;
+    top: 0;
+}
+
+.mgt-10 {
+    margin-top: 10px;
+}
+
+.pdt-20 {
+    padding-top: 20px;
 }

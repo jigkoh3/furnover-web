@@ -6,7 +6,11 @@
   <div class="col-lg-8">
     <mat-card>
       <app-setting-header></app-setting-header>
-      <div class="row">
+      <div class="col-12 text-right" style="margin-top: 15px">
+        <span class="total">ทั้งหมด <span name="itemCount">{{data.length
+            ? data.length : 0 | number}}</span> รายการ</span>
+      </div>
+      <div class="row mgt">
         <div class="col-6 col-sm-6 col-md-6">
           ที่อยู่
         </div>
@@ -18,7 +22,7 @@
       <div class="row">
         <div class="col-1"></div>
         <div class="col-9">
-          <mat-list name="matFor"  *ngFor="let item of data">
+          <mat-list name="matFor" *ngFor="let item of data">
             <mat-list-item>
               <mat-icon mat-list-icon class="icon-green element-style">pin_drop</mat-icon>
               <h4 mat-line><b>{{item.name}}</b></h4>

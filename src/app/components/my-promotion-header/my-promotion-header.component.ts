@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, AfterViewInit } from '@angular/core';
 import { MomentDateAdapter } from '@angular/material-moment-adapter';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import * as _moment from 'moment';
@@ -32,9 +32,11 @@ export class MyPromotionHeaderComponent implements OnInit {
   date = new Date();
   _startdate: any;
   _enddate: any;
-  isSave = false;
+  isSave = true;
+  isEdit = false;
+  isCreate = false;
   isValidateDate: boolean = true;
-  @Input() data: any = {};
+  @Input() data: any;
   @Input() itemStatus: any = {};
   @Output() outputData = new EventEmitter();
 
@@ -48,32 +50,38 @@ export class MyPromotionHeaderComponent implements OnInit {
 
   ngOnInit() {
     this.spinner.show();
-    setTimeout(() => {
-      if (this.data._id) {
-        this._startdate = new Date(this.data.startdate);
-        this._enddate = new Date(this.data.enddate);
-        const st_time = new Date(this.data.startdate);
-        const h1 = st_time.getHours();
-        const m1 = st_time.getMinutes();
-        const hh1 = h1 < 9 ? '0' + h1 : h1;
-        const mm1 = m1 < 9 ? '0' + m1 : m1;
+    // setTimeout(() => {
+    if (this.data._id) {
+      this.isEdit = true;
+      this.isCreate = false;
+      this._startdate = new Date(this.data.startdate);
+      this._enddate = new Date(this.data.enddate);
+      const st_time = new Date(this.data.startdate);
+      const h1 = st_time.getHours();
+      const m1 = st_time.getMinutes();
+      const hh1 = h1 < 9 ? '0' + h1 : h1;
+      const mm1 = m1 < 9 ? '0' + m1 : m1;
 
-        const en_time = new Date(this.data.enddate);
-        const h2 = en_time.getHours();
-        const m2 = en_time.getMinutes();
-        const hh2 = h2 < 9 ? '0' + h2 : h2;
-        const mm2 = m2 < 9 ? '0' + m2 : m2;
+      const en_time = new Date(this.data.enddate);
+      const h2 = en_time.getHours();
+      const m2 = en_time.getMinutes();
+      const hh2 = h2 < 9 ? '0' + h2 : h2;
+      const mm2 = m2 < 9 ? '0' + m2 : m2;
 
-        this.data.starttime = hh1 + ':' + mm1;
-        this.data.endtime = hh2 + ':' + mm2;
-        this.isSave = true;
-        this.data.isSave = this.isSave;
-        this.outputData.emit(this.data);
-      }
-      this.spinner.hide();
+      this.data.starttime = hh1 + ':' + mm1;
+      this.data.endtime = hh2 + ':' + mm2;
+      this.isSave = true;
+      this.data.isSave = this.isSave;
+      this.outputData.emit(this.data);
+    } else {
+      this.isCreate = true;
+      this.isEdit = false;
+      this.isSave = false;
+      this.setDefault();
+    }
+    this.spinner.hide();
 
-    }, 1400);
-    this.setDefault();
+    // }, 1500);
 
 
   }
@@ -102,22 +110,22 @@ export class MyPromotionHeaderComponent implements OnInit {
 
 
   async sendData() {
-        this.validateDate()
-        setTimeout(() => {
-          if (this.isValidateDate) {
-            this.isSave = true;
-            this.data.isSave = this.isSave;
-            this.data.startdate = this._startdate;
-            this.data.enddate = this._enddate;
-            this.outputData.emit(this.data);
+    this.validateDate()
+    setTimeout(() => {
+      if (this.isValidateDate) {
+        this.isSave = true;
+        this.data.isSave = this.isSave;
+        this.data.startdate = this._startdate;
+        this.data.enddate = this._enddate;
+        this.outputData.emit(this.data);
 
-            this.spinner.hide();
-            this.dialog.open(ModalCompleteComponent, {
-              width: '700px',
-              data: { message: 'คุณบันทึกระยะเวลาโปรโมชั่นสำเร็จ' }
-            });
-          }
-        }, 1000);
+        this.spinner.hide();
+        this.dialog.open(ModalCompleteComponent, {
+          width: '700px',
+          data: { message: 'คุณบันทึกระยะเวลาโปรโมชั่นสำเร็จ' }
+        });
+      }
+    }, 1000);
   }
 
   validateDate() {
