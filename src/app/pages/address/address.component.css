@@ -38,9 +38,9 @@
 }
 
 .total {
-    position: absolute;
+    /* position: absolute;
     right: 1.8rem;
-    font-size: 0.9rem;
+    font-size: 0.9rem; */
     color: #656565;
     z-index: 999;
     margin-top: 2rem !important;
