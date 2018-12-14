@@ -58,7 +58,7 @@ import { MomentPipe } from './pipes/moment/moment.pipe';
 import { ModalConfirmComponent } from './pages/modals/modal-confirm/modal-confirm.component';
 import { MySaleComponent } from './pages/my-sale/my-sale.component';
 import { DetailMySaleComponent } from './pages/detail-my-sale/detail-my-sale.component';
-import { OrderModule } from 'casan-order';
+import { OrderModule } from 'casan-order-test';
 import { InfoOrderDetailComponent } from './pages/info-order-detail/info-order-detail.component';
 import { OrderDetailComponent } from './components/order-detail/order-detail.component';
 import { MatIconRegistry } from '@angular/material';
@@ -144,7 +144,7 @@ import { ButtonGoBackComponent } from './components/button-go-back/button-go-bac
     OrderModule.forRoot({
       production: false,
       environment: 'dev',
-      appName: 'furnover-admin',
+      appName: 'furnover-seller',
       apiUrl: 'https://furnover-api-dev.herokuapp.com'
     })
   ],
