@@ -20,23 +20,23 @@
           <div class="col-10  no-padding-div">
             <div>
               <div class="row border-list-cat position-list">
-                <div class="col-12 col-md-4 no-padding-div">
+                <div class="col-6 col-md-4 no-padding-div">
                   <p>
                     <b>{{item.name}}</b> &nbsp;
                     <!-- <button mat-stroked-button class="setting-bnt-rename"><span class="setting-bnt-text-rename">เปลี่ยนชื่อ</span></button> -->
                   </p>
                   <p class="setting-text-set-cat">กำหนดหมวดหมู่สินค้าเอง</p>
                 </div>
-                <div class="col-12 col-md-4 no-padding-div" style="text-align: center">
+                <div class="col-6 col-md-4 no-padding-div" style="text-align: center">
                   <div class="row">
                     <div class="col-4 col-md-4 no-padding-div"></div>
                     <div class="col-12 col-md-4 no-padding-div">
-                      <button name="dataCategory" mat-button style="width:100%" (click)="editCategory(item)" color="primary">ข้อมูล</button>
+                      <mat-slide-toggle name="toggleCategory" class="setting-toggle" [(ngModel)]="item.status" (change)="onChangeStatus(item)"></mat-slide-toggle>
                     </div>
                   </div>
                 </div>
-                <div class="col-6 col-md-2 no-padding-div" style="text-align: center">
-                  <mat-slide-toggle name="toggleCategory" class="setting-toggle" [(ngModel)]="item.status" (change)="onChangeStatus(item)"></mat-slide-toggle>
+                <div class="col-12 col-md-2 no-padding-div" style="text-align: center">
+                  <button name="dataCategory" mat-button style="width:100%" (click)="editCategory(item)" color="primary">ข้อมูล</button>
                 </div>
                 <div class="col-6 col-md-2 no-padding-div" style="text-align: center">
                   <button mat-icon-button>
@@ -69,15 +69,15 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-1"></div>
+    <div class="col-12 col-md-1"></div>
     <div class="col-12 col-md-10" style="text-align: center">
       <button name="creteCategory" mat-stroked-button color="primary" class="setting-btn-add-cat setting-btn-text-add-cat"
         (click)="infoCategory()">+
         สร้างหมวดหมู่ใหม่เอง</button>
     </div>
-    <div class="col-1"></div>
+    <div class="col-12 col-md-1"></div>
   </div>
-  <div name="divNgForModel" *ngFor="let item of modelData" class=" row card-padding-div">
+  <div name="divNgForModel" *ngFor="let item of modelData" class="row card-padding-div">
     <div class="col-1 card-padding-div"></div>
     <div class="col-12 col-md-10 card-padding-div" *ngIf="!item.status">
       <mat-list class="border-list">
@@ -86,24 +86,24 @@
           <div class="col-10  no-padding-div">
             <div>
               <div class="row border-list-cat position-list">
-                <div class="col-12 col-md-4 no-padding-div">
+                <div class="col-6 col-md-4 no-padding-div">
                   <p>
                     <b>{{item.name}}</b> &nbsp;
                     <!-- <button mat-stroked-button class="setting-bnt-rename"><span class="setting-bnt-text-rename">เปลี่ยนชื่อ</span></button> -->
                   </p>
                   <p class="setting-text-set-cat">กำหนดหมวดหมู่สินค้าเอง</p>
                 </div>
-                <div class="col-12 col-md-4 no-padding-div" style="text-align: center">
+                <div class="col-6 col-md-4 no-padding-div" style="text-align: center">
                   <div class="row">
                     <div class="col-4 col-md-4 no-padding-div"></div>
                     <div class="col-12 col-md-4 no-padding-div">
-                      <button name="editCategoryData" mat-button style="width:100%" (click)="editCategory(item)" color="primary">ข้อมูล</button>
+                      <mat-slide-toggle name="toggleStatus" class="setting-toggle" [(ngModel)]="item.status" (change)="onChangeStatus(item)"
+                        [disabled]="item.items && item.items.length ===0"></mat-slide-toggle>
                     </div>
                   </div>
                 </div>
                 <div class="col-6 col-md-2 no-padding-div" style="text-align: center">
-                  <mat-slide-toggle name="toggleStatus" class="setting-toggle" [(ngModel)]="item.status" (change)="onChangeStatus(item)"
-                    [disabled]="item.items && item.items.length ===0"></mat-slide-toggle>
+                  <button name="editCategoryData" mat-button style="width:100%" (click)="editCategory(item)" color="primary">ข้อมูล</button>
                 </div>
                 <div class="col-6 col-md-2 no-padding-div" style="text-align: center">
                   <button name="openModalConfirm" mat-icon-button (click)="openDialog(item)">

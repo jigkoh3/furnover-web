@@ -185,3 +185,9 @@
     z-index: 999;
     top: 1rem;
 }
+
+.text-overflow-style {
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
