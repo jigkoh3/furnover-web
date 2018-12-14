@@ -22,8 +22,8 @@ export class NgChatComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    const user = JSON.parse(localStorage.getItem(Constants.URL() + '@usershop')) ?
-      JSON.parse(localStorage.getItem(Constants.URL() + '@usershop')) : {}; // me
+    const user = JSON.parse(localStorage.getItem(Constants.URL() + '@user')) ?
+      JSON.parse(localStorage.getItem(Constants.URL() + '@user')) : {}; // me
     this.user = user;
     this.getChatList();
     this.receiver = this.user.shop._id;

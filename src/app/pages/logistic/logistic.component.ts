@@ -75,7 +75,7 @@ export class LogisticComponent implements OnInit {
   async onToggleChange(e) {
     this.spinner.show();
     try {
-      const user: any = JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop'));
+      const user: any = JSON.parse(window.localStorage.getItem(Constants.URL() + '@user'));
       const request = {
         shop_id: user.shop_id,
         logistic_id: e._id,

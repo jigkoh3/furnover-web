@@ -50,7 +50,7 @@ export class ShopCategoryComponent implements OnInit {
     };
     this.spinner.show();
     try {
-      const userShop: any = JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop'));
+      const userShop: any = JSON.parse(window.localStorage.getItem(Constants.URL() + '@user'));
       const res: any = await this.restApi.post(Constants.URL() + '/api/my-category', { shop_id: userShop.shop._id });
       this.modelData = res.data;
       this.modelData.forEach(cate => {

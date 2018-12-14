@@ -31,8 +31,8 @@ export class AddressComponent implements OnInit {
   async getList() {
     this.spinner.show();
     try {
-      const usershop = window.localStorage.getItem(Constants.URL() + '@usershop') ?
-        JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop')) : {};
+      const usershop = window.localStorage.getItem(Constants.URL() + '@user') ?
+        JSON.parse(window.localStorage.getItem(Constants.URL() + '@user')) : {};
       console.log(usershop._id);
       let res: any = await this.restApi.post(Constants.URL() + '/api/address-me', { user_id: usershop._id });
       if (res['status'] === 200) {

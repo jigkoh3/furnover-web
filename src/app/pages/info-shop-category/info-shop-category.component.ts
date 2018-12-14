@@ -66,7 +66,7 @@ export class InfoShopCategoryComponent implements OnInit {
 
         try {
             const user: any = JSON.parse(
-                window.localStorage.getItem(Constants.URL() + '@usershop')
+                window.localStorage.getItem(Constants.URL() + '@user')
             );
             this.page.shop_id = user.shop_id;
             const respone: any = await this.restApi.post(

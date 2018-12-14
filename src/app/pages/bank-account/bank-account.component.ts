@@ -73,7 +73,7 @@ export class BankAccountComponent implements OnInit {
     this.spinner.show();
 
     try {
-      const user: any = JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop'));
+      const user: any = JSON.parse(window.localStorage.getItem(Constants.URL() + '@user'));
       const data = {
         shop_id: user.shop_id
       };

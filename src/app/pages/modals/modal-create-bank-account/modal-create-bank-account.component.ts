@@ -62,7 +62,7 @@ export class ModalCreateBankAccountComponent implements OnInit {
     // console.log(this.createBankData);
     this.spinner.show();
     try {
-      let user: any = JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop'));
+      let user: any = JSON.parse(window.localStorage.getItem(Constants.URL() + '@user'));
       let data = {
         name: this.createBankData.name,
         bank_id: this.createBankData.bank._id,
