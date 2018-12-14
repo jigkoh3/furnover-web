@@ -1,13 +1,22 @@
 <mat-card>
   <div class="row">
+    <div class="col-12 tools">
+      <div>
+        <button *ngIf="st === 'waitshipping'" mat-raised-button color="accent" (click)="shipping()">
+          ที่ต้องจัดส่ง
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="row">
     <div class="col-8">
       <div class="box">
         <p>
-          <mat-icon>list_alt</mat-icon> <b>หมายเลขคำสั่งซื้อ</b>
+          <mat-icon>list_alt</mat-icon> <b class="abs">หมายเลขคำสั่งซื้อ</b>
         </p>
         <p class="data-color">{{data.orderno}}</p>
         <p>
-          <mat-icon>room</mat-icon> <b>ที่อยู่ในการจัดส่ง</b>
+          <mat-icon>room</mat-icon> <b class="abs">ที่อยู่ในการจัดส่ง</b>
         </p>
         <p class="data-color">{{data.shippingaddress ? data.shippingaddress.name : ''}}, {{data.shippingaddress ?
           data.shippingaddress.tel : ''}}</p>
@@ -16,7 +25,7 @@
           {{data.shippingaddress ? data.shippingaddress.province : ''}} {{data.shippingaddress ?
           data.shippingaddress.postcode : ''}}</p>
         <p>
-          <mat-icon>local_shipping</mat-icon> <b>ข้อมูลการจัดส่ง</b>
+          <mat-icon>local_shipping</mat-icon> <b class="abs">ข้อมูลการจัดส่ง</b>
         </p>
         <p class="data-color">Furnover Shipping</p>
       </div>
@@ -27,7 +36,7 @@
           <span class="name">Dook</span>
         </div>
         <p *ngIf="role === 'seller'">
-          <mat-icon>list_alt</mat-icon> <b>รายละเอียด</b>
+          <mat-icon>list_alt</mat-icon> <b class="abs">รายละเอียด</b>
         </p>
         <div class="table-responsive mgt">
           <table class="table">
@@ -35,7 +44,7 @@
               <tr>
                 <th width="20" class="center">#</th>
                 <th width="600" class="center">สินค้าทั้งหมด</th>
-                <th width="200" class="center">ราคาต่อชิน</th>
+                <th width="200" class="center">ราคาต่อชิ้น</th>
                 <th width="200" class="center">จำนวน</th>
                 <th width="200" class="center">ยอดรวม</th>
               </tr>
@@ -46,7 +55,8 @@
                 <td><img class="image" [src]="item.image.url" alt="image">
                   {{item.name}} ({{item.price.name}})</td>
                 <!-- <td class="center pd">{{item.price.price | number}}</td> -->
-                <td class="center pd" *ngIf="item.price.newprice"><span class="txt-line">{{item.price.price | number}}</span> {{item.price.newprice | number}}</td>
+                <td class="center pd" *ngIf="item.price.newprice"><span class="txt-line">{{item.price.price | number}}</span>
+                  {{item.price.newprice | number}}</td>
                 <td class="center pd" *ngIf="!item.price.newprice">{{item.price.price | number}}</td>
                 <td class="center pd">{{item.qty}}</td>
                 <td class="center pd">{{item.total | number}}</td>
@@ -79,7 +89,7 @@
       <div class="box bg">
         <div class="row">
           <div class="col-8">
-            <mat-icon>attach_money</mat-icon> ยอดที่ต้องชำระ
+            <mat-icon>attach_money</mat-icon> <span class="abs">ยอดที่ต้องชำระ</span>
           </div>
           <div class="col-4 txt-right">
             ฿{{data.totalprice | number}}
