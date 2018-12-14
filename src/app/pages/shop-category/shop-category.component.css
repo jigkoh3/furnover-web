@@ -34,7 +34,7 @@
     position: relative;
     top: -45px;
     left: 60px;
-    font-size: 20px
+    font-size: 20px;
 }
 
 .setting-text-header2 {
@@ -178,8 +178,6 @@
 }
 
 .total {
-    position: absolute;
-    right: -5rem;
     font-size: 0.9rem;
     color: #656565;
     z-index: 999;
@@ -187,7 +185,7 @@
 }
 
 .text-overflow-style {
-    white-space: nowrap; 
-    overflow: hidden;
-    text-overflow: ellipsis;
+    white-space: nowrap !important; 
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
 }
