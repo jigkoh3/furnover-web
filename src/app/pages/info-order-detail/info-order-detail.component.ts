@@ -10,6 +10,7 @@ import { Constants } from 'src/app/app.constants';
 })
 export class InfoOrderDetailComponent implements OnInit {
   orderID: String = '';
+  shop_id: String = '';
   data: any = {};
   item_ids: Array<any> = [];
   constructor(private activatedRoute: ActivatedRoute, private api: RestApiService) { }
@@ -30,6 +31,7 @@ export class InfoOrderDetailComponent implements OnInit {
 
   async getOrderDetail() {
     const shop: any = JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop'));
+    this.shop_id = shop.shop_id;
     try {
       const reqBody: any = {
         item_ids: this.item_ids,
