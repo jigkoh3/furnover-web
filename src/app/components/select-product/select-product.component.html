@@ -30,7 +30,7 @@
   </div>
   <div class="row">
     <div class="col-12">
-      <div class="text-center" *ngIf="data.tabs && data.tabs.length > 0">
+      <div class="text-center" *ngIf="data.tabs && data.tabs.length > 1">
         <button name="btnPrevios" mat-button color="primary" *ngIf="pageData.page > 1" (click)="previos()">ก่อนหน้า</button>
         <button name="btnPage" mat-button color="primary" ngClass="{{pageData.page === (i + 1) ? 'select' : 'un-select'}} btn-summit"
           *ngFor="let item of data.tabs;let i = index" (click)="page(item)">{{item}}</button>
