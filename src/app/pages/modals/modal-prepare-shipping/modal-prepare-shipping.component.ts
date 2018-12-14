@@ -31,7 +31,7 @@ export class ModalPrepareShippingComponent implements OnInit {
   async getShopData() {
     this.spinner.show();
     try {
-      let user: any = JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop'));
+      let user: any = JSON.parse(window.localStorage.getItem(Constants.URL() + '@user'));
       let response: any = await this.restApi.get(Constants.URL() + '/api/shop/' + user.shop_id);
       this.shopData = response.data;
       this.shopData.prepareshipping = this.shopData.prepareshipping || 0;

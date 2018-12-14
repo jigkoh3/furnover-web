@@ -88,7 +88,7 @@ export class AccountComponent implements OnInit {
   }
 
   getData() {
-    const usershop = JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop'));
+    const usershop = JSON.parse(window.localStorage.getItem(Constants.URL() + '@user'));
     this.data = usershop;
     this.name = usershop.firstname;
     this.surname = usershop.lastname
@@ -121,7 +121,7 @@ export class AccountComponent implements OnInit {
       this.data = res.data;
       console.log(res);
       await window.localStorage.setItem(Constants.URL() + '@token', res.token);
-      await window.localStorage.setItem(Constants.URL() + '@usershop', JSON.stringify(this.data));
+      await window.localStorage.setItem(Constants.URL() + '@user', JSON.stringify(this.data));
       this.clickShow1();
       this.dialog.open(ModalCompleteComponent, {
         width: '700px',
@@ -140,7 +140,7 @@ export class AccountComponent implements OnInit {
       this.data = res.data;
       console.log(res);
       await window.localStorage.setItem(Constants.URL() + '@token', res.token);
-      await window.localStorage.setItem(Constants.URL() + '@usershop', JSON.stringify(this.data));
+      await window.localStorage.setItem(Constants.URL() + '@user', JSON.stringify(this.data));
       this.clickShow2();
       this.dialog.open(ModalCompleteComponent, {
         width: '700px',
@@ -158,7 +158,7 @@ export class AccountComponent implements OnInit {
       this.data = res.data;
       console.log(res);
       await window.localStorage.setItem(Constants.URL() + '@token', res.token);
-      await window.localStorage.setItem(Constants.URL() + '@usershop', JSON.stringify(this.data));
+      await window.localStorage.setItem(Constants.URL() + '@user', JSON.stringify(this.data));
       this.clickShow3();
       this.dialog.open(ModalCompleteComponent, {
         width: '700px',

@@ -37,8 +37,8 @@ export class SelectProductComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    let user = window.localStorage.getItem(Constants.URL() + "@usershop")
-      ? JSON.parse(window.localStorage.getItem(Constants.URL() + "@usershop"))
+    let user = window.localStorage.getItem(Constants.URL() + "@user")
+      ? JSON.parse(window.localStorage.getItem(Constants.URL() + "@user"))
       : null;
     this.productSelected = JSON.parse(JSON.stringify(this.productSelected));
     this.productSelectedCopy = JSON.parse(JSON.stringify(this.productSelected));

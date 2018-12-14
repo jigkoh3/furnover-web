@@ -56,8 +56,8 @@ export class MyProductComponent implements OnInit {
 
   async getStatus() {
     this.spinner.show();
-    const shop = window.localStorage.getItem(Constants.URL() + '@usershop') ?
-      JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop')) : null;
+    const shop = window.localStorage.getItem(Constants.URL() + '@user') ?
+      JSON.parse(window.localStorage.getItem(Constants.URL() + '@user')) : null;
     const objectData = {
       shop_id: shop.shop_id,
       status: this.status,
@@ -94,8 +94,8 @@ export class MyProductComponent implements OnInit {
     this.dataService.warning('');
 
     this.spinner.show();
-    this.shopUser = window.localStorage.getItem(Constants.URL() + '@usershop') ?
-      JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop')) : null;
+    this.shopUser = window.localStorage.getItem(Constants.URL() + '@user') ?
+      JSON.parse(window.localStorage.getItem(Constants.URL() + '@user')) : null;
 
     const objectData = {
       shop_id: this.shopUser.shop_id,

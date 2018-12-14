@@ -22,8 +22,8 @@ export class LoginComponent implements OnInit {
     private spinner: NgxSpinnerService
   ) {
 
-    const user = window.localStorage.getItem(Constants.URL() + '@usershop');
-    const token = window.localStorage.getItem(Constants.URL() + '@usershop');
+    const user = window.localStorage.getItem(Constants.URL() + '@user');
+    const token = window.localStorage.getItem(Constants.URL() + '@user');
 
     if (user && token) {
       this.router.navigate(['/home']);
@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
       const response: any = await this.restApi.post(Constants.URL() + '/api/auth/signin', this.credentials);
       if (response.data.roles[0] === 'shop') {
         window.localStorage.setItem(Constants.URL() + '@token', response.token);
-        window.localStorage.setItem(Constants.URL() + '@usershop', JSON.stringify(response.data));
+        window.localStorage.setItem(Constants.URL() + '@user', JSON.stringify(response.data));
         this.router.navigate(['/home']);
         this.spinner.hide();
       } else {

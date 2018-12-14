@@ -28,8 +28,8 @@ export class ToolbarComponent implements OnInit {
 
   isLogin() {
     const token = window.localStorage.getItem(Constants.URL() + '@token');
-    const usershop = window.localStorage.getItem(Constants.URL() + '@usershop') ?
-      JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop')) : {};
+    const usershop = window.localStorage.getItem(Constants.URL() + '@user') ?
+      JSON.parse(window.localStorage.getItem(Constants.URL() + '@user')) : {};
     if (token && usershop) {
       this.shopname = usershop ? usershop.username : '';
       return true;
@@ -40,7 +40,7 @@ export class ToolbarComponent implements OnInit {
 
   logout() {
     window.localStorage.removeItem(Constants.URL() + '@token');
-    window.localStorage.removeItem(Constants.URL() + '@usershop');
+    window.localStorage.removeItem(Constants.URL() + '@user');
     this.router.navigate(['auth/login']);
   }
 

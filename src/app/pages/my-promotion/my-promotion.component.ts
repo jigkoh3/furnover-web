@@ -46,7 +46,7 @@ export class MyPromotionComponent implements OnInit {
 
   async getStatus() {
     this.spinner.show();
-    let shop = window.localStorage.getItem(Constants.URL() + '@usershop') ? JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop')) : null;
+    let shop = window.localStorage.getItem(Constants.URL() + '@user') ? JSON.parse(window.localStorage.getItem(Constants.URL() + '@user')) : null;
     let objectData = {
       shop_id: shop.shop_id,
       status: this.status,
@@ -139,8 +139,8 @@ export class MyPromotionComponent implements OnInit {
   async getPromotion() {
     this.dataService.warning('');
     this.spinner.show();
-    const shop = window.localStorage.getItem(Constants.URL() + '@usershop') ?
-      JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop')) : null;
+    const shop = window.localStorage.getItem(Constants.URL() + '@user') ?
+      JSON.parse(window.localStorage.getItem(Constants.URL() + '@user')) : null;
     let objectData = {
       shop_id: shop.shop_id,
       status: this.status,

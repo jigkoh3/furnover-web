@@ -63,7 +63,7 @@ export class ProfileSettingComponent implements OnInit {
 
   async getProfile() {
     this.spinner.show();
-    this.shopUser = window.localStorage.getItem(Constants.URL() + '@usershop') ? JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop')) : null;
+    this.shopUser = window.localStorage.getItem(Constants.URL() + '@user') ? JSON.parse(window.localStorage.getItem(Constants.URL() + '@user')) : null;
     try {
       let data: any = await this.restApi.get(Constants.URL() + '/api/shop/' + this.shopUser.shop_id);
       this.shop = data.data;
@@ -89,7 +89,7 @@ export class ProfileSettingComponent implements OnInit {
       this.logImage = [];
     }
 
-    this.shopUser = window.localStorage.getItem(Constants.URL() + '@usershop') ? JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop')) : null;
+    this.shopUser = window.localStorage.getItem(Constants.URL() + '@user') ? JSON.parse(window.localStorage.getItem(Constants.URL() + '@user')) : null;
     try {
       let data: any = await this.restApi.put(Constants.URL() + '/api/shop/' + this.shopUser.shop_id, this.shop);
       this.spinner.hide();
@@ -114,14 +114,14 @@ export class ProfileSettingComponent implements OnInit {
   }
 
   // async updateImgProfile(image) {
-  // let user = window.localStorage.getItem(Constants.URL() + '@usershop') ? JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop')) : null;
+  // let user = window.localStorage.getItem(Constants.URL() + '@user') ? JSON.parse(window.localStorage.getItem(Constants.URL() + '@user')) : null;
   // console.log(user.profileImageURL);
   // user.profileImageURL = image;
   // try {
   // let data: any = await this.restApi.put(Constants.URL() + '/api/user/' + user._id, user);
   // if (data['status'] === 200) {
   //   this.shopUser.profileImageURL = user.profileImageURL;
-  //   window.localStorage.setItem(Constants.URL() + '@usershop', JSON.stringify(data.data));
+  //   window.localStorage.setItem(Constants.URL() + '@user', JSON.stringify(data.data));
   //   this.dataService.success('บันทึกข้อมูลสำเร็จ');
   //   setTimeout(() => {
   //     this.dataService.success('');

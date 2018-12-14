@@ -30,7 +30,7 @@ export class InfoOrderDetailComponent implements OnInit {
   }
 
   async getOrderDetail() {
-    const shop: any = JSON.parse(window.localStorage.getItem(Constants.URL() + '@usershop'));
+    const shop: any = JSON.parse(window.localStorage.getItem(Constants.URL() + '@user'));
     this.shop_id = shop.shop_id;
     try {
       const reqBody: any = {
