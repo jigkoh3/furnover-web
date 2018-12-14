@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef, ChangeDetectorRef, HostListener, AfterViewInit, AfterViewChecked } from '@angular/core';
+import { Component, ViewChild, ElementRef, ChangeDetectorRef, HostListener, AfterViewInit, AfterViewChecked, OnInit } from '@angular/core';
 import { SidenavService } from './components/sidenav/sidenav.service';
 import * as firebase from 'firebase';
 import { Constants } from './app.constants';
@@ -8,7 +8,34 @@ import { Constants } from './app.constants';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements AfterViewInit, AfterViewChecked {
+export class AppComponent implements AfterViewInit, AfterViewChecked, OnInit {
+
+  ngOnInit() {
+    var OneSignal = window['OneSignal'] || [];
+    OneSignal.push(["init", {
+      appId: "a076eea5-5390-44c9-977f-a5d5aecad86b",
+      autoRegister: false,
+      allowLocalhostAsSecureOrigin: true,
+      notifyButton: {
+        enable: false
+      }
+    }]);
+    console.log('OneSignal Initialized');
+    OneSignal.push(function () {
+      console.log('Register For Push');
+      OneSignal.push(["registerForPushNotifications"])
+    });
+    OneSignal.push(function () {
+      // Occurs when the user's subscription changes to a new value.
+      OneSignal.on('subscriptionChange', function (isSubscribed) {
+        console.log("The user's subscription state is now:", isSubscribed);
+        OneSignal.getUserId().then(function (userId) {
+          console.log("User ID is", userId);
+        });
+      });
+    });
+  }
+
   @ViewChild('appDrawer') appDrawer: ElementRef;
   mode = 'over';
   opened = false;

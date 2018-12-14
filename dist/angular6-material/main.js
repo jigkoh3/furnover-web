@@ -524,6 +524,31 @@ var AppComponent = /** @class */ (function () {
         this.user = {};
         this.configFirebase();
     }
+    AppComponent.prototype.ngOnInit = function () {
+        var OneSignal = window['OneSignal'] || [];
+        OneSignal.push(["init", {
+                appId: "a076eea5-5390-44c9-977f-a5d5aecad86b",
+                autoRegister: false,
+                allowLocalhostAsSecureOrigin: true,
+                notifyButton: {
+                    enable: false
+                }
+            }]);
+        console.log('OneSignal Initialized');
+        OneSignal.push(function () {
+            console.log('Register For Push');
+            OneSignal.push(["registerForPushNotifications"]);
+        });
+        OneSignal.push(function () {
+            // Occurs when the user's subscription changes to a new value.
+            OneSignal.on('subscriptionChange', function (isSubscribed) {
+                console.log("The user's subscription state is now:", isSubscribed);
+                OneSignal.getUserId().then(function (userId) {
+                    console.log("User ID is", userId);
+                });
+            });
+        });
+    };
     AppComponent.prototype.onResize = function () {
         this.onResizeDisplay();
     };
