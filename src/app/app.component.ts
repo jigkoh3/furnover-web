@@ -11,13 +11,15 @@ import { Constants } from './app.constants';
 export class AppComponent implements AfterViewInit, AfterViewChecked, OnInit {
 
   ngOnInit() {
-
     var OneSignal = window['OneSignal'] || [];
-    OneSignal.push(function () {
-      OneSignal.init({
-        appId: "a076eea5-5390-44c9-977f-a5d5aecad86b",
-      });
-    });
+    OneSignal.push(["init", {
+      appId: "a076eea5-5390-44c9-977f-a5d5aecad86b",
+      autoRegister: false,
+      allowLocalhostAsSecureOrigin: true,
+      notifyButton: {
+        enable: false
+      }
+    }]);
   }
 
   @ViewChild('appDrawer') appDrawer: ElementRef;

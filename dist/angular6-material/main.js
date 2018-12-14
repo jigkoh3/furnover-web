@@ -526,11 +526,14 @@ var AppComponent = /** @class */ (function () {
     }
     AppComponent.prototype.ngOnInit = function () {
         var OneSignal = window['OneSignal'] || [];
-        OneSignal.push(function () {
-            OneSignal.init({
+        OneSignal.push(["init", {
                 appId: "a076eea5-5390-44c9-977f-a5d5aecad86b",
-            });
-        });
+                autoRegister: false,
+                allowLocalhostAsSecureOrigin: true,
+                notifyButton: {
+                    enable: false
+                }
+            }]);
     };
     AppComponent.prototype.onResize = function () {
         this.onResizeDisplay();
