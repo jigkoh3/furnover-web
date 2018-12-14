@@ -11,8 +11,15 @@
           <div class="col-12 col-md-10">
             <div class="row">
               <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                <b class="primary">การจัดส่งที่รองรับโดย Furnover</b> <span class="total">ทั้งหมด <span name="itemCount">{{blindData.length
-                    ? blindData.length : 0 | number}}</span> รายการ</span>
+                <div class="row">
+                  <div class="col-12 col-md-8 ">
+                    <b class="primary">การจัดส่งที่รองรับโดย Furnover</b>
+                  </div>
+                  <div class="col-12 col-md-4 ">
+                    <span class="total">ทั้งหมด <span name="itemCount">{{blindData.length
+                        ? blindData.length : 0 | number}}</span> รายการ</span>
+                  </div>
+                </div>
                 <br>
                 <label class="font-color-grey font-size">ผู้ซื้อสามารถตรวจสอบสถานะของพัสดุผ่านแอพพลิเคชั่นได้โดยตรงเมื่อเลือกการจัดส่งที่รองรับโดย
                   Furnover</label>
