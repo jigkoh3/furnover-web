@@ -7,17 +7,18 @@
       <div class="col-12">
         <mat-card>
           <div class="row">
-            <div class="col-7 col-md-7 padding-left" *ngIf="!isEdit">
+            <div class="col-12 col-md-7 padding-left" *ngIf="!isEdit">
               <p>
                 <b class="setting-font-header">{{categoryData.name}}</b> &nbsp;
                 <button name="changeName" mat-stroked-button (click)='isEdit = true' class="setting-bnt-rename"><span
                     class="setting-bnt-text-rename">เปลี่ยนชื่อ</span></button>
               </p>
-            </div>
-            <div class="col-12 col-md-7">
-              <p class="setting-text-set-cat">กำหนดหมวดหมู่สินค้าเอง <span> รายการสินค้า
-                  <span name="itemCount">{{categoryData.items ? categoryData.items.length : 0 | number}}</span> รายการ</span>
-              </p>
+              <div class="col-12 col-md-7">
+                <p class="setting-text-set-cat">กำหนดหมวดหมู่สินค้าเอง <span>
+                    <span name="itemCount">{{categoryData.items ? categoryData.items.length : 0 | number}}</span>
+                    รายการ</span>
+                </p>
+              </div>
             </div>
             <div class="col-12 col-md-7 padding-left" *ngIf="isEdit">
               <div class="col-12">
@@ -32,23 +33,26 @@
                     <button name="saveNameCate" style="width: 100%" (click)="onSaveData()" mat-stroked-button class="setting-bnt-rename"><span
                         class="setting-bnt-text-rename">บันทึก</span></button>
                   </div>
+                  <div style="margin-left: 10px"></div>
                   <div class="col-12 col-md-2 col-lg-2">
                     <button name="cancelNameCate" style="width: 100%" mat-stroked-button (click)='isEdit = !isEdit'
                       class="setting-bnt-rename"><span class="setting-bnt-text-rename">ยกเลิก</span></button>
                   </div>
                   <div class="col-12 col-md-12" style="margin-top: 20px;">
                     <p class="setting-text-set-cat">
-                      กำหนดหมวดหมู่สินค้าเอง <span class="padding-left"> รายการสินค้า 0
+                      กำหนดหมวดหมู่สินค้าเอง <span>
+                        <span name="itemCount">{{categoryData.items ? categoryData.items.length : 0 | number}}</span>
                         รายการ</span>
                     </p>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="col-12 col-md-4 text-center font-cate">
-              เปิดการใช้งานเพื่อให้ผู้ใช้มองเห็นหมวดหมู่นี้
+            <div class="col-8 col-md-4 text-left font-cate">
+              <span>เปิดการใช้งานเพื่อให้ผู้ใช้มองเห็นหมวดหมู่นี้</span><br>
+              <span *ngIf="categoryData.items.length < 1">(กรุณาเลือกสินค้าก่อนเพื่อเปิดใช้งานหมวดหมู่นี้)</span>
             </div>
-            <div class="col-2 col-md-1">
+            <div class="col-4 col-md-1">
               <mat-slide-toggle name="openUseCate" [disabled]="!categoryData.name || (categoryData.items && categoryData.items.length === 0)"
                 [(ngModel)]="categoryData.status" class="setting-toggle" (ngModelChange)="onChangeStatus()"></mat-slide-toggle>
             </div>
@@ -61,7 +65,7 @@
 
                   <div name="divItemCategory" class="col-12 col-md-6 col-lg-6  " *ngFor="let item of this.categoryData.items; let i = index;">
                     <div class="col-12">
-                      <mat-card class="card-product">
+                      <mat-card class="card-product" style="margin-bottom: 10px">
                         <div class="row">
 
                           <div class="col-12 col-md-3 col-lg-3 text-center padding-right ">
@@ -104,10 +108,15 @@
                       <span class="font-text">หลังจากบันทึกการเปลี่ยนแปลงแล้วสินค้าจะเรียงตามเวลาของการแก้ไขล่าสุด</span>
 
                     </div>
-                    <div class="col-12 col-md-12 col-lg-12">
-                      <button name="saveCate" mat-button class="buttonAdd" (click)="onSaveCate()" color="primary">บันทึกการเปลี่ยนแปลง</button>
-                      <button name="cancelBtn" mat-stroked-button class="buttonAdd margin-left" (click)="onRollbackItems()">ยกเลิก</button>
+                    <div class="col-12 col-md-4"></div>
+                    <div class="col-12 col-md-3 col-lg-3">
+                      <button style="width: 100%;margin-bottom: 10px;" name="saveCate" mat-button class="buttonAdd"
+                        (click)="onSaveCate()" color="primary">บันทึกการเปลี่ยนแปลง</button>
                     </div>
+                    <div class="col-12 col-md-1 col-lg-1">
+                      <button style="width: 100%;" name="cancelBtn" mat-stroked-button class="buttonAdd" (click)="onRollbackItems()">ยกเลิก</button>
+                    </div>
+                    <div class="col-12 col-md-4"></div>
                   </div>
                 </div>
 
@@ -159,7 +168,7 @@
 
               <div name="divNgForGetProduct" class="col-12 col-md-6 col-lg-6 mgt-10" *ngFor="let item of getProduct">
                 <div class="col-12">
-                  <mat-card class="card-product" style="height: 111.29px;">
+                  <mat-card class="card-product">
                     <div class="row">
                       <div class="col-12 col-md-3 col-lg-3 text-center padding-right ">
                         <img class="img-product" *ngIf="item.image && item.image.url" [src]="item.image.url">
@@ -175,7 +184,7 @@
                         </div>
                       </div>
                       <div class="col-12 col-md-12 col-lg-12 text-center ">
-                        <div *ngIf="checkButtonAdd(item)">
+                        <div *ngIf="checkButtonAdd(item)" style="height: 35.31px;">
                           <mat-icon name="addProduct" class="done-size" svgIcon="done"></mat-icon> <span class="font-text">เพิ่มสินค้าแล้ว</span>
                         </div>
                         <button name="btnAddProduct" *ngIf="!checkButtonAdd(item)" mat-stroked-button class="buttonAdd"

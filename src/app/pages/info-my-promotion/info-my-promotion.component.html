@@ -12,32 +12,41 @@
   </div>
 
   <div class="row">
-    <div class="col-12">
+    <div class="col-12" style="margin-bottom: 10px">
       <app-my-promotion-header *ngIf="data._id && data.title" [data]="data" [itemStatus]="itemStatus" (outputData)="getDataHeader($event)"></app-my-promotion-header>
       <app-my-promotion-header *ngIf="!data._id" [data]="data" [itemStatus]="itemStatus" (outputData)="getDataHeader($event)"></app-my-promotion-header>
     </div>
   </div>
-  <message class="text-center" [type]="dataService.messageType" [message]="dataService.message"></message>
+  <!-- <message class="text-center" [type]="dataService.messageType" [message]="dataService.message"></message> -->
 
   <div class="row" *ngIf="data.isSave">
     <div class="col-12 del-box">
-      <button name="addProduct" mat-stroked-button color="primary" (click)="openModalAddProduct()" *ngIf="itemStatus === 'soon' || itemStatus === 'now' && data.status !== 'end' || !itemStatus">
-        <mat-icon>add</mat-icon> เพิ่มสินค้า
-      </button>
-      <button name="successProduct" mat-flat-button class="btn-margin" *ngIf="data.status !== 'end'" color="primary"
-        [disabled]="!(data.title && data.startdate && data.enddate && data.starttime && data.endtime && data.products.length > 0 && checkPrice) "
-        (click)="save()">
-        <mat-icon>done</mat-icon> เสร็จสิ้น
-      </button>
-      <button name="openPromotion" mat-flat-button class="btn-margin" *ngIf="data.status === 'end'" color="primary"
-        (click)="openPromotion()">
-        <mat-icon>done</mat-icon> เสร็จสิ้น
-      </button>
+      <div class="row">
+        <div class="col-1 col-md-8"></div>
+        <div class="col-10 col-md-2" style="margin-bottom: 10px">
+          <button style="width: 100%" name="addProduct" mat-stroked-button color="primary" (click)="openModalAddProduct()"
+            *ngIf="itemStatus === 'soon' || itemStatus === 'now' && data.status !== 'end' || !itemStatus">
+            <mat-icon>add</mat-icon> เพิ่มสินค้า
+          </button>
+        </div>
+        <div class="d-md-none d-block col-1 col-md-8"></div>
+        <div class="col-10 col-md-2 text-left" style="margin-bottom: 10px">
+          <button style="width: 100%" name="successProduct" mat-flat-button class="btn-margin" *ngIf="data.status !== 'end'"
+            color="primary" [disabled]="!(data.title && data.startdate && data.enddate && data.starttime && data.endtime && data.products.length > 0 && checkPrice) "
+            (click)="save()">
+            <mat-icon>done</mat-icon> เสร็จสิ้น
+          </button>
+          <button style="width: 100%" name="openPromotion" mat-flat-button class="btn-margin" *ngIf="data.status === 'end'"
+            color="primary" (click)="openPromotion()">
+            <mat-icon>done</mat-icon> เสร็จสิ้น
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div class="row" *ngIf="data.isSave">
-    <div class="col-12">
+  <div class="row " style="padding-left: 0px;padding-right: 0px;" *ngIf="data.isSave">
+    <div class="col-12 " style="padding-left: 0px;padding-right: 0px;">
       <app-my-promotion-list [data]="data" [itemStatus]="itemStatus" (outputData)="getDataPromotionList($event)"></app-my-promotion-list>
     </div>
   </div>
