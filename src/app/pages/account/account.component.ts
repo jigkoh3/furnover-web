@@ -45,6 +45,7 @@ export class AccountComponent implements OnInit {
   _birthday: any;
   email: any;
   tel: any;
+  isCheckEmail: any;
 
 
   constructor(
@@ -175,6 +176,12 @@ export class AccountComponent implements OnInit {
     if (!(regEx.test(e.key) || e.key === 'Backspace' || e.keyCode === 8) || this.tel.length > 12) {
       this.tel = this.tel.substring(0, this.tel.length - 1);
     }
+  }
+
+  validateEmail(email) {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    // console.log(re.test(String(email).toLowerCase()));
+    this.isCheckEmail = re.test(String(email).toLowerCase());
   }
 
 
