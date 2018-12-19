@@ -1,6 +1,9 @@
 <mat-card>
   <div class="row">
-    <div class="col-12 tools">
+    <div class="col-6 pd-2">
+      <span class="mgl">สถานะคำสั่งซื้อ: {{tabName ? tabName : '-'}}</span>
+    </div>
+    <div class="col-6 tools">
       <div>
         <button *ngIf="st === 'waitshipping'" mat-raised-button color="accent" (click)="shipping()">
           ที่ต้องจัดส่ง

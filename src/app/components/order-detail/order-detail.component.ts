@@ -13,6 +13,7 @@ import { ModalConfirmComponent } from 'src/app/pages/modals/modal-confirm/modal-
 })
 export class OrderDetailComponent implements OnInit {
   @Input() role: String = '';
+  @Input() tabName: String = '';
   @Input() shop_id: String = '';
   @Input() data: any = {};
   st: String = '';
@@ -62,7 +63,7 @@ export class OrderDetailComponent implements OnInit {
     try {
 
       const reqBody: any = {
-        order_id: this.data.order_id,
+        order_id: this.data.order_id ? this.data.order_id : this.data._id,
         shop_id: this.shop_id,
         remark: remark
       };
