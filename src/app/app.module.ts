@@ -118,7 +118,8 @@ import { ModalConfirmRemarkComponent } from './modals/modal-confirm-remark/modal
     InfoOrderDetailComponent,
     OrderDetailComponent,
     ButtonGoBackComponent,
-    ModalConfirmRemarkComponent
+    ModalConfirmRemarkComponent,
+    ModalConfirmComponent
   ],
   entryComponents: [
     ModalCreateBankAccountComponent,
@@ -132,7 +133,8 @@ import { ModalConfirmRemarkComponent } from './modals/modal-confirm-remark/modal
     ModalDeleteMyPromotionComponent,
     ModalMessageComponent,
     ModalConfirmComponent,
-    ModalConfirmRemarkComponent
+    ModalConfirmRemarkComponent,
+    ModalConfirmComponent
   ],
   imports: [
     BrowserModule,
