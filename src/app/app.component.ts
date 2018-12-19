@@ -10,17 +10,7 @@ import { Constants } from './app.constants';
 })
 export class AppComponent implements AfterViewInit, AfterViewChecked, OnInit {
 
-  ngOnInit() {
-    var OneSignal = window['OneSignal'] || [];
-    OneSignal.push(["init", {
-      appId: "a076eea5-5390-44c9-977f-a5d5aecad86b",
-      autoRegister: false,
-      allowLocalhostAsSecureOrigin: true,
-      notifyButton: {
-        enable: false
-      }
-    }]);
-  }
+  
 
   @ViewChild('appDrawer') appDrawer: ElementRef;
   mode = 'over';
@@ -36,6 +26,13 @@ export class AppComponent implements AfterViewInit, AfterViewChecked, OnInit {
     private changeDetectorRef: ChangeDetectorRef
   ) {
     this.configFirebase();
+  }
+
+  ngOnInit() {
+    var OneSignal = window['OneSignal'] || [];
+    OneSignal.push(["init", {
+      appId: "8699b515-3b1e-4735-ad43-b0e8082fcea8",
+    }]);
   }
 
   ngAfterViewChecked() {
