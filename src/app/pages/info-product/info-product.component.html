@@ -253,49 +253,53 @@
       <div class="row">
         <div class="col-12 contanner-wholsale">
           <div class="row" *ngIf="wholesaleList.length > 0 && isSamePrice">
-            <div class="col-4">
+            <div class="col-0 col-sm-4 col-md-4">
 
             </div>
-            <div class="col-2">
+            <div class="col-3 col-sm-2 col-md-2">
               ต่ำสุด
             </div>
-            <div class="col-2">
+            <div class="col-3 col-sm-2 col-md-2">
               สูงสุด
             </div>
-            <div class="col-2">
+            <div class="col-3 col-sm-2 col-md-2">
               หน่วยราคา
             </div>
-            <div class="col-2">
+            <div class="col-3 col-sm-2 col-md-2">
 
             </div>
           </div>
           <!-- ///// dynamic input -->
           <span *ngIf="isSamePrice">
             <div name="divNgForWholesaleList" class="row" *ngFor="let item of wholesaleList;let i = index">
-              <div class="col-4 sale-txt">
+              <div class="col-12 col-sm-4 col-md-4 sale-txt">
                 {{i + 1}}. ช่วงราคา {{i + 1}}
               </div>
-              <div class="col-2">
-                <mat-form-field>
-                  <input name="priceMin" matInput placeholder="ต่ำสุด" [disabled]="i > 0" [(ngModel)]="item.min"
-                    (ngModelChange)="checkWholesaleMin($event,i)" type="number">
-                </mat-form-field>
-              </div>
-              <div class="col-2">
-                <mat-form-field>
-                  <input matInput name="priceMax" placeholder="สูงสุด" [(ngModel)]="item.max" (ngModelChange)="checkWholesaleMax($event,i)"
-                    type="number">
-                </mat-form-field>
-              </div>
-              <div class="col-2">
-                <mat-form-field>
-                  <input matInput name="pricePerQty" placeholder="฿ หน่วยราคา" [(ngModel)]="item.price" (ngModelChange)="checkNum()"
-                    type="number">
-                </mat-form-field>
-              </div>
-              <div name="buttonDeleteWholeSale" class="col-2" (click)="delWholesale(i)">
-                <div class="circle-box">
-                  <mat-icon class="ic-position">minimize</mat-icon>
+              <div class="col-12 col-sm-8 col-md-8">
+                <div class="row">
+                  <div class="col-3">
+                    <mat-form-field>
+                      <input name="priceMin" matInput placeholder="ต่ำสุด" [disabled]="i > 0" [(ngModel)]="item.min"
+                        (ngModelChange)="checkWholesaleMin($event,i)" type="number">
+                    </mat-form-field>
+                  </div>
+                  <div class="col-3">
+                    <mat-form-field>
+                      <input matInput name="priceMax" placeholder="สูงสุด" [(ngModel)]="item.max" (ngModelChange)="checkWholesaleMax($event,i)"
+                        type="number">
+                    </mat-form-field>
+                  </div>
+                  <div class="col-3">
+                    <mat-form-field>
+                      <input matInput name="pricePerQty" placeholder="฿ หน่วยราคา" [(ngModel)]="item.price" (ngModelChange)="checkNum()"
+                        type="number">
+                    </mat-form-field>
+                  </div>
+                  <div name="buttonDeleteWholeSale" class="col-2 pt-1" (click)="delWholesale(i)">
+                    <div class="circle-box">
+                      <mat-icon class="ic-position">minimize</mat-icon>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

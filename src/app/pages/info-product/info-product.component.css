@@ -391,23 +391,6 @@ thead {
     padding-top: 20px;
 }
 
-/* .wholesale-size {
-
-}
-
-@media screen and (max-width: 500px) {
-    .wholesale-size {
-
-    }
-}
-
-.cat-flex {
-    display: flex;
-    flex-wrap: nowrap;
-    width: 700px;
-}
-
- */
  .scroller {
     overflow-x: scroll;
 }
@@ -421,3 +404,4 @@ thead {
         width: 500px;
     }
 }
+
