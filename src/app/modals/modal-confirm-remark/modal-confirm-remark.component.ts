@@ -18,10 +18,7 @@ export class ModalConfirmRemarkComponent implements OnInit {
 
   }
   onClickOk() {
-    this.thisDialogRef.close({
-      confirm: true,
-      remark: this.remark
-    });
+    this.thisDialogRef.close('confirm');
   }
 
   onClickCancel() {
