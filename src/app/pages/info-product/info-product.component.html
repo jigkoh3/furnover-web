@@ -80,30 +80,32 @@
               <span name="spanNgFor" *ngFor="let state of stateSubmenu;let i = index">{{state.name}} <span *ngIf="stateSubmenu.length !== i + 1">
                   > </span> </span>
               <span *ngIf="stateSubmenu.length <= 0">เลือกหมวดหมู่ *</span>
-              <div class="row" *ngIf="toggleSubMenu">
-                <div class="col-4">
-                  <div class="row box-submenu">
-                    <div name="divNgForCate" class="col-12" *ngFor="let item of resData.categories">
-                      <div name="expandSubMenu" class="row sub-menu" (click)="expanChildren(0,item)">
-                        <div class="col-12">
-                          {{item.name}}
-                          <div class="arr-sub" *ngIf="item.children.length > 0">
-                            >
+              <div class="scroller">
+                <div class="row submenu-size" *ngIf="toggleSubMenu">
+                  <div class="col-4">
+                    <div class="row box-submenu">
+                      <div name="divNgForCate" class="col-12" *ngFor="let item of resData.categories">
+                        <div name="expandSubMenu" class="row sub-menu" (click)="expanChildren(0,item)">
+                          <div class="col-12">
+                            {{item.name}}
+                            <div class="arr-sub" *ngIf="item.children.length > 0">
+                              >
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <!-- //for loop -->
-                <div name="divNgforState" class="col-4" *ngFor="let state of stateSubmenu;let i = index">
-                  <div class="row box-submenu">
-                    <div name="divNgforStateOfItem" class="col-12" *ngFor="let item of state.items">
-                      <div name="expandSubMenuInSubMenu" class="row sub-menu" (click)="expanChildren(i+1,item)">
-                        <div class="col-12">
-                          {{item.name}}
-                          <div class="arr-sub" *ngIf="item.children.length > 0">
-                            >
+                  <!-- //for loop -->
+                  <div name="divNgforState" class="col-4" *ngFor="let state of stateSubmenu;let i = index">
+                    <div class="row box-submenu">
+                      <div name="divNgforStateOfItem" class="col-12" *ngFor="let item of state.items">
+                        <div name="expandSubMenuInSubMenu" class="row sub-menu" (click)="expanChildren(i+1,item)">
+                          <div class="col-12">
+                            {{item.name}}
+                            <div class="arr-sub" *ngIf="item.children.length > 0">
+                              >
+                            </div>
                           </div>
                         </div>
                       </div>

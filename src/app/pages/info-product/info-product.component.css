@@ -390,3 +390,34 @@ thead {
 .pdt-20 {
     padding-top: 20px;
 }
+
+/* .wholesale-size {
+
+}
+
+@media screen and (max-width: 500px) {
+    .wholesale-size {
+
+    }
+}
+
+.cat-flex {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 700px;
+}
+
+ */
+ .scroller {
+    overflow-x: scroll;
+}
+
+.submenu-size {
+    width: 600px;
+}
+
+@media screen and (max-width: 500px) {
+    .submenu-size {
+        width: 500px;
+    }
+}
