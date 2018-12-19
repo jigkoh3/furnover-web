@@ -418,15 +418,15 @@
             <div class="col-12 logis-box">
               <form>
                 <div name="divNgForLogistics" class="row" *ngFor="let item of resData.logistics;let i = index">
-                  <div class="col-6 logis-name">
+                  <div class="col-9 logis-name">
                     {{item.name}}
                   </div>
-                  <div class="col-4 logis-price">
-                    <!-- ระบุค่าจัดส่ง -->
-                  </div>
-                  <div class="col-2">
+                  <!-- <div class="col-4 logis-price">
+                    ระบุค่าจัดส่ง
+                  </div> -->
+                  <div class="col-3 pl-0 text-right">
 
-                    <mat-slide-toggle name="buttonCheckShipping" [checked]="item.isChecked" name="{{item._id}}"
+                    <mat-slide-toggle name="buttonCheckShipping" class="mt-1" [checked]="item.isChecked" name="{{item._id}}"
                       (change)="shippingChange($event,item)"></mat-slide-toggle>
 
                   </div>
