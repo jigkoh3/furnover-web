@@ -4,7 +4,7 @@ import { RestApiService } from 'src/app/providers/rest-api-service/rest-api.serv
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Router } from '@angular/router';
 import { Constants } from 'src/app/app.constants';
-import { ModalConfirmRemarkComponent } from 'src/app/modals/modal-confirm-remark/modal-confirm-remark.component';
+import { ModalConfirmComponent } from 'src/app/pages/modals/modal-confirm/modal-confirm.component';
 
 @Component({
   selector: 'app-order-detail',
@@ -45,7 +45,7 @@ export class OrderDetailComponent implements OnInit {
   }
 
   shipping() {
-    const dialogRef = this.dialog.open(ModalConfirmRemarkComponent, {
+    const dialogRef = this.dialog.open(ModalConfirmComponent, {
       width: '500px',
       data: { message: 'ยืนยันการจัดส่ง?' },
       autoFocus: false
