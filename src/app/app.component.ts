@@ -8,7 +8,7 @@ import { Constants } from './app.constants';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements AfterViewInit, AfterViewChecked, OnInit {
+export class AppComponent implements AfterViewInit, AfterViewChecked {
 
 
 
@@ -28,32 +28,6 @@ export class AppComponent implements AfterViewInit, AfterViewChecked, OnInit {
     this.configFirebase();
   }
 
-  ngOnInit() {
-    var OneSignal = window['OneSignal'] || [];
-    OneSignal.push(["init", {
-      appId: "8699b515-3b1e-4735-ad43-b0e8082fcea8",
-      autoRegister: false,
-      allowLocalhostAsSecureOrigin: true,
-      notifyButton: {
-        enable: false
-      }
-    }]);
-    console.log('OneSignal Initialized');
-    OneSignal.push(function () {
-      console.log('Register For Push');
-      OneSignal.push(["registerForPushNotifications"])
-    });
-    OneSignal.push(function () {
-      // Occurs when the user's subscription changes to a new value.
-      OneSignal.on('subscriptionChange', function (isSubscribed) {
-        console.log("The user's subscription state is now:", isSubscribed);
-        OneSignal.getUserId().then(function (userId) {
-          console.log("User ID is", userId);
-        });
-      });
-    });
-  
-}
 
 ngAfterViewChecked() {
   const user = JSON.parse(localStorage.getItem(Constants.URL() + '@user')) ?
