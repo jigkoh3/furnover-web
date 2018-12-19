@@ -142,7 +142,7 @@
               <input name="productStock" matInput placeholder="คลัง" type="number" [(ngModel)]="stock" (ngModelChange)="validatePriceAndStock()">
             </mat-form-field>
           </div>
-          <div name="buttonOpenOption" class="btn-option" (click)="openOption()" *ngIf="optionBoxs.length <= 0">
+          <div name="buttonOpenOption" class="btn-option pl-3 pt-1 pb-1 pl-1" (click)="openOption()" *ngIf="optionBoxs.length <= 0">
             <mat-icon class="add-cus">add</mat-icon> เปิดตัวเลือก
           </div>
 
@@ -175,17 +175,22 @@
                   </div>
                 </div>
 
-                <div class="btn-option" (click)="addOptions(i)">
-                  <mat-icon name="buttonAddOption" class="add-cus">add</mat-icon> เพิ่มตัวเลือก
-                  {{item.options.length}}/20
+                <div class="row">
+                  <div class="col-12 pl-0 pr-0">
+                    <div class="btn-option pl-3 pt-1 pb-1 pl-1" (click)="addOptions(i)">
+                      <mat-icon name="buttonAddOption" class="add-cus">add</mat-icon> เพิ่มตัวเลือก
+                      {{item.options.length}}/20
+                    </div>
+                  </div>
                 </div>
+
               </div>
             </div>
           </div>
 
           <div class="row" *ngIf="optionBoxs.length > 0">
             <div class="col-12">
-              <div name="buttonAddProductOption" class="btn-option" (click)="addOptionBox()" *ngIf="optionBoxs.length < 2">
+              <div name="buttonAddProductOption" class="btn-option pl-3 pt-1 pb-1 pl-1" (click)="addOptionBox()" *ngIf="optionBoxs.length < 2">
                 <mat-icon class="add-cus">add</mat-icon> เพิ่มตัวเลือกสินค้า
               </div>
             </div>
