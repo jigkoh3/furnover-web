@@ -203,6 +203,9 @@ table {
     font-size: 0.9rem;
     line-height: 2.2rem;
     padding-left: 20px !important;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .logis-price {
