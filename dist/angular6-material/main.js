@@ -532,10 +532,25 @@ var AppComponent = /** @class */ (function () {
         OneSignal.push(["init", {
                 appId: "8699b515-3b1e-4735-ad43-b0e8082fcea8",
                 autoRegister: false,
+                allowLocalhostAsSecureOrigin: true,
                 notifyButton: {
-                    enable: true,
-                },
+                    enable: false
+                }
             }]);
+        console.log('OneSignal Initialized');
+        OneSignal.push(function () {
+            console.log('Register For Push');
+            OneSignal.push(["registerForPushNotifications"]);
+        });
+        OneSignal.push(function () {
+            // Occurs when the user's subscription changes to a new value.
+            OneSignal.on('subscriptionChange', function (isSubscribed) {
+                console.log("The user's subscription state is now:", isSubscribed);
+                OneSignal.getUserId().then(function (userId) {
+                    console.log("User ID is", userId);
+                });
+            });
+        });
     };
     AppComponent.prototype.ngAfterViewChecked = function () {
         var user = JSON.parse(localStorage.getItem(_app_constants__WEBPACK_IMPORTED_MODULE_3__["Constants"].URL() + '@user')) ?
