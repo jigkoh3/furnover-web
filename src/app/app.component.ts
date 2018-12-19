@@ -10,7 +10,7 @@ import { Constants } from './app.constants';
 })
 export class AppComponent implements AfterViewInit, AfterViewChecked, OnInit {
 
-  
+
 
   @ViewChild('appDrawer') appDrawer: ElementRef;
   mode = 'over';
@@ -32,6 +32,10 @@ export class AppComponent implements AfterViewInit, AfterViewChecked, OnInit {
     var OneSignal = window['OneSignal'] || [];
     OneSignal.push(["init", {
       appId: "8699b515-3b1e-4735-ad43-b0e8082fcea8",
+      autoRegister: false,
+      notifyButton: {
+        enable: true,
+      },
     }]);
   }
 

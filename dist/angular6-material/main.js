@@ -531,6 +531,10 @@ var AppComponent = /** @class */ (function () {
         var OneSignal = window['OneSignal'] || [];
         OneSignal.push(["init", {
                 appId: "8699b515-3b1e-4735-ad43-b0e8082fcea8",
+                autoRegister: false,
+                notifyButton: {
+                    enable: true,
+                },
             }]);
     };
     AppComponent.prototype.ngAfterViewChecked = function () {
