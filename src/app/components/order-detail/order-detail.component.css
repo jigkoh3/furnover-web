@@ -88,3 +88,11 @@
     position: absolute;
     margin-left: 0.2rem;
 }
+
+.pd-2 {
+    padding: 1rem;
+}
+
+.mgl {
+    margin-left: 0.4rem;
+}

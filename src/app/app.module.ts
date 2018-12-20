@@ -64,6 +64,7 @@ import { OrderDetailComponent } from './components/order-detail/order-detail.com
 import { MatIconRegistry } from '@angular/material';
 import { ButtonGoBackComponent } from './components/button-go-back/button-go-back.component';
 import { ModalConfirmRemarkComponent } from './modals/modal-confirm-remark/modal-confirm-remark.component';
+import { ModalConfirmRmComponent } from './modals/modal-confirm/modal-confirm-rm.component';
 
 
 @NgModule({
@@ -119,7 +120,7 @@ import { ModalConfirmRemarkComponent } from './modals/modal-confirm-remark/modal
     OrderDetailComponent,
     ButtonGoBackComponent,
     ModalConfirmRemarkComponent,
-    ModalConfirmComponent
+    ModalConfirmRmComponent
   ],
   entryComponents: [
     ModalCreateBankAccountComponent,
@@ -134,7 +135,7 @@ import { ModalConfirmRemarkComponent } from './modals/modal-confirm-remark/modal
     ModalMessageComponent,
     ModalConfirmComponent,
     ModalConfirmRemarkComponent,
-    ModalConfirmComponent
+    ModalConfirmRmComponent
   ],
   imports: [
     BrowserModule,

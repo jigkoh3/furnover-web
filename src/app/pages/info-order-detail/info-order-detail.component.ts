@@ -11,6 +11,7 @@ import { Constants } from 'src/app/app.constants';
 export class InfoOrderDetailComponent implements OnInit {
   orderID: String = '';
   shop_id: String = '';
+  tabName: any;
   data: any = {};
   item_ids: Array<any> = [];
   constructor(private activatedRoute: ActivatedRoute, private api: RestApiService) { }
@@ -22,8 +23,10 @@ export class InfoOrderDetailComponent implements OnInit {
         if (params['id']) {
           const orderID = params['id'];
           const item_ids = params['item_ids'];
+          const tabName = params['tabName'];
           this.item_ids = item_ids;
           this.orderID = orderID;
+          this.tabName = tabName;
           this.getOrderDetail();
         }
       });
