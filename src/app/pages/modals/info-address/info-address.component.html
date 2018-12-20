@@ -54,19 +54,20 @@
     </div>
 
     <div class="row">
-      <div class="col-md-2 txt-left">
+      <div class="col-12 col-md-2 txt-left">
         <div>
-          <button name="saveAddress" mat-flat-button color="primary" (click)="clickSave()" [disabled]="!(data.name && data.tel && data.name && data.address && data.province && data.district && data.subdistrict && data.postcode)">บันทึก</button>
+          <button name="saveAddress" style="width: 100%;margin-bottom: 10px;" mat-flat-button color="primary" (click)="clickSave()" [disabled]="!(data.name && data.tel && data.name && data.address && data.province && data.district && data.subdistrict && data.postcode)">บันทึก</button>
         </div>
       </div>
-      <div class="col-md-8 txt-left">
+      <div class="col-12 col-md-2 txt-left">
         <div>
-          <button name="cancel" mat-stroked-button [mat-dialog-close]>ยกเลิก</button>
+          <button name="cancel" style="width: 100%;margin-bottom: 10px;" mat-stroked-button [mat-dialog-close]>ยกเลิก</button>
         </div>
       </div>
-      <div class="col-md-2 txt-left">
+      <div class="col-md-6 d-none d-md-block"></div>
+      <div class="col-12 col-md-2 txt-left">
         <div>
-          <button *ngIf="data._id" name="deleteAddres" mat-stroked-button (click)="clickdelete(data._id)">ลบที่อยู่</button>
+          <button *ngIf="data._id" style="width: 100%;margin-bottom: 10px;" name="deleteAddres" mat-stroked-button (click)="clickdelete(data._id)">ลบที่อยู่</button>
         </div>
       </div>
     </div>
