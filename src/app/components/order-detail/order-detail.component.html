@@ -88,6 +88,14 @@
           </table>
         </div>
       </div>
+      
+      <div class="box">
+        <p>
+          <mat-icon>list_alt</mat-icon> <b class="abs">หมายเหตุ</b>
+        </p>
+        <p class="data-color ml-2" *ngIf="data.shop.remark">{{data.shop.remark}}</p>
+        <p class="data-color ml-3" *ngIf="!data.shop.remark">-</p>
+      </div>
 
       <div class="box bg">
         <div class="row">
