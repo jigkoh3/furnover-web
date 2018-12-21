@@ -104,6 +104,8 @@ export class MyPromotionHeaderComponent implements OnInit {
 
   edit() {
     this.isSave = false;
+    this.isCreate = true;
+    this.isEdit = false;
     this.data.isSave = this.isSave;
     this.outputData.emit(this.data);
   }
@@ -114,6 +116,8 @@ export class MyPromotionHeaderComponent implements OnInit {
     setTimeout(() => {
       if (this.isValidateDate) {
         this.isSave = true;
+        this.isEdit = true;
+        this.isCreate = false;
         this.data.isSave = this.isSave;
         this.data.startdate = this._startdate;
         this.data.enddate = this._enddate;
