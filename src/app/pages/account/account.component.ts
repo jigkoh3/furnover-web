@@ -98,7 +98,7 @@ export class AccountComponent implements OnInit {
     this.email = usershop.email;
     this._birthday = new Date(this.data.birthday);
     this.birthday = new Date(this.data.birthday);
-    console.log(this.data);
+    // console.log(this.data);
   }
 
   getBirthday(e) {
@@ -120,7 +120,7 @@ export class AccountComponent implements OnInit {
       this.data.birthday = this.birthday;
       const res: any = await this.restApi.put(Constants.URL() + '/api/user/' + this.data._id, this.data);
       this.data = res.data;
-      console.log(res);
+      // console.log(res);
       await window.localStorage.setItem(Constants.URL() + '@token', res.token);
       await window.localStorage.setItem(Constants.URL() + '@user', JSON.stringify(this.data));
       this.clickShow1();
@@ -139,7 +139,7 @@ export class AccountComponent implements OnInit {
       this.data.tel = this.tel;
       const res: any = await this.restApi.put(Constants.URL() + '/api/user/' + this.data._id, this.data);
       this.data = res.data;
-      console.log(res);
+      // console.log(res);
       await window.localStorage.setItem(Constants.URL() + '@token', res.token);
       await window.localStorage.setItem(Constants.URL() + '@user', JSON.stringify(this.data));
       this.clickShow2();
@@ -157,7 +157,7 @@ export class AccountComponent implements OnInit {
       this.data.email = this.email;
       const res: any = await this.restApi.put(Constants.URL() + '/api/user/' + this.data._id, this.data);
       this.data = res.data;
-      console.log(res);
+      // console.log(res);
       await window.localStorage.setItem(Constants.URL() + '@token', res.token);
       await window.localStorage.setItem(Constants.URL() + '@user', JSON.stringify(this.data));
       this.clickShow3();

@@ -33,12 +33,12 @@ export class AddressComponent implements OnInit {
     try {
       const usershop = window.localStorage.getItem(Constants.URL() + '@user') ?
         JSON.parse(window.localStorage.getItem(Constants.URL() + '@user')) : {};
-      console.log(usershop._id);
+      // console.log(usershop._id);
       let res: any = await this.restApi.post(Constants.URL() + '/api/address-me', { user_id: usershop._id });
       if (res['status'] === 200) {
         this.data = res.datas;
         this.spinner.hide();
-        console.log(res);
+        // console.log(res);
       }
     } catch (error) {
       this.spinner.hide();

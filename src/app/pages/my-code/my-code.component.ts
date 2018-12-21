@@ -54,7 +54,7 @@ export class MyCodeComponent implements OnInit {
       let res: any = await this.restApi.post(Constants.URL() + '/api/my-code', objectData);
       if (res['status'] === 200) {
         this.statusArray = res.data.status;
-        console.log(res.data);
+        // console.log(res.data);
         // if (this.statusArray || this.statusArray.length === 0) {
         //   this.statusArray = [{ name: 'ทั้งหมด' }, { name: 'ตั้งเวลาล่วงหน้า' }, { name: 'อยู่ระหว่างการโฆษณา' }, { name: 'สิ้นสุดแล้ว' }];
         // }
@@ -76,7 +76,7 @@ export class MyCodeComponent implements OnInit {
     if (this.statusArray && this.statusArray.length > 0) {
       this.status = this.statusArray[event.index].status;
     }
-    console.log(this.status);
+    // console.log(this.status);
     this.getCode();
   }
 
@@ -96,7 +96,7 @@ export class MyCodeComponent implements OnInit {
       if (res['status'] === 200) {
         this.data = res.data;
         this.tabs = this.data.tabs;
-        console.log(this.data);
+        // console.log(this.data);
         this.spinner.hide();
         if (this.data && this.data.codes.length === 0) {
           this.dataService.warning('ไม่พบข้อมูลส่วนลด');
@@ -109,7 +109,7 @@ export class MyCodeComponent implements OnInit {
   }
 
   onDetail(item) {
-    console.log(item);
+    // console.log(item);
     this.route.navigate(['/info-my-code'], { queryParams: { item: item._id} });
   }
 

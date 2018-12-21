@@ -79,7 +79,7 @@ export class MyPromotionComponent implements OnInit {
     if (this.statusArray && this.statusArray.length > 0) {
       this.status = this.statusArray[event.index].status;
     }
-    console.log(this.status);
+    // console.log(this.status);
     this.getPromotion();
   }
 
@@ -154,7 +154,7 @@ export class MyPromotionComponent implements OnInit {
         this.data = res.data;
         this.tabs = this.data.tabs;
         this.spinner.hide();
-        console.log(this.data);
+        // console.log(this.data);
         if (this.data && this.data.discounts.length === 0) {
           this.dataService.warning('ไม่พบข้อมูลโปรโมชั่น');
         }

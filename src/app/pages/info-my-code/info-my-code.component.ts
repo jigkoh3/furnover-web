@@ -137,7 +137,7 @@ export class InfoMyCodeComponent implements OnInit {
         this.data.percentage = this.data.percentage || {};
         this._startdate = new Date(this.data.startdate);
         this._enddate = new Date(this.data.enddate);
-        console.log(this.data);
+        // console.log(this.data);
         // console.log(this.status);
         // console.log(this.status2);
         if (this.data.itemtype === 'all') {
@@ -294,7 +294,7 @@ export class InfoMyCodeComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(async result => {
-      console.log(`Dialog closed: ${result}`);
+      // console.log(`Dialog closed: ${result}`);
       const deleteCat = result;
       if (deleteCat === 'confirm') {
         this.spinner.show();
@@ -302,7 +302,7 @@ export class InfoMyCodeComponent implements OnInit {
           const index = this.data.products.findIndex((itm) => {
             return itm._id.toString() === item._id.toString();
           });
-          console.log(index);
+          // console.log(index);
           if (index >= 0) {
             this.data.products.splice(index, 1);
           }
@@ -333,7 +333,7 @@ export class InfoMyCodeComponent implements OnInit {
       status: 'end'
     }
     dialogRef.afterClosed().subscribe(async result => {
-      console.log(`Dialog closed: ${result}`);
+      // console.log(`Dialog closed: ${result}`);
       const deleteCat = result;
       if (deleteCat === 'confirm') {
         this.spinner.show();
@@ -377,7 +377,7 @@ export class InfoMyCodeComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(async result => {
-      console.log(`Dialog closed: ${result}`);
+      // console.log(`Dialog closed: ${result}`);
       const deleteCat = result;
       if (deleteCat === 'confirm') {
         this.spinner.show();

@@ -53,18 +53,18 @@ export class MySaleComponent implements OnInit {
     });
     this.orderService.openingModalWaitshipping.observers = [];
     this.orderService.openingModalWaitshipping.subscribe((order_id) => {
-      console.log(order_id);
+      // console.log(order_id);
       const dialogRef = this.dialog.open(ModalConfirmRemarkComponent, {
         width: "500px",
         data: { message: "ยืนยันการจัดส่ง?" },
         autoFocus: false
       });
       dialogRef.afterClosed().subscribe(async result => {
-        console.log(result);
-        console.log(`Dialog closed: ${result}`);
+        // console.log(result);
+        // console.log(`Dialog closed: ${result}`);
         const resultConfrim = result;
         if (resultConfrim === "confirm") {
-          console.log('confirm');
+          // console.log('confirm');
           this.orderService.openModalWaitshippingConfirm.emit(order_id);
           // console.log("object");
         }

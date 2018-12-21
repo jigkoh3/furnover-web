@@ -77,7 +77,7 @@ export class InfoAddressComponent implements OnInit {
       data: { message: 'คุณต้องการลบที่อยู่หรือไม่?' }
     });
     dialogRef.afterClosed().subscribe(async result => {
-      console.log(`Dialog closed: ${result}`);
+      // console.log(`Dialog closed: ${result}`);
       const resultModal = result;
       if (resultModal === 'confirm') {
         this.spinner.show();

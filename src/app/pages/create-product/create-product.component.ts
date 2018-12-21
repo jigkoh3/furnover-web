@@ -25,7 +25,7 @@ export class CreateProductComponent implements OnInit {
     if (fileBrowser.files.length > 0) {
       reader.onload = () => {
         const base64: any = reader.result.replace(/\n/g, '');
-        console.log(base64);
+        // console.log(base64);
         this.productImgs.push(base64);
       };
     }

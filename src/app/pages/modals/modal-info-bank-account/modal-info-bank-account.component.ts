@@ -19,7 +19,7 @@ export class ModalInfoBankAccountComponent implements OnInit {
     public restApi: RestApiService,
     public dialogRef: MatDialogRef<ModalInfoBankAccountComponent>
   ) {
-    console.log(data);
+    // console.log(data);
   }
 
   ngOnInit() {
@@ -41,7 +41,7 @@ export class ModalInfoBankAccountComponent implements OnInit {
   async getBankdata() {
     try {
       let respone: any = await this.restApi.get(Constants.URL() + '/api/bankaccount/' + this.data._id)
-      console.log(respone);
+      // console.log(respone);
       this.showDetail = respone.data;
     } catch (error) {
 

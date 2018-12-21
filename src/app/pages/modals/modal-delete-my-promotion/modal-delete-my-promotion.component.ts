@@ -21,7 +21,7 @@ export class ModalDeleteMyPromotionComponent implements OnInit {
   ) {
 
     this.data = item;
-    console.log(this.data);
+    // console.log(this.data);
   }
 
   ngOnInit() {

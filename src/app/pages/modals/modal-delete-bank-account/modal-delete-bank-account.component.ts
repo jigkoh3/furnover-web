@@ -27,7 +27,7 @@ export class ModalDeleteBankAccountComponent implements OnInit {
   async getDetail() {
     try {
       let respone: any = await this.restApi.get(Constants.URL() + '/api/bankaccount/' + this.data._id)
-      console.log(respone);
+      // console.log(respone);
       this.showDetail = respone.data;
     } catch (error) {
 

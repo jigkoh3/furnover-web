@@ -19,7 +19,7 @@ export class ModalDeleteProductComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     this.products = data;
-    console.log(this.products)
+    // console.log(this.products)
 
   }
 
