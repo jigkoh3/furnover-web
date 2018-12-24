@@ -230,7 +230,12 @@ export class InfoProductComponent implements OnInit {
       };
       const res: any = await this.restApi.post(Constants.URL() + '/api/product-item', bodyReq);
       this.resData = res.data;
-      // console.log(this.resData);
+      console.log(this.resData.logistics);
+      if (this.resData.logistics.length < 1) {
+        console.log(this.shippings.length);
+        // console.log('ยังไม่ได้เปิดการจัดส่งนะ') 
+        this.route.navigate(['/logistic']);
+      }
       if (productid) {
         this.bindBack();
       }
