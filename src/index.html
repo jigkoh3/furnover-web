@@ -20,7 +20,13 @@
       OneSignal.init({
         appId: "8699b515-3b1e-4735-ad43-b0e8082fcea8",
       });
+
+      OneSignal.getUserId().then(function (userId) {
+        console.log("OneSignal User ID:", userId);
+        window.localStorage.setItem('oneSignal', userId);
+      });
     });
+
   </script>
 </head>
 
