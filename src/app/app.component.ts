@@ -8,7 +8,7 @@ import { Constants } from './app.constants';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements AfterViewInit, AfterViewChecked, OnInit {
+export class AppComponent implements AfterViewInit, AfterViewChecked {
   @ViewChild('appDrawer') appDrawer: ElementRef;
   mode = 'over';
   opened = false;
@@ -24,17 +24,6 @@ export class AppComponent implements AfterViewInit, AfterViewChecked, OnInit {
     this.configFirebase();
   }
 
-  ngOnInit() {
-    const OneSignal = window['OneSignal'] || [];
-    OneSignal.push(['init', {
-      appId: 'a076eea5-5390-44c9-977f-a5d5aecad86b',
-      autoRegister: false,
-      allowLocalhostAsSecureOrigin: true,
-      notifyButton: {
-        enable: false
-      }
-    }]);
-  }
 
   ngAfterViewChecked() {
     const user = JSON.parse(localStorage.getItem(Constants.URL() + '@user')) ?
