@@ -11,14 +11,21 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
   <link rel="manifest" href="/manifest.json" />
-  <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+  <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>
   <script>
     var OneSignal = window.OneSignal || [];
-    OneSignal.push(function () {
-      OneSignal.init({
-        appId: "8699b515-3b1e-4735-ad43-b0e8082fcea8",
-      });
-    });
+    // OneSignal.push(function () {
+    //   OneSignal.init({
+    //     appId: "8699b515-3b1e-4735-ad43-b0e8082fcea8",
+    //   });
+    // });
+    OneSignal.push(["init", {
+      appId: "8699b515-3b1e-4735-ad43-b0e8082fcea8",
+      autoRegister: false,
+      notifyButton: {
+        enable: true /* Set to false to hide */
+      }
+    }]);
 
   </script>
 <link rel="stylesheet" href="styles.63c3d901cee41a0df91e.css"></head>
@@ -38,6 +45,6 @@
 
   </script>
   <app-root></app-root>
-<script type="text/javascript" src="runtime.a66f828dca56eeb90e02.js"></script><script type="text/javascript" src="polyfills.c506009d1a44ce455903.js"></script><script type="text/javascript" src="main.448f057b1cac67e6587a.js"></script></body>
+<script type="text/javascript" src="runtime.a66f828dca56eeb90e02.js"></script><script type="text/javascript" src="polyfills.c506009d1a44ce455903.js"></script><script type="text/javascript" src="main.33d0a1cb4abd00f867c6.js"></script></body>
 
 </html>

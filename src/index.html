@@ -11,14 +11,21 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
   <link rel="manifest" href="/manifest.json" />
-  <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+  <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>
   <script>
     var OneSignal = window.OneSignal || [];
-    OneSignal.push(function () {
-      OneSignal.init({
-        appId: "8699b515-3b1e-4735-ad43-b0e8082fcea8",
-      });
-    });
+    // OneSignal.push(function () {
+    //   OneSignal.init({
+    //     appId: "8699b515-3b1e-4735-ad43-b0e8082fcea8",
+    //   });
+    // });
+    OneSignal.push(["init", {
+      appId: "8699b515-3b1e-4735-ad43-b0e8082fcea8",
+      autoRegister: false,
+      notifyButton: {
+        enable: true /* Set to false to hide */
+      }
+    }]);
 
   </script>
 </head>
