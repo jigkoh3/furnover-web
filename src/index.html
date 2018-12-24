@@ -9,8 +9,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
-  <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"> -->
 
   <link rel="manifest" href="/manifest.json" />
   <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
@@ -21,9 +19,12 @@
         appId: "8699b515-3b1e-4735-ad43-b0e8082fcea8",
       });
 
-      OneSignal.getUserId().then(function (userId) {
-        console.log("OneSignal User ID:", userId);
-        window.localStorage.setItem('oneSignal', userId);
+      OneSignal.on('subscriptionChange', function (isSubscribed) {
+        console.log("The user's subscription state is now:", isSubscribed);
+        OneSignal.getUserId(function (userId) {
+          console.log("OneSignal User ID:", userId);
+          window.localStorage.setItem('oneSignal', userId);
+        });
       });
     });
 
