@@ -26,19 +26,22 @@
 <body>
   <script>
     OneSignal.push(function () {
-      // OneSignal.on('subscriptionChange', function (isSubscribed) {
-      //   console.log("The user's subscription state is now:", isSubscribed);
-      // });
-      OneSignal.getUserId(function (userId) {
-        console.log("OneSignal User ID:", userId);
+      OneSignal.on('subscriptionChange', function (isSubscribed) {
+        if (isSubscribed) {
+          OneSignal.getUserId(function (userId) {
+            window.localStorage.setItem('@oneSignal', userId);
+          });
+        }
       });
-      OneSignal.getUserId().then(function (userId) {
-        console.log("OneSignal User ID:", userId);
+      OneSignal.getUserId(function (userId) {
+        if (userId) {
+          window.localStorage.setItem('@oneSignal', userId);
+        }
       });
     });
 
   </script>
   <app-root></app-root>
-<script type="text/javascript" src="runtime.a66f828dca56eeb90e02.js"></script><script type="text/javascript" src="polyfills.c506009d1a44ce455903.js"></script><script type="text/javascript" src="main.21eb42757cb95ee8f2ce.js"></script></body>
+<script type="text/javascript" src="runtime.a66f828dca56eeb90e02.js"></script><script type="text/javascript" src="polyfills.c506009d1a44ce455903.js"></script><script type="text/javascript" src="main.899655f82611875b2485.js"></script></body>
 
 </html>

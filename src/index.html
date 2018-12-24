@@ -26,14 +26,17 @@
 <body>
   <script>
     OneSignal.push(function () {
-      // OneSignal.on('subscriptionChange', function (isSubscribed) {
-      //   console.log("The user's subscription state is now:", isSubscribed);
-      // });
-      OneSignal.getUserId(function (userId) {
-        console.log("OneSignal User ID:", userId);
+      OneSignal.on('subscriptionChange', function (isSubscribed) {
+        if (isSubscribed) {
+          OneSignal.getUserId(function (userId) {
+            window.localStorage.setItem('@oneSignal', userId);
+          });
+        }
       });
-      OneSignal.getUserId().then(function (userId) {
-        console.log("OneSignal User ID:", userId);
+      OneSignal.getUserId(function (userId) {
+        if (userId) {
+          window.localStorage.setItem('@oneSignal', userId);
+        }
       });
     });
 

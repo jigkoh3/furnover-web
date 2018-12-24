@@ -46,8 +46,7 @@ export class LoginComponent implements OnInit {
       if (response.data.roles[0] === 'shop') {
         window.localStorage.setItem(Constants.URL() + '@token', response.token);
         window.localStorage.setItem(Constants.URL() + '@user', JSON.stringify(response.data));
-        this.router.navigate(['/home']);
-        this.spinner.hide();
+        this.setOneSignal();
       } else {
         this.spinner.hide();
         this.dataService.error('ต้องเป็น role shop เท่านั้น');
@@ -61,6 +60,21 @@ export class LoginComponent implements OnInit {
         return this.dataService.error('ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง');
       }
       return this.dataService.error('เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง');
+    }
+  }
+
+  async setOneSignal() {
+    try {
+      const oneSignal: any = JSON.parse(window.localStorage.getItem('@oneSignal'));
+      const reqBody: any = {
+        userid: oneSignal.userId ? oneSignal.userId : ''
+      };
+      const res: any = await this.restApi.post(Constants.URL() + '/api/auth/onesignal', reqBody);
+      this.router.navigate(['/home']);
+      this.spinner.hide();
+    } catch (error) {
+      this.spinner.hide();
+      throw error;
     }
   }
 
