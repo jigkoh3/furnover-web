@@ -135,7 +135,7 @@ export class ProfileSettingComponent implements OnInit {
   //Image
   detectFiles(event, status) {
     this.selectedFiles = event.target.files;
-    if (this.selectedFiles.length >= 5) {
+    if (this.selectedFiles.length > 5) {
       let text: any = 'คุณสามารถอัพโหลดไฟล์ได้ไม่เกิน 5 ไฟล์';
       const dialogRef = this.dialog.open(ModalMessageComponent, {
         width: "500px",
