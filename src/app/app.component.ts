@@ -9,24 +9,10 @@ import { Constants } from './app.constants';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements AfterViewInit, AfterViewChecked, OnInit {
-
-  ngOnInit() {
-    var OneSignal = window['OneSignal'] || [];
-    OneSignal.push(["init", {
-      appId: "a076eea5-5390-44c9-977f-a5d5aecad86b",
-      autoRegister: false,
-      allowLocalhostAsSecureOrigin: true,
-      notifyButton: {
-        enable: false
-      }
-    }]);
-  }
-
   @ViewChild('appDrawer') appDrawer: ElementRef;
   mode = 'over';
   opened = false;
   user: any = {};
-
   @HostListener('window:resize') onResize() {
     this.onResizeDisplay();
   }
@@ -36,6 +22,18 @@ export class AppComponent implements AfterViewInit, AfterViewChecked, OnInit {
     private changeDetectorRef: ChangeDetectorRef
   ) {
     this.configFirebase();
+  }
+
+  ngOnInit() {
+    const OneSignal = window['OneSignal'] || [];
+    OneSignal.push(['init', {
+      appId: 'a076eea5-5390-44c9-977f-a5d5aecad86b',
+      autoRegister: false,
+      allowLocalhostAsSecureOrigin: true,
+      notifyButton: {
+        enable: false
+      }
+    }]);
   }
 
   ngAfterViewChecked() {
