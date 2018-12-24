@@ -21,8 +21,8 @@
             <button name="buttonEditPage1" mat-stroked-button class="mgl" (click)="clickShow1()">แก้ไข</button>
           </div>
           <div *ngIf="show1">
-            <button name="buttonUpdatePage1" [disabled]="name.length < 1 || surname.length < 1" mat-flat-button color="primary"
-              class="mgl" (click)="saveData()" style="margin-bottom: 10px">อัพเดท</button>
+            <button name="buttonUpdatePage1" [disabled]="name.length < 1 || surname.length < 1 || _birthday > setDateTime"
+              mat-flat-button color="primary" class="mgl" (click)="saveData()" style="margin-bottom: 10px">อัพเดท</button>
             <button name="buttonCancelPage1" mat-stroked-button class="mgl" (click)="clickShow1()">ยกเลิก</button>
             <div class="row">
               <span class=" inp-style">
@@ -53,6 +53,9 @@
                   <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
                   <mat-datepicker name="selectBirthday" #dp></mat-datepicker>
                 </mat-form-field>
+                <div class="box-preview" *ngIf="_birthday > setDateTime">
+                  <span>กรุณากรอกวันเกิดให้น้อยกว่าวันที่ปัจจุบัน</span>
+                </div>
               </span>
             </div>
           </div>
@@ -95,8 +98,8 @@
             <button name="buttonEditPage3" mat-stroked-button class="mgl" (click)="clickShow3()">แก้ไข</button>
           </div>
           <div *ngIf="show3">
-            <button name="buttonUpdatePage3" [disabled]="!isCheckEmail" mat-flat-button
-              color="primary" class="mgl" (click)="saveEmail()" style="margin-bottom: 10px">อัพเดท</button>
+            <button name="buttonUpdatePage3" [disabled]="!isCheckEmail" mat-flat-button color="primary" class="mgl"
+              (click)="saveEmail()" style="margin-bottom: 10px">อัพเดท</button>
             <button name="buttonCancelPage3" mat-stroked-button class="mgl" (click)="clickShow3()">ยกเลิก</button>
             <mat-form-field>
               <input name="email" matInput placeholder="อีเมล์" value="" [(ngModel)]="email" (ngModelChange)="validateEmail(email)">

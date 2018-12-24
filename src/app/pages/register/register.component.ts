@@ -58,11 +58,12 @@ export class RegisterComponent implements OnInit {
           return this.dataService.error('อีเมล์นี้มีผู้ใช้งานแล้ว');
         } else if (error['error']['message'] === 'Please fill a valid email address') {
           return this.dataService.error('อีเมล์ไม่ถูกต้อง');
-        } else if (error['error']['message'] === ' Username already exists') {
+        } else if (error['error']['message'] === 'Username already exists') {
           return this.dataService.error('ชื่อผู้ใช้นี้มีผู้ใช้งานแล้ว');
+        } else {
+          return this.dataService.error('เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง');
         }
       }
-      return this.dataService.error('เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง');
     }
   }
 

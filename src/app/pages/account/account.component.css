@@ -54,3 +54,10 @@
 .inp-style {
     margin-left: 1.1rem;
 }
+
+.box-preview {
+    background-color: #fff3e2;
+    padding: 6px;
+    font-size: 0.8rem;
+    color: #a79d84;
+}

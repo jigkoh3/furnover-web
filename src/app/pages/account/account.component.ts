@@ -46,6 +46,8 @@ export class AccountComponent implements OnInit {
   email: any;
   tel: any;
   isCheckEmail: any;
+  currentDate: any = new Date();
+  setDateTime = this.currentDate.setHours(0, 0, 0, 0);
 
 
   constructor(
