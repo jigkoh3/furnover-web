@@ -51,7 +51,7 @@ export class BankAccountComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
+      // console.log(result);
       if (result) {
         this.getDatabank();
       }
@@ -81,7 +81,7 @@ export class BankAccountComponent implements OnInit {
       this.showDataBank = respone.datas;
       this.spinner.hide();
 
-      console.log(respone);
+      // console.log(respone);
 
     } catch (error) {
       this.spinner.hide();

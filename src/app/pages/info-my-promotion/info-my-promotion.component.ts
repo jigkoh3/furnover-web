@@ -53,7 +53,7 @@ export class InfoMyPromotionComponent implements OnInit {
     try {
       const res: any = await this.restApi.get(Constants.URL() + '/api/discount/' + this.itemId);
       this.data = res.data;
-      console.log(this.data);
+      // console.log(this.data);
       this.itemStatus = res.data.flag;
       this.spinner.hide();
     } catch (error) {
@@ -75,7 +75,7 @@ export class InfoMyPromotionComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         result.forEach(item => {
-          console.log(item);
+          // console.log(item);
           const index = this.data.products.findIndex(findindex => {
             return findindex._id === item._id;
           });
@@ -103,7 +103,7 @@ export class InfoMyPromotionComponent implements OnInit {
   getDataPromotionList(e) {
     this.data = e;
     this.validatePrice();
-    console.log(this.data);
+    // console.log(this.data);
   }
 
   validatePrice() {
@@ -141,7 +141,7 @@ export class InfoMyPromotionComponent implements OnInit {
         if (this.itemId) {
           try {
             const res: any = await this.restApi.put(Constants.URL() + '/api/discount/' + this.itemId, this.data);
-            console.log(res)
+            // console.log(res)
             this.data.starttime = this.oldTime.starttime;
             this.data.endtime = this.oldTime.endtime;
             this.spinner.hide();
@@ -210,7 +210,7 @@ export class InfoMyPromotionComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(async result => {
-      console.log(`Dialog closed: ${result}`);
+      // console.log(`Dialog closed: ${result}`);
       const deleteCat = result;
       if (deleteCat === 'confirm') {
         this.spinner.show();
@@ -242,12 +242,12 @@ export class InfoMyPromotionComponent implements OnInit {
 
       });
     });
-    console.log(this.data);
+    // console.log(this.data);
 
     try {
       const res: any = await this.restApi.put(Constants.URL() + '/api/discount/' + this.itemId, this.data)
       this.spinner.hide();
-      console.log(res)
+      // console.log(res)
     } catch (error) {
       this.spinner.hide();
       throw error;
@@ -258,7 +258,7 @@ export class InfoMyPromotionComponent implements OnInit {
     const now: any = new Date();
     const createDate: any = new Date(this.data.created);
     const hours = Math.abs(now - createDate) / 36e5;
-    console.log(hours);
+    // console.log(hours);
     this.dateLimited = hours;
   }
 

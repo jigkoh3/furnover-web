@@ -254,7 +254,7 @@ export class InfoShopCategoryComponent implements OnInit {
                 Constants.URL() + '/api/categoryShop/' + this.categoryData._id
             );
             this.categoryData = resp.data;
-            console.log(this.categoryData);
+            // console.log(this.categoryData);
             this.categoryDataCopy = JSON.parse(JSON.stringify(this.categoryData));
         } catch (error) { throw error; }
     }

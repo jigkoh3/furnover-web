@@ -71,7 +71,7 @@ export class ProfileSettingComponent implements OnInit {
       if (this.shop.coverimage && this.shop.coverimage.url) {
         this.imageLoader = false;
       }
-      console.log(this.shop);
+      // console.log(this.shop);
     } catch (error) {
       this.spinner.hide();
       this.dataService.error("โหลดข้อมูลล้มเหลว กรุณาลองใหม่อีกครั้ง")

@@ -27,7 +27,7 @@ export class HomeComponent implements OnInit {
   async testService() {
     try {
       const tt: any = await this.api.get(Constants.URL() + '/');
-      console.log(tt);
+      // console.log(tt);
     } catch (error) {
       console.log(error);
     }

@@ -125,7 +125,7 @@ export class ShopCategoryComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(async result => {
-      console.log(`Dialog closed: ${result}`);
+      // console.log(`Dialog closed: ${result}`);
       const deleteCat = result;
       if (deleteCat === 'confirm') {
         this.spinner.show();

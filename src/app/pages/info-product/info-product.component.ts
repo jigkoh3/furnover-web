@@ -615,7 +615,7 @@ export class InfoProductComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(async result => {
-      console.log(`Dialog closed: ${result}`);
+      // console.log(`Dialog closed: ${result}`);
       const deletePrd = result;
       if (deletePrd === 'confirm') {
         this.spinner.show();

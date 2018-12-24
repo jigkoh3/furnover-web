@@ -45,7 +45,7 @@ export class MyPromotionListComponent implements OnInit {
         }
     }
     getData() {
-        console.log(this.data);
+        // console.log(this.data);
         // const respone = {
         //   datas: [
         //     {
@@ -82,11 +82,11 @@ export class MyPromotionListComponent implements OnInit {
 
     }
     changeData(e) {
-        console.log(e);
+        // console.log(e);
         if (e) {
             if (this.dateLimited >= 1 || this.itemStatus === "soon" || !this.itemStatus) {
-                console.log('1')
-                console.log(this.data.products);
+                // console.log('1')
+                // console.log(this.data.products);
                 this.data.products.forEach(product => {
                     let countIsuse: any = 0;
                     product.prices.forEach(price => {
@@ -108,13 +108,13 @@ export class MyPromotionListComponent implements OnInit {
                     }
                 });
             } else {
-                console.log('1.2')
+                // console.log('1.2')
                 // this.data.products[i].prices[j].isuse = false;
             }
         } else {
             if (this.dateLimited >= 1 || this.itemStatus === "soon" || !this.itemStatus) {
-                console.log('2')
-                console.log(this.data.products);
+                // console.log('2')
+                // console.log(this.data.products);
                 this.data.products.forEach(product => {
                     let countIsuse: any = 0;
                     product.prices.forEach(price => {
@@ -136,7 +136,7 @@ export class MyPromotionListComponent implements OnInit {
                     }
                 });
             } else {
-                console.log('2.2')
+                // console.log('2.2')
                 // setTimeout(() => {
                 //     this.data.products[i].prices[j].isuse = true;
                 // }, 100);
@@ -213,7 +213,7 @@ export class MyPromotionListComponent implements OnInit {
             data: { message: 'ยืนยันการลบสินค้า' }
         });
         dialogRef.afterClosed().subscribe(async result => {
-            console.log(`Dialog closed: ${result}`);
+            // console.log(`Dialog closed: ${result}`);
             const deleteCat = result;
             if (deleteCat === 'confirm') {
                 this.data.products.splice(i, 1);
@@ -229,7 +229,7 @@ export class MyPromotionListComponent implements OnInit {
         const now: any = new Date();
         const createDate: any = new Date(this.data.created);
         const hours = Math.abs(now - createDate) / 36e5;
-        console.log(hours);
+        // console.log(hours);
         this.dateLimited = hours;
     }
 
