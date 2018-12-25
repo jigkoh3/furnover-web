@@ -46,14 +46,21 @@ export class ToolbarComponent implements OnInit {
     this.spinner.show();
     try {
       const oneSignal: any = window.localStorage.getItem('@oneSignal');
-      const reqBody: any = {
-        userid: oneSignal ? oneSignal : ''
-      };
-      const res: any = await this.restApi.post(Constants.URL() + '/api/auth/onesignal-delete', reqBody);
-      window.localStorage.removeItem(Constants.URL() + '@token');
-      window.localStorage.removeItem(Constants.URL() + '@user');
-      this.router.navigate(['auth/login']);
-      this.spinner.hide();
+      if (oneSignal) {
+        const reqBody: any = {
+          userid: oneSignal ? oneSignal : ''
+        };
+        const res: any = await this.restApi.post(Constants.URL() + '/api/auth/onesignal-delete', reqBody);
+        window.localStorage.removeItem(Constants.URL() + '@token');
+        window.localStorage.removeItem(Constants.URL() + '@user');
+        this.router.navigate(['auth/login']);
+        this.spinner.hide();
+      } else {
+        window.localStorage.removeItem(Constants.URL() + '@token');
+        window.localStorage.removeItem(Constants.URL() + '@user');
+        this.router.navigate(['auth/login']);
+        this.spinner.hide();
+      }
     } catch (error) {
       this.spinner.hide();
       throw error;

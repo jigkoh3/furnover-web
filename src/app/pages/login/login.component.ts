@@ -66,12 +66,17 @@ export class LoginComponent implements OnInit {
   async setOneSignal() {
     try {
       const oneSignal: any = window.localStorage.getItem('@oneSignal');
-      const reqBody: any = {
-        userid: oneSignal ? oneSignal : ''
-      };
-      const res: any = await this.restApi.post(Constants.URL() + '/api/auth/onesignal', reqBody);
-      this.router.navigate(['/home']);
-      this.spinner.hide();
+      if (oneSignal) {
+        const reqBody: any = {
+          userid: oneSignal ? oneSignal : ''
+        };
+        const res: any = await this.restApi.post(Constants.URL() + '/api/auth/onesignal', reqBody);
+        this.router.navigate(['/home']);
+        this.spinner.hide();
+      } else {
+        this.router.navigate(['/home']);
+        this.spinner.hide();
+      }
     } catch (error) {
       this.spinner.hide();
       throw error;
