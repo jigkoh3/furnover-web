@@ -65,9 +65,9 @@ export class LoginComponent implements OnInit {
 
   async setOneSignal() {
     try {
-      const oneSignal: any = JSON.parse(window.localStorage.getItem('@oneSignal'));
+      const oneSignal: any = window.localStorage.getItem('@oneSignal');
       const reqBody: any = {
-        userid: oneSignal.userId ? oneSignal.userId : ''
+        userid: oneSignal ? oneSignal : ''
       };
       const res: any = await this.restApi.post(Constants.URL() + '/api/auth/onesignal', reqBody);
       this.router.navigate(['/home']);

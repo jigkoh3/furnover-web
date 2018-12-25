@@ -45,9 +45,9 @@ export class ToolbarComponent implements OnInit {
   async logout() {
     this.spinner.show();
     try {
-      const oneSignal: any = JSON.parse(window.localStorage.getItem('@oneSignal'));
+      const oneSignal: any = window.localStorage.getItem('@oneSignal');
       const reqBody: any = {
-        userid: oneSignal.userId ? oneSignal.userId : ''
+        userid: oneSignal ? oneSignal : ''
       };
       const res: any = await this.restApi.post(Constants.URL() + '/api/auth/onesignal-delete', reqBody);
       window.localStorage.removeItem(Constants.URL() + '@token');
