@@ -46,11 +46,10 @@ export class RegisterComponent implements OnInit {
     this.spinner.show();
     try {
       this.dataService.success('');
-      let response: any = await this.restApi.post(Constants.URL() + '/api/auth/signup-shop', this.credentials);
+      const response: any = await this.restApi.post(Constants.URL() + '/api/auth/signup-shop', this.credentials);
       window.localStorage.setItem(Constants.URL() + '@token', response.token);
       window.localStorage.setItem(Constants.URL() + '@user', JSON.stringify(response.data));
-      this.router.navigate(['/home']);
-      this.spinner.hide();
+      this.setOneSignal();
     } catch (error) {
       this.spinner.hide();
       if (error) {
@@ -64,6 +63,26 @@ export class RegisterComponent implements OnInit {
           return this.dataService.error('เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง');
         }
       }
+    }
+  }
+
+  async setOneSignal() {
+    try {
+      const oneSignal: any = window.localStorage.getItem('@oneSignal');
+      if (oneSignal) {
+        const reqBody: any = {
+          userid: oneSignal ? oneSignal : ''
+        };
+        const res: any = await this.restApi.post(Constants.URL() + '/api/auth/onesignal', reqBody);
+        this.router.navigate(['/home']);
+        this.spinner.hide();
+      } else {
+        this.router.navigate(['/home']);
+        this.spinner.hide();
+      }
+    } catch (error) {
+      this.spinner.hide();
+      throw error;
     }
   }
 
