@@ -21,6 +21,8 @@ export class SelectProductComponent implements OnInit {
   @Input() startDateEndDate: any;
   itemInPromo: any;
   itemSelect: boolean = false;
+  itemInPromoId: any;
+  itemProdId: any;
 
   data: any = {
     tabs: []
@@ -59,11 +61,13 @@ export class SelectProductComponent implements OnInit {
       this.spinner.show();
       let promotionProd: any = await this.restApi.post(Constants.URL() + "/api/product-discount-dubpicate", this.startDateEndDate);
       this.itemInPromo = promotionProd;
-      console.log(this.itemInPromo);
+      // console.log(this.itemInPromo);
       let itms: Array<any> = [];
       if (this.itemInPromo.data) {
         this.itemInPromo.data.forEach(itm => {
           itms.push(itm._id);
+          // this.itemInPromoId.push(itm._id);
+          // console.log(this.itemInPromoId);
         });
       }
       // console.log(this.itemInPromo);
@@ -71,15 +75,17 @@ export class SelectProductComponent implements OnInit {
       this.spinner.hide();
       if (data["status"] === 200) {
         this.data = data.data;
-        console.log(this.data);
+        // console.log(this.data);
         this.data.product.items.forEach(product => {
+          // this.itemProdId.push(product._id)
+          // console.log(this.itemProdId);
           if (itms.indexOf(product._id) === -1) {
             product.isPromotion = false;
           } else {
             product.isPromotion = true;
           }
         });
-        console.log(this.data);
+        // console.log(this.data);
         this.onCheckSelectedAll();
         if (this.data.product.items && this.data.product.items.length === 0) {
           this.dataService.warning("ไม่พบข้อมูลสินค้า");
@@ -111,29 +117,33 @@ export class SelectProductComponent implements OnInit {
   }
 
   onSelectedAll() {
+    console.log(this.checked);
     if (this.checked) {
       this.data.product.items.forEach(item => {
-        item.product_id = item._id;
-        if (this.validateEditProduct(item)) {
-          let index = this.productSelected.findIndex(e => {
-            return e.product_id === item._id;
-          });
-
-          if (index === -1) {
-            this.productSelected.push(item);
+        if (!item.isPromotion) {
+          item.product_id = item._id;
+          if (this.validateEditProduct(item)) {
+            let index = this.productSelected.findIndex(e => {
+              return e.product_id === item._id;
+            });
+            if (index === -1) {
+              this.productSelected.push(item);
+            }
           }
         }
       });
     } else {
       this.data.product.items.forEach(item => {
         item.product_id = item._id;
-        if (this.validateEditProduct(item)) {
-          let index = this.productSelected.findIndex(e => {
-            return e.product_id === item._id;
-          });
+        if (!item.isPromotion) {
+          if (this.validateEditProduct(item)) {
+            let index = this.productSelected.findIndex(e => {
+              return e.product_id === item._id;
+            });
 
-          if (index !== -1) {
-            this.productSelected.splice(index, 1);
+            if (index !== -1) {
+              this.productSelected.splice(index, 1);
+            }
           }
         }
       });
@@ -151,7 +161,6 @@ export class SelectProductComponent implements OnInit {
       let index = this.productSelected.findIndex(item => {
         return e._id === item.product_id;
       });
-
       if (index === -1) {
         this.checked = false;
       }
