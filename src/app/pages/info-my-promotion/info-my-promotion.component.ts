@@ -66,10 +66,17 @@ export class InfoMyPromotionComponent implements OnInit {
 
 
   openModalAddProduct() {
+    const user: any = JSON.parse(window.localStorage.getItem(Constants.URL() + '@user'));
+    const date = {
+      startdate: this.data.startdate,
+      enddate: this.data.enddate,
+      shop_id: user.shop_id
+    }
+    // console.log(this.data);
     const dialogRef = this.dialog.open(ModalSelectProductComponent, {
       width: '95vw',
       height: '90vh',
-      data: { products: this.data.products.length > 0 ? this.data.products : [], status: 'sell' }
+      data: { products: this.data.products.length > 0 ? this.data.products : [], status: 'sell', date: date }
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -98,6 +105,7 @@ export class InfoMyPromotionComponent implements OnInit {
 
   getDataHeader(e) {
     this.data = e;
+    // console.log(this.data)
   }
 
   getDataPromotionList(e) {
@@ -120,87 +128,87 @@ export class InfoMyPromotionComponent implements OnInit {
 
 
   async save() {
-        this.spinner.show();
-        this.oldTime = {
-          starttime: this.data.starttime,
-          endtime: this.data.endtime
-        };
-        const dateTimeStart = new Date(this.data.startdate);
-        const timespl = this.data.starttime.split(':');
-        dateTimeStart.setHours(timespl[0], timespl[1], 0, 0);
-        const dateTimeEnd = new Date(this.data.enddate);
-        const timespl2 = this.data.endtime.split(':');
-        dateTimeEnd.setHours(timespl2[0], timespl2[1], 0, 0);
-        this.data.startdate = dateTimeStart;
-        this.data.enddate = dateTimeEnd;
-        this.data.starttime = dateTimeStart;
-        this.data.endtime = dateTimeEnd;
-        const userShop: any = JSON.parse(window.localStorage.getItem(Constants.URL() + '@user'));
-        this.data.shop_id = userShop.shop._id;
-    
-        if (this.itemId) {
-          try {
-            const res: any = await this.restApi.put(Constants.URL() + '/api/discount/' + this.itemId, this.data);
-            // console.log(res)
-            this.data.starttime = this.oldTime.starttime;
-            this.data.endtime = this.oldTime.endtime;
-            this.spinner.hide();
-            this.route.navigate(['my-promotion']);
-            this.spinner.hide();
-            this.dialog.open(ModalCompleteComponent, {
-              width: '700px',
-              data: { message: 'บันทึกข้อมูลโปรโมชั่นสำเร็จ' }
-            });
-          } catch (error) {
-            if (error['error']['message'] === 'Please fill in a title') {
-              return this.dataService.error('กรุณาระบุข้อมูลชื่อโปรโมชั่น');
-            } else if (error['error']['message'] === 'Please fill in a startdate') {
-              return this.dataService.error('กรุณาระบุวันที่เริ่มต้น');
-            } else if (error['error']['message'] === 'Please fill in a starttime') {
-              return this.dataService.error('กรุณาระบุเวลาเริ่มต้น');
-            } else if (error['error']['message'] === 'Please fill in a enddate') {
-              return this.dataService.error('กรุณาระบุวันที่สิ้นสุด');
-            } else if (error['error']['message'] === 'Please fill in a endtime') {
-              return this.dataService.error('กรุณาระบุเวลาสิ้นสุด');
-            }
-            this.data.starttime = this.oldTime.starttime;
-            this.data.endtime = this.oldTime.endtime;
-            this.spinner.hide();
-          }
-          return this.dataService.error('เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง');
-    
-        } else {
-          try {
-            const res: any = await this.restApi.post(Constants.URL() + '/api/discount', this.data);
-            this.data.starttime = this.oldTime.starttime;
-            this.data.endtime = this.oldTime.endtime;
-            this.spinner.hide();
-            this.route.navigate(['my-promotion']);
-            this.spinner.hide();
-            this.dialog.open(ModalCompleteComponent, {
-              width: '700px',
-              data: { message: 'สร้างโปรโมชั่นสำเร็จ' }
-            });
-          } catch (error) {
-            if (error['error']['message'] === 'Please fill in a title') {
-              return this.dataService.error('กรุณาระบุข้อมูลชื่อโปรโมชั่น');
-            } else if (error['error']['message'] === 'Please fill in a startdate') {
-              return this.dataService.error('กรุณาระบุวันที่เริ่มต้น');
-            } else if (error['error']['message'] === 'Please fill in a starttime') {
-              return this.dataService.error('กรุณาระบุเวลาเริ่มต้น');
-            } else if (error['error']['message'] === 'Please fill in a enddate') {
-              return this.dataService.error('กรุณาระบุวันที่สิ้นสุด');
-            } else if (error['error']['message'] === 'Please fill in a endtime') {
-              return this.dataService.error('กรุณาระบุเวลาสิ้นสุด');
-            }
-            this.data.starttime = this.oldTime.starttime;
-            this.data.endtime = this.oldTime.endtime;
-            this.spinner.hide();
-          }
-          return this.dataService.error('เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง');
-    
+    this.spinner.show();
+    this.oldTime = {
+      starttime: this.data.starttime,
+      endtime: this.data.endtime
+    };
+    const dateTimeStart = new Date(this.data.startdate);
+    const timespl = this.data.starttime.split(':');
+    dateTimeStart.setHours(timespl[0], timespl[1], 0, 0);
+    const dateTimeEnd = new Date(this.data.enddate);
+    const timespl2 = this.data.endtime.split(':');
+    dateTimeEnd.setHours(timespl2[0], timespl2[1], 0, 0);
+    this.data.startdate = dateTimeStart;
+    this.data.enddate = dateTimeEnd;
+    this.data.starttime = dateTimeStart;
+    this.data.endtime = dateTimeEnd;
+    const userShop: any = JSON.parse(window.localStorage.getItem(Constants.URL() + '@user'));
+    this.data.shop_id = userShop.shop._id;
+
+    if (this.itemId) {
+      try {
+        const res: any = await this.restApi.put(Constants.URL() + '/api/discount/' + this.itemId, this.data);
+        // console.log(res)
+        this.data.starttime = this.oldTime.starttime;
+        this.data.endtime = this.oldTime.endtime;
+        this.spinner.hide();
+        this.route.navigate(['my-promotion']);
+        this.spinner.hide();
+        this.dialog.open(ModalCompleteComponent, {
+          width: '700px',
+          data: { message: 'บันทึกข้อมูลโปรโมชั่นสำเร็จ' }
+        });
+      } catch (error) {
+        if (error['error']['message'] === 'Please fill in a title') {
+          return this.dataService.error('กรุณาระบุข้อมูลชื่อโปรโมชั่น');
+        } else if (error['error']['message'] === 'Please fill in a startdate') {
+          return this.dataService.error('กรุณาระบุวันที่เริ่มต้น');
+        } else if (error['error']['message'] === 'Please fill in a starttime') {
+          return this.dataService.error('กรุณาระบุเวลาเริ่มต้น');
+        } else if (error['error']['message'] === 'Please fill in a enddate') {
+          return this.dataService.error('กรุณาระบุวันที่สิ้นสุด');
+        } else if (error['error']['message'] === 'Please fill in a endtime') {
+          return this.dataService.error('กรุณาระบุเวลาสิ้นสุด');
         }
-}
+        this.data.starttime = this.oldTime.starttime;
+        this.data.endtime = this.oldTime.endtime;
+        this.spinner.hide();
+      }
+      return this.dataService.error('เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง');
+
+    } else {
+      try {
+        const res: any = await this.restApi.post(Constants.URL() + '/api/discount', this.data);
+        this.data.starttime = this.oldTime.starttime;
+        this.data.endtime = this.oldTime.endtime;
+        this.spinner.hide();
+        this.route.navigate(['my-promotion']);
+        this.spinner.hide();
+        this.dialog.open(ModalCompleteComponent, {
+          width: '700px',
+          data: { message: 'สร้างโปรโมชั่นสำเร็จ' }
+        });
+      } catch (error) {
+        if (error['error']['message'] === 'Please fill in a title') {
+          return this.dataService.error('กรุณาระบุข้อมูลชื่อโปรโมชั่น');
+        } else if (error['error']['message'] === 'Please fill in a startdate') {
+          return this.dataService.error('กรุณาระบุวันที่เริ่มต้น');
+        } else if (error['error']['message'] === 'Please fill in a starttime') {
+          return this.dataService.error('กรุณาระบุเวลาเริ่มต้น');
+        } else if (error['error']['message'] === 'Please fill in a enddate') {
+          return this.dataService.error('กรุณาระบุวันที่สิ้นสุด');
+        } else if (error['error']['message'] === 'Please fill in a endtime') {
+          return this.dataService.error('กรุณาระบุเวลาสิ้นสุด');
+        }
+        this.data.starttime = this.oldTime.starttime;
+        this.data.endtime = this.oldTime.endtime;
+        this.spinner.hide();
+      }
+      return this.dataService.error('เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง');
+
+    }
+  }
 
 
   delete(): void {

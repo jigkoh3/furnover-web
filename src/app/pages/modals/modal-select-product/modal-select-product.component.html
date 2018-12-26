@@ -5,7 +5,7 @@
     </div>
   </div>
   <div class="over-scroll">
-    <app-select-product [productSelected]="paramiter.products" [status]="paramiter.status" (onSelectedProduct)="onSelectedProductEmit($event)"></app-select-product>
+    <app-select-product [startDateEndDate]="paramiter.date" [productSelected]="paramiter.products" [status]="paramiter.status" (onSelectedProduct)="onSelectedProductEmit($event)"></app-select-product>
   </div>
   <div class="row">
     <div class="col-12 col-md-6 padding-left text-left">

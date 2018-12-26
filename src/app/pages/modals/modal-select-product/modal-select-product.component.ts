@@ -8,15 +8,20 @@ import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material";
 })
 export class ModalSelectProductComponent implements OnInit {
   datas: Array<any> = [];
+  date: any;
   constructor(
     @Inject(MAT_DIALOG_DATA) public paramiter: any,
     public dialogRef: MatDialogRef<ModalSelectProductComponent>
   ) {
     this.datas = paramiter.products;
     // console.log(this.datas);
+    this.date = paramiter.date;
+    // console.log(this.date);
   }
 
-  ngOnInit() {}
+  ngOnInit(){
+    
+   }
 
   onSelectedProductEmit(event) {
     this.datas = event;

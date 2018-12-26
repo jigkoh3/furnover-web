@@ -18,6 +18,9 @@ export class SelectProductComponent implements OnInit {
   onSelectedProduct: EventEmitter<any> = new EventEmitter<any>();
   checked: boolean = false;
   productSelectedCopy: any;
+  @Input() startDateEndDate: any;
+  itemInPromo: any;
+  itemSelect: boolean = false;
 
   data: any = {
     tabs: []
@@ -34,7 +37,9 @@ export class SelectProductComponent implements OnInit {
     private spinner: NgxSpinnerService,
     private restApi: RestApiService,
     public dataService: DataService
-  ) {}
+  ) {
+
+  }
 
   ngOnInit() {
     let user = window.localStorage.getItem(Constants.URL() + "@user")
@@ -52,14 +57,29 @@ export class SelectProductComponent implements OnInit {
   async getProduct() {
     try {
       this.spinner.show();
-      let data: any = await this.restApi.post(
-        Constants.URL() + "/api/product-shop-list",
-        this.pageData
-      );
+      let promotionProd: any = await this.restApi.post(Constants.URL() + "/api/product-discount-dubpicate", this.startDateEndDate);
+      this.itemInPromo = promotionProd;
+      console.log(this.itemInPromo);
+      let itms: Array<any> = [];
+      if (this.itemInPromo.data) {
+        this.itemInPromo.data.forEach(itm => {
+          itms.push(itm._id);
+        });
+      }
+      // console.log(this.itemInPromo);
+      let data: any = await this.restApi.post(Constants.URL() + "/api/product-shop-list", this.pageData);
       this.spinner.hide();
-
       if (data["status"] === 200) {
         this.data = data.data;
+        console.log(this.data);
+        this.data.product.items.forEach(product => {
+          if (itms.indexOf(product._id) === -1) {
+            product.isPromotion = false;
+          } else {
+            product.isPromotion = true;
+          }
+        });
+        console.log(this.data);
         this.onCheckSelectedAll();
         if (this.data.product.items && this.data.product.items.length === 0) {
           this.dataService.warning("ไม่พบข้อมูลสินค้า");
@@ -148,8 +168,10 @@ export class SelectProductComponent implements OnInit {
     });
 
     if (!index[0]) {
+      this.itemSelect = false;
       return false;
     } else {
+      this.itemSelect = true;
       return true;
     }
   }
@@ -187,4 +209,11 @@ export class SelectProductComponent implements OnInit {
   emit() {
     this.onSelectedProduct.emit(this.productSelected);
   }
+
+
+
+
+
+
+
 }

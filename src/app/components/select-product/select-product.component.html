@@ -13,11 +13,14 @@
   </div>
   <div class="row" *ngIf="data && data.product && data.product.items">
     <div name="divFor" class="col-12 col-xs-6 col-sm-6 col-md-4 col-lg-3 padding-bottom" *ngFor="let item of data.product.items;let i = index">
-      <mat-card name="selectItem" class="product-card" (click)="onSelected(item)">
+      <mat-card name="selectItem" class="product-card" (click)="item.isPromotion? '' : onSelected(item)">
         <img [src]="item.image ? item.image.url:''" class="product-image">
         <div class="product-item-soldout-overlay" *ngIf="checkSelected(item)">
           <mat-icon class="selected-icon">check_circle_outline</mat-icon>
           <p class="product-pricetext">{{ item.pricetext }}</p>
+        </div>
+        <div class="product-item-soldout-overlay" *ngIf="item.isPromotion && !itemSelect">
+          <p class="product-in-promotion">สินค้ากำลังจัดโปรโมชั่น</p>
         </div>
         <div class="padding-custom">
           <p class="product-name text-nowrap">

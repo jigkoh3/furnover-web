@@ -22,14 +22,14 @@
   <div class="row" *ngIf="data.isSave">
     <div class="col-12 del-box">
       <div class="row">
-        <div class="col-1 col-md-8"></div>
+        <div class="d-sm-none d-xs-none d-block d-md-block col-1 col-md-8"></div>
         <div class="col-10 col-md-2" style="margin-bottom: 10px">
           <button style="width: 100%" name="addProduct" mat-stroked-button color="primary" (click)="openModalAddProduct()"
             *ngIf="itemStatus === 'soon' || itemStatus === 'now' && data.status !== 'end' || !itemStatus">
             <mat-icon>add</mat-icon> เพิ่มสินค้า
           </button>
         </div>
-        <div class="d-md-none d-block col-1 col-md-8"></div>
+        <div class="d-md-none d-block d-sm-none col-1 col-sm-8 col-md-8"></div>
         <div class="col-10 col-md-2 text-left" style="margin-bottom: 10px">
           <button style="width: 100%" name="successProduct" mat-flat-button class="btn-margin" *ngIf="data.status !== 'end'"
             color="primary" [disabled]="!(data.title && data.startdate && data.enddate && data.starttime && data.endtime && data.products.length > 0 && checkPrice) "
